@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Golden Isle Jewels — Handcrafted Gold Accessories, Saint Lucia</title>
+<meta name="description" content="Handcrafted gold accessories, personalized name necklaces, and curated jewellery sets. Based in Saint Lucia. Order via WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8CC7A;
+    --gold-pale: #F5E6B8;
+    --gold-dim: #8A6A1F;
+    --black: #080706;
+    --black-soft: #0F0E0C;
+    --black-card: #141210;
+    --black-border: #1E1B16;
+    --white: #FAF7F2;
+    --white-dim: #D4C9B0;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Jost', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--sans);
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* ─── CUSTOM SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 3px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: var(--gold-dim); }
+
+  /* ─── GRAIN OVERLAY ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.35;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 900;
+    padding: 22px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(8,7,6,0.95) 0%, rgba(8,7,6,0) 100%);
+    transition: background 0.4s;
+  }
+  nav.scrolled {
+    background: rgba(8,7,6,0.97);
+    border-bottom: 1px solid var(--black-border);
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    color: var(--gold-light);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--white-dim); font-weight: 300; }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--white-dim);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-cta {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--gold);
+    padding: 10px 22px;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+  }
+  .nav-cta:hover { background: var(--gold-light); }
+  .nav-mobile-toggle { display: none; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 0 5%;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 60% 70% at 75% 50%, rgba(201,168,76,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 50% at 20% 80%, rgba(201,168,76,0.04) 0%, transparent 60%),
+      var(--black);
+  }
+  .hero-line-left {
+    position: absolute;
+    left: 5%;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.2) 30%, rgba(201,168,76,0.2) 70%, transparent);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+  }
+  .hero-eyebrow {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.2s forwards;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(3.2rem, 7vw, 6rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    margin-bottom: 16px;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.4s forwards;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  .hero-subtitle {
+    font-family: var(--serif);
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--white-dim);
+    margin-bottom: 40px;
+    line-height: 1.5;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.6s forwards;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.8s forwards;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--gold);
+    padding: 16px 32px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white-dim);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 16px 32px;
+    text-decoration: none;
+    transition: border-color 0.3s, color 0.3s;
+  }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold-light); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 36px;
+    left: 5%;
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: fadeIn 1s 1.4s both;
+  }
+  .hero-scroll::after {
+    content: '';
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold-dim), transparent);
+    animation: scrollLine 2s 1.4s infinite;
+  }
+
+  .hero-image-area {
+    position: absolute;
+    right: 0;
+    top: 0; bottom: 0;
+    width: 45%;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeIn 1.2s 0.5s forwards;
+  }
+  .hero-image-area::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--black) 0%, transparent 40%);
+    z-index: 2;
+  }
+  .hero-image-mockup {
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 50% 40%, rgba(201,168,76,0.12) 0%, transparent 60%),
+      linear-gradient(135deg, #1a1508 0%, #0d0b06 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .jewel-display {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .jewel-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.15);
+    animation: rotate 20s linear infinite;
+  }
+  .jewel-ring:nth-child(1) { width: 100%; height: 100%; }
+  .jewel-ring:nth-child(2) { width: 78%; height: 78%; animation-direction: reverse; animation-duration: 15s; border-color: rgba(201,168,76,0.1); }
+  .jewel-ring:nth-child(3) { width: 56%; height: 56%; animation-duration: 25s; border-color: rgba(201,168,76,0.2); }
+  .jewel-center {
+    font-family: var(--serif);
+    font-size: 3.5rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--gold-light);
+    text-shadow: 0 0 40px rgba(201,168,76,0.3);
+    letter-spacing: 0.05em;
+  }
+  .jewel-dots {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(201,168,76,0.6);
+  }
+  .jewel-dots:nth-child(4) { top: 10px; left: 50%; transform: translateX(-50%); }
+  .jewel-dots:nth-child(5) { bottom: 10px; left: 50%; transform: translateX(-50%); }
+  .jewel-dots:nth-child(6) { left: 10px; top: 50%; transform: translateY(-50%); }
+  .jewel-dots:nth-child(7) { right: 10px; top: 50%; transform: translateY(-50%); }
+
+  /* ─── MARQUEE STRIP ─── */
+  .marquee-strip {
+    background: var(--gold);
+    padding: 14px 0;
+    overflow: hidden;
+    position: relative;
+  }
+  .marquee-track {
+    display: flex;
+    gap: 0;
+    white-space: nowrap;
+    animation: marquee 25s linear infinite;
+  }
+  .marquee-item {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--black);
+    padding: 0 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .marquee-item::after {
+    content: '✦';
+    font-size: 0.5rem;
+  }
+
+  /* ─── SECTIONS COMMON ─── */
+  section { position: relative; }
+
+  .section-label {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .section-label::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--white);
+  }
+  .section-title em { font-style: italic; color: var(--gold-light); }
+
+  /* ─── INTRO / BRAND STORY ─── */
+  .intro {
+    padding: 110px 5% 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    border-bottom: 1px solid var(--black-border);
+  }
+  .intro-text p {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--white-dim);
+    margin-top: 28px;
+  }
+  .intro-text p + p { margin-top: 16px; }
+  .intro-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--black-border);
+  }
+  .stat-box {
+    background: var(--black-card);
+    padding: 40px 36px;
+  }
+  .stat-number {
+    font-family: var(--serif);
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-label {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--white-dim);
+  }
+
+  /* ─── COLLECTIONS ─── */
+  .collections {
+    padding: 100px 5%;
+  }
+  .collections-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 56px;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .collections-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: var(--black-border);
+    margin-bottom: 2px;
+  }
+  .collections-grid-bottom {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: var(--black-border);
+  }
+  .collection-card {
+    background: var(--black-card);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+  }
+  .collection-card:hover .card-overlay { opacity: 1; }
+  .collection-card:hover .card-image-inner { transform: scale(1.04); }
+  .card-image {
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    position: relative;
+  }
+  .collections-grid-bottom .card-image { aspect-ratio: 16/7; }
+  .card-image-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  .card-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(8,7,6,0.5);
+    opacity: 0;
+    transition: opacity 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card-overlay-text {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    border: 1px solid var(--gold);
+    padding: 12px 24px;
+    background: rgba(8,7,6,0.6);
+  }
+  .card-info {
+    padding: 20px 22px 24px;
+    background: var(--black-card);
+  }
+  .card-category {
+    font-family: var(--sans);
+    font-size: 0.58rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .card-name {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--white);
+  }
+  .card-price {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: var(--white-dim);
+    margin-top: 6px;
+  }
+
+  /* ─── PRODUCT ICON ILLUSTRATIONS ─── */
+  .product-art {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .art-necklace { background: linear-gradient(145deg, #111009, #0d0b05); }
+  .art-bracelet { background: linear-gradient(145deg, #0e0c08, #131109); }
+  .art-earring  { background: linear-gradient(145deg, #100e08, #0c0a05); }
+  .art-set      { background: linear-gradient(145deg, #0f0d07, #121008); }
+  .art-anklet   { background: linear-gradient(145deg, #0d0b07, #0f0d06); }
+  .art-cross    { background: linear-gradient(145deg, #0e0c08, #110f07); }
+
+  /* SVG product icons */
+  .product-svg { width: 55%; height: 55%; opacity: 0.85; }
+
+  /* ─── PERSONALIZATION CTA ─── */
+  .personalization {
+    padding: 100px 5%;
+    background: linear-gradient(135deg, #0C0A05 0%, var(--black) 50%, #0A0806 100%);
+    border-top: 1px solid var(--black-border);
+    border-bottom: 1px solid var(--black-border);
+    position: relative;
+    overflow: hidden;
+  }
+  .personalization::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .personalization-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .personalization-text .section-title { margin-bottom: 24px; }
+  .personalization-text p {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--white-dim);
+    margin-bottom: 16px;
+  }
+  .personalization-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .name-preview {
+    background: var(--black-card);
+    border: 1px solid var(--black-border);
+    padding: 36px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .name-preview-text {
+    font-family: var(--serif);
+    font-size: 2.8rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--gold-light);
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 30px rgba(201,168,76,0.2);
+  }
+  .name-options {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3px;
+  }
+  .name-opt {
+    background: var(--black-card);
+    border: 1px solid transparent;
+    padding: 14px;
+    text-align: center;
+    cursor: pointer;
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--white-dim);
+    transition: border-color 0.3s, color 0.3s;
+  }
+  .name-opt:hover, .name-opt.active {
+    border-color: var(--gold);
+    color: var(--gold-light);
+  }
+
+  /* ─── GIFT SECTION ─── */
+  .gift-section {
+    padding: 100px 5%;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .gift-visual {
+    position: relative;
+  }
+  .gift-box-art {
+    background: var(--black-card);
+    border: 1px solid var(--black-border);
+    padding: 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .gift-box-art::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 30%, rgba(201,168,76,0.08) 0%, transparent 60%);
+  }
+  .gift-icon-large {
+    font-size: 5rem;
+    margin-bottom: 20px;
+    display: block;
+    filter: sepia(1) saturate(2) hue-rotate(5deg) brightness(0.9);
+  }
+  .gift-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--gold);
+    color: var(--black);
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 8px 14px;
+  }
+  .gift-text .section-title { margin-bottom: 24px; }
+  .gift-text p {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--white-dim);
+    margin-bottom: 30px;
+  }
+  .gift-occasions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+  .occasion-tag {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 8px 16px;
+  }
+
+  /* ─── PROCESS ─── */
+  .process {
+    padding: 100px 5%;
+    border-top: 1px solid var(--black-border);
+    background: var(--black-soft);
+  }
+  .process-header { margin-bottom: 64px; }
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: var(--black-border);
+  }
+  .process-step {
+    background: var(--black-card);
+    padding: 44px 32px;
+    position: relative;
+  }
+  .step-number {
+    font-family: var(--serif);
+    font-size: 4rem;
+    font-weight: 300;
+    color: rgba(201,168,76,0.12);
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+  .step-icon {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .step-title {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+  .step-desc {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--white-dim);
+  }
+
+  /* ─── TESTIMONIALS ─── */
+  .testimonials {
+    padding: 100px 5%;
+    border-top: 1px solid var(--black-border);
+  }
+  .testimonials-header { margin-bottom: 56px; }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--black-border);
+  }
+  .testimonial-card {
+    background: var(--black-card);
+    padding: 40px 36px;
+  }
+  .stars {
+    color: var(--gold);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+  }
+  .testimonial-text {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--white-dim);
+    margin-bottom: 24px;
+  }
+  .testimonial-text::before { content: '"'; color: var(--gold); font-size: 1.4em; }
+  .testimonial-text::after  { content: '"'; color: var(--gold); font-size: 1.4em; }
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .author-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--gold-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--gold-pale);
+  }
+  .author-info-name {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: var(--white);
+    letter-spacing: 0.05em;
+  }
+  .author-info-location {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 300;
+    color: var(--gold-dim);
+    margin-top: 2px;
+  }
+
+  /* ─── WHATSAPP CTA ─── */
+  .whatsapp-section {
+    padding: 110px 5%;
+    background: linear-gradient(135deg, #0A0803 0%, var(--black-soft) 100%);
+    border-top: 1px solid var(--black-border);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .whatsapp-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .whatsapp-section .section-label { justify-content: center; }
+  .whatsapp-section .section-label::before { display: none; }
+  .whatsapp-section .section-title {
+    margin: 0 auto 16px;
+    max-width: 600px;
+  }
+  .whatsapp-section > p {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--white-dim);
+    margin: 0 auto 44px;
+    max-width: 500px;
+    line-height: 1.7;
+  }
+  .whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: #25D366;
+    padding: 18px 44px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 0 40px rgba(37,211,102,0.2);
+  }
+  .whatsapp-btn:hover { background: #1ebe5a; transform: translateY(-2px); }
+  .whatsapp-icon {
+    width: 20px;
+    height: 20px;
+    fill: var(--black);
+  }
+  .pickup-note {
+    margin-top: 24px;
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+  }
+  .pickup-note span { color: var(--gold); }
+
+  /* ─── INSTAGRAM STRIP ─── */
+  .instagram-strip {
+    padding: 80px 5%;
+    border-top: 1px solid var(--black-border);
+  }
+  .instagram-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .ig-link {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+    padding-bottom: 3px;
+    transition: border-color 0.3s;
+  }
+  .ig-link:hover { border-color: var(--gold); }
+  .instagram-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2px;
+    background: var(--black-border);
+  }
+  .ig-tile {
+    aspect-ratio: 1;
+    background: var(--black-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    font-style: italic;
+    color: rgba(201,168,76,0.2);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+  }
+  .ig-tile::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(8,7,6,0);
+    transition: background 0.3s;
+  }
+  .ig-tile:hover::before { background: rgba(201,168,76,0.08); }
+  .ig-tile-bg {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--black-soft);
+    border-top: 1px solid var(--black-border);
+    padding: 70px 5% 40px;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 60px;
+    padding-bottom: 56px;
+    border-bottom: 1px solid var(--black-border);
+  }
+  .footer-brand-name {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    margin-bottom: 12px;
+  }
+  .footer-brand-tagline {
+    font-family: var(--serif);
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--white-dim);
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  .footer-location {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .footer-col-title {
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .footer-links a {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--white-dim);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .footer-links a:hover { color: var(--gold-light); }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-copy {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: rgba(212,201,176,0.4);
+  }
+  .footer-powered {
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    color: rgba(201,168,76,0.3);
+  }
+  .footer-powered a {
+    color: rgba(201,168,76,0.5);
+    text-decoration: none;
+  }
+
+  /* ─── FLOATING WHATSAPP ─── */
+  .floating-wa {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 800;
+    width: 56px;
+    height: 56px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 24px rgba(37,211,102,0.35);
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: pulse-wa 3s ease-in-out infinite;
+  }
+  .floating-wa:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 32px rgba(37,211,102,0.5);
+    animation: none;
+  }
+  .floating-wa svg { width: 26px; height: 26px; fill: white; }
+
+  /* ─── REVEAL ANIMATIONS ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ─── KEYFRAMES ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @keyframes scrollLine {
+    0%   { opacity: 0; transform: scaleY(0); transform-origin: top; }
+    50%  { opacity: 1; }
+    100% { opacity: 0; transform: scaleY(1); transform-origin: top; }
+  }
+  @keyframes pulse-wa {
+    0%, 100% { box-shadow: 0 4px 24px rgba(37,211,102,0.35); }
+    50%       { box-shadow: 0 4px 40px rgba(37,211,102,0.6); }
+  }
+
+  /* ─── MOBILE ─── */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .hero-image-area { display: none; }
+    .hero-content { max-width: 100%; }
+    .intro { grid-template-columns: 1fr; gap: 50px; }
+    .collections-grid { grid-template-columns: repeat(2, 1fr); }
+    .collections-grid-bottom { grid-template-columns: 1fr; }
+    .personalization-inner { grid-template-columns: 1fr; gap: 40px; }
+    .gift-section { grid-template-columns: 1fr; gap: 40px; }
+    .process-steps { grid-template-columns: repeat(2, 1fr); }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .instagram-grid { grid-template-columns: repeat(3, 1fr); }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .name-options { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .collections-grid { grid-template-columns: 1fr 1fr; }
+    .process-steps { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+    .hero-actions { flex-direction: column; }
+    .btn-primary, .btn-secondary { justify-content: center; }
+    .intro-stats { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">Golden Isle <span>Jewels</span></a>
+  <ul class="nav-links">
+    <li><a href="#collections">Collections</a></li>
+    <li><a href="#personalize">Personalize</a></li>
+    <li><a href="#gifts">Gifts</a></li>
+    <li><a href="#order">Order</a></li>
+  </ul>
+  <a href="https://wa.me/17581234567?text=Hello%20Golden%20Isle%20Jewels!%20I%20would%20like%20to%20place%20an%20order." class="nav-cta" target="_blank">Order Now</a>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-line-left"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Saint Lucia · Est. 2019</div>
+    <h1 class="hero-title">
+      Wear your<br><em>story</em> in gold.
+    </h1>
+    <p class="hero-subtitle">Handcrafted gold accessories & personalized pieces,<br>made to be gifted, worn, and treasured.</p>
+    <div class="hero-actions">
+      <a href="#collections" class="btn-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><polyline points="16 8 12 4 8 8"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+        Shop Collections
+      </a>
+      <a href="https://wa.me/17581234567?text=Hello!%20I%27d%20like%20to%20order%20a%20personalized%20piece." class="btn-secondary" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.93 11.93 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.17 1.6 5.98L0 24l6.23-1.57A11.97 11.97 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.22-3.48-8.52zM12 22c-1.85 0-3.67-.5-5.24-1.44l-.38-.22-3.7.93.99-3.6-.25-.39A9.95 9.95 0 0 1 2 12C2 6.48 6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm5.4-7.4c-.3-.15-1.76-.87-2.03-.97-.28-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.39-1.47-.88-.78-1.47-1.75-1.65-2.04-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.91-2.2-.24-.57-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47 0 1.46 1.06 2.87 1.21 3.07.15.2 2.09 3.18 5.06 4.46.71.3 1.26.49 1.69.62.71.23 1.36.19 1.87.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.19-.57-.34z"/></svg>
+        Custom Order
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-image-area">
+    <div class="hero-image-mockup">
+      <div class="jewel-display">
+        <div class="jewel-ring"></div>
+        <div class="jewel-ring"></div>
+        <div class="jewel-ring"></div>
+        <div class="jewel-dots"></div>
+        <div class="jewel-dots"></div>
+        <div class="jewel-dots"></div>
+        <div class="jewel-dots"></div>
+        <div class="jewel-center">G</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">Scroll to explore</div>
+</section>
+
+<!-- ─── MARQUEE ─── -->
+<div class="marquee-strip">
+  <div class="marquee-track" id="marqueeTrack">
+    <span class="marquee-item">Name Necklaces</span>
+    <span class="marquee-item">Gold Sets</span>
+    <span class="marquee-item">Anklets</span>
+    <span class="marquee-item">Custom Pieces</span>
+    <span class="marquee-item">Gift Ready</span>
+    <span class="marquee-item">Castries Pickup</span>
+    <span class="marquee-item">Vieux Fort Pickup</span>
+    <span class="marquee-item">WhatsApp Orders</span>
+    <span class="marquee-item">Name Necklaces</span>
+    <span class="marquee-item">Gold Sets</span>
+    <span class="marquee-item">Anklets</span>
+    <span class="marquee-item">Custom Pieces</span>
+    <span class="marquee-item">Gift Ready</span>
+    <span class="marquee-item">Castries Pickup</span>
+    <span class="marquee-item">Vieux Fort Pickup</span>
+    <span class="marquee-item">WhatsApp Orders</span>
+  </div>
+</div>
+
+<!-- ─── INTRO ─── -->
+<section class="intro reveal" id="about">
+  <div class="intro-text">
+    <div class="section-label">Our Story</div>
+    <h2 class="section-title">Rooted in the<br><em>Caribbean.</em><br>Crafted for the world.</h2>
+    <p>Golden Isle Jewels was born from a simple belief — that every person deserves to wear something beautiful, personal, and made to last. From the hills of Castries to the shores of Vieux Fort, our pieces carry the warmth and elegance of Saint Lucia in every detail.</p>
+    <p>We specialize in gold-tone accessories for women and men, with a particular love for personalized name pieces that carry meaning and memory. Every order is handled with care, wrapped beautifully, and ready to be gifted or treasured.</p>
+  </div>
+  <div class="intro-stats reveal reveal-delay-2">
+    <div class="stat-box">
+      <div class="stat-number">500+</div>
+      <div class="stat-label">Pieces Delivered</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">4.9★</div>
+      <div class="stat-label">Customer Rating</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">2</div>
+      <div class="stat-label">Pickup Locations</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">Gift Wrapped</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── COLLECTIONS ─── -->
+<section class="collections" id="collections">
+  <div class="collections-header reveal">
+    <div>
+      <div class="section-label">Shop</div>
+      <h2 class="section-title">Our <em>Collections</em></h2>
+    </div>
+    <a href="https://wa.me/17581234567?text=Hi!%20I'd%20like%20to%20browse%20your%20collections." class="btn-secondary" target="_blank">View All Pieces</a>
+  </div>
+
+  <div class="collections-grid reveal">
+    <!-- Name Necklaces -->
+    <a href="https://wa.me/17581234567?text=Hi!%20I%27d%20like%20to%20order%20a%20Name%20Necklace." class="collection-card" target="_blank">
+      <div class="card-image">
+        <div class="card-image-inner art-necklace product-art">
+          <svg class="product-svg" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 20 Q60 60 100 20" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+            <path d="M58 62 L58 130" stroke="#C9A84C" stroke-width="1.5"/>
+            <ellipse cx="60" cy="135" rx="18" ry="10" stroke="#C9A84C" stroke-width="1" fill="none"/>
+            <text x="60" y="138" font-family="Georgia" font-size="10" fill="#C9A84C" text-anchor="middle" font-style="italic">Name</text>
+            <circle cx="20" cy="20" r="3" fill="#C9A84C" opacity="0.6"/>
+            <circle cx="100" cy="20" r="3" fill="#C9A84C" opacity="0.6"/>
+            <circle cx="60" cy="62" r="2" fill="#E8CC7A" opacity="0.8"/>
+          </svg>
+        </div>
+        <div class="card-overlay"><div class="card-overlay-text">Shop Now</div></div>
+      </div>
+      <div class="card-info">
+        <div class="card-category">Personalized</div>
+        <div class="card-name">Name Necklaces</div>
+        <div class="card-price">From $40 · XCD & USD</div>
+      </div>
+    </a>
+
+    <!-- 2pc Sets -->
+    <a href="https://wa.me/17581234567?text=Hi!%20I%27d%20like%20to%20order%20a%202pc%20Set." class="collection-card" target="_blank">
+      <div class="card-image">
+        <div class="card-image-inner art-set product-art">
+          <svg class="product-svg" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="55" r="22" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+            <circle cx="80" cy="55" r="22" stroke="#E8CC7A" stroke-width="1.2" fill="none" opacity="0.7"/>
+            <path d="M38 55 L50 67 L70 43" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M78 55 L90 67 L110 43" stroke="#E8CC7A" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+            <rect x="30" y="100" width="60" height="20" rx="2" stroke="#C9A84C" stroke-width="1" fill="none"/>
+            <text x="60" y="114" font-family="Georgia" font-size="9" fill="#C9A84C" text-anchor="middle" font-style="italic">2pc Set</text>
+          </svg>
+        </div>
+        <div class="card-overlay"><div class="card-overlay-text">Shop Now</div></div>
+      </div>
+      <div class="card-info">
+        <div class="card-category">Curated Sets</div>
+        <div class="card-name">2-Piece Sets</div>
+        <div class="card-price">From $40 · Necklace + Bracelet</div>
+      </div>
+    </a>
+
+    <!-- Bracelets -->
+    <a href="https://wa.me/17581234567?text=Hi!%20I%27d%20like%20to%20order%20a%20Bracelet." class="collection-card" target="_blank">
+      <div class="card-image">
+        <div class="card-image-inner art-bracelet product-art">
+          <svg class="product-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="60" cy="60" rx="38" ry="26" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+            <ellipse cx="60" cy="60" rx="38" ry="26" stroke="#E8CC7A" stroke-width="0.5" fill="none" transform="rotate(10 60 60)" opacity="0.4"/>
+            <circle cx="60" cy="34" r="5" fill="#C9A84C" opacity="0.8"/>
+            <circle cx="84" cy="48" r="3" fill="#C9A84C" opacity="0.5"/>
+            <circle cx="36" cy="48" r="3" fill="#C9A84C" opacity="0.5"/>
+            <text x="60" y="65" font-family="Georgia" font-size="9" fill="#C9A84C" text-anchor="middle" font-style="italic">gold</text>
+          </svg>
+        </div>
+        <div class="card-overlay"><div class="card-overlay-text">Shop Now</div></div>
+      </div>
+      <div class="card-info">
+        <div class="card-category">Wristwear</div>
+        <div class="card-name">Bracelets</div>
+        <div class="card-price">From $25 · Chain & Charm styles</div>
+      </div>
+    </a>
+
+    <!-- Earrings -->
+    <a href="https://wa.me/17581234567?text=Hi!%20I%27d%20like%20to%20order%20Earrings." class="collection-card" target="_blank">
+      <div class="card-image">
+        <div class="card-image-inner art-earring product-art">
+          <svg class="product-svg" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="42" cy="30" r="8" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+            <circle cx="78" cy="30" r="8" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+            <path d="M42 38 L42 80 L30 110 L42 120 L54 110 L42 80" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+            <path d="M78 38 L78 80 L66 110 L78 120 L90 110 L78 80" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+            <circle cx="42" cy="120" r="4" fill="#C9A84C" opacity="0.7"/>
+            <circle cx="78" cy="120" r="4" fill="#C9A84C" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="card-overlay"><div class="card-overlay-text">Shop Now</div></div>
+      </div>
+      <div class="card-info">
+        <div class="card-category">Earwear</div>
+        <div class="card-name">Earrings</div>
+        <div class="card-price">From $40 · Studs, drops & hoops</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="collections-grid-bottom reveal reveal-delay-2">
+    <!-- Anklets -->
+    <a href="https://wa.me/17581234567?text=Hi!%20I%27d%20like%20to%20order%20an%20Anklet." class="collection-card" target="_blank">
+      <div class="card-image">
+        <div class="card-image-inner art-anklet product-art">
+          <svg class="product-svg" viewBox="0 0 180 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 50 Q90 20 160 50" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+            <path d="M20 50 Q90 80 160 50" stroke="#C9A84C" stroke-width="1" fill="none" opacity="0.4"/>
+            <circle cx="90" cy="32" r="6" fill="#C9A84C" opacity="0.8"/>
+            <circle cx="55" cy="38" r="3" fill="#C9A84C" opacity="0.4"/>
+            <circle cx="125" cy="38" r="3" fill="#C9A84C" opacity="0.4"/>
+            <circle cx="20" cy="50" r="4" stroke="#C9A84C" stroke-width="1" fill="none"/>
+            <circle cx="160" cy="50" r="4" stroke="#C9A84C" stroke-width="1" fill="none"/>
+          </svg>
+        </div>
+        <div class="card-overlay"><div class="card-overlay-text">Shop Now</div></div>
+      </div>
+      <div class="card-info">
+        <div class="card-category">Ankle Sets</div>
+        <div class="card-name">Anklet Sets</div>
+        <div class="card-price">From $40 · Single & layered</div>
+      </div>
+    </a>
+
+    <!-- Cross Necklaces -->
+    <a href="https://wa.me/17581234567?text=Hi!%20I%27d%20like%20to%20order%20a%20Cross%20Necklace." class="collection-card" target="_blank">
+      <div class="card-image">
+        <div class="card-image-inner art-cross product-art">
+          <svg class="product-svg" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 20 Q60 50 90 20" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+            <path d="M58 52 L58 65" stroke="#C9A84C" stroke-width="1.5"/>
+            <line x1="60" y1="70" x2="60" y2="140" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="38" y1="95" x2="82" y2="95" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="60" cy="70" r="3" fill="#E8CC7A" opacity="0.8"/>
+            <circle cx="38" cy="95" r="3" fill="#C9A84C" opacity="0.6"/>
+            <circle cx="82" cy="95" r="3" fill="#C9A84C" opacity="0.6"/>
+            <circle cx="60" cy="140" r="3" fill="#C9A84C" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="card-overlay"><div class="card-overlay-text">Shop Now</div></div>
+      </div>
+      <div class="card-info">
+        <div class="card-category">Faith Pieces</div>
+        <div class="card-name">Cross Necklaces</div>
+        <div class="card-price">From $35 · Men's & Women's</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ─── PERSONALIZATION ─── -->
+<section class="personalization" id="personalize">
+  <div class="personalization-inner reveal">
+    <div class="personalization-text">
+      <div class="section-label">Personalize</div>
+      <h2 class="section-title">Your name.<br><em>In gold.</em></h2>
+      <p>There is nothing more personal than wearing your own name — or gifting someone theirs. Our name necklaces are crafted in elegant script, plated in gold, and available in a range of styles to suit every personality.</p>
+      <p>Simply send us the name you want via WhatsApp and we'll guide you through the rest — style, length, and delivery.</p>
+      <a href="https://wa.me/17581234567?text=Hello!%20I%27d%20like%20to%20order%20a%20personalized%20name%20necklace.%20The%20name%20I%20want%20is%3A%20" class="btn-primary" target="_blank" style="margin-top: 8px; display: inline-flex; gap: 10px; align-items: center;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.93 11.93 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.17 1.6 5.98L0 24l6.23-1.57A11.97 11.97 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.22-3.48-8.52zM12 22c-1.85 0-3.67-.5-5.24-1.44l-.38-.22-3.7.93.99-3.6-.25-.39A9.95 9.95 0 0 1 2 12C2 6.48 6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm5.4-7.4c-.3-.15-1.76-.87-2.03-.97-.28-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.39-1.47-.88-.78-1.47-1.75-1.65-2.04-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.91-2.2-.24-.57-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47 0 1.46 1.06 2.87 1.21 3.07.15.2 2.09 3.18 5.06 4.46.71.3 1.26.49 1.69.62.71.23 1.36.19 1.87.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.19-.57-.34z"/></svg>
+        Order Your Name Necklace
+      </a>
+    </div>
+    <div class="personalization-visual reveal reveal-delay-2">
+      <div class="name-preview">
+        <div class="name-preview-text" id="namePreviewText">Isabella</div>
+      </div>
+      <div class="name-options">
+        <div class="name-opt active" onclick="setName(this, 'Isabella')">Isabella</div>
+        <div class="name-opt" onclick="setName(this, 'Charline')">Charline</div>
+        <div class="name-opt" onclick="setName(this, 'Marcus')">Marcus</div>
+        <div class="name-opt" onclick="setName(this, 'Destiny')">Destiny</div>
+        <div class="name-opt" onclick="setName(this, 'Danielle')">Danielle</div>
+        <div class="name-opt" onclick="setName(this, 'Jaylen')">Jaylen</div>
+        <div class="name-opt" onclick="setName(this, 'Sophia')">Sophia</div>
+        <div class="name-opt" onclick="setName(this, 'Your Name')">Your Name ✦</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── GIFT SECTION ─── -->
+<section class="gift-section" id="gifts">
+  <div class="gift-visual reveal">
+    <div class="gift-box-art">
+      <div class="gift-badge">Gift Ready</div>
+      <span class="gift-icon-large">🎁</span>
+      <div class="section-label" style="justify-content: center;">
+        <span>Every piece arrives wrapped</span>
+      </div>
+      <p style="font-family: var(--serif); font-style: italic; color: var(--white-dim); font-size: 0.95rem; margin-top: 10px; line-height: 1.6;">
+        "The perfect gift is the one<br>she'll never take off."
+      </p>
+    </div>
+  </div>
+  <div class="gift-text reveal reveal-delay-2">
+    <div class="section-label">Gifting</div>
+    <h2 class="section-title">The gift<br>they'll<br><em>remember.</em></h2>
+    <p>Jewelry is the gift that outlasts the moment. Whether it's a birthday, graduation, anniversary, or just because — a Golden Isle piece arrives beautifully wrapped and ready to give.</p>
+    <div class="gift-occasions">
+      <span class="occasion-tag">Birthdays</span>
+      <span class="occasion-tag">Anniversaries</span>
+      <span class="occasion-tag">Graduations</span>
+      <span class="occasion-tag">Mother's Day</span>
+      <span class="occasion-tag">Valentine's Day</span>
+      <span class="occasion-tag">Just Because</span>
+    </div>
+    <a href="https://wa.me/17581234567?text=Hello!%20I%27d%20like%20to%20order%20a%20gift%20piece.%20The%20occasion%20is%3A%20" class="btn-primary" target="_blank">
+      Order a Gift
+    </a>
+  </div>
+</section>
+
+<!-- ─── HOW IT WORKS ─── -->
+<section class="process" id="order">
+  <div class="process-header reveal">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">Order in <em>minutes.</em></h2>
+  </div>
+  <div class="process-steps reveal reveal-delay-1">
+    <div class="process-step">
+      <div class="step-number">01</div>
+      <span class="step-icon">💬</span>
+      <div class="step-title">Message Us</div>
+      <p class="step-desc">Tap the WhatsApp button and tell us what you'd like — a name, a style, a gift idea. We respond fast.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">02</div>
+      <span class="step-icon">✨</span>
+      <div class="step-title">We Confirm</div>
+      <p class="step-desc">We'll confirm your piece, share a preview if needed, and lock in your details including name and size.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">03</div>
+      <span class="step-icon">💳</span>
+      <div class="step-title">Pay Securely</div>
+      <p class="step-desc">Pay via transfer or cash on pickup. We'll guide you through the options — no hassle, no hidden fees.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">04</div>
+      <span class="step-icon">📍</span>
+      <div class="step-title">Collect or Deliver</div>
+      <p class="step-desc">Pick up in Castries or Vieux Fort. Local delivery available. Your piece arrives gift-wrapped and ready.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ─── -->
+<section class="testimonials">
+  <div class="testimonials-header reveal">
+    <div class="section-label">Reviews</div>
+    <h2 class="section-title">What our customers <em>say</em></h2>
+  </div>
+  <div class="testimonials-grid reveal reveal-delay-1">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">I ordered a name necklace for my daughter's birthday and it was absolutely beautiful. She hasn't taken it off since. The packaging alone made it feel so special.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">M</div>
+        <div>
+          <div class="author-info-name">Michelle R.</div>
+          <div class="author-info-location">Castries, Saint Lucia</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">Fast response on WhatsApp, knew exactly what I wanted, and the piece came out perfect. Ordered for my girlfriend and she was genuinely surprised. Will definitely order again.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">K</div>
+        <div>
+          <div class="author-info-name">Kyle J.</div>
+          <div class="author-info-location">Vieux Fort, Saint Lucia</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">I'm in the UK and ordered for my mum back home. They coordinated the pickup perfectly. The whole experience was smooth and the quality exceeded my expectations.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">S</div>
+        <div>
+          <div class="author-info-name">Shanique T.</div>
+          <div class="author-info-location">London, UK (diaspora order)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHATSAPP CTA ─── -->
+<section class="whatsapp-section" id="cta">
+  <div class="section-label">Order Now</div>
+  <h2 class="section-title reveal">Ready to find your <em>perfect piece?</em></h2>
+  <p class="reveal reveal-delay-1">Browse, ask questions, or place your order — all through WhatsApp. We're here and we'd love to help you find something beautiful.</p>
+  <a href="https://wa.me/17581234567?text=Hello%20Golden%20Isle%20Jewels!%20I%27d%20like%20to%20browse%20your%20collection." class="whatsapp-btn reveal reveal-delay-2" target="_blank">
+    <svg class="whatsapp-icon" viewBox="0 0 24 24"><path d="M20.52 3.48A11.93 11.93 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.17 1.6 5.98L0 24l6.23-1.57A11.97 11.97 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.22-3.48-8.52zM12 22c-1.85 0-3.67-.5-5.24-1.44l-.38-.22-3.7.93.99-3.6-.25-.39A9.95 9.95 0 0 1 2 12C2 6.48 6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm5.4-7.4c-.3-.15-1.76-.87-2.03-.97-.28-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.39-1.47-.88-.78-1.47-1.75-1.65-2.04-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.91-2.2-.24-.57-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47 0 1.46 1.06 2.87 1.21 3.07.15.2 2.09 3.18 5.06 4.46.71.3 1.26.49 1.69.62.71.23 1.36.19 1.87.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.19-.57-.34z"/></svg>
+    Chat With Us on WhatsApp
+  </a>
+  <p class="pickup-note reveal reveal-delay-3">📍 Pickup available in <span>Castries</span> · <span>Vieux Fort</span> · Saint Lucia</p>
+</section>
+
+<!-- ─── INSTAGRAM ─── -->
+<section class="instagram-strip">
+  <div class="instagram-header reveal">
+    <div>
+      <div class="section-label">Follow Along</div>
+      <h3 class="section-title" style="font-size: 1.8rem;">@goldenislejewels</h3>
+    </div>
+    <a href="https://instagram.com" class="ig-link" target="_blank">Follow on Instagram →</a>
+  </div>
+  <div class="instagram-grid reveal reveal-delay-1">
+    <!-- 6 placeholder tiles with gold ornamental content -->
+    <div class="ig-tile"><div class="ig-tile-bg" style="background: linear-gradient(135deg,#111009,#0d0b05); color: rgba(201,168,76,0.35); font-size:2.2rem;">✦</div></div>
+    <div class="ig-tile"><div class="ig-tile-bg" style="background: linear-gradient(135deg,#0e0c08,#131109); color: rgba(201,168,76,0.3); font-size:1.6rem; font-family: var(--serif);">Name</div></div>
+    <div class="ig-tile"><div class="ig-tile-bg" style="background: linear-gradient(145deg,#100e08,#0c0a05); color: rgba(201,168,76,0.35); font-size:2rem;">◇</div></div>
+    <div class="ig-tile"><div class="ig-tile-bg" style="background: linear-gradient(135deg,#0f0d07,#121008); color: rgba(201,168,76,0.3); font-size:1.6rem; font-family: var(--serif);">Gold</div></div>
+    <div class="ig-tile"><div class="ig-tile-bg" style="background: linear-gradient(135deg,#0d0b07,#0f0d06); color: rgba(201,168,76,0.35); font-size:2rem;">✧</div></div>
+    <div class="ig-tile"><div class="ig-tile-bg" style="background: linear-gradient(135deg,#0e0c08,#110f07); color: rgba(201,168,76,0.3); font-size:1.5rem; font-family: var(--serif);">🇱🇨</div></div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">Golden Isle Jewels</div>
+      <div class="footer-brand-tagline">Handcrafted gold accessories<br>rooted in Saint Lucia.</div>
+      <div class="footer-location">📍 Castries & Vieux Fort, Saint Lucia</div>
+    </div>
+    <div>
+      <div class="footer-col-title">Collections</div>
+      <ul class="footer-links">
+        <li><a href="#collections">Name Necklaces</a></li>
+        <li><a href="#collections">2-Piece Sets</a></li>
+        <li><a href="#collections">Bracelets</a></li>
+        <li><a href="#collections">Earrings</a></li>
+        <li><a href="#collections">Anklets</a></li>
+        <li><a href="#collections">Cross Necklaces</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Information</div>
+      <ul class="footer-links">
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#personalize">Personalize</a></li>
+        <li><a href="#gifts">Gifting</a></li>
+        <li><a href="#order">How to Order</a></li>
+        <li><a href="#cta">Contact Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Order & Pickup</div>
+      <ul class="footer-links">
+        <li><a href="https://wa.me/17581234567" target="_blank">WhatsApp: +1 758 000 0000</a></li>
+        <li><a href="#">Castries Pickup</a></li>
+        <li><a href="#">Vieux Fort Pickup</a></li>
+        <li><a href="#">Local Delivery</a></li>
+        <li><a href="#">Instagram: @goldenislejewels</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Golden Isle Jewels · Saint Lucia · All rights reserved</div>
+    <div class="footer-powered">Digital presence by <a href="https://jamalinks758.github.io" target="_blank">AkraLink</a></div>
+  </div>
+</footer>
+
+<!-- ─── FLOATING WHATSAPP ─── -->
+<a href="https://wa.me/17581234567?text=Hello%20Golden%20Isle%20Jewels!%20I%27d%20like%20to%20place%20an%20order." class="floating-wa" target="_blank" title="Order on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.93 11.93 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.17 1.6 5.98L0 24l6.23-1.57A11.97 11.97 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.22-3.48-8.52zM12 22c-1.85 0-3.67-.5-5.24-1.44l-.38-.22-3.7.93.99-3.6-.25-.39A9.95 9.95 0 0 1 2 12C2 6.48 6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm5.4-7.4c-.3-.15-1.76-.87-2.03-.97-.28-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.39-1.47-.88-.78-1.47-1.75-1.65-2.04-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.91-2.2-.24-.57-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47 0 1.46 1.06 2.87 1.21 3.07.15.2 2.09 3.18 5.06 4.46.71.3 1.26.49 1.69.62.71.23 1.36.19 1.87.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.19-.57-.34z"/></svg>
+</a>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Name preview interactive
+  function setName(el, name) {
+    document.querySelectorAll('.name-opt').forEach(o => o.classList.remove('active'));
+    el.classList.add('active');
+    const preview = document.getElementById('namePreviewText');
+    preview.style.opacity = '0';
+    preview.style.transform = 'translateY(8px)';
+    setTimeout(() => {
+      preview.textContent = name;
+      preview.style.opacity = '1';
+      preview.style.transform = 'translateY(0)';
+    }, 200);
+  }
+  // Smooth name preview transitions
+  const previewEl = document.getElementById('namePreviewText');
+  previewEl.style.transition = 'opacity 0.3s, transform 0.3s';
+</script>
+
+</body>
+</html>
