@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jamal Samuel Essentials — Launch. Link. Grow.</title>
+<meta name="description" content="Fast, affordable professional websites for Caribbean and diaspora small businesses. Mobile-first. WhatsApp-ready. Online in 48 hours. Starting at $24.99/month.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jamalinks758.github.io/AkraLink/">
+<meta property="og:title" content="Jamal Samuel Essentials — Your Business, Online. Instantly.">
+<meta property="og:description" content="Professional websites for Caribbean and diaspora small businesses. Starting at $24.99/month.">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- AOS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<!-- Bootstrap + Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<!-- Poppins -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- REPLACE ALL: 17587235872  e.g. 17581234567 (no +) -->
+
+<style>
+/* ═══════════════════════════════════════════════════════
+   BRAND CONSTANTS
+═══════════════════════════════════════════════════════ */
+:root{
+  --navy:    #0D1B2A;
+  --navy-dp: #060f18;
+  --blue:    #2563EB;
+  --blue-lt: #3B82F6;
+  --blue-dk: #1D4ED8;
+  --gold:    #F5B000;
+  --gold-dk: #D4970A;
+  --wa:      #25D366;
+  --rad:     1rem;
+  --rad-lg:  1.5rem;
+  --rad-xl:  2rem;
+  --trans:   all .3s ease;
+}
+
+/* ═══════════════════════════════════════════════════════
+   LIGHT THEME
+═══════════════════════════════════════════════════════ */
+[data-theme="light"]{
+  --bg:       #F3F4F6;
+  --bg-alt:   #FFFFFF;
+  --card:     #FFFFFF;
+  --text:     #0D1B2A;
+  --body-c:   #374151;
+  --muted:    #6B7280;
+  --border:   rgba(0,0,0,.08);
+  --sh-sm:    0 2px 8px rgba(0,0,0,.06);
+  --sh-md:    0 8px 32px rgba(0,0,0,.10);
+}
+
+/* ═══════════════════════════════════════════════════════
+   DARK THEME
+═══════════════════════════════════════════════════════ */
+[data-theme="dark"]{
+  --bg:       #060f18;
+  --bg-alt:   #0D1B2A;
+  --card:     #112236;
+  --text:     #F0F4F8;
+  --body-c:   #CBD5E1;
+  --muted:    #94A3B8;
+  --border:   rgba(255,255,255,.09);
+  --sh-sm:    0 2px 8px rgba(0,0,0,.25);
+  --sh-md:    0 8px 36px rgba(0,0,0,.42);
+}
+
+/* ═══════════════════════════════════════════════════════
+   BASE
+═══════════════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box}
+html,body{overflow-x:hidden;max-width:100%;scroll-behavior:smooth}
+body{
+  font-family:'Poppins',sans-serif;
+  color:var(--body-c);
+  background:var(--bg);
+  line-height:1.65;
+  transition:background .35s ease,color .35s ease;
+}
+h1,h2,h3,h4,h5,h6{font-family:'Poppins',sans-serif;color:var(--text);transition:color .35s ease}
+section{padding:5rem 0}
+.bg-alt{background:var(--bg-alt);transition:background .35s ease}
+
+/* ═══════════════════════════════════════════════════════
+   UTILITIES
+═══════════════════════════════════════════════════════ */
+.section-label{
+  display:inline-block;font-size:.66rem;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold);border:1.5px solid var(--gold);
+  border-radius:2rem;padding:.24rem .9rem;margin-bottom:.85rem;
+}
+.section-label.lbl-w{color:rgba(255,255,255,.6);border-color:rgba(255,255,255,.22)}
+.divider{width:44px;height:3px;background:linear-gradient(90deg,var(--blue),var(--gold));border-radius:2px;margin:.85rem auto}
+.text-m{color:var(--muted);font-size:.92rem;transition:color .35s ease}
+
+/* ═══════════════════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════════════════ */
+.btn-wa{display:inline-flex;align-items:center;gap:.5rem;background:var(--wa);color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:.87rem;padding:.75rem 1.65rem;border-radius:var(--rad);border:none;text-decoration:none;transition:var(--trans);cursor:pointer;white-space:nowrap}
+.btn-wa:hover{background:#1cb857;color:#fff;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.38)}
+.btn-gold{display:inline-flex;align-items:center;gap:.5rem;background:var(--gold);color:var(--navy);font-family:'Poppins',sans-serif;font-weight:700;font-size:.87rem;padding:.75rem 1.65rem;border-radius:var(--rad);border:none;text-decoration:none;transition:var(--trans);cursor:pointer;white-space:nowrap}
+.btn-gold:hover{background:var(--gold-dk);color:var(--navy);transform:translateY(-2px);box-shadow:0 8px 24px rgba(245,176,0,.32)}
+.btn-blue{display:inline-flex;align-items:center;gap:.5rem;background:var(--blue);color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:.87rem;padding:.75rem 1.65rem;border-radius:var(--rad);border:none;text-decoration:none;transition:var(--trans);cursor:pointer;white-space:nowrap}
+.btn-blue:hover{background:var(--blue-dk);color:#fff;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,99,235,.32)}
+.btn-outline-w{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:#fff;font-family:'Poppins',sans-serif;font-weight:600;font-size:.87rem;padding:.75rem 1.65rem;border-radius:var(--rad);border:2px solid rgba(255,255,255,.28);text-decoration:none;transition:var(--trans);cursor:pointer;white-space:nowrap}
+.btn-outline-w:hover{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.55)}
+
+/* ═══════════════════════════════════════════════════════
+   NAVBAR — always dark
+═══════════════════════════════════════════════════════ */
+#mainNav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:1rem 0;
+  background:rgba(13,27,42,.96);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+  transition:padding .3s ease,box-shadow .3s ease;
+}
+   
+.nav-logo {
+  height: 38px;
+  width: auto;
+  border-radius: 8px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+   
+#mainNav.scrolled{padding:.6rem 0;box-shadow:0 4px 28px rgba(0,0,0,.4)}
+.navbar-brand{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.b-akra{font-weight:800;font-size:1.2rem;color:#fff;letter-spacing:-.01em}
+.b-link{font-weight:800;font-size:1.2rem;color:var(--blue)}
+.b-sub{display:block;font-size:.44rem;font-weight:500;letter-spacing:.17em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-top:.1rem}
+.nav-link{color:rgba(255,255,255,.65)!important;font-weight:500;font-size:.84rem;padding:.45rem .7rem!important;transition:var(--trans)}
+.nav-link:hover{color:#fff!important}
+.nav-cta{background:var(--gold)!important;color:var(--navy)!important;border-radius:var(--rad)!important;font-weight:700!important;padding:.45rem 1.15rem!important;font-size:.81rem!important;display:flex!important;align-items:center!important;gap:.35rem!important;transition:var(--trans)!important}
+.nav-cta:hover{background:var(--gold-dk)!important;transform:translateY(-1px)}
+.theme-btn{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);border-radius:.6rem;padding:.36rem .68rem;cursor:pointer;color:rgba(255,255,255,.72);font-size:.95rem;transition:var(--trans);display:flex;align-items:center;line-height:1}
+.theme-btn:hover{background:rgba(255,255,255,.17);color:#fff}
+.navbar-toggler{border:1.5px solid rgba(255,255,255,.22);border-radius:.5rem;padding:.38rem .6rem}
+.navbar-toggler-icon{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")!important}
+
+/* ═══════════════════════════════════════════════════════
+   HERO — background image with overlay
+═══════════════════════════════════════════════════════ */
+.hero{
+  padding:9rem 0 5.5rem;
+  position:relative;overflow:hidden;
+  /* Real Unsplash laptop/business image */
+  background:
+    linear-gradient(135deg,rgba(6,15,24,.86) 0%,rgba(13,27,42,.88) 55%,rgba(29,78,216,.52) 100%),
+    url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80') center/cover no-repeat;
+}
+.hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.028) 1px,transparent 1px);background-size:26px 26px;pointer-events:none}
+.hero-glow{position:absolute;width:580px;height:580px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.18) 0%,transparent 70%);top:-200px;right:-100px;pointer-events:none}
+.hero-glow-g{position:absolute;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(245,176,0,.1) 0%,transparent 70%);bottom:-90px;left:-50px;pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:.45rem;background:rgba(245,176,0,.11);border:1px solid rgba(245,176,0,.27);color:var(--gold);font-size:.69rem;font-weight:600;letter-spacing:.06em;padding:.3rem .9rem;border-radius:2rem;margin-bottom:1.35rem}
+.hero-title{font-size:clamp(2.1rem,5vw,3.55rem);font-weight:900;color:#fff;line-height:1.07;margin-bottom:1.15rem;letter-spacing:-.025em}
+.hero-title .accent{color:var(--gold)}
+.hero-sub{color:rgba(255,255,255,.58);font-size:.95rem;line-height:1.77;max-width:455px;margin-bottom:1.85rem}
+
+/* Phone mockup - fixed overlapping issues */
+.hero-phone-wrap{position:relative;max-width:310px;margin:0 auto}
+.phone-shell{background:#192840;border:2px solid rgba(255,255,255,.1);border-radius:2.8rem;padding:1.1rem .95rem 1.7rem;box-shadow:0 40px 90px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.04)}
+.phone-notch{width:60px;height:7px;background:rgba(255,255,255,.09);border-radius:7px;margin:0 auto 1rem}
+.phone-screen{background:#f7f8fa;border-radius:1.1rem;padding:.5rem;overflow:hidden;display:flex;flex-direction:column;gap:.4rem}
+.ps-bar{display:flex;align-items:center;gap:.36rem;margin-bottom:0}
+.ps-dot{width:19px;height:19px;border-radius:4px;background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:.36rem;font-weight:800;color:#fff;flex-shrink:0}
+.ps-biz{font-size:.42rem;font-weight:700;color:#0D1B2A;margin-bottom:0!important}
+.ps-img{width:100%;height:auto;min-height:58px;border-radius:.42rem;background:linear-gradient(135deg,rgba(37,99,235,.14),rgba(245,176,0,.1));display:flex;align-items:center;justify-content:center;margin-bottom:0;overflow:hidden}
+.ps-img img{width:100%;height:auto;max-height:65px;object-fit:contain;display:block}
+.ps-title{font-size:.42rem;font-weight:700;color:#0D1B2A;margin-bottom:.14rem;line-height:1.3;margin-top:0!important}
+.ps-price{font-size:.37rem;color:#6B7280;margin-bottom:.36rem}
+.ps-wa{display:flex;align-items:center;justify-content:center;gap:.18rem;background:#25D366;color:#fff;border-radius:.3rem;padding:.25rem;font-size:.37rem;font-weight:700;cursor:pointer}
+.hero-stat{position:absolute;background:#fff;border-radius:.75rem;padding:.48rem .82rem;box-shadow:0 8px 28px rgba(0,0,0,.18);display:flex;align-items:center;gap:.42rem;white-space:nowrap;z-index:10}
+.hero-stat-1{bottom:1.4rem;left:-2rem}
+.hero-stat-2{top:1rem;right:-2rem}
+.hs-num{font-size:.88rem;font-weight:800;color:#0D1B2A;line-height:1;display:block}
+.hs-lbl{font-size:.48rem;color:#6B7280;display:block}
+@media(max-width:991px){.hero-stat-1,.hero-stat-2{display:none}.hero-phone-wrap{max-width:250px}}
+
+/* ═══════════════════════════════════════════════════════
+   STATS BAR
+═══════════════════════════════════════════════════════ */
+.stats-bar{background:var(--blue);padding:2.15rem 0}
+.sb-item{text-align:center}
+.sb-num{font-size:1.9rem;font-weight:900;color:#fff;line-height:1;display:block}
+.sb-num .g{color:var(--gold)}
+.sb-lbl{font-size:.68rem;color:rgba(255,255,255,.6);font-weight:500;display:block;margin-top:.16rem}
+.sb-sep{width:1px;background:rgba(255,255,255,.18);min-height:2.6rem;align-self:stretch}
+
+/* ═══════════════════════════════════════════════════════
+   THE REALITY — styled icon cards
+═══════════════════════════════════════════════════════ */
+.reality-card{
+  background:var(--card);border:1.5px solid var(--border);
+  border-radius:var(--rad-lg);padding:2.1rem 1.7rem;
+  height:100%;position:relative;overflow:hidden;
+  transition:var(--trans);box-shadow:var(--sh-sm);
+}
+.reality-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3.5px;opacity:0;transition:var(--trans);border-radius:var(--rad-lg) var(--rad-lg) 0 0}
+.reality-card.rc1::after{background:linear-gradient(90deg,var(--blue),var(--blue-lt))}
+.reality-card.rc2::after{background:linear-gradient(90deg,var(--gold-dk),var(--gold))}
+.reality-card.rc3::after{background:linear-gradient(90deg,#DC2626,#F97316)}
+.reality-card:hover{box-shadow:var(--sh-md);transform:translateY(-5px)}
+.reality-card:hover::after{opacity:1}
+.r-icon{
+  width:66px;height:66px;border-radius:1.1rem;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.7rem;color:#fff;margin-bottom:1.3rem;position:relative;
+}
+.r-icon.ri-blue{background:linear-gradient(135deg,var(--blue-dk),var(--blue-lt));box-shadow:0 8px 22px rgba(37,99,235,.28)}
+.r-icon.ri-gold{background:linear-gradient(135deg,var(--gold-dk),var(--gold));box-shadow:0 8px 22px rgba(245,176,0,.28)}
+.r-icon.ri-red{background:linear-gradient(135deg,#DC2626,#F97316);box-shadow:0 8px 22px rgba(239,68,68,.26)}
+/* pulse ring */
+.r-pulse{position:absolute;inset:-5px;border-radius:1.3rem;animation:pulse-r 2.8s ease-out infinite;opacity:0}
+.ri-blue .r-pulse{background:rgba(37,99,235,.15)}
+.ri-gold .r-pulse{background:rgba(245,176,0,.15)}
+.ri-red  .r-pulse{background:rgba(239,68,68,.15)}
+@keyframes pulse-r{0%{transform:scale(1);opacity:.5}100%{transform:scale(1.4);opacity:0}}
+.reality-card h5{font-weight:700;font-size:1.02rem;color:var(--text);margin-bottom:.52rem}
+.reality-card p{font-size:.85rem;color:var(--muted);line-height:1.68;margin:0}
+
+/* ═══════════════════════════════════════════════════════
+   HOW IT WORKS
+═══════════════════════════════════════════════════════ */
+.how-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:1.2rem 1rem}
+.how-num{width:50px;height:50px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;font-size:1.08rem;display:flex;align-items:center;justify-content:center;margin-bottom:.95rem;box-shadow:0 6px 20px rgba(37,99,235,.28)}
+.how-num.gn{background:var(--gold);color:var(--navy);box-shadow:0 6px 20px rgba(245,176,0,.28)}
+.how-step h5{font-weight:700;font-size:.97rem;color:var(--text);margin-bottom:.42rem}
+.how-step p{font-size:.82rem;color:var(--muted);line-height:1.65;margin:0;max-width:225px}
+
+/* ═══════════════════════════════════════════════════════
+   FEATURES
+═══════════════════════════════════════════════════════ */
+.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:576px){.feat-grid{grid-template-columns:1fr}}
+.feat-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--rad-lg);padding:1.15rem;display:flex;gap:.78rem;align-items:flex-start;transition:var(--trans);box-shadow:var(--sh-sm)}
+.feat-card:hover{box-shadow:var(--sh-md);border-color:var(--blue);transform:translateY(-2px)}
+.f-ico{width:40px;height:40px;border-radius:.7rem;flex-shrink:0;background:linear-gradient(135deg,var(--blue),var(--blue-lt));color:#fff;display:flex;align-items:center;justify-content:center;font-size:1rem}
+.feat-card h6{font-weight:700;font-size:.81rem;margin-bottom:.1rem;color:var(--text)}
+.feat-card p{font-size:.74rem;color:var(--muted);margin:0;line-height:1.5}
+.value-box{background:var(--navy);border-radius:var(--rad-xl);padding:2.4rem 1.8rem;position:relative;overflow:hidden}
+.value-box::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.03) 1px,transparent 1px);background-size:20px 20px}
+.v-check{display:flex;align-items:center;gap:.68rem;background:rgba(255,255,255,.06);border-radius:.8rem;padding:.72rem .92rem;margin-bottom:.58rem}
+.v-check i{color:var(--gold);font-size:.92rem;flex-shrink:0}
+.v-check span{color:rgba(255,255,255,.78);font-size:.81rem;line-height:1.4}
+
+/* ═══════════════════════════════════════════════════════
+   TEMPLATES
+═══════════════════════════════════════════════════════ */
+.demo-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--rad-lg);overflow:hidden;height:100%;display:flex;flex-direction:column;transition:var(--trans);box-shadow:var(--sh-sm)}
+.demo-card:hover{box-shadow:var(--sh-md);transform:translateY(-5px);border-color:var(--blue)}
+.demo-thumb{width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.demo-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center}
+.dt-lbl{position:absolute;bottom:.5rem;left:.6rem;background:rgba(0,0,0,.55);color:#fff;font-size:.58rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:.18rem .55rem;border-radius:2rem;backdrop-filter:blur(4px)}
+.dt-rest  {background:linear-gradient(135deg,#1e1035,#4c2885)}
+.dt-taxi  {background:linear-gradient(135deg,#0D1B2A,#1D4ED8)}
+.dt-build {background:linear-gradient(135deg,#1a1a1a,#374151)}
+.dt-bnb   {background:linear-gradient(135deg,#c0392b,#e74c3c)}
+.dt-church{background:linear-gradient(135deg,#0D1B2A,#1e3a5f)}
+.dt-food  {background:linear-gradient(135deg,#14532d,#15803d)}
+.dt-svc   {background:linear-gradient(135deg,#1D4ED8,#3B82F6)}
+.dt-auto  {background:linear-gradient(135deg,#111827,#374151)}
+.dt-ico{font-size:2.6rem;filter:drop-shadow(0 4px 12px rgba(0,0,0,.3))}
+.dt-lbl{position:absolute;bottom:.65rem;left:.65rem;font-size:.5rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);background:rgba(0,0,0,.3);border-radius:.35rem;padding:.18rem .42rem}
+.demo-body{padding:1.05rem;flex:1;display:flex;flex-direction:column}
+.demo-tag{display:inline-block;font-size:.57rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);background:rgba(37,99,235,.1);border-radius:2rem;padding:.15rem .52rem;margin-bottom:.42rem}
+[data-theme="dark"] .demo-tag{background:rgba(37,99,235,.2)}
+.demo-body h5{font-weight:700;font-size:.86rem;margin-bottom:.3rem;color:var(--text)}
+.demo-body p{font-size:.74rem;color:var(--muted);line-height:1.55;flex:1;margin-bottom:.72rem}
+
+.dt-packaged { background: linear-gradient(135deg, #1B4332, #2D6A4F); }
+.dt-retail   { background: linear-gradient(135deg, #4A2060, #7B3FA0); }
+.dt-wellness { background: linear-gradient(135deg, #6B3050, #A05070); }
+.dt-green    { background: linear-gradient(135deg, #1A3A1A, #3A6B3A); }
+
+/* ═══════════════════════════════════════════════════════
+   TESTIMONIALS — always dark
+═══════════════════════════════════════════════════════ */
+.testi-section{background:var(--navy)!important;padding:5rem 0}
+.testi-card{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.09);border-radius:var(--rad-lg);padding:1.85rem 1.6rem 1.35rem;height:100%;position:relative;transition:var(--trans)}
+.testi-card:hover{background:rgba(255,255,255,.085);border-color:rgba(245,176,0,.28);transform:translateY(-4px)}
+.t-q{font-size:3rem;line-height:1;color:var(--gold);opacity:.3;position:absolute;top:.85rem;left:1.3rem;font-family:Georgia,serif}
+.t-stars{color:var(--gold);font-size:.78rem;margin-bottom:.68rem;padding-top:1rem}
+.t-text{font-size:.85rem;color:rgba(255,255,255,.76);line-height:1.73;margin-bottom:1.1rem}
+.t-av{width:40px;height:40px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--blue),var(--gold));color:#fff;font-weight:700;font-size:.92rem;display:flex;align-items:center;justify-content:center}
+.t-name{font-weight:700;font-size:.84rem;color:#fff}
+.t-biz{font-size:.69rem;color:rgba(255,255,255,.42)}
+
+/* ═══════════════════════════════════════════════════════
+   PRICING
+═══════════════════════════════════════════════════════ */
+.price-card{background:var(--card);border:2px solid var(--border);border-radius:var(--rad-xl);padding:1.95rem 1.7rem;height:100%;display:flex;flex-direction:column;position:relative;transition:var(--trans);box-shadow:var(--sh-sm)}
+.price-card:hover{box-shadow:var(--sh-md);transform:translateY(-5px)}
+.price-card.featured{border-color:var(--gold);box-shadow:0 8px 36px rgba(245,176,0,.18)}
+.price-card.premium{border-color:var(--blue);background:linear-gradient(160deg,var(--navy) 0%,#0a1e36 100%)}
+.price-card.premium .p-tier{color:var(--blue-lt)}
+.price-card.premium .p-amt{color:#fff}
+.price-card.premium .p-amt span{color:rgba(255,255,255,.45)}
+.price-card.premium .p-lbl{color:rgba(255,255,255,.38)}
+.price-card.premium .p-desc{color:rgba(255,255,255,.55)}
+.price-card.premium hr.pd{border-color:rgba(255,255,255,.1)}
+.price-card.premium .p-sh{color:rgba(255,255,255,.38)}
+.price-card.premium .pf{color:rgba(255,255,255,.8)}
+.price-card.premium .pf i.bi-check-circle-fill{color:var(--gold)}
+.pop-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--navy);font-size:.59rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .92rem;border-radius:2rem;white-space:nowrap}
+.pop-badge.badge-blue{background:var(--blue);color:#fff}
+.p-tier{font-size:.64rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:.42rem}
+.p-amt{font-size:2.65rem;font-weight:900;color:var(--text);line-height:1;margin-bottom:.07rem}
+.p-amt sup{font-size:1rem;font-weight:700;vertical-align:super;margin-right:.03rem}
+.p-amt span{font-size:.88rem;font-weight:400;color:var(--muted)}
+.p-lbl{font-size:.69rem;color:var(--muted);margin-bottom:.62rem;font-weight:500}
+.p-desc{font-size:.78rem;color:var(--muted);line-height:1.55;margin-bottom:.95rem}
+hr.pd{border:none;border-top:1px solid var(--border);margin:.82rem 0}
+.p-sh{font-size:.62rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:.82rem 0 .58rem}
+.p-body{flex:1}
+.pf{display:flex;align-items:flex-start;gap:.46rem;font-size:.78rem;color:var(--body-c);margin-bottom:.4rem;line-height:1.4}
+.pf i.bi-check-circle-fill{color:var(--blue);flex-shrink:0;margin-top:.12rem}
+.pf.no{opacity:.35}
+.pf.no i.bi-x-circle-fill{color:var(--muted);flex-shrink:0;margin-top:.12rem}
+.p-foot{margin-top:auto;padding-top:1.15rem}
+
+/* ═══════════════════════════════════════════════════════
+   FAQ
+═══════════════════════════════════════════════════════ */
+.faq-item{border:1.5px solid var(--border);border-radius:var(--rad);margin-bottom:.62rem;overflow:hidden;transition:var(--trans);background:var(--card)}
+.faq-item.open{border-color:var(--blue)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.3rem;cursor:pointer;background:var(--card);font-weight:600;font-size:.85rem;color:var(--text);transition:var(--trans);gap:1rem;user-select:none}
+.faq-q:hover{background:var(--bg)}
+.fq-ico{color:var(--blue);font-size:1.05rem;flex-shrink:0;transition:transform .28s ease}
+.faq-item.open .fq-ico{transform:rotate(45deg)}
+.faq-ans{display:none;padding:0 1.3rem 1rem;font-size:.81rem;color:var(--muted);line-height:1.72;background:var(--card)}
+.faq-item.open .faq-ans{display:block}
+
+/* ═══════════════════════════════════════════════════════
+   FINAL CTA
+═══════════════════════════════════════════════════════ */
+.cta-section{background:linear-gradient(135deg,var(--navy-dp) 0%,#0a1e36 100%);padding:6rem 0;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.027) 1px,transparent 1px);background-size:22px 22px}
+.cta-section::after{content:'';position:absolute;width:520px;height:520px;background:radial-gradient(circle,rgba(245,176,0,.09) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none}
+.cta-section .container{position:relative;z-index:2}
+
+/* ═══════════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════════ */
+footer{background:var(--navy-dp);padding:4rem 0 2rem;color:rgba(255,255,255,.5)}
+.fb-a{font-size:1.18rem;font-weight:800;color:#fff}
+.fb-l{font-size:1.18rem;font-weight:800;color:var(--blue)}
+.fb-s{display:block;font-size:.43rem;font-weight:500;letter-spacing:.17em;text-transform:uppercase;color:rgba(255,255,255,.27);margin-top:.1rem}
+.f-about{font-size:.79rem;line-height:1.72;color:rgba(255,255,255,.42);max-width:278px;margin-bottom:1.2rem}
+.f-head{font-size:.69rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.8);margin-bottom:.88rem}
+.f-lnk{display:block;font-size:.79rem;color:rgba(255,255,255,.42);text-decoration:none;margin-bottom:.42rem;transition:var(--trans)}
+.f-lnk:hover{color:var(--gold)}
+.f-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:1.35rem;margin-top:2.4rem;font-size:.73rem;color:rgba(255,255,255,.25)}
+.soc-btn{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.88rem;text-decoration:none;background:rgba(255,255,255,.07);color:rgba(255,255,255,.5);transition:var(--trans)}
+.soc-btn:hover{transform:translateY(-2px)}
+.soc-btn.wa:hover{background:#25D366;color:#fff}
+.soc-btn.ig:hover{background:#E1306C;color:#fff}
+.soc-btn.fb:hover{background:#1877F2;color:#fff}
+.f-legal{border-top:1px solid rgba(255,255,255,.07);padding-top:1.25rem;margin-top:1.25rem}
+.f-legal-links{display:flex;flex-wrap:wrap;gap:.5rem .85rem;align-items:center;margin-bottom:.85rem;font-size:.72rem}
+.f-legal-links a{color:rgba(255,255,255,.38);text-decoration:none;transition:color .3s ease}
+.f-legal-links a:hover{color:var(--gold)}
+.f-dot{color:rgba(255,255,255,.2)}
+.f-legal-text{font-size:.68rem;color:rgba(255,255,255,.22);line-height:1.72;margin:0;max-width:860px}
+
+/* ═══════════════════════════════════════════════════════
+   WA FLOAT
+═══════════════════════════════════════════════════════ */
+.wa-float{position:fixed!important;bottom:1.5rem!important;right:1.5rem!important;width:56px!important;height:56px!important;background:#25D366!important;color:#fff!important;border-radius:50%!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:1.6rem!important;box-shadow:0 4px 20px rgba(37,211,102,.45)!important;text-decoration:none!important;z-index:9999!important;transition:var(--trans)!important}
+.wa-float:hover{transform:scale(1.1)!important;box-shadow:0 6px 28px rgba(37,211,102,.6)!important}
+
+/* ═══════════════════════════════════════════════════════
+   HERO REVEAL (IntersectionObserver)
+═══════════════════════════════════════════════════════ */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+.from-right{transform:translateX(20px)}
+.from-right.visible{transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ NAVBAR ══════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg" id="mainNav">
+  <div class="container">
+   <a class="navbar-brand" href="https://jamalinks758.github.io/AkraLink/">
+  <img src="images/logo.webp" alt="Jamal Samuel Essentials Logo" class="nav-logo" loading="lazy">
+  <div>
+    <span class="b-akra">Jamal Samuel</span><span class="b-link">Essentials</span>
+    <span class="b-sub">Launch. Link. Grow.</span>
+  </div>
+</a>
+
+    <div class="d-flex align-items-center gap-2 ms-auto d-lg-none">
+      <button class="theme-btn" id="themeToggleMob" aria-label="Toggle theme"><i id="themeIconMob" class="bi bi-sun-fill"></i></button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    </div>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav align-items-lg-center gap-lg-1 mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#problem">Why Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#how">Process</a></li>
+        <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+        <li class="nav-item"><a class="nav-link" href="#templates">Templates</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="#loyalty">Loyalty</a></li>
+        <li class="nav-item"><a class="nav-link" href="#how-we-work">Support and Scope</a></li>
+        <li class="nav-item ms-lg-2">
+          <button class="theme-btn d-none d-lg-flex" id="themeToggle" aria-label="Toggle theme"><i id="themeIcon" class="bi bi-sun-fill"></i></button>
+        </li>
+        <li class="nav-item ms-lg-2">
+          <a class="nav-link nav-cta" href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20get%20my%20business%20online%20with%20Jamal%20Samuel%20Essentials"><i class="bi bi-whatsapp"></i> Get Started</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-glow"></div>
+  <div class="hero-glow-g"></div>
+  <div class="container position-relative" style="z-index:2">
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-6">
+        <div class="hero-badge reveal"><i class="bi bi-stars"></i> Caribbean's Fastest Business Websites</div>
+        <h1 class="hero-title reveal d1">Your Business <br>Should Be Easier to<span class="accent"> Find, View, and Contact.</span></h1>
+        <p class="hero-sub reveal d2">Many small businesses still rely entirely on social media DMs, making it harder for customers to quickly find prices, services, or ordering information. Jamal Samuel Essentials gives you one professional business page where customers can view what you offer and contact you directly on WhatsApp. Live in 48 hours. Starting at $24.99/month.</p>
+        <div class="d-flex flex-wrap gap-3 reveal d3">
+          <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20get%20my%20business%20online%20with%20Jamal%20Samuel%20Essentials" class="btn-wa"><i class="bi bi-whatsapp"></i> Get My Website Now</a>
+          <a href="#templates" class="btn-outline-w"><i class="bi bi-grid-3x3-gap"></i> See Templates</a>
+        </div>
+        <p class="reveal d4" style="font-size:.71rem;color:rgba(255,255,255,.3);margin-top:1.15rem">More than a basic webpage: a simple business hub &nbsp;·&nbsp; No contracts &nbsp;·&nbsp; Cancel anytime</p>
+      </div>
+
+   <div class="col-lg-6 text-center reveal from-right d2">
+  <div class="hero-phone-wrap">
+    <div class="phone-shell">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <div class="ps-bar">
+          <div class="ps-dot">AL</div>
+          <div class="ps-biz">YOUR BUSINESS</div>
+        </div>
+        <div class="ps-img">
+          <img src="images/winward-transfers.webp" alt="Winward-Transfers sample preview" loading="lazy">
+        </div>
+        <div class="ps-title">Products &amp; Services<br>View our full menu &amp; prices</div>
+        <div class="ps-price">Starting from $10 · Order via WhatsApp</div>
+        <div class="ps-wa"><i class="bi bi-whatsapp"></i> Order Now on WhatsApp</div>
+      </div>
+    </div>
+    <div class="hero-stat hero-stat-1">
+      <span>⚡</span>
+      <div>
+        <span class="hs-num">48hrs</span>
+        <span class="hs-lbl">Avg. launch time</span>
+      </div>
+    </div>
+    <div class="hero-stat hero-stat-2">
+      <span>📱</span>
+      <div>
+        <span class="hs-num">100%</span>
+        <span class="hs-lbl">Mobile ready</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ STATS BAR ═══════════════════════════════ -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 gap-md-5">
+      <div class="sb-item"><span class="sb-num"><span class="g">48</span>hrs</span><span class="sb-lbl">Average launch time</span></div>
+      <div class="sb-sep d-none d-md-block"></div>
+      <div class="sb-item"><span class="sb-num"><span class="g">$24</span>.99<small style="font-size:.78rem">/mo</small></span><span class="sb-lbl">Starting plan</span></div>
+      <div class="sb-sep d-none d-md-block"></div>
+      <div class="sb-item"><span class="sb-num"><span class="g">4</span></span><span class="sb-lbl">Plans to choose from</span></div>
+      <div class="sb-sep d-none d-md-block"></div>
+      <div class="sb-item"><span class="sb-num"><span class="g">100</span>%</span><span class="sb-lbl">Mobile optimized</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ THE REALITY ═════════════════════════════ -->
+<section id="problem">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">The Reality</span>
+      <h2 class="display-5 fw-bold mt-2 mb-3">Your Instagram Page Is Not a Business. It's a Starting Point.</h2>
+      <div class="divider"></div>
+      <p class="text-m mx-auto" style="max-width:515px">Many small businesses still depend entirely on social media, making it difficult for customers to quickly find prices, services, or contact details. Jamal Samuel Essentials helps organize everything in one professional place.</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="reality-card rc1">
+          <div class="r-icon ri-blue"><div class="r-pulse"></div><i class="bi bi-search"></i></div>
+          <h5>You're Invisible Online</h5>
+          <p>Customers often land on social pages and struggle to quickly find prices, services, or ordering information. When information feels difficult to find, many simply move on.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="reality-card rc2">
+          <div class="r-icon ri-gold"><div class="r-pulse"></div><i class="bi bi-cash-stack"></i></div>
+          <h5>Agencies Cost Too Much, DIY Wastes Your Time</h5>
+          <p>
+Traditional agencies can be expensive, while DIY website builders often take far more time than expected. Jamal Samuel Essentials is designed to give Caribbean businesses a simpler and more affordable starting point.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="reality-card rc3">
+          <div class="r-icon ri-red"><div class="r-pulse"></div><i class="bi bi-graph-down-arrow"></i></div>
+          <h5>Customers Often Leave When Information Is Hard to Find</h5>
+          <p>When customers can’t quickly view pricing, services, or contact details, many leave before reaching out. A clearer online experience makes it easier for customers to take action.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HOW IT WORKS ════════════════════════════ -->
+<section class="bg-alt" id="how">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">The Process</span>
+      <h2 class="display-5 fw-bold mt-2 mb-3">Three Steps. 48 Hours. Built to help customers find and contact you faster.</h2>
+      <div class="divider"></div>
+      <p class="text-m mx-auto" style="max-width:455px">Simple setup, mobile-friendly design, and direct WhatsApp contact, without needing to manage the technical side yourself.</p>
+    </div>
+    <div class="row g-0 justify-content-center">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="how-step">
+          <div class="how-num">1</div>
+          <h5>Choose Your Plan</h5>
+          <p>Pick the plan that fits where your business is today. Message us on WhatsApp and we'll walk you through everything in minutes. No tech knowledge needed — we handle all of it.</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="how-step">
+          <div class="how-num gn">2</div>
+          <h5>Send Us Your Info</h5>
+          <p>Business name, phone number, hours, a few phone photos, and your prices. That's it. You don't need a professional logo or a photographer. We take what you have and make it look sharp.</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="how-step">
+          <div class="how-num">3</div>
+          <h5>Your Business Page Goes Live</h5>
+          <p>Within 48 hours, your business page is live with your products, pricing, and contact information in one place. Customers can quickly browse and reach out directly through WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-4" data-aos="fade-up" data-aos-delay="400">
+      <a href="https://wa.me/17587235872?text=I%20want%20to%20get%20started%20with%20Jamal%20Samuel%20Essentials" class="btn-wa"><i class="bi bi-whatsapp"></i> Start in 5 Minutes</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FEATURES ══════════════════════════════ -->
+<section id="features">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">What You Get</span>
+      <h2 class="display-5 fw-bold mt-2 mb-3">Everything Designed to Make Your Business Easier to Find and Contact</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="row g-4 align-items-center">
+
+      <div class="col-lg-6" data-aos="fade-right">
+        <div class="feat-grid">
+          <div class="feat-card"><div class="f-ico"><i class="bi bi-phone"></i></div><div><h6>Mobile-First Design</h6><p>Most customers will discover your business on mobile. Your site is designed to look clean and easy to use on any screen.</p></div></div>
+          <div class="feat-card"><div class="f-ico"><i class="bi bi-whatsapp"></i></div><div><h6>WhatsApp Direct Ordering</h6><p>Customers can contact you directly on WhatsApp with fewer steps and less back-and-forth.</p></div></div>
+          <div class="feat-card"><div class="f-ico"><i class="bi bi-credit-card"></i></div><div><h6>Your Prices and Products, Always Up to Date</h6><p>Customers can quickly view your pricing and services before reaching out, helping conversations move faster.</p></div></div>
+          <div class="feat-card"><div class="f-ico"><i class="bi bi-shield-check"></i></div><div><h6>PayPal Payments</h6><p>Accept secure payments from anywhere in the region without a complicated setup.</p></div></div>
+          <div class="feat-card"><div class="f-ico"><i class="bi bi-bar-chart-line"></i></div><div><h6>SSL Security</h6><p>A secure, professional-looking website helps create a stronger first impression.</p></div></div>
+          <div class="feat-card"><div class="f-ico"><i class="bi bi-arrow-repeat"></i></div><div><h6>Custom Domain</h6><p>yourBusinessName.com. Not a social media handle. A real business address that builds instant credibility.</p></div></div>
+          <div class="feat-card"><div class="f-ico"><i class="bi bi-globe"></i></div><div><h6>Monthly Updates Included</h6><p>Changed your prices? New product? Message us and it's updated within 48 hours, or less.</p></div></div>
+          <div class="feat-card"><div class="f-ico"><i class="bi bi-rocket-takeoff"></i></div><div><h6>Monthly Analytics</h6><p> Get simple monthly insights on visits, clicks, and customer activity.</p></div></div>
+        </div>
+      </div>
+
+      <div class="col-lg-6" data-aos="fade-left" data-aos-delay="150">
+        <div class="value-box">
+          <div class="position-relative" style="z-index:2">
+            <div style="font-size:3rem;margin-bottom:.85rem">🌐</div>
+            <h3 style="color:#fff;font-weight:800;margin-bottom:.58rem;font-size:1.4rem">One Link. Your Entire Business.</h3>
+            <p style="color:rgba(255,255,255,.52);font-size:.84rem;line-height:1.76;margin-bottom:1.5rem">Replace a broken bio link, an unreadable menu photo, and hours of answering DMs — with one professional page working for you around the clock.</p>
+            <div class="v-check"><i class="bi bi-check-circle-fill"></i><span>Professional web presence from day one</span></div>
+            <div class="v-check"><i class="bi bi-check-circle-fill"></i><span>Customers order faster with less friction</span></div>
+            <div class="v-check"><i class="bi bi-check-circle-fill"></i><span>Built and maintained monthly by us</span></div>
+            <div class="v-check"><i class="bi bi-check-circle-fill"></i><span>No contracts. Cancel anytime.</span></div>
+            <div class="v-check"><i class="bi bi-check-circle-fill"></i><span>Zero technical knowledge required</span></div>
+            <a href="https://wa.me/17587235872?text=I%20want%20to%20learn%20more%20about%20Jamal%20Samuel%20Essentials" class="btn-gold mt-4 d-inline-flex"><i class="bi bi-whatsapp"></i> Talk to Us on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+       <p class="text-m mx-auto" style="max-width:475px"><em>Clear pricing helps customers decide faster and contact you with fewer questions.</em></p>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TEMPLATES ══════════════════════════════ -->
+
+<section class="bg-alt" id="templates">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Templates</span>
+      <h2 class="display-5 fw-bold mt-2 mb-3">Built for Caribbean Businesses. Designed to Get You Paid</h2>
+      <div class="divider"></div>
+      <p class="text-m mx-auto" style="max-width:475px">Every template is built around one goal: turning a visitor into a customer as fast as possible. No bloated pages. No confusion. Just your products, your prices, and a direct path to ordering.</p>
+    </div>
+
+    <!-- Row 1 -->
+    <div class="row g-4 mb-4">
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="50">
+        <div class="demo-card">
+          <div class="demo-thumb dt-rest">
+            <img src="images/the-flambeau-table.webp" class="demo-card-img object-fit-cover w-100 h-100" alt="The Flambeau Table — restaurant conversion system" loading="lazy">
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Restaurant</span>
+            <h5>Restaurants &amp; Dining</h5>
+            <p>Full menu with categories, photos, and prices. Customers order dine-in or takeout with one tap to WhatsApp. No more "what's on the menu?" messages.</p>
+            <a href="https://jamalinks758.github.io/AkraLink/demo-products/the-flambeau-table.html" class="btn-blue" style="font-size:.72rem;padding:.36rem .88rem"><i class="bi bi-eye"></i> Preview</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="demo-card">
+          <div class="demo-thumb dt-taxi">
+            <img src="images/winward-transfers.webp" class="demo-card-img object-fit-cover w-100 h-100" alt="Windward Transfers — taxi conversion system" loading="lazy">
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Transport</span>
+            <h5>Taxi &amp; Airport Transfers</h5>
+            <p>Rates, routes, and fleet details upfront. Customers book instantly on WhatsApp with zero back-and-forth.</p>
+            <a href="https://jamalinks758.github.io/AkraLink/demo-products/winward-transfers.html" class="btn-blue" style="font-size:.72rem;padding:.36rem .88rem"><i class="bi bi-eye"></i> Preview</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
+        <div class="demo-card">
+          <div class="demo-thumb dt-build">
+            <img src="images/ironshore-contractors.webp" class="demo-card-img object-fit-cover w-100 h-100" alt="Ironshore Contractors — contractor conversion system" loading="lazy">
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Contractors</span>
+            <h5>Contractors &amp; Trades</h5>
+            <p>Services, coverage area, and a work gallery. Customers request a quote on WhatsApp already knowing what you do and what it costs.</p>
+            <a href="https://jamalinks758.github.io/AkraLink/demo-products/ironshore-contractors.html" class="btn-blue" style="font-size:.72rem;padding:.36rem .88rem"><i class="bi bi-eye"></i> Preview</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="demo-card">
+          <div class="demo-thumb dt-bnb">
+            <img src="images/seagrape-retreat.webp" class="demo-card-img object-fit-cover w-100 h-100" alt="Seagrape Retreat — guest house conversion system" loading="lazy">
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Hospitality</span>
+            <h5>AirBnB &amp; Guest Houses</h5>
+            <p>Room types, amenities, nightly rates, and availability. Customers inquire on WhatsApp ready to book.</p>
+            <a href="https://jamalinks758.github.io/AkraLink/demo-products/seagrape-retreat.html" class="btn-blue" style="font-size:.72rem;padding:.36rem .88rem"><i class="bi bi-eye"></i> Preview</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="row g-4 mb-4">
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="50">
+        <div class="demo-card">
+          <div class="demo-thumb dt-church">
+            <img src="images/harbour-light-church.webp" class="demo-card-img object-fit-cover w-100 h-100" alt="Harbour Light Church — ministry conversion system" loading="lazy">
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Ministry</span>
+            <h5>Churches &amp; Ministries</h5>
+            <p>Service times, events, giving information, and prayer request contact. Your community always knows what's happening.</p>
+            <a href="https://jamalinks758.github.io/AkraLink/demo-products/harbour-light-church.html" class="btn-blue" style="font-size:.72rem;padding:.36rem .88rem"><i class="bi bi-eye"></i> Preview</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="demo-card">
+          <div class="demo-thumb dt-food">
+            <img src="images/calabash-catering-co.webp" class="demo-card-img object-fit-cover w-100 h-100" alt="Food vendor conversion system" loading="lazy">
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Food Vendor</span>
+            <h5>Food Vendors &amp; Caterers</h5>
+            <p>Menu, pricing, and minimum orders. Event catering packages. Customers pre-order directly through WhatsApp.</p>
+            <a href="https://jamalinks758.github.io/AkraLink/demo-products/calabash-catering-co.html" class="btn-blue" style="font-size:.72rem;padding:.36rem .88rem"><i class="bi bi-eye"></i> Preview</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
+        <div class="demo-card">
+          <div class="demo-thumb dt-svc">
+            <img src="images/velour-hair-salon.webp" class="demo-card-img object-fit-cover w-100 h-100" alt="Velour Hair Studio — salon conversion system" loading="lazy">
+            <span class="dt-lbl">Salon</span>
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Beauty</span>
+            <h5>Salons &amp; Hair Studios</h5>
+            <p>Service menu, pricing, and stylist gallery. Customers book appointments on WhatsApp without a single unnecessary back-and-forth.</p>
+            <a href="https://jamalinks758.github.io/AkraLink/demo-products/velour-hair-studio.html" class="btn-blue" style="font-size:.72rem;padding:.36rem .88rem"><i class="bi bi-eye"></i> Preview</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="demo-card">
+          <div class="demo-thumb dt-auto">
+            <img src="images/quick-wash.webp" class="demo-card-img object-fit-cover w-100 h-100" alt="QuickWash Auto Detailing — automotive conversion system" loading="lazy">
+            <span class="dt-lbl">Auto Services</span>
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Automotive</span>
+            <h5>Auto Services &amp; Detailing</h5>
+            <p>Service packages, before/after gallery, and pricing tiers. Customers book their vehicle directly through WhatsApp.</p>
+            <a href="https://jamalinks758.github.io/AkraLink/demo-products/quickwash.html" class="btn-blue" style="font-size:.72rem;padding:.36rem .88rem"><i class="bi bi-eye"></i> Preview</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="row g-4 mb-5">
+
+      <!-- 9. Packaged Food Products -->
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="50">
+        <div class="demo-card">
+          <div class="demo-thumb dt-packaged">
+            <img src="images/piton-provisions.webp" class="demo-card-img object-fit-cover w-100 h-100" alt="Piton Provisions — packaged food products conversion system" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Local Products</span>
+            <h5>Packaged Food &amp; Local Products</h5>
+            <p>Full product catalogue with categories, flavours, and sizes. Customers add to cart and order island-wide via WhatsApp — no market visit required.</p>
+            <a href="https://jamalinks758.github.io/AkraLink/demo-products/piton-provisions.html" class="btn-blue" style="font-size:.72rem;padding:.36rem .88rem"><i class="bi bi-eye"></i> Preview</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. Boutique / Retail -->
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="demo-card">
+          <div class="demo-thumb dt-retail">
+            <img src="images/tropica-threads.webp" class="demo-card-img object-fit-cover w-100 h-100" alt="Tropica Threads — retail boutique conversion system" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Retail</span>
+            <h5>Boutiques &amp; Retail Shops</h5>
+            <p>Product collections, sizes, and prices in a clean shop layout. Customers place orders directly on WhatsApp without leaving the page.</p>
+            <a href="https://jamalinks758.github.io/AkraLink/demo-products/tropica-threads.html" class="btn-blue" style="font-size:.72rem;padding:.36rem .88rem"><i class="bi bi-eye"></i> Preview</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11. Spa / Wellness -->
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
+        <div class="demo-card">
+          <div class="demo-thumb dt-wellness">
+            <img src="images/serenova-spa.webp" class="demo-card-img object-fit-cover w-100 h-100" alt="Serenova Spa — wellness and aesthetics conversion system" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Wellness</span>
+            <h5>Spas &amp; Aesthetics</h5>
+            <p>Treatment menu, pricing, and before/after results. Clients book their appointment on WhatsApp in seconds with no phone tag, no missed bookings.</p>
+            <a href="https://jamalinks758.github.io/AkraLink/demo-products/serenova-spa.html" class="btn-blue" style="font-size:.72rem;padding:.36rem .88rem"><i class="bi bi-eye"></i> Preview</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12. Landscaping / Garden Services -->
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="demo-card">
+          <div class="demo-thumb dt-green">
+            <img src="images/verdant-landscapes.webp" class="demo-card-img object-fit-cover w-100 h-100" alt="Verdant Landscapes — landscaping conversion system" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Landscaping</span>
+            <h5>Landscaping &amp; Garden Services</h5>
+            <p>Service packages, coverage area, and a project gallery. Customers request a quote on WhatsApp before you've even picked up the phone.</p>
+            <a href="https://jamalinks758.github.io/AkraLink/demo-products/verdant-landscapes.html" class="btn-blue" style="font-size:.72rem;padding:.36rem .88rem"><i class="bi bi-eye"></i> Preview</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center" data-aos="fade-up">
+      <p class="text-m mb-3">Don't see your industry? We build for any business type.</p>
+      <a href="https://wa.me/17587235872?text=I%20want%20to%20see%20a%20template%20for%20my%20type%20of%20business" class="btn-wa"><i class="bi bi-whatsapp"></i> Request a Custom Preview</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TESTIMONIALS ═════════════════════════════ 
+<section class="testi-section" id="testimonials">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label lbl-w">Client Results?</span>
+      <h2 class="display-5 fw-bold mt-2 mb-3" style="color:#fff">Real Businesses. Real Results. What Your Results Should Look Like</h2>
+      <div class="divider"></div>
+      <p class="mx-auto" style="color:rgba(255,255,255,.48);max-width:455px;font-size:.9rem">Caribbean small businesses are getting found online and converting more customers with Jamal Samuel Essentials. Caribbean small businesses should be getting found online and converting more customers with Jamal Samuel Essentials.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="testi-card">
+          <div class="t-q">"</div>
+          <div class="t-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <p class="t-text">We seek to get your site live in two days. Customers can message you ready to order and not asking basic questions. A Jamal Samuel Essentials build can help your inquiry volume go up and wasted time go down. It should be worth every dollar.</p>
+          <div class="d-flex align-items-center gap-3"><div class="t-av">T</div><div><div class="t-name">Tamara J.</div><div class="t-biz">Fresh Flow Juices · St. Lucia</div></div></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="testi-card">
+          <div class="t-q">"</div>
+          <div class="t-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <p class="t-text">We make setup painless. Just send your info and we handle everything. We aspire to look professional like what agencies would quote thousands for with a monthly fee that is completely manageable.</p>
+          <div class="d-flex align-items-center gap-3"><div class="t-av">M</div><div><div class="t-name">Marcus R.</div><div class="t-biz">QuickWash Auto · Barbados</div></div></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="testi-card">
+          <div class="t-q">"</div>
+          <div class="t-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <p class="t-text">If you're losing customers because they can't figure out how to order, a build from Jamal Samuel Essentials does the work. We seek to help your orders increase and you don't have to learn a single technical thing.</p>
+          <div class="d-flex align-items-center gap-3"><div class="t-av">S</div><div><div class="t-name">Shevonne A.</div><div class="t-biz">Sweet Layers Bakery · Trinidad</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->
+
+<!-- ═══════════ WHO WE ARE ════════════════════════════════ -->
+<section class="bg-alt" id="about">
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-5" data-aos="fade-right">
+        <div style="background:linear-gradient(135deg,var(--blue-dk),var(--blue-lt));border-radius:var(--rad-xl);padding:3rem 2rem;text-align:center;position:relative;overflow:hidden">
+          <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:18px 18px"></div>
+          <div style="position:relative;z-index:2">
+            <!--<div style="width:88px;height:88px;border-radius:50%;background:rgba(255,255,255,.15);border:3px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;font-size:2.4rem">
+                <img src="images/akralink-logo.webp" alt="Jamal Samuel Essentials Logo" class="nav-logo mx-auto img-fluid object-cover-fit" loading="lazy">
+            </div>-->
+            <h3 style="color:#fff;font-weight:800;font-size:1.3rem;margin-bottom:.3rem">Jamal</h3>
+            <p style="color:rgba(255,255,255,.65);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:1.2rem">Founder · Jamal Samuel Essentials</p>
+            <div style="background:rgba(255,255,255,.1);border-radius:var(--rad);padding:.75rem 1rem;margin-bottom:.6rem;text-align:left">
+              <div style="display:flex;align-items:center;gap:.6rem"><i class="bi bi-geo-alt-fill" style="color:var(--gold)"></i><span style="color:rgba(255,255,255,.8);font-size:.8rem">Vieux-Fort, St. Lucia</span></div>
+            </div>
+            <div style="background:rgba(255,255,255,.1);border-radius:var(--rad);padding:.75rem 1rem;text-align:left">
+              <div style="display:flex;align-items:center;gap:.6rem"><i class="bi bi-whatsapp" style="color:var(--wa)"></i><span style="color:rgba(255,255,255,.8);font-size:.8rem">+1 (758) 723-5872</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-7" data-aos="fade-left" data-aos-delay="100">
+        <span class="section-label">Who We Are</span>
+        <h2 class="display-6 fw-bold mt-2 mb-3">Built by Someone Who Understands This Market</h2>
+        <div class="divider" style="margin:0 0 1.4rem"></div>
+        <p style="font-size:.93rem;line-height:1.82;color:var(--body-c);margin-bottom:1rem">
+         My name is Jamal, and I built Jamal Samuel Essentials here in St. Lucia after noticing how many great local businesses struggled to clearly present their services, pricing, and contact information online.</p>
+        <p style="font-size:.93rem;line-height:1.82;color:var(--body-c);margin-bottom:1.5rem">
+         Jamal Samuel Essentials is a hands-on service built for Caribbean businesses that want a professional online presence without dealing with the technical side themselves. I personally build and maintain each site and am available through WhatsApp for updates and support — <strong>typically responding within 24 hours during business hours, Monday to Friday.</strong></p>
+        <div class="row g-3 mb-4">
+          <div class="col-sm-6">
+            <div style="background:var(--card);border:1.5px solid var(--border);border-radius:var(--rad);padding:1rem;display:flex;align-items:flex-start;gap:.7rem;box-shadow:var(--sh-sm)">
+              <i class="bi bi-person-check-fill" style="color:var(--blue);font-size:1.2rem;flex-shrink:0;margin-top:.1rem"></i>
+              <div><p style="font-weight:700;font-size:.82rem;color:var(--text);margin-bottom:.15rem">You know who builds your site</p><p style="font-size:.74rem;color:var(--muted);margin:0">Not a ticket system. A real person on WhatsApp.</p></div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div style="background:var(--card);border:1.5px solid var(--border);border-radius:var(--rad);padding:1rem;display:flex;align-items:flex-start;gap:.7rem;box-shadow:var(--sh-sm)">
+              <i class="bi bi-geo-alt-fill" style="color:var(--gold);font-size:1.2rem;flex-shrink:0;margin-top:.1rem"></i>
+              <div><p style="font-weight:700;font-size:.82rem;color:var(--text);margin-bottom:.15rem">Built for this region</p><p style="font-size:.74rem;color:var(--muted);margin:0">Caribbean market, Caribbean understanding.</p></div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div style="background:var(--card);border:1.5px solid var(--border);border-radius:var(--rad);padding:1rem;display:flex;align-items:flex-start;gap:.7rem;box-shadow:var(--sh-sm)">
+              <i class="bi bi-clock-fill" style="color:var(--blue);font-size:1.2rem;flex-shrink:0;margin-top:.1rem"></i>
+              <div><p style="font-weight:700;font-size:.82rem;color:var(--text);margin-bottom:.15rem">Same timezone, same hours</p><p style="font-size:.74rem;color:var(--muted);margin:0">No waiting on a team in a different country.</p></div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div style="background:var(--card);border:1.5px solid var(--border);border-radius:var(--rad);padding:1rem;display:flex;align-items:flex-start;gap:.7rem;box-shadow:var(--sh-sm)">
+              <i class="bi bi-heart-fill" style="color:#DC2626;font-size:1.2rem;flex-shrink:0;margin-top:.1rem"></i>
+              <div><p style="font-weight:700;font-size:.82rem;color:var(--text);margin-bottom:.15rem">Your success is the product</p><p style="font-size:.74rem;color:var(--muted);margin:0">I earn your business every month. Not upfront.</p></div>
+            </div>
+          </div>
+        </div>
+        <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20learn%20more%20about%20Jamal%20Samuel%20Essentials" class="btn-wa"><i class="bi bi-whatsapp"></i> Message Jamal Directly</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PRICING ══════════════════════════════════ -->
+<section id="pricing">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Simple Plans</span>
+      <h2 class="display-5 fw-bold mt-2 mb-3">One Monthly Fee. Your Entire Professional Business Page. No Surprises.</h2>
+      <div class="divider"></div>
+      <p class="text-m mx-auto" style="max-width:540px">No setup fees. No contracts. No tech headaches. Start where your business is today and upgrade as you grow. Every plan is built to convert visitors into paying customers.</p>
+      <!--<div class="mt-3" data-aos="fade-up" data-aos-delay="100">
+        <span style="display:inline-flex;align-items:center;gap:.45rem;background:rgba(245,176,0,.1);border:1.5px solid rgba(245,176,0,.3);color:var(--gold);font-size:.72rem;font-weight:700;padding:.35rem 1rem;border-radius:2rem;letter-spacing:.04em"><i class="bi bi-clock-fill"></i> Currently accepting 5 new clients this month — spots filling fast</span>
+      </div>-->
+    </div>
+
+    <div class="row g-4 justify-content-center mb-4">
+
+      <!-- LAUNCH -->
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="price-card">
+          <div class="p-tier">Launch</div>
+          <div class="p-amt"><sup>$</sup>24<span>.99/mo</span></div>
+          <div class="p-lbl">Monthly subscription · USD</div>
+          <p class="p-desc"><em>Your digital front door, open 24/7.</em><br>You exist online professionally. Customers find you, see what you offer, and tap to contact you instantly. Better than any Instagram page. Live in 48 hours.</p>
+          <hr class="pd">
+          <div class="p-sh">What's Included</div>
+          <div class="p-body">
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> 1-page professional website</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Mobile-first responsive design</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Fast, secure hosting included</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Smooth scroll animations</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> WhatsApp contact button</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Business hours &amp; contact info</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> SSL certificate (free)</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Custom domain connection</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Google Business Profile submission</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Customer enquiry log (Google Sheets) <span style="font-size:.65rem;color:var(--muted);display:block;padding-left:1.4rem;line-height:1.4">Every contact form submission saved automatically to a shared Google Sheet with no manual tracking needed.</span></div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> 1 content update / month</div>
+            <div class="pf no"><i class="bi bi-x-circle-fill"></i> Analytics &amp; tracking</div>
+            <div class="pf no"><i class="bi bi-x-circle-fill"></i> WhatsApp pre-filled ordering</div>
+            <div class="pf no"><i class="bi bi-x-circle-fill"></i> Filterable product / menu grid</div>
+          </div>
+          <div class="p-foot">
+            <a href="https://wa.me/17587235872?text=I%27m%20interested%20in%20the%20Launch%20plan%20%E2%80%94%20%2424.99%2Fmo" class="btn-wa w-100 justify-content-center"><i class="bi bi-whatsapp"></i> Get Started</a>
+            <p style="font-size:.67rem;color:var(--muted);text-align:center;margin:.65rem 0 0;line-height:1.5">Your site, your link. Cancel anytime, no penalties.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- LINK — FEATURED -->
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="price-card featured">
+          <div class="pop-badge">Most Popular</div>
+          <div class="p-tier">Link</div>
+          <div class="p-amt"><sup>$</sup>49<span>.99/mo</span></div>
+          <div class="p-lbl">Monthly subscription · USD</div>
+          <p class="p-desc"><em>Turn visitors into buyers.</em><br>A full customer ready business page with products, prices, gallery, and pre-filled WhatsApp ordering. Customers arrive ready to buy, not asking basic questions. The plan most Caribbean businesses need.</p>
+          <hr class="pd">
+          <div class="p-sh">Everything in Launch, plus:</div>
+          <div class="p-body">
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> 5–6 section conversion page</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Light / Dark mode toggle</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> WhatsApp pre-filled order messages</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Filterable product / menu grid</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> PayPal payment button</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Photo / work gallery section</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Social media links integration</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Basic on-page SEO</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Google Business Profile setup &amp; optimization (Maps visibility)</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Plausible or GA4 Analytics setup <span style="font-size:.65rem;color:var(--muted);display:block;padding-left:1.4rem;line-height:1.4">We set up one analytics platform of your choice — see visits, traffic sources, and top pages.</span></div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> 3 months basic analytics report</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> 3 content updates / month</div>
+          </div>
+          <div class="p-foot">
+            <a href="https://wa.me/17587235872?text=I%27m%20interested%20in%20the%20Link%20plan%20%E2%80%94%20%2449.99%2Fmo" class="btn-wa w-100 justify-content-center"><i class="bi bi-whatsapp"></i> Get Started</a>
+            <p style="font-size:.67rem;color:var(--muted);text-align:center;margin:.65rem 0 0;line-height:1.5">Cancel anytime. Your site stays live until end of billing period.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- MANAGED -->
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="price-card">
+          <div class="p-tier">Managed</div>
+          <div class="p-amt"><sup>$</sup>89<span>.99/mo</span></div>
+          <div class="p-lbl">Monthly subscription · USD</div>
+          <p class="p-desc"><em>Your part-time digital marketing manager for less than $3/day.</em><br>We don't just build and maintain your site. We actively help market your business every month so customers keep coming back.</p>
+          <hr class="pd">
+          <div class="p-sh">Everything in Link, plus:</div>
+          <div class="p-body">
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> 7–8 section page</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Custom brand color scheme</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> FAQ accordion &amp; testimonials sections</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> WhatsApp multi-product order builder</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Seasonal promo banner updates</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Full on-page SEO setup</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> GBP setup, optimization &amp; monthly maintenance</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> 1 WhatsApp broadcast written &amp; sent / month</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> 1 social media promo graphic / month</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Monthly performance voice note report</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> 5 content updates / month</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Priority response within 24hrs</div>
+          </div>
+          <div class="p-foot">
+            <a href="https://wa.me/17587235872?text=I%27m%20interested%20in%20the%20Managed%20plan%20%E2%80%94%20%2489.99%2Fmo" class="btn-wa w-100 justify-content-center"><i class="bi bi-whatsapp"></i> Get Started</a>
+            <p style="font-size:.67rem;color:var(--muted);text-align:center;margin:.65rem 0 0;line-height:1.5">12 months of consistent payments unlocks full site ownership. <a href="#faq" style="color:var(--blue);text-decoration:none">How does that work?</a></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCALE -->
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+        <div class="price-card premium">
+          <div class="pop-badge badge-blue">Best Value</div>
+          <div class="p-tier">Scale</div>
+          <div class="p-amt"><sup>$</sup>149<span>/mo</span></div>
+          <div class="p-lbl">Monthly subscription · USD</div>
+          <p class="p-desc"><em>For businesses ready to dominate their market.</em><br>Full digital ordering page plus active monthly marketing which includes broadcast campaigns, graphics, Google presence, and a direct strategy session every month.</p>
+          <hr class="pd">
+          <div class="p-sh">Everything in Managed, plus:</div>
+          <div class="p-body">
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> 8–10 section page</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Facebook Pixel integration <span style="font-size:.65rem;color:rgba(255,255,255,.35);display:block;padding-left:1.4rem;line-height:1.4">Requires an active Meta Business account.</span></div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Full GA4 conversion funnel tracking <span style="font-size:.65rem;color:rgba(255,255,255,.35);display:block;padding-left:1.4rem;line-height:1.4">Tracks the full visitor-to-customer journey on your site.</span></div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Multi-island Google Business targeting</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> 2 WhatsApp broadcast campaigns / month</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> 2 social media promo graphics / month</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Monthly 20-min WhatsApp strategy call</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Seasonal campaign planning (quarterly)</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Monthly competitor visibility check</div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Up to 15 content updates / month <span style="font-size:.65rem;color:rgba(255,255,255,.35);display:block;padding-left:1.4rem;line-height:1.4">Minor edits: prices, photos, hours, products. Larger changes quoted separately.</span></div>
+            <div class="pf"><i class="bi bi-check-circle-fill"></i> Same-day priority response</div>
+          </div>
+          <div class="p-foot">
+            <a href="https://wa.me/17587235872?text=I%27m%20interested%20in%20the%20Scale%20plan%20%E2%80%94%20%24149%2Fmo" class="btn-gold w-100 justify-content-center"><i class="bi bi-whatsapp"></i> Get Started</a>
+            <p style="font-size:.67rem;color:rgba(255,255,255,.35);text-align:center;margin:.65rem 0 0;line-height:1.5">12 months in? You own the site. We keep making it grow.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Plan comparison note -->
+    <div class="row justify-content-center mb-3">
+      <div class="col-lg-10">
+        <div style="background:var(--card);border:1.5px solid var(--border);border-radius:var(--rad-lg);padding:1.4rem 1.8rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;box-shadow:var(--sh-sm)" data-aos="fade-up">
+          <div style="display:flex;align-items:center;gap:.7rem">
+            <i class="bi bi-info-circle-fill" style="color:var(--blue);font-size:1.1rem;flex-shrink:0"></i>
+            <span style="font-size:.82rem;color:var(--body-c)"><strong>Not sure which plan fits?</strong> New clients can start on <strong>Link</strong> and upgrade to <strong>Managed</strong> once they see results. There's no penalty for upgrading anytime.</span>
+          </div>
+          <a href="https://wa.me/17587235872?text=I%20need%20help%20choosing%20the%20right%20Jamal%20Samuel%20Essentials%20plan" class="btn-gold" style="font-size:.78rem;padding:.6rem 1.2rem;flex-shrink:0"><i class="bi bi-whatsapp"></i> Ask Jamal</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loyalty Ladder teaser -->
+    <div class="row justify-content-center mb-4">
+      <div class="col-lg-10">
+        <div style="background:linear-gradient(135deg,rgba(245,176,0,.08),rgba(245,176,0,.04));border:1.5px solid rgba(245,176,0,.25);border-radius:var(--rad-lg);padding:1.4rem 1.8rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;box-shadow:var(--sh-sm)" data-aos="fade-up" data-aos-delay="100">
+          <div style="display:flex;align-items:center;gap:.7rem">
+            <i class="bi bi-trophy-fill" style="color:var(--gold);font-size:1.2rem;flex-shrink:0"></i>
+            <span style="font-size:.82rem;color:var(--body-c)"><strong style="color:var(--gold)">Long-term clients get rewarded.</strong> The longer you stay, the more you get. Ask us about our <strong>Loyalty Ladder</strong> milestone rewards built for clients who grow with us.</span>
+          </div>
+          <a href="#loyalty" class="btn-gold" style="font-size:.78rem;padding:.6rem 1.2rem;flex-shrink:0"><i class="bi bi-arrow-down"></i> See How It Works</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-2 mb-2" data-aos="fade-up">
+      <small class="text-m" style="opacity:.65">All prices in USD · No setup fees · No contracts · Cancel anytime · Domain registration (~$15/yr) billed separately · <b>Refer a business that signs up and get one month free</b>.</small>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ LOYALTY LADDER ════════════════════════════ -->
+<section id="loyalty">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Loyalty Ladder</span>
+      <h2 class="display-5 fw-bold mt-2 mb-3">The Longer You Stay, The More You Get</h2>
+      <div class="divider"></div>
+      <p class="text-m mx-auto" style="max-width:560px">Most services take your money and give nothing back. Jamal Samuel Essentials works differently. Every milestone you hit as a client unlocks something real. Not a coupon, not a discount but a tangible upgrade to your conversion system.</p>
+    </div>
+
+    <div class="row g-4 justify-content-center mb-5">
+
+      <!-- Month 3 -->
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="50">
+        <div style="background:var(--card);border:2px solid var(--border);border-radius:var(--rad-xl);padding:1.8rem 1.5rem;height:100%;position:relative;box-shadow:var(--sh-sm);transition:var(--trans)" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='var(--sh-md)'" onmouseout="this.style.transform='';this.style.boxShadow='var(--sh-sm)'">
+          <div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,rgba(59,130,246,.15),rgba(59,130,246,.05));border:2px solid rgba(59,130,246,.3);display:flex;align-items:center;justify-content:center;margin-bottom:1rem">
+            <i class="bi bi-star-fill" style="color:var(--blue);font-size:1.1rem"></i>
+          </div>
+          <div style="font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:.4rem">Month 3</div>
+          <h5 style="font-weight:800;font-size:1rem;margin-bottom:.6rem;color:var(--text)">First Milestone</h5>
+          <p style="font-size:.8rem;color:var(--body-c);line-height:1.7;margin-bottom:1rem">Free site performance review + one bonus content update on us. We look at what's working, what isn't, and make adjustments at no charge.</p>
+          <div style="background:rgba(59,130,246,.07);border-radius:var(--rad);padding:.6rem .8rem">
+            <p style="font-size:.72rem;color:var(--blue);font-weight:700;margin:0"><i class="bi bi-gift-fill me-1"></i> Free review + 1 bonus update</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Month 6 -->
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div style="background:var(--card);border:2px solid var(--border);border-radius:var(--rad-xl);padding:1.8rem 1.5rem;height:100%;position:relative;box-shadow:var(--sh-sm);transition:var(--trans)" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='var(--sh-md)'" onmouseout="this.style.transform='';this.style.boxShadow='var(--sh-sm)'">
+          <div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,rgba(245,176,0,.15),rgba(245,176,0,.05));border:2px solid rgba(245,176,0,.3);display:flex;align-items:center;justify-content:center;margin-bottom:1rem">
+            <i class="bi bi-star-fill" style="color:var(--gold);font-size:1.1rem"></i>
+          </div>
+          <div style="font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem">Month 6</div>
+          <h5 style="font-weight:800;font-size:1rem;margin-bottom:.6rem;color:var(--text)">Six-Month Reward</h5>
+          <p style="font-size:.8rem;color:var(--body-c);line-height:1.7;margin-bottom:1rem">One free social media promo graphic, designed and delivered to your WhatsApp ready to post. Yours to keep and use however you like.</p>
+          <div style="background:rgba(245,176,0,.07);border-radius:var(--rad);padding:.6rem .8rem">
+            <p style="font-size:.72rem;color:var(--gold);font-weight:700;margin:0"><i class="bi bi-gift-fill me-1"></i> Free promo graphic</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Month 12 -->
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
+        <div style="background:var(--card);border:2px solid var(--gold);border-radius:var(--rad-xl);padding:1.8rem 1.5rem;height:100%;position:relative;box-shadow:0 8px 36px rgba(245,176,0,.15);transition:var(--trans)" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform=''">
+          <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--navy);font-size:.58rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .9rem;border-radius:2rem;white-space:nowrap">Biggest Milestone</div>
+          <div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,rgba(245,176,0,.2),rgba(245,176,0,.08));border:2px solid rgba(245,176,0,.5);display:flex;align-items:center;justify-content:center;margin-bottom:1rem">
+            <i class="bi bi-trophy-fill" style="color:var(--gold);font-size:1.1rem"></i>
+          </div>
+          <div style="font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem">Month 12</div>
+          <h5 style="font-weight:800;font-size:1rem;margin-bottom:.6rem;color:var(--text)">One Year Strong</h5>
+          <p style="font-size:.8rem;color:var(--body-c);line-height:1.7;margin-bottom:1rem"><strong>Managed &amp; Scale clients:</strong> Full site ownership unlocked. The files are yours to keep, forever.<br><br><strong>Launch &amp; Link clients:</strong> One free feature from the next tier up added to your site with no upgrade required.</p>
+          <div style="background:rgba(245,176,0,.07);border-radius:var(--rad);padding:.6rem .8rem">
+            <p style="font-size:.72rem;color:var(--gold);font-weight:700;margin:0"><i class="bi bi-trophy-fill me-1"></i> Site ownership OR free tier upgrade feature</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Month 24 -->
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div style="background:var(--card);border:2px solid var(--border);border-radius:var(--rad-xl);padding:1.8rem 1.5rem;height:100%;position:relative;box-shadow:var(--sh-sm);transition:var(--trans)" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='var(--sh-md)'" onmouseout="this.style.transform='';this.style.boxShadow='var(--sh-sm)'">
+          <div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,rgba(16,185,129,.15),rgba(16,185,129,.05));border:2px solid rgba(16,185,129,.3);display:flex;align-items:center;justify-content:center;margin-bottom:1rem">
+            <i class="bi bi-stars" style="color:#10b981;font-size:1.1rem"></i>
+          </div>
+          <div style="font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#10b981;margin-bottom:.4rem">Month 24</div>
+          <h5 style="font-weight:800;font-size:1rem;margin-bottom:.6rem;color:var(--text)">Two-Year Refresh</h5>
+          <p style="font-size:.8rem;color:var(--body-c);line-height:1.7;margin-bottom:1rem">Complimentary full site refresh with a new layout, updated copy, updated photos. Your business has grown. Your site should show it. Done at no extra charge.</p>
+          <div style="background:rgba(16,185,129,.07);border-radius:var(--rad);padding:.6rem .8rem">
+            <p style="font-size:.72rem;color:#10b981;font-weight:700;margin:0"><i class="bi bi-gift-fill me-1"></i> Complete site redesign &amp; refresh</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom note -->
+    <div class="row justify-content-center" data-aos="fade-up">
+      <div class="col-lg-8">
+        <div style="background:var(--card);border:1.5px solid var(--border);border-radius:var(--rad-lg);padding:1.4rem 1.8rem;text-align:center;box-shadow:var(--sh-sm)">
+          <p style="font-size:.85rem;color:var(--body-c);margin-bottom:.8rem">Milestones are tracked automatically from your start date. You don't need to ask. We reach out to you when you hit each one. Your loyalty is noticed and rewarded.</p>
+          <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20know%20more%20about%20the%20Jamal%20Samuel%20Essentials%20Loyalty%20Ladder" class="btn-wa" style="font-size:.8rem"><i class="bi bi-whatsapp"></i> Ask About the Loyalty Ladder</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ HOW WE WORK ═══════════════════════════════ -->
+<section class="bg-alt" id="how-we-work">
+  <div class="container">
+
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">How We Work</span>
+      <h2 class="display-5 fw-bold mt-2 mb-3">Clear Boundaries. No Surprises.</h2>
+      <div class="divider"></div>
+      <p class="text-m mx-auto" style="max-width:560px">We believe the best client relationships start with clear expectations, and not after problems begin. Here is exactly what your plan includes, what counts as an edit, how fast we respond, and what falls outside your monthly plan.</p>
+    </div>
+
+    <div class="row g-4 mb-4">
+
+      <!-- What IS included -->
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="50">
+        <div style="background:var(--card);border:2px solid var(--border);border-radius:var(--rad-xl);padding:1.8rem;height:100%;box-shadow:var(--sh-sm)">
+          <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.2rem">
+            <div style="width:40px;height:40px;border-radius:50%;background:rgba(59,130,246,.1);border:2px solid rgba(59,130,246,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <i class="bi bi-check-circle-fill" style="color:var(--blue);font-size:1rem"></i>
+            </div>
+            <h5 style="font-weight:800;font-size:1rem;color:var(--text);margin:0">What Your Monthly Plan Includes</h5>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:.55rem">
+            <div style="display:flex;align-items:flex-start;gap:.6rem"><i class="bi bi-check-circle-fill" style="color:var(--blue);font-size:.8rem;margin-top:.2rem;flex-shrink:0"></i><span style="font-size:.82rem;color:var(--body-c)">Website hosting &amp; maintenance</span></div>
+            <div style="display:flex;align-items:flex-start;gap:.6rem"><i class="bi bi-check-circle-fill" style="color:var(--blue);font-size:.8rem;margin-top:.2rem;flex-shrink:0"></i><span style="font-size:.82rem;color:var(--body-c)">Monthly content edits (as per your plan tier)</span></div>
+            <div style="display:flex;align-items:flex-start;gap:.6rem"><i class="bi bi-check-circle-fill" style="color:var(--blue);font-size:.8rem;margin-top:.2rem;flex-shrink:0"></i><span style="font-size:.82rem;color:var(--body-c)">Mobile optimization &amp; SSL security</span></div>
+            <div style="display:flex;align-items:flex-start;gap:.6rem"><i class="bi bi-check-circle-fill" style="color:var(--blue);font-size:.8rem;margin-top:.2rem;flex-shrink:0"></i><span style="font-size:.82rem;color:var(--body-c)">WhatsApp support during business hours</span></div>
+            <div style="display:flex;align-items:flex-start;gap:.6rem"><i class="bi bi-check-circle-fill" style="color:var(--blue);font-size:.8rem;margin-top:.2rem;flex-shrink:0"></i><span style="font-size:.82rem;color:var(--body-c)">Google Business Profile management (Managed &amp; Scale)</span></div>
+            <div style="display:flex;align-items:flex-start;gap:.6rem"><i class="bi bi-check-circle-fill" style="color:var(--blue);font-size:.8rem;margin-top:.2rem;flex-shrink:0"></i><span style="font-size:.82rem;color:var(--body-c)">Marketing deliverables (Managed &amp; Scale only — broadcast, graphic, voice report)</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- What is NOT included -->
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+        <div style="background:var(--card);border:2px solid var(--border);border-radius:var(--rad-xl);padding:1.8rem;height:100%;box-shadow:var(--sh-sm)">
+          <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.2rem">
+            <div style="width:40px;height:40px;border-radius:50%;background:rgba(239,68,68,.08);border:2px solid rgba(239,68,68,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <i class="bi bi-x-circle-fill" style="color:#ef4444;font-size:1rem"></i>
+            </div>
+            <h5 style="font-weight:800;font-size:1rem;color:var(--text);margin:0">What Is Not Included</h5>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:.55rem">
+            <div style="display:flex;align-items:flex-start;gap:.6rem"><i class="bi bi-x-circle-fill" style="color:#ef4444;font-size:.8rem;margin-top:.2rem;flex-shrink:0"></i><span style="font-size:.82rem;color:var(--body-c)">Full page redesigns or layout rebuilds</span></div>
+            <div style="display:flex;align-items:flex-start;gap:.6rem"><i class="bi bi-x-circle-fill" style="color:#ef4444;font-size:.8rem;margin-top:.2rem;flex-shrink:0"></i><span style="font-size:.82rem;color:var(--body-c)">Logo creation or full branding work</span></div>
+            <div style="display:flex;align-items:flex-start;gap:.6rem"><i class="bi bi-x-circle-fill" style="color:#ef4444;font-size:.8rem;margin-top:.2rem;flex-shrink:0"></i><span style="font-size:.82rem;color:var(--body-c)">Copywriting rewrites or full content creation</span></div>
+            <div style="display:flex;align-items:flex-start;gap:.6rem"><i class="bi bi-x-circle-fill" style="color:#ef4444;font-size:.8rem;margin-top:.2rem;flex-shrink:0"></i><span style="font-size:.82rem;color:var(--body-c)">Additional pages beyond your plan</span></div>
+            <div style="display:flex;align-items:flex-start;gap:.6rem"><i class="bi bi-x-circle-fill" style="color:#ef4444;font-size:.8rem;margin-top:.2rem;flex-shrink:0"></i><span style="font-size:.82rem;color:var(--body-c)">Booking or reservation systems</span></div>
+            <div style="display:flex;align-items:flex-start;gap:.6rem"><i class="bi bi-x-circle-fill" style="color:#ef4444;font-size:.8rem;margin-top:.2rem;flex-shrink:0"></i><span style="font-size:.82rem;color:var(--body-c)">eCommerce / full online store functionality</span></div>
+            <div style="display:flex;align-items:flex-start;gap:.6rem"><i class="bi bi-x-circle-fill" style="color:#ef4444;font-size:.8rem;margin-top:.2rem;flex-shrink:0"></i><span style="font-size:.82rem;color:var(--body-c)">Marketing strategy or business consulting sessions</span></div>
+          </div>
+          <p style="font-size:.72rem;color:var(--muted);margin-top:1rem;padding-top:.8rem;border-top:1px solid var(--border)">Need something from this list? Most can be added as a one-time service. See Add-Ons below.</p>
+        </div>
+      </div>
+
+      <!-- What counts as an edit -->
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="150">
+        <div style="background:var(--card);border:2px solid var(--border);border-radius:var(--rad-xl);padding:1.8rem;height:100%;box-shadow:var(--sh-sm)">
+          <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.2rem">
+            <div style="width:40px;height:40px;border-radius:50%;background:rgba(245,176,0,.1);border:2px solid rgba(245,176,0,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <i class="bi bi-pencil-fill" style="color:var(--gold);font-size:.9rem"></i>
+            </div>
+            <h5 style="font-weight:800;font-size:1rem;color:var(--text);margin:0">What Counts As a Content Edit</h5>
+          </div>
+          <p style="font-size:.78rem;color:var(--muted);margin-bottom:1rem">A content edit is a small, straightforward change to existing information on your site. These count toward your monthly edit allowance:</p>
+          <div style="display:flex;flex-direction:column;gap:.55rem;margin-bottom:1rem">
+            <div style="display:flex;align-items:flex-start;gap:.6rem"><i class="bi bi-check-circle-fill" style="color:var(--gold);font-size:.8rem;margin-top:.2rem;flex-shrink:0"></i><span style="font-size:.82rem;color:var(--body-c)">Changing prices or service rates</span></div>
+            <div style="display:flex;align-items:flex-start;gap:.6rem"><i class="bi bi-check-circle-fill" style="color:var(--gold);font-size:.8rem;margin-top:.2rem;flex-shrink:0"></i><span style="font-size:.82rem;color:var(--body-c)">Replacing or adding photos</span></div>
+            <div style="display:flex;align-items:flex-start;gap:.6rem"><i class="bi bi-check-circle-fill" style="color:var(--gold);font-size:.8rem;margin-top:.2rem;flex-shrink:0"></i><span style="font-size:.82rem;color:var(--body-c)">Updating business hours or contact info</span></div>
+            <div style="display:flex;align-items:flex-start;gap:.6rem"><i class="bi bi-check-circle-fill" style="color:var(--gold);font-size:.8rem;margin-top:.2rem;flex-shrink:0"></i><span style="font-size:.82rem;color:var(--body-c)">Adding or removing one product or service</span></div>
+            <div style="display:flex;align-items:flex-start;gap:.6rem"><i class="bi bi-check-circle-fill" style="color:var(--gold);font-size:.8rem;margin-top:.2rem;flex-shrink:0"></i><span style="font-size:.82rem;color:var(--body-c)">Updating a promo banner or announcement text</span></div>
+          </div>
+          <div style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.15);border-radius:var(--rad);padding:.8rem 1rem">
+            <p style="font-size:.75rem;color:var(--body-c);margin:0"><strong style="color:#ef4444">Not a small edit:</strong> rebuilding a section, adding a new page, rewriting all copy, or changing the overall layout. These are quoted separately.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Response windows -->
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+        <div style="background:var(--card);border:2px solid var(--border);border-radius:var(--rad-xl);padding:1.8rem;height:100%;box-shadow:var(--sh-sm)">
+          <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.2rem">
+            <div style="width:40px;height:40px;border-radius:50%;background:rgba(59,130,246,.1);border:2px solid rgba(59,130,246,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <i class="bi bi-clock-fill" style="color:var(--blue);font-size:.9rem"></i>
+            </div>
+            <h5 style="font-weight:800;font-size:1rem;color:var(--text);margin:0">Support Hours &amp; Response Times</h5>
+          </div>
+          <p style="font-size:.78rem;color:var(--muted);margin-bottom:1rem">Support is available via WhatsApp during the following hours. Messages outside these windows are answered on the next business day.</p>
+          <div style="display:flex;flex-direction:column;gap:.7rem;margin-bottom:1.1rem">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:.65rem .9rem;background:var(--bg);border-radius:var(--rad);border:1px solid var(--border)">
+              <span style="font-size:.8rem;color:var(--body-c);font-weight:600">Monday – Friday</span>
+              <span style="font-size:.78rem;color:var(--blue);font-weight:700">8:00 AM – 6:00 PM AST</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:.65rem .9rem;background:var(--bg);border-radius:var(--rad);border:1px solid var(--border)">
+              <span style="font-size:.8rem;color:var(--body-c);font-weight:600">Saturday</span>
+              <span style="font-size:.78rem;color:var(--gold);font-weight:700">10:00 AM – 2:00 PM AST</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:.65rem .9rem;background:var(--bg);border-radius:var(--rad);border:1px solid var(--border)">
+              <span style="font-size:.8rem;color:var(--body-c);font-weight:600">Sunday &amp; Public Holidays</span>
+              <span style="font-size:.78rem;color:#ef4444;font-weight:700">Closed</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:.5rem">
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:.78rem">
+              <span style="color:var(--muted)">Launch &amp; Link — edit turnaround</span>
+              <span style="color:var(--body-c);font-weight:700">Within 48 hrs</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:.78rem">
+              <span style="color:var(--muted)">Managed — priority turnaround</span>
+              <span style="color:var(--body-c);font-weight:700">Within 24 hrs</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:.78rem">
+              <span style="color:var(--muted)">Scale — same-day turnaround</span>
+              <span style="color:var(--gold);font-weight:700">Same business day</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Add-On Services table -->
+    <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-lg-10">
+        <div style="background:var(--card);border:2px solid var(--border);border-radius:var(--rad-xl);padding:1.8rem;box-shadow:var(--sh-sm)">
+          <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.4rem">
+            <div style="width:40px;height:40px;border-radius:50%;background:rgba(16,185,129,.1);border:2px solid rgba(16,185,129,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <i class="bi bi-plus-circle-fill" style="color:#10b981;font-size:1rem"></i>
+            </div>
+            <div>
+              <h5 style="font-weight:800;font-size:1rem;color:var(--text);margin:0">Add-On Services</h5>
+              <p style="font-size:.73rem;color:var(--muted);margin:0">Need something outside your plan? These are available as one-time additions and are quoted per project.</p>
+            </div>
+          </div>
+          <div class="row g-3">
+            <div class="col-sm-6 col-lg-4">
+              <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--rad);padding:.9rem 1rem;display:flex;justify-content:space-between;align-items:center">
+                <span style="font-size:.8rem;color:var(--body-c)">Additional page</span>
+                <span style="font-size:.8rem;font-weight:800;color:var(--blue)">From $40</span>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--rad);padding:.9rem 1rem;display:flex;justify-content:space-between;align-items:center">
+                <span style="font-size:.8rem;color:var(--body-c)">Logo design</span>
+                <span style="font-size:.8rem;font-weight:800;color:var(--blue)">From $75</span>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--rad);padding:.9rem 1rem;display:flex;justify-content:space-between;align-items:center">
+                <span style="font-size:.8rem;color:var(--body-c)">Full copywriting rewrite</span>
+                <span style="font-size:.8rem;font-weight:800;color:var(--blue)">From $60</span>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--rad);padding:.9rem 1rem;display:flex;justify-content:space-between;align-items:center">
+                <span style="font-size:.8rem;color:var(--body-c)">Online ordering setup</span>
+                <span style="font-size:.8rem;font-weight:800;color:var(--blue)">From $120</span>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--rad);padding:.9rem 1rem;display:flex;justify-content:space-between;align-items:center">
+                <span style="font-size:.8rem;color:var(--body-c)">Booking / appointment system</span>
+                <span style="font-size:.8rem;font-weight:800;color:var(--blue)">From $100</span>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--rad);padding:.9rem 1rem;display:flex;justify-content:space-between;align-items:center">
+                <span style="font-size:.8rem;color:var(--body-c)">Social media post design (x5)</span>
+                <span style="font-size:.8rem;font-weight:800;color:var(--blue)">From $35</span>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--rad);padding:.9rem 1rem;display:flex;justify-content:space-between;align-items:center">
+                <span style="font-size:.8rem;color:var(--body-c)">Flyer / promo graphic</span>
+                <span style="font-size:.8rem;font-weight:800;color:var(--blue)">From $25</span>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--rad);padding:.9rem 1rem;display:flex;justify-content:space-between;align-items:center">
+                <span style="font-size:.8rem;color:var(--body-c)">eCommerce / full online store</span>
+                <span style="font-size:.8rem;font-weight:800;color:var(--blue)">Custom quote</span>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--rad);padding:.9rem 1rem;display:flex;justify-content:space-between;align-items:center">
+                <span style="font-size:.8rem;color:var(--body-c)">Menu / product catalogue PDF</span>
+                <span style="font-size:.8rem;font-weight:800;color:var(--blue)">From $45</span>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.8rem">
+            <p style="font-size:.75rem;color:var(--muted);margin:0">All add-ons are quoted and agreed upon before any work begins. No hidden charges.</p>
+            <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20ask%20about%20an%20add-on%20service" class="btn-wa" style="font-size:.76rem;padding:.5rem 1rem"><i class="bi bi-whatsapp"></i> Ask About Add-Ons</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════════════════════════════════ -->
+<section class="bg-alt" id="faq">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">FAQ</span>
+      <h2 class="display-5 fw-bold mt-2 mb-3">Straight Answers. No Runaround.</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div data-aos="fade-up" data-aos-delay="50"><div class="faq-item"><div class="faq-q">Do I need any technical knowledge to get started?<i class="bi bi-plus fq-ico"></i></div><div class="faq-ans">None at all. Send us your logo, photos, business name, and what you sell. We handle the design, build, and launch. You share your link with customers and that's it.</div></div></div>
+        <div data-aos="fade-up" data-aos-delay="100"><div class="faq-item"><div class="faq-q">How long does it take to get my website live?<i class="bi bi-plus fq-ico"></i></div><div class="faq-ans">Most sites go live within 48 hours of receiving your content. The faster you send your information, the faster you're online. We keep you updated via WhatsApp throughout.</div></div></div>
+        <div data-aos="fade-up" data-aos-delay="125"><div class="faq-item"><div class="faq-q">How quickly do you respond to support messages?<i class="bi bi-plus fq-ico"></i></div><div class="faq-ans">Support messages are answered via WhatsApp during business hours, Monday to Friday, 8 AM to 6 PM, and Saturday 10 AM to 2 PM. Messages sent outside these hours are answered the next business day. Edit turnaround is within 48 hours for Launch and Link, 24 hours for Managed, and same business day for Scale.</div></div></div>
+        <div data-aos="fade-up" data-aos-delay="137"><div class="faq-item"><div class="faq-q">Can I request something outside my plan, like a logo or extra page?<i class="bi bi-plus fq-ico"></i></div><div class="faq-ans">Yes. Anything outside your monthly plan — logo design, extra pages, booking systems, copywriting, flyers, eCommerce — can be added as a one-time service. All add-ons are quoted and agreed upon before work begins, so there are never any surprise charges. Message us on WhatsApp and we'll give you a price upfront.</div></div></div>
+        <div data-aos="fade-up" data-aos-delay="150"><div class="faq-item"><div class="faq-q">Can I cancel my plan at any time?<i class="bi bi-plus fq-ico"></i></div><div class="faq-ans">Yes. No long-term contracts. Cancel anytime with no penalties. Your site stays live until the end of your current billing period. We earn your business every month by not locking you in.</div></div></div>
+        <div data-aos="fade-up" data-aos-delay="200"><div class="faq-item"><div class="faq-q">What if I need to update my prices or menu?<i class="bi bi-plus fq-ico"></i></div><div class="faq-ans">
+Message us on WhatsApp with your changes. We update your site within 48 hours. Every plan includes monthly updates so that your conversion system always reflects your real business.</div></div></div>
+          <div data-aos="fade-up" data-aos-delay="250"><div class="faq-item"><div class="faq-q">What if I don't have a logo or professional photos?<i class="bi bi-plus fq-ico"></i></div><div class="faq-ans">Most of our clients don't and that's fine. Phone photos work. We'll tell you exactly what to send and make it look professional. You don't need to be ready. You just need to start.</div></div></div>
+        <div data-aos="fade-up" data-aos-delay="250"><div class="faq-item"><div class="faq-q">Do I need to buy a domain name?<i class="bi bi-plus fq-ico"></i></div><div class="faq-ans">All plans, including Launch, include custom domain connection. You purchase your domain (~$15/year) separately and we handle the full technical setup for you.</div></div></div>
+        <div data-aos="fade-up" data-aos-delay="300"><div class="faq-item"><div class="faq-q">Can I upgrade my plan as my business grows?<i class="bi bi-plus fq-ico"></i></div><div class="faq-ans">Absolutely. Upgrade from Launch → Link → Managed → Scale anytime. Message us on WhatsApp. We apply the upgrade and update your site within 48 hours. No penalties, no paperwork.</div></div></div>
+        <div data-aos="fade-up" data-aos-delay="350"><div class="faq-item"><div class="faq-q">What is the Loyalty Ladder?<i class="bi bi-plus fq-ico"></i></div><div class="faq-ans">The Loyalty Ladder is how Jamal Samuel Essentials rewards clients who grow with us. At Month 3 you get a free site review and a bonus update. At Month 6 you get a free promo graphic. At Month 12, the biggest milestone, Managed and Scale clients unlock full site ownership, and Launch and Link clients get one free feature from the next tier up added to their site. At Month 24 every client gets a complimentary full site refresh. Milestones are tracked from your start date. You don't need to ask, we reach out to you when you hit each one.</div></div></div>
+        <div data-aos="fade-up" data-aos-delay="375"><div class="faq-item"><div class="faq-q">Do I ever actually own my website?<i class="bi bi-plus fq-ico"></i></div><div class="faq-ans">Yes! We also think that matters. Clients on the Managed and Scale plans who complete 12 consecutive months unlock full site ownership. That means the site files are yours to keep, even if you ever decide to cancel. From that point your monthly fee covers hosting, updates, and marketing only, not the build. On Launch and Link plans, your site files are available for transfer to you on request at any time. We're not in the business of holding your work hostage.</div></div></div>
+        <div data-aos="fade-up" data-aos-delay="400"><div class="faq-item"><div class="faq-q">What happens to my site if I cancel?<i class="bi bi-plus fq-ico"></i></div><div class="faq-ans">Your site goes offline at the end of your billing period. We recommend downloading your content before cancelling. You can also ask us to transfer the site files to you directly.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FINAL CTA ════════════════════════════════ -->
+<section class="cta-section">
+  <div class="container text-center">
+    <div data-aos="fade-up">
+      <span class="section-label lbl-w">Let's Build</span>
+      <h2 class="display-4 fw-bold mt-2 mb-3" style="color:#fff;letter-spacing:-.022em">Every Day Without This, A Customer Chooses Someone Else</h2>
+      <div class="divider"></div>
+      <p class="mx-auto mb-2" style="color:rgba(255,255,255,.52);max-width:435px;font-size:.97rem">
+Saint Lucia's Prime Minister said it publicly in 2024: small businesses are under pressure because customers are buying online. The businesses that survive are the ones that show up where customers are looking on their phones, right now.<br><br>
+      Jamal Samuel Essentials gives you a professional conversion system built specifically for Caribbean small businesses. Your products. Your prices. Your WhatsApp. Working for you 24 hours a day.</p>
+      <p class="mx-auto mb-5" style="color:rgba(255,255,255,.52);max-width:435px;font-size:.97rem">Starting at $24.99/month. No contracts. Live in 48 hours.</p>
+      <a href="https://wa.me/17587235872?text=I%20want%20to%20get%20my%20business%20online%20with%20Jamal%20Samuel%20Essentials" class="btn-wa" style="font-size:1rem;padding:1rem 2.4rem"><i class="bi bi-whatsapp"></i> Message Us on WhatsApp</a>
+      <p class="mt-3" style="font-size:.7rem;color:rgba(255,255,255,.24)">Let's Get You Online. We respond the same day. Usually within hours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="row g-5 mb-3">
+      <div class="col-lg-5">
+        <div class="mb-3">
+          <span class="fb-a">Jamal Samuel</span><span class="fb-l">Essentials</span>
+          <span class="fb-s">Launch. Link. Grow.</span>
+        </div>
+        <p class="f-about">Jamal Samuel Essentials helps Caribbean small businesses get online fast with professional, mobile-first websites connected directly to WhatsApp. Affordable. Simple. Effective.</p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="https://wa.me/17587235872" class="soc-btn wa" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          <a href="https://www.instagram.com/akra_link?igsh=YXA5cWQ1cGNsNHNu" class="soc-btn ig" title="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.facebook.com/share/1GQYVgFtpe/" class="soc-btn fb" title="Facebook"><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <p class="f-head">Quick Links</p>
+        <a href="#problem"   class="f-lnk">Why Jamal Samuel Essentials</a>
+        <a href="#how"       class="f-lnk">How It Works</a>
+        <a href="#features"  class="f-lnk">Features</a>
+        <a href="#templates" class="f-lnk">Templates</a>
+        <a href="#about"     class="f-lnk">About</a>
+        <a href="#pricing"   class="f-lnk">Pricing</a>
+        <a href="#loyalty"     class="f-lnk">Loyalty Ladder</a>
+        <a href="#how-we-work" class="f-lnk">How We Work</a>
+        <a href="#faq"         class="f-lnk">FAQ</a>
+      </div>
+      <div class="col-6 col-lg-3">
+        <p class="f-head">Contact</p>
+        <a href="https://wa.me/17587235872" class="f-lnk d-flex align-items-center gap-2"><i class="bi bi-whatsapp" style="color:#25D366"></i> WhatsApp Us</a>
+        <p class="f-lnk" style="cursor:default"><i class="bi bi-clock me-2" style="color:var(--gold)"></i>Mon–Sat, 9 AM – 6 PM</p>
+        <p class="f-lnk" style="cursor:default"><i class="bi bi-geo-alt me-2" style="color:var(--gold)"></i>Vieux-Fort, St. Lucia, Caribbean</p>
+        <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20get%20started%20with%20Jamal%20Samuel%20Essentials" class="btn-wa mt-2" style="font-size:.75rem;padding:.48rem .98rem"><i class="bi bi-whatsapp"></i> Chat Now</a>
+      </div>
+    </div>
+    <div class="f-bottom d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <span id="footer-year">© 2026 Jamal Samuel Essentials. All rights reserved.</span>
+      <span>Built with care for Caribbean small businesses.</span>
+    </div>
+
+    <!-- Legal strip -->
+    <div class="f-legal">
+      <div class="f-legal-links">
+        <a href="https://jamalinks758.github.io/AkraLink/legal.html#do-not-sell">Do Not Sell or Share My Personal Information</a>
+        <span class="f-dot">&middot;</span>
+        <a href="https://jamalinks758.github.io/AkraLink/legal.html">Privacy Policy &amp; Terms</a>
+      </div>
+      <p class="f-legal-text">
+        Jamal Samuel Essentials is built and operated from Vieux-Fort, Saint Lucia 🇱🇨. Monthly plans include website hosting, maintenance, and minor content edits as defined per plan tier. Larger redesigns, additional pages, branding work, or advanced functionality are not included in monthly plans and may be quoted separately as add-on services. Support is available via WhatsApp during business hours, Monday to Friday. Demo sites shown on this page are original concept builds — business names and content within them are fictional. Everything we design for you is yours once you're fully paid up. We just ask that you don't copy our work and pass it off as your own.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════ WA FLOAT ═════════════════════════════════ -->
+<a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20learn%20more%20about%20Jamal%20Samuel%20Essentials" class="wa-float" title="Chat on WhatsApp" aria-label="Chat on WhatsApp"><i class="bi bi-whatsapp"></i></a>
+
+<!-- ═══════════ SCRIPTS ═══════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+/* AOS */
+AOS.init({duration:680,once:true,offset:65,easing:'ease-out-cubic'});
+
+/* THEME ENGINE */
+const html=document.documentElement,STORE='akralink-theme';
+function getTheme(){const s=localStorage.getItem(STORE);if(s)return s;return'light'}
+let current=getTheme();
+function applyTheme(t){
+  current=t;html.setAttribute('data-theme',t);localStorage.setItem(STORE,t);
+  const dark=t==='dark';
+  const i1=document.getElementById('themeIcon');
+  const i2=document.getElementById('themeIconMob');
+  if(i1)i1.className=dark?'bi bi-moon-stars-fill':'bi bi-sun-fill';
+  if(i2)i2.className=dark?'bi bi-moon-stars-fill':'bi bi-sun-fill';
+}
+applyTheme(current);
+const toggle=()=>applyTheme(current==='light'?'dark':'light');
+document.getElementById('themeToggle')?.addEventListener('click',toggle);
+document.getElementById('themeToggleMob')?.addEventListener('click',toggle);
+
+/* NAVBAR SCROLL */
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60),{passive:true});
+
+/* HERO REVEAL */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* SMOOTH SCROLL */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(!t)return;e.preventDefault();
+    t.scrollIntoView({behavior:'smooth',block:'start'});
+    const m=document.getElementById('navMenu');
+    if(m?.classList.contains('show'))bootstrap.Collapse.getInstance(m)?.hide();
+  });
+});
+
+/* FAQ */
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.closest('.faq-item'),open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!open)item.classList.add('open');
+  });
+});
+
+/* AUTO YEAR */
+document.getElementById('footer-year').textContent=`© ${new Date().getFullYear()} Jamal Samuel Essentials. All rights reserved.`;
+</script>
+</body>
+</html>
