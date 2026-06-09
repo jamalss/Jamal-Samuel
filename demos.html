@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+
+<!-- ══ META ═══════════════════════════════════════════ -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo Portfolio — Jamal Samuel</title>
+<meta name="description" content="Browse 20 sample conversion systems built by Jamal Samuel for Caribbean and diaspora businesses — food, retail, fitness, photography, hospitality, and more.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://jamalinks758.github.io/jamalinks/demos.html">
+
+<!-- ══ OPEN GRAPH ══ -->
+<meta property="og:type"        content="website">
+<meta property="og:url"         content="https://jamalinks758.github.io/jamalinks/demos.html">
+<meta property="og:title"       content="Demo Portfolio — Jamal Samuel">
+<meta property="og:description" content="20 sample conversion systems for Caribbean and diaspora businesses. See what we build for your industry.">
+<meta property="og:image"       content="https://jamalinks758.github.io/jamalinks/images/og-preview.jpg">
+<meta property="og:site_name"   content="Jamal Samuel">
+<meta name="twitter:card"       content="summary_large_image">
+
+<!-- ══ FAVICON ════════════════════════════════════════ -->
+<link rel="icon" type="image/webp" href="images/logo.webp">
+<link rel="apple-touch-icon"       href="images/logo.webp">
+
+<!-- ══ PRECONNECT ════════════════════════════════════ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+<!-- ══ CONSENT BANNER CSS ════════════════════════════ -->
+<link rel="stylesheet" href="https://tagconcierge.github.io/consent-banner-js/dist/consent-banner.css">
+
+<!-- ══ BOOTSTRAP + ICONS ══════════════════════════════ -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<!-- ══ GOOGLE FONTS ═══════════════════════════════════ -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- ══ CUSTOM STYLESHEET ══════════════════════════════ -->
+<link href="css/style.css" rel="stylesheet">
+
+<style>
+/* ── Skip Navigation (Accessibility) ─────────────── */
+.skip-link {
+  position: absolute; top: -100%; left: 1rem;
+  background: var(--gold, #F5B000); color: #1a1a1a;
+  padding: .5rem 1rem; border-radius: 0 0 .5rem .5rem;
+  font-weight: 700; font-size: .85rem; z-index: 10000;
+  text-decoration: none; transition: top .2s;
+}
+.skip-link:focus { top: 0; }
+
+/* ── Consent Banner Overrides ─────────────────────── */
+.consent-banner-button[href="#accept"] { background-color: #4CAF50; font-family: inherit; }
+.consent-banner-modal { font-family: 'Poppins', sans-serif; }
+
+/* ══════════════════════════════════════════════════════
+   HERO PHONE MOCKUP
+   ══════════════════════════════════════════════════════ */
+.hero-phone-mockup { position: relative; width: 100%; max-width: 320px; margin: 0 auto; }
+.phone-shell {
+  background: var(--card, #fff); border: 3px solid rgba(0,0,0,.12);
+  border-radius: 2.5rem; padding: 1.2rem 1rem 1.5rem;
+  box-shadow: 0 24px 60px rgba(0,0,0,.18), 0 0 0 6px rgba(0,0,0,.05);
+  position: relative; overflow: hidden;
+}
+.phone-notch { width: 80px; height: 10px; background: rgba(0,0,0,.13); border-radius: 10px; margin: 0 auto 1rem; }
+.phone-screen-inner { border-radius: 1.2rem; overflow: hidden; background: var(--bg, #f8f8f8); padding: .9rem; }
+.mini-brand   { font-weight: 700; font-size: .7rem; color: var(--gold, #F5B000); letter-spacing: .04em; margin-bottom: .5rem; }
+.mini-hero-img{ width: 100%; aspect-ratio: 16/7; border-radius: .6rem; object-fit: cover; margin-bottom: .6rem; background: linear-gradient(135deg, #F5B00022, #2563EB22); display:flex; align-items:center; justify-content:center; font-size:1.8rem; }
+.mini-title   { font-size: .62rem; font-weight: 700; line-height: 1.3; margin-bottom: .3rem; color: var(--text, #111); }
+.mini-price   { font-size: .58rem; color: var(--muted, #666); margin-bottom: .5rem; }
+.mini-wa-btn  { display: flex; align-items: center; justify-content: center; gap: .3rem; background: #25D366; color: #fff; border-radius: .5rem; padding: .35rem .5rem; font-size: .6rem; font-weight: 600; }
+.stat-pill { white-space: nowrap; }
+
+/* ══════════════════════════════════════════════════════
+   COUNTRIES TRUST BAR
+   ══════════════════════════════════════════════════════ */
+.countries-bar {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: .9rem 0;
+  overflow: hidden;
+}
+.countries-inner {
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: .4rem 1.4rem; padding: 0 1rem;
+}
+.countries-label {
+  font-size: .65rem; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--blue-mid);
+  white-space: nowrap;
+}
+[data-theme="dark"] .countries-label { color: var(--gold); }
+.country-pill {
+  display: inline-flex; align-items: center; gap: .35rem;
+  font-size: .76rem; font-weight: 500; color: var(--muted);
+  white-space: nowrap;
+}
+
+/* ══════════════════════════════════════════════════════
+   HOW IT WORKS
+   ══════════════════════════════════════════════════════ */
+.how-flow { display: flex; align-items: flex-start; justify-content: center; gap: 0; flex-wrap: nowrap; margin-top: 2.5rem; }
+.how-step { flex: 1; text-align: center; padding: 0 .75rem; position: relative; }
+.how-step:not(:last-child)::after { content: ''; position: absolute; top: 2rem; right: -.5rem; width: 1rem; height: 2px; background: var(--gold, #F5B000); opacity: .5; }
+.how-icon-wrap { width: 4rem; height: 4rem; border-radius: 50%; background: linear-gradient(135deg, var(--gold,#F5B000) 0%, var(--blue,#2563EB) 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto .75rem; font-size: 1.4rem; color: #fff; box-shadow: 0 6px 18px rgba(26,110,181,.25); }
+.how-step h6 { font-size: .82rem; font-weight: 700; margin-bottom: .25rem; }
+.how-step p  { font-size: .76rem; opacity: .75; line-height: 1.4; }
+@media (max-width: 576px) { .how-flow { flex-direction: column; align-items: center; gap: 1.2rem; } .how-step:not(:last-child)::after { display: none; } }
+
+/* ══════════════════════════════════════════════════════
+   FEATURE ITEMS
+   ══════════════════════════════════════════════════════ */
+.feat-label { font-size: 1rem; font-weight: 700; display: block; margin-bottom: .2rem; }
+
+/* ══════════════════════════════════════════════════════
+   DEMO CARDS
+   ══════════════════════════════════════════════════════ */
+.demo-card-img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; border-radius: .75rem .75rem 0 0; }
+.demo-disclaimer {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-size: .72rem; color: var(--muted); background: var(--bg-alt);
+  border: 1px solid var(--border); border-radius: 50px;
+  padding: .3rem .9rem; margin-top: 1rem;
+}
+
+.demo-picture {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-alt);
+}
+
+.demo-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.demo-card:hover .demo-picture img {
+  transform: scale(1.05);
+}
+
+/* ── DEMO SCROLL ROW (Row 3 — Athlete & Personal Brand) ─ */
+.demo-row-header {
+  display: flex; align-items: center; gap: .75rem; flex-wrap: wrap;
+  margin-bottom: .6rem;
+}
+.demo-new-badge {
+  display: inline-flex; align-items: center;
+  font-size: .62rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  background: linear-gradient(135deg, var(--gold, #F5B000), #FCD34D);
+  color: #1a1a1a; padding: .2rem .7rem; border-radius: 20px;
+}
+.demo-scroll-wrapper { position: relative; width: 100%; }
+.demo-scroll-track {
+  display: flex; gap: 1.25rem; overflow-x: auto;
+  padding: .5rem .25rem 1.5rem; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: thin;
+  scrollbar-color: var(--gold, #F5B000) transparent;
+}
+.demo-scroll-track::-webkit-scrollbar { height: 4px; }
+.demo-scroll-track::-webkit-scrollbar-track { background: transparent; }
+.demo-scroll-track::-webkit-scrollbar-thumb { background: var(--gold, #F5B000); border-radius: 4px; }
+.demo-card-scroll {
+  flex: 0 0 270px; min-width: 270px; scroll-snap-align: start;
+}
+@media (min-width: 768px) { .demo-card-scroll { flex: 0 0 300px; min-width: 300px; } }
+
+/* ── ATHLETE PRICING SECTION ─────────────────────────── */
+.athlete-pricing-wrap {
+  margin-top: 3.5rem; position: relative; overflow: hidden;
+  background: var(--bg-alt); border: 1px solid var(--border);
+  border-radius: 1.5rem; padding: 2.5rem 2rem;
+}
+.athlete-pricing-wrap::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(to right, var(--gold, #F5B000), var(--blue, #0D1B2A), transparent);
+}
+.athlete-tier-card {
+  background: var(--bg-card, #fff); border: 1.5px solid var(--border);
+  border-radius: 18px; padding: 1.75rem 1.5rem;
+  height: 100%; display: flex; flex-direction: column;
+  transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
+  position: relative;
+}
+.athlete-tier-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,.12); transform: translateY(-4px); }
+.athlete-tier-card.athlete-featured {
+  border-color: var(--gold, #F5B000);
+  box-shadow: 0 8px 32px rgba(245,176,0,.18);
+}
+.athlete-market-badge {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: var(--gold, #F5B000); color: #1a1a1a;
+  font-size: .66rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  padding: .22rem .85rem; border-radius: 20px; white-space: nowrap;
+}
+.athlete-range-row {
+  display: flex; align-items: baseline; gap: .35rem; flex-wrap: wrap; margin: .5rem 0;
+}
+.athlete-range-low {
+  font-family: 'Poppins', sans-serif; font-size: 2rem;
+  font-weight: 900; line-height: 1; color: var(--text, #0D1B2A);
+}
+[data-theme="dark"] .athlete-range-low { color: #f0ece3; }
+.athlete-range-sep { font-size: 1rem; opacity: .4; font-weight: 400; }
+.athlete-range-high {
+  font-family: 'Poppins', sans-serif; font-size: 2rem;
+  font-weight: 900; line-height: 1; color: var(--gold, #F5B000);
+}
+.athlete-range-label { font-size: .72rem; opacity: .5; font-weight: 500; }
+.athlete-flag-pill {
+  display: inline-flex; align-items: center; gap: .3rem;
+  font-size: .7rem; font-weight: 600; letter-spacing: .06em;
+  background: var(--blue-pale, #EFF6FF); border: 1px solid rgba(37,99,235,.2);
+  color: var(--blue-mid, #2563EB); border-radius: 50px; padding: .2rem .7rem;
+  margin-bottom: .75rem;
+}
+[data-theme="dark"] .athlete-flag-pill {
+  background: var(--gold-pale); border-color: rgba(245,176,0,.2); color: var(--gold);
+}
+
+/* ══════════════════════════════════════════════════════
+   AI COMPARISON SECTION
+   ══════════════════════════════════════════════════════ */
+.ai-compare-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem;
+}
+@media (max-width: 768px) { .ai-compare-grid { grid-template-columns: 1fr; } }
+.ai-col {
+  border-radius: var(--radius, 14px); padding: 2rem 1.75rem;
+  border: 1px solid var(--border);
+}
+.ai-col-bad { background: var(--bg-alt); }
+.ai-col-good {
+  background: var(--blue-pale, #EFF6FF);
+  border-color: rgba(37,99,235,.3);
+  box-shadow: 0 8px 32px rgba(13,27,42,.10);
+}
+[data-theme="dark"] .ai-col-good { background: rgba(245,176,0,.06); border-color: rgba(245,176,0,.2); }
+.ai-col-head {
+  font-size: .68rem; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 1.25rem; display: flex; align-items: center; gap: .5rem;
+}
+.ai-col-bad .ai-col-head { color: var(--muted); }
+.ai-col-good .ai-col-head { color: var(--blue-mid); }
+[data-theme="dark"] .ai-col-good .ai-col-head { color: var(--gold); }
+.ai-item { display: flex; align-items: flex-start; gap: .75rem; margin-bottom: .9rem; font-size: .875rem; color: var(--text); line-height: 1.5; }
+.ai-item i { font-size: 1rem; flex-shrink: 0; margin-top: .15rem; }
+.ai-col-bad .ai-item i { color: #cc4444; }
+.ai-col-good .ai-item i { color: var(--green, #25D366); }
+.ai-bottom-note {
+  margin-top: 2rem; text-align: center; font-size: .88rem;
+  color: var(--muted); font-style: italic; max-width: 580px; margin-left: auto; margin-right: auto;
+}
+
+/* ══════════════════════════════════════════════════════
+   TESTIMONIALS
+   ══════════════════════════════════════════════════════ */
+.testimonial-card {
+  background: var(--card, #fff); border: 1px solid var(--border, rgba(0,0,0,.07));
+  border-radius: 1.25rem; padding: 2rem 1.75rem 1.5rem;
+  height: 100%; position: relative;
+  box-shadow: 0 4px 24px rgba(0,0,0,.06);
+  transition: transform .3s, box-shadow .3s;
+}
+.testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,.10); }
+.testimonial-quote { font-size: 3rem; line-height: 1; color: var(--gold, #F5B000); font-family: Georgia, serif; position: absolute; top: 1rem; left: 1.5rem; opacity: .35; }
+.testimonial-text { font-size: .95rem; line-height: 1.7; color: var(--text, #222); margin-bottom: 1.25rem; padding-top: 1.25rem; }
+.testimonial-avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; font-size: 1.4rem; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--gold,#F5B000), var(--blue,#2563EB)); color: #fff; font-weight: 700; flex-shrink: 0; }
+.testimonial-name  { font-weight: 700; font-size: .9rem; }
+.testimonial-biz   { font-size: .78rem; opacity: .65; }
+.testimonial-stars { color: #f59e0b; font-size: .85rem; margin-bottom: .6rem; }
+.testimonial-result {
+  display: inline-flex; align-items: center; gap: .35rem;
+  background: rgba(37,211,102,.1); border: 1px solid rgba(37,211,102,.2);
+  color: #1a7a45; border-radius: 50px; padding: .2rem .75rem;
+  font-size: .72rem; font-weight: 700; margin-bottom: .75rem;
+}
+[data-theme="dark"] .testimonial-result { color: #4be38a; background: rgba(37,211,102,.08); }
+
+/* ══════════════════════════════════════════════════════
+   LEAD CAPTURE SECTION
+   ══════════════════════════════════════════════════════ */
+.lead-capture-wrap {
+  background: linear-gradient(135deg, var(--blue-pale, #EFF6FF) 0%, var(--gold-pale, #FFFBEB) 100%);
+  border: 1px solid var(--border); border-radius: 1.5rem;
+  padding: 3rem 2.5rem; text-align: center;
+  max-width: 580px; margin: 0 auto;
+  box-shadow: 0 12px 48px rgba(13,27,42,.10);
+}
+[data-theme="dark"] .lead-capture-wrap { background: linear-gradient(135deg, rgba(74,144,217,.07) 0%, rgba(245,176,0,.07) 100%); }
+.lead-form { display: flex; flex-direction: column; gap: .85rem; margin-top: 1.75rem; }
+.lead-input, .lead-select {
+  width: 100%; padding: .85rem 1.3rem;
+  border: 1.5px solid var(--border);
+  border-radius: 50px; background: var(--bg);
+  color: var(--text); font-family: 'Poppins', sans-serif;
+  font-size: .9rem; outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+.lead-input:focus, .lead-select:focus {
+  border-color: var(--blue-mid);
+  box-shadow: 0 0 0 3px var(--blue-glow);
+}
+[data-theme="dark"] .lead-input, [data-theme="dark"] .lead-select { background: var(--bg-card); }
+.lead-select { appearance: none; -webkit-appearance: none; cursor: pointer; }
+.lead-privacy { font-size: .72rem; color: var(--muted); margin-top: .3rem; }
+
+/* ══════════════════════════════════════════════════════
+   GLOBAL OVERFLOW FIX
+   ══════════════════════════════════════════════════════ */
+html, body { overflow-x: hidden; max-width: 100%; }
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ── WHATSAPP FLOAT BUTTON ───────────────────────── */
+.wa-float {
+  position: fixed !important; bottom: 1.5rem !important; right: 1.5rem !important;
+  left: auto !important; z-index: 9999 !important;
+  width: 56px !important; height: 56px !important;
+  background: #25D366 !important; color: #fff !important;
+  border-radius: 50% !important; display: flex !important;
+  align-items: center !important; justify-content: center !important;
+  font-size: 1.6rem !important; box-shadow: 0 4px 20px rgba(37,211,102,.45) !important;
+  text-decoration: none !important; transition: transform .2s ease, box-shadow .2s ease !important;
+  transform: translateZ(0) !important;
+}
+.wa-float:hover { transform: scale(1.08) translateZ(0) !important; box-shadow: 0 6px 28px rgba(37,211,102,.6) !important; color: #fff !important; }
+
+/* ── PRICING SCROLL SYSTEM ───────────────────────── */
+.pricing-scroll-wrapper { position: relative; width: 100%; }
+.pricing-scroll-track {
+  display: flex; gap: 1.25rem; overflow-x: auto;
+  padding: 1rem 0.25rem 2rem; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: thin;
+  scrollbar-color: var(--gold, #F5B000) transparent;
+}
+.pricing-scroll-track::-webkit-scrollbar { height: 4px; }
+.pricing-scroll-track::-webkit-scrollbar-track { background: transparent; }
+.pricing-scroll-track::-webkit-scrollbar-thumb { background: var(--gold, #F5B000); border-radius: 4px; }
+
+.pricing-tier-card {
+  flex: 0 0 310px; min-width: 310px; scroll-snap-align: start;
+  background: var(--bg-card, #fff); border: 1.5px solid var(--border, rgba(0,0,0,.08));
+  border-radius: 18px; padding: 1.75rem 1.5rem 1.5rem;
+  display: flex; flex-direction: column; position: relative;
+  transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
+}
+.pricing-tier-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,.12); transform: translateY(-4px); }
+.pricing-tier-card.tier-featured { border-color: var(--gold, #F5B000); box-shadow: 0 8px 32px rgba(245,176,0,.18); }
+.pricing-tier-card.tier-enterprise { border-color: var(--blue, #0D1B2A); }
+[data-theme="dark"] .pricing-tier-card.tier-enterprise { border-color: var(--gold, #F5B000); }
+
+.tier-popular-badge {
+  position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+  background: var(--gold, #F5B000); color: #1a1a1a;
+  font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  padding: .25rem .9rem; border-radius: 20px; white-space: nowrap;
+}
+.tier-header { margin-bottom: 1rem; }
+.tier-badge {
+  display: inline-block; font-size: .7rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--gold, #F5B000); margin-bottom: .4rem;
+}
+
+/* ── NEW: Hybrid price display ── */
+.tier-price-block { margin-bottom: .5rem; }
+.tier-setup-row {
+  display: flex; align-items: baseline; gap: .3rem; flex-wrap: wrap;
+}
+.tier-setup-amount {
+  font-family: 'Poppins', sans-serif; font-size: 2.4rem;
+  font-weight: 900; line-height: 1; color: var(--text, #0D1B2A);
+}
+[data-theme="dark"] .tier-setup-amount { color: #f0ece3; }
+.tier-setup-amount sup { font-size: 1rem; font-weight: 700; vertical-align: super; }
+.tier-setup-tag {
+  font-size: .72rem; font-weight: 600; opacity: .55;
+  white-space: nowrap; align-self: flex-end; padding-bottom: .3rem;
+}
+.tier-monthly-row {
+  display: flex; align-items: center; gap: .4rem;
+  margin-top: .35rem; flex-wrap: wrap;
+}
+.tier-monthly-pill {
+  display: inline-flex; align-items: center; gap: .3rem;
+  background: var(--blue-pale, #EFF6FF); border: 1px solid rgba(37,99,235,.2);
+  border-radius: 50px; padding: .2rem .75rem;
+  font-size: .76rem; font-weight: 700; color: var(--blue-mid, #2563EB);
+  white-space: nowrap;
+}
+[data-theme="dark"] .tier-monthly-pill {
+  background: var(--gold-pale); border-color: rgba(245,176,0,.2);
+  color: var(--gold);
+}
+.tier-monthly-note { font-size: .68rem; color: var(--muted); }
+.tier-total-row {
+  margin-top: .4rem;
+  font-size: .72rem; color: var(--muted);
+  display: flex; align-items: center; gap: .3rem;
+}
+.tier-total-row strong { color: var(--green, #25D366); font-weight: 700; }
+.tier-onetime-row {
+  display: flex; align-items: center; gap: .35rem;
+  margin-top: .3rem;
+}
+.tier-onetime-tag {
+  display: inline-flex; align-items: center; gap: .3rem;
+  background: var(--gold-pale, #FFFBEB); border: 1px solid rgba(245,176,0,.3);
+  border-radius: 50px; padding: .2rem .75rem;
+  font-size: .74rem; font-weight: 600; color: var(--gold, #F5B000);
+}
+
+.tier-label { font-size: .73rem; opacity: .5; margin-bottom: .6rem; font-weight: 500; }
+.tier-desc { font-size: .82rem; line-height: 1.55; opacity: .7; margin: 0; }
+.tier-body { flex: 1; margin-bottom: 1.25rem; }
+.tier-footer { margin-top: auto; }
+.price-feat.tier-no { opacity: .35; }
+.price-feat.tier-no i { color: var(--bs-secondary, #999) !important; }
+.pricing-scroll-hint { text-align: center; font-size: .78rem; opacity: .5; margin-top: -.5rem; padding-bottom: .5rem; }
+
+/* ── PRICING HEADER ROI STRIP ────────────────────── */
+.pricing-roi-strip {
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 1.5rem;
+  background: var(--blue-pale, #EFF6FF);
+  border: 1px solid rgba(37,99,235,.15);
+  border-radius: var(--radius, 14px);
+  padding: 1.1rem 2rem; margin-bottom: 2.5rem;
+}
+[data-theme="dark"] .pricing-roi-strip {
+  background: rgba(245,176,0,.06); border-color: rgba(245,176,0,.15);
+}
+.roi-item {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  font-size: .78rem; color: var(--muted); line-height: 1.4;
+}
+.roi-item strong { font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: 900; color: var(--blue-mid); display: block; }
+[data-theme="dark"] .roi-item strong { color: var(--gold); }
+.roi-divider { width: 1px; height: 36px; background: var(--border); }
+@media (max-width: 576px) { .roi-divider { display: none; } .pricing-roi-strip { gap: 1rem; } }
+
+/* ── GUARANTEE BOX ───────────────────────────────── */
+.guarantee-box {
+  display: flex; align-items: flex-start; gap: 1.25rem;
+  background: linear-gradient(135deg, rgba(37,211,102,.07) 0%, rgba(37,211,102,.03) 100%);
+  border: 1.5px solid rgba(37,211,102,.25);
+  border-radius: var(--radius, 14px); padding: 1.5rem 1.75rem;
+  margin-top: 2rem;
+}
+.guarantee-icon { font-size: 2rem; flex-shrink: 0; color: var(--green, #25D366); }
+.guarantee-box h4 { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: .3rem; color: var(--text); }
+.guarantee-box p { font-size: .85rem; color: var(--muted); margin: 0; line-height: 1.6; }
+
+/* ── PARTNERSHIP CARDS (renamed from retainer) ───── */
+.retainer-card {
+  background: var(--bg-card, #fff); border: 1.5px solid var(--border);
+  border-radius: 18px; padding: 1.75rem 1.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,.06);
+  transition: transform .3s, box-shadow .3s, border-color .3s;
+  height: 100%;
+}
+.retainer-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,.10); border-color: var(--blue-mid); }
+[data-theme="dark"] .retainer-card:hover { border-color: var(--gold); }
+.retainer-price { font-family: 'Poppins', sans-serif; font-size: 2.4rem; font-weight: 900; color: var(--blue, #0D1B2A); line-height: 1; }
+[data-theme="dark"] .retainer-price { color: var(--gold); }
+.retainer-price sup { font-size: 1.1rem; vertical-align: super; margin-right: .05rem; }
+.retainer-price span { font-size: 1rem; font-weight: 400; opacity: .55; }
+.retainer-name { font-weight: 700; font-size: .95rem; margin: .4rem 0 .5rem; color: var(--text); }
+.retainer-desc { font-size: .82rem; color: var(--muted); margin-bottom: .75rem; line-height: 1.5; }
+.retainer-card.retainer-featured { border-color: var(--gold); box-shadow: 0 8px 28px rgba(245,176,0,.15); }
+
+/* ── PAYMENT PLAN PILL ───────────────────────────── */
+.payment-plan-pill {
+  display: inline-flex; align-items: center; justify-content: center; gap: .35rem;
+  background: linear-gradient(135deg, rgba(245,176,0,.1), rgba(245,176,0,.05));
+  border: 1px solid rgba(245,176,0,.4);
+  border-radius: 50px; padding: .4rem 1rem;
+  font-size: .72rem; font-weight: 600; color: var(--gold, #F5B000);
+  margin-top: .75rem; width: 100%; justify-content: center;
+}
+
+/* ── RETAINER CARDS ──────────────────────────────── */
+.retainer-card {
+  background: var(--bg-card, #fff); border: 1.5px solid var(--border);
+  border-radius: 18px; padding: 1.75rem 1.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,.06);
+  transition: transform .3s, box-shadow .3s, border-color .3s;
+  height: 100%;
+}
+.retainer-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,.10); border-color: var(--blue-mid); }
+[data-theme="dark"] .retainer-card:hover { border-color: var(--gold); }
+.retainer-price { font-family: 'Poppins', sans-serif; font-size: 2.4rem; font-weight: 900; color: var(--blue, #0D1B2A); line-height: 1; }
+[data-theme="dark"] .retainer-price { color: var(--gold); }
+.retainer-price sup { font-size: 1.1rem; vertical-align: super; margin-right: .05rem; }
+.retainer-price span { font-size: 1rem; font-weight: 400; opacity: .55; }
+.retainer-name { font-weight: 700; font-size: .95rem; margin: .4rem 0 .5rem; color: var(--text); }
+.retainer-desc { font-size: .82rem; color: var(--muted); margin-bottom: .75rem; line-height: 1.5; }
+.retainer-card.retainer-featured { border-color: var(--gold); box-shadow: 0 8px 28px rgba(245,176,0,.15); }
+
+/* ── PAYMENT PLAN BLOCK ──────────────────────────── */
+.payment-plan-block {
+  margin-top: 2.5rem;
+  background: var(--bg-alt); border: 1px solid var(--border);
+  border-radius: 1.25rem; overflow: hidden;
+}
+.ppb-inner { display: flex; align-items: flex-start; gap: 1.5rem; padding: 2rem 2.25rem; }
+@media (max-width: 576px) { .ppb-inner { flex-direction: column; gap: 1rem; } }
+.ppb-icon { font-size: 2rem; color: var(--gold); flex-shrink: 0; margin-top: .25rem; }
+.ppb-steps { list-style: none; padding: 0; margin: 1rem 0; display: flex; flex-direction: column; gap: .6rem; }
+.ppb-step { display: flex; align-items: center; gap: .85rem; font-size: .875rem; }
+.ppb-num { width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--blue-mid)); color: #fff; font-size: .7rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+[data-theme="dark"] .ppb-num { background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: #0D0D0D; }
+.ppb-notes { display: flex; flex-direction: column; gap: .4rem; margin-top: .75rem; }
+.ppb-notes span { font-size: .78rem; color: var(--muted); display: flex; align-items: center; gap: .5rem; }
+.ppb-notes i { color: var(--blue-mid); font-size: .85rem; }
+[data-theme="dark"] .ppb-notes i { color: var(--gold); }
+
+/* ── mt-6 helper ─────────────────────────────────── */
+.mt-6 { margin-top: 3.5rem; }
+.footer-legal-row { margin-top: .4rem; font-size: .72rem; }
+.footer-legal-row a { color: var(--muted); text-decoration: none; }
+.footer-legal-row a:hover { color: var(--blue-mid); }
+[data-theme="dark"] .footer-legal-row a:hover { color: var(--gold-light); }
+.footer-trademark { font-size: .68rem; color: var(--muted); opacity: .55; margin-top: .5rem; line-height: 1.5; max-width: 600px; }
+  
+/* ── Skip Navigation ─────────────────────────────── */
+.skip-link {
+  position: absolute; top: -100%; left: 1rem;
+  background: var(--gold, #F5B000); color: #1a1a1a;
+  padding: .5rem 1rem; border-radius: 0 0 .5rem .5rem;
+  font-weight: 700; font-size: .85rem; z-index: 10000;
+  text-decoration: none; transition: top .2s;
+}
+.skip-link:focus { top: 0; }
+
+/* ── Consent Banner ──────────────────────────────── */
+.consent-banner-button[href="#accept"] { background-color: #4CAF50; font-family: inherit; }
+.consent-banner-modal { font-family: 'Poppins', sans-serif; }
+
+/* ══════════════════════════════════════════════════════
+   DEMO CARDS — copied from index
+   ══════════════════════════════════════════════════════ */
+.demo-picture {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-alt);
+}
+.demo-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.demo-card:hover .demo-picture img {
+  transform: scale(1.05);
+}
+.demo-card-img {
+  width: 100%; aspect-ratio: 16 / 9;
+  object-fit: cover; display: block;
+  border-radius: .75rem .75rem 0 0;
+}
+.demo-disclaimer {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-size: .72rem; color: var(--muted); background: var(--bg-alt);
+  border: 1px solid var(--border); border-radius: 50px;
+  padding: .3rem .9rem; margin-top: 1rem;
+}
+
+/* ── mt-6 helper ──────────────────────────────────── */
+.mt-6 { margin-top: 3.5rem; }
+.footer-legal-row { margin-top: .4rem; font-size: .72rem; }
+.footer-legal-row a { color: var(--muted); text-decoration: none; }
+.footer-legal-row a:hover { color: var(--blue-mid); }
+[data-theme="dark"] .footer-legal-row a:hover { color: var(--gold-light); }
+.footer-trademark { font-size: .68rem; color: var(--muted); opacity: .55; margin-top: .5rem; line-height: 1.5; max-width: 600px; }
+
+/* ══════════════════════════════════════════════════════
+   DEMOS PAGE — HERO SECTION
+   ══════════════════════════════════════════════════════ */
+.demos-hero {
+  padding: 7rem 0 3.5rem;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+.demos-hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -80px;
+  width: 420px; height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,176,0,.10) 0%, transparent 70%);
+  pointer-events: none;
+}
+.demos-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: -60px;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37,99,235,.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.demos-hero-eyebrow {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-size: .72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold, #F5B000); margin-bottom: 1rem;
+}
+.demos-hero h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900; line-height: 1.15;
+  color: var(--text); margin-bottom: 1rem;
+}
+.demos-hero h1 .accent { color: var(--blue-mid, #2563EB); }
+[data-theme="dark"] .demos-hero h1 .accent { color: var(--gold, #F5B000); }
+.demos-hero p { max-width: 560px; }
+
+/* ══════════════════════════════════════════════════════
+   FILTER BAR
+   ══════════════════════════════════════════════════════ */
+.filter-bar {
+  display: flex; flex-wrap: wrap; gap: .5rem;
+  padding: 1.5rem 0 2rem;
+}
+.filter-btn {
+  display: inline-flex; align-items: center; gap: .35rem;
+  padding: .45rem 1.1rem;
+  border: 1.5px solid var(--border);
+  border-radius: 50px;
+  background: var(--bg);
+  color: var(--muted);
+  font-family: 'Poppins', sans-serif;
+  font-size: .78rem; font-weight: 600;
+  cursor: pointer;
+  transition: all .2s ease;
+  user-select: none;
+  line-height: 1;
+}
+.filter-btn:hover {
+  border-color: var(--blue-mid, #2563EB);
+  color: var(--blue-mid, #2563EB);
+  background: var(--blue-pale, #EFF6FF);
+}
+[data-theme="dark"] .filter-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(245,176,0,.08);
+}
+.filter-btn.active {
+  border-color: var(--gold, #F5B000);
+  background: var(--gold, #F5B000);
+  color: #1a1a1a;
+}
+
+/* ══════════════════════════════════════════════════════
+   COMING SOON CARD VARIANT
+   ══════════════════════════════════════════════════════ */
+.demo-card-coming {
+  opacity: .65;
+  pointer-events: none;
+  position: relative;
+}
+.coming-overlay {
+  position: absolute;
+  top: .75rem; right: .75rem;
+  background: var(--gold, #F5B000);
+  color: #1a1a1a;
+  font-size: .62rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .2rem .65rem;
+  border-radius: 50px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ══════════════════════════════════════════════════════
+   DEMO PLACEHOLDER IMAGE (SVG-based, no real file needed)
+   ══════════════════════════════════════════════════════ */
+.demo-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: .5rem;
+  font-size: .75rem; font-weight: 600;
+  letter-spacing: .05em; text-transform: uppercase;
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  border-radius: .75rem .75rem 0 0;
+  overflow: hidden;
+  position: relative;
+}
+.demo-placeholder .ph-icon { font-size: 2rem; opacity: .3; }
+.demo-placeholder .ph-label { opacity: .45; }
+.demo-placeholder::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(245,176,0,.06) 0%, rgba(37,99,235,.06) 100%);
+}
+
+/* ── STAT ROW on demos page ──────────────────────── */
+.demos-stat-bar {
+  display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem;
+  padding: 1.25rem 2rem;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius, 14px);
+  margin-bottom: 2.5rem;
+  align-items: center;
+}
+.demos-stat-item {
+  display: flex; flex-direction: column; align-items: flex-start;
+}
+.demos-stat-num {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem; font-weight: 900; line-height: 1;
+  color: var(--blue-mid, #2563EB);
+}
+[data-theme="dark"] .demos-stat-num { color: var(--gold); }
+.demos-stat-label { font-size: .72rem; opacity: .55; font-weight: 500; }
+
+/* ── WA FLOAT ────────────────────────────────────── */
+.wa-float {
+  position: fixed !important; bottom: 1.5rem !important; right: 1.5rem !important;
+  left: auto !important; z-index: 9999 !important;
+  width: 56px !important; height: 56px !important;
+  background: #25D366 !important; color: #fff !important;
+  border-radius: 50% !important; display: flex !important;
+  align-items: center !important; justify-content: center !important;
+  font-size: 1.6rem !important; box-shadow: 0 4px 20px rgba(37,211,102,.45) !important;
+  text-decoration: none !important; transition: transform .2s ease, box-shadow .2s ease !important;
+  transform: translateZ(0) !important;
+}
+.wa-float:hover { transform: scale(1.08) translateZ(0) !important; box-shadow: 0 6px 28px rgba(37,211,102,.6) !important; color: #fff !important; }
+
+/* ── HIDDEN utility ──────────────────────────────── */
+.demo-card[data-hidden="true"] { display: none !important; }
+
+/* ── Global overflow fix ─────────────────────────── */
+html, body { overflow-x: hidden; max-width: 100%; }
+*, *::before, *::after { box-sizing: border-box; }
+</style>
+
+</head>
+<body>
+
+<!-- ══ SKIP NAVIGATION ════════════════════════════════ -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- ══ NAVBAR ═══════════════════════════════════════════ -->
+<header>
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav" role="navigation" aria-label="Main navigation">
+  <div class="container">
+
+    <!-- Brand -->
+    <a class="navbar-brand" href="index.html" aria-label="Jamal Samuel home">
+      <img src="images/logo.webp" alt="Jamal Samuel logo" class="brand-logo" width="42" height="42" loading="eager">
+      <div>
+        <span>
+          <span class="brand-jama">Jamal</span> <span class="brand-inks">Samuel</span>
+        </span>
+        <span class="brand-tagline">Launch. Link. Grow.</span>
+      </div>
+    </a>
+
+    <!-- Mobile controls -->
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+      <button class="theme-toggle" id="themeToggleMob" aria-label="Toggle light/dark theme">
+        <i id="themeIconMob" class="bi bi-sun-fill" aria-hidden="true"></i>
+      </button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+
+    <!-- Nav links -->
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1" role="list">
+        <li class="nav-item" role="listitem"><a class="nav-link" href="index.html#why">The Problem</a></li>
+        <li class="nav-item" role="listitem"><a class="nav-link" href="index.html#solution">How It Works</a></li>
+        <li class="nav-item" role="listitem"><a class="nav-link" href="index.html#features">What You Get</a></li>
+        <li class="nav-item" role="listitem"><a class="nav-link active" href="demos.html" aria-current="page">All Demos</a></li>
+        <li class="nav-item" role="listitem"><a class="nav-link" href="index.html#pricing">Pricing</a></li>
+        <li class="nav-item ms-lg-2" role="listitem">
+          <button class="theme-toggle d-none d-lg-flex" id="themeToggle" aria-label="Toggle light/dark theme">
+            <i id="themeIcon" class="bi bi-sun-fill" aria-hidden="true"></i>
+          </button>
+        </li>
+        <li class="nav-item ms-lg-2" role="listitem">
+          <a class="nav-link nav-cta" href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested%20in%20getting%20a%20website" aria-label="Get your free consultation on WhatsApp">
+            <i class="bi bi-whatsapp me-1" aria-hidden="true"></i>Free Consultation
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+</header>
+
+<!-- ══ MAIN CONTENT ════════════════════════════════════ -->
+<main id="main-content" role="main">
+
+<!-- ══ DEMOS HERO ════════════════════════════════════ -->
+<section class="demos-hero" aria-label="Demo portfolio header">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <div class="demos-hero-eyebrow reveal">
+          <i class="bi bi-grid-3x3-gap-fill" aria-hidden="true"></i>
+          Sample Work
+        </div>
+        <h1 class="reveal d1">
+          Conversion Systems.<br>
+          <span class="accent">Built for Businesses Like Yours.</span>
+        </h1>
+        <p class="text-m reveal d2">
+          Every demo below is a fully functional system with real menus/services, real WhatsApp flows, and real conversion designs. Browse by industry to see what we'd build for your business. Each one is live and clickable.
+        </p>
+        <div class="demo-disclaimer reveal d3" aria-label="Portfolio note">
+          <i class="bi bi-info-circle" aria-hidden="true"></i>
+          Sample systems built to demonstrate capabilities. Real client references available during consultation.
+        </div>
+      </div>
+      <div class="col-lg-4 d-none d-lg-flex justify-content-center align-items-center">
+        <div class="hero-phone-mockup" aria-hidden="true">
+          <div class="phone-shell">
+            <div class="phone-notch"></div>
+            <div class="phone-screen-inner">
+              <div class="mini-brand"><i class="bi bi-shop me-1"></i> YOUR BUSINESS</div>
+              <div class="mini-hero-img" role="img" aria-label="Product illustration">
+                <img src="lavish-event.webp" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:.6rem;display:block;">
+              </div>
+              <div class="mini-title">Your Menu &amp; Products<br>Full details, prices &amp; availability</div>
+              <div class="mini-price">Order directly · Fast delivery · Island-wide</div>
+              <div class="mini-wa-btn"><i class="bi bi-whatsapp"></i> Order Now on WhatsApp</div>
+            </div>
+          </div>
+          <div style="text-align:center;font-size:.75rem;font-weight:600;opacity:.5;letter-spacing:.08em;text-transform:uppercase;margin-top:.75rem;">Caribbean &amp; Diaspora</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="demos-stat-bar reveal d3 mt-5">
+      <div class="demos-stat-item">
+        <span class="demos-stat-num">9</span>
+        <span class="demos-stat-label">Live demo systems</span>
+      </div>
+      <div class="demos-stat-item">
+        <span class="demos-stat-num">7+</span>
+        <span class="demos-stat-label">Industries covered</span>
+      </div>
+      <div class="demos-stat-item">
+        <span class="demos-stat-num">8+</span>
+        <span class="demos-stat-label">Countries served</span>
+      </div>
+      <div class="demos-stat-item ms-auto d-none d-md-flex">
+        <a href="https://wa.me/17587235872?text=I%20want%20to%20see%20a%20demo%20for%20my%20industry" class="btn-wa" aria-label="Request a demo for your industry on WhatsApp">
+          <i class="bi bi-whatsapp" aria-hidden="true"></i> Request a Custom Demo
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ FILTER + GRID ════════════════════════════════ -->
+<section class="bg-alt" id="portfolio" aria-label="Demo portfolio grid">
+  <div class="container">
+
+    <!-- Filter bar -->
+    <div class="filter-bar" role="group" aria-label="Filter demos by industry">
+      <button class="filter-btn active" data-filter="all">
+        <i class="bi bi-grid" aria-hidden="true"></i> All (9)
+      </button>
+      <button class="filter-btn" data-filter="food">
+        <i class="bi bi-cup-hot" aria-hidden="true"></i> Food &amp; Drink
+      </button>
+      <button class="filter-btn" data-filter="retail">
+        <i class="bi bi-bag" aria-hidden="true"></i> Retail &amp; Fashion
+      </button>
+      <button class="filter-btn" data-filter="services">
+        <i class="bi bi-briefcase" aria-hidden="true"></i> Services
+      </button>
+      <button class="filter-btn" data-filter="wellness">
+        <i class="bi bi-heart-pulse" aria-hidden="true"></i> Wellness &amp; Beauty
+      </button>
+      <button class="filter-btn" data-filter="hospitality">
+        <i class="bi bi-building" aria-hidden="true"></i> Hospitality
+      </button>
+      <button class="filter-btn" data-filter="tech">
+        <i class="bi bi-cpu" aria-hidden="true"></i> Tech &amp; Devices
+      </button>
+    </div>
+
+    <!-- ══════════════════════════════════════════════
+         ROW 1 — Food & Drink (4 cards)
+         ══════════════════════════════════════════════ -->
+    <div class="row g-4 mb-4">
+
+      <!-- Card 1: Sweet Layers Bakery -->
+      <div class="col-sm-6 col-lg-3 reveal d1">
+        <article class="demo-card" data-category="food" aria-label="Sweet Layers Bakery sample system">
+          <div class="demo-picture">
+            <img src="sweet-layers.webp" class="demo-card-img" alt="Sweet Layers Bakery — sample conversion system preview" loading="lazy" width="400" height="225">
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Bakery</span>
+            <h2 class="h5">Sweet Layers Bakery</h2>
+            <p>Custom cake shop with full flavour menu, pricing tiers, and WhatsApp order builder.</p>
+            <a href="sweet-layers.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto" aria-label="View Sweet Layers Bakery sample system">
+              <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> View System
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Card 2: Island Bites -->
+      <div class="col-sm-6 col-lg-3 reveal d2">
+        <article class="demo-card" data-category="food" aria-label="Island Bites sample system">
+          <div class="demo-picture">
+            <img src="islandbites.webp" class="demo-card-img" alt="Island Bites — sample restaurant conversion system preview" loading="lazy" width="400" height="225">
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Restaurant</span>
+            <h2 class="h5">Island Bites</h2>
+            <p>Vibrant food business page with full menu, daily specials, pickup/delivery toggle, and WhatsApp checkout.</p>
+            <a href="islandbitesofficial.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto" aria-label="View Island Bites sample system">
+              <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> View System
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Card 3: Fresh Flow Juices -->
+      <div class="col-sm-6 col-lg-3 reveal d3">
+        <article class="demo-card" data-category="food" aria-label="Fresh Flow Juices sample system">
+          <div class="demo-picture">
+            <img src="freshflowjuices.webp" class="demo-card-img" alt="Fresh Flow Juices — sample juice bar conversion system preview" loading="lazy" width="400" height="225">
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Food &amp; Drink</span>
+            <h2 class="h5">Fresh Flow Juices</h2>
+            <p>Clean juice bar page with filterable menu, instant WhatsApp ordering, and loyalty offer section.</p>
+            <a href="freshflowjuicesofficial.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto" aria-label="View Fresh Flow Juices sample system">
+              <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> View System
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Card 4: Velour Café -->
+      <div class="col-sm-6 col-lg-3 reveal d4">
+        <article class="demo-card" data-category="food" aria-label="Velour Café sample system">
+          <div class="demo-picture">
+            <img src="velourcafe.webp" class="demo-card-img" alt="Velour Café — sample café conversion system preview" loading="lazy" width="400" height="225">
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Café</span>
+            <h2 class="h5">Velour Café</h2>
+            <p>Elegant café system with full drink menu, atmosphere gallery, and one-tap WhatsApp ordering.</p>
+            <a href="velour-cafe.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto" aria-label="View Velour Café sample system">
+              <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> View System
+            </a>
+          </div>
+        </article>
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════════════════════════════
+         ROW 2 — Retail & Events (4 cards)
+         ══════════════════════════════════════════════ -->
+    <div class="row g-4 mb-4">
+
+      <!-- Card 5: Boutique Corner -->
+      <div class="col-sm-6 col-lg-3 reveal d1">
+        <article class="demo-card" data-category="retail" aria-label="Boutique Corner sample system">
+          <div class="demo-picture">
+            <img src="boutiquecorner.webp" class="demo-card-img" alt="Boutique Corner — sample retail conversion system preview" loading="lazy" width="400" height="225">
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Retail</span>
+            <h2 class="h5">Boutique Corner</h2>
+            <p>Stylish retail storefront with featured product grid, sizing guide, and direct WhatsApp orders.</p>
+            <a href="boutique-corner.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto" aria-label="View Boutique Corner sample system">
+              <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> View System
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Card 6: Lavish Event Designer -->
+      <div class="col-sm-6 col-lg-3 reveal d2">
+        <article class="demo-card" data-category="services" aria-label="Lavish Event Designer sample system">
+          <div class="demo-picture">
+            <img src="lavish-event.webp" class="demo-card-img" alt="Lavish Event Designer — sample catering conversion system preview" loading="lazy" width="400" height="225">
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Catering</span>
+            <h2 class="h5">Lavish Event Designer</h2>
+            <p>Event catering system with service packages, gallery, and WhatsApp booking flow.</p>
+            <a href="lavish-event-designer.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto" aria-label="View Lavish Event Designer sample system">
+              <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> View System
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Card 7: Lens & Light Studio -->
+      <div class="col-sm-6 col-lg-3 reveal d3">
+        <article class="demo-card" data-category="services" aria-label="Lens and Light Studio sample system">
+          <div class="demo-picture">
+            <img src="lens-light.webp" class="demo-card-img" alt="Lens and Light Studio — sample photography conversion system preview" loading="lazy" width="400" height="225">
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Photography</span>
+            <h2 class="h5">Lens &amp; Light Studio</h2>
+            <p>Photography studio with service tiers, portfolio gallery, and booking via WhatsApp.</p>
+            <a href="lens-light.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto" aria-label="View Lens and Light Studio sample system">
+              <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> View System
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Card 8: FitLife Training -->
+      <div class="col-sm-6 col-lg-3 reveal d4">
+        <article class="demo-card" data-category="wellness" aria-label="FitLife Training sample system">
+          <div class="demo-picture">
+            <img src="fit-life.webp" class="demo-card-img" alt="FitLife Training — sample fitness conversion system preview" loading="lazy" width="400" height="225">
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Fitness</span>
+            <h2 class="h5">FitLife Training</h2>
+            <p>Personal training system with programme packages, trainer bio, and WhatsApp booking.</p>
+            <a href="fitlife.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto" aria-label="View FitLife Training sample system">
+              <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> View System
+            </a>
+          </div>
+        </article>
+      </div>
+
+    </div>
+
+    
+    <!-- ══════════════════════════════════════════════
+         ROW 6 — Tech & Devices (1 live card)
+         ══════════════════════════════════════════════ -->
+    <div class="row g-4 mb-4">
+
+      <!-- Card 21: GridCore Electronics -->
+      <div class="col-sm-6 col-lg-3 reveal d1">
+        <article class="demo-card" data-category="tech" aria-label="GridCore Electronics sample system">
+          <div class="demo-picture">
+            <img src="gridcore-electronics.webp" class="demo-card-img" alt="GridCore Electronics — sample tech store conversion system preview" loading="lazy" width="400" height="225">
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Tech &amp; Devices</span>
+            <h2 class="h5">GridCore Electronics</h2>
+            <p>St. Lucia's tech store with filterable product catalogue — phones, tablets, laptops, accessories — and instant WhatsApp ordering.</p>
+            <a href="gridcore-electronics-demo.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto" aria-label="View GridCore Electronics sample system">
+              <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> View System
+            </a>
+          </div>
+        </article>
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════════════════════════════
+         ROW 3 — Wellness, Beauty & Services (4 cards)
+         ══════════════════════════════════════════════ -->
+    <div class="row g-4 mb-4">
+
+    <!-- Card 9: Glow Skin Studio -->
+   <div class="col-sm-6 col-lg-3 reveal d4">
+        <article class="demo-card" data-category="wellness" aria-label="Glow Skin Studio sample system">
+          <div class="demo-picture">
+            <img src="glow-skin-studio.webp" class="demo-card-img" alt="Glow Skin Studio — sample beauty conversion system preview" loading="lazy" width="400" height="225">
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Beauty</span>
+            <h2 class="h5">Glow Skin Studio</h2>
+            <p>Skincare studio with treatment menu, before/after gallery, and instant WhatsApp booking.</p>
+            <a href="fitlife.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto" aria-label="View FitLife Training sample system">
+              <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> View System
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Card 10: Roots & Braids 
+      <div class="col-sm-6 col-lg-3 reveal d2">
+        <article class="demo-card demo-card-coming" data-category="wellness" aria-label="Roots and Braids sample system — coming soon">
+          <span class="coming-overlay">Coming Soon</span>
+          <div class="demo-placeholder" aria-hidden="true">
+            <i class="bi bi-scissors ph-icon"></i>
+            <span class="ph-label">Hair &amp; Braiding</span>
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Hair Salon</span>
+            <h2 class="h5">Roots &amp; Braids</h2>
+            <p>Caribbean hair salon with style catalogue, appointment slots, pricing, and WhatsApp booking.</p>
+            <span class="btn-blue disabled" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto;opacity:.45;" aria-hidden="true">
+              <i class="bi bi-clock" aria-hidden="true"></i> Coming Soon
+            </span>
+          </div>
+        </article>
+      </div>-->
+
+      <!-- Card 11: Nail'd It Studio 
+      <div class="col-sm-6 col-lg-3 reveal d3">
+        <article class="demo-card demo-card-coming" data-category="wellness" aria-label="Naild It Studio sample system — coming soon">
+          <span class="coming-overlay">Coming Soon</span>
+          <div class="demo-placeholder" aria-hidden="true">
+            <i class="bi bi-palette ph-icon"></i>
+            <span class="ph-label">Nail Studio</span>
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Nail Studio</span>
+            <h2 class="h5">Nail'd It Studio</h2>
+            <p>Nail studio with design gallery, service menu, pricing, and WhatsApp appointment booking.</p>
+            <span class="btn-blue disabled" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto;opacity:.45;" aria-hidden="true">
+              <i class="bi bi-clock" aria-hidden="true"></i> Coming Soon
+            </span>
+          </div>
+        </article>
+      </div>-->
+
+      <!-- Card 12: MassageWave Spa
+      <div class="col-sm-6 col-lg-3 reveal d4">
+        <article class="demo-card demo-card-coming" data-category="wellness" aria-label="MassageWave Spa sample system — coming soon">
+          <span class="coming-overlay">Coming Soon</span>
+          <div class="demo-placeholder" aria-hidden="true">
+            <i class="bi bi-droplet-half ph-icon"></i>
+            <span class="ph-label">Spa &amp; Wellness</span>
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Spa</span>
+            <h2 class="h5">MassageWave Spa</h2>
+            <p>Wellness spa with treatment packages, therapist profiles, and WhatsApp session booking.</p>
+            <span class="btn-blue disabled" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto;opacity:.45;" aria-hidden="true">
+              <i class="bi bi-clock" aria-hidden="true"></i> Coming Soon
+            </span>
+          </div>
+        </article>
+      </div>
+
+    </div>-->
+
+    <!-- ══════════════════════════════════════════════
+         ROW 4 — Hospitality & Travel (4 cards)
+         ══════════════════════════════════════════════ -->
+    <div class="row g-4 mb-4">
+
+      <!-- Card 13: Island Villa Rentals 
+      <div class="col-sm-6 col-lg-3 reveal d1">
+        <article class="demo-card demo-card-coming" data-category="hospitality" aria-label="Island Villa Rentals sample system — coming soon">
+          <span class="coming-overlay">Coming Soon</span>
+          <div class="demo-placeholder" aria-hidden="true">
+            <i class="bi bi-house-heart ph-icon"></i>
+            <span class="ph-label">Villa &amp; Rental</span>
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Hospitality</span>
+            <h2 class="h5">Island Villa Rentals</h2>
+            <p>Short-term rental property system with photo gallery, availability, rates, and WhatsApp inquiry.</p>
+            <span class="btn-blue disabled" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto;opacity:.45;" aria-hidden="true">
+              <i class="bi bi-clock" aria-hidden="true"></i> Coming Soon
+            </span>
+          </div>
+        </article>
+      </div>-->
+
+      <!-- Card 14: Tropic Tours 
+      <div class="col-sm-6 col-lg-3 reveal d2">
+        <article class="demo-card demo-card-coming" data-category="hospitality" aria-label="Tropic Tours sample system — coming soon">
+          <span class="coming-overlay">Coming Soon</span>
+          <div class="demo-placeholder" aria-hidden="true">
+            <i class="bi bi-map ph-icon"></i>
+            <span class="ph-label">Tours &amp; Travel</span>
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Tourism</span>
+            <h2 class="h5">Tropic Tours</h2>
+            <p>Tour operator system with experience packages, itineraries, testimonials, and booking flow.</p>
+            <span class="btn-blue disabled" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto;opacity:.45;" aria-hidden="true">
+              <i class="bi bi-clock" aria-hidden="true"></i> Coming Soon
+            </span>
+          </div>
+        </article>
+      </div>-->
+
+      <!-- Card 15: Blue Bay Guesthouse 
+      <div class="col-sm-6 col-lg-3 reveal d3">
+        <article class="demo-card demo-card-coming" data-category="hospitality" aria-label="Blue Bay Guesthouse sample system — coming soon">
+          <span class="coming-overlay">Coming Soon</span>
+          <div class="demo-placeholder" aria-hidden="true">
+            <i class="bi bi-building-check ph-icon"></i>
+            <span class="ph-label">Guesthouse</span>
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Hospitality</span>
+            <h2 class="h5">Blue Bay Guesthouse</h2>
+            <p>Guesthouse booking system with room showcase, rates, local tips, and WhatsApp reservation flow.</p>
+            <span class="btn-blue disabled" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto;opacity:.45;" aria-hidden="true">
+              <i class="bi bi-clock" aria-hidden="true"></i> Coming Soon
+            </span>
+          </div>
+        </article>
+      </div>-->
+
+      <!-- Card 16: Sun & Sea Watersports
+      <div class="col-sm-6 col-lg-3 reveal d4">
+        <article class="demo-card demo-card-coming" data-category="hospitality" aria-label="Sun and Sea Watersports sample system — coming soon">
+          <span class="coming-overlay">Coming Soon</span>
+          <div class="demo-placeholder" aria-hidden="true">
+            <i class="bi bi-tsunami ph-icon"></i>
+            <span class="ph-label">Watersports</span>
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Tourism</span>
+            <h2 class="h5">Sun &amp; Sea Watersports</h2>
+            <p>Watersports rental and activity booking with pricing, safety info, and WhatsApp reservations.</p>
+            <span class="btn-blue disabled" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto;opacity:.45;" aria-hidden="true">
+              <i class="bi bi-clock" aria-hidden="true"></i> Coming Soon
+            </span>
+          </div>
+        </article>
+      </div>-->
+
+    </div>
+
+    <!-- ══════════════════════════════════════════════
+         ROW 5 — Retail & Services (4 cards)
+         ══════════════════════════════════════════════ -->
+    <div class="row g-4 mb-4">
+
+      <!-- Card 17: CaribbeanThreads 
+      <div class="col-sm-6 col-lg-3 reveal d1">
+        <article class="demo-card demo-card-coming" data-category="retail" aria-label="Caribbean Threads fashion sample system — coming soon">
+          <span class="coming-overlay">Coming Soon</span>
+          <div class="demo-placeholder" aria-hidden="true">
+            <i class="bi bi-handbag ph-icon"></i>
+            <span class="ph-label">Fashion &amp; Clothing</span>
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Fashion</span>
+            <h2 class="h5">CaribbeanThreads</h2>
+            <p>Caribbean fashion brand with lookbook, size guide, new arrivals, and WhatsApp purchase flow.</p>
+            <span class="btn-blue disabled" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto;opacity:.45;" aria-hidden="true">
+              <i class="bi bi-clock" aria-hidden="true"></i> Coming Soon
+            </span>
+          </div>
+        </article>
+      </div>-->
+
+      <!-- Card 18: Tradewinds Print Co.
+      <div class="col-sm-6 col-lg-3 reveal d2">
+        <article class="demo-card demo-card-coming" data-category="services" aria-label="Tradewinds Print Co sample system — coming soon">
+          <span class="coming-overlay">Coming Soon</span>
+          <div class="demo-placeholder" aria-hidden="true">
+            <i class="bi bi-printer ph-icon"></i>
+            <span class="ph-label">Print &amp; Design</span>
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Print &amp; Design</span>
+            <h2 class="h5">Tradewinds Print Co.</h2>
+            <p>Print and graphic design shop with service packages, turnaround times, and WhatsApp order flow.</p>
+            <span class="btn-blue disabled" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto;opacity:.45;" aria-hidden="true">
+              <i class="bi bi-clock" aria-hidden="true"></i> Coming Soon
+            </span>
+          </div>
+        </article>
+      </div>-->
+
+      <!-- Card 19: Island Cleaning Co. 
+      <div class="col-sm-6 col-lg-3 reveal d3">
+        <article class="demo-card demo-card-coming" data-category="services" aria-label="Island Cleaning Co sample system — coming soon">
+          <span class="coming-overlay">Coming Soon</span>
+          <div class="demo-placeholder" aria-hidden="true">
+            <i class="bi bi-house-gear ph-icon"></i>
+            <span class="ph-label">Home Services</span>
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Home Services</span>
+            <h2 class="h5">Island Cleaning Co.</h2>
+            <p>Cleaning service with package tiers, coverage area, before/after photos, and WhatsApp booking.</p>
+            <span class="btn-blue disabled" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto;opacity:.45;" aria-hidden="true">
+              <i class="bi bi-clock" aria-hidden="true"></i> Coming Soon
+            </span>
+          </div>
+        </article>
+      </div>-->
+
+      <!-- Card 20: CargoLink Shipping 
+      <div class="col-sm-6 col-lg-3 reveal d4">
+        <article class="demo-card demo-card-coming" data-category="services" aria-label="CargoLink Shipping sample system — coming soon">
+          <span class="coming-overlay">Coming Soon</span>
+          <div class="demo-placeholder" aria-hidden="true">
+            <i class="bi bi-box-seam ph-icon"></i>
+            <span class="ph-label">Shipping &amp; Barrel</span>
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Shipping</span>
+            <h2 class="h5">CargoLink Shipping</h2>
+            <p>Diaspora barrel and shipping service with rates by country, dimensions guide, and WhatsApp bookings.</p>
+            <span class="btn-blue disabled" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto;opacity:.45;" aria-hidden="true">
+              <i class="bi bi-clock" aria-hidden="true"></i> Coming Soon
+            </span>
+          </div>
+        </article>
+      </div>-->
+
+    </div>
+
+
+    <!-- CTA -->
+    <div class="text-center mt-3 mb-2 reveal">
+      <p class="text-m" style="font-size:.9rem;max-width:500px;margin:0 auto 1.5rem;">
+        <i class="bi bi-info-circle me-1" aria-hidden="true"></i>
+        Don't see your industry? <a href="https://wa.me/17587235872?text=I%20want%20to%20see%20a%20demo%20for%20my%20industry" style="color:var(--blue-mid);font-weight:600;" aria-label="Ask for a demo built for your type of business on WhatsApp">Ask us for a demo built for your type of business.</a>
+      </p>
+      <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20get%20started" class="btn-wa" aria-label="Get started with Jamal Samuel on WhatsApp">
+        <i class="bi bi-whatsapp" aria-hidden="true"></i> Get Started — Free Consultation
+      </a>
+      <div class="mt-3">
+        <a href="index.html" class="btn-blue" style="font-size:.85rem;padding:.6rem 1.5rem;" aria-label="Back to Jamal Samuel home page">
+          <i class="bi bi-arrow-left" aria-hidden="true"></i> Back to Main Site
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ══ FOOTER ════════════════════════════════════════ -->
+<footer class="site-footer" role="contentinfo" aria-label="Site footer">
+  <div class="container">
+    <div class="row g-5 mb-3">
+      <div class="col-lg-5">
+        <div class="footer-brand-wrap">
+          <img src="images/logo.webp" alt="Jamal Samuel logo" class="img-fluid rounded-pill footer-brand-logo" loading="lazy" width="48" height="48">
+          <div class="footer-brand">
+            <span class="fb-jama">Jamal</span> <span class="fb-inks">Samuel</span>
+          </div>
+        </div>
+        <p class="footer-about">Jamal Samuel builds WhatsApp-first ordering pages for Caribbean and diaspora businesses that need customers to see, choose, and order without endless DMs.</p>
+        <p class="footer-about" style="font-size:.78rem;margin-top:.5rem;">
+          🇱🇨 Saint Lucia &nbsp;·&nbsp; 🇧🇧 Barbados &nbsp;·&nbsp; 🇹🇹 Trinidad &nbsp;·&nbsp; 🇯🇲 Jamaica &nbsp;·&nbsp; 🇺🇸 USA &nbsp;·&nbsp; 🇨🇦 Canada &nbsp;·&nbsp; 🇬🇧 UK &nbsp;&amp; Beyond
+        </p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="https://wa.me/17587235872" class="soc-btn wa" aria-label="Chat with Jamal Samuel on WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/jamalinksonline?igsh=MTlsaDBtdDgyMWkzZw==" class="soc-btn ig" aria-label="Follow Jamal Samuel on Instagram" rel="noopener noreferrer" target="_blank"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+          <a href="https://www.facebook.com/share/14XtA8G2rYe/" class="soc-btn fb" aria-label="Follow Jamal Samuel on Facebook" rel="noopener noreferrer" target="_blank"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <p class="footer-head">Quick Links</p>
+        <nav aria-label="Footer navigation">
+          <a href="index.html#why"         class="footer-lnk">The Problem</a>
+          <a href="index.html#solution"    class="footer-lnk">How It Works</a>
+          <a href="index.html#difference"  class="footer-lnk">Why Jamal Samuel</a>
+          <a href="index.html#features"    class="footer-lnk">What You Get</a>
+          <a href="index.html#demos"       class="footer-lnk">Examples</a>
+          <a href="index.html#pricing"     class="footer-lnk">Pricing</a>
+          <a href="index.htmllegal.html"   class="footer-lnk">Privacy &amp; Terms</a>
+        </nav>
+      </div>
+      <div class="col-6 col-lg-3">
+        <p class="footer-head">Contact Us</p>
+        <a href="https://wa.me/17587235872" class="footer-lnk d-flex align-items-center gap-2" aria-label="Call or message Jamal Samuel on WhatsApp: +17587235872">
+          <i class="bi bi-whatsapp text-success" aria-hidden="true"></i> +17587235872
+        </a>
+        <p class="footer-lnk" style="cursor:default">
+          <i class="bi bi-clock me-2" style="color:var(--gold)" aria-hidden="true"></i> Mon–Sat, 9 AM – 6 PM (AST)
+        </p>
+        <p class="footer-lnk" style="cursor:default;font-size:.78rem;">
+          <i class="bi bi-globe me-2" style="color:var(--gold)" aria-hidden="true"></i> Serving clients worldwide
+        </p>
+        <a href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested" class="btn-wa mt-2" style="font-size:.8rem;padding:.6rem 1.2rem" onclick="trackWhatsAppClick(event)" aria-label="Chat with us now on WhatsApp">
+          <i class="bi bi-whatsapp" aria-hidden="true"></i> Chat Now
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-start gap-2">
+      <div>
+        <span id="footer-year">© 2026 Jamal Samuel. All rights reserved.</span>
+        <div class="footer-legal-row">
+          <a href="legal.html#do-not-sell">Do Not Sell or Share My Personal Information</a>
+          &nbsp;·&nbsp;
+          <a href="legal.html">Privacy Policy &amp; Terms</a>
+        </div>
+        <p class="footer-trademark">
+          Jamal Samuel is a web design and digital services business <!--registered and--> operated from Saint Lucia (758). All website designs, systems, copy, and intellectual property produced by Jamal Samuel remain the exclusive property of Jamal Samuel until full payment is received by the client. Sample and demo sites shown on this page are original concept builds created to illustrate service capabilities: business names, logos, and content within demo sites are fictitious and used for demonstration purposes only. Jamal Samuel does not represent these as active client work unless explicitly stated. Unauthorised reproduction of any Jamal Samuel design, system, or content is prohibited.
+        </p>
+        <p class="footer-trademark">
+        Jamal Samuel™ is a trading name. All demo systems shown are original sample builds created to demonstrate capabilities. They are not affiliated with any real business unless explicitly stated.
+      </p>
+      </div>
+      <span style="opacity:.45;font-size:.78rem;">Built from Saint Lucia 🇱🇨 with care for small businesses.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ WHATSAPP FLOAT ═══════════════════════════════ -->
+<a href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested%20in%20getting%20a%20website"
+   class="wa-float" aria-label="Chat with Jamal Samuel on WhatsApp" rel="noopener noreferrer" target="_blank">
+  <i class="bi bi-whatsapp" aria-hidden="true"></i>
+</a>
+
+<!-- ══ BOOTSTRAP JS ═════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/* ════════════════════════════════════════════════════════
+   THEME TOGGLE
+   ════════════════════════════════════════════════════════ */
+const html  = document.documentElement;
+const STORE = 'jama-theme';
+
+function getInitialTheme() {
+  const saved = localStorage.getItem(STORE);
+  if (saved) return saved;
+  const h = new Date().getHours();
+  return (h >= 19 || h < 6) ? 'dark' : 'light';
+}
+
+let current = getInitialTheme();
+
+function applyTheme(t) {
+  current = t;
+  html.setAttribute('data-theme', t);
+  localStorage.setItem(STORE, t);
+  const dark  = t === 'dark';
+  const icon  = document.getElementById('themeIcon');
+  const iconM = document.getElementById('themeIconMob');
+  if (icon)  icon.className  = dark ? 'bi bi-moon-stars-fill' : 'bi bi-sun-fill';
+  if (iconM) iconM.className = dark ? 'bi bi-moon-stars-fill' : 'bi bi-sun-fill';
+}
+
+applyTheme(current);
+
+const toggle = () => applyTheme(current === 'light' ? 'dark' : 'light');
+document.getElementById('themeToggle')    ?.addEventListener('click', toggle);
+document.getElementById('themeToggleMob') ?.addEventListener('click', toggle);
+
+
+/* ════════════════════════════════════════════════════════
+   NAVBAR SCROLL SHADOW
+   ════════════════════════════════════════════════════════ */
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60), { passive: true });
+
+
+/* ════════════════════════════════════════════════════════
+   SCROLL REVEAL
+   ════════════════════════════════════════════════════════ */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+
+/* ════════════════════════════════════════════════════════
+   FILTER BUTTONS
+   ════════════════════════════════════════════════════════ */
+const filterBtns = document.querySelectorAll('.filter-btn');
+const demoCards  = document.querySelectorAll('.col-sm-6.col-lg-3');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Update active state
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const filter = btn.getAttribute('data-filter');
+
+    demoCards.forEach(col => {
+      const card = col.querySelector('.demo-card');
+      if (!card) return;
+      const cat = card.getAttribute('data-category') || '';
+
+      if (filter === 'all' || cat === filter) {
+        col.style.display = '';
+      } else {
+        col.style.display = 'none';
+      }
+    });
+  });
+});
+
+
+/* ════════════════════════════════════════════════════════
+   AUTO COPYRIGHT YEAR
+   ════════════════════════════════════════════════════════ */
+document.getElementById('footer-year').textContent =
+  `© ${new Date().getFullYear()} Jamal Samuel. All rights reserved.`;
+</script>
+
+<!-- ══ CONSENT BANNER ══════════════════════════════ -->
+<script>
+const consentConfig = {
+  display: { mode: 'bar', wall: false },
+  consent_types: [
+    {
+      name:        'analytics_storage',
+      title:       'Analytics',
+      description: 'Helps us understand how visitors interact with our website.',
+      default:     'denied',
+      require:     false
+    }
+  ],
+  modal: {
+    title:       'We value your privacy',
+    description: 'This site uses cookies to improve your experience.',
+    buttons: { settings: 'Settings', close: 'Close', reject: 'Reject', accept: 'Accept all' }
+  },
+  settings: {
+    title:       'Customise your preferences',
+    description: 'Choose which cookies you want to allow.',
+    buttons: { reject: 'Reject', close: 'Close', save: 'Save', accept: 'Accept all' }
+  }
+};
+
+function loadConsentState() {
+  const saved = localStorage.getItem('cookie_consent');
+  return saved ? JSON.parse(saved) : {};
+}
+
+function saveConsentState(consentState) {
+  localStorage.setItem('cookie_consent', JSON.stringify(consentState));
+  if (consentState.analytics_storage === 'granted') loadGoogleAnalytics();
+}
+
+function loadGoogleAnalytics() {
+  const script = document.createElement('script');
+  script.src   = 'https://www.googletagmanager.com/gtag/js?id=G-D5H0JCYXE3';
+  script.async = true;
+  document.head.appendChild(script);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-D5H0JCYXE3');
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (typeof cookiesBannerJs !== 'undefined') {
+    cookiesBannerJs(loadConsentState, saveConsentState, consentConfig);
+  }
+  const saved = loadConsentState();
+  if (saved.analytics_storage === 'granted') loadGoogleAnalytics();
+});
+</script>
+
+<script src="https://tagconcierge.github.io/consent-banner-js/dist/consent-banner.js" defer></script>
+
+</body>
+</html>
