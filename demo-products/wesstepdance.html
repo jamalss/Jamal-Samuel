@@ -1,0 +1,2267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WesStep Dance | Summer Dance & Heritage Training — Saint Lucia 2026</title>
+  <meta name="description" content="WesStep Dance offers Saint Lucia's premier Summer Dance & Heritage Training Program. Caribbean & Afro-diasporic traditions, contemporary technique, choreography & performance. Apply now for Summer 2026.">
+  <meta property="og:title" content="WesStep Dance | Summer 2026 Intensive — Saint Lucia">
+  <meta property="og:description" content="A transformative two-week intensive rooted in Caribbean & Afro-diasporic traditions. Technique. Culture. Performance.">
+  <meta property="og:type" content="website">
+  <meta name="robots" content="index, follow">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <style>
+    /* =====================================================
+       CSS CUSTOM PROPERTIES — WesStep Brand System
+    ===================================================== */
+    :root {
+      --teal-deep:    #0B7B7B;
+      --teal-mid:     #0D9B9B;
+      --teal-light:   #E3F5F5;
+      --teal-wash:    #F0FAFA;
+      --gold:         #C9A84C;
+      --gold-light:   #F0DFA0;
+      --dark:         #0C1117;
+      --dark-2:       #1A2228;
+      --mid:          #3A4A52;
+      --muted:        #6B7C85;
+      --off-white:    #F8F5F0;
+      --white:        #FFFFFF;
+      --danger-soft:  #8B1A1A;
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+
+      --radius-sm:    6px;
+      --radius-md:    14px;
+      --radius-lg:    28px;
+      --radius-pill:  999px;
+
+      --shadow-card:  0 4px 24px rgba(11,123,123,0.10);
+      --shadow-lift:  0 12px 40px rgba(11,123,123,0.16);
+
+      font-display: swap;
+    }
+
+    /* =====================================================
+       RESET & BASE
+    ===================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--off-white);
+      color: var(--dark);
+      overflow-x: hidden;
+      line-height: 1.65;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      line-height: 1.15;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    section { position: relative; }
+
+    /* =====================================================
+       SKIP LINK
+    ===================================================== */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--teal-deep);
+      color: #fff;
+      padding: 8px 16px;
+      z-index: 9999;
+      text-decoration: none;
+      border-radius: 0 0 var(--radius-sm) 0;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* =====================================================
+       NAVBAR
+    ===================================================== */
+    #mainNav {
+      background: rgba(12, 17, 23, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 14px 0;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid rgba(13,155,155,0.15);
+    }
+
+    #mainNav.scrolled {
+      background: rgba(12, 17, 23, 0.99);
+      padding: 10px 0;
+      border-bottom-color: rgba(13,155,155,0.3);
+    }
+
+    .navbar-brand {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--white) !important;
+      letter-spacing: 0.01em;
+    }
+
+    .navbar-brand span {
+      color: var(--teal-mid);
+    }
+
+    .navbar-brand .brand-tag {
+      font-family: var(--font-body);
+      font-size: 0.62rem;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      display: block;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    .navbar-nav .nav-link {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.78) !important;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 6px 14px !important;
+      transition: color 0.2s;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active { color: var(--teal-mid) !important; }
+
+    .btn-nav-apply {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--teal-deep);
+      color: #fff !important;
+      border: none;
+      border-radius: var(--radius-pill);
+      padding: 8px 22px !important;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-nav-apply:hover {
+      background: var(--teal-mid);
+      transform: translateY(-1px);
+    }
+
+    .navbar-toggler {
+      border-color: rgba(13,155,155,0.5);
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280,180,180,0.9%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+    #hero {
+      min-height: 100svh;
+      background: var(--dark);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Geometric teal shapes — signature visual */
+    .hero-geo {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-geo::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      right: -8%;
+      width: clamp(300px, 50vw, 640px);
+      height: clamp(300px, 50vw, 640px);
+      background: radial-gradient(ellipse at center, rgba(13,155,155,0.18) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-geo::after {
+      content: '';
+      position: absolute;
+      bottom: -5%;
+      left: -5%;
+      width: clamp(200px, 35vw, 480px);
+      height: clamp(200px, 35vw, 480px);
+      background: radial-gradient(ellipse at center, rgba(201,168,76,0.10) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    /* Diagonal teal accent strip */
+    .hero-strip {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 42%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(11,123,123,0.12) 0%, rgba(13,155,155,0.06) 100%);
+      clip-path: polygon(18% 0, 100% 0, 100% 100%, 0% 100%);
+      z-index: 0;
+    }
+
+    /* Dancing silhouette SVG accent */
+    .hero-silhouette {
+      position: absolute;
+      right: 4%;
+      bottom: 0;
+      height: 88%;
+      width: auto;
+      opacity: 0.07;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--teal-mid);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--teal-mid);
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.0;
+      margin-bottom: 8px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--teal-mid);
+      font-weight: 500;
+    }
+
+    .hero-title .title-heavy {
+      display: block;
+      font-weight: 700;
+      font-size: clamp(3.2rem, 9vw, 7.5rem);
+      color: var(--white);
+      line-height: 0.95;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-body);
+      font-size: clamp(0.9rem, 2vw, 1.05rem);
+      color: rgba(255,255,255,0.65);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 40px;
+    }
+
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .hero-meta-item i {
+      color: var(--teal-mid);
+      font-size: 0.85rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .btn-hero-primary {
+      background: var(--teal-deep);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 14px 34px;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      border: none;
+      transition: background 0.25s, transform 0.2s, box-shadow 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-hero-primary:hover {
+      background: var(--teal-mid);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(13,155,155,0.35);
+      color: #fff;
+    }
+
+    .btn-hero-ghost {
+      background: transparent;
+      color: rgba(255,255,255,0.8);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 13px 30px;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.25);
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-hero-ghost:hover {
+      border-color: var(--teal-mid);
+      color: var(--teal-mid);
+    }
+
+    .hero-price-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: var(--radius-pill);
+      padding: 8px 20px;
+      margin-top: 20px;
+    }
+
+    .hero-price-badge .price-amount {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .hero-price-badge .price-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.3;
+    }
+
+    .hero-price-badge .price-scholarship {
+      font-size: 0.68rem;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-scroll-hint span {
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(13,155,155,0.7), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.2); }
+    }
+
+    /* =====================================================
+       PROGRAM NAVIGATOR (sticky bar)
+    ===================================================== */
+    #programNav {
+      background: var(--dark-2);
+      border-bottom: 1px solid rgba(13,155,155,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 900;
+    }
+
+    .prog-nav-inner {
+      display: flex;
+      overflow-x: auto;
+      gap: 0;
+      scrollbar-width: none;
+    }
+
+    .prog-nav-inner::-webkit-scrollbar { display: none; }
+
+    .prog-nav-btn {
+      flex-shrink: 0;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: 14px 20px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .prog-nav-btn:hover,
+    .prog-nav-btn.active {
+      color: var(--teal-mid);
+      border-bottom-color: var(--teal-mid);
+    }
+
+    .prog-nav-btn i { font-size: 0.7rem; }
+
+    /* =====================================================
+       SECTION TITLES — shared
+    ===================================================== */
+    .section-eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--teal-mid);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--teal-mid);
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--dark);
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--teal-deep);
+    }
+
+    .section-title-light {
+      color: var(--white);
+    }
+
+    .section-title-light em {
+      color: var(--teal-mid);
+    }
+
+    /* =====================================================
+       ABOUT / MISSION STRIP
+    ===================================================== */
+    #mission {
+      background: var(--white);
+      padding: 80px 0 70px;
+    }
+
+    .mission-quote {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--teal-deep);
+      border-left: 3px solid var(--teal-mid);
+      padding-left: 28px;
+      line-height: 1.4;
+    }
+
+    .mission-body {
+      font-size: 1rem;
+      color: var(--mid);
+      line-height: 1.8;
+    }
+
+    .pillar-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 20px;
+      background: var(--teal-wash);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(11,123,123,0.1);
+      height: 100%;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .pillar-item:hover {
+      box-shadow: var(--shadow-card);
+      transform: translateY(-2px);
+    }
+
+    .pillar-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--teal-deep);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .pillar-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+
+    .pillar-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* =====================================================
+       PROGRAMS SECTION
+    ===================================================== */
+    #programs {
+      background: var(--dark);
+      padding: 90px 0;
+    }
+
+    .program-card {
+      background: var(--dark-2);
+      border: 1px solid rgba(13,155,155,0.15);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      height: 100%;
+      transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+    }
+
+    .program-card:hover {
+      box-shadow: var(--shadow-lift);
+      transform: translateY(-4px);
+      border-color: rgba(13,155,155,0.45);
+    }
+
+    .program-card-header {
+      padding: 32px 30px 24px;
+      border-bottom: 1px solid rgba(13,155,155,0.12);
+      position: relative;
+    }
+
+    .program-badge {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      background: rgba(13,155,155,0.15);
+      color: var(--teal-mid);
+      border: 1px solid rgba(13,155,155,0.25);
+      border-radius: var(--radius-pill);
+      padding: 4px 14px;
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+
+    .program-badge.badge-gold {
+      background: rgba(201,168,76,0.12);
+      color: var(--gold);
+      border-color: rgba(201,168,76,0.25);
+    }
+
+    .program-badge.badge-feature {
+      background: var(--teal-deep);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .program-name {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .program-tagline {
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+    }
+
+    .program-price-tag {
+      position: absolute;
+      top: 28px;
+      right: 28px;
+      text-align: right;
+    }
+
+    .price-main {
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .price-currency {
+      font-size: 1rem;
+      font-weight: 400;
+      color: rgba(201,168,76,0.7);
+      margin-right: 2px;
+    }
+
+    .price-note {
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.04em;
+    }
+
+    .program-card-body {
+      padding: 24px 30px;
+    }
+
+    .program-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .pmeta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .pmeta-item i {
+      color: var(--teal-mid);
+      width: 14px;
+      font-size: 0.75rem;
+    }
+
+    .program-includes-title {
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal-mid);
+      margin-bottom: 12px;
+    }
+
+    .program-includes-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px;
+    }
+
+    .program-includes-list li {
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.72);
+      padding: 5px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .program-includes-list li:last-child { border-bottom: none; }
+
+    .program-includes-list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--teal-mid);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    .program-card-footer {
+      padding: 0 30px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn-program-apply {
+      width: 100%;
+      background: var(--teal-deep);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 13px 20px;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-align: center;
+    }
+
+    .btn-program-apply:hover {
+      background: var(--teal-mid);
+      transform: translateY(-1px);
+      color: #fff;
+    }
+
+    .btn-program-apply.btn-gold {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
+    .btn-program-apply.btn-gold:hover {
+      background: #d4b35a;
+      color: var(--dark);
+    }
+
+    .btn-program-learn {
+      width: 100%;
+      background: transparent;
+      color: rgba(255,255,255,0.55);
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.12);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-align: center;
+    }
+
+    .btn-program-learn:hover {
+      border-color: var(--teal-mid);
+      color: var(--teal-mid);
+    }
+
+    /* Cross-enrollment nudge */
+    .cross-enroll-nudge {
+      background: linear-gradient(135deg, rgba(11,123,123,0.15), rgba(201,168,76,0.08));
+      border: 1px solid rgba(13,155,155,0.2);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .nudge-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(201,168,76,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+      font-size: 0.9rem;
+    }
+
+    .nudge-text {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.6;
+    }
+
+    .nudge-text strong {
+      color: var(--gold);
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 3px;
+    }
+
+    .nudge-link {
+      color: var(--teal-mid);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .nudge-link:hover { color: var(--teal-light); }
+
+    /* =====================================================
+       EXPERIENCE SECTION (what you gain)
+    ===================================================== */
+    #experience {
+      background: var(--white);
+      padding: 90px 0;
+    }
+
+    .gain-card {
+      background: var(--off-white);
+      border: 1px solid rgba(11,123,123,0.08);
+      border-radius: var(--radius-md);
+      padding: 30px 26px;
+      height: 100%;
+      transition: all 0.25s;
+    }
+
+    .gain-card:hover {
+      background: var(--teal-wash);
+      border-color: rgba(11,123,123,0.2);
+      box-shadow: var(--shadow-card);
+      transform: translateY(-2px);
+    }
+
+    .gain-num {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 300;
+      color: rgba(11,123,123,0.18);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .gain-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .gain-desc {
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* Training disciplines */
+    .discipline-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 40px;
+    }
+
+    .discipline-chip {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 500;
+      background: var(--teal-wash);
+      color: var(--teal-deep);
+      border: 1px solid rgba(11,123,123,0.18);
+      border-radius: var(--radius-pill);
+      padding: 8px 18px;
+    }
+
+    /* =====================================================
+       SCHOLARSHIP SECTION
+    ===================================================== */
+    #scholarship {
+      background: linear-gradient(135deg, var(--teal-deep) 0%, #065a5a 100%);
+      padding: 90px 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #scholarship::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .scholarship-content { position: relative; z-index: 1; }
+
+    .scholarship-box {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+    }
+
+    .scholarship-box h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+
+    .scholarship-box p {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin-bottom: 22px;
+    }
+
+    .scholarship-req-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px;
+    }
+
+    .scholarship-req-list li {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.78);
+      padding: 7px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .scholarship-req-list li:last-child { border-bottom: none; }
+
+    .scholarship-req-list li i {
+      color: var(--gold);
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .btn-scholarship {
+      background: var(--white);
+      color: var(--teal-deep);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 14px 34px;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      border: none;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-scholarship:hover {
+      background: var(--gold);
+      color: var(--dark);
+      transform: translateY(-2px);
+    }
+
+    .scholarship-stat {
+      text-align: center;
+      padding: 28px 20px;
+    }
+
+    .scholarship-stat .stat-num {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+    }
+
+    .scholarship-stat .stat-label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.65);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 8px;
+    }
+
+    .scholarship-divider {
+      width: 1px;
+      background: rgba(255,255,255,0.15);
+      margin: 0 10px;
+    }
+
+    /* =====================================================
+       SCHEDULE / TIMELINE
+    ===================================================== */
+    #schedule {
+      background: var(--off-white);
+      padding: 90px 0;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 20px;
+      padding-bottom: 30px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 40px;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--teal-mid), transparent);
+    }
+
+    .timeline-item:last-child::before { display: none; }
+
+    .timeline-dot {
+      width: 40px;
+      height: 40px;
+      background: var(--teal-deep);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #fff;
+      font-size: 0.8rem;
+      z-index: 1;
+      position: relative;
+    }
+
+    .timeline-content {
+      padding-top: 8px;
+      flex: 1;
+    }
+
+    .timeline-date {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal-deep);
+      margin-bottom: 4px;
+    }
+
+    .timeline-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+
+    .timeline-desc {
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* =====================================================
+       APPLY SECTION (multi-enroll CTA)
+    ===================================================== */
+    #apply {
+      background: var(--dark);
+      padding: 90px 0;
+    }
+
+    .apply-intro {
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto 56px;
+    }
+
+    .apply-intro p {
+      font-size: 0.98rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.75;
+      margin-top: 16px;
+    }
+
+    /* Apply option cards */
+    .apply-option-card {
+      background: var(--dark-2);
+      border: 1px solid rgba(13,155,155,0.18);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s;
+    }
+
+    .apply-option-card:hover {
+      border-color: rgba(13,155,155,0.45);
+      box-shadow: var(--shadow-lift);
+      transform: translateY(-3px);
+    }
+
+    .apply-option-card.featured {
+      border-color: var(--teal-mid);
+      background: linear-gradient(160deg, rgba(13,155,155,0.08), var(--dark-2));
+    }
+
+    .apply-option-number {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: rgba(13,155,155,0.15);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .apply-option-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .apply-option-desc {
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 24px;
+    }
+
+    .apply-also-nudge {
+      background: rgba(13,155,155,0.08);
+      border: 1px solid rgba(13,155,155,0.15);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+
+    .apply-also-nudge strong {
+      color: var(--teal-mid);
+    }
+
+    .apply-also-nudge a {
+      color: var(--teal-mid);
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
+    /* =====================================================
+       CONTACT / FOOTER SECTION
+    ===================================================== */
+    #contact {
+      background: var(--dark-2);
+      padding: 70px 0 50px;
+      border-top: 1px solid rgba(13,155,155,0.12);
+    }
+
+    .contact-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .contact-sub {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+
+    .contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(13,155,155,0.1);
+      border: 1px solid rgba(13,155,155,0.2);
+      border-radius: var(--radius-pill);
+      padding: 10px 20px;
+      color: rgba(255,255,255,0.75);
+      font-size: 0.84rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    .contact-pill:hover {
+      background: rgba(13,155,155,0.2);
+      color: var(--white);
+    }
+
+    .contact-pill i { color: var(--teal-mid); }
+
+    .footer-divider {
+      border-color: rgba(255,255,255,0.06);
+      margin: 40px 0 30px;
+    }
+
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .footer-brand span { color: var(--teal-mid); }
+
+    .footer-tagline {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .footer-credit {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.25);
+      text-align: right;
+    }
+
+    .footer-credit a {
+      color: var(--teal-mid);
+      text-decoration: none;
+    }
+
+    .footer-credit a:hover { text-decoration: underline; }
+
+    /* =====================================================
+       WHATSAPP FLOATING BUTTON
+    ===================================================== */
+    .wa-float {
+      position: fixed;
+      bottom: 28px;
+      right: 24px;
+      z-index: 9990;
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.4rem;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      animation: waPulse 2.5s ease-in-out infinite;
+    }
+
+    .wa-float:hover {
+      background: #1ebe5d;
+      color: #fff;
+      transform: scale(1.08);
+      animation: none;
+    }
+
+    @keyframes waPulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.35); }
+      50% { box-shadow: 0 4px 32px rgba(37,211,102,0.65), 0 0 0 8px rgba(37,211,102,0.08); }
+    }
+
+    /* =====================================================
+       DARK MODE — auto based on time
+    ===================================================== */
+    body.auto-dark {
+      --off-white: #0F1419;
+      --white: #1A2228;
+      --dark: #F0EDE8;
+      --dark-2: #111820;
+      --mid: #A8B8C2;
+      --muted: #7A8E98;
+    }
+
+    /* =====================================================
+       DARK MODE TOGGLE
+    ===================================================== */
+    .mode-toggle {
+      position: fixed;
+      bottom: 92px;
+      right: 28px;
+      z-index: 9989;
+      width: 40px;
+      height: 40px;
+      background: rgba(26,34,40,0.9);
+      border: 1px solid rgba(13,155,155,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+      transition: all 0.2s;
+      backdrop-filter: blur(8px);
+    }
+
+    .mode-toggle:hover {
+      background: rgba(11,123,123,0.2);
+      color: var(--teal-mid);
+    }
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+    @media (max-width: 767px) {
+      .program-price-tag {
+        position: static;
+        margin-bottom: 10px;
+        text-align: left;
+      }
+
+      .program-meta {
+        grid-template-columns: 1fr;
+        gap: 7px;
+      }
+
+      .hero-silhouette { display: none; }
+
+      .scholarship-divider { display: none; }
+
+      .scholarship-box { padding: 28px 22px; }
+
+      .footer-credit { text-align: left; margin-top: 12px; }
+    }
+
+    /* =====================================================
+       REDUCED MOTION
+    ===================================================== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .wa-float { animation: none; }
+      .scroll-line { animation: none; }
+    }
+
+    /* =====================================================
+       FOCUS STYLES (WCAG)
+    ===================================================== */
+    :focus-visible {
+      outline: 2px solid var(--teal-mid);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- ======================================================
+     NAVBAR
+====================================================== -->
+<nav id="mainNav" class="navbar navbar-expand-lg fixed-top" aria-label="Main navigation">
+  <div class="container">
+    <a class="navbar-brand" href="#hero" aria-label="WesStep Dance Home">
+      Wes<span>Step</span>
+      <span class="brand-tag">Dance · Heritage · Culture</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+      aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav align-items-center gap-1 me-3">
+        <li class="nav-item"><a class="nav-link" href="#programs">Programs</a></li>
+        <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+        <li class="nav-item"><a class="nav-link" href="#scholarship">Scholarships</a></li>
+        <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+      <a href="#apply" class="btn-nav-apply nav-link" aria-label="Apply for a program">Apply Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ======================================================
+     HERO
+====================================================== -->
+<section id="hero" aria-labelledby="heroHeading" role="banner">
+  <div class="hero-geo" aria-hidden="true"></div>
+  <div class="hero-strip" aria-hidden="true"></div>
+
+  <!-- Dancer silhouette SVG — purely decorative -->
+  <svg class="hero-silhouette" aria-hidden="true" focusable="false"
+       viewBox="0 0 200 500" xmlns="http://www.w3.org/2000/svg">
+    <!-- Arabesque-inspired abstract dancer -->
+    <ellipse cx="100" cy="60" rx="22" ry="22" fill="white"/>
+    <path d="M100 82 Q95 150 70 200 Q50 240 30 290" stroke="white" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M100 82 Q105 150 130 200 Q160 240 185 260" stroke="white" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M70 200 Q90 220 110 270 Q120 320 115 400" stroke="white" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M70 200 Q60 240 40 280 Q20 330 15 400" stroke="white" stroke-width="6" fill="none" stroke-linecap="round"/>
+  </svg>
+
+  <div class="container hero-content">
+    <div class="row align-items-center" style="min-height: 100svh; padding: 120px 0 100px;">
+      <div class="col-lg-7" data-aos="fade-right" data-aos-duration="900">
+        <div class="hero-eyebrow" aria-hidden="true">Saint Lucia · Summer 2026</div>
+        <h1 class="hero-title" id="heroHeading">
+          <em>Rooted in</em>
+          <span class="title-heavy">Culture.</span>
+          Rising Through
+          <span class="title-heavy">Dance.</span>
+        </h1>
+        <p class="hero-subtitle">
+          WesStep's Summer Dance &amp; Heritage Training Program — a transformative two-week intensive built on Caribbean &amp; Afro-diasporic traditions, contemporary technique, and live community performance.
+        </p>
+        <div class="hero-meta" aria-label="Program key details">
+          <div class="hero-meta-item">
+            <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+            <span>July 30 – August 7, 2026</span>
+          </div>
+          <div class="hero-meta-item">
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+            <span>Saint Lucia</span>
+          </div>
+          <div class="hero-meta-item">
+            <i class="fa-solid fa-users" aria-hidden="true"></i>
+            <span>All experience levels</span>
+          </div>
+          <div class="hero-meta-item">
+            <i class="fa-solid fa-masks-theater" aria-hidden="true"></i>
+            <span>Live community performance</span>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <a href="#apply" class="btn-hero-primary" aria-label="Apply for Summer 2026 program">
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Apply for Summer 2026
+          </a>
+          <a href="#programs" class="btn-hero-ghost" aria-label="View all programs">
+            <i class="fa-solid fa-grid-2" aria-hidden="true"></i> View Programs
+          </a>
+        </div>
+        <div class="hero-price-badge" aria-label="Program fee: EC $650, founding cohort rate" role="note">
+          <div>
+            <span class="price-amount">EC $650</span>
+          </div>
+          <div class="price-label">
+            Founding Cohort Rate
+            <span class="price-scholarship d-block">Scholarships Available</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint" aria-hidden="true">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ======================================================
+     PROGRAM NAVIGATOR (sticky)
+====================================================== -->
+<nav id="programNav" aria-label="Quick program navigation">
+  <div class="container">
+    <div class="prog-nav-inner">
+      <a href="#programs" class="prog-nav-btn active" aria-label="Navigate to all programs">
+        <i class="fa-solid fa-layer-group" aria-hidden="true"></i> All Programs
+      </a>
+      <a href="#summer-intensive" class="prog-nav-btn" aria-label="Summer 2026 Intensive program">
+        <i class="fa-solid fa-sun" aria-hidden="true"></i> Summer Intensive
+      </a>
+      <a href="#evening-classes" class="prog-nav-btn" aria-label="Evening choreography classes">
+        <i class="fa-solid fa-moon" aria-hidden="true"></i> Evening Classes
+      </a>
+      <a href="#scholarship" class="prog-nav-btn" aria-label="Scholarship program">
+        <i class="fa-solid fa-award" aria-hidden="true"></i> Scholarships
+      </a>
+      <a href="#apply" class="prog-nav-btn" aria-label="Apply now section">
+        <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i> Apply Now
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ======================================================
+     MAIN CONTENT
+====================================================== -->
+<main id="main-content" role="main">
+
+  <!-- ===== MISSION SECTION ===== -->
+  <section id="mission" aria-labelledby="missionHeading">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+        <div class="col-lg-6" data-aos="fade-right" data-aos-duration="800">
+          <div class="section-eyebrow" aria-hidden="true">Our Foundation</div>
+          <h2 class="section-title" id="missionHeading">
+            Building Dancers.<br><em>Honouring Legacy.</em>
+          </h2>
+          <div class="mission-quote mt-4">
+            "Technique · Culture · Performance"
+          </div>
+          <p class="mission-body mt-4">
+            WesStep was founded on a single belief: that Caribbean dance is not just movement — it is memory, identity, and expression. Our programs are built to develop technically skilled, culturally grounded performers who carry that legacy forward.
+          </p>
+          <p class="mission-body mt-3">
+            Whether you are stepping on stage for the first time or refining years of practice, WesStep meets you where you are and builds you into something more.
+          </p>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="pillar-item" role="article">
+                <div class="pillar-icon" aria-hidden="true"><i class="fa-solid fa-music"></i></div>
+                <div>
+                  <div class="pillar-title">Technique</div>
+                  <div class="pillar-desc">Rigorous, progressive training in Caribbean, modern, and contemporary forms.</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="pillar-item" role="article">
+                <div class="pillar-icon" aria-hidden="true"><i class="fa-solid fa-globe-americas"></i></div>
+                <div>
+                  <div class="pillar-title">Culture</div>
+                  <div class="pillar-desc">Deep roots in Afro-diasporic traditions. Every movement carries meaning.</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="pillar-item" role="article">
+                <div class="pillar-icon" aria-hidden="true"><i class="fa-solid fa-star"></i></div>
+                <div>
+                  <div class="pillar-title">Performance</div>
+                  <div class="pillar-desc">Real stage experience culminating in a live community showcase.</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="pillar-item" role="article">
+                <div class="pillar-icon" aria-hidden="true"><i class="fa-solid fa-heart"></i></div>
+                <div>
+                  <div class="pillar-title">Community</div>
+                  <div class="pillar-desc">Bonds built through shared sweat, discipline, and creative growth.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROGRAMS SECTION ===== -->
+  <section id="programs" aria-labelledby="programsHeading">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <div class="section-eyebrow justify-content-center" aria-hidden="true">2026 Enrollment Open</div>
+        <h2 class="section-title section-title-light" id="programsHeading">
+          Choose Your <em>Path</em>
+        </h2>
+        <p style="color: rgba(255,255,255,0.5); font-size: 0.9rem; margin-top: 12px; max-width: 500px; margin-left: auto; margin-right: auto;">
+          Each program is built independently — and designed to work powerfully together. You can enroll in more than one.
+        </p>
+      </div>
+
+      <div class="row g-4 mb-5">
+        <!-- PROGRAM 1: Summer Intensive -->
+        <div class="col-lg-6" id="summer-intensive" data-aos="fade-up" data-aos-delay="0">
+          <article class="program-card" aria-labelledby="progTitle1">
+            <div class="program-card-header">
+              <div class="program-badge badge-feature">Featured · Summer 2026</div>
+              <div class="program-price-tag" aria-label="Program fee: EC $650">
+                <div class="price-main">
+                  <span class="price-currency">EC</span>650
+                </div>
+                <div class="price-note">Founding Cohort Rate</div>
+              </div>
+              <h3 class="program-name" id="progTitle1">Summer Dance &amp;<br>Heritage Intensive</h3>
+              <p class="program-tagline">A transformative two-week immersion in Caribbean dance, culture, and live performance. Saint Lucia, July 30 – August 7, 2026.</p>
+            </div>
+            <div class="program-card-body">
+              <div class="program-meta" aria-label="Program details">
+                <div class="pmeta-item">
+                  <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+                  <span>July 30 – Aug 7, 2026</span>
+                </div>
+                <div class="pmeta-item">
+                  <i class="fa-solid fa-clock" aria-hidden="true"></i>
+                  <span>Two weeks · Daily</span>
+                </div>
+                <div class="pmeta-item">
+                  <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                  <span>Saint Lucia</span>
+                </div>
+                <div class="pmeta-item">
+                  <i class="fa-solid fa-users" aria-hidden="true"></i>
+                  <span>All levels welcome</span>
+                </div>
+              </div>
+              <div class="program-includes-title">What's Included</div>
+              <ul class="program-includes-list" aria-label="Program inclusions">
+                <li>Caribbean &amp; Afro-diasporic tradition training</li>
+                <li>Modern / Contemporary technique classes</li>
+                <li>Choreography &amp; creative exploration workshops</li>
+                <li>Cultural immersion &amp; artistic development</li>
+                <li>Performance technique coaching</li>
+                <li>Live community performance showcase</li>
+              </ul>
+              <div class="cross-enroll-nudge" role="note" aria-label="Cross-enrollment suggestion">
+                <div class="nudge-icon" aria-hidden="true"><i class="fa-solid fa-lightbulb"></i></div>
+                <div class="nudge-text">
+                  <strong>Pair with Evening Classes</strong>
+                  Students enrolled in the Summer Intensive who also join the Evening Choreography &amp; Teaching Practice get additional technique hours that directly reinforce your intensive training.
+                  <a href="#evening-classes" class="nudge-link d-block mt-2">See Evening Classes →</a>
+                </div>
+              </div>
+            </div>
+            <div class="program-card-footer">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSd66Zp0s7rOW0bnronDiXTReiZUEY1z8hLr5nlFGLx6TUEuKg/viewform"
+                 target="_blank" rel="noopener noreferrer"
+                 class="btn-program-apply btn-gold"
+                 aria-label="Apply for Summer Dance and Heritage Intensive">
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Apply for Summer Intensive
+              </a>
+              <a href="#experience" class="btn-program-learn" aria-label="Learn more about what you gain">
+                <i class="fa-solid fa-circle-info" aria-hidden="true"></i> What Will Your Child Gain?
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- PROGRAM 2: Evening Classes -->
+        <div class="col-lg-6" id="evening-classes" data-aos="fade-up" data-aos-delay="100">
+          <article class="program-card" aria-labelledby="progTitle2">
+            <div class="program-card-header">
+              <div class="program-badge">Evening · Ages 18+</div>
+              <h3 class="program-name" id="progTitle2">Choreography &amp;<br>Teaching Practice</h3>
+              <p class="program-tagline">Refine your craft as a choreographer and movement educator. Evening sessions designed for developing artists ready to teach and lead.</p>
+            </div>
+            <div class="program-card-body">
+              <div class="program-meta" aria-label="Program details">
+                <div class="pmeta-item">
+                  <i class="fa-solid fa-moon" aria-hidden="true"></i>
+                  <span>Evening sessions</span>
+                </div>
+                <div class="pmeta-item">
+                  <i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i>
+                  <span>Ages 18+</span>
+                </div>
+                <div class="pmeta-item">
+                  <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                  <span>Saint Lucia</span>
+                </div>
+                <div class="pmeta-item">
+                  <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                  <span>Intermediate–Advanced</span>
+                </div>
+              </div>
+              <div class="program-includes-title">Focus Areas</div>
+              <ul class="program-includes-list" aria-label="Program focus areas">
+                <li>Choreography methodology &amp; structure</li>
+                <li>Teaching practice &amp; facilitation skills</li>
+                <li>Spatial awareness &amp; compositional design</li>
+                <li>Movement direction &amp; artistic voice</li>
+                <li>Feedback techniques for dance educators</li>
+                <li>Professional development for working artists</li>
+              </ul>
+              <div class="cross-enroll-nudge" role="note" aria-label="Cross-enrollment suggestion">
+                <div class="nudge-icon" aria-hidden="true"><i class="fa-solid fa-lightbulb"></i></div>
+                <div class="nudge-text">
+                  <strong>Also Interested in the Summer Intensive?</strong>
+                  You can register for both programs. Many participants enroll in the Evening Classes alongside the Intensive for a full-immersion experience.
+                  <a href="#summer-intensive" class="nudge-link d-block mt-2">See Summer Intensive →</a>
+                </div>
+              </div>
+            </div>
+            <div class="program-card-footer">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSf5Ix7bpmQlkPsDKT2II8HsLeAR3mIQW81wr-5Jr1xDOLQvmg/viewform"
+                 target="_blank" rel="noopener noreferrer"
+                 class="btn-program-apply"
+                 aria-label="Register for Evening Choreography and Teaching Practice">
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Register for Evening Classes
+              </a>
+              <a href="#apply" class="btn-program-learn" aria-label="View all application options">
+                <i class="fa-solid fa-list-check" aria-hidden="true"></i> View All Application Options
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Multi-enroll banner -->
+      <div class="row" data-aos="fade-up">
+        <div class="col-12">
+          <div class="cross-enroll-nudge" style="background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(13,155,155,0.1)); border-color: rgba(201,168,76,0.25); padding: 24px 28px;" role="complementary" aria-label="Multiple program enrollment information">
+            <div class="nudge-icon" style="background: rgba(201,168,76,0.15); width:44px; height:44px;" aria-hidden="true">
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="nudge-text">
+              <strong style="font-size: 0.95rem;">Enroll in More Than One Program</strong>
+              You are encouraged to register for both the Summer Intensive and the Evening Classes. Multiple enrollments are accepted and can be submitted through separate applications — each takes less than 3 minutes. If you have questions about which combination is right for you, message us directly.
+              <div style="margin-top: 12px; display: flex; flex-wrap: wrap; gap: 10px;">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd66Zp0s7rOW0bnronDiXTReiZUEY1z8hLr5nlFGLx6TUEuKg/viewform"
+                   target="_blank" rel="noopener noreferrer" class="nudge-link"
+                   aria-label="Apply for Summer Intensive">Apply: Summer Intensive →</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSf5Ix7bpmQlkPsDKT2II8HsLeAR3mIQW81wr-5Jr1xDOLQvmg/viewform"
+                   target="_blank" rel="noopener noreferrer" class="nudge-link"
+                   aria-label="Register for Evening Classes">Register: Evening Classes →</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeSTBljN109dmD3YUTFUvOT77em6o3S66L88OmUPMeGgtBF_A/viewform"
+                   target="_blank" rel="noopener noreferrer" class="nudge-link"
+                   aria-label="General inquiry form">General Enquiry →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE SECTION ===== -->
+  <section id="experience" aria-labelledby="experienceHeading">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="section-eyebrow" aria-hidden="true">What You Gain</div>
+          <h2 class="section-title" id="experienceHeading">
+            A Two-Week Experience<br><em>That Lasts a Lifetime</em>
+          </h2>
+        </div>
+        <div class="col-lg-6 d-flex align-items-end" data-aos="fade-left">
+          <p style="color: var(--muted); font-size: 0.9rem; line-height: 1.8; padding-bottom: 4px;">
+            Every day is built around three pillars — daily training, cultural immersion, and creative development — culminating in a live community performance that puts everything learned onto a real stage.
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-4 mb-5">
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+          <div class="gain-card" role="article">
+            <div class="gain-num" aria-hidden="true">01</div>
+            <div class="gain-title">Discipline</div>
+            <p class="gain-desc">Structured daily training that builds the mental and physical discipline needed to grow as a serious performer.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="80">
+          <div class="gain-card" role="article">
+            <div class="gain-num" aria-hidden="true">02</div>
+            <div class="gain-title">Confidence</div>
+            <p class="gain-desc">Stage time, artistic voice, and community feedback that transforms how a dancer sees and carries themselves.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="160">
+          <div class="gain-card" role="article">
+            <div class="gain-num" aria-hidden="true">03</div>
+            <div class="gain-title">Cultural Connection</div>
+            <p class="gain-desc">Deep roots in Caribbean and Afro-diasporic movement traditions — understanding <em>where</em> the dance comes from makes it mean more.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="240">
+          <div class="gain-card" role="article">
+            <div class="gain-num" aria-hidden="true">04</div>
+            <div class="gain-title">Artistic Growth</div>
+            <p class="gain-desc">Creative exploration sessions that push dancers to develop their own voice, choreographic instinct, and performance presence.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Training disciplines -->
+      <div data-aos="fade-up">
+        <p style="font-family: var(--font-body); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted);">Training disciplines covered</p>
+        <div class="discipline-row" role="list" aria-label="Training disciplines">
+          <span class="discipline-chip" role="listitem">Caribbean &amp; Afro-diasporic traditions</span>
+          <span class="discipline-chip" role="listitem">Modern / Contemporary technique</span>
+          <span class="discipline-chip" role="listitem">Choreography &amp; creative exploration</span>
+          <span class="discipline-chip" role="listitem">Performance technique</span>
+          <span class="discipline-chip" role="listitem">Cultural immersion</span>
+          <span class="discipline-chip" role="listitem">Artistic development</span>
+          <span class="discipline-chip" role="listitem">Live stage performance</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SCHOLARSHIP SECTION ===== -->
+  <section id="scholarship" aria-labelledby="scholarshipHeading">
+    <div class="scholarship-content">
+      <div class="container">
+        <div class="row gy-5 align-items-center">
+          <div class="col-lg-7" data-aos="fade-right">
+            <div class="scholarship-box">
+              <div class="section-eyebrow" style="color: rgba(255,255,255,0.6);" aria-hidden="true">
+                <span style="background: rgba(255,255,255,0.3);"></span>
+                Financial Access
+              </div>
+              <h2 class="section-title section-title-light" id="scholarshipHeading">
+                Scholarships<br><em>Available</em>
+              </h2>
+              <p style="margin-top: 16px;">
+                WesStep believes that financial circumstance should not determine who has access to transformative dance training. Scholarships are available for the Summer 2026 Intensive to ensure every qualified dancer can participate.
+              </p>
+              <div class="program-includes-title" style="margin-top: 20px; margin-bottom: 14px;">Scholarship Considerations</div>
+              <ul class="scholarship-req-list" aria-label="Scholarship requirements">
+                <li><i class="fa-solid fa-check-circle" aria-hidden="true"></i> Demonstrated commitment to dance and the arts</li>
+                <li><i class="fa-solid fa-check-circle" aria-hidden="true"></i> Financial need or limited access to training opportunities</li>
+                <li><i class="fa-solid fa-check-circle" aria-hidden="true"></i> Written statement of intent and artistic goals</li>
+                <li><i class="fa-solid fa-check-circle" aria-hidden="true"></i> Recommendation or reference (where available)</li>
+                <li><i class="fa-solid fa-check-circle" aria-hidden="true"></i> Willingness to participate fully in all program activities</li>
+              </ul>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSd66Zp0s7rOW0bnronDiXTReiZUEY1z8hLr5nlFGLx6TUEuKg/viewform"
+                 target="_blank" rel="noopener noreferrer"
+                 class="btn-scholarship"
+                 aria-label="Apply for a scholarship">
+                <i class="fa-solid fa-award" aria-hidden="true"></i> Apply for a Scholarship
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-5" data-aos="fade-left" data-aos-delay="100">
+            <div class="text-center" style="padding: 20px;">
+              <p style="font-family: var(--font-display); font-size: clamp(1.3rem, 3vw, 2rem); font-style: italic; color: rgba(255,255,255,0.85); line-height: 1.5; margin-bottom: 30px;">
+                "Every dancer who belongs in this room should be in this room."
+              </p>
+              <div class="d-flex justify-content-center align-items-stretch" style="gap: 1px; background: rgba(255,255,255,0.1); border-radius: var(--radius-md); overflow: hidden;">
+                <div class="scholarship-stat">
+                  <span class="stat-num" aria-label="Founding cohort rate of EC $650">EC 650</span>
+                  <div class="stat-label">Founding Cohort Rate</div>
+                </div>
+                <div class="scholarship-divider" aria-hidden="true"></div>
+                <div class="scholarship-stat">
+                  <span class="stat-num" aria-label="Scholarships are available">✓</span>
+                  <div class="stat-label">Scholarships Available</div>
+                </div>
+                <div class="scholarship-divider" aria-hidden="true"></div>
+                <div class="scholarship-stat">
+                  <span class="stat-num" aria-label="Two week program">2W</span>
+                  <div class="stat-label">Intensive Duration</div>
+                </div>
+              </div>
+              <p style="font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-top: 20px; line-height: 1.6;">
+                Questions about eligibility or the application process? Message us directly on Instagram or use the General Enquiry form below.
+              </p>
+              <a href="#apply" style="color: var(--teal-mid); font-size: 0.82rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; margin-top: 10px;" aria-label="Go to general enquiry form">
+                General Enquiry Form <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SCHEDULE SECTION ===== -->
+  <section id="schedule" aria-labelledby="scheduleHeading">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="section-eyebrow" aria-hidden="true">Program Timeline</div>
+          <h2 class="section-title" id="scheduleHeading">
+            What to <em>Expect</em>
+          </h2>
+          <p style="color: var(--muted); margin-top: 14px; font-size: 0.9rem; line-height: 1.8;">
+            The Summer 2026 Intensive is structured around daily training, cultural immersion, and creative development — with everything building toward a live community performance.
+          </p>
+        </div>
+      </div>
+      <div class="row gy-4">
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"><i class="fa-solid fa-door-open"></i></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Applications Open · Now</div>
+              <div class="timeline-title">Apply &amp; Secure Your Place</div>
+              <p class="timeline-desc">Submit your application for the Summer Intensive and / or Evening Classes. Scholarships are reviewed on a rolling basis.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"><i class="fa-solid fa-envelope-open-text"></i></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Confirmation</div>
+              <div class="timeline-title">Acceptance &amp; Onboarding</div>
+              <p class="timeline-desc">Accepted participants receive full program details, schedule, requirements, and preparation guidance.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"><i class="fa-solid fa-sun"></i></div>
+            <div class="timeline-content">
+              <div class="timeline-date">July 30, 2026</div>
+              <div class="timeline-title">Program Begins</div>
+              <p class="timeline-desc">Opening day. Introductions, orientation, and your first training session. The transformation starts here.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"><i class="fa-solid fa-dumbbell"></i></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Daily — Weeks 1 &amp; 2</div>
+              <div class="timeline-title">Training, Immersion &amp; Creation</div>
+              <p class="timeline-desc">Daily training sessions in technique, choreography, and cultural forms. Progressive intensity building toward performance readiness.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"><i class="fa-solid fa-masks-theater"></i></div>
+            <div class="timeline-content">
+              <div class="timeline-date">August 7, 2026</div>
+              <div class="timeline-title">Live Community Performance</div>
+              <p class="timeline-desc">The program culminates in a live community showcase. Real audience. Real stage. Everything you've built, performed.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"><i class="fa-solid fa-arrow-up-right-dots"></i></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Ongoing</div>
+              <div class="timeline-title">Continue with Evening Classes</div>
+              <p class="timeline-desc">Participants who want to keep growing can continue development through the Choreography &amp; Teaching Practice evening program.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== APPLY SECTION (multi-enroll CTA hub) ===== -->
+  <section id="apply" aria-labelledby="applyHeading">
+    <div class="container">
+      <div class="apply-intro" data-aos="fade-up">
+        <div class="section-eyebrow justify-content-center" style="color: var(--teal-mid);" aria-hidden="true">Applications Open</div>
+        <h2 class="section-title section-title-light" id="applyHeading">
+          Ready to <em>Begin?</em>
+        </h2>
+        <p>Choose the program or programs you want to join. Each form takes less than three minutes. You can submit more than one — most serious participants do.</p>
+      </div>
+
+      <div class="row g-4 mb-5">
+        <!-- Apply Card 1 -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+          <div class="apply-option-card featured" role="article">
+            <div class="apply-option-number" aria-hidden="true">01</div>
+            <div class="apply-option-title">Summer Intensive</div>
+            <p class="apply-option-desc">
+              Apply for the two-week Summer Dance &amp; Heritage Training Program. July 30 – August 7, 2026. EC $650 founding cohort rate. Scholarships available.
+            </p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSd66Zp0s7rOW0bnronDiXTReiZUEY1z8hLr5nlFGLx6TUEuKg/viewform"
+               target="_blank" rel="noopener noreferrer"
+               class="btn-program-apply btn-gold"
+               aria-label="Apply for Summer Intensive program">
+              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Apply Now
+            </a>
+            <div class="apply-also-nudge" role="note">
+              <strong>Also consider:</strong> Pair this with the <a href="https://docs.google.com/forms/d/e/1FAIpQLSf5Ix7bpmQlkPsDKT2II8HsLeAR3mIQW81wr-5Jr1xDOLQvmg/viewform" target="_blank" rel="noopener noreferrer" aria-label="Register for Evening Classes">Evening Classes</a> for a full-immersion experience.
+            </div>
+          </div>
+        </div>
+
+        <!-- Apply Card 2 -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="80">
+          <div class="apply-option-card" role="article">
+            <div class="apply-option-number" aria-hidden="true">02</div>
+            <div class="apply-option-title">Evening Classes</div>
+            <p class="apply-option-desc">
+              Register for the Choreography &amp; Teaching Practice evening program. Ages 18+. Separate from the Intensive — and compatible with it.
+            </p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf5Ix7bpmQlkPsDKT2II8HsLeAR3mIQW81wr-5Jr1xDOLQvmg/viewform"
+               target="_blank" rel="noopener noreferrer"
+               class="btn-program-apply"
+               aria-label="Register for Evening Choreography and Teaching Practice">
+              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Register Now
+            </a>
+            <div class="apply-also-nudge" role="note">
+              <strong>Also consider:</strong> Many participants enroll in both this and the <a href="https://docs.google.com/forms/d/e/1FAIpQLSd66Zp0s7rOW0bnronDiXTReiZUEY1z8hLr5nlFGLx6TUEuKg/viewform" target="_blank" rel="noopener noreferrer" aria-label="Apply for Summer Intensive">Summer Intensive</a>.
+            </div>
+          </div>
+        </div>
+
+        <!-- Apply Card 3 -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="160">
+          <div class="apply-option-card" role="article">
+            <div class="apply-option-number" aria-hidden="true">03</div>
+            <div class="apply-option-title">Scholarship Application</div>
+            <p class="apply-option-desc">
+              Applying for financial assistance to attend the Summer Intensive? Start here. Complete this alongside your program application.
+            </p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSd66Zp0s7rOW0bnronDiXTReiZUEY1z8hLr5nlFGLx6TUEuKg/viewform"
+               target="_blank" rel="noopener noreferrer"
+               class="btn-program-apply"
+               style="background: rgba(13,155,155,0.25); border: 1px solid rgba(13,155,155,0.3);"
+               aria-label="Apply for scholarship">
+              <i class="fa-solid fa-award" aria-hidden="true"></i> Apply for Scholarship
+            </a>
+            <div class="apply-also-nudge" role="note">
+              <strong>Note:</strong> Submit your scholarship application together with your Summer Intensive application for the fastest review.
+            </div>
+          </div>
+        </div>
+
+        <!-- Apply Card 4 -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="240">
+          <div class="apply-option-card" role="article">
+            <div class="apply-option-number" aria-hidden="true">04</div>
+            <div class="apply-option-title">General Enquiry</div>
+            <p class="apply-option-desc">
+              Not sure which program is right for you? Have a question about logistics, fees, or the program? Send us a message and we will respond directly.
+            </p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeSTBljN109dmD3YUTFUvOT77em6o3S66L88OmUPMeGgtBF_A/viewform"
+               target="_blank" rel="noopener noreferrer"
+               class="btn-program-apply"
+               style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);"
+               aria-label="Submit a general enquiry">
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i> Send Enquiry
+            </a>
+            <div class="apply-also-nudge" role="note">
+              <strong>Prefer to message?</strong> Find us on Instagram <a href="https://www.instagram.com/wesstepdance" target="_blank" rel="noopener noreferrer" aria-label="WesStep on Instagram">@wesstepdance</a>.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Final assurance strip -->
+      <div class="row" data-aos="fade-up">
+        <div class="col-12">
+          <div style="text-align: center; padding: 20px 0;">
+            <p style="color: rgba(255,255,255,0.35); font-size: 0.78rem; letter-spacing: 0.06em;">
+              Applications for Summer 2026 are open now · Scholarships reviewed on a rolling basis · Questions? Message us at
+              <a href="https://www.instagram.com/wesstepdance" target="_blank" rel="noopener noreferrer"
+                 style="color: var(--teal-mid); text-decoration: none;" aria-label="Contact WesStep on Instagram">@wesstepdance</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ======================================================
+     CONTACT & FOOTER
+====================================================== -->
+<footer id="contact" role="contentinfo" aria-labelledby="contactHeading">
+  <div class="container">
+    <div class="row gy-5 align-items-start">
+      <div class="col-lg-6" data-aos="fade-right">
+        <h2 class="contact-title" id="contactHeading">
+          Still Have Questions?
+        </h2>
+        <p class="contact-sub">
+          We are here. Reach us through Instagram, or use the enquiry form and we will respond directly. No automated responses — a real person reads every message.
+        </p>
+        <div>
+          <a href="https://www.instagram.com/wesstepdance" target="_blank" rel="noopener noreferrer"
+             class="contact-pill" aria-label="Find WesStep on Instagram">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            @wesstepdance
+          </a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeSTBljN109dmD3YUTFUvOT77em6o3S66L88OmUPMeGgtBF_A/viewform"
+             target="_blank" rel="noopener noreferrer"
+             class="contact-pill" aria-label="Send WesStep an enquiry">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            Send an Enquiry
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <div style="background: rgba(13,155,155,0.06); border: 1px solid rgba(13,155,155,0.14); border-radius: var(--radius-md); padding: 28px;">
+          <p style="font-family: var(--font-display); font-size: 1.1rem; font-style: italic; color: rgba(255,255,255,0.7); line-height: 1.6; margin: 0 0 20px;">
+            "WesStep Summer Dance &amp; Heritage Training Program — Launching 2026. Rooted in Culture. Rising Through Dance."
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 14px;">
+            <a href="#summer-intensive" style="color: var(--teal-mid); font-size: 0.8rem; text-decoration: none; font-weight: 500;" aria-label="Summer Intensive program">Summer Intensive →</a>
+            <a href="#evening-classes" style="color: var(--teal-mid); font-size: 0.8rem; text-decoration: none; font-weight: 500;" aria-label="Evening Classes program">Evening Classes →</a>
+            <a href="#scholarship" style="color: var(--teal-mid); font-size: 0.8rem; text-decoration: none; font-weight: 500;" aria-label="Scholarship program">Scholarships →</a>
+            <a href="#apply" style="color: var(--teal-mid); font-size: 0.8rem; text-decoration: none; font-weight: 500;" aria-label="Apply now">Apply Now →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="footer-divider">
+
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <div class="footer-brand">Wes<span>Step</span> Dance</div>
+        <div class="footer-tagline">Rooted in Culture · Rising Through Dance · Saint Lucia 2026</div>
+      </div>
+      <div class="col-md-6">
+        <div class="footer-credit">
+          Built by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank" rel="noopener noreferrer" aria-label="Website built by JAMALINKS">JAMALINKS</a> · Saint Lucia 🇱🇨<br>
+          <span style="color: rgba(255,255,255,0.15); font-size: 0.68rem;">© 2026 WesStep Dance. All rights reserved.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp float (enquiry shortcut) -->
+<a href="https://www.instagram.com/wesstepdance" target="_blank" rel="noopener noreferrer"
+   class="wa-float" aria-label="Message WesStep on Instagram">
+  <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+</a>
+
+<!-- Dark mode toggle -->
+<button class="mode-toggle" id="modeToggle" aria-label="Toggle light/dark mode" type="button">
+  <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
+</button>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  // AOS Init
+  AOS.init({
+    once: true,
+    duration: 750,
+    easing: 'ease-out-cubic',
+    offset: 60
+  });
+
+  // Navbar scroll effect
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  }, { passive: true });
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const progNavBtns = document.querySelectorAll('.prog-nav-btn');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        progNavBtns.forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { threshold: 0.35 });
+
+  document.querySelectorAll('#programs, #summer-intensive, #evening-classes, #scholarship, #apply').forEach(el => {
+    if (el) observer.observe(el);
+  });
+
+  // Time-based dark mode auto-detect
+  (function autoMode() {
+    const hour = new Date().getHours();
+    const isDarkHour = hour < 6 || hour >= 18;
+    const storedPref = localStorage.getItem('ws-mode');
+    if (storedPref) {
+      if (storedPref === 'dark') document.body.classList.add('auto-dark');
+    } else if (isDarkHour) {
+      document.body.classList.add('auto-dark');
+    }
+  })();
+
+  // Manual mode toggle
+  const modeToggle = document.getElementById('modeToggle');
+  modeToggle.addEventListener('click', () => {
+    const isDark = document.body.classList.toggle('auto-dark');
+    localStorage.setItem('ws-mode', isDark ? 'dark' : 'light');
+    modeToggle.querySelector('i').className = isDark
+      ? 'fa-solid fa-sun'
+      : 'fa-solid fa-circle-half-stroke';
+    modeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+  });
+
+  // Smooth external link opens — all Google Forms open in new tab (already set)
+  // Program nav active state on click
+  progNavBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      progNavBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
