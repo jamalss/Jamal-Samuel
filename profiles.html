@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+
+<!-- ══ META ═══════════════════════════════════════════ -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Brand &amp; Athlete Profiles — Jamal Samuel</title>
+<meta name="description" content="Sponsorship-ready digital profiles for Caribbean and diaspora athletes, coaches, artists, and personal brands. Built by Jamal Samuel to attract sponsors, scouts, and media opportunities.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://jamalinks758.github.io/jamalinks/profiles.html">
+
+<!-- ══ OPEN GRAPH ══ -->
+<meta property="og:type"        content="website">
+<meta property="og:url"         content="https://jamalinks758.github.io/jamalinks/profiles.html">
+<meta property="og:title"       content="Athlete &amp; Personal Brand Profiles — Jamal Samuel">
+<meta property="og:description" content="Sponsorship-ready digital profiles for Caribbean and diaspora athletes, coaches, and personal brands. Built to attract sponsors, scouts, and media.">
+<meta property="og:image"       content="https://jamalinks758.github.io/jamalinks/images/og-preview.jpg">
+<meta property="og:site_name"   content="Jamal Samuel">
+<meta name="twitter:card"       content="summary_large_image">
+
+<!-- ══ FAVICON ════════════════════════════════════════ -->
+<link rel="icon" type="image/webp" href="images/logo.webp">
+<link rel="apple-touch-icon"       href="images/logo.webp">
+
+<!-- ══ PRECONNECT ════════════════════════════════════ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+<!-- ══ CONSENT BANNER CSS ════════════════════════════ -->
+<link rel="stylesheet" href="https://tagconcierge.github.io/consent-banner-js/dist/consent-banner.css">
+
+<!-- ══ BOOTSTRAP + ICONS ══════════════════════════════ -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<!-- ══ GOOGLE FONTS ═══════════════════════════════════ -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- ══ CUSTOM STYLESHEET ══════════════════════════════ -->
+<link href="css/style.css" rel="stylesheet">
+
+<style>
+/* ── Skip Navigation ─────────────────────────────── */
+.skip-link {
+  position: absolute; top: -100%; left: 1rem;
+  background: var(--gold, #F5B000); color: #1a1a1a;
+  padding: .5rem 1rem; border-radius: 0 0 .5rem .5rem;
+  font-weight: 700; font-size: .85rem; z-index: 10000;
+  text-decoration: none; transition: top .2s;
+}
+.skip-link:focus { top: 0; }
+
+/* ── Consent Banner ──────────────────────────────── */
+.consent-banner-button[href="#accept"] { background-color: #4CAF50; font-family: inherit; }
+.consent-banner-modal { font-family: 'Poppins', sans-serif; }
+
+/* ── Global overflow fix ─────────────────────────── */
+html, body { overflow-x: hidden; max-width: 100%; }
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ── WA Float ────────────────────────────────────── */
+.wa-float {
+  position: fixed !important; bottom: 1.5rem !important; right: 1.5rem !important;
+  left: auto !important; z-index: 9999 !important;
+  width: 56px !important; height: 56px !important;
+  background: #25D366 !important; color: #fff !important;
+  border-radius: 50% !important; display: flex !important;
+  align-items: center !important; justify-content: center !important;
+  font-size: 1.6rem !important; box-shadow: 0 4px 20px rgba(37,211,102,.45) !important;
+  text-decoration: none !important; transition: transform .2s ease, box-shadow .2s ease !important;
+  transform: translateZ(0) !important;
+}
+.wa-float:hover { transform: scale(1.08) translateZ(0) !important; box-shadow: 0 6px 28px rgba(37,211,102,.6) !important; color: #fff !important; }
+
+/* ── mt-6 helper ──────────────────────────────────── */
+.mt-6 { margin-top: 3.5rem; }
+.footer-legal-row { margin-top: .4rem; font-size: .72rem; }
+.footer-legal-row a { color: var(--muted); text-decoration: none; }
+.footer-legal-row a:hover { color: var(--blue-mid); }
+[data-theme="dark"] .footer-legal-row a:hover { color: var(--gold-light); }
+.footer-trademark { font-size: .68rem; color: var(--muted); opacity: .55; margin-top: .5rem; line-height: 1.5; max-width: 600px; }
+
+/* ══════════════════════════════════════════════════════
+   DEMO CARD SYSTEM (copied exactly from index)
+   ══════════════════════════════════════════════════════ */
+.demo-picture {
+  display: block; width: 100%; aspect-ratio: 16 / 9;
+  overflow: hidden; flex-shrink: 0;
+  border-bottom: 1px solid var(--border); background: var(--bg-alt);
+}
+.demo-picture img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.3s ease;
+}
+.demo-card:hover .demo-picture img { transform: scale(1.05); }
+.demo-card-img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; border-radius: .75rem .75rem 0 0; }
+.demo-disclaimer {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-size: .72rem; color: var(--muted); background: var(--bg-alt);
+  border: 1px solid var(--border); border-radius: 50px;
+  padding: .3rem .9rem; margin-top: 1rem;
+}
+
+/* ── Scroll row (from index) ─────────────────────── */
+.demo-row-header {
+  display: flex; align-items: center; gap: .75rem; flex-wrap: wrap;
+  margin-bottom: .6rem;
+}
+.demo-new-badge {
+  display: inline-flex; align-items: center;
+  font-size: .62rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  background: linear-gradient(135deg, var(--gold, #F5B000), #FCD34D);
+  color: #1a1a1a; padding: .2rem .7rem; border-radius: 20px;
+}
+.demo-scroll-wrapper { position: relative; width: 100%; }
+.demo-scroll-track {
+  display: flex; gap: 1.25rem; overflow-x: auto;
+  padding: .5rem .25rem 1.5rem; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: thin;
+  scrollbar-color: var(--gold, #F5B000) transparent;
+}
+.demo-scroll-track::-webkit-scrollbar { height: 4px; }
+.demo-scroll-track::-webkit-scrollbar-track { background: transparent; }
+.demo-scroll-track::-webkit-scrollbar-thumb { background: var(--gold, #F5B000); border-radius: 4px; }
+.demo-card-scroll {
+  flex: 0 0 270px; min-width: 270px; scroll-snap-align: start;
+}
+@media (min-width: 768px) { .demo-card-scroll { flex: 0 0 300px; min-width: 300px; } }
+
+/* ── Coming Soon overlay on cards ───────────────── */
+.demo-card-coming { opacity: .65; pointer-events: none; position: relative; }
+.coming-overlay {
+  position: absolute; top: .75rem; right: .75rem;
+  background: var(--gold, #F5B000); color: #1a1a1a;
+  font-size: .62rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  padding: .2rem .65rem; border-radius: 50px; z-index: 2; pointer-events: none;
+}
+.demo-placeholder {
+  width: 100%; aspect-ratio: 16 / 9;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: .5rem;
+  font-size: .75rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase;
+  background: var(--bg-alt); border-bottom: 1px solid var(--border);
+  color: var(--muted); border-radius: .75rem .75rem 0 0; overflow: hidden; position: relative;
+}
+.demo-placeholder .ph-icon { font-size: 2rem; opacity: .3; }
+.demo-placeholder .ph-label { opacity: .45; }
+.demo-placeholder::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(245,176,0,.08) 0%, rgba(37,99,235,.06) 100%);
+}
+
+/* ══════════════════════════════════════════════════════
+   ATHLETE / PERSONAL BRAND PRICING (copied from index)
+   ══════════════════════════════════════════════════════ */
+.athlete-pricing-wrap {
+  margin-top: 3.5rem; position: relative; overflow: hidden;
+  background: var(--bg-alt); border: 1px solid var(--border);
+  border-radius: 1.5rem; padding: 2.5rem 2rem;
+}
+.athlete-pricing-wrap::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(to right, var(--gold, #F5B000), var(--blue, #0D1B2A), transparent);
+}
+.athlete-tier-card {
+  background: var(--bg-card, #fff); border: 1.5px solid var(--border);
+  border-radius: 18px; padding: 1.75rem 1.5rem;
+  height: 100%; display: flex; flex-direction: column;
+  transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
+  position: relative;
+}
+.athlete-tier-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,.12); transform: translateY(-4px); }
+.athlete-tier-card.athlete-featured {
+  border-color: var(--gold, #F5B000);
+  box-shadow: 0 8px 32px rgba(245,176,0,.18);
+}
+.athlete-market-badge {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: var(--gold, #F5B000); color: #1a1a1a;
+  font-size: .66rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  padding: .22rem .85rem; border-radius: 20px; white-space: nowrap;
+}
+.athlete-range-row {
+  display: flex; align-items: baseline; gap: .35rem; flex-wrap: wrap; margin: .5rem 0;
+}
+.athlete-range-low {
+  font-family: 'Poppins', sans-serif; font-size: 2rem;
+  font-weight: 900; line-height: 1; color: var(--text, #0D1B2A);
+}
+[data-theme="dark"] .athlete-range-low { color: #f0ece3; }
+.athlete-range-sep { font-size: 1rem; opacity: .4; font-weight: 400; }
+.athlete-range-high {
+  font-family: 'Poppins', sans-serif; font-size: 2rem;
+  font-weight: 900; line-height: 1; color: var(--gold, #F5B000);
+}
+.athlete-range-label { font-size: .72rem; opacity: .5; font-weight: 500; }
+.athlete-flag-pill {
+  display: inline-flex; align-items: center; gap: .3rem;
+  font-size: .7rem; font-weight: 600; letter-spacing: .06em;
+  background: var(--blue-pale, #EFF6FF); border: 1px solid rgba(37,99,235,.2);
+  color: var(--blue-mid, #2563EB); border-radius: 50px; padding: .2rem .7rem;
+  margin-bottom: .75rem;
+}
+[data-theme="dark"] .athlete-flag-pill {
+  background: var(--gold-pale); border-color: rgba(245,176,0,.2); color: var(--gold);
+}
+
+/* ══════════════════════════════════════════════════════
+   PRICING SCROLL (copied exactly from index)
+   ══════════════════════════════════════════════════════ */
+.pricing-scroll-wrapper { position: relative; width: 100%; }
+.pricing-scroll-track {
+  display: flex; gap: 1.25rem; overflow-x: auto;
+  padding: 1rem 0.25rem 2rem; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: thin;
+  scrollbar-color: var(--gold, #F5B000) transparent;
+}
+.pricing-scroll-track::-webkit-scrollbar { height: 4px; }
+.pricing-scroll-track::-webkit-scrollbar-track { background: transparent; }
+.pricing-scroll-track::-webkit-scrollbar-thumb { background: var(--gold, #F5B000); border-radius: 4px; }
+.pricing-tier-card {
+  flex: 0 0 310px; min-width: 310px; scroll-snap-align: start;
+  background: var(--bg-card, #fff); border: 1.5px solid var(--border, rgba(0,0,0,.08));
+  border-radius: 18px; padding: 1.75rem 1.5rem 1.5rem;
+  display: flex; flex-direction: column; position: relative;
+  transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
+}
+.pricing-tier-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,.12); transform: translateY(-4px); }
+.pricing-tier-card.tier-featured { border-color: var(--gold, #F5B000); box-shadow: 0 8px 32px rgba(245,176,0,.18); }
+.pricing-tier-card.tier-enterprise { border-color: var(--blue, #0D1B2A); }
+[data-theme="dark"] .pricing-tier-card.tier-enterprise { border-color: var(--gold, #F5B000); }
+.tier-popular-badge {
+  position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+  background: var(--gold, #F5B000); color: #1a1a1a;
+  font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  padding: .25rem .9rem; border-radius: 20px; white-space: nowrap;
+}
+.tier-header { margin-bottom: 1rem; }
+.tier-badge {
+  display: inline-block; font-size: .7rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--gold, #F5B000); margin-bottom: .4rem;
+}
+.tier-price-block { margin-bottom: .5rem; }
+.tier-setup-row { display: flex; align-items: baseline; gap: .3rem; flex-wrap: wrap; }
+.tier-setup-amount {
+  font-family: 'Poppins', sans-serif; font-size: 2.4rem;
+  font-weight: 900; line-height: 1; color: var(--text, #0D1B2A);
+}
+[data-theme="dark"] .tier-setup-amount { color: #f0ece3; }
+.tier-setup-amount sup { font-size: 1rem; font-weight: 700; vertical-align: super; }
+.tier-setup-tag { font-size: .72rem; font-weight: 600; opacity: .55; white-space: nowrap; align-self: flex-end; padding-bottom: .3rem; }
+.tier-monthly-row { display: flex; align-items: center; gap: .4rem; margin-top: .35rem; flex-wrap: wrap; }
+.tier-monthly-pill {
+  display: inline-flex; align-items: center; gap: .3rem;
+  background: var(--blue-pale, #EFF6FF); border: 1px solid rgba(37,99,235,.2);
+  border-radius: 50px; padding: .2rem .75rem;
+  font-size: .76rem; font-weight: 700; color: var(--blue-mid, #2563EB); white-space: nowrap;
+}
+[data-theme="dark"] .tier-monthly-pill { background: var(--gold-pale); border-color: rgba(245,176,0,.2); color: var(--gold); }
+.tier-monthly-note { font-size: .68rem; color: var(--muted); }
+.tier-total-row { margin-top: .4rem; font-size: .72rem; color: var(--muted); display: flex; align-items: center; gap: .3rem; }
+.tier-total-row strong { color: var(--green, #25D366); font-weight: 700; }
+.tier-onetime-row { display: flex; align-items: center; gap: .35rem; margin-top: .3rem; }
+.tier-onetime-tag {
+  display: inline-flex; align-items: center; gap: .3rem;
+  background: var(--gold-pale, #FFFBEB); border: 1px solid rgba(245,176,0,.3);
+  border-radius: 50px; padding: .2rem .75rem;
+  font-size: .74rem; font-weight: 600; color: var(--gold, #F5B000);
+}
+.tier-label { font-size: .73rem; opacity: .5; margin-bottom: .6rem; font-weight: 500; }
+.tier-desc { font-size: .82rem; line-height: 1.55; opacity: .7; margin: 0; }
+.tier-body { flex: 1; margin-bottom: 1.25rem; }
+.tier-footer { margin-top: auto; }
+.price-feat.tier-no { opacity: .35; }
+.price-feat.tier-no i { color: var(--bs-secondary, #999) !important; }
+.pricing-scroll-hint { text-align: center; font-size: .78rem; opacity: .5; margin-top: -.5rem; padding-bottom: .5rem; }
+
+/* ── Pricing ROI Strip ───────────────────────────── */
+.pricing-roi-strip {
+  display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 1.5rem;
+  background: var(--blue-pale, #EFF6FF); border: 1px solid rgba(37,99,235,.15);
+  border-radius: var(--radius, 14px); padding: 1.1rem 2rem; margin-bottom: 2.5rem;
+}
+[data-theme="dark"] .pricing-roi-strip { background: rgba(245,176,0,.06); border-color: rgba(245,176,0,.15); }
+.roi-item { display: flex; flex-direction: column; align-items: center; text-align: center; font-size: .78rem; color: var(--muted); line-height: 1.4; }
+.roi-item strong { font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: 900; color: var(--blue-mid); display: block; }
+[data-theme="dark"] .roi-item strong { color: var(--gold); }
+.roi-divider { width: 1px; height: 36px; background: var(--border); }
+@media (max-width: 576px) { .roi-divider { display: none; } .pricing-roi-strip { gap: 1rem; } }
+
+/* ── Guarantee Box ───────────────────────────────── */
+.guarantee-box {
+  display: flex; align-items: flex-start; gap: 1.25rem;
+  background: linear-gradient(135deg, rgba(37,211,102,.07) 0%, rgba(37,211,102,.03) 100%);
+  border: 1.5px solid rgba(37,211,102,.25); border-radius: var(--radius, 14px);
+  padding: 1.5rem 1.75rem; margin-top: 2rem;
+}
+.guarantee-icon { font-size: 2rem; flex-shrink: 0; color: var(--green, #25D366); }
+.guarantee-box h4 { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: .3rem; color: var(--text); }
+.guarantee-box p { font-size: .85rem; color: var(--muted); margin: 0; line-height: 1.6; }
+
+/* ── Partnership / Retainer Cards ───────────────── */
+.retainer-card {
+  background: var(--bg-card, #fff); border: 1.5px solid var(--border);
+  border-radius: 18px; padding: 1.75rem 1.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,.06);
+  transition: transform .3s, box-shadow .3s, border-color .3s; height: 100%;
+}
+.retainer-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,.10); border-color: var(--blue-mid); }
+[data-theme="dark"] .retainer-card:hover { border-color: var(--gold); }
+.retainer-price { font-family: 'Poppins', sans-serif; font-size: 2.4rem; font-weight: 900; color: var(--blue, #0D1B2A); line-height: 1; }
+[data-theme="dark"] .retainer-price { color: var(--gold); }
+.retainer-price sup { font-size: 1.1rem; vertical-align: super; margin-right: .05rem; }
+.retainer-price span { font-size: 1rem; font-weight: 400; opacity: .55; }
+.retainer-name { font-weight: 700; font-size: .95rem; margin: .4rem 0 .5rem; color: var(--text); }
+.retainer-desc { font-size: .82rem; color: var(--muted); margin-bottom: .75rem; line-height: 1.5; }
+.retainer-card.retainer-featured { border-color: var(--gold); box-shadow: 0 8px 28px rgba(245,176,0,.15); }
+
+/* ── Payment Plan Pill ───────────────────────────── */
+.payment-plan-pill {
+  display: inline-flex; align-items: center; justify-content: center; gap: .35rem;
+  background: linear-gradient(135deg, rgba(245,176,0,.1), rgba(245,176,0,.05));
+  border: 1px solid rgba(245,176,0,.4); border-radius: 50px; padding: .4rem 1rem;
+  font-size: .72rem; font-weight: 600; color: var(--gold, #F5B000);
+  margin-top: .75rem; width: 100%; justify-content: center;
+}
+
+/* ── Payment Plan Block ──────────────────────────── */
+.payment-plan-block { margin-top: 2.5rem; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 1.25rem; overflow: hidden; }
+.ppb-inner { display: flex; align-items: flex-start; gap: 1.5rem; padding: 2rem 2.25rem; }
+@media (max-width: 576px) { .ppb-inner { flex-direction: column; gap: 1rem; } }
+.ppb-icon { font-size: 2rem; color: var(--gold); flex-shrink: 0; margin-top: .25rem; }
+.ppb-steps { list-style: none; padding: 0; margin: 1rem 0; display: flex; flex-direction: column; gap: .6rem; }
+.ppb-step { display: flex; align-items: center; gap: .85rem; font-size: .875rem; }
+.ppb-num { width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--blue-mid)); color: #fff; font-size: .7rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+[data-theme="dark"] .ppb-num { background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: #0D0D0D; }
+.ppb-notes { display: flex; flex-direction: column; gap: .4rem; margin-top: .75rem; }
+.ppb-notes span { font-size: .78rem; color: var(--muted); display: flex; align-items: center; gap: .5rem; }
+.ppb-notes i { color: var(--blue-mid); font-size: .85rem; }
+[data-theme="dark"] .ppb-notes i { color: var(--gold); }
+
+/* ══════════════════════════════════════════════════════
+   PROFILES PAGE — HERO
+   ══════════════════════════════════════════════════════ */
+.profiles-hero {
+  padding: 7rem 0 4rem; background: var(--bg); position: relative; overflow: hidden;
+}
+.profiles-hero::before {
+  content: ''; position: absolute; top: -80px; right: -100px;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,176,0,.09) 0%, transparent 70%);
+  pointer-events: none;
+}
+.profiles-hero::after {
+  content: ''; position: absolute; bottom: -60px; left: -80px;
+  width: 380px; height: 380px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(37,99,235,.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.profiles-hero-eyebrow {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-size: .72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold, #F5B000); margin-bottom: 1rem;
+}
+.profiles-hero h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900; line-height: 1.15; color: var(--text); margin-bottom: 1rem;
+}
+.profiles-hero h1 .accent { color: var(--blue-mid, #2563EB); }
+[data-theme="dark"] .profiles-hero h1 .accent { color: var(--gold, #F5B000); }
+
+/* ── Stat bar on hero ────────────────────────────── */
+.profiles-stat-bar {
+  display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem;
+  padding: 1.25rem 2rem; background: var(--bg-alt);
+  border: 1px solid var(--border); border-radius: var(--radius, 14px);
+  margin-top: 2.5rem; align-items: center;
+}
+.profiles-stat-item { display: flex; flex-direction: column; align-items: flex-start; }
+.profiles-stat-num {
+  font-family: 'Poppins', sans-serif; font-size: 1.8rem; font-weight: 900; line-height: 1;
+  color: var(--blue-mid, #2563EB);
+}
+[data-theme="dark"] .profiles-stat-num { color: var(--gold); }
+.profiles-stat-label { font-size: .72rem; opacity: .55; font-weight: 500; }
+
+/* ── Phone mockup (from index) ───────────────────── */
+.hero-phone-mockup { position: relative; width: 100%; max-width: 320px; margin: 0 auto; }
+.phone-shell {
+  background: var(--card, #fff); border: 3px solid rgba(0,0,0,.12);
+  border-radius: 2.5rem; padding: 1.2rem 1rem 1.5rem;
+  box-shadow: 0 24px 60px rgba(0,0,0,.18), 0 0 0 6px rgba(0,0,0,.05);
+  position: relative; overflow: hidden;
+}
+.phone-notch { width: 80px; height: 10px; background: rgba(0,0,0,.13); border-radius: 10px; margin: 0 auto 1rem; }
+.phone-screen-inner { border-radius: 1.2rem; overflow: hidden; background: var(--bg, #f8f8f8); padding: .9rem; }
+.mini-brand { font-weight: 700; font-size: .7rem; color: var(--gold, #F5B000); letter-spacing: .04em; margin-bottom: .5rem; }
+.mini-hero-img { width: 100%; aspect-ratio: 16/7; border-radius: .6rem; object-fit: cover; margin-bottom: .6rem; overflow: hidden; display: block; }
+.mini-hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: .6rem; }
+.mini-title { font-size: .62rem; font-weight: 700; line-height: 1.3; margin-bottom: .3rem; color: var(--text, #111); }
+.mini-price { font-size: .58rem; color: var(--muted, #666); margin-bottom: .5rem; }
+.mini-wa-btn { display: flex; align-items: center; justify-content: center; gap: .3rem; background: #25D366; color: #fff; border-radius: .5rem; padding: .35rem .5rem; font-size: .6rem; font-weight: 600; }
+
+/* ── Profile type pills ──────────────────────────── */
+.profile-type-pill {
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .45rem 1.1rem; border: 1.5px solid var(--border);
+  border-radius: 50px; background: var(--bg); color: var(--muted);
+  font-family: 'Poppins', sans-serif; font-size: .78rem; font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ── Profiles marquee intro strip ───────────────── */
+.profile-types-bar {
+  display: flex; flex-wrap: wrap; gap: .6rem 1rem;
+  padding: 1.5rem 0 .5rem;
+}
+
+/* ══════════════════════════════════════════════════════
+   WHAT MAKES A PROFILE DIFFERENT — COMPARISON GRID
+   ══════════════════════════════════════════════════════ */
+.ai-compare-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem;
+}
+@media (max-width: 768px) { .ai-compare-grid { grid-template-columns: 1fr; } }
+.ai-col {
+  border-radius: var(--radius, 14px); padding: 2rem 1.75rem; border: 1px solid var(--border);
+}
+.ai-col-bad { background: var(--bg-alt); }
+.ai-col-good {
+  background: var(--blue-pale, #EFF6FF); border-color: rgba(37,99,235,.3);
+  box-shadow: 0 8px 32px rgba(13,27,42,.10);
+}
+[data-theme="dark"] .ai-col-good { background: rgba(245,176,0,.06); border-color: rgba(245,176,0,.2); }
+.ai-col-head {
+  font-size: .68rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 1.25rem; display: flex; align-items: center; gap: .5rem;
+}
+.ai-col-bad .ai-col-head { color: var(--muted); }
+.ai-col-good .ai-col-head { color: var(--blue-mid); }
+[data-theme="dark"] .ai-col-good .ai-col-head { color: var(--gold); }
+.ai-item { display: flex; align-items: flex-start; gap: .75rem; margin-bottom: .9rem; font-size: .875rem; color: var(--text); line-height: 1.5; }
+.ai-item i { font-size: 1rem; flex-shrink: 0; margin-top: .15rem; }
+.ai-col-bad .ai-item i { color: #cc4444; }
+.ai-col-good .ai-item i { color: var(--green, #25D366); }
+
+/* ══════════════════════════════════════════════════════
+   PROFILE CARD GRID — special layout for 8 profiles
+   ══════════════════════════════════════════════════════ */
+.profile-card-featured {
+  border: 2px solid var(--gold, #F5B000) !important;
+  box-shadow: 0 8px 32px rgba(245,176,0,.18) !important;
+}
+.profile-card-featured .demo-tag {
+  background: linear-gradient(135deg, var(--gold, #F5B000), #FCD34D);
+  color: #1a1a1a; border: none;
+}
+</style>
+
+</head>
+<body>
+
+<!-- ══ SKIP NAVIGATION ════════════════════════════════ -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- ══ NAVBAR ═══════════════════════════════════════════ -->
+<header>
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a class="navbar-brand" href="index.html" aria-label="Jamal Samuel home">
+      <img src="images/logo.webp" alt="Jamal Samuel logo" class="brand-logo" width="42" height="42" loading="eager">
+      <div>
+        <span><span class="brand-jama">Jamal</span> <span class="brand-inks">Samuel</span></span>
+        <span class="brand-tagline">Launch. Link. Grow.</span>
+      </div>
+    </a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+      <button class="theme-toggle" id="themeToggleMob" aria-label="Toggle light/dark theme">
+        <i id="themeIconMob" class="bi bi-sun-fill" aria-hidden="true"></i>
+      </button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1" role="list">
+        <li class="nav-item" role="listitem"><a class="nav-link" href="index.html#why">The Problem</a></li>
+        <li class="nav-item" role="listitem"><a class="nav-link" href="index.html#solution">How It Works</a></li>
+        <li class="nav-item" role="listitem"><a class="nav-link" href="index.html#features">What You Get</a></li>
+        <li class="nav-item" role="listitem"><a class="nav-link" href="demos.html">Demos</a></li>
+        <li class="nav-item" role="listitem"><a class="nav-link active" href="profiles.html" aria-current="page">Profiles</a></li>
+        <li class="nav-item" role="listitem"><a class="nav-link" href="index.html#pricing">Pricing</a></li>
+        <li class="nav-item ms-lg-2" role="listitem">
+          <button class="theme-toggle d-none d-lg-flex" id="themeToggle" aria-label="Toggle light/dark theme">
+            <i id="themeIcon" class="bi bi-sun-fill" aria-hidden="true"></i>
+          </button>
+        </li>
+        <li class="nav-item ms-lg-2" role="listitem">
+          <a class="nav-link nav-cta" href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested%20in%20a%20personal%20brand%20profile" aria-label="Get your free consultation on WhatsApp">
+            <i class="bi bi-whatsapp me-1" aria-hidden="true"></i>Free Consultation
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</header>
+
+<!-- ══ MAIN ═══════════════════════════════════════════ -->
+<main id="main-content" role="main">
+
+<!-- ══ HERO ════════════════════════════════════════ -->
+<section class="profiles-hero" aria-label="Athlete and personal brand profiles hero">
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <!-- Left copy -->
+      <div class="col-lg-7">
+        <div class="profiles-hero-eyebrow reveal">
+          <i class="bi bi-person-badge-fill" aria-hidden="true"></i>
+          Athlete &amp; Personal Brand Profiles
+          <span class="demo-new-badge ms-2">New</span>
+        </div>
+        <h1 class="reveal d1">
+          Your Name Is Your Brand.<br>
+          <span class="accent">Make It Sponsorship-Ready.</span>
+        </h1>
+        <p class="text-m reveal d2" style="font-size:1rem;font-weight:600;opacity:.85;">
+          Professional digital identity systems for Caribbean &amp; diaspora athletes, coaches, artists, and personal brands.
+        </p>
+        <p class="text-m reveal d2">
+          This is not a regular website. It's a complete brand platform built to attract sponsors, get noticed by scouts and media, and establish credibility online — before the next opportunity passes you by.
+        </p>
+        <div class="d-flex flex-wrap gap-3 reveal d3">
+          <a href="#profiles" class="btn-blue" aria-label="Browse profile examples">
+            <i class="bi bi-grid-3x3-gap" aria-hidden="true"></i> See Profile Examples
+          </a>
+          <a href="https://wa.me/17587235872?text=I%27m%20interested%20in%20a%20personal%20brand%20profile" class="btn-wa" aria-label="Enquire about a profile on WhatsApp">
+            <i class="bi bi-whatsapp" aria-hidden="true"></i> Enquire on WhatsApp
+          </a>
+        </div>
+        <p class="reveal d3 mt-3" style="font-size:.8rem;opacity:.65;">
+          Caribbean &amp; diaspora athletes &nbsp;·&nbsp; NIL-eligible &nbsp;·&nbsp; Coaches &nbsp;·&nbsp; Artists &nbsp;·&nbsp; Personal brands
+        </p>
+
+        <!-- Profile types bar -->
+        <div class="profile-types-bar reveal d4">
+          <span class="profile-type-pill"><i class="bi bi-trophy" aria-hidden="true"></i> Athlete Profile</span>
+          <span class="profile-type-pill"><i class="bi bi-mic" aria-hidden="true"></i> Artist Profile</span>
+          <span class="profile-type-pill"><i class="bi bi-person-check" aria-hidden="true"></i> Coach Profile</span>
+          <span class="profile-type-pill"><i class="bi bi-house-heart" aria-hidden="true"></i> Real Estate Brand</span>
+          <span class="profile-type-pill"><i class="bi bi-camera" aria-hidden="true"></i> Creative Brand</span>
+          <span class="profile-type-pill"><i class="bi bi-briefcase" aria-hidden="true"></i> Professional Brand</span>
+        </div>
+
+        <!-- Stat bar -->
+        <div class="profiles-stat-bar reveal d4">
+          <div class="profiles-stat-item">
+            <span class="profiles-stat-num">1</span>
+            <span class="profiles-stat-label">Live demo now</span>
+          </div>
+          <div class="profiles-stat-item">
+            <span class="profiles-stat-num">6+</span>
+            <span class="profiles-stat-label">Profile types</span>
+          </div>
+          <div class="profiles-stat-item">
+            <span class="profiles-stat-num">2–4</span>
+            <span class="profiles-stat-label">Days to launch</span>
+          </div>
+          <div class="profiles-stat-item ms-auto d-none d-md-flex">
+            <a href="https://wa.me/17587235872?text=I%20want%20to%20build%20my%20personal%20brand%20profile" class="btn-wa" style="font-size:.85rem;padding:.6rem 1.4rem;" aria-label="Build your profile on WhatsApp">
+              <i class="bi bi-whatsapp" aria-hidden="true"></i> Build My Profile
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: phone mockup -->
+      <div class="col-lg-5 d-none d-lg-flex justify-content-center align-items-center reveal from-right d2">
+        <div class="hero-phone-mockup" aria-hidden="true">
+          <div class="phone-shell">
+            <div class="phone-notch"></div>
+            <div class="phone-screen-inner">
+              <div class="mini-brand"><i class="bi bi-person-badge me-1"></i> ATHLETE PROFILE</div>
+              <div class="mini-hero-img">
+                <img src="images/zael-emmanuel-hero.webp" alt="" loading="lazy">
+              </div>
+              <div class="mini-title">Zael Emmanuel — &ldquo;The Saint&rdquo;<br>Sprint Athlete · Saint Lucia 🇱🇨</div>
+              <div class="mini-price">Career stats · Sponsorship inquiry · Media kit</div>
+              <div class="mini-wa-btn"><i class="bi bi-whatsapp"></i> Sponsor Inquiry via WhatsApp</div>
+            </div>
+          </div>
+          <div style="text-align:center;font-size:.75rem;font-weight:600;opacity:.5;letter-spacing:.08em;text-transform:uppercase;margin-top:.75rem;">Caribbean &amp; Diaspora Profiles</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHY A PROFILE IS DIFFERENT ════════════════════ -->
+<section class="bg-alt" aria-label="Why a profile is different from a regular website">
+  <div class="container">
+    <div class="text-center mb-2 reveal">
+      <span class="section-label">The Difference</span>
+      <h2 class="display-6 mt-2 mb-2">Not a Website. A Brand Platform.</h2>
+      <div class="divider"></div>
+      <p class="text-m mx-auto" style="max-width:560px;">A social media bio gets scrolled past. A Jamal Samuel profile gets sent to sponsors, shared with scouts, and linked in press releases. Here's the difference.</p>
+    </div>
+    <div class="ai-compare-grid reveal d1">
+      <div class="ai-col ai-col-bad" aria-label="What you get without a profile">
+        <div class="ai-col-head"><i class="bi bi-x-circle-fill" aria-hidden="true"></i> Without a Profile</div>
+        <div class="ai-item"><i class="bi bi-x-circle" aria-hidden="true"></i><span>Instagram bio with no stats, no achievements, no credibility signals</span></div>
+        <div class="ai-item"><i class="bi bi-x-circle" aria-hidden="true"></i><span>Sponsors DM you and can't find your performance history</span></div>
+        <div class="ai-item"><i class="bi bi-x-circle" aria-hidden="true"></i><span>No media kit — journalists have nowhere to send press to</span></div>
+        <div class="ai-item"><i class="bi bi-x-circle" aria-hidden="true"></i><span>Scouts Google your name and find nothing professional</span></div>
+        <div class="ai-item"><i class="bi bi-x-circle" aria-hidden="true"></i><span>Your career highlights scattered across posts no one can search</span></div>
+        <div class="ai-item"><i class="bi bi-x-circle" aria-hidden="true"></i><span>Missed deals because you looked unprepared at the moment it mattered</span></div>
+      </div>
+      <div class="ai-col ai-col-good" aria-label="What you get with a Jamal Samuel profile">
+        <div class="ai-col-head"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> With a Jamal Samuel Profile</div>
+        <div class="ai-item"><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span>Professional bio, career timeline, and PB stats all in one searchable URL</span></div>
+        <div class="ai-item"><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span>Sponsorship inquiry system with pre-built WhatsApp flow</span></div>
+        <div class="ai-item"><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span>Media kit request CTA — press-ready from day one</span></div>
+        <div class="ai-item"><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span>Google-indexed with structured data — your name ranks in search</span></div>
+        <div class="ai-item"><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span>Highlight video, gallery, and audience analytics all in one place</span></div>
+        <div class="ai-item"><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span>NIL-ready for US athletes — built for LA 2028 positioning</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROFILE CARD GRID ═════════════════════════════ -->
+<section id="profiles" aria-label="Personal brand and athlete profile examples">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-label">Profile Portfolio</span>
+      <h2 class="display-6 mt-2 mb-2">Live Profile. More Disciplines In Production.</h2>
+      <div class="divider"></div>
+      <p class="text-m mx-auto" style="max-width:560px;">The profile below is a fully-built demonstration of the Jamal Samuel athlete profile system. Additional profile types are in production and will be added as they are completed.</p>
+      <!-- ══ DEMO DISCLAIMER NOTICE — Legal Safety ══════════════════
+           This notice is required on the portfolio section itself,
+           not only in the footer, to ensure anyone arriving at this
+           section directly (via Google, direct link, or social share)
+           immediately understands these are demonstration builds.
+           Do NOT remove this block.
+      ══════════════════════════════════════════════════════════════ -->
+      <div class="demo-disclaimer mt-3" role="note" aria-label="Important: demonstration builds notice" style="background:var(--bg-alt);border:1.5px solid var(--gold,#F5B000);border-radius:.75rem;padding:.75rem 1.25rem;display:inline-flex;align-items:flex-start;gap:.6rem;text-align:left;max-width:640px;font-size:.8rem;color:var(--text);line-height:1.6;">
+        <i class="bi bi-shield-exclamation" aria-hidden="true" style="color:var(--gold,#F5B000);font-size:1.1rem;flex-shrink:0;margin-top:.1rem;"></i>
+        <span>
+          <strong>Demonstration Build Notice:</strong> All profiles shown on this page — including Zael Emmanuel — are <strong>original concept builds created by Jamal Samuel to showcase service capabilities only.</strong> Names, statistics, social figures, and biographical details within demo profiles are fictional and used for demonstration purposes. These are not real clients unless explicitly stated. Jamal Samuel is a web design service and does not represent, negotiate for, or act as agent for any individual shown.
+        </span>
+      </div>
+    </div>
+
+    <!-- ── Row A: Row Header ── -->
+    <div class="mt-2 mb-3 reveal">
+      <div class="demo-row-header">
+        <span class="section-label" style="margin:0;">Athlete &amp; Personal Brand Profiles</span>
+        <span class="demo-new-badge" aria-label="New service offering">New Vertical</span>
+      </div>
+      <p class="text-m" style="font-size:.82rem;max-width:600px;opacity:.8;">
+        Professional digital identity systems for athletes, coaches, and personal brands — built to attract sponsors, scouts, and media opportunities. New profile types added regularly.
+      </p>
+    </div>
+
+    <!-- Row 1: 4 cards -->
+    <div class="row g-4 mb-4">
+
+      <!-- Card 1: Zael Emmanuel — LIVE -->
+      <div class="col-sm-6 col-lg-3 reveal d1">
+        <article class="demo-card profile-card-featured" aria-label="Zael Emmanuel athlete brand profile">
+          <div class="demo-picture">
+            <img src="images/zael-emmanuel-hero.webp" class="demo-card-img" alt="Zael Emmanuel sprint athlete profile" loading="lazy" width="300" height="169">
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Athlete Profile</span>
+            <h2 class="h5">Zael Emmanuel — &ldquo;The Saint&rdquo;</h2>
+            <p>Elite sprinter profile with career timeline, PB stats, brand analytics, sponsorship inquiry system, and media kit CTA. Built for LA 2028.</p>
+            <a href="zael-emmanuel.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto" aria-label="View Zael Emmanuel athlete profile">
+              <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> View Profile
+            </a>
+          </div>
+        </article>
+      </div>
+
+
+      <!-- ══════════════════════════════════════════════════════════
+           COMING SOON PROFILES — COMMENTED OUT
+           Uncomment each card individually as the demo is completed.
+           DO NOT DELETE these blocks — they are pre-structured
+           placeholders ready to be activated one by one.
+      ══════════════════════════════════════════════════════════════ -->
+
+      <!-- ── CARD 2: Coach Nadine — Life Coach ───────────────── -->
+      <div class="col-sm-6 col-lg-3 reveal d2">
+        <article class="demo-card profile-card-featured" aria-label="Clarity with life coach Nadine profile">
+          <div class="demo-picture">
+            <img src="images/nadine-charles-hero.webp" class="demo-card-img" alt="Nadine Charles personal profile" loading="lazy" width="300" height="169">
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Personal Brand</span>
+            <h2 class="h5">Clarity with Coach Nadine</h2>
+            <p>Certified life and wellness coach profile with service packages, testimonials, session booking, and WhatsApp consultation CTA.</p>
+            <a href="nadine-charles.html" class="btn-blue" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto" aria-label="View Nadine Charles life coach profile">
+              <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> View Profile
+            </a>
+          </div>
+        </article>
+      </div>
+    <!--  ── END CARD 2 ── -->
+
+      <!-- ── CARD 3: Kiel D. — Artist & Performer ──────────────
+      <div class="col-sm-6 col-lg-3 reveal d3">
+        <article class="demo-card demo-card-coming" aria-label="Kiel D. artist and performer profile — coming soon">
+          <span class="coming-overlay">Coming Soon</span>
+          <div class="demo-placeholder" aria-hidden="true">
+            <i class="bi bi-music-note-beamed ph-icon"></i>
+            <span class="ph-label">Artist &amp; Performer</span>
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Artist Profile</span>
+            <h2 class="h5">Kiel D. — Artist &amp; Performer</h2>
+            <p>Emerging Caribbean artist profile with discography, Spotify embeds, upcoming events, booking inquiry form, and press kit download.</p>
+            <span class="btn-blue disabled" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto;opacity:.45;" aria-hidden="true">
+              <i class="bi bi-clock" aria-hidden="true"></i> Coming Soon
+            </span>
+          </div>
+        </article>
+      </div>
+      ── END CARD 3 ── -->
+
+      <!-- ── CARD 4: Denise Charles — Real Estate ───────────────
+      <div class="col-sm-6 col-lg-3 reveal d4">
+        <article class="demo-card demo-card-coming" aria-label="Denise Charles real estate brand profile — coming soon">
+          <span class="coming-overlay">Coming Soon</span>
+          <div class="demo-placeholder" aria-hidden="true">
+            <i class="bi bi-house-door ph-icon"></i>
+            <span class="ph-label">Real Estate</span>
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Personal Brand</span>
+            <h2 class="h5">Denise Charles — Agent &amp; Consultant</h2>
+            <p>Caribbean real estate agent brand with listings, credentials, testimonials, and a WhatsApp inquiry system that converts trust into leads.</p>
+            <span class="btn-blue disabled" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto;opacity:.45;" aria-hidden="true">
+              <i class="bi bi-clock" aria-hidden="true"></i> Coming Soon
+            </span>
+          </div>
+        </article>
+      </div>
+      ── END CARD 4 ── -->
+
+    <!-- CTA below grid -->
+    <div class="text-center mt-2 mb-2 reveal">
+      <p class="text-m" style="font-size:.85rem;max-width:480px;margin:0 auto 1.5rem;">
+        Don't see your profile type? <a href="https://wa.me/17587235872?text=I%20want%20to%20build%20a%20personal%20brand%20profile%20for%20my%20type" style="color:var(--blue-mid);font-weight:600;" aria-label="Ask for a profile built for your field on WhatsApp">Ask us — we build for any field.</a>
+      </p>
+      <a href="https://wa.me/17587235872?text=I%27m%20interested%20in%20a%20personal%20brand%20or%20athlete%20profile" class="btn-wa" aria-label="Start building your profile on WhatsApp">
+        <i class="bi bi-whatsapp" aria-hidden="true"></i> Start Building My Profile
+      </a>
+      <div class="mt-3">
+        <a href="demos.html" class="btn-blue" style="font-size:.85rem;padding:.6rem 1.5rem;" aria-label="Browse business demos">
+          <i class="bi bi-grid-3x3-gap" aria-hidden="true"></i> View Business Demos
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ ATHLETE PROFILE PRICING ═══════════════════════ -->
+<section class="bg-alt" id="pricing" aria-label="Athlete and personal brand profile pricing">
+  <div class="container">
+    <div class="text-center mb-4 reveal">
+      <span class="section-label">Investment</span>
+      <h2 class="display-6 mt-2 mb-2">Profile Pricing — Two Markets, One Standard of Quality</h2>
+      <div class="divider"></div>
+      <p class="text-m mx-auto" style="max-width:560px;font-size:.88rem;">
+        Pricing reflects two distinct markets. Caribbean builds and US/diaspora builds are priced separately based on market positioning and purchasing power. Both include the same level of care.
+      </p>
+    </div>
+
+    <!-- ROI Strip -->
+    <div class="pricing-roi-strip reveal d1" role="complementary" aria-label="Profile investment context">
+      <div class="roi-item">
+        <strong>2–4 days</strong>
+        From payment to live profile
+      </div>
+      <div class="roi-divider" aria-hidden="true"></div>
+      <div class="roi-item">
+        <strong>1 deal</strong>
+        Typically covers the full build cost
+      </div>
+      <div class="roi-divider" aria-hidden="true"></div>
+      <div class="roi-item">
+        <strong>LA 2028</strong>
+        NIL positioning for US athletes
+      </div>
+      <div class="roi-divider" aria-hidden="true"></div>
+      <div class="roi-item">
+        <strong>8+ countries</strong>
+        Caribbean &amp; diaspora markets
+      </div>
+    </div>
+
+    <div class="athlete-pricing-wrap reveal" aria-label="Athlete and personal brand profile pricing tiers">
+
+      <!-- Section header -->
+      <div class="text-center mb-4">
+        <div class="d-flex align-items-center justify-content-center gap-2 mb-2">
+          <span class="section-label" style="margin:0">Athlete &amp; Personal Brand Profiles</span>
+          <span class="demo-new-badge">New Vertical</span>
+        </div>
+        <h3 class="mt-1 mb-2">Sponsorship-Ready Digital Profiles for Athletes</h3>
+        <p class="text-m mx-auto" style="max-width:560px;font-size:.88rem;">
+          This is not a regular website. It's a professional brand platform built to help athletes attract sponsors, get noticed by scouts and recruiters, and establish credibility online before the next opportunity passes them by.
+        </p>
+        <p class="text-m mx-auto mt-2" style="max-width:480px;font-size:.82rem;opacity:.7;">
+          <i class="bi bi-info-circle me-1" aria-hidden="true"></i>
+          Pricing reflects two distinct markets. Caribbean builds and US/diaspora builds are priced separately based on market positioning and purchasing power.
+        </p>
+      </div>
+
+      <!-- Two-column pricing cards -->
+      <div class="row g-4 justify-content-center">
+
+        <!-- Caribbean Athletes -->
+        <div class="col-md-6 col-lg-5 reveal d1">
+          <div class="athlete-tier-card" aria-label="Caribbean Athlete Profile pricing">
+            <div class="athlete-flag-pill"><span>🌴</span> Caribbean Market · Saint Lucia, Barbados, Trinidad, Jamaica &amp; Region</div>
+            <span class="tier-badge" style="margin-bottom:.5rem">Caribbean Athlete Profile</span>
+            <p class="tier-desc mb-3">For regional athletes, CARIFTA competitors, national champions, and rising Caribbean talent ready to be seen by brands and scouts beyond their island.</p>
+
+            <div class="athlete-range-row" aria-label="Setup fee range: $350 to $700 USD">
+              <sup style="font-size:1rem;font-weight:700;opacity:.6;align-self:flex-start;padding-top:.35rem;">$</sup>
+              <span class="athlete-range-low">350</span>
+              <span class="athlete-range-sep">–</span>
+              <span class="athlete-range-high">$700</span>
+              <span class="athlete-range-label">setup fee · USD</span>
+            </div>
+            <div class="tier-monthly-row mb-3">
+              <span class="tier-monthly-pill"><i class="bi bi-arrow-repeat" aria-hidden="true"></i> $40 – $65/mo</span>
+              <span class="tier-monthly-note">ongoing retainer</span>
+            </div>
+            <div class="tier-total-row mb-3">
+              <i class="bi bi-calculator" aria-hidden="true"></i>
+              6-month investment from: <strong style="color:var(--green,#25D366)">~$590</strong>
+            </div>
+
+            <hr class="price-div">
+            <p class="price-sec-h">What's Included</p>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Full athlete bio &amp; personal story</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Career &amp; achievements timeline</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Personal best stats &amp; ranking display</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Highlight video embed</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Sponsorship &amp; brand inquiry form</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Social media &amp; audience analytics section</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Photo gallery with swap points</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Media kit request CTA</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> WhatsApp management contact</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Full SEO with name, sport, country, event</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> JSON-LD structured data for Google</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Custom domain setup option (+$15/yr)</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Monthly stat &amp; content updates</div>
+
+            <div class="tier-footer mt-auto pt-3">
+              <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20an%20Athlete%20Profile%20for%20a%20Caribbean%20athlete" class="btn-wa w-100 justify-content-center" aria-label="Inquire about a Caribbean athlete profile on WhatsApp">
+                <i class="bi bi-whatsapp" aria-hidden="true"></i> Inquire on WhatsApp
+              </a>
+              <div class="payment-plan-pill" aria-label="Payment plan available">
+                <i class="bi bi-calendar-check" aria-hidden="true"></i> Payment plan available — ask us
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- USA / Diaspora Athletes -->
+        <div class="col-md-6 col-lg-5 reveal d2">
+          <div class="athlete-tier-card athlete-featured" aria-label="USA and diaspora athlete profile pricing">
+            <div class="athlete-market-badge" aria-label="Higher market value tier">USA &amp; Diaspora Market</div>
+            <div class="athlete-flag-pill" style="margin-top:.6rem"><span>🇺🇸</span> USA · Canada · UK · Diaspora Athletes &amp; NIL Candidates</div>
+            <span class="tier-badge" style="margin-bottom:.5rem">USA &amp; Diaspora Athlete Profile</span>
+            <p class="tier-desc mb-3">For Caribbean-heritage athletes in US colleges, NIL-eligible athletes, semi-pro competitors, and diaspora athletes building their brand for the US sponsorship market.</p>
+
+            <div class="athlete-range-row" aria-label="Setup fee range: $700 to $1,200 USD">
+              <sup style="font-size:1rem;font-weight:700;opacity:.6;align-self:flex-start;padding-top:.35rem;">$</sup>
+              <span class="athlete-range-low">700</span>
+              <span class="athlete-range-sep">–</span>
+              <span class="athlete-range-high">$1,200</span>
+              <span class="athlete-range-label">setup fee · USD</span>
+            </div>
+            <div class="tier-monthly-row mb-3">
+              <span class="tier-monthly-pill"><i class="bi bi-arrow-repeat" aria-hidden="true"></i> $65 – $100/mo</span>
+              <span class="tier-monthly-note">ongoing retainer</span>
+            </div>
+            <div class="tier-total-row mb-3">
+              <i class="bi bi-calculator" aria-hidden="true"></i>
+              6-month investment from: <strong style="color:var(--green,#25D366)">~$1,090</strong>
+            </div>
+
+            <hr class="price-div">
+            <p class="price-sec-h">Everything in Caribbean, plus:</p>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> NIL-ready brand positioning copy</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Sponsorship tier menu (Bronze / Silver / Gold)</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Downloadable PDF media kit coordination</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Audience demographic analytics display</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Geographic reach breakdown (US, Caribbean, UK)</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Brand partnership type grid (6 categories)</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Coach &amp; federation testimonials section</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> LA 2028 / Olympic positioning section</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Annual plan option ($699 – $999/yr) available</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Priority build turnaround (2–4 days)</div>
+
+            <div class="tier-footer mt-auto pt-3">
+              <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20a%20USA%20or%20diaspora%20Athlete%20Profile%20build" class="btn-wa w-100 justify-content-center" aria-label="Inquire about a USA or diaspora athlete profile on WhatsApp">
+                <i class="bi bi-whatsapp" aria-hidden="true"></i> Inquire on WhatsApp
+              </a>
+              <div class="payment-plan-pill mt-2" aria-label="Annual plan available">
+                <i class="bi bi-calendar-check" aria-hidden="true"></i> Annual plan available — ask for details
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /row -->
+
+      <!-- Pricing note -->
+      <div class="text-center mt-3">
+        <small class="text-m" style="opacity:.65;font-size:.76rem;">
+          Athlete profile pricing covers setup and ongoing monthly content management. Custom domain registration (~$15/yr) billed separately. 50% of setup fee required to begin. One sponsorship deal typically covers the full build cost many times over.
+        </small>
+      </div>
+
+    </div><!-- /athlete-pricing-wrap -->
+
+    <!-- Why invest section -->
+    <div class="payment-plan-block reveal mt-5">
+      <div class="ppb-inner">
+        <div class="ppb-icon" aria-hidden="true"><i class="bi bi-calendar2-check"></i></div>
+        <div>
+          <h3 class="h5">How the Profile Build Works</h3>
+          <ol class="ppb-steps">
+            <li class="ppb-step"><span class="ppb-num" aria-hidden="true">1</span><span><strong>50% setup fee paid</strong> — Build begins, profile live in 2–4 days</span></li>
+            <li class="ppb-step"><span class="ppb-num" aria-hidden="true">2</span><span><strong>You provide</strong> — Photos, stats, bio notes, video links, social handles</span></li>
+            <li class="ppb-step"><span class="ppb-num" aria-hidden="true">3</span><span><strong>We build &amp; refine</strong> — Full profile built, reviewed with you, launched</span></li>
+            <li class="ppb-step"><span class="ppb-num" aria-hidden="true">4</span><span><strong>Monthly retainer</strong> — Stat updates, content swaps, ongoing SEO &amp; maintenance</span></li>
+          </ol>
+          <div class="ppb-notes" aria-label="Profile build notes">
+            <span><i class="bi bi-info-circle" aria-hidden="true"></i> Remaining 50% of setup fee due on profile approval before launch</span>
+            <span><i class="bi bi-info-circle" aria-hidden="true"></i> Monthly retainer keeps your profile accurate and indexed — cancel with 30 days' notice</span>
+            <span><i class="bi bi-info-circle" aria-hidden="true"></i> Annual plan available at a discount — ask us about it on WhatsApp</span>
+          </div>
+          <a href="https://wa.me/17587235872?text=I%20have%20a%20question%20about%20the%20profile%20build%20process" class="btn-blue mt-3 d-inline-flex align-items-center gap-2" aria-label="Ask a question about the profile build process on WhatsApp">
+            <i class="bi bi-whatsapp" aria-hidden="true"></i> Questions? Ask Us on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Guarantee -->
+    <div class="guarantee-box reveal d2" role="complementary" aria-label="Profile quality guarantee">
+      <div class="guarantee-icon" aria-hidden="true"><i class="bi bi-shield-fill-check"></i></div>
+      <div>
+        <h4>Profile Quality Guarantee</h4>
+        <p>If your profile goes live and a sponsor or scout requests information you don't have a page for, we'll add up to <strong>2 additional content sections</strong> at no extra charge within the first 30 days of launch. Scope limited to content additions directly related to the original profile brief. Your profile should work as hard as you do.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ FINAL CTA ═════════════════════════════════════ -->
+<section class="cta-section" aria-label="Call to action — build your profile now">
+  <div class="container text-center">
+    <div class="reveal">
+      <span class="section-label">Ready? Let's Build</span>
+      <h2 class="display-5 mt-2 mb-3">Your Career Is Moving.<br>Your Brand Should Too.</h2>
+      <div class="divider"></div>
+      <p class="text-m mx-auto mb-2" style="max-width:480px;">Sponsors, scouts, and media are googling your name right now. What do they find? A Jamal Samuel profile gives them a professional answer before you even pick up the phone.</p>
+      <p class="text-m mx-auto mb-5" style="max-width:480px;font-weight:600;color:var(--text);">We take a limited number of profile builds at a time so each athlete gets proper attention. Message us today to confirm availability.</p>
+      <a href="https://wa.me/17587235872?text=I%20want%20to%20build%20my%20personal%20brand%20profile%20with%20Jamal Samuel" class="btn-wa" style="font-size:1rem;padding:1rem 2.5rem;" aria-label="Build your profile now on WhatsApp">
+        <i class="bi bi-whatsapp" aria-hidden="true"></i> Build My Profile Now
+      </a>
+      <p class="mt-3 text-m" style="font-size:.8rem;opacity:.65;">Free consultation · No obligation · Response within a few hours</p>
+      <div class="mt-4">
+        <a href="index.html" class="btn-blue" style="font-size:.85rem;padding:.6rem 1.5rem;" aria-label="Back to Jamal Samuel home">
+          <i class="bi bi-arrow-left" aria-hidden="true"></i> Back to Main Site
+        </a>
+        &nbsp;
+        <a href="demos.html" class="btn-blue" style="font-size:.85rem;padding:.6rem 1.5rem;" aria-label="Browse business demos">
+          <i class="bi bi-grid-3x3-gap" aria-hidden="true"></i> View Business Demos
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══ FOOTER ═══════════════════════════════════════════ -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="row g-5 mb-3">
+      <div class="col-lg-5">
+        <div class="footer-brand-wrap">
+          <img src="images/logo.webp" alt="Jamal Samuel logo" class="img-fluid rounded-pill footer-brand-logo" loading="lazy" width="48" height="48">
+          <div class="footer-brand">
+            <span class="fb-jama">Jamal</span> <span class="fb-inks">Samuel</span>
+          </div>
+        </div>
+        <p class="footer-about">Jamal Samuel builds WhatsApp-first ordering pages for Caribbean and diaspora businesses that need customers to see, choose, and order without endless DMs.</p>
+        <p class="footer-about" style="font-size:.78rem;margin-top:.5rem;">
+          🇱🇨 Saint Lucia &nbsp;·&nbsp; 🇧🇧 Barbados &nbsp;·&nbsp; 🇹🇹 Trinidad &nbsp;·&nbsp; 🇯🇲 Jamaica &nbsp;·&nbsp; 🇺🇸 USA &nbsp;·&nbsp; 🇨🇦 Canada &nbsp;·&nbsp; 🇬🇧 UK &nbsp;&amp; Beyond
+        </p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="https://wa.me/17587235872" class="soc-btn wa" aria-label="Chat with Jamal Samuel on WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/jamalinksonline?igsh=MTlsaDBtdDgyMWkzZw==" class="soc-btn ig" aria-label="Follow Jamal Samuel on Instagram" rel="noopener noreferrer" target="_blank"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+          <a href="https://www.facebook.com/share/14XtA8G2rYe/" class="soc-btn fb" aria-label="Follow Jamal Samuel on Facebook" rel="noopener noreferrer" target="_blank"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <p class="footer-head">Quick Links</p>
+        <nav aria-label="Footer navigation">
+          <a href="index.html#why"        class="footer-lnk">The Problem</a>
+          <a href="index.html#solution"   class="footer-lnk">How It Works</a>
+          <a href="index.html#features"   class="footer-lnk">What You Get</a>
+          <a href="demos.html"            class="footer-lnk">Business Demos</a>
+          <a href="profiles.html"         class="footer-lnk">Profile Demos</a>
+          <a href="#pricing"              class="footer-lnk">Profile Pricing</a>
+          <a href="index.html#pricing"    class="footer-lnk">Business Pricing</a>
+          <a href="legal.html"            class="footer-lnk">Privacy &amp; Terms</a>
+        </nav>
+      </div>
+      <div class="col-6 col-lg-3">
+        <p class="footer-head">Contact Us</p>
+        <a href="https://wa.me/17587235872" class="footer-lnk d-flex align-items-center gap-2" aria-label="Call or message Jamal Samuel on WhatsApp">
+          <i class="bi bi-whatsapp text-success" aria-hidden="true"></i> +17587235872
+        </a>
+        <p class="footer-lnk" style="cursor:default">
+          <i class="bi bi-clock me-2" style="color:var(--gold)" aria-hidden="true"></i> Mon–Sat, 9 AM – 6 PM (AST)
+        </p>
+        <p class="footer-lnk" style="cursor:default;font-size:.78rem;">
+          <i class="bi bi-globe me-2" style="color:var(--gold)" aria-hidden="true"></i> Serving clients worldwide
+        </p>
+        <a href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20interested" class="btn-wa mt-2" style="font-size:.8rem;padding:.6rem 1.2rem;" aria-label="Chat with us now on WhatsApp">
+          <i class="bi bi-whatsapp" aria-hidden="true"></i> Chat Now
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-start gap-2">
+      <div>
+        <span id="footer-year">© 2026 Jamal Samuel. All rights reserved.</span>
+        <div class="footer-legal-row">
+          <a href="legal.html#do-not-sell">Do Not Sell or Share My Personal Information</a>
+          &nbsp;·&nbsp;
+          <a href="legal.html">Privacy Policy &amp; Terms</a>
+        </div>
+        <p class="footer-trademark">
+          Jamal Samuel is a web design and digital services business operated from Saint Lucia (758). Jamal Samuel is not a sports agency, talent agency, management company, or licensed athlete representative. Jamal Samuel does not negotiate, broker, or facilitate sponsorship or endorsement agreements on behalf of any individual. All website designs, systems, copy, and intellectual property produced by Jamal Samuel remain the exclusive property of Jamal Samuel until full payment is received by the client. All profiles shown on this site — including the Zael Emmanuel profile — are original concept builds created solely to illustrate Jamal Samuel service capabilities. All names, statistics, social media figures, biographical details, and performance records within demo profiles are fictional and used for demonstration purposes only. Jamal Samuel does not represent these as active client work unless explicitly stated in writing. Unauthorised reproduction of any Jamal Samuel design, system, or content is prohibited.
+        </p>
+      </div>
+      <span style="opacity:.45;font-size:.78rem;">Built from Saint Lucia 🇱🇨 with care for Caribbean talent.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ WHATSAPP FLOAT ════════════════════════════════ -->
+<a href="https://wa.me/17587235872?text=Hi%20I%27m%20interested%20in%20a%20personal%20brand%20profile" class="wa-float" aria-label="Chat with Jamal Samuel on WhatsApp">
+  <i class="bi bi-whatsapp" aria-hidden="true"></i>
+</a>
+
+<!-- ══ SCRIPTS ════════════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+
+<script>
+/* ════════════════════════════════════════════════════════
+   THEME ENGINE
+   ════════════════════════════════════════════════════════ */
+const html  = document.documentElement;
+const STORE = 'jama-theme';
+
+function getInitialTheme() {
+  const saved = localStorage.getItem(STORE);
+  if (saved) return saved;
+  const h = new Date().getHours();
+  return (h >= 19 || h < 6) ? 'dark' : 'light';
+}
+
+let current = getInitialTheme();
+
+function applyTheme(t) {
+  current = t;
+  html.setAttribute('data-theme', t);
+  localStorage.setItem(STORE, t);
+  const dark  = t === 'dark';
+  const icon  = document.getElementById('themeIcon');
+  const iconM = document.getElementById('themeIconMob');
+  if (icon)  icon.className  = dark ? 'bi bi-moon-stars-fill' : 'bi bi-sun-fill';
+  if (iconM) iconM.className = dark ? 'bi bi-moon-stars-fill' : 'bi bi-sun-fill';
+}
+
+applyTheme(current);
+
+const toggle = () => applyTheme(current === 'light' ? 'dark' : 'light');
+document.getElementById('themeToggle')    ?.addEventListener('click', toggle);
+document.getElementById('themeToggleMob') ?.addEventListener('click', toggle);
+
+
+/* ════════════════════════════════════════════════════════
+   NAVBAR SCROLL SHADOW
+   ════════════════════════════════════════════════════════ */
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60), { passive: true });
+
+
+/* ════════════════════════════════════════════════════════
+   SCROLL REVEAL
+   ════════════════════════════════════════════════════════ */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+
+/* ════════════════════════════════════════════════════════
+   SMOOTH SCROLL NAV
+   ════════════════════════════════════════════════════════ */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (!t) return;
+    e.preventDefault();
+    t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const m = document.getElementById('navMenu');
+    if (m?.classList.contains('show')) bootstrap.Collapse.getInstance(m)?.hide();
+  });
+});
+
+
+/* ════════════════════════════════════════════════════════
+   AUTO COPYRIGHT YEAR
+   ════════════════════════════════════════════════════════ */
+document.getElementById('footer-year').textContent =
+  `© ${new Date().getFullYear()} Jamal Samuel. All rights reserved.`;
+
+
+/* ════════════════════════════════════════════════════════
+   WHATSAPP TRACKING
+   ════════════════════════════════════════════════════════ */
+const TRACKING_URL = 'https://script.google.com/macros/s/AKfycbzPi18mnRW9OmhNoYgd8fyLWd8Z9VEd1xUNZBlECnR2Q49Zbo23M3815A8R75p0ICSe/exec';
+
+function trackWhatsAppClick(event) {
+  const isMobile   = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  fetch(TRACKING_URL, {
+    method: 'POST', mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      page: window.location.pathname,
+      location: 'profiles-page',
+      userAgent: isMobile ? 'mobile' : 'desktop',
+      timestamp: new Date().toISOString()
+    })
+  }).catch(() => {});
+  return true;
+}
+</script>
+
+<!-- ════════════════════════════════════════════════════
+   CONSENT BANNER + GOOGLE ANALYTICS (consent-gated)
+   ════════════════════════════════════════════════════ -->
+<script>
+const consentConfig = {
+  display: { mode: 'bar', wall: false },
+  consent_types: [{
+    name: 'analytics_storage', title: 'Analytics',
+    description: 'Helps us understand how visitors interact with our website.',
+    default: 'denied', require: false
+  }],
+  modal: { title: 'We value your privacy', description: 'This site uses cookies to improve your experience.', buttons: { settings: 'Settings', close: 'Close', reject: 'Reject', accept: 'Accept all' } },
+  settings: { title: 'Customise your preferences', description: 'Choose which cookies you want to allow.', buttons: { reject: 'Reject', close: 'Close', save: 'Save', accept: 'Accept all' } }
+};
+function loadConsentState() { const s = localStorage.getItem('cookie_consent'); return s ? JSON.parse(s) : {}; }
+function saveConsentState(c) {
+  localStorage.setItem('cookie_consent', JSON.stringify(c));
+  if (c.analytics_storage === 'granted') loadGoogleAnalytics();
+}
+function loadGoogleAnalytics() {
+  const s = document.createElement('script');
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-D5H0JCYXE3'; s.async = true;
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date()); gtag('config', 'G-D5H0JCYXE3');
+}
+document.addEventListener('DOMContentLoaded', function () {
+  if (typeof cookiesBannerJs !== 'undefined') cookiesBannerJs(loadConsentState, saveConsentState, consentConfig);
+  const saved = loadConsentState();
+  if (saved.analytics_storage === 'granted') loadGoogleAnalytics();
+});
+</script>
+<script src="https://tagconcierge.github.io/consent-banner-js/dist/consent-banner.js" defer></script>
+
+</body>
+</html>
