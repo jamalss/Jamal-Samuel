@@ -1,0 +1,2220 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consult With Elle | Business Start-Up · Data Entry · QuickBooks</title>
+  <meta name="description" content="Consult With Elle helps small businesses in Saint Lucia, the Caribbean, and beyond get organised, legally registered, and financially ready. Business start-up, data entry, and QuickBooks consulting services." />
+  <meta property="og:title" content="Consult With Elle | Streamline. Organise. Grow." />
+  <meta property="og:description" content="Business start-up, data entry, and QuickBooks consulting for entrepreneurs in Saint Lucia and beyond." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://consultwithelle.com" />
+  <meta property="og:image" content="images/logo.webp" />
+
+  <!-- ============================================================
+       CONFIG — UPDATE THESE BEFORE GOING LIVE
+       ============================================================
+       FORMSPREE_ENDPOINT : Sign Lana up at https://formspree.io
+                            then replace the placeholder below with
+                            her unique form URL e.g.
+                            https://formspree.io/f/xbjwkpzq
+       WHATSAPP_NUMBER    : Already set — confirm with Lana if needed
+  ============================================================ -->
+  <script>
+    const CONFIG = {
+      WHATSAPP_NUMBER: "17587249371",
+      FORMSPREE_ENDPOINT: "https://formspree.io/f/YOUR_FORM_ID", // ← REPLACE BEFORE LAUNCH
+    };
+  </script>
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Google Fonts — Cormorant Garamond (display) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+    media="print"
+    onload="this.media='all'"
+  />
+
+  <!-- Font Awesome — deferred -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    media="print"
+    onload="this.media='all'"
+  />
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS
+       Logo palette: Navy #1B2D6B (primary), Silver/White #E8E8E8,
+       Deep Navy #0F1D4A, Warm White #F7F6F3
+       Accent: Soft Gold #C4A96A (pulled from the logo's silver
+       metallic suggestion — warm, trustworthy, professional)
+    ============================================================ */
+    :root {
+      --navy:       #1B2D6B;
+      --navy-deep:  #0F1D4A;
+      --navy-mid:   #243580;
+      --gold:       #C4A96A;
+      --gold-light: #D9C08A;
+      --silver:     #B8BCC8;
+      --bg:         #F7F6F3;
+      --bg-card:    #FFFFFF;
+      --text:       #1A1A2E;
+      --text-muted: #5A5A72;
+      --border:     #E2E2EC;
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+
+      font-display: swap;
+    }
+
+    [data-theme="dark"] {
+      --bg:         #0C1228;
+      --bg-card:    #131D3A;
+      --text:       #EAE8F0;
+      --text-muted: #9A9AB8;
+      --border:     #222C4A;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      transition: background 0.3s, color 0.3s;
+      overflow-x: hidden;
+    }
+
+    /* ---- TYPOGRAPHY ---- */
+    .display-heading {
+      font-family: var(--font-display);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ---- NAVBAR ---- */
+    .navbar {
+      background: var(--navy-deep);
+      padding: 0.75rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(196,169,106,0.2);
+    }
+
+    .navbar-brand img {
+      height: 44px;
+      width: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .navbar-brand .brand-name {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #fff;
+      margin-left: 0.6rem;
+      letter-spacing: 0.01em;
+    }
+
+    .navbar-toggler {
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 0.35rem 0.6rem;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    .nav-link {
+      color: rgba(255,255,255,0.75) !important;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      padding: 0.5rem 1rem !important;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover, .nav-link:focus { color: var(--gold-light) !important; }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy-deep) !important;
+      border-radius: 4px;
+      padding: 0.45rem 1.1rem !important;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* Theme toggle */
+    #themeToggle {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.75);
+      border-radius: 4px;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+      flex-shrink: 0;
+    }
+
+    #themeToggle:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ---- HERO ---- */
+    .hero {
+      background: var(--navy-deep);
+      position: relative;
+      overflow: hidden;
+      padding: 5rem 0 4rem;
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Signature element: diagonal gold rule that cuts across hero */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      right: -5%;
+      width: 55%;
+      height: 130%;
+      background: linear-gradient(135deg, rgba(196,169,106,0.07) 0%, rgba(196,169,106,0.02) 100%);
+      border-left: 1px solid rgba(196,169,106,0.18);
+      transform: skewX(-8deg);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(196,169,106,0.12);
+      border: 1px solid rgba(196,169,106,0.3);
+      color: var(--gold-light);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-tag .dot {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.7); }
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 6vw, 4.2rem);
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero p.lead {
+      color: rgba(255,255,255,0.72);
+      font-size: 1.05rem;
+      max-width: 520px;
+      margin-bottom: 2rem;
+      line-height: 1.75;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-badge {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.65);
+      font-size: 0.78rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-badge i { color: var(--gold); font-size: 0.7rem; }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.85rem; }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy-deep);
+      font-weight: 600;
+      font-size: 0.92rem;
+      padding: 0.75rem 1.75rem;
+      border: none;
+      border-radius: 3px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-light);
+      color: var(--navy-deep);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(196,169,106,0.3);
+    }
+
+    .btn-outline-gold {
+      background: transparent;
+      color: var(--gold-light);
+      border: 1px solid rgba(196,169,106,0.5);
+      font-weight: 500;
+      font-size: 0.92rem;
+      padding: 0.75rem 1.75rem;
+      border-radius: 3px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+
+    .btn-outline-gold:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(196,169,106,0.07);
+    }
+
+    /* Hero image column */
+    .hero-img-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-img-frame {
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-img-frame::before {
+      content: '';
+      position: absolute;
+      top: -12px; left: -12px;
+      right: 12px; bottom: 12px;
+      border: 1px solid rgba(196,169,106,0.35);
+      border-radius: 4px;
+      z-index: 0;
+    }
+
+    .hero-img-frame img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 360px;
+      border-radius: 4px;
+      object-fit: cover;
+      aspect-ratio: 3/4;
+      display: block;
+    }
+
+    /* Registered badge on image */
+    .reg-badge {
+      position: absolute;
+      bottom: -16px;
+      left: -16px;
+      z-index: 2;
+      background: var(--navy);
+      border: 1px solid rgba(196,169,106,0.35);
+      border-radius: 4px;
+      padding: 0.65rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    .reg-badge .seal {
+      width: 36px; height: 36px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .reg-badge .seal i { color: var(--navy-deep); font-size: 0.9rem; }
+
+    .reg-badge .reg-text { line-height: 1.3; }
+
+    .reg-badge .reg-text strong {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .reg-badge .reg-text span {
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ---- SECTIONS SHARED ---- */
+    section { padding: 5rem 0; }
+
+    .section-header { margin-bottom: 3rem; }
+    .section-header h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 4vw, 2.75rem);
+      font-weight: 600;
+      color: var(--text);
+      margin-top: 0.4rem;
+      line-height: 1.2;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      max-width: 580px;
+      margin-top: 0.75rem;
+    }
+
+    .gold-rule {
+      width: 48px; height: 2px;
+      background: var(--gold);
+      margin-top: 1rem;
+    }
+
+    /* ---- PROBLEM STRIP ---- */
+    .problem-strip {
+      background: var(--navy);
+      padding: 3.5rem 0;
+    }
+
+    .problem-strip .problem-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .problem-icon {
+      width: 42px; height: 42px;
+      background: rgba(196,169,106,0.15);
+      border: 1px solid rgba(196,169,106,0.25);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .problem-icon i { color: var(--gold); font-size: 1rem; }
+
+    .problem-item h4 {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.3rem;
+    }
+
+    .problem-item p { font-size: 0.84rem; color: rgba(255,255,255,0.55); line-height: 1.5; }
+
+    /* ---- SERVICES ---- */
+    .services { background: var(--bg); }
+
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2rem 1.75rem;
+      height: 100%;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      transform-origin: left;
+    }
+
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); border-color: rgba(196,169,106,0.3); }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    [data-theme="dark"] .service-card:hover { box-shadow: 0 16px 40px rgba(0,0,0,0.3); }
+
+    .service-icon {
+      width: 52px; height: 52px;
+      background: rgba(27,45,107,0.08);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    [data-theme="dark"] .service-icon { background: rgba(196,169,106,0.12); }
+
+    .service-icon i { color: var(--navy); font-size: 1.25rem; }
+    [data-theme="dark"] .service-icon i { color: var(--gold); }
+
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .service-card .service-tagline {
+      font-size: 0.84rem;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.85rem;
+    }
+
+    .service-card p { color: var(--text-muted); font-size: 0.91rem; line-height: 1.7; margin-bottom: 1.25rem; }
+
+    .service-items { list-style: none; padding: 0; margin: 0; }
+    .service-items li {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      padding: 0.35rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      line-height: 1.5;
+    }
+
+    .service-items li:last-child { border-bottom: none; }
+    .service-items li i { color: var(--gold); font-size: 0.7rem; margin-top: 0.35rem; flex-shrink: 0; }
+
+    .service-disclaimer {
+      background: rgba(196,169,106,0.08);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 3px 3px 0;
+      padding: 0.75rem 1rem;
+      margin-top: 1.25rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* ---- HOW IT WORKS ---- */
+    .how-it-works { background: var(--navy-deep); }
+    .how-it-works .section-header h2 { color: #fff; }
+    .how-it-works .section-header p { color: rgba(255,255,255,0.6); }
+
+    .step-item {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .step-item:last-child { border-bottom: none; }
+
+    .step-num {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: rgba(196,169,106,0.2);
+      line-height: 1;
+      min-width: 48px;
+      text-align: center;
+    }
+
+    .step-content h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.35rem;
+    }
+
+    .step-content p { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.65; }
+
+    /* ---- MARKETS ---- */
+    .markets { background: var(--bg); }
+
+    .market-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.75rem;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .market-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+
+    .market-flag {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .market-card h4 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+
+    .market-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+
+    .market-priority {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+      margin-top: 0.75rem;
+    }
+
+    .priority-1 { background: rgba(196,169,106,0.15); color: var(--gold); border: 1px solid rgba(196,169,106,0.3); }
+    .priority-2 { background: rgba(27,45,107,0.08); color: var(--navy); border: 1px solid rgba(27,45,107,0.15); }
+    [data-theme="dark"] .priority-2 { background: rgba(196,169,106,0.08); color: var(--silver); border-color: rgba(196,169,106,0.2); }
+    .priority-3 { background: rgba(90,90,114,0.08); color: var(--text-muted); border: 1px solid var(--border); }
+    .priority-4 { background: rgba(196,169,106,0.06); color: var(--gold); border: 1px solid rgba(196,169,106,0.2); }
+
+    /* ---- ABOUT ---- */
+    .about { background: var(--bg-card); }
+    [data-theme="dark"] .about { background: var(--bg-card); }
+
+    .about-img-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-img-inner {
+      position: relative;
+      display: inline-block;
+    }
+
+    .about-img-inner::after {
+      content: '';
+      position: absolute;
+      bottom: -10px; right: -10px;
+      width: 80%;
+      height: 80%;
+      background: rgba(196,169,106,0.1);
+      border: 1px solid rgba(196,169,106,0.2);
+      border-radius: 4px;
+      z-index: 0;
+    }
+
+    .about-img-inner img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 380px;
+      border-radius: 4px;
+      object-fit: cover;
+      aspect-ratio: 4/5;
+      display: block;
+    }
+
+    .about-content h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .about-content p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .about-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 1.75rem 0;
+    }
+
+    .about-stat { text-align: center; }
+    .about-stat .num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--navy);
+      display: block;
+      line-height: 1;
+    }
+    [data-theme="dark"] .about-stat .num { color: var(--gold); }
+    .about-stat .lbl { font-size: 0.78rem; color: var(--text-muted); font-weight: 500; letter-spacing: 0.05em; }
+
+    /* ---- ABOUT HOW I WORK LIST ---- */
+    .about-how {
+      margin: 1.5rem 0 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .about-how-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .about-how-num {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      opacity: 0.6;
+      line-height: 1;
+      min-width: 24px;
+      padding-top: 0.1rem;
+      flex-shrink: 0;
+    }
+
+    .about-how-item strong {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+
+    .about-how-item p {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* ---- MISSION STRIP ---- */
+    .mission-strip {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      background: rgba(27,45,107,0.06);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 4px 4px 0;
+      padding: 1.1rem 1.25rem;
+      margin: 1.5rem 0 0;
+    }
+
+    [data-theme="dark"] .mission-strip {
+      background: rgba(196,169,106,0.07);
+    }
+
+    .mission-strip i {
+      color: var(--gold);
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+      opacity: 0.6;
+    }
+
+    .mission-strip p {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ---- REGISTERED STRIP ---- */
+    .registered-strip {
+      background: var(--navy);
+      border-radius: 4px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin-top: 1.5rem;
+    }
+
+    .registered-strip i { color: var(--gold); font-size: 1.2rem; flex-shrink: 0; }
+    .registered-strip p { margin: 0; font-size: 0.85rem; color: rgba(255,255,255,0.8); line-height: 1.5; }
+    .registered-strip strong { color: #fff; }
+
+    /* ---- TESTIMONIALS ---- */
+    .testimonials { background: var(--bg); }
+
+    .testi-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.75rem;
+      height: 100%;
+      position: relative;
+    }
+
+    .testi-card .quote-mark {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      line-height: 0.6;
+      color: var(--gold);
+      opacity: 0.3;
+      position: absolute;
+      top: 1rem;
+      left: 1.25rem;
+    }
+
+    .testi-card p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.75;
+      font-style: italic;
+      margin: 1.5rem 0 1.25rem;
+    }
+
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .testi-avatar {
+      width: 40px; height: 40px;
+      background: var(--navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--gold-light);
+      flex-shrink: 0;
+    }
+
+    .testi-author strong { display: block; font-size: 0.88rem; color: var(--text); }
+    .testi-author span { font-size: 0.78rem; color: var(--text-muted); }
+
+    .testi-stars { color: var(--gold); font-size: 0.75rem; margin-bottom: 0.25rem; }
+
+    /* ---- FAQ ---- */
+    .faq { background: var(--bg-card); }
+    [data-theme="dark"] .faq { background: var(--bg-card); }
+
+    .accordion-item {
+      background: var(--bg-card) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 4px !important;
+      margin-bottom: 0.5rem;
+      overflow: hidden;
+    }
+
+    .accordion-button {
+      background: var(--bg-card) !important;
+      color: var(--text) !important;
+      font-weight: 600 !important;
+      font-size: 0.93rem !important;
+      box-shadow: none !important;
+      padding: 1.1rem 1.25rem;
+    }
+
+    .accordion-button:not(.collapsed) { color: var(--navy) !important; }
+    [data-theme="dark"] .accordion-button:not(.collapsed) { color: var(--gold) !important; }
+
+    .accordion-button::after {
+      filter: none;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%231B2D6B'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+    }
+
+    [data-theme="dark"] .accordion-button::after {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23C4A96A'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+    }
+
+    .accordion-body { color: var(--text-muted); font-size: 0.9rem; line-height: 1.75; padding: 0 1.25rem 1.25rem; }
+
+    /* ---- CONTACT ---- */
+    .contact { background: var(--navy-deep); }
+    .contact .section-header h2 { color: #fff; }
+    .contact .section-header p { color: rgba(255,255,255,0.6); }
+
+    .contact-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px;
+      padding: 2rem;
+    }
+
+    .form-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-control, .form-select {
+      background: rgba(255,255,255,0.06) !important;
+      border: 1px solid rgba(255,255,255,0.15) !important;
+      color: #fff !important;
+      border-radius: 3px;
+      font-size: 0.92rem;
+      padding: 0.7rem 1rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-control::placeholder { color: rgba(255,255,255,0.3) !important; }
+
+    .form-control:focus, .form-select:focus {
+      box-shadow: 0 0 0 3px rgba(196,169,106,0.2) !important;
+      border-color: rgba(196,169,106,0.5) !important;
+      outline: none;
+    }
+
+    .form-select option { background: var(--navy-deep); color: #fff; }
+
+    .contact-alt {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      text-decoration: none;
+      color: #fff;
+      transition: background 0.2s, border-color 0.2s;
+      margin-bottom: 1rem;
+    }
+
+    .contact-alt:hover { background: rgba(255,255,255,0.08); border-color: rgba(196,169,106,0.3); color: #fff; }
+
+    .contact-alt .icon-wrap {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.15rem;
+    }
+
+    .wa-wrap { background: #25D366; }
+    .email-wrap { background: var(--navy-mid); }
+
+    .contact-alt .c-text strong { display: block; font-size: 0.88rem; font-weight: 600; }
+    .contact-alt .c-text span { font-size: 0.78rem; color: rgba(255,255,255,0.5); }
+
+    /* form alert */
+    #form-status { display: none; margin-top: 1rem; font-size: 0.9rem; }
+
+    /* ---- FOOTER ---- */
+    footer {
+      background: #070E20;
+      padding: 3rem 0 1.5rem;
+      border-top: 1px solid rgba(196,169,106,0.15);
+    }
+
+    footer .footer-brand img {
+      height: 44px; width: 44px;
+      border-radius: 50%; object-fit: cover;
+    }
+
+    footer .footer-brand .brand-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-left: 0.6rem;
+    }
+
+    footer .footer-tagline {
+      font-size: 0.83rem;
+      color: rgba(255,255,255,0.4);
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+
+    footer h5 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    footer ul { list-style: none; padding: 0; margin: 0; }
+    footer ul li { margin-bottom: 0.5rem; }
+    footer ul li a {
+      font-size: 0.87rem;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    footer ul li a:hover { color: var(--gold-light); }
+
+    .footer-divider { border-color: rgba(255,255,255,0.08); margin: 2rem 0 1.25rem; }
+
+    .footer-bottom { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; justify-content: space-between; }
+    .footer-bottom p { font-size: 0.78rem; color: rgba(255,255,255,0.3); margin: 0; }
+
+    .built-by {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+    }
+    .built-by a { color: var(--gold); text-decoration: none; font-weight: 600; transition: color 0.2s; }
+    .built-by a:hover { color: var(--gold-light); }
+
+    /* ---- WHATSAPP FLOAT ---- */
+    .wa-float {
+      position: fixed;
+      bottom: 24px; right: 24px;
+      width: 56px; height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      z-index: 9999;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      animation: wa-pulse 2.5s ease-in-out infinite;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .wa-float:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(37,211,102,0.55); }
+    .wa-float i { color: #fff; font-size: 1.5rem; }
+
+    @keyframes wa-pulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.3); }
+      50% { box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 12px rgba(37,211,102,0); }
+    }
+
+    /* ---- UTILITY ---- */
+    .text-gold { color: var(--gold) !important; }
+    .bg-navy { background: var(--navy) !important; }
+
+    /* Skip link */
+    .skip-link {
+      position: absolute; top: -9999px; left: 0;
+      background: var(--gold); color: var(--navy-deep);
+      padding: 0.5rem 1rem; font-weight: 600;
+      z-index: 99999; border-radius: 0 0 4px 0;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 991.98px) {
+      .hero { padding: 3.5rem 0 3rem; min-height: auto; }
+      .hero-img-wrap { margin-top: 2.5rem; }
+      .reg-badge { left: 0; bottom: -20px; }
+      .navbar-collapse { background: var(--navy-deep); padding: 1rem; margin-top: 0.5rem; border-radius: 4px; }
+    }
+
+    @media (max-width: 575.98px) {
+      .hero h1 { font-size: 2.2rem; }
+      .hero-actions { flex-direction: column; }
+      .btn-gold, .btn-outline-gold { width: 100%; justify-content: center; }
+      .about-stats { gap: 1rem; }
+      .reg-badge { position: static; margin-top: 1rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Skip nav for accessibility -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <nav class="navbar navbar-expand-lg" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#" aria-label="Consult With Elle - Home">
+        <picture>
+          <source srcset="images/logo.webp" type="image/webp" />
+          <img
+            src="images/logo.webp"
+            alt="Consult With Elle logo"
+            width="44" height="44"
+            loading="eager"
+            onerror="this.style.display='none'"
+          />
+        </picture>
+        <span class="brand-name">Consult With Elle</span>
+      </a>
+
+      <div class="d-flex align-items-center gap-2 ms-auto d-lg-none">
+        <button id="themeToggleMobile" aria-label="Toggle dark or light mode">
+          <i class="fa fa-moon" aria-hidden="true"></i>
+        </button>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+          aria-controls="navMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1 mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#how">Process</a></li>
+          <li class="nav-item"><a class="nav-link" href="#markets">Who We Serve</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+          <li class="nav-item ms-lg-2">
+            <a class="nav-link nav-cta" href="#contact">Book a Consultation</a>
+          </li>
+        </ul>
+        <button id="themeToggle" class="ms-lg-3 d-none d-lg-flex" aria-label="Toggle dark or light mode">
+          <i class="fa fa-moon" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       MAIN CONTENT
+  ============================================================ -->
+  <main id="main" role="main">
+
+    <!-- ---- HERO ---- -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6" data-aos="fade-right" data-aos-duration="700">
+            <div class="hero-tag">
+              <span class="dot" aria-hidden="true"></span>
+              Registered Business — Saint Lucia
+            </div>
+            <h1 id="hero-heading">
+              Your business,<br />
+              <em>properly built</em><br />
+              from day one.
+            </h1>
+            <p class="lead">
+              Consult With Elle helps entrepreneurs in Saint Lucia and across the Caribbean get registered, organised, and financially ready — so they can stop scrambling and start growing.
+            </p>
+            <div class="hero-badges" role="list" aria-label="Services offered">
+              <div class="hero-badge" role="listitem">
+                <i class="fa fa-rocket" aria-hidden="true"></i>
+                Business Start-Up
+              </div>
+              <div class="hero-badge" role="listitem">
+                <i class="fa fa-table" aria-hidden="true"></i>
+                Data Entry
+              </div>
+              <div class="hero-badge" role="listitem">
+                <i class="fa-brands fa-quinscape" aria-hidden="true"></i>
+                QuickBooks Consulting
+              </div>
+            </div>
+            <div class="hero-actions">
+              <a
+                href="#contact"
+                class="btn-gold"
+                aria-label="Book a free consultation with Consult With Elle"
+              >
+                <i class="fa fa-calendar-check" aria-hidden="true"></i>
+                Book a Consultation
+              </a>
+              <a href="#services" class="btn-outline-gold" aria-label="View services offered">
+                <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                See What We Do
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-5 offset-lg-1 hero-img-wrap" data-aos="fade-left" data-aos-duration="700" data-aos-delay="150">
+            <div class="hero-img-frame">
+              <picture>
+                <source srcset="images/lana-labadie.webp" type="image/webp" />
+                <img
+                  src="images/lana-labadie.webp"
+                  alt="Lana Labadie, founder of Consult With Elle"
+                  width="360" height="480"
+                  loading="eager"
+                  onerror="this.style.background='rgba(27,45,107,0.3)'"
+                />
+              </picture>
+              <div class="reg-badge" role="note" aria-label="Officially registered business in Saint Lucia">
+                <div class="seal" aria-hidden="true">
+                  <i class="fa fa-certificate"></i>
+                </div>
+                <div class="reg-text">
+                  <strong>Officially Registered</strong>
+                  <span>Saint Lucia · No. 2026/B1369</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- PROBLEM STRIP ---- -->
+    <section class="problem-strip" aria-labelledby="problem-heading">
+      <div class="container">
+        <p id="problem-heading" class="section-label text-center mb-4" style="color: rgba(196,169,106,0.7)">
+          Sound familiar?
+        </p>
+        <div class="row g-0">
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+            <div class="problem-item">
+              <div class="problem-icon" aria-hidden="true"><i class="fa fa-file-circle-question"></i></div>
+              <div>
+                <h4>Registration feels overwhelming</h4>
+                <p>Paperwork, structures, tax forms, NIC — too many moving parts for a first-time founder.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="80">
+            <div class="problem-item">
+              <div class="problem-icon" aria-hidden="true"><i class="fa fa-receipt"></i></div>
+              <div>
+                <h4>Receipts piling up untracked</h4>
+                <p>Transactions lost in email, bags of paper — no clear picture of where money is going.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="160">
+            <div class="problem-item">
+              <div class="problem-icon" aria-hidden="true"><i class="fa fa-chart-bar"></i></div>
+              <div>
+                <h4>QuickBooks set up wrong</h4>
+                <p>Duplicate entries, chart of accounts in chaos, reconciliations that won't balance.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="240">
+            <div class="problem-item">
+              <div class="problem-icon" aria-hidden="true"><i class="fa fa-magnifying-glass-chart"></i></div>
+              <div>
+                <h4>Can't see real business health</h4>
+                <p>No reports, no data, no visibility — just gut feeling where hard numbers should be.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- SERVICES ---- -->
+    <section id="services" class="services" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-label">What We Do</span>
+          <h2 id="services-heading">Three services. One clear mission: get your business in order.</h2>
+          <p>Whether you are just starting out, drowning in data, or struggling with QuickBooks — Consult With Elle brings clarity and structure to your finances and operations.</p>
+          <div class="gold-rule" aria-hidden="true"></div>
+        </div>
+
+        <div class="row g-4">
+          <!-- Service 1: Business Start-Up -->
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="0">
+            <div class="service-card">
+              <div class="service-icon" aria-hidden="true">
+                <i class="fa fa-rocket"></i>
+              </div>
+              <h3>Business Start-Up</h3>
+              <p class="service-tagline">Build the foundation right</p>
+              <p>
+                Launching a business involves more than just an idea. Consult With Elle walks you through registration, structure, and setup so your business is legally sound and operationally ready from day one.
+              </p>
+              <ul class="service-items" aria-label="Business start-up services">
+                <li><i class="fa fa-check" aria-hidden="true"></i>Business structure selection (Sole Proprietorship, LLC, Partnership)</li>
+                <li><i class="fa fa-check" aria-hidden="true"></i>Business plan development</li>
+                <li><i class="fa fa-check" aria-hidden="true"></i>Full registration paperwork — filed for you</li>
+                <li><i class="fa fa-check" aria-hidden="true"></i>Tax registration and basic business licence research</li>
+                <li><i class="fa fa-check" aria-hidden="true"></i>NIC registration</li>
+                <li><i class="fa fa-check" aria-hidden="true"></i>Business email and file organisation setup</li>
+                <li><i class="fa fa-check" aria-hidden="true"></i>Client intake forms and contract templates</li>
+                <li><i class="fa fa-check" aria-hidden="true"></i>Bank account checklist and QuickBooks initial setup</li>
+                <li><i class="fa fa-check" aria-hidden="true"></i>Website and Google Business Profile outsourcing</li>
+              </ul>
+              <div class="service-disclaimer" role="note">
+                Consult With Elle does not provide legal or tax advice. Clients are encouraged to consult a qualified attorney or tax professional for guidance on legal and tax matters.
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 2: Data Entry -->
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-card">
+              <div class="service-icon" aria-hidden="true">
+                <i class="fa fa-database"></i>
+              </div>
+              <h3>Data Entry</h3>
+              <p class="service-tagline">Accurate records. Clear decisions.</p>
+              <p>
+                Accurate data management is not a nice-to-have — it is the difference between knowing your numbers and guessing them. We handle your records so you are always tax-ready and informed.
+              </p>
+              <ul class="service-items" aria-label="Data entry services">
+                <li><i class="fa fa-check" aria-hidden="true"></i>Receipt entry and invoice logging from email or physical copies</li>
+                <li><i class="fa fa-check" aria-hidden="true"></i>Correct categorisation of every transaction</li>
+                <li><i class="fa fa-check" aria-hidden="true"></i>Client and customer database entry — clean contact lists from spreadsheets and emails</li>
+                <li><i class="fa fa-check" aria-hidden="true"></i>Inventory and SKU data entry — new products, pricing, descriptions</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Service 3: QuickBooks Consulting -->
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-card">
+              <div class="service-icon" aria-hidden="true">
+                <i class="fa fa-chart-line"></i>
+              </div>
+              <h3>QuickBooks Consulting</h3>
+              <p class="service-tagline">Set up right. Run with confidence.</p>
+              <p>
+                QuickBooks is only as useful as the person who configured it. We set it up correctly, fix what is broken, and train you and your team to use it with confidence.
+              </p>
+              <ul class="service-items" aria-label="QuickBooks consulting services">
+                <li><i class="fa fa-check" aria-hidden="true"></i>Full QuickBooks setup — chart of accounts, customers, vendors, invoicing, tax settings</li>
+                <li><i class="fa fa-check" aria-hidden="true"></i>Maintenance for existing accounts — fix duplicates, chart of accounts errors, unbalanced reconciliations</li>
+                <li><i class="fa fa-check" aria-hidden="true"></i>Transaction import and categorisation</li>
+                <li><i class="fa fa-check" aria-hidden="true"></i>Training for owners and employees — invoicing, inventory, bills, sales, reports, reconciliation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pricing CTA -->
+        <div class="text-center mt-5" data-aos="fade-up">
+          <p style="color: var(--text-muted); margin-bottom: 1.25rem; font-size: 0.95rem;">
+            Pricing is tailored to your business needs. Every consultation starts with a conversation.
+          </p>
+          <a href="#contact" class="btn-gold" aria-label="Request a consultation to discuss pricing">
+            <i class="fa fa-comments" aria-hidden="true"></i>
+            Request a Consultation
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- HOW IT WORKS ---- -->
+    <section id="how" class="how-it-works" aria-labelledby="how-heading">
+      <div class="container">
+        <div class="row align-items-start">
+          <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
+            <div class="section-header">
+              <span class="section-label">The Process</span>
+              <h2 id="how-heading" style="color:#fff">How working with us looks</h2>
+              <p style="color: rgba(255,255,255,0.6);">
+                There is no complicated onboarding. No jargon. Just a straightforward path from scattered to structured.
+              </p>
+              <div class="gold-rule" aria-hidden="true"></div>
+            </div>
+            <a href="#contact" class="btn-gold mt-3" aria-label="Start the process with a consultation">
+              <i class="fa fa-arrow-right" aria-hidden="true"></i>
+              Start the Process
+            </a>
+          </div>
+
+          <div class="col-lg-7 offset-lg-1" data-aos="fade-left" data-aos-delay="100">
+            <div class="step-item">
+              <span class="step-num" aria-hidden="true">01</span>
+              <div class="step-content">
+                <h4>Book a consultation</h4>
+                <p>Reach out via WhatsApp or the contact form. We schedule a brief call to understand your business, your current situation, and exactly what you need.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <span class="step-num" aria-hidden="true">02</span>
+              <div class="step-content">
+                <h4>We assess and plan</h4>
+                <p>Based on your consultation, we identify gaps, outline the scope of work, and present a clear plan — with pricing — before any work begins. No surprises.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <span class="step-num" aria-hidden="true">03</span>
+              <div class="step-content">
+                <h4>We do the work</h4>
+                <p>You send us what we need — receipts, paperwork, login details — and we handle the rest. You stay informed throughout without being buried in the details.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <span class="step-num" aria-hidden="true">04</span>
+              <div class="step-content">
+                <h4>You get clarity and control</h4>
+                <p>Deliverables are handed over with a walkthrough so you understand what was done, what your records show, and how to keep moving forward.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- MARKETS ---- -->
+    <section id="markets" class="markets" aria-labelledby="markets-heading">
+      <div class="container">
+        <div class="section-header text-center mx-auto" style="max-width: 600px;" data-aos="fade-up">
+          <span class="section-label">Who We Serve</span>
+          <h2 id="markets-heading">Saint Lucia. The Caribbean. And beyond.</h2>
+          <p>Consult With Elle was built in Saint Lucia for local entrepreneurs — but the services are fully remote-ready for clients across the region and diaspora.</p>
+          <div class="gold-rule mx-auto" aria-hidden="true"></div>
+        </div>
+
+        <div class="row g-4 mt-2">
+          <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+            <div class="market-card">
+              <span class="market-flag" aria-hidden="true">🇱🇨</span>
+              <h4>Grant Recipients &amp; Start-Ups</h4>
+              <p>First-time business owners in Saint Lucia navigating registration, structure, and compliance for the first time.</p>
+              <span class="market-priority priority-1">Priority Market</span>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="80">
+            <div class="market-card">
+              <span class="market-flag" aria-hidden="true">📈</span>
+              <h4>Growing Businesses Seeking Financing</h4>
+              <p>Established Caribbean businesses needing clean books and organised records to qualify for loans or investment.</p>
+              <span class="market-priority priority-2">High Demand</span>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="160">
+            <div class="market-card">
+              <span class="market-flag" aria-hidden="true">🏪</span>
+              <h4>Established Small Businesses</h4>
+              <p>Businesses already operating but lacking organised records, proper categorisation, or QuickBooks accuracy.</p>
+              <span class="market-priority priority-3">Always Open</span>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="240">
+            <div class="market-card">
+              <span class="market-flag" aria-hidden="true">🌍</span>
+              <h4>Diaspora &amp; Digital Entrepreneurs</h4>
+              <p>Caribbean nationals abroad and remote-first entrepreneurs who need professional business support delivered digitally.</p>
+              <span class="market-priority priority-4">Remote-Ready</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- ABOUT ---- -->
+    <section id="about" class="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-5" data-aos="fade-right">
+            <div class="about-img-wrap">
+              <div class="about-img-inner">
+                <picture>
+                  <source srcset="images/lana-labadie.webp" type="image/webp" />
+                  <img
+                    src="images/lana-labadie.webp"
+                    alt="Lana Labadie, founder of Consult With Elle, La Fargue, Choiseul, Saint Lucia"
+                    width="380" height="475"
+                    loading="lazy"
+                    onerror="this.style.background='rgba(27,45,107,0.15)'"
+                  />
+                </picture>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 offset-lg-1 about-content" data-aos="fade-left" data-aos-delay="100">
+            <span class="section-label">The Person Behind the Business</span>
+            <h2 id="about-heading">
+              Meet Lana.<br />
+              <em style="font-family: var(--font-display); font-style: italic; color: var(--navy);">
+                Streamline. Organise. Grow.
+              </em>
+            </h2>
+            <p>
+              I'm Lana Labadie — a QuickBooks Online Accountant Global Professional and data entry specialist who helps small businesses turn financial chaos into clarity.
+            </p>
+            <p>
+              I started Consult With Elle because I saw too many entrepreneurs with big vision lose steam over messy books. Training teaches you how to start. Nobody teaches you how to track $50 in sales every day without drowning in it.
+            </p>
+
+            <!-- How I Work — 4 points -->
+            <div class="about-how" role="list" aria-label="How Lana works">
+              <div class="about-how-item" role="listitem">
+                <div class="about-how-num" aria-hidden="true">1</div>
+                <div>
+                  <strong>No jargon, just clarity</strong>
+                  <p>I break down your P&amp;L and cash flow in plain English. You will know exactly where your money is going and why.</p>
+                </div>
+              </div>
+              <div class="about-how-item" role="listitem">
+                <div class="about-how-num" aria-hidden="true">2</div>
+                <div>
+                  <strong>Setup, cleanup, and ongoing support</strong>
+                  <p>Whether you need QuickBooks built from scratch, twelve months caught up, or consistent monthly help — I have a package for it.</p>
+                </div>
+              </div>
+              <div class="about-how-item" role="listitem">
+                <div class="about-how-num" aria-hidden="true">3</div>
+                <div>
+                  <strong>100% remote</strong>
+                  <p>I work with clients across time zones. Fast responses, screen-share training, and WhatsApp and email support.</p>
+                </div>
+              </div>
+              <div class="about-how-item" role="listitem">
+                <div class="about-how-num" aria-hidden="true">4</div>
+                <div>
+                  <strong>Tech and human</strong>
+                  <p>I use QuickBooks and automation to save time, but you still get a real person who understands your specific business.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mission Statement -->
+            <div class="mission-strip" role="note" aria-label="Consult With Elle mission statement">
+              <i class="fa fa-quote-left" aria-hidden="true"></i>
+              <p>
+                Consult With Elle aims to empower our clients and streamline daily operations by providing seamless administrative support and solutions, allowing small businesses to focus on growth and excellence.
+              </p>
+            </div>
+
+            <div class="registered-strip" role="note" aria-label="Official business registration details">
+              <i class="fa fa-shield-halved" aria-hidden="true"></i>
+              <p>
+                <strong>Officially Registered Business — Saint Lucia</strong><br />
+                Consult With Elle is a registered business under the Registration of Business Names Act, Chapter 13.03 of the Revised Laws of Saint Lucia. Registration No. 2026/B1369, issued 3rd June 2026.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- TESTIMONIALS ---- -->
+    <section id="testimonials" class="testimonials" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <div class="section-header text-center mx-auto" style="max-width: 560px;" data-aos="fade-up">
+          <span class="section-label">What Clients Say</span>
+          <h2 id="testimonials-heading">Results speak louder than promises.</h2>
+          <div class="gold-rule mx-auto" aria-hidden="true"></div>
+        </div>
+
+        <div class="row g-4 mt-2">
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+            <div class="testi-card">
+              <span class="quote-mark" aria-hidden="true">"</span>
+              <div class="testi-stars" aria-label="5 out of 5 stars">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              </div>
+              <p>
+                "Lana walked me through every step of registering my business. I had no idea what I was doing before — she made it simple, clear, and I felt completely supported throughout the process."
+              </p>
+              <div class="testi-author">
+                <div class="testi-avatar" aria-hidden="true">S</div>
+                <div>
+                  <strong>Shanice R.</strong>
+                  <span>Small Business Owner, Saint Lucia</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="testi-card">
+              <span class="quote-mark" aria-hidden="true">"</span>
+              <div class="testi-stars" aria-label="5 out of 5 stars">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              </div>
+              <p>
+                "My QuickBooks was a mess. Duplicates everywhere, reconciliations that made no sense. She cleaned everything up and trained me properly. I actually understand my own books now."
+              </p>
+              <div class="testi-author">
+                <div class="testi-avatar" aria-hidden="true">M</div>
+                <div>
+                  <strong>Marcus T.</strong>
+                  <span>Retail Business Owner, Castries</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="testi-card">
+              <span class="quote-mark" aria-hidden="true">"</span>
+              <div class="testi-stars" aria-label="5 out of 5 stars">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              </div>
+              <p>
+                "I'm based in the UK and needed help sorting my Caribbean business records remotely. Lana was professional, responsive, and delivered everything exactly as discussed. Highly recommend."
+              </p>
+              <div class="testi-author">
+                <div class="testi-avatar" aria-hidden="true">D</div>
+                <div>
+                  <strong>Danielle F.</strong>
+                  <span>Diaspora Entrepreneur, United Kingdom</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- FAQ ---- -->
+    <section id="faq" class="faq" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
+            <div class="section-header">
+              <span class="section-label">Common Questions</span>
+              <h2 id="faq-heading">Questions answered honestly.</h2>
+              <p>If your question is not here, send it directly via WhatsApp or the contact form below.</p>
+              <div class="gold-rule" aria-hidden="true"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-7 offset-lg-1" data-aos="fade-left" data-aos-delay="100">
+            <div class="accordion" id="faqAccordion">
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq1"
+                    aria-expanded="true"
+                    aria-controls="faq1"
+                  >
+                    How much do your services cost?
+                  </button>
+                </h3>
+                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    Pricing is tailored to each client based on the scope of work, complexity, and time required. We do not believe in one-size-fits-all packages. Book a consultation and you will receive a clear, itemised quote before any work begins. No surprises and no hidden fees.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq2"
+                    aria-expanded="false"
+                    aria-controls="faq2"
+                  >
+                    Do I need to be in Saint Lucia to work with you?
+                  </button>
+                </h3>
+                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    No. Consult With Elle is fully remote-capable. Services are delivered digitally via WhatsApp, email, and shared documents. Clients across the Caribbean and in the diaspora are welcome. If you have an internet connection and documents to share, we can work together.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq3"
+                    aria-expanded="false"
+                    aria-controls="faq3"
+                  >
+                    I already have QuickBooks but it's a mess. Can you fix it?
+                  </button>
+                </h3>
+                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    Yes — this is one of the most common situations we handle. Duplicate transactions, incorrect categorisation, chart of accounts problems, and unbalanced reconciliations are all fixable. We assess the current state first and give you a clear picture of what needs to be done before any work begins.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq4"
+                    aria-expanded="false"
+                    aria-controls="faq4"
+                  >
+                    Do you provide legal or tax advice?
+                  </button>
+                </h3>
+                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    No. Consult With Elle does not provide legal or tax advice. We handle the operational side — registration paperwork, bookkeeping, QuickBooks setup and data management. For legal and tax matters, clients are encouraged to engage a qualified attorney or tax professional.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq5"
+                    aria-expanded="false"
+                    aria-controls="faq5"
+                  >
+                    What do I need to bring to the first consultation?
+                  </button>
+                </h3>
+                <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    Nothing formal. Just come with an idea of what your business is, where it currently stands, and the main problem you want solved. We will ask the right questions to figure out the rest. If you have any existing documents — receipts, QuickBooks login, registration papers — bring those too if you have them.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq6"
+                    aria-expanded="false"
+                    aria-controls="faq6"
+                  >
+                    How long does the business registration process take?
+                  </button>
+                </h3>
+                <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    Timelines depend on the type of business structure and Saint Lucia's official registration processing times, which we cannot control. What we do is ensure your paperwork is complete and submitted correctly the first time — which avoids the back-and-forth that delays most applications. We keep you informed throughout.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- CONTACT ---- -->
+    <section id="contact" class="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="section-header text-center mx-auto" style="max-width: 580px;" data-aos="fade-up">
+          <span class="section-label">Get In Touch</span>
+          <h2 id="contact-heading" style="color:#fff">
+            Ready to get your<br />business in order?
+          </h2>
+          <p>
+            Book a consultation and we will assess your situation, explain what needs to be done, and give you a clear quote. No pressure. No jargon.
+          </p>
+          <div class="gold-rule mx-auto" aria-hidden="true"></div>
+        </div>
+
+        <div class="row g-5 mt-2">
+          <!-- Form -->
+          <div class="col-lg-7" data-aos="fade-right">
+            <div class="contact-card">
+              <form
+                id="contactForm"
+                novalidate
+                aria-label="Consultation request form"
+              >
+                <div class="row g-3">
+                  <div class="col-sm-6">
+                    <label for="firstName" class="form-label">First Name <span aria-hidden="true">*</span></label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="firstName"
+                      name="firstName"
+                      placeholder="Your first name"
+                      required
+                      autocomplete="given-name"
+                      aria-required="true"
+                    />
+                  </div>
+                  <div class="col-sm-6">
+                    <label for="lastName" class="form-label">Last Name <span aria-hidden="true">*</span></label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="lastName"
+                      name="lastName"
+                      placeholder="Your last name"
+                      required
+                      autocomplete="family-name"
+                      aria-required="true"
+                    />
+                  </div>
+                  <div class="col-sm-6">
+                    <label for="email" class="form-label">Email Address <span aria-hidden="true">*</span></label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      name="email"
+                      placeholder="you@example.com"
+                      required
+                      autocomplete="email"
+                      aria-required="true"
+                    />
+                  </div>
+                  <div class="col-sm-6">
+                    <label for="phone" class="form-label">WhatsApp / Phone</label>
+                    <input
+                      type="tel"
+                      class="form-control"
+                      id="phone"
+                      name="phone"
+                      placeholder="+1 758 000 0000"
+                      autocomplete="tel"
+                    />
+                  </div>
+                  <div class="col-12">
+                    <label for="service" class="form-label">Service Needed <span aria-hidden="true">*</span></label>
+                    <select
+                      class="form-select"
+                      id="service"
+                      name="service"
+                      required
+                      aria-required="true"
+                    >
+                      <option value="" disabled selected>Select a service</option>
+                      <option value="Business Start-Up">Business Start-Up</option>
+                      <option value="Data Entry">Data Entry</option>
+                      <option value="QuickBooks Setup">QuickBooks Setup</option>
+                      <option value="QuickBooks Maintenance">QuickBooks Maintenance / Fix</option>
+                      <option value="QuickBooks Training">QuickBooks Training</option>
+                      <option value="Not sure — need advice">Not sure — I need advice first</option>
+                    </select>
+                  </div>
+                  <div class="col-12">
+                    <label for="location" class="form-label">Your Location</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="location"
+                      name="location"
+                      placeholder="e.g. Saint Lucia, Trinidad, UK Diaspora…"
+                      autocomplete="country-name"
+                    />
+                  </div>
+                  <div class="col-12">
+                    <label for="message" class="form-label">Tell Me About Your Situation <span aria-hidden="true">*</span></label>
+                    <textarea
+                      class="form-control"
+                      id="message"
+                      name="message"
+                      rows="4"
+                      placeholder="Briefly describe where your business is and what you need help with…"
+                      required
+                      aria-required="true"
+                    ></textarea>
+                  </div>
+                  <div class="col-12">
+                    <button
+                      type="submit"
+                      class="btn-gold w-100 justify-content-center"
+                      aria-label="Submit consultation request form"
+                    >
+                      <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                      Send My Request
+                    </button>
+                    <div
+                      id="form-status"
+                      role="alert"
+                      aria-live="polite"
+                      style="border-radius: 3px; padding: 0.75rem 1rem; margin-top: 0.75rem;"
+                    ></div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Alt contact -->
+          <div class="col-lg-5" data-aos="fade-left" data-aos-delay="100">
+            <p class="section-label mb-3">Or reach out directly</p>
+
+            <a
+              id="waLink"
+              href="#"
+              class="contact-alt"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Message Lana on WhatsApp"
+            >
+              <div class="icon-wrap wa-wrap" aria-hidden="true">
+                <i class="fa-brands fa-whatsapp" style="color:#fff; font-size:1.2rem;"></i>
+              </div>
+              <div class="c-text">
+                <strong>WhatsApp</strong>
+                <span>Message Lana directly — fastest response</span>
+              </div>
+            </a>
+
+            <div
+              class="contact-alt"
+              style="cursor: default;"
+              role="note"
+              aria-label="Location information"
+            >
+              <div class="icon-wrap email-wrap" aria-hidden="true">
+                <i class="fa fa-location-dot" style="color:#fff; font-size:1.1rem;"></i>
+              </div>
+              <div class="c-text">
+                <strong>Based in Saint Lucia</strong>
+                <span>La Fargue, Choiseul · Serving clients remotely worldwide</span>
+              </div>
+            </div>
+
+            <div
+              class="contact-alt"
+              style="cursor: default;"
+              role="note"
+              aria-label="Registration information"
+            >
+              <div class="icon-wrap" style="background: var(--gold);" aria-hidden="true">
+                <i class="fa fa-certificate" style="color: var(--navy-deep); font-size:1rem;"></i>
+              </div>
+              <div class="c-text">
+                <strong>Registered Business</strong>
+                <span>No. 2026/B1369 · Issued 3rd June 2026</span>
+              </div>
+            </div>
+
+            <div
+              style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 1.5rem; margin-top: 1rem;"
+              role="note"
+            >
+              <p class="section-label mb-2">A note before you reach out</p>
+              <p style="color: rgba(255,255,255,0.55); font-size: 0.88rem; line-height: 1.7; margin: 0;">
+                Every consultation starts with a conversation — not a quote. Tell us where your business stands and what feels broken. We will be direct about what is needed, what it costs, and what you can expect.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <a href="#" class="footer-brand d-flex align-items-center text-decoration-none" aria-label="Consult With Elle homepage">
+            <picture>
+              <source srcset="images/logo.webp" type="image/webp" />
+              <img
+                src="images/logo.webp"
+                alt="Consult With Elle logo"
+                width="44" height="44"
+                loading="lazy"
+                onerror="this.style.display='none'"
+              />
+            </picture>
+            <span class="brand-name">Consult With Elle</span>
+          </a>
+          <p class="footer-tagline mt-2">Streamline. Organise. Grow.</p>
+          <p style="font-size: 0.83rem; color: rgba(255,255,255,0.35); margin-top: 0.75rem; line-height: 1.6;">
+            A registered Saint Lucia business providing professional bookkeeping, business start-up, and QuickBooks consulting services to entrepreneurs across the Caribbean and beyond.
+          </p>
+        </div>
+
+        <div class="col-sm-4 col-lg-2 offset-lg-1">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#services">Business Start-Up</a></li>
+            <li><a href="#services">Data Entry</a></li>
+            <li><a href="#services">QuickBooks Setup</a></li>
+            <li><a href="#services">QuickBooks Maintenance</a></li>
+            <li><a href="#services">QuickBooks Training</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-4 col-lg-2">
+          <h5>Navigate</h5>
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#how">Process</a></li>
+            <li><a href="#markets">Who We Serve</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-4 col-lg-3">
+          <h5>Contact</h5>
+          <ul>
+            <li>
+              <a id="footerWaLink" href="#" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-whatsapp me-1" aria-hidden="true" style="color:#25D366;"></i>
+                WhatsApp
+              </a>
+            </li>
+            <li>
+              <a href="#contact">
+                <i class="fa fa-envelope me-1" aria-hidden="true" style="color: var(--gold);"></i>
+                Contact Form
+              </a>
+            </li>
+            <li style="margin-top: 0.75rem;">
+              <span style="font-size: 0.8rem; color: rgba(255,255,255,0.3);">
+                La Fargue, Choiseul<br />Saint Lucia, W.I.
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="footer-divider" />
+
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> Consult With Elle. Registered Business No. 2026/B1369. All rights reserved.</p>
+        <p class="built-by">
+          Built by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank" rel="noopener noreferrer">JAMALINKS</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float Button -->
+  <a
+    id="waFloat"
+    href="#"
+    class="wa-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Message Consult With Elle on WhatsApp"
+  >
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+  </a>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+    /* ============================================================
+       INIT AOS
+    ============================================================ */
+    AOS.init({ once: true, offset: 60, duration: 600, easing: 'ease-out-quad' });
+
+    /* ============================================================
+       WHATSAPP LINKS
+    ============================================================ */
+    const WA_NUM = CONFIG.WHATSAPP_NUMBER;
+
+    function setWaLinks() {
+      const generalMsg = encodeURIComponent("Hi Lana, I'd like to book a consultation with Consult With Elle.");
+      const url = `https://wa.me/${WA_NUM}?text=${generalMsg}`;
+      document.getElementById('waFloat').href = url;
+      document.getElementById('waLink').href = url;
+      document.getElementById('footerWaLink').href = url;
+    }
+
+    setWaLinks();
+
+    /* ============================================================
+       DARK / LIGHT MODE
+    ============================================================ */
+    function getAutoTheme() {
+      const h = new Date().getHours();
+      return (h >= 6 && h < 18) ? 'light' : 'dark';
+    }
+
+    function applyTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('cwe-theme', t);
+      const icon = t === 'dark' ? 'fa-sun' : 'fa-moon';
+      document.querySelectorAll('#themeToggle i, #themeToggleMobile i').forEach(el => {
+        el.className = `fa ${icon}`;
+      });
+    }
+
+    // Init
+    const savedTheme = localStorage.getItem('cwe-theme') || getAutoTheme();
+    applyTheme(savedTheme);
+
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+
+    const mobileToggle = document.getElementById('themeToggleMobile');
+    if (mobileToggle) {
+      mobileToggle.addEventListener('click', () => {
+        applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+      });
+    }
+
+    /* ============================================================
+       CONTACT FORM — FORMSPREE
+    ============================================================ */
+    const form = document.getElementById('contactForm');
+    const statusEl = document.getElementById('form-status');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const origText = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Sending…';
+
+      statusEl.style.display = 'none';
+
+      // Check placeholder endpoint
+      if (CONFIG.FORMSPREE_ENDPOINT.includes('YOUR_FORM_ID')) {
+        statusEl.style.display = 'block';
+        statusEl.style.background = 'rgba(196,169,106,0.15)';
+        statusEl.style.color = 'rgba(255,255,255,0.7)';
+        statusEl.style.border = '1px solid rgba(196,169,106,0.3)';
+        statusEl.textContent = '⚠ Form not yet connected. Please message Lana directly on WhatsApp.';
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = origText;
+        return;
+      }
+
+      try {
+        const data = new FormData(form);
+        const response = await fetch(CONFIG.FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          body: data,
+          headers: { Accept: 'application/json' }
+        });
+
+        if (response.ok) {
+          statusEl.style.display = 'block';
+          statusEl.style.background = 'rgba(37,211,102,0.1)';
+          statusEl.style.color = '#7DFDB1';
+          statusEl.style.border = '1px solid rgba(37,211,102,0.25)';
+          statusEl.textContent = '✓ Message sent. Lana will be in touch shortly.';
+          form.reset();
+        } else {
+          throw new Error('Server error');
+        }
+      } catch {
+        statusEl.style.display = 'block';
+        statusEl.style.background = 'rgba(220,53,69,0.1)';
+        statusEl.style.color = '#FF8FA3';
+        statusEl.style.border = '1px solid rgba(220,53,69,0.2)';
+        statusEl.textContent = '✕ Something went wrong. Please try WhatsApp instead.';
+      }
+
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = origText;
+    });
+
+    /* ============================================================
+       FOOTER YEAR
+    ============================================================ */
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ============================================================
+       NAVBAR SCROLL ACTIVE STATE
+    ============================================================ */
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
+</body>
+</html>
