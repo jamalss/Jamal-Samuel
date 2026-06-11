@@ -459,6 +459,60 @@ html, body { overflow-x: hidden; max-width: 100%; }
   background: linear-gradient(135deg, var(--gold, #F5B000), #FCD34D);
   color: #1a1a1a; border: none;
 }
+
+/* ── Row section headers ─────────────────────────── */
+.demo-row-header {
+  display: flex; align-items: center; gap: .75rem;
+  margin-bottom: .5rem; flex-wrap: wrap;
+}
+
+/* ── Professional pricing: monthly & onetime rows ── */
+.tier-monthly-row {
+  display: flex; align-items: center; gap: .6rem; flex-wrap: wrap;
+}
+.tier-monthly-pill {
+  display: inline-flex; align-items: center; gap: .4rem;
+  background: var(--bg-alt); border: 1px solid var(--border);
+  border-radius: 50px; padding: .28rem .85rem;
+  font-size: .72rem; font-weight: 700; color: var(--blue-mid, #2563EB);
+}
+[data-theme="dark"] .tier-monthly-pill { color: var(--gold, #F5B000); }
+.tier-monthly-note {
+  font-size: .68rem; color: var(--muted); font-weight: 400; opacity: .75;
+}
+
+.tier-onetime-row {
+  display: flex; align-items: center; gap: .6rem; flex-wrap: wrap;
+}
+.tier-onetime-tag {
+  display: inline-flex; align-items: center; gap: .4rem;
+  background: rgba(34,197,94,.08); border: 1px solid rgba(34,197,94,.2);
+  border-radius: 50px; padding: .25rem .8rem;
+  font-size: .68rem; font-weight: 700; color: #16a34a;
+}
+[data-theme="dark"] .tier-onetime-tag { color: #4ade80; background: rgba(34,197,94,.12); }
+
+.tier-total-row {
+  display: flex; align-items: center; gap: .5rem;
+  font-size: .73rem; font-weight: 500; color: var(--muted); font-style: italic;
+}
+.tier-total-row i { color: var(--gold, #F5B000); font-size: .8rem; }
+
+.tier-desc {
+  font-size: .82rem; color: var(--muted); line-height: 1.6;
+}
+
+/* ── Tier No (crossed out feature) ──────────────── */
+.price-feat.tier-no { opacity: .38; }
+.price-feat.tier-no i { color: var(--muted) !important; }
+
+/* ── Tier footer stack ───────────────────────────── */
+.tier-footer { display: flex; flex-direction: column; gap: .2rem; }
+
+/* ── Professional pricing featured border ────────── */
+.athlete-tier-card[style*="border-color:var(--blue"] {
+  border-color: rgba(37,99,235,.35) !important;
+}
 </style>
 
 </head>
@@ -639,9 +693,9 @@ html, body { overflow-x: hidden; max-width: 100%; }
   <div class="container">
     <div class="text-center mb-5 reveal">
       <span class="section-label">Profile Portfolio</span>
-      <h2 class="display-6 mt-2 mb-2">Live Profile. More Disciplines In Production.</h2>
+      <h2 class="display-6 mt-2 mb-2">3 Rows. 12 Disciplines. One Standard of Quality.</h2>
       <div class="divider"></div>
-      <p class="text-m mx-auto" style="max-width:560px;">The profile below is a fully-built demonstration of the Jamal Samuel athlete profile system. Additional profile types are in production and will be added as they are completed.</p>
+      <p class="text-m mx-auto" style="max-width:560px;">Athletes, professionals, and practitioners who are invisible online despite being excellent at what they do. Every profile type below is built to attract the right opportunities — sponsors, clients, patients, or referrals.</p>
       <!-- ══ DEMO DISCLAIMER NOTICE — Legal Safety ══════════════════
            This notice is required on the portfolio section itself,
            not only in the footer, to ensure anyone arriving at this
@@ -652,26 +706,29 @@ html, body { overflow-x: hidden; max-width: 100%; }
       <div class="demo-disclaimer mt-3" role="note" aria-label="Important: demonstration builds notice" style="background:var(--bg-alt);border:1.5px solid var(--gold,#F5B000);border-radius:.75rem;padding:.75rem 1.25rem;display:inline-flex;align-items:flex-start;gap:.6rem;text-align:left;max-width:640px;font-size:.8rem;color:var(--text);line-height:1.6;">
         <i class="bi bi-shield-exclamation" aria-hidden="true" style="color:var(--gold,#F5B000);font-size:1.1rem;flex-shrink:0;margin-top:.1rem;"></i>
         <span>
-          <strong>Demonstration Build Notice:</strong> All profiles shown on this page — including Zael Emmanuel — are <strong>original concept builds created by Jamal Samuel to showcase service capabilities only.</strong> Names, statistics, social figures, and biographical details within demo profiles are fictional and used for demonstration purposes. These are not real clients unless explicitly stated. Jamal Samuel is a web design service and does not represent, negotiate for, or act as agent for any individual shown.
+          <strong>Demonstration Build Notice:</strong> All profiles shown on this page are <strong>original concept builds created by Jamal Samuel to showcase service capabilities only.</strong> Names, statistics, credentials, social figures, and biographical details within demo profiles are entirely fictional and used for demonstration purposes. These are not real clients unless explicitly stated. Jamal Samuel is a web design service and does not represent, negotiate for, or act as agent for any individual shown.
         </span>
       </div>
     </div>
 
-    <!-- ── Row A: Row Header ── -->
+    <!-- ══════════════════════════════════════════════════════════
+         ROW 1 — SPORTS ATHLETES
+         Cards: Zael Emmanuel (LIVE) + 3 coming soon (commented)
+         Uncomment each card as the demo is completed.
+    ══════════════════════════════════════════════════════════════ -->
     <div class="mt-2 mb-3 reveal">
       <div class="demo-row-header">
-        <span class="section-label" style="margin:0;">Athlete &amp; Personal Brand Profiles</span>
+        <span class="section-label" style="margin:0;">Row 1 — Sports Athletes</span>
         <span class="demo-new-badge" aria-label="New service offering">New Vertical</span>
       </div>
       <p class="text-m" style="font-size:.82rem;max-width:600px;opacity:.8;">
-        Professional digital identity systems for athletes, coaches, and personal brands — built to attract sponsors, scouts, and media opportunities. New profile types added regularly.
+        Sponsorship-ready digital profiles for Caribbean and diaspora athletes across all disciplines — built to attract brand partners, scouts, and media.
       </p>
     </div>
 
-    <!-- Row 1: 4 cards -->
-    <div class="row g-4 mb-4">
+    <div class="row g-4 mb-5">
 
-      <!-- Card 1: Zael Emmanuel — LIVE -->
+      <!-- ── CARD R1-1: Zael Emmanuel — Sprint · LIVE ─────────── -->
       <div class="col-sm-6 col-lg-3 reveal d1">
         <article class="demo-card profile-card-featured" aria-label="Zael Emmanuel athlete brand profile">
           <div class="demo-picture">
@@ -687,12 +744,108 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </div>
         </article>
       </div>
+      <!-- ── END CARD R1-1 ── -->
 
-      <!-- ── CARD 2: Coach Nadine — Life Coach ───────────────── -->
+      <!-- ── CARD R1-2: Marcus Felix — Football / Soccer ────────
+           Footballer profile: Caribbean-born striker playing in a
+           regional or diaspora league seeking kit sponsors,
+           academy trials, and brand partnerships.
+           Uncomment when demo is built.
+      ──────────────────────────────────────────────────────────
       <div class="col-sm-6 col-lg-3 reveal d2">
-        <article class="demo-card profile-card-featured" aria-label="Clarity with life coach Nadine profile">
+        <article class="demo-card demo-card-coming" aria-label="Marcus Felix footballer profile — coming soon">
+          <span class="coming-overlay">Coming Soon</span>
+          <div class="demo-placeholder" aria-hidden="true">
+            <i class="bi bi-dribbble ph-icon"></i>
+            <span class="ph-label">Football · Soccer</span>
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Athlete Profile</span>
+            <h2 class="h5">Marcus Felix — Striker</h2>
+            <p>Caribbean footballer profile with match stats, goal record, video reel, kit sponsorship inquiry, and academy trial application CTA.</p>
+            <span class="btn-blue disabled" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto;opacity:.45;" aria-hidden="true">
+              <i class="bi bi-clock" aria-hidden="true"></i> Coming Soon
+            </span>
+          </div>
+        </article>
+      </div>
+      ── END CARD R1-2 ── -->
+
+      <!-- ── CARD R1-3: Tiana Prescott — Basketball · WNBA Pathway
+           Caribbean-heritage college basketball guard at a US
+           university. NIL-eligible, WNBA draft positioning, and
+           diaspora brand partnership opportunities.
+           Uncomment when demo is built.
+      ──────────────────────────────────────────────────────────
+      <div class="col-sm-6 col-lg-3 reveal d3">
+        <article class="demo-card demo-card-coming" aria-label="Tiana Prescott basketball player profile — coming soon">
+          <span class="coming-overlay">Coming Soon</span>
+          <div class="demo-placeholder" aria-hidden="true">
+            <i class="bi bi-trophy ph-icon"></i>
+            <span class="ph-label">Basketball · WNBA Pathway</span>
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Athlete Profile</span>
+            <h2 class="h5">Tiana Prescott — Guard</h2>
+            <p>College basketball profile with season stats, NIL partnership tiers, WNBA draft timeline, video highlights, and brand sponsorship inquiry system.</p>
+            <span class="btn-blue disabled" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto;opacity:.45;" aria-hidden="true">
+              <i class="bi bi-clock" aria-hidden="true"></i> Coming Soon
+            </span>
+          </div>
+        </article>
+      </div>
+      ── END CARD R1-3 ── -->
+
+      <!-- ── CARD R1-4: Kiefer Julien — Cyclist ────────────────
+           Road cyclist competing in Pan American circuits and
+           regional tours. Severely underserved online. Equipment
+           sponsorship, team recruitment, and broadcast media CTA.
+           Uncomment when demo is built.
+      ──────────────────────────────────────────────────────────
+      <div class="col-sm-6 col-lg-3 reveal d4">
+        <article class="demo-card demo-card-coming" aria-label="Kiefer Julien cyclist profile — coming soon">
+          <span class="coming-overlay">Coming Soon</span>
+          <div class="demo-placeholder" aria-hidden="true">
+            <i class="bi bi-bicycle ph-icon"></i>
+            <span class="ph-label">Road Cycling</span>
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Athlete Profile</span>
+            <h2 class="h5">Kiefer Julien — Road Cyclist</h2>
+            <p>Pan Am circuit cyclist profile with race calendar, results log, equipment sponsorship packages, team recruitment CTA, and cycling federation credentials.</p>
+            <span class="btn-blue disabled" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto;opacity:.45;" aria-hidden="true">
+              <i class="bi bi-clock" aria-hidden="true"></i> Coming Soon
+            </span>
+          </div>
+        </article>
+      </div>
+      ── END CARD R1-4 ── -->
+
+    </div><!-- /Row 1 -->
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         ROW 2 — HEALTH & LEGAL PROFESSIONALS
+         Cards: Nadine Charles (LIVE) + 3 coming soon (commented)
+         Uncomment each card as the demo is completed.
+    ══════════════════════════════════════════════════════════════ -->
+    <div class="mt-2 mb-3 reveal">
+      <div class="demo-row-header">
+        <span class="section-label" style="margin:0;">Row 2 — Health &amp; Legal Professionals</span>
+        <span class="demo-new-badge" aria-label="New profile category">New Category</span>
+      </div>
+      <p class="text-m" style="font-size:.82rem;max-width:600px;opacity:.8;">
+        Doctors, lawyers, and practitioners who are excellent at their work but invisible online. A professional profile builds referral trust and generates consultations from people actively searching.
+      </p>
+    </div>
+
+    <div class="row g-4 mb-5">
+
+      <!-- ── CARD R2-1: Nadine Charles — Life Coach · LIVE ──── -->
+      <div class="col-sm-6 col-lg-3 reveal d1">
+        <article class="demo-card profile-card-featured" aria-label="Clarity with Coach Nadine personal brand profile">
           <div class="demo-picture">
-            <img src="images/nadine-charles-hero.webp" class="demo-card-img" alt="Nadine Charles personal profile" loading="lazy" width="300" height="169">
+            <img src="images/nadine-charles-hero.webp" class="demo-card-img" alt="Nadine Charles life coach profile" loading="lazy" width="300" height="169">
           </div>
           <div class="demo-body">
             <span class="demo-tag">Personal Brand</span>
@@ -704,55 +857,214 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </div>
         </article>
       </div>
-    <!--  ── END CARD 2 ── -->
+      <!-- ── END CARD R2-1 ── -->
 
-      
-      <!-- ══════════════════════════════════════════════════════════
-           COMING SOON PROFILES — COMMENTED OUT
-           Uncomment each card individually as the demo is completed.
-           DO NOT DELETE these blocks — they are pre-structured
-           placeholders ready to be activated one by one.
-      ══════════════════════════════════════════════════════════════ -->
-
-      <!-- ── CARD 3: Kiel D. — Artist & Performer ──────────────
-      <div class="col-sm-6 col-lg-3 reveal d3">
-        <article class="demo-card demo-card-coming" aria-label="Kiel D. artist and performer profile — coming soon">
+      <!-- ── CARD R2-2: Dr. Renée Antoine — Mental Health Therapist
+           The most underserved health professional type online in the
+           Caribbean. Private practice psychologist / therapist profile
+           to reduce stigma, attract private-pay clients, and establish
+           credibility for corporate wellness partnerships.
+           Uncomment when demo is built.
+      ──────────────────────────────────────────────────────────
+      <div class="col-sm-6 col-lg-3 reveal d2">
+        <article class="demo-card demo-card-coming" aria-label="Dr. Renée Antoine mental health therapist profile — coming soon">
           <span class="coming-overlay">Coming Soon</span>
           <div class="demo-placeholder" aria-hidden="true">
-            <i class="bi bi-music-note-beamed ph-icon"></i>
-            <span class="ph-label">Artist &amp; Performer</span>
+            <i class="bi bi-heart-pulse ph-icon"></i>
+            <span class="ph-label">Mental Health Therapist</span>
           </div>
           <div class="demo-body">
-            <span class="demo-tag">Artist Profile</span>
-            <h2 class="h5">Kiel D. — Artist &amp; Performer</h2>
-            <p>Emerging Caribbean artist profile with discography, Spotify embeds, upcoming events, booking inquiry form, and press kit download.</p>
+            <span class="demo-tag">Professional Profile</span>
+            <h2 class="h5">Dr. Renée Antoine — Psychologist</h2>
+            <p>Private practice therapist profile with specialisations, approach philosophy, session types, insurance info, and confidential WhatsApp booking — built to reduce client hesitation and increase referrals.</p>
             <span class="btn-blue disabled" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto;opacity:.45;" aria-hidden="true">
               <i class="bi bi-clock" aria-hidden="true"></i> Coming Soon
             </span>
           </div>
         </article>
       </div>
-      ── END CARD 3 ── -->
+      ── END CARD R2-2 ── -->
 
-      <!-- ── CARD 4: Denise Charles — Real Estate ───────────────
-      <div class="col-sm-6 col-lg-3 reveal d4">
-        <article class="demo-card demo-card-coming" aria-label="Denise Charles real estate brand profile — coming soon">
+      <!-- ── CARD R2-3: Dr. Marcus Holder — Gastroenterologist
+           Specialist doctors are almost entirely absent from
+           professional web presence in the Caribbean. GI specialist
+           profile for private consultations, referral pathways,
+           and patient education content.
+           Uncomment when demo is built.
+      ──────────────────────────────────────────────────────────
+      <div class="col-sm-6 col-lg-3 reveal d3">
+        <article class="demo-card demo-card-coming" aria-label="Dr. Marcus Holder gastroenterologist profile — coming soon">
           <span class="coming-overlay">Coming Soon</span>
           <div class="demo-placeholder" aria-hidden="true">
-            <i class="bi bi-house-door ph-icon"></i>
-            <span class="ph-label">Real Estate</span>
+            <i class="bi bi-hospital ph-icon"></i>
+            <span class="ph-label">Specialist Doctor</span>
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Professional Profile</span>
+            <h2 class="h5">Dr. Marcus Holder — Gastroenterologist</h2>
+            <p>Specialist physician profile with credentials, conditions treated, referral process, consultation booking, and a patient FAQ — built to capture the growing number of patients who research doctors online before booking.</p>
+            <span class="btn-blue disabled" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto;opacity:.45;" aria-hidden="true">
+              <i class="bi bi-clock" aria-hidden="true"></i> Coming Soon
+            </span>
+          </div>
+        </article>
+      </div>
+      ── END CARD R2-3 ── -->
+
+      <!-- ── CARD R2-4: Sasha Grant — Immigration Lawyer
+           Enormous Caribbean and diaspora demand — US visa,
+           Canadian PR, UK settlement. Immigration lawyers have
+           almost no professional web presence despite high search
+           volume. Referral-driven practice that would convert
+           heavily from a credible profile page.
+           Uncomment when demo is built.
+      ──────────────────────────────────────────────────────────
+      <div class="col-sm-6 col-lg-3 reveal d4">
+        <article class="demo-card demo-card-coming" aria-label="Sasha Grant immigration lawyer profile — coming soon">
+          <span class="coming-overlay">Coming Soon</span>
+          <div class="demo-placeholder" aria-hidden="true">
+            <i class="bi bi-briefcase ph-icon"></i>
+            <span class="ph-label">Immigration Lawyer</span>
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Professional Profile</span>
+            <h2 class="h5">Sasha Grant — Immigration Attorney</h2>
+            <p>Immigration law profile covering US visa, Canadian PR, and UK settlement pathways — with credentials, case types, client testimonials, and a WhatsApp consultation booking system built for diaspora clients.</p>
+            <span class="btn-blue disabled" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto;opacity:.45;" aria-hidden="true">
+              <i class="bi bi-clock" aria-hidden="true"></i> Coming Soon
+            </span>
+          </div>
+        </article>
+      </div>
+      ── END CARD R2-4 ── -->
+
+    </div><!-- /Row 2 -->
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         ROW 3 — TRADES, FAITH & BUSINESS PROFESSIONALS
+         All 4 cards commented out — uncomment as demos are built.
+         These represent professionals with high web-presence gaps
+         across Caribbean and diaspora markets.
+    ══════════════════════════════════════════════════════════════ -->
+    <div class="mt-2 mb-3 reveal">
+      <div class="demo-row-header">
+        <span class="section-label" style="margin:0;">Row 3 — Trades, Faith &amp; Business Professionals</span>
+        <span class="demo-new-badge" aria-label="Coming soon category">In Production</span>
+      </div>
+      <p class="text-m" style="font-size:.82rem;max-width:600px;opacity:.8;">
+        Engineers, dietitians, faith leaders, and real estate professionals — all underserved online despite strong demand for their services. Profiles designed to generate referrals, speaking inquiries, and consulting leads.
+      </p>
+    </div>
+
+    <div class="row g-4 mb-4">
+
+      <!-- ── CARD R3-1: André St. Hill — Civil / Structural Engineer
+           Caribbean construction is booming. Engineers doing private
+           consultancy have zero web presence. Profile for project
+           portfolio, credentials, and private client inquiries.
+           Uncomment when demo is built.
+      ──────────────────────────────────────────────────────────
+      <div class="col-sm-6 col-lg-3 reveal d1">
+        <article class="demo-card demo-card-coming" aria-label="André St. Hill civil engineer profile — coming soon">
+          <span class="coming-overlay">Coming Soon</span>
+          <div class="demo-placeholder" aria-hidden="true">
+            <i class="bi bi-building-gear ph-icon"></i>
+            <span class="ph-label">Civil Engineer</span>
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Professional Profile</span>
+            <h2 class="h5">André St. Hill — Civil Engineer</h2>
+            <p>Structural and civil engineering profile with project portfolio, professional certifications, client testimonials, and a WhatsApp consultation CTA built for private residential and commercial clients.</p>
+            <span class="btn-blue disabled" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto;opacity:.45;" aria-hidden="true">
+              <i class="bi bi-clock" aria-hidden="true"></i> Coming Soon
+            </span>
+          </div>
+        </article>
+      </div>
+      ── END CARD R3-1 ── -->
+
+      <!-- ── CARD R3-2: Dr. Camille Browne — Registered Dietitian
+           Caribbean diet-related disease rates (diabetes, hypertension)
+           are among the highest globally. Private practice dietitians
+           are almost entirely invisible online. Huge private-pay
+           and corporate wellness opportunity.
+           Uncomment when demo is built.
+      ──────────────────────────────────────────────────────────
+      <div class="col-sm-6 col-lg-3 reveal d2">
+        <article class="demo-card demo-card-coming" aria-label="Dr. Camille Browne dietitian profile — coming soon">
+          <span class="coming-overlay">Coming Soon</span>
+          <div class="demo-placeholder" aria-hidden="true">
+            <i class="bi bi-egg-fried ph-icon"></i>
+            <span class="ph-label">Registered Dietitian</span>
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Professional Profile</span>
+            <h2 class="h5">Dr. Camille Browne — Dietitian</h2>
+            <p>Registered dietitian profile with specialisation in Caribbean diet and chronic disease management — service packages, consultation booking, and a WhatsApp intake form for new clients.</p>
+            <span class="btn-blue disabled" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto;opacity:.45;" aria-hidden="true">
+              <i class="bi bi-clock" aria-hidden="true"></i> Coming Soon
+            </span>
+          </div>
+        </article>
+      </div>
+      ── END CARD R3-2 ── -->
+
+      <!-- ── CARD R3-3: Pastor Elijah Fontaine — Faith Leader Brand
+           Personal pastor / ministry brand for outreach beyond the
+           local congregation — speaking engagements, published books,
+           online services, and global diaspora community building.
+           High demand, near-zero professional web presence.
+           Uncomment when demo is built.
+      ──────────────────────────────────────────────────────────
+      <div class="col-sm-6 col-lg-3 reveal d3">
+        <article class="demo-card demo-card-coming" aria-label="Pastor Elijah Fontaine faith leader profile — coming soon">
+          <span class="coming-overlay">Coming Soon</span>
+          <div class="demo-placeholder" aria-hidden="true">
+            <i class="bi bi-book ph-icon"></i>
+            <span class="ph-label">Faith Leader · Ministry Brand</span>
           </div>
           <div class="demo-body">
             <span class="demo-tag">Personal Brand</span>
-            <h2 class="h5">Denise Charles — Agent &amp; Consultant</h2>
-            <p>Caribbean real estate agent brand with listings, credentials, testimonials, and a WhatsApp inquiry system that converts trust into leads.</p>
+            <h2 class="h5">Pastor Elijah Fontaine</h2>
+            <p>Ministry and faith leader brand profile with speaking engagements, sermon archive, published works, event calendar, and a WhatsApp booking CTA for guest appearances and outreach partnerships.</p>
             <span class="btn-blue disabled" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto;opacity:.45;" aria-hidden="true">
               <i class="bi bi-clock" aria-hidden="true"></i> Coming Soon
             </span>
           </div>
         </article>
       </div>
-      ── END CARD 4 ── -->
+      ── END CARD R3-3 ── -->
+
+      <!-- ── CARD R3-4: Kezia Forbes — Real Estate Agent
+           Caribbean property market is active across all islands.
+           Independent agents operate almost entirely from WhatsApp
+           and Facebook with no searchable professional presence.
+           Profile for listings, credentials, and buyer/seller
+           inquiry system.
+           Uncomment when demo is built.
+      ──────────────────────────────────────────────────────────
+      <div class="col-sm-6 col-lg-3 reveal d4">
+        <article class="demo-card demo-card-coming" aria-label="Kezia Forbes real estate agent profile — coming soon">
+          <span class="coming-overlay">Coming Soon</span>
+          <div class="demo-placeholder" aria-hidden="true">
+            <i class="bi bi-house-heart ph-icon"></i>
+            <span class="ph-label">Real Estate Agent</span>
+          </div>
+          <div class="demo-body">
+            <span class="demo-tag">Professional Profile</span>
+            <h2 class="h5">Kezia Forbes — Property Specialist</h2>
+            <p>Caribbean real estate agent profile with active listings, credentials, area expertise map, client testimonials, and a WhatsApp inquiry system that turns browsers into booked viewings.</p>
+            <span class="btn-blue disabled" style="font-size:.8rem;padding:.55rem 1.3rem;margin-top:auto;opacity:.45;" aria-hidden="true">
+              <i class="bi bi-clock" aria-hidden="true"></i> Coming Soon
+            </span>
+          </div>
+        </article>
+      </div>
+      ── END CARD R3-4 ── -->
+
+    </div><!-- /Row 3 -->
+
 
     <!-- CTA below grid -->
     <div class="text-center mt-2 mb-2 reveal">
@@ -772,15 +1084,15 @@ html, body { overflow-x: hidden; max-width: 100%; }
   </div>
 </section>
 
-<!-- ══ ATHLETE PROFILE PRICING ═══════════════════════ -->
-<section class="bg-alt" id="pricing" aria-label="Athlete and personal brand profile pricing">
+<!-- ══ PROFILE PRICING ════════════════════════════════ -->
+<section class="bg-alt" id="pricing" aria-label="Athlete and professional profile pricing">
   <div class="container">
     <div class="text-center mb-4 reveal">
       <span class="section-label">Investment</span>
-      <h2 class="display-6 mt-2 mb-2">Profile Pricing — Two Markets, One Standard of Quality</h2>
+      <h2 class="display-6 mt-2 mb-2">Profile Pricing — Athletes &amp; Professionals</h2>
       <div class="divider"></div>
-      <p class="text-m mx-auto" style="max-width:560px;font-size:.88rem;">
-        Pricing reflects two distinct markets. Caribbean builds and US/diaspora builds are priced separately based on market positioning and purchasing power. Both include the same level of care.
+      <p class="text-m mx-auto" style="max-width:580px;font-size:.88rem;">
+        Two profile categories. Two distinct pricing structures. Athletes are priced around sponsorship ROI. Professionals are priced around referral and consultation value. Both are built to the same standard of quality.
       </p>
     </div>
 
@@ -797,8 +1109,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
       </div>
       <div class="roi-divider" aria-hidden="true"></div>
       <div class="roi-item">
-        <strong>LA 2028</strong>
-        NIL positioning for US athletes
+        <strong>12 disciplines</strong>
+        Athletes, doctors, lawyers &amp; more
       </div>
       <div class="roi-divider" aria-hidden="true"></div>
       <div class="roi-item">
@@ -937,21 +1249,207 @@ html, body { overflow-x: hidden; max-width: 100%; }
 
     </div><!-- /athlete-pricing-wrap -->
 
+    <!-- ══════════════════════════════════════════════════════════
+         PROFESSIONAL PROFILES PRICING
+         Doctors, lawyers, coaches, engineers, dietitians, etc.
+    ══════════════════════════════════════════════════════════════ -->
+    <div class="athlete-pricing-wrap reveal mt-5" aria-label="Professional profile pricing tiers">
+
+      <div class="text-center mb-4">
+        <div class="d-flex align-items-center justify-content-center gap-2 mb-2">
+          <span class="section-label" style="margin:0">Professional &amp; Personal Brand Profiles</span>
+          <span class="demo-new-badge">New Category</span>
+        </div>
+        <h3 class="mt-1 mb-2">Referral-Ready Profiles for Professionals</h3>
+        <p class="text-m mx-auto" style="max-width:560px;font-size:.88rem;">
+          For doctors, lawyers, therapists, engineers, coaches, and practitioners who are excellent at their work but invisible online. A professional profile generates direct consultation enquiries, builds referral trust, and establishes credibility before the first meeting.
+        </p>
+        <p class="text-m mx-auto mt-2" style="max-width:480px;font-size:.82rem;opacity:.7;">
+          <i class="bi bi-info-circle me-1" aria-hidden="true"></i>
+          Professional profiles are built around credibility and referral conversion — not sponsorship. Pricing reflects a one-time setup with an optional monthly maintenance retainer.
+        </p>
+      </div>
+
+      <!-- Three-tier professional pricing -->
+      <div class="row g-4 justify-content-center">
+
+        <!-- Caribbean Professional — Entry -->
+        <div class="col-md-6 col-lg-4 reveal d1">
+          <div class="athlete-tier-card" aria-label="Caribbean Professional Profile pricing — entry">
+            <div class="athlete-flag-pill"><span>🌴</span> Caribbean Market · Saint Lucia, Barbados, Trinidad, Jamaica &amp; Region</div>
+            <span class="tier-badge" style="margin-bottom:.5rem">Caribbean Professional Profile</span>
+            <p class="tier-desc mb-3">For doctors, lawyers, therapists, and practitioners building a professional web presence in the Caribbean market to attract local and regional clients.</p>
+
+            <div class="athlete-range-row" aria-label="Setup fee range: $250 to $450 USD">
+              <sup style="font-size:1rem;font-weight:700;opacity:.6;align-self:flex-start;padding-top:.35rem;">$</sup>
+              <span class="athlete-range-low">250</span>
+              <span class="athlete-range-sep">–</span>
+              <span class="athlete-range-high">$450</span>
+              <span class="athlete-range-label">setup fee · USD</span>
+            </div>
+            <div class="tier-monthly-row mb-2">
+              <span class="tier-monthly-pill"><i class="bi bi-arrow-repeat" aria-hidden="true"></i> $30 – $50/mo</span>
+              <span class="tier-monthly-note">optional retainer</span>
+            </div>
+            <div class="tier-onetime-row mb-3">
+              <span class="tier-onetime-tag"><i class="bi bi-check-circle" aria-hidden="true"></i> One-time build also available</span>
+              <span class="tier-monthly-note" style="font-size:.68rem;">no retainer required</span>
+            </div>
+            <div class="tier-total-row mb-3">
+              <i class="bi bi-calculator" aria-hidden="true"></i>
+              One new client referral typically covers full cost
+            </div>
+
+            <hr class="price-div">
+            <p class="price-sec-h">What's Included</p>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Professional biography &amp; credentials</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Services / specialisations section</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Education, training &amp; certifications</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Client testimonials section</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> WhatsApp consultation booking CTA</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> FAQ section (reduces enquiry volume)</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Full on-page SEO with name &amp; specialty</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> JSON-LD structured data for Google</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Mobile-first, fast-loading design</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Custom domain connection (+$15/yr)</div>
+            <div class="price-feat tier-no"><i class="bi bi-x-circle-fill" aria-hidden="true"></i> Media kit / downloadable press pack</div>
+            <div class="price-feat tier-no"><i class="bi bi-x-circle-fill" aria-hidden="true"></i> Multilingual (EN + FR/ES) version</div>
+
+            <div class="tier-footer mt-auto pt-3">
+              <a href="https://wa.me/17587235872?text=I%27m%20interested%20in%20a%20Caribbean%20Professional%20Profile%20build" class="btn-wa w-100 justify-content-center" aria-label="Inquire about a Caribbean professional profile">
+                <i class="bi bi-whatsapp" aria-hidden="true"></i> Inquire on WhatsApp
+              </a>
+              <div class="payment-plan-pill mt-2" aria-label="One-time option available">
+                <i class="bi bi-calendar-check" aria-hidden="true"></i> One-time build available — no retainer required
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- USA / Diaspora Professional — Featured -->
+        <div class="col-md-6 col-lg-4 reveal d2">
+          <div class="athlete-tier-card athlete-featured" aria-label="USA and diaspora professional profile pricing">
+            <div class="athlete-market-badge" aria-label="Most popular professional tier">Most Popular</div>
+            <div class="athlete-flag-pill" style="margin-top:.6rem"><span>🇺🇸</span> USA · Canada · UK · Diaspora Professionals</div>
+            <span class="tier-badge" style="margin-bottom:.5rem">USA &amp; Diaspora Professional Profile</span>
+            <p class="tier-desc mb-3">For Caribbean-trained or heritage professionals practising in the US, UK, or Canada — or serving diaspora clients across multiple markets. Priced for the US professional service market.</p>
+
+            <div class="athlete-range-row" aria-label="Setup fee range: $450 to $750 USD">
+              <sup style="font-size:1rem;font-weight:700;opacity:.6;align-self:flex-start;padding-top:.35rem;">$</sup>
+              <span class="athlete-range-low">450</span>
+              <span class="athlete-range-sep">–</span>
+              <span class="athlete-range-high">$750</span>
+              <span class="athlete-range-label">setup fee · USD</span>
+            </div>
+            <div class="tier-monthly-row mb-2">
+              <span class="tier-monthly-pill"><i class="bi bi-arrow-repeat" aria-hidden="true"></i> $50 – $75/mo</span>
+              <span class="tier-monthly-note">optional retainer</span>
+            </div>
+            <div class="tier-onetime-row mb-3">
+              <span class="tier-onetime-tag"><i class="bi bi-check-circle" aria-hidden="true"></i> One-time build also available</span>
+              <span class="tier-monthly-note" style="font-size:.68rem;">no retainer required</span>
+            </div>
+            <div class="tier-total-row mb-3">
+              <i class="bi bi-calculator" aria-hidden="true"></i>
+              One client consultation covers the full setup cost
+            </div>
+
+            <hr class="price-div">
+            <p class="price-sec-h">Everything in Caribbean, plus:</p>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> US / UK / Canada market positioning copy</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Insurance &amp; licensing display section</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Telehealth / virtual consultation CTA</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Downloadable media kit / press pack</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Speaking &amp; conference inquiry section</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Geographic reach &amp; market positioning</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Corporate / institutional inquiry CTA</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Annual plan option ($540 – $810/yr)</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Priority build turnaround (2–4 days)</div>
+
+            <div class="tier-footer mt-auto pt-3">
+              <a href="https://wa.me/17587235872?text=I%27m%20interested%20in%20a%20USA%20or%20diaspora%20Professional%20Profile%20build" class="btn-wa w-100 justify-content-center" aria-label="Inquire about a USA or diaspora professional profile">
+                <i class="bi bi-whatsapp" aria-hidden="true"></i> Inquire on WhatsApp
+              </a>
+              <div class="payment-plan-pill mt-2" aria-label="Annual plan available">
+                <i class="bi bi-calendar-check" aria-hidden="true"></i> Annual plan available — ask for details
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Enterprise / Institutional -->
+        <div class="col-md-6 col-lg-4 reveal d3">
+          <div class="athlete-tier-card" style="border-color:var(--blue,#0D1B2A);" aria-label="Practice or institutional profile pricing">
+            <div class="athlete-flag-pill"><span>🏥</span> Multi-Practitioner · Clinics, Firms &amp; Practices</div>
+            <span class="tier-badge" style="margin-bottom:.5rem">Practice &amp; Firm Profile</span>
+            <p class="tier-desc mb-3">For small clinics, law firms, group practices, and professional associations that need a shared brand presence — not just an individual profile.</p>
+
+            <div class="athlete-range-row" aria-label="Setup fee range: $700 to $1,200 USD">
+              <sup style="font-size:1rem;font-weight:700;opacity:.6;align-self:flex-start;padding-top:.35rem;">$</sup>
+              <span class="athlete-range-low">700</span>
+              <span class="athlete-range-sep">–</span>
+              <span class="athlete-range-high">$1,200</span>
+              <span class="athlete-range-label">setup fee · USD</span>
+            </div>
+            <div class="tier-monthly-row mb-2">
+              <span class="tier-monthly-pill"><i class="bi bi-arrow-repeat" aria-hidden="true"></i> $65 – $100/mo</span>
+              <span class="tier-monthly-note">retainer · recommended</span>
+            </div>
+            <div class="tier-total-row mb-3">
+              <i class="bi bi-calculator" aria-hidden="true"></i>
+              Scope &amp; final price confirmed on consultation
+            </div>
+
+            <hr class="price-div">
+            <p class="price-sec-h">What's Included</p>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Multi-practitioner team profiles</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Practice / firm overview page</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Services menu with specialisation filters</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Patient / client intake WhatsApp flow</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Appointment &amp; referral request system</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Google Business Profile setup</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Full SEO for practice name &amp; location</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Insurance &amp; accreditation display</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Monthly content &amp; staff update service</div>
+
+            <div class="tier-footer mt-auto pt-3">
+              <a href="https://wa.me/17587235872?text=I%27m%20interested%20in%20a%20practice%20or%20firm%20profile%20build" class="btn-wa w-100 justify-content-center" aria-label="Inquire about a practice or firm profile">
+                <i class="bi bi-whatsapp" aria-hidden="true"></i> Inquire on WhatsApp
+              </a>
+              <div class="payment-plan-pill mt-2" aria-label="Custom scope available">
+                <i class="bi bi-calendar-check" aria-hidden="true"></i> Custom scope — contact us for exact pricing
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /row -->
+
+      <!-- Pricing note -->
+      <div class="text-center mt-3">
+        <small class="text-m" style="opacity:.65;font-size:.76rem;">
+          Professional profile pricing covers setup and optional ongoing monthly content management. Monthly retainer keeps credentials, testimonials, and services current — cancel with 30 days' notice. One-time builds with no retainer are available on request. Custom domain registration (~$15/yr) billed separately. 50% of setup fee required to begin.
+        </small>
+      </div>
+
+    </div><!-- /professional-pricing-wrap -->
+
     <!-- Why invest section -->
     <div class="payment-plan-block reveal mt-5">
       <div class="ppb-inner">
         <div class="ppb-icon" aria-hidden="true"><i class="bi bi-calendar2-check"></i></div>
         <div>
-          <h3 class="h5">How the Profile Build Works</h3>
+          <h3 class="h5">How the Profile Build Works — Athletes &amp; Professionals</h3>
           <ol class="ppb-steps">
-            <li class="ppb-step"><span class="ppb-num" aria-hidden="true">1</span><span><strong>50% setup fee paid</strong> — Build begins, profile live in 2–4 days</span></li>
-            <li class="ppb-step"><span class="ppb-num" aria-hidden="true">2</span><span><strong>You provide</strong> — Photos, stats, bio notes, video links, social handles</span></li>
-            <li class="ppb-step"><span class="ppb-num" aria-hidden="true">3</span><span><strong>We build &amp; refine</strong> — Full profile built, reviewed with you, launched</span></li>
-            <li class="ppb-step"><span class="ppb-num" aria-hidden="true">4</span><span><strong>Monthly retainer</strong> — Stat updates, content swaps, ongoing SEO &amp; maintenance</span></li>
+            <li class="ppb-step"><span class="ppb-num" aria-hidden="true">1</span><span><strong>50% setup fee paid</strong> — Build begins immediately, profile live in 2–4 days</span></li>
+            <li class="ppb-step"><span class="ppb-num" aria-hidden="true">2</span><span><strong>You provide</strong> — Photos, bio notes, credentials, stats or service details, social handles</span></li>
+            <li class="ppb-step"><span class="ppb-num" aria-hidden="true">3</span><span><strong>We build &amp; refine</strong> — Full profile built, reviewed with you via WhatsApp, launched</span></li>
+            <li class="ppb-step"><span class="ppb-num" aria-hidden="true">4</span><span><strong>Optional monthly retainer</strong> — Stat updates, credential refreshes, ongoing SEO &amp; content</span></li>
           </ol>
           <div class="ppb-notes" aria-label="Profile build notes">
             <span><i class="bi bi-info-circle" aria-hidden="true"></i> Remaining 50% of setup fee due on profile approval before launch</span>
-            <span><i class="bi bi-info-circle" aria-hidden="true"></i> Monthly retainer keeps your profile accurate and indexed — cancel with 30 days' notice</span>
+            <span><i class="bi bi-info-circle" aria-hidden="true"></i> Monthly retainer keeps your profile current and indexed — cancel with 30 days' notice</span>
+            <span><i class="bi bi-info-circle" aria-hidden="true"></i> One-time build with no retainer available for professionals who prefer to self-manage</span>
             <span><i class="bi bi-info-circle" aria-hidden="true"></i> Annual plan available at a discount — ask us about it on WhatsApp</span>
           </div>
           <a href="https://wa.me/17587235872?text=I%20have%20a%20question%20about%20the%20profile%20build%20process" class="btn-blue mt-3 d-inline-flex align-items-center gap-2" aria-label="Ask a question about the profile build process on WhatsApp">
