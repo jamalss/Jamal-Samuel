@@ -1,0 +1,1965 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gridiron Kitchen — Dallas's boldest sports bar and grill. Order online, watch the World Cup live, and taste food worth cheering for. Open match days until midnight." />
+  <meta name="keywords" content="Dallas restaurant, World Cup 2026, sports bar Dallas, American grill, match day food, order online Dallas" />
+  <meta property="og:title" content="Gridiron Kitchen | Dallas Sports Bar & Grill" />
+  <meta property="og:description" content="Bold American food. Cold drinks. Every World Cup match live. Order ahead via SMS — ready when you arrive." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1544025162-d76694265947?w=1200&q=80" />
+  <meta property="og:type" content="restaurant.restaurant" />
+  <meta property="og:url" content="https://gridironkitchen.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>Gridiron Kitchen | Dallas World Cup Sports Bar & Grill</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Gridiron Kitchen",
+    "description": "Dallas's boldest sports bar and grill — bold American food, cold drinks, and every World Cup match live.",
+    "url": "https://gridironkitchen.com",
+    "telephone": "+1-214-555-0192",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2847 Main Street",
+      "addressLocality": "Dallas",
+      "addressRegion": "TX",
+      "postalCode": "75201",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 32.7767,
+      "longitude": -96.7970
+    },
+    "openingHours": ["Mo-Th 11:00-23:00", "Fr-Sa 11:00-02:00", "Su 11:00-23:00"],
+    "servesCuisine": "American",
+    "priceRange": "$$",
+    "hasMenu": "https://gridironkitchen.com/#menu",
+    "acceptsReservations": false,
+    "currenciesAccepted": "USD",
+    "paymentAccepted": "Cash, Credit Card, Apple Pay, Google Pay"
+  }
+  </script>
+
+  <style>
+    /* ============================================
+       DESIGN TOKENS
+    ============================================ */
+    :root {
+      --coal:    #1A1A1A;
+      --ember:   #D94F2B;
+      --gold:    #E8A020;
+      --smoke:   #F5F0EB;
+      --ash:     #8A8480;
+      --white:   #FFFFFF;
+      --green:   #25D366;
+
+      --ff-display: 'Bebas Neue', sans-serif;
+      --ff-body:    'Inter', sans-serif;
+      --ff-accent:  'Playfair Display', serif;
+
+      --radius: 6px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.10);
+      --shadow-lg: 0 8px 48px rgba(0,0,0,0.18);
+
+      /* Light mode */
+      --bg:         var(--smoke);
+      --surface:    var(--white);
+      --text:       var(--coal);
+      --text-muted: var(--ash);
+      --border:     #E2DDD8;
+    }
+
+    [data-theme="dark"] {
+      --bg:         #111111;
+      --surface:    #1E1E1E;
+      --text:       #F0ECE8;
+      --text-muted: #888480;
+      --border:     #2E2E2E;
+    }
+
+    /* ============================================
+       RESET & BASE
+    ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--ff-body);
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+      overflow-x: hidden;
+    }
+
+    img { display: block; width: 100%; object-fit: cover; }
+    a   { color: inherit; text-decoration: none; }
+
+    /* ============================================
+       MATCH DAY TICKER
+    ============================================ */
+    .ticker {
+      background: var(--coal);
+      color: var(--gold);
+      font-family: var(--ff-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 8px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    [data-theme="dark"] .ticker { background: #0A0A0A; }
+
+    .ticker-inner {
+      display: inline-block;
+      animation: ticker-scroll 40s linear infinite;
+    }
+
+    .ticker-inner:hover { animation-play-state: paused; }
+
+    .ticker-item {
+      display: inline-block;
+      padding: 0 32px;
+    }
+
+    .ticker-item .flag { margin-right: 6px; }
+    .ticker-item .time {
+      color: var(--ember);
+      margin-left: 8px;
+    }
+    .ticker-item .live-dot {
+      display: inline-block;
+      width: 6px; height: 6px;
+      background: #22c55e;
+      border-radius: 50%;
+      margin-right: 6px;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes ticker-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
+    }
+
+    /* ============================================
+       NAVIGATION
+    ============================================ */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      transition: background 0.3s;
+    }
+
+    .nav-logo {
+      font-family: var(--ff-display);
+      font-size: 1.6rem;
+      letter-spacing: 0.04em;
+      color: var(--text);
+    }
+
+    .nav-logo span { color: var(--ember); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--ember); }
+
+    .nav-cta {
+      background: var(--ember);
+      color: var(--white) !important;
+      padding: 8px 18px;
+      border-radius: var(--radius);
+      transition: background 0.2s, transform 0.15s !important;
+    }
+
+    .nav-cta:hover {
+      background: #bf4020 !important;
+      transform: translateY(-1px);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      cursor: pointer;
+      font-size: 1rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .theme-toggle:hover { background: var(--border); }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px; left: 0; right: 0;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 24px;
+      z-index: 99;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ============================================
+       HERO
+    ============================================ */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?w=1600&q=85&auto=format');
+      background-size: cover;
+      background-position: center 30%;
+      filter: brightness(0.38);
+      transform: scale(1.02);
+      animation: hero-zoom 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes hero-zoom {
+      from { transform: scale(1.02); }
+      to   { transform: scale(1.08); }
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(26,26,26,0.85) 0%, rgba(217,79,43,0.15) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 860px;
+      padding: 0 40px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(232,160,32,0.15);
+      border: 1px solid rgba(232,160,32,0.4);
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+
+    .hero-eyebrow .dot {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    .hero h1 {
+      font-family: var(--ff-display);
+      font-size: clamp(3.5rem, 9vw, 7.5rem);
+      line-height: 0.92;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .hero h1 em {
+      font-family: var(--ff-accent);
+      font-style: italic;
+      color: var(--ember);
+      display: block;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 520px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+      font-weight: 400;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 15px 28px;
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.15s, box-shadow 0.2s, background 0.2s;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: var(--ember);
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(217,79,43,0.4);
+    }
+
+    .btn-primary:hover {
+      background: #bf4020;
+      box-shadow: 0 6px 28px rgba(217,79,43,0.5);
+    }
+
+    .btn-sms {
+      background: #1A73E8;
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(26,115,232,0.35);
+    }
+
+    .btn-sms:hover {
+      background: #1557b0;
+      box-shadow: 0 6px 28px rgba(26,115,232,0.45);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.35);
+    }
+
+    .btn-ghost:hover { background: rgba(255,255,255,0.1); }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 56px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .hero-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .hero-badge .icon {
+      font-size: 1.3rem;
+    }
+
+    /* ============================================
+       MATCH DAY BANNER
+    ============================================ */
+    .matchday {
+      background: var(--coal);
+      padding: 28px 40px;
+    }
+
+    [data-theme="dark"] .matchday { background: #0D0D0D; }
+
+    .matchday-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .matchday-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .match-cards {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+
+    .match-cards::-webkit-scrollbar { display: none; }
+
+    .match-card {
+      flex-shrink: 0;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-width: 260px;
+    }
+
+    .match-card.live {
+      border-color: rgba(34,197,94,0.4);
+      background: rgba(34,197,94,0.06);
+    }
+
+    .match-teams {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #F0ECE8;
+    }
+
+    .match-vs {
+      font-size: 0.7rem;
+      color: var(--ash);
+      font-weight: 500;
+    }
+
+    .match-meta {
+      text-align: right;
+    }
+
+    .match-time {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .match-venue {
+      font-size: 0.68rem;
+      color: var(--ash);
+      margin-top: 2px;
+    }
+
+    .live-badge {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      background: #22c55e;
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 100px;
+      text-transform: uppercase;
+    }
+
+    /* ============================================
+       SECTIONS
+    ============================================ */
+    .section {
+      padding: 96px 40px;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ember);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--ff-display);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      letter-spacing: 0.02em;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      line-height: 1.65;
+    }
+
+    /* ============================================
+       ABOUT
+    ============================================ */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      margin-top: 56px;
+    }
+
+    .about-img-wrap {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .about-img-wrap img { height: 100%; object-fit: cover; }
+
+    .about-tag {
+      position: absolute;
+      bottom: 20px; left: 20px;
+      background: var(--ember);
+      color: var(--white);
+      font-family: var(--ff-display);
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
+      padding: 8px 16px;
+      border-radius: var(--radius);
+    }
+
+    .about-text p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-num {
+      font-family: var(--ff-display);
+      font-size: 2.8rem;
+      color: var(--ember);
+      letter-spacing: 0.02em;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-top: 4px;
+    }
+
+    /* ============================================
+       WORLD CUP DEAL BANNER
+    ============================================ */
+    .deal-banner {
+      background: var(--ember);
+      padding: 32px 40px;
+    }
+
+    .deal-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .deal-text {
+      color: var(--white);
+    }
+
+    .deal-title {
+      font-family: var(--ff-display);
+      font-size: 2rem;
+      letter-spacing: 0.04em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .deal-desc {
+      font-size: 0.9rem;
+      opacity: 0.88;
+    }
+
+    .btn-deal {
+      background: var(--white);
+      color: var(--ember);
+      padding: 13px 26px;
+      border-radius: var(--radius);
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: transform 0.15s, box-shadow 0.2s;
+      display: inline-block;
+    }
+
+    .btn-deal:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    /* ============================================
+       MENU
+    ============================================ */
+    #menu { background: var(--bg); }
+
+    .menu-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 40px 0 36px;
+    }
+
+    .filter-btn {
+      padding: 8px 20px;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--ember);
+      color: var(--white);
+      border-color: var(--ember);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .menu-item {
+      background: var(--surface);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .menu-item-img {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .menu-item-img img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .menu-item:hover .menu-item-img img { transform: scale(1.05); }
+
+    .menu-badge {
+      position: absolute;
+      top: 12px; left: 12px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+
+    .badge-wc  { background: var(--gold); color: var(--coal); }
+    .badge-hot { background: var(--ember); color: var(--white); }
+    .badge-veg { background: #22c55e; color: #fff; }
+    .badge-gf  { background: #7C3AED; color: #fff; }
+
+    .menu-item-body {
+      padding: 18px 20px 20px;
+    }
+
+    .item-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .item-tag {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: var(--bg);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .item-name {
+      font-family: var(--ff-display);
+      font-size: 1.3rem;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .item-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+
+    .item-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .item-price {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--ember);
+    }
+
+    .add-btn {
+      background: var(--coal);
+      color: var(--white);
+      border: none;
+      padding: 9px 16px;
+      border-radius: var(--radius);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    [data-theme="dark"] .add-btn { background: var(--ember); }
+
+    .add-btn:hover {
+      background: var(--ember);
+      transform: scale(1.04);
+    }
+
+    .add-btn.added {
+      background: #22c55e;
+    }
+
+    /* ============================================
+       ORDER BUILDER
+    ============================================ */
+    .order-builder {
+      position: fixed;
+      bottom: 80px; right: 24px;
+      z-index: 200;
+      width: 320px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: var(--shadow-lg);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .order-builder.visible { display: flex; }
+
+    .ob-header {
+      background: var(--coal);
+      color: var(--white);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    [data-theme="dark"] .ob-header { background: #0A0A0A; }
+
+    .ob-title {
+      font-family: var(--ff-display);
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
+    }
+
+    .ob-close {
+      background: none;
+      border: none;
+      color: var(--ash);
+      font-size: 1.2rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .ob-items {
+      padding: 16px 20px;
+      max-height: 200px;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .ob-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+    }
+
+    .ob-item:last-child { border-bottom: none; }
+
+    .ob-item-name { color: var(--text); font-weight: 500; }
+    .ob-item-price { color: var(--ember); font-weight: 600; }
+
+    .ob-remove {
+      background: none;
+      border: none;
+      color: var(--ash);
+      cursor: pointer;
+      font-size: 0.9rem;
+      padding: 0 6px;
+    }
+
+    .ob-remove:hover { color: var(--ember); }
+
+    .ob-empty {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 16px 0;
+    }
+
+    .ob-footer {
+      padding: 16px 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .ob-total {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .ob-send {
+      width: 100%;
+      background: #1A73E8;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: var(--radius);
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .ob-send:hover { background: #1557b0; }
+
+    /* ============================================
+       STICKY ORDER BAR
+    ============================================ */
+    .sticky-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 150;
+      background: var(--coal);
+      padding: 12px 20px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      border-top: 2px solid var(--ember);
+    }
+
+    [data-theme="dark"] .sticky-bar { background: #0A0A0A; }
+
+    .sticky-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: var(--radius);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.15s, box-shadow 0.2s;
+      flex: 1;
+      justify-content: center;
+      max-width: 220px;
+    }
+
+    .sticky-btn:hover { transform: translateY(-1px); }
+
+    .sticky-sms {
+      background: #1A73E8;
+      color: #fff;
+    }
+
+    .sticky-view {
+      background: var(--ember);
+      color: #fff;
+    }
+
+    .sticky-cart-count {
+      background: var(--gold);
+      color: var(--coal);
+      font-size: 0.65rem;
+      font-weight: 800;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ============================================
+       HOW TO ORDER
+    ============================================ */
+    #how { background: var(--surface); }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 56px;
+      position: relative;
+    }
+
+    .steps-grid::before {
+      content: '';
+      position: absolute;
+      top: 40px; left: calc(16.66% + 16px); right: calc(16.66% + 16px);
+      height: 2px;
+      background: repeating-linear-gradient(90deg, var(--ember) 0, var(--ember) 8px, transparent 8px, transparent 16px);
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+    }
+
+    .step-num {
+      width: 80px; height: 80px;
+      background: var(--ember);
+      color: var(--white);
+      font-family: var(--ff-display);
+      font-size: 2.2rem;
+      letter-spacing: 0.04em;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      box-shadow: 0 4px 20px rgba(217,79,43,0.35);
+    }
+
+    .step-title {
+      font-family: var(--ff-display);
+      font-size: 1.3rem;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .step-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       REVIEWS
+    ============================================ */
+    #reviews { background: var(--bg); }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .review-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px;
+    }
+
+    .review-stars {
+      color: var(--gold);
+      font-size: 1rem;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+
+    .review-text {
+      font-size: 0.92rem;
+      color: var(--text);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .author-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--ember);
+      color: var(--white);
+      font-family: var(--ff-display);
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .author-name {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .author-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* ============================================
+       MAP & INFO
+    ============================================ */
+    #location { background: var(--surface); }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+      margin-top: 56px;
+    }
+
+    .map-wrap {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      aspect-ratio: 4/3;
+    }
+
+    .map-wrap iframe {
+      width: 100%; height: 100%;
+      border: none;
+      display: block;
+    }
+
+    .info-block {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .info-row {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .info-icon {
+      width: 44px; height: 44px;
+      background: rgba(217,79,43,0.1);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      color: var(--ember);
+    }
+
+    .info-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .info-value {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .info-value a {
+      color: var(--ember);
+      font-weight: 600;
+    }
+
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .hours-table tr td {
+      padding: 5px 0;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .hours-table tr td:last-child {
+      text-align: right;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .hours-table tr.today td {
+      color: var(--ember);
+    }
+
+    .payment-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .pay-badge {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 5px 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    footer {
+      background: var(--coal);
+      color: rgba(255,255,255,0.55);
+      padding: 48px 40px 100px;
+    }
+
+    [data-theme="dark"] footer { background: #090909; }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-logo {
+      font-family: var(--ff-display);
+      font-size: 1.8rem;
+      letter-spacing: 0.04em;
+      color: var(--white);
+    }
+
+    .footer-logo span { color: var(--ember); }
+
+    .footer-copy { font-size: 0.78rem; }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.45);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--ember); }
+
+    /* ============================================
+       RESPONSIVE
+    ============================================ */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .about-grid,
+      .location-grid { grid-template-columns: 1fr; }
+
+      .reviews-grid { grid-template-columns: 1fr; }
+
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .steps-grid::before { display: none; }
+
+      .hero-content { padding: 0 24px; }
+
+      .section { padding: 64px 24px; }
+
+      .matchday { padding: 24px; }
+    }
+
+    @media (max-width: 600px) {
+      .about-stats { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .hero h1 { font-size: 3.2rem; }
+      .sticky-btn { font-size: 0.78rem; padding: 11px 14px; }
+      .deal-inner { flex-direction: column; }
+      .footer-inner { flex-direction: column; text-align: center; }
+
+      .order-builder {
+        width: calc(100vw - 32px);
+        right: 16px;
+        bottom: 76px;
+      }
+    }
+
+    /* ============================================
+       SCROLL REVEAL
+    ============================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .hero-bg { animation: none; }
+      .ticker-inner { animation: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =================== TICKER =================== -->
+  <div class="ticker" role="marquee" aria-label="Today's World Cup match schedule">
+    <div class="ticker-inner" id="tickerInner"></div>
+  </div>
+
+  <!-- =================== NAV =================== -->
+  <nav role="navigation" aria-label="Main navigation">
+    <div class="nav-logo">GRIDIRON<span>.</span>KITCHEN</div>
+
+    <ul class="nav-links">
+      <li><a href="#about">Our Story</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#how">How to Order</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#location">Find Us</a></li>
+      <li><a href="sms:+12145550192?body=Hi%2C%20I'd%20like%20to%20place%20an%20order%20at%20Gridiron%20Kitchen%3A%20" class="nav-cta">Order Now</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" role="menu">
+    <a href="#about" onclick="closeMobile()">Our Story</a>
+    <a href="#menu" onclick="closeMobile()">Menu</a>
+    <a href="#how" onclick="closeMobile()">How to Order</a>
+    <a href="#reviews" onclick="closeMobile()">Reviews</a>
+    <a href="#location" onclick="closeMobile()">Find Us</a>
+    <a href="sms:+12145550192?body=Hi%2C%20I'd%20like%20to%20place%20an%20order%20at%20Gridiron%20Kitchen%3A%20" style="color:var(--ember)">📱 Order via SMS</a>
+  </div>
+
+  <!-- =================== HERO =================== -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero-bg" role="img" aria-label="Gridiron Kitchen signature BBQ platter"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        Now Serving World Cup Fans — Dallas AT&T Stadium
+      </div>
+
+      <h1>
+        Bold Food.<br/>
+        <em>Louder Flavor.</em>
+      </h1>
+
+      <p class="hero-sub">
+        Dallas's match day kitchen. Real American BBQ, cold craft beers, and every game live on the big screen. No reservations needed — just show up hungry.
+      </p>
+
+      <div class="hero-actions">
+        <a href="sms:+12145550192?body=Hi%2C%20I'd%20like%20to%20place%20an%20order%20at%20Gridiron%20Kitchen%3A%20" class="btn btn-sms">
+          📱 Order via SMS
+        </a>
+        <a href="#menu" class="btn btn-primary">
+          View Full Menu
+        </a>
+        <a href="#location" class="btn btn-ghost">
+          Get Directions →
+        </a>
+      </div>
+
+      <div class="hero-badges">
+        <div class="hero-badge">
+          <span class="icon">🏆</span>
+          <span>Official World Cup Match Day Venue</span>
+        </div>
+        <div class="hero-badge">
+          <span class="icon">📺</span>
+          <span>All Matches Live on 12 Screens</span>
+        </div>
+        <div class="hero-badge">
+          <span class="icon">🍺</span>
+          <span>40+ Craft Beers on Draft</span>
+        </div>
+        <div class="hero-badge">
+          <span class="icon">⚡</span>
+          <span>Order Ready in 15 Minutes</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== MATCH DAY BANNER =================== -->
+  <div class="matchday" id="matchday">
+    <div class="matchday-inner">
+      <div class="matchday-label">⚽ Today's World Cup Schedule — Watch It Live Here</div>
+      <div class="match-cards" id="matchCards"></div>
+    </div>
+  </div>
+
+  <!-- =================== ABOUT =================== -->
+  <section class="section" id="about">
+    <div class="section-inner">
+      <div class="section-label">Our Story</div>
+      <h2 class="section-title">BORN IN DALLAS,<br/>BUILT FOR GAMEDAY</h2>
+
+      <div class="about-grid">
+        <div class="about-img-wrap reveal">
+          <picture>
+            <source srcset="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=85&auto=format&fm=webp" type="image/webp" />
+            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=85&auto=format" alt="Gridiron Kitchen BBQ ribs platter" loading="lazy" />
+          </picture>
+          <div class="about-tag">Est. 2011 · Dallas, TX</div>
+        </div>
+
+        <div class="about-text reveal reveal-delay-1">
+          <p>Gridiron Kitchen started with a smoker, a parking lot, and a line around the block. Thirteen years later, we're still cooking the same way — slow, hot, and without shortcuts.</p>
+          <p>When Dallas was named a World Cup host city, we knew what that meant: 180,000 fans from 48 nations, all of them hungry. We built a menu that speaks every language — through smoke, spice, and quality ingredients.</p>
+          <p>Whether you're here for the football, the food, or both — you're welcome at this table.</p>
+
+          <div class="about-stats">
+            <div class="reveal reveal-delay-1">
+              <div class="stat-num">13</div>
+              <div class="stat-label">Years Serving Dallas</div>
+            </div>
+            <div class="reveal reveal-delay-2">
+              <div class="stat-num">48</div>
+              <div class="stat-label">Menu Items</div>
+            </div>
+            <div class="reveal reveal-delay-3">
+              <div class="stat-num">4.9★</div>
+              <div class="stat-label">Google Rating</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== DEAL BANNER =================== -->
+  <div class="deal-banner">
+    <div class="deal-inner">
+      <div class="deal-text">
+        <div class="deal-title">⚽ WORLD CUP FAN SPECIAL</div>
+        <div class="deal-desc">Show your match ticket stub at the counter — get 10% off your entire order. Valid June 11 – July 19, 2026.</div>
+      </div>
+      <a href="sms:+12145550192?body=Hi!%20I%20have%20a%20match%20ticket%20and%20want%20to%20claim%20the%20World%20Cup%20fan%20discount.%20Here's%20my%20order%3A%20" class="btn-deal">Claim Your Discount →</a>
+    </div>
+  </div>
+
+  <!-- =================== MENU =================== -->
+  <section class="section" id="menu">
+    <div class="section-inner">
+      <div class="section-label">What We're Cooking</div>
+      <h2 class="section-title">THE MENU</h2>
+      <p class="section-sub">Every item built for sharing, made for match day. Halal, vegetarian, and gluten-free options clearly marked.</p>
+
+      <div class="menu-filters" role="tablist" aria-label="Menu categories">
+        <button class="filter-btn active" data-filter="all" role="tab">All Items</button>
+        <button class="filter-btn" data-filter="wc-special" role="tab">⚽ WC Specials</button>
+        <button class="filter-btn" data-filter="starters" role="tab">Starters</button>
+        <button class="filter-btn" data-filter="mains" role="tab">Mains</button>
+        <button class="filter-btn" data-filter="sides" role="tab">Sides</button>
+        <button class="filter-btn" data-filter="drinks" role="tab">Drinks</button>
+      </div>
+
+      <div class="menu-grid" id="menuGrid"></div>
+    </div>
+  </section>
+
+  <!-- =================== HOW TO ORDER =================== -->
+  <section class="section" id="how">
+    <div class="section-inner">
+      <div class="section-label">No App. No Account. Just Food.</div>
+      <h2 class="section-title">HOW IT WORKS</h2>
+
+      <div class="steps-grid">
+        <div class="step reveal">
+          <div class="step-num">1</div>
+          <div class="step-title">PICK YOUR ITEMS</div>
+          <p class="step-desc">Browse the menu and tap "Add to Order" on anything you want. Your selection builds automatically.</p>
+        </div>
+        <div class="step reveal reveal-delay-1">
+          <div class="step-num">2</div>
+          <div class="step-title">SEND US A TEXT</div>
+          <p class="step-desc">Hit "Send Order via SMS." Your phone opens a pre-written text with your exact order. One tap to send.</p>
+        </div>
+        <div class="step reveal reveal-delay-2">
+          <div class="step-num">3</div>
+          <div class="step-title">PICK UP & EAT</div>
+          <p class="step-desc">We'll text you when it's ready — usually 12–15 minutes. Walk in, skip the line, grab your food.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== REVIEWS =================== -->
+  <section class="section" id="reviews">
+    <div class="section-inner">
+      <div class="section-label">What Fans Are Saying</div>
+      <h2 class="section-title">4.9 STARS ON GOOGLE</h2>
+
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Came here during the Argentina match and the place was electric. Brisket sandwich was unreal. Ordered ahead via text — was ready when we walked in. This is the move."</p>
+          <div class="review-author">
+            <div class="author-avatar">M</div>
+            <div>
+              <div class="author-name">Marcus T.</div>
+              <div class="author-meta">Dallas, TX · World Cup Fan 🇺🇸</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card reveal reveal-delay-1">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"We flew in from São Paulo for the World Cup and this was our first meal in Dallas. Perfect. Huge portions, cold beer, and they had our group's food ready in 10 minutes. Incredible."</p>
+          <div class="review-author">
+            <div class="author-avatar">R</div>
+            <div>
+              <div class="author-name">Rafael O.</div>
+              <div class="author-meta">São Paulo, Brazil · Visiting Fan 🇧🇷</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card reveal reveal-delay-2">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"The World Cup Loaded Nachos are genuinely the best thing I've eaten this year. The staff are warm and the screens are massive. Every game feels like an event here."</p>
+          <div class="review-author">
+            <div class="author-avatar">S</div>
+            <div>
+              <div class="author-name">Sofia L.</div>
+              <div class="author-meta">London, UK · Visiting Fan 🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== LOCATION =================== -->
+  <section class="section" id="location">
+    <div class="section-inner">
+      <div class="section-label">Come Find Us</div>
+      <h2 class="section-title">WE'RE RIGHT HERE</h2>
+      <p class="section-sub">1.2 miles from AT&T Stadium. Free parking available. Walk-ins always welcome.</p>
+
+      <div class="location-grid">
+        <div class="map-wrap reveal">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3354.678!2d-97.0940!3d32.7473!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e6e9b2b5d7e63%3A0x1234567890abcdef!2sAT%26T%20Stadium!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Gridiron Kitchen location near AT&T Stadium, Dallas TX">
+          </iframe>
+        </div>
+
+        <div class="info-block reveal reveal-delay-1">
+          <div class="info-row">
+            <div class="info-icon">📍</div>
+            <div>
+              <div class="info-label">Address</div>
+              <div class="info-value">
+                2847 Main Street<br/>
+                Dallas, TX 75201<br/>
+                <a href="https://maps.google.com/?q=2847+Main+Street+Dallas+TX" target="_blank" rel="noopener">Open in Google Maps →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-icon">🕐</div>
+            <div>
+              <div class="info-label">Match Day Hours (Jun 11 – Jul 19)</div>
+              <table class="hours-table">
+                <tr><td>Mon – Thu</td><td>11am – 11pm</td></tr>
+                <tr><td>Friday</td><td>11am – 2am</td></tr>
+                <tr><td>Saturday</td><td>10am – 2am</td></tr>
+                <tr class="today"><td>Sunday</td><td>10am – 11pm ← Today</td></tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-icon">📞</div>
+            <div>
+              <div class="info-label">Call or Text Us</div>
+              <div class="info-value">
+                <a href="tel:+12145550192">+1 (214) 555-0192</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-icon">💳</div>
+            <div>
+              <div class="info-label">We Accept</div>
+              <div class="payment-badges">
+                <span class="pay-badge">Cash</span>
+                <span class="pay-badge">Visa / MC</span>
+                <span class="pay-badge">Apple Pay</span>
+                <span class="pay-badge">Google Pay</span>
+                <span class="pay-badge">Contactless</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-icon">🚗</div>
+            <div>
+              <div class="info-label">Getting Here</div>
+              <div class="info-value">Free parking lot on-site. 5-min drive from AT&T Stadium. Uber/Lyft drop-off at Main St entrance.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== FOOTER =================== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">GRIDIRON<span>.</span>KITCHEN</div>
+      <div class="footer-copy">© 2026 Gridiron Kitchen LLC · Dallas, TX · All rights reserved</div>
+      <div class="footer-links">
+        <a href="#menu">Menu</a>
+        <a href="#location">Find Us</a>
+        <a href="sms:+12145550192">Text Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =================== ORDER BUILDER PANEL =================== -->
+  <div class="order-builder" id="orderBuilder" role="dialog" aria-label="Your order">
+    <div class="ob-header">
+      <span class="ob-title">YOUR ORDER</span>
+      <button class="ob-close" onclick="toggleOrderBuilder()" aria-label="Close order panel">✕</button>
+    </div>
+    <div class="ob-items" id="obItems">
+      <div class="ob-empty" id="obEmpty">No items yet — browse the menu below.</div>
+    </div>
+    <div class="ob-footer">
+      <div class="ob-total">
+        <span>Total</span>
+        <span id="obTotal">$0.00</span>
+      </div>
+      <button class="ob-send" id="obSend" onclick="sendOrder()">
+        📱 Send Order via SMS
+      </button>
+    </div>
+  </div>
+
+  <!-- =================== STICKY BAR =================== -->
+  <div class="sticky-bar" role="complementary" aria-label="Quick order actions">
+    <button class="sticky-btn sticky-view" onclick="toggleOrderBuilder()">
+      🛒 My Order <span class="sticky-cart-count" id="cartCount">0</span>
+    </button>
+    <a href="sms:+12145550192?body=Hi!%20I'd%20like%20to%20place%20an%20order%20at%20Gridiron%20Kitchen.%20Here%27s%20what%20I%20want%3A%20" class="sticky-btn sticky-sms">
+      📱 Order via SMS
+    </a>
+  </div>
+
+  <!-- =================== SCRIPTS =================== -->
+  <script>
+    'use strict';
+
+    /* ---- DATA ---- */
+    const MENU = [
+      // WC Specials
+      { id:'wc1', name:'World Cup Loaded Nachos', price:18.99, cat:'wc-special', badge:'badge-wc', badgeText:'⚽ WC Special', tags:['Shareable','Gluten-Free'], img:'https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?w=600&q=80&auto=format', desc:'Stadium-sized tortilla chips, slow-smoked pulled pork, jalapeños, three-cheese blend, pico, sour cream, house guac.' },
+      { id:'wc2', name:'The 48-Nation Platter', price:64.99, cat:'wc-special', badge:'badge-wc', badgeText:'⚽ WC Special', tags:['For 4–6 People'], img:'https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80&auto=format', desc:'Half-rack ribs, brisket slices, smoked chicken wings, jalapeño cornbread, coleslaw, and three house sauces. Built for a crowd.' },
+      { id:'wc3', name:'Fan Fuel Burger', price:16.99, cat:'wc-special', badge:'badge-wc', badgeText:'⚽ WC Special', tags:['Can Be GF Bun'], img:'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80&auto=format', desc:'Double smash patty, American cheese, caramelized onions, house WC sauce, brioche bun. Paired with crispy fries.' },
+      // Starters
+      { id:'s1', name:'Smokehouse Wings', price:15.99, cat:'starters', badge:'badge-hot', badgeText:'🔥 Best Seller', tags:['Gluten-Free'], img:'https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=600&q=80&auto=format', desc:'12 bone-in wings, your choice: BBQ honey, Nashville hot, or lemon pepper dry rub. Served with ranch and celery.' },
+      { id:'s2', name:'Brisket Quesadilla', price:13.99, cat:'starters', badge:null, badgeText:'', tags:[], img:'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=600&q=80&auto=format', desc:'Flour tortilla, slow-smoked brisket, pepper jack, roasted peppers, sour cream. Sliced into six wedges.' },
+      { id:'s3', name:'Street Corn Dip', price:10.99, cat:'starters', badge:'badge-veg', badgeText:'🌿 Vegetarian', tags:['Vegetarian','GF'], img:'https://images.unsplash.com/photo-1598679253544-2c97992403ea?w=600&q=80&auto=format', desc:'Warm elote-style dip — roasted corn, cotija, chili lime mayo, topped with fresh cilantro. Served with tortilla chips.' },
+      // Mains
+      { id:'m1', name:'Pitmaster Brisket Sandwich', price:17.99, cat:'mains', badge:'badge-hot', badgeText:'🔥 #1 Seller', tags:[], img:'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80&auto=format', desc:'8oz sliced USDA brisket, smoked 14 hours, house pickles, white onion, BBQ on a toasted brioche. Served with fries.' },
+      { id:'m2', name:'Half Rack Ribs', price:28.99, cat:'mains', badge:null, badgeText:'', tags:['GF'], img:'https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=600&q=80&auto=format', desc:'St. Louis-style spare ribs, rubbed and smoked low-and-slow for 6 hours. Served with two sides of your choice.' },
+      { id:'m3', name:'Gridiron Smash Burger', price:15.99, cat:'mains', badge:null, badgeText:'', tags:[], img:'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=600&q=80&auto=format', desc:'Two smashed beef patties, cheddar, special sauce, shredded lettuce, pickle, on a toasted potato bun. With fries.' },
+      { id:'m4', name:'Smoked Chicken Plate', price:19.99, cat:'mains', badge:'badge-gf', badgeText:'🔵 GF', tags:['Gluten-Free'], img:'https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=600&q=80&auto=format', desc:'Half smoked chicken, dry-rubbed, served with mac & cheese, coleslaw, and jalapeño cornbread.' },
+      // Sides
+      { id:'sd1', name:'Mac & Cheese', price:6.99, cat:'sides', badge:null, badgeText:'', tags:['Vegetarian'], img:'https://images.unsplash.com/photo-1543339308-43e59d6b73a6?w=600&q=80&auto=format', desc:'Three-cheese blend — cheddar, gruyère, parmesan — creamy baked mac with a golden breadcrumb crust.' },
+      { id:'sd2', name:'Jalapeño Cornbread', price:4.99, cat:'sides', badge:null, badgeText:'', tags:['Vegetarian'], img:'https://images.unsplash.com/photo-1444201983204-c43cbd584d93?w=600&q=80&auto=format', desc:'Cast-iron skillet cornbread, roasted jalapeños baked in, served warm with honey butter.' },
+      // Drinks
+      { id:'d1', name:'Craft Beer (Draft)', price:7.99, cat:'drinks', badge:null, badgeText:'', tags:[], img:'https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=600&q=80&auto=format', desc:'40+ drafts rotating daily. Ask your server for today\'s selections — local Texas craft and international imports.' },
+      { id:'d2', name:'Freshly Squeezed Lemonade', price:4.99, cat:'drinks', badge:null, badgeText:'', tags:['Non-Alcoholic'], img:'https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=600&q=80&auto=format', desc:'Made daily. Classic, strawberry, or jalapeño-infused. Served over crushed ice with a lemon wheel.' },
+    ];
+
+    const MATCHES = [
+      { home:'🇺🇸 USA', away:'🇧🇷 Brazil', time:'3:00 PM CT', venue:'AT&T Stadium · Dallas', live: false },
+      { home:'🇦🇷 Argentina', away:'🇲🇽 Mexico', time:'6:00 PM CT', venue:'AT&T Stadium · Dallas', live: true },
+      { home:'🏴󠁧󠁢󠁥󠁮󠁧󠁿 England', away:'🇫🇷 France', time:'9:00 PM CT', venue:'Mercedes-Benz · Atlanta', live: false },
+      { home:'🇩🇪 Germany', away:'🇯🇵 Japan', time:'12:00 PM CT', venue:'SoFi Stadium · LA', live: false },
+      { home:'🇳🇱 Netherlands', away:'🇵🇹 Portugal', time:'9:00 PM CT', venue:'MetLife · NY/NJ', live: false },
+      { home:'🇺🇸 USA', away:'🇧🇷 Brazil', time:'3:00 PM CT', venue:'AT&T Stadium · Dallas', live: false },
+      { home:'🇦🇷 Argentina', away:'🇲🇽 Mexico', time:'6:00 PM CT', venue:'AT&T Stadium · Dallas', live: true },
+      { home:'🏴󠁧󠁢󠁥󠁮󠁧󠁿 England', away:'🇫🇷 France', time:'9:00 PM CT', venue:'Mercedes-Benz · Atlanta', live: false },
+    ];
+
+    /* ---- CART STATE ---- */
+    let cart = [];
+
+    /* ---- RENDER TICKER ---- */
+    function renderTicker() {
+      const items = [...MATCHES, ...MATCHES].map(m => {
+        const liveHtml = m.live ? `<span class="live-dot"></span><span class="live-badge">LIVE</span> ` : '';
+        return `<span class="ticker-item">${liveHtml}${m.home} <span class="match-vs">vs</span> ${m.away} <span class="time">${m.time}</span> · ${m.venue}</span>`;
+      }).join('');
+      document.getElementById('tickerInner').innerHTML = items;
+    }
+
+    /* ---- RENDER MATCHES ---- */
+    function renderMatches() {
+      const html = MATCHES.map(m => `
+        <div class="match-card${m.live ? ' live' : ''}">
+          <div class="match-teams">
+            ${m.live ? `<span class="live-badge">LIVE</span>` : ''}
+            <span>${m.home}</span>
+            <span class="match-vs">vs</span>
+            <span>${m.away}</span>
+          </div>
+          <div class="match-meta">
+            <div class="match-time">${m.time}</div>
+            <div class="match-venue">${m.venue}</div>
+          </div>
+        </div>
+      `).join('');
+      document.getElementById('matchCards').innerHTML = html;
+    }
+
+    /* ---- RENDER MENU ---- */
+    function renderMenu(filter = 'all') {
+      const items = filter === 'all' ? MENU : MENU.filter(i => i.cat === filter);
+      const html = items.map(item => `
+        <article class="menu-item reveal" data-cat="${item.cat}">
+          <div class="menu-item-img">
+            <picture>
+              <source srcset="${item.img}&fm=webp" type="image/webp" />
+              <img src="${item.img}" alt="${item.name}" loading="lazy" />
+            </picture>
+            ${item.badge ? `<span class="menu-badge ${item.badge}">${item.badgeText}</span>` : ''}
+          </div>
+          <div class="menu-item-body">
+            ${item.tags.length ? `<div class="item-tags">${item.tags.map(t=>`<span class="item-tag">${t}</span>`).join('')}</div>` : ''}
+            <div class="item-name">${item.name}</div>
+            <div class="item-desc">${item.desc}</div>
+            <div class="item-footer">
+              <div class="item-price">$${item.price.toFixed(2)}</div>
+              <button class="add-btn" id="btn-${item.id}" onclick="addToCart('${item.id}')">
+                + Add to Order
+              </button>
+            </div>
+          </div>
+        </article>
+      `).join('');
+      const grid = document.getElementById('menuGrid');
+      grid.innerHTML = html;
+      observeReveal();
+    }
+
+    /* ---- CART LOGIC ---- */
+    function addToCart(id) {
+      const item = MENU.find(i => i.id === id);
+      if (!item) return;
+      const existing = cart.find(c => c.id === id);
+      if (existing) {
+        existing.qty++;
+      } else {
+        cart.push({ ...item, qty: 1 });
+      }
+      updateCartUI();
+      const btn = document.getElementById(`btn-${id}`);
+      if (btn) {
+        btn.classList.add('added');
+        btn.textContent = '✓ Added';
+        setTimeout(() => {
+          btn.classList.remove('added');
+          btn.textContent = '+ Add to Order';
+        }, 1200);
+      }
+      if (cart.length === 1) {
+        document.getElementById('orderBuilder').classList.add('visible');
+      }
+      renderOrderBuilder();
+    }
+
+    function removeFromCart(id) {
+      cart = cart.filter(c => c.id !== id);
+      updateCartUI();
+      renderOrderBuilder();
+      if (cart.length === 0) {
+        document.getElementById('orderBuilder').classList.remove('visible');
+      }
+    }
+
+    function updateCartUI() {
+      const count = cart.reduce((sum, c) => sum + c.qty, 0);
+      document.getElementById('cartCount').textContent = count;
+      const sticky = document.querySelector('.sticky-sms');
+      if (count > 0) {
+        const names = cart.map(c => c.name).join(', ');
+        const encoded = encodeURIComponent(`Hi! I'd like to order at Gridiron Kitchen:\n${cart.map(c=>`- ${c.name} x${c.qty} ($${(c.price*c.qty).toFixed(2)})`).join('\n')}\n\nTotal: $${getTotal()}\n\nPickup or delivery?`);
+        sticky.href = `sms:+12145550192?body=${encoded}`;
+      }
+    }
+
+    function renderOrderBuilder() {
+      const container = document.getElementById('obItems');
+      const empty = document.getElementById('obEmpty');
+      if (cart.length === 0) {
+        container.innerHTML = '<div class="ob-empty">No items yet — browse the menu below.</div>';
+        document.getElementById('obTotal').textContent = '$0.00';
+        return;
+      }
+      container.innerHTML = cart.map(c => `
+        <div class="ob-item">
+          <span class="ob-item-name">${c.name} ×${c.qty}</span>
+          <span class="ob-item-price">$${(c.price * c.qty).toFixed(2)}</span>
+          <button class="ob-remove" onclick="removeFromCart('${c.id}')" aria-label="Remove ${c.name}">✕</button>
+        </div>
+      `).join('');
+      document.getElementById('obTotal').textContent = `$${getTotal()}`;
+    }
+
+    function getTotal() {
+      return cart.reduce((sum, c) => sum + c.price * c.qty, 0).toFixed(2);
+    }
+
+    function sendOrder() {
+      if (cart.length === 0) return;
+      const body = `Hi! I'd like to order at Gridiron Kitchen:\n${cart.map(c=>`- ${c.name} x${c.qty} ($${(c.price*c.qty).toFixed(2)})`).join('\n')}\n\nOrder Total: $${getTotal()}\n\nPickup or delivery?`;
+      window.location.href = `sms:+12145550192?body=${encodeURIComponent(body)}`;
+    }
+
+    function toggleOrderBuilder() {
+      document.getElementById('orderBuilder').classList.toggle('visible');
+    }
+
+    /* ---- FILTERS ---- */
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderMenu(btn.dataset.filter);
+      });
+    });
+
+    /* ---- THEME ---- */
+    const toggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initTheme = saved || (prefersDark ? 'dark' : 'light');
+    root.setAttribute('data-theme', initTheme);
+    toggle.textContent = initTheme === 'dark' ? '☀️' : '🌙';
+
+    toggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      toggle.textContent = next === 'dark' ? '☀️' : '🌙';
+      localStorage.setItem('theme', next);
+    });
+
+    /* ---- MOBILE MENU ---- */
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+
+    function closeMobile() {
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    }
+
+    /* ---- SCROLL REVEAL ---- */
+    function observeReveal() {
+      const els = document.querySelectorAll('.reveal:not(.visible)');
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(el => obs.observe(el));
+    }
+
+    /* ---- INIT ---- */
+    renderTicker();
+    renderMatches();
+    renderMenu();
+    observeReveal();
+  </script>
+</body>
+</html>
