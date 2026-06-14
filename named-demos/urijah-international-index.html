@@ -14,10 +14,10 @@
                  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com;
                  font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com;
                  img-src 'self' data: https:;
-                 connect-src 'self' https://api.whatsapp.com https://formspree.io;
+                 connect-src 'self';
                  object-src 'none';
                  base-uri 'self';
-                 form-action 'self' https://formspree.io;">
+                 form-action 'self';">
 
   <!-- 4. X-Content-Type-Options -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -432,6 +432,7 @@
     }
     body.dark-mode .brand { color: var(--text-dark); }
     .brand-icon {
+      position: relative;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -442,8 +443,18 @@
       color: #fff;
       font-size: 1.1rem;
       flex-shrink: 0;
+      overflow: hidden;
     }
     body.dark-mode .brand-icon { background: var(--accent); color: var(--bg-dark); }
+    /* Logo image sits on top of the leaf icon. If logo.png is missing,
+       onerror hides it and the leaf icon underneath remains visible. */
+    .brand-logo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
     .brand-text small {
       display: block;
       font-family: var(--font-body);
@@ -530,10 +541,14 @@
       position: relative;
       padding: 4.5rem 0 3rem;
       overflow: hidden;
-      background: linear-gradient(180deg, var(--bg-light) 0%, #EFE9D8 100%);
+      background:
+        linear-gradient(135deg, rgba(17,32,26,0.90) 0%, rgba(31,77,54,0.68) 45%, rgba(31,77,54,0.40) 100%),
+        url('https://images.unsplash.com/photo-1555952678-cad58d8f2f5e?w=1920&q=80&auto=format&fit=crop') center 65% / cover no-repeat;
     }
     body.dark-mode .hero {
-      background: linear-gradient(180deg, var(--bg-dark) 0%, #0C1712 100%);
+      background:
+        linear-gradient(135deg, rgba(8,15,12,0.94) 0%, rgba(17,32,26,0.82) 45%, rgba(17,32,26,0.55) 100%),
+        url('https://images.unsplash.com/photo-1555952678-cad58d8f2f5e?w=1920&q=80&auto=format&fit=crop') center 65% / cover no-repeat;
     }
 
     .hero-grid {
@@ -548,25 +563,34 @@
     @media (max-width: 991px) {
       .hero-grid { grid-template-columns: 1fr; }
     }
+    .hero-grid > * { min-width: 0; }
+
+    /* Hero sits on a photo, so its text always uses light colours
+       regardless of light/dark theme */
+    .hero .eyebrow,
+    body.dark-mode .hero .eyebrow {
+      color: #BEE7CE;
+    }
 
     .hero h1 {
       font-size: clamp(2.4rem, 6vw, 3.9rem);
       line-height: 1.08;
       margin: 0.75rem 0 1.1rem;
+      color: #F7F4ED;
     }
-    .hero h1 .accent-word {
-      color: var(--accent-dark);
+    .hero h1 .accent-word,
+    body.dark-mode .hero h1 .accent-word {
+      color: var(--accent);
       position: relative;
     }
-    body.dark-mode .hero h1 .accent-word { color: var(--accent); }
 
-    .hero-lead {
+    .hero-lead,
+    body.dark-mode .hero-lead {
       font-size: 1.1rem;
-      color: var(--text-muted-light);
+      color: #E3EFE8;
       max-width: 540px;
       margin-bottom: 1.75rem;
     }
-    body.dark-mode .hero-lead { color: var(--text-muted-dark); }
 
     .hero-ctas {
       display: flex;
@@ -575,62 +599,69 @@
       margin-bottom: 1.75rem;
     }
 
+    /* Outline CTA on the hero's photo background needs light styling */
+    .hero .btn-jl-outline {
+      border-color: #fff;
+      color: #fff;
+    }
+    .hero .btn-jl-outline:hover,
+    .hero .btn-jl-outline:focus-visible {
+      background: #fff;
+      color: var(--primary);
+      border-color: #fff;
+    }
+
     .hero-badges {
       display: flex;
       flex-wrap: wrap;
       gap: 0.6rem;
     }
-    .hero-badge {
+    .hero-badge,
+    body.dark-mode .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      background: var(--surface-light);
-      border: 1px solid var(--border-light);
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.28);
       border-radius: 999px;
       padding: 0.45rem 0.95rem;
       font-size: 0.85rem;
       font-weight: 500;
-      color: var(--text-muted-light);
+      color: #F0F5F1;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
     }
-    body.dark-mode .hero-badge {
-      background: var(--surface-dark);
-      border-color: var(--border-dark);
-      color: var(--text-muted-dark);
+    .hero-badge i,
+    body.dark-mode .hero-badge i {
+      color: var(--accent);
     }
-    .hero-badge i { color: var(--primary); }
-    body.dark-mode .hero-badge i { color: var(--accent); }
 
-    /* Signature element: "sod roll" stack — built entirely in CSS, no images needed */
+    /* Signature element: featured photo card showing fresh sod/turf,
+       framed in a rounded card on top of the hero background */
     .sod-visual {
       position: relative;
       aspect-ratio: 4 / 5;
       border-radius: 28px;
       overflow: hidden;
       background: var(--primary);
-      box-shadow: 0 30px 60px -25px rgba(31,77,54,0.45);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+      box-shadow: 0 30px 60px -25px rgba(17,32,26,0.55);
+      margin: 0;
     }
-    .sod-roll {
-      height: 22%;
-      background: repeating-linear-gradient(
-        135deg,
-        #3F8A5E 0px, #3F8A5E 18px,
-        #2D6A4F 18px, #2D6A4F 36px
-      );
-      border-top: 6px solid #F7F4ED;
-      position: relative;
+    .sod-visual-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
-    .sod-roll::before {
+    .sod-visual::after {
       content: "";
       position: absolute;
-      top: -6px; left: -40%;
-      width: 60%; height: 100%;
-      border-radius: 0 0 60% 0;
-      background: radial-gradient(circle at 30% 0%, rgba(247,244,237,0.35), transparent 70%);
+      inset: 0;
+      background: linear-gradient(180deg, rgba(17,32,26,0) 45%, rgba(12,23,18,0.85) 100%);
+      z-index: 1;
     }
-    .sod-roll:nth-of-type(1) { height: 28%; }
     .sod-visual-label {
       position: absolute;
       top: 1.5rem; left: 1.5rem;
@@ -642,6 +673,7 @@
       border-radius: 999px;
       font-size: 0.95rem;
       box-shadow: 0 8px 20px -8px rgba(0,0,0,0.35);
+      z-index: 2;
     }
     .sod-visual-caption {
       position: absolute;
@@ -651,7 +683,9 @@
       font-size: 1.05rem;
       font-weight: 600;
       z-index: 2;
+      margin: 0;
     }
+
 
     /* ============================================
        SCROLL REVEAL
@@ -689,6 +723,8 @@
     .site-footer a {
       color: #CFE6D8;
       transition: color var(--transition);
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
     .site-footer a:hover { color: #fff; }
     .footer-grid {
@@ -1016,6 +1052,18 @@
     }
     @media (max-width: 991px) { .contact-grid { grid-template-columns: 1fr; } }
 
+    /* Fix: CSS Grid items default to min-width:auto, which lets long
+       unbroken strings (emails, hour ranges) push tracks wider than
+       the viewport on mobile. Force them to shrink properly. */
+    .contact-grid > *,
+    .services-grid > *,
+    .footer-grid > *,
+    .process-grid > *,
+    .why-grid > *,
+    .area-grid > * {
+      min-width: 0;
+    }
+
     .contact-info-list {
       list-style: none;
       padding: 0;
@@ -1036,14 +1084,27 @@
       flex-shrink: 0;
       color: var(--accent);
     }
+    /* Wrapper div: label on its own line, value on the next */
+    .contact-info-list li > div {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      min-width: 0;
+      flex: 1 1 auto;
+    }
     .contact-info-list a { color: #fff; font-weight: 600; }
     .contact-info-list a:hover { color: var(--accent); }
+    .contact-info-list a,
+    .contact-info-list li > div > span:not(.ci-label) {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
     .contact-info-list .ci-label {
+      display: block;
       font-size: 0.78rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: #BEE7CE;
-      margin-bottom: 0.15rem;
     }
 
     .contact-form-card {
@@ -1051,31 +1112,38 @@
       color: var(--text-light);
       border-radius: 22px;
       padding: 2rem;
+      min-width: 0;
     }
     body.dark-mode .contact-form-card {
       background: var(--surface-dark);
       color: var(--text-dark);
     }
     .contact-form-card .form-label { font-weight: 600; font-size: 0.92rem; }
-    .contact-form-card .form-control {
-      background: var(--bg-light);
+    .contact-form-card .form-control,
+    .contact-form-card .form-select {
+      background-color: var(--bg-light);
       border: 1px solid var(--border-light);
       color: var(--text-light);
       border-radius: 10px;
       padding: 0.65rem 0.9rem;
     }
-    body.dark-mode .contact-form-card .form-control {
-      background: var(--bg-dark);
+    .contact-form-card .form-select {
+      padding-right: 2.25rem;
+    }
+    body.dark-mode .contact-form-card .form-control,
+    body.dark-mode .contact-form-card .form-select {
+      background-color: var(--bg-dark);
       border-color: var(--border-dark);
       color: var(--text-dark);
     }
-    .contact-form-card .form-control:focus {
+    .contact-form-card .form-control:focus,
+    .contact-form-card .form-select:focus {
       border-color: var(--accent);
       box-shadow: 0 0 0 3px rgba(217,139,74,0.25);
     }
-    .contact-form-card .form-select { background-position: right 0.9rem center; }
+    /* Light-coloured dropdown arrow for dark mode (avoids filter:invert hacks) */
     body.dark-mode .contact-form-card .form-select {
-      filter: invert(0.85);
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23EDEAE0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
     }
     .form-status {
       font-size: 0.9rem;
@@ -1108,7 +1176,12 @@
   <header class="site-header" id="siteHeader" role="banner">
     <div class="navbar-inner">
       <a href="#main-content" class="brand" aria-label="Urijah International home">
-        <span class="brand-icon" aria-hidden="true"><i class="fa-solid fa-leaf"></i></span>
+        <span class="brand-icon" aria-hidden="true">
+          <i class="fa-solid fa-leaf"></i>
+          <img src="urijah-international-logo.png" alt="" class="brand-logo"
+               width="38" height="38" loading="eager" decoding="async"
+               onerror="this.style.display='none'">
+        </span>
         <span class="brand-text">URIJAH INTERNATIONAL<small>Landscaping &amp; Sod Installation</small></span>
       </a>
 
@@ -1188,14 +1261,20 @@
           </div>
         </div>
 
-        <div class="reveal is-visible" aria-hidden="true">
-          <div class="sod-visual">
+        <div class="reveal is-visible">
+          <figure class="sod-visual">
+            <picture>
+              <source media="(min-width: 992px)" srcset="https://images.unsplash.com/photo-1544914379-806667cd9489?w=1200&q=80&auto=format&fit=crop">
+              <img src="https://images.unsplash.com/photo-1544914379-806667cd9489?w=800&q=80&auto=format&fit=crop"
+                   alt="Close-up top-down view of freshly installed, healthy green sod turf"
+                   width="800" height="1000"
+                   loading="eager" decoding="sync"
+                   class="sod-visual-img"
+                   onerror="this.style.display='none'">
+            </picture>
             <span class="sod-visual-label">Same-Day Install</span>
-            <span class="sod-visual-caption">Bare soil to full lawn — start to finish in one visit.</span>
-            <div class="sod-roll"></div>
-            <div class="sod-roll"></div>
-            <div class="sod-roll"></div>
-          </div>
+            <figcaption class="sod-visual-caption">Bare soil to full lawn — start to finish in one visit.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -1451,16 +1530,10 @@
           </div>
 
           <div class="contact-form-card reveal">
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate id="contact-form" aria-label="Request a free estimate">
+            <form action="#" novalidate id="contact-form" aria-label="Request a free estimate — sent to us via WhatsApp">
 
               <!-- Honeypot field — bots only -->
               <input type="text" name="_gotcha" style="display:none" tabindex="-1" aria-hidden="true" autocomplete="off">
-
-              <!-- Redirect after submit -->
-              <input type="hidden" name="_next" value="https://urijahinternational.info/thank-you.html">
-
-              <!-- Subject line -->
-              <input type="hidden" name="_subject" value="New enquiry from Urijah International website">
 
               <div class="mb-3">
                 <label for="name" class="form-label">Full Name <span aria-hidden="true">*</span></label>
@@ -1494,8 +1567,8 @@
                 <textarea class="form-control" id="message" name="message" rows="4" required aria-required="true" maxlength="2000" placeholder="Property address, approximate lawn size, and anything else we should know."></textarea>
               </div>
 
-              <button type="submit" class="btn-jl-primary w-100" style="justify-content:center;" aria-label="Submit free estimate request">
-                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send Request
+              <button type="submit" class="btn-jl-primary w-100" style="justify-content:center;" aria-label="Send your details to Urijah International via WhatsApp">
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Send via WhatsApp
               </button>
 
               <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
@@ -1566,7 +1639,7 @@
 
   <!-- Bootstrap 5.3.3 JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmQKZr5QFBkRQqEpfGXL1P1/1j5u"
+          integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
           crossorigin="anonymous" defer></script>
 
   <!-- Custom JS -->
@@ -1642,7 +1715,7 @@
         revealEls.forEach(function (el) { el.classList.add('is-visible'); });
       }
 
-      // ---- Contact form: AJAX submit to Formspree ----
+      // ---- Contact form: send filled details to WhatsApp (416-655-6215) ----
       const form = document.getElementById('contact-form');
       const status = document.getElementById('form-status');
       if (form) {
@@ -1660,30 +1733,28 @@
             return;
           }
 
-          const submitBtn = form.querySelector('button[type="submit"]');
-          if (submitBtn) { submitBtn.disabled = true; }
-          status.textContent = 'Sending your request...';
-          status.className = 'form-status';
+          const name = form.querySelector('#name').value.trim();
+          const phone = form.querySelector('#phone').value.trim();
+          const email = form.querySelector('#email').value.trim();
+          const service = form.querySelector('#service').value;
+          const message = form.querySelector('#message').value.trim();
 
-          fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form),
-            headers: { 'Accept': 'application/json' }
-          }).then(function (response) {
-            if (response.ok) {
-              status.textContent = 'Thanks! Your request has been sent — we will be in touch shortly.';
-              status.className = 'form-status is-success';
-              form.reset();
-            } else {
-              status.textContent = 'Something went wrong sending your request. Please call or WhatsApp us instead.';
-              status.className = 'form-status is-error';
-            }
-          }).catch(function () {
-            status.textContent = 'Something went wrong sending your request. Please call or WhatsApp us instead.';
-            status.className = 'form-status is-error';
-          }).finally(function () {
-            if (submitBtn) { submitBtn.disabled = false; }
-          });
+          const lines = [
+            'New website enquiry — Urijah International',
+            'Name: ' + name,
+            'Phone: ' + phone,
+            'Email: ' + email,
+            'Service: ' + service,
+            'Details: ' + message
+          ];
+
+          const waUrl = 'https://wa.me/14166556215?text=' + encodeURIComponent(lines.join('\n'));
+
+          status.textContent = 'Opening WhatsApp with your details — just hit send there to reach us.';
+          status.className = 'form-status is-success';
+
+          window.open(waUrl, '_blank', 'noopener,noreferrer');
+          form.reset();
         });
       }
 
