@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<!--
+═══════════════════════════════════════════════════════════════════════
+  jamaLinks — LEGAL PAGE CONFIG SYSTEM v3.0
+  ───────────────────────────────────────────────────────────────────
+  HOW TO USE:
+  1. Scroll to the <script id="jl-config"> block below the <body> tag
+  2. Fill in ONLY the CONFIG values — nothing else needs editing
+  3. Set feature flags to true/false based on what the site uses
+  4. Save the file as legal.html in the client's site folder
+  5. That's it. The script populates everything automatically.
+  ───────────────────────────────────────────────────────────────────
+  DEPLOYMENT CHECKLIST:
+  [ ] CONFIG values filled (business name, phone, URL, location, date)
+  [ ] Feature flags set correctly (analytics, payments, whatsapp, etc.)
+  [ ] File saved as legal.html in client site root
+  [ ] "Do Not Sell" link added to index.html footer (US-facing sites)
+  [ ] Tested in light mode and dark mode
+  [ ] All WhatsApp buttons open correctly with client number
+═══════════════════════════════════════════════════════════════════════
+-->
+<html lang="en" data-theme="light">
+<head>
+
+<!-- ══ META ═══════════════════════════════════════════ -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Privacy Policy & Terms of Service</title>
+<meta name="description" id="page-desc" content="Privacy Policy and Terms of Service. Full international compliance covering GDPR, CCPA, and Caribbean data protection laws.">
+<meta name="robots" content="noindex, follow">
+
+<!-- ══ FAVICON ════════════════════════════════════════ -->
+<link rel="icon" type="image/webp" href="images/logo.webp">
+
+<!-- ══ BOOTSTRAP + ICONS ══════════════════════════════ -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<!-- ══ GOOGLE FONTS ═══════════════════════════════════ -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- ══ MAIN SITE STYLESHEET ═══════════════════════════ -->
+<link href="css/style.css" rel="stylesheet">
+
+<style>
+/* ── GLOBAL ───────────────────────────────────────── */
+html, body { overflow-x: hidden; max-width: 100%; }
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ── JURISDICTION BADGE STRIP ─────────────────────── */
+.jurisdiction-strip {
+  background: var(--navy, #0d1b2e);
+  padding: .6rem 0;
+  text-align: center;
+  font-size: .72rem;
+  letter-spacing: .04em;
+  color: rgba(255,255,255,.65);
+}
+.jurisdiction-strip .j-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 20px;
+  padding: .2rem .7rem;
+  margin: .2rem .3rem;
+  font-weight: 600;
+  font-size: .68rem;
+  color: #fff;
+}
+.jurisdiction-strip .j-badge i { color: var(--gold, #c9a84c); }
+
+/* ── LEGAL HERO ───────────────────────────────────── */
+.legal-hero {
+  padding: 6rem 0 3.5rem;
+  background: var(--bg, #f8f6f0);
+  border-bottom: 1px solid var(--border, rgba(0,0,0,.07));
+  text-align: center;
+}
+.legal-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 5vw, 2.9rem);
+  font-weight: 900;
+  color: var(--heading, #0d1b2e);
+  margin-bottom: .5rem;
+}
+[data-theme="dark"] .legal-hero h1 { color: #f0ece3; }
+.legal-meta {
+  font-size: .8rem;
+  opacity: .55;
+  margin-top: .75rem;
+}
+.legal-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  margin: .2rem .6rem;
+}
+.compliance-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .5rem;
+  margin-top: 1.25rem;
+}
+.cpill {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: .3rem .85rem;
+  border-radius: 20px;
+  border: 1px solid;
+}
+.cpill-gold  { background: rgba(201,168,76,.12);  border-color: rgba(201,168,76,.35);  color: var(--gold,#c9a84c); }
+.cpill-blue  { background: rgba(26,110,181,.1);   border-color: rgba(26,110,181,.3);   color: var(--blue,#1a6eb5); }
+.cpill-green { background: rgba(25,135,84,.1);    border-color: rgba(25,135,84,.3);    color: #198754; }
+
+/* ── LEGAL CONTENT ────────────────────────────────── */
+.legal-content { padding: 3.5rem 0 5rem; }
+
+.legal-card {
+  background: var(--card-bg, #fff);
+  border: 1px solid var(--border, rgba(0,0,0,.07));
+  border-radius: 20px;
+  padding: 2.25rem 2.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,.05);
+}
+@media (max-width: 576px) { .legal-card { padding: 1.5rem 1.1rem; } }
+
+.legal-card-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--gold,#c9a84c), var(--blue,#1a6eb5));
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 1.1rem; margin-bottom: 1rem;
+}
+.legal-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--heading, #0d1b2e);
+  margin-bottom: .25rem;
+}
+[data-theme="dark"] .legal-card h2 { color: #f0ece3; }
+
+/* Jurisdiction flag on headings */
+.legal-card h2 .j-flag {
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  padding: .18rem .6rem;
+  border-radius: 10px;
+  margin-left: .5rem;
+  vertical-align: middle;
+}
+.flag-eu   { background: rgba(26,110,181,.12);  color: var(--blue,#1a6eb5); border: 1px solid rgba(26,110,181,.25); }
+.flag-us   { background: rgba(25,135,84,.1);    color: #198754;             border: 1px solid rgba(25,135,84,.25); }
+.flag-carib{ background: rgba(201,168,76,.12);  color: var(--gold,#c9a84c); border: 1px solid rgba(201,168,76,.25); }
+.flag-all  { background: rgba(0,0,0,.05);       color: #555;                border: 1px solid rgba(0,0,0,.1); }
+
+.legal-card h3 {
+  font-size: .85rem;
+  font-weight: 700;
+  color: var(--gold, #c9a84c);
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  margin: 1.5rem 0 .5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border, rgba(0,0,0,.06));
+}
+.legal-card h3:first-of-type { margin-top: 1rem; padding-top: 0; border-top: none; }
+.legal-card p  { font-size: .88rem; line-height: 1.82; opacity: .8; margin-bottom: .75rem; }
+.legal-card ul { padding-left: 1.25rem; margin-bottom: .75rem; }
+.legal-card ul li { font-size: .86rem; line-height: 1.82; opacity: .8; margin-bottom: .2rem; }
+.legal-card ul li::marker { color: var(--gold, #c9a84c); }
+
+/* ── TABLES ───────────────────────────────────────── */
+.data-table { width: 100%; border-collapse: collapse; font-size: .81rem; margin: 1rem 0; overflow-x: auto; display: block; }
+.data-table thead { display: table-header-group; }
+.data-table th {
+  background: linear-gradient(135deg, var(--gold,#c9a84c), var(--blue,#1a6eb5));
+  color: #fff; padding: .6rem .9rem; text-align: left;
+  font-weight: 600; font-size: .75rem; letter-spacing: .04em; white-space: nowrap;
+}
+.data-table th:first-child { border-radius: 8px 0 0 0; }
+.data-table th:last-child  { border-radius: 0 8px 0 0; }
+.data-table td { padding: .55rem .9rem; border-bottom: 1px solid var(--border, rgba(0,0,0,.07)); line-height: 1.55; vertical-align: top; }
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:nth-child(even) td { background: rgba(0,0,0,.02); }
+[data-theme="dark"] .data-table tr:nth-child(even) td { background: rgba(255,255,255,.03); }
+
+/* ── HIGHLIGHT BOXES ──────────────────────────────── */
+.legal-highlight {
+  background: rgba(201,168,76,.08);
+  border-left: 3px solid var(--gold, #c9a84c);
+  border-radius: 0 8px 8px 0;
+  padding: .85rem 1.1rem;
+  margin: 1rem 0;
+  font-size: .84rem;
+  line-height: 1.75;
+}
+.legal-highlight-blue {
+  background: rgba(26,110,181,.07);
+  border-left: 3px solid var(--blue, #1a6eb5);
+  border-radius: 0 8px 8px 0;
+  padding: .85rem 1.1rem;
+  margin: 1rem 0;
+  font-size: .84rem;
+  line-height: 1.75;
+}
+.legal-highlight-green {
+  background: rgba(25,135,84,.07);
+  border-left: 3px solid #198754;
+  border-radius: 0 8px 8px 0;
+  padding: .85rem 1.1rem;
+  margin: 1rem 0;
+  font-size: .84rem;
+  line-height: 1.75;
+}
+
+/* ── RIGHTS GRID ──────────────────────────────────── */
+.rights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: .85rem;
+  margin: 1rem 0;
+}
+.right-item {
+  background: var(--bg-alt, rgba(0,0,0,.02));
+  border-radius: 10px;
+  padding: .85rem 1rem;
+  font-size: .81rem;
+  line-height: 1.55;
+  border: 1px solid var(--border, rgba(0,0,0,.06));
+}
+[data-theme="dark"] .right-item { background: rgba(255,255,255,.04); }
+.right-item i { color: var(--gold,#c9a84c); font-size: 1rem; display: block; margin-bottom: .3rem; }
+.right-item strong { display: block; margin-bottom: .2rem; font-size: .82rem; color: var(--heading,#111); }
+[data-theme="dark"] .right-item strong { color: #f0ece3; }
+.right-item .j-tag {
+  font-size: .6rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .06em; opacity: .55; margin-top: .3rem; display: block;
+}
+
+/* ── CCPA OPT-OUT BOX ─────────────────────────────── */
+.optout-box {
+  background: rgba(25,135,84,.06);
+  border: 1.5px solid rgba(25,135,84,.2);
+  border-radius: 14px;
+  padding: 1.5rem;
+  margin: 1.25rem 0;
+  text-align: center;
+}
+.optout-box h4 {
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--heading, #111);
+  margin-bottom: .4rem;
+}
+[data-theme="dark"] .optout-box h4 { color: #f0ece3; }
+.optout-box p { font-size: .82rem; opacity: .75; margin-bottom: .85rem; }
+.optout-box .optout-answer {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: #198754;
+  color: #fff;
+  font-size: .8rem;
+  font-weight: 700;
+  padding: .55rem 1.4rem;
+  border-radius: 50px;
+}
+
+/* ── STICKY TOC ───────────────────────────────────── */
+.legal-toc {
+  position: sticky;
+  top: 5rem;
+  background: var(--card-bg, #fff);
+  border: 1px solid var(--border, rgba(0,0,0,.07));
+  border-radius: 16px;
+  padding: 1.4rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,.05);
+  max-height: calc(100vh - 7rem);
+  overflow-y: auto;
+}
+.legal-toc h6 {
+  font-size: .72rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .08em; color: var(--gold,#c9a84c); margin-bottom: 1rem;
+}
+.toc-section { font-size: .65rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .08em; opacity: .45; margin: .85rem 0 .3rem; padding-left: .5rem; }
+.toc-link {
+  display: flex; align-items: center; gap: .45rem;
+  font-size: .78rem; color: var(--text,#333); text-decoration: none;
+  padding: .3rem .5rem; border-radius: 6px; margin-bottom: .1rem;
+  transition: background .2s, color .2s; opacity: .72; line-height: 1.3;
+}
+.toc-link:hover { background: rgba(201,168,76,.1); color: var(--gold,#c9a84c); opacity: 1; }
+.toc-link i { font-size: .65rem; color: var(--gold,#c9a84c); flex-shrink: 0; }
+[data-theme="dark"] .toc-link { color: #ccc; }
+
+/* ── CONTACT CARD ─────────────────────────────────── */
+.contact-card {
+  background: linear-gradient(135deg, var(--gold,#c9a84c) 0%, var(--blue,#1a6eb5) 100%);
+  border-radius: 16px; padding: 2rem; color: #fff; text-align: center; margin-top: 1.5rem;
+}
+.contact-card h4 { font-family: 'Playfair Display', serif; margin-bottom: .4rem; }
+.contact-card p  { opacity: .88; font-size: .87rem; margin-bottom: 1rem; }
+.contact-card a  {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: #fff; color: #1a1a1a;
+  padding: .6rem 1.4rem; border-radius: 50px;
+  font-weight: 700; font-size: .85rem; text-decoration: none;
+  transition: transform .2s;
+}
+.contact-card a:hover { transform: scale(1.04); }
+
+/* ── WHATSAPP FLOAT ───────────────────────────────── */
+.wa-float {
+  position: fixed !important; bottom: 1.5rem !important; right: 1.5rem !important;
+  left: auto !important; z-index: 9999 !important;
+  width: 56px !important; height: 56px !important;
+  background: #25D366 !important; color: #fff !important;
+  border-radius: 50% !important; display: flex !important;
+  align-items: center !important; justify-content: center !important;
+  font-size: 1.6rem !important; box-shadow: 0 4px 20px rgba(37,211,102,.45) !important;
+  text-decoration: none !important; transition: transform .2s, box-shadow .2s !important;
+  transform: translateZ(0) !important;
+}
+.wa-float:hover { transform: scale(1.08) translateZ(0) !important; color: #fff !important; }
+</style>
+</head>
+<body>
+
+  <section id="legal-disclaimer" class="m-3 legal-card">
+  <h2>Legal Disclaimer</h2>
+  <p>
+    This document is provided as a general compliance template and is intended for informational purposes only. 
+    It does not constitute legal advice and should not be relied upon as such. 
+    <span class="jl-biz"></span> is responsible for ensuring that its operations comply with all applicable laws and regulations 
+    in the jurisdictions in which it operates. For specific legal advice, consult a qualified attorney.
+  </p>
+</section>
+
+<!-- ══ JURISDICTION STRIP ══════════════════════════════ -->
+<div class="jurisdiction-strip">
+  <span class="j-badge"><i class="bi bi-shield-check"></i> GDPR Compliant</span>
+  <span class="j-badge"><i class="bi bi-shield-check"></i> CCPA / CPRA Compliant</span>
+  <span class="j-badge"><i class="bi bi-shield-check"></i> Caribbean Law Compliant</span>
+  <span class="j-badge"><i class="bi bi-shield-check"></i> US State Laws Covered</span>
+  <p style="font-size: 0.9em; opacity: 0.8;">
+  These standards are referenced as part of our commitment to best practices. This website is designed to align 
+  with applicable legal frameworks but is not formally certified by regulatory authorities.
+</p>
+</div>
+
+<!-- ══ NAVBAR ══════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg" id="mainNav">
+  <div class="container">
+   <a class="navbar-brand" href="index.html">
+  <img src="images/logo.webp"
+       alt="Business Logo"
+       id="jl-logo-img"
+       class="rounded-pill img-fluid shadow mx-auto brand-logo">
+  <div>
+    <span style="font-weight:700;font-size:1rem;" class="jl-biz"></span>
+  </div>
+</a>
+    <div class="d-flex align-items-center gap-2 ms-auto d-lg-none">
+      <button class="theme-toggle" id="themeToggleMob" aria-label="Toggle theme">
+        <i id="themeIconMob" class="bi bi-sun-fill"></i>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav align-items-lg-center gap-lg-1 mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="index.html">← Back to Website</a></li>
+        <li class="nav-item ms-lg-2">
+          <button class="theme-toggle d-none d-lg-flex" id="themeToggle" aria-label="Toggle theme">
+            <i id="themeIcon" class="bi bi-sun-fill"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HERO ════════════════════════════════════════════ -->
+<div class="legal-hero">
+  <div class="container">
+    <span class="section-label">Legal</span>
+    <h1>Privacy Policy &amp; Terms of Service</h1>
+    <div class="divider" style="margin:.75rem auto;"></div>
+    <div class="legal-meta">
+      <span><i class="bi bi-calendar3"></i> Last updated: <span class="jl-date"></span></span>
+      <span><i class="bi bi-globe2"></i> <span class="jl-url"></span></span>
+      <span><i class="bi bi-geo-alt"></i> <span class="jl-location"></span></span>
+    </div>
+    <div class="compliance-pills">
+      <span id="pill-gdpr"   class="cpill cpill-blue"><i class="bi bi-patch-check-fill"></i> EU GDPR</span>
+      <span id="pill-ccpa"   class="cpill cpill-green"><i class="bi bi-patch-check-fill"></i> US CCPA / CPRA</span>
+      <span id="pill-states" class="cpill cpill-green"><i class="bi bi-patch-check-fill"></i> US State Privacy Laws</span>
+      <span                  class="cpill cpill-gold"><i class="bi bi-patch-check-fill"></i> Caribbean Data Protection</span>
+      <span                  class="cpill cpill-blue"><i class="bi bi-patch-check-fill"></i> COPPA</span>
+      <span                  class="cpill cpill-green"><i class="bi bi-patch-check-fill"></i> CAN-SPAM</span>
+    </div>
+    <p class="text-m mx-auto mt-3" style="max-width:540px;opacity:.7;">
+      This policy is written in plain language. No jargon designed to confuse. We tell you exactly what data we collect, why, what your rights are, and how to exercise them — wherever in the world you are visiting from.
+    </p>
+<p>
+  You may exercise your data protection rights by contacting us via WhatsApp using the link provided on this website 
+  or by email at <span class="jl-email"></span>. Requests will be handled in accordance with applicable data protection laws.
+</p>
+    <p>
+  This Privacy Policy reflects the current configuration of this website at the time of publication. 
+  If features such as contact forms, user accounts, analytics tools, payment systems, or third-party integrations 
+  are added, removed, or modified, this policy must be updated accordingly to remain accurate and compliant.
+</p>
+  </div>
+</div>
+
+<!-- ══ LEGAL CONTENT ═══════════════════════════════════ -->
+<section class="legal-content">
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- Sticky TOC -->
+      <div class="col-lg-3 d-none d-lg-block">
+        <div class="legal-toc">
+          <h6><i class="bi bi-list-ul me-1"></i> Contents</h6>
+
+          <div class="toc-section">General</div>
+          <a href="#who-we-are"       class="toc-link"><i class="bi bi-chevron-right"></i> 1. Who We Are</a>
+          <a href="#data-collected"   class="toc-link"><i class="bi bi-chevron-right"></i> 2. Data We Collect</a>
+          <a href="#why-we-collect"   class="toc-link"><i class="bi bi-chevron-right"></i> 3. Why We Collect It</a>
+          <a href="#legal-basis"      class="toc-link"><i class="bi bi-chevron-right"></i> 4. Legal Basis</a>
+          <a href="#cookies"          class="toc-link"><i class="bi bi-chevron-right"></i> 5. Cookies</a>
+          <a href="#third-parties"    class="toc-link"><i class="bi bi-chevron-right"></i> 6. Third Parties</a>
+          <a href="#international"    class="toc-link"><i class="bi bi-chevron-right"></i> 7. International Transfers</a>
+
+          <div class="toc-section">Your Rights</div>
+          <a href="#gdpr-rights"      class="toc-link"><i class="bi bi-chevron-right"></i> 8. EU / GDPR Rights</a>
+          <a href="#ccpa-rights"      class="toc-link"><i class="bi bi-chevron-right"></i> 9. US / CCPA Rights</a>
+          <a href="#us-state-rights"  class="toc-link"><i class="bi bi-chevron-right"></i> 10. US State Laws</a>
+          <a href="#carib-rights"     class="toc-link"><i class="bi bi-chevron-right"></i> 11. Caribbean Rights</a>
+
+          <div class="toc-section">Compliance</div>
+          <a href="#coppa"            class="toc-link"><i class="bi bi-chevron-right"></i> 12. Children (COPPA)</a>
+          <a href="#canspam"          class="toc-link"><i class="bi bi-chevron-right"></i> 13. Email (CAN-SPAM)</a>
+          <a href="#accessibility"    class="toc-link"><i class="bi bi-chevron-right"></i> 14. Accessibility</a>
+          <a href="#retention"        class="toc-link"><i class="bi bi-chevron-right"></i> 15. Data Retention</a>
+          <a href="#security"         class="toc-link"><i class="bi bi-chevron-right"></i> 16. Security</a>
+
+          <div class="toc-section">Terms</div>
+          <a href="#terms"            class="toc-link"><i class="bi bi-chevron-right"></i> 17. Terms of Service</a>
+          <a href="#changes"          class="toc-link"><i class="bi bi-chevron-right"></i> 18. Policy Changes</a>
+          <a href="#contact"          class="toc-link"><i class="bi bi-chevron-right"></i> 19. Contact Us</a>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="col-lg-9">
+
+        <!-- ─── 1. WHO WE ARE ─────────────────────── -->
+        <div class="legal-card" id="who-we-are">
+          <div class="legal-card-icon"><i class="bi bi-building"></i></div>
+          <h2>1. Who We Are <span class="j-flag flag-all">All Regions</span></h2>
+          <p>This website is owned and operated by <strong><span class="jl-biz"></span></strong>, a business based in <strong><span class="jl-location"></span></strong>. We are the data controller for all personal data collected through this website.</p>
+          <p>This website was designed and built by <strong>jamaLinks</strong> as a service provider acting as data processor on behalf of <span class="jl-biz"></span>. jamaLinks does not control or own this website's data — <span class="jl-biz"></span> is the responsible party.</p>
+          <div class="legal-highlight">
+            <strong><span class="jl-biz"></span></strong><br>
+            📍 [Business Address, City, Country — or "Based in [Island], [Country]"]<br>
+            📱 <a href="https://wa.me/JL_WA_NUM" style="color:var(--gold,#c9a84c)">WhatsApp: <span class="jl-phone"></span></a><br>
+            ✉️ <span class="jl-email-line"></span><br>
+            🌐 <span class="jl-url"></span>
+          </div>
+          <p>For EU residents: if you require a Data Protection Representative contact, please reach us at the above details. For businesses generating significant EU revenue, a formal EU representative may be required under GDPR Article 27 — consult a local legal adviser if this applies to you.</p>
+        </div>
+
+        <!-- ─── 2. DATA COLLECTED ──────────────────── -->
+        <div class="legal-card" id="data-collected">
+          <div class="legal-card-icon"><i class="bi bi-database"></i></div>
+          <h2>2. What Data We Collect <span class="j-flag flag-all">All Regions</span></h2>
+
+          <h3>Automatically Collected Data (Analytics)</h3>
+          <table class="data-table">
+            <thead>
+              <tr><th>Data Type</th><th>What It Includes</th><th>Purpose</th><th>Legal Basis</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Page visits</strong></td><td>Which pages were viewed, time spent</td><td>Improve website</td><td>Consent (EU) / Legitimate Interest (US/Carib)</td></tr>
+              <tr><td><strong>Device type</strong></td><td>Mobile, tablet, or desktop — not device model or ID</td><td>Optimise design</td><td>Consent (EU) / Legitimate Interest (US/Carib)</td></tr>
+              <tr><td><strong>Referral source</strong></td><td>How you arrived (Instagram, Google, direct link)</td><td>Understand marketing</td><td>Consent (EU) / Legitimate Interest (US/Carib)</td></tr>
+              <tr><td><strong>Country / Region</strong></td><td>General location — not GPS or home address</td><td>Understand audience</td><td>Consent (EU) / Legitimate Interest (US/Carib)</td></tr>
+              <tr><td><strong>Button interactions</strong></td><td>Whether WhatsApp or order buttons were clicked</td><td>Measure conversions</td><td>Consent (EU) / Legitimate Interest (US/Carib)</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Data You Provide Voluntarily</h3>
+          <p>This website does not include a registration form, account system, or newsletter signup. The only voluntary data exchange occurs when you tap a WhatsApp button — at which point you leave this website and enter WhatsApp's platform, governed by WhatsApp's own Privacy Policy. Any personal information you share via WhatsApp (your name, phone number, order details) is processed by WhatsApp and by <span class="jl-biz"></span> solely to fulfil your request.</p>
+
+          <h3>Data We Do NOT Collect</h3>
+          <ul>
+            <li>Your full name, email address, or mailing address (unless shared by you in WhatsApp)</li>
+            <li>Precise GPS or physical location</li>
+            <li>Payment card details (handled entirely by PayPal — see Section 6)</li>
+            <li>Sensitive personal data: health information, racial or ethnic origin, religious beliefs, political opinions, sexual orientation, or biometric data</li>
+            <li>Social Security Numbers or government-issued identifiers</li>
+            <li>Data from minors under 13 (see Section 12)</li>
+          </ul>
+
+          <h3>Do We Sell Personal Data?</h3>
+          <div class="legal-highlight-green">
+            <i class="bi bi-x-circle-fill me-2" style="color:#198754;"></i>
+            <strong>No. We do not sell, rent, trade, or share personal data with third parties for their commercial purposes.</strong> This applies to all visitors regardless of location — including California residents under CCPA and Colorado residents under CPA.
+          </div>
+        </div>
+
+        <!-- ─── 3. WHY WE COLLECT ──────────────────── -->
+        <div class="legal-card" id="why-we-collect">
+          <div class="legal-card-icon"><i class="bi bi-bar-chart"></i></div>
+          <h2>3. Why We Collect It <span class="j-flag flag-all">All Regions</span></h2>
+          <table class="data-table">
+            <thead>
+              <tr><th>Purpose</th><th>Data Used</th><th>Applies To</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Understand how visitors use the website</td><td>Page visits, device type, referral source</td><td>All visitors</td></tr>
+              <tr><td>Improve website design and content</td><td>Behaviour data, button interactions</td><td>All visitors</td></tr>
+              <tr><td>Measure marketing effectiveness</td><td>Referral source, conversions</td><td>All visitors</td></tr>
+              <tr><td>Fulfil orders placed via WhatsApp</td><td>Data shared by you in WhatsApp</td><td>Ordering customers</td></tr>
+              <tr><td>Process payments</td><td>Handled by PayPal — we receive no card data</td><td>Paying customers</td></tr>
+              <tr><td>Comply with legal obligations</td><td>Minimal records as required by law</td><td>All</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ─── 4. LEGAL BASIS ─────────────────────── -->
+        <div class="legal-card" id="legal-basis">
+          <div class="legal-card-icon"><i class="bi bi-journal-check"></i></div>
+          <h2>4. Legal Basis for Processing <span class="j-flag flag-eu">EU / GDPR</span></h2>
+          <p>Under GDPR Article 6, we process personal data only where a lawful basis exists. Our bases are:</p>
+          <table class="data-table">
+            <thead>
+              <tr><th>Processing Activity</th><th>Legal Basis (GDPR Article 6)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Analytics and usage tracking</td><td><strong>Art. 6(1)(a)</strong> — Your explicit consent, given via the cookie consent banner</td></tr>
+              <tr><td>Improving website performance</td><td><strong>Art. 6(1)(f)</strong> — Legitimate interests (we have assessed these do not override your rights)</td></tr>
+              <tr><td>Processing your order via WhatsApp</td><td><strong>Art. 6(1)(b)</strong> — Performance of a contract or pre-contractual steps at your request</td></tr>
+              <tr><td>Compliance with legal obligations</td><td><strong>Art. 6(1)(c)</strong> — Legal obligation</td></tr>
+            </tbody>
+          </table>
+          <div class="legal-highlight-blue">
+            <i class="bi bi-info-circle-fill me-2" style="color:var(--blue,#1a6eb5);"></i>
+            You may withdraw consent at any time by clearing your browser cookies. Withdrawal does not affect the lawfulness of processing carried out before withdrawal.
+          </div>
+        </div>
+
+        <!-- ─── 5. COOKIES ─────────────────────────── -->
+        <div class="legal-card" id="cookies">
+          <div class="legal-card-icon"><i class="bi bi-cookie"></i></div>
+          <h2>5. Cookies <span class="j-flag flag-eu">EU / GDPR</span> <span class="j-flag flag-us">US / CCPA</span></h2>
+
+          <h3>Essential Cookies — No Consent Required</h3>
+          <table class="data-table">
+            <thead><tr><th>Cookie Name</th><th>Purpose</th><th>Duration</th></tr></thead>
+            <tbody>
+              <tr><td><code>jama-theme</code></td><td>Stores your light/dark mode preference</td><td>Until cleared</td></tr>
+              <tr><td><code>cookie_consent</code></td><td>Records your consent decision so you are not asked repeatedly</td><td>12 months</td></tr>
+            </tbody>
+          </table>
+
+          <!-- ✏️ BUILDER: Keep ONE of the two blocks below. Delete the other. -->
+
+          <!-- === GA4 BLOCK (delete if using Plausible) === -->
+          <h3>Analytics Cookies — Require Consent <span style="font-size:.7rem;opacity:.55;text-transform:none;letter-spacing:0;">(Google Analytics 4 version)</span></h3>
+          <table class="data-table">
+            <thead><tr><th>Cookie</th><th>Provider</th><th>Purpose</th><th>Duration</th></tr></thead>
+            <tbody>
+              <tr><td><code>_ga</code></td><td>Google Analytics</td><td>Distinguishes unique users via a randomly generated ID</td><td>2 years</td></tr>
+              <tr><td><code>_ga_*</code></td><td>Google Analytics</td><td>Maintains session state for the GA4 property</td><td>2 years</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:.8rem;opacity:.7;">These cookies are only placed if you accept analytics via the consent banner shown on your first visit. Declining or ignoring the banner means no analytics cookies are set and no tracking occurs. You may change your preference at any time by clearing cookies and revisiting.</p>
+          <!-- === END GA4 BLOCK === -->
+
+          <!-- === PLAUSIBLE BLOCK — uncomment if using Plausible, delete GA4 block above ===
+          <h3>Analytics — No Cookies, No Consent Required <span style="font-size:.7rem;opacity:.55;text-transform:none;letter-spacing:0;">(Plausible Analytics version)</span></h3>
+          <div class="legal-highlight-green">
+            <i class="bi bi-shield-check-fill me-2" style="color:#198754;"></i>
+            <strong>This website uses Plausible Analytics</strong> — a fully privacy-compliant analytics tool that operates without cookies and collects no personally identifiable information. No consent banner is required. No data is stored on your device. Plausible processes all data on EU-based servers and is fully compliant with GDPR, CCPA, PECR, and all Caribbean data protection laws.
+          
+  This website is designed to align with applicable data protection and privacy laws, including but not limited to 
+  the GDPR, CCPA/CPRA, and relevant Caribbean regulations.
+
+            <a href="https://plausible.io/privacy-focused-web-analytics" target="_blank" rel="noopener" style="color:#198754;">Learn more about Plausible Analytics.</a>
+          </div>
+          === END PLAUSIBLE BLOCK === -->
+
+          <h3>Managing Your Cookie Preferences</h3>
+          <p>You may control cookies at any time through your browser settings. Removing analytics cookies will not affect the usability of this website in any way. For instructions on managing cookies in your specific browser, visit <a href="https://www.allaboutcookies.org" target="_blank" rel="noopener" style="color:var(--gold,#c9a84c)">allaboutcookies.org</a>.</p>
+          <p>California residents may also opt out of analytics tracking via the process described in Section 9.</p>
+        </div>
+
+        <!-- ─── 6. THIRD PARTIES ───────────────────── -->
+        <div class="legal-card" id="third-parties">
+          <div class="legal-card-icon"><i class="bi bi-diagram-3"></i></div>
+          <h2>6. Third-Party Services <span class="j-flag flag-all">All Regions</span></h2>
+          <p>We use the following external services. Each is governed by its own privacy policy, which we encourage you to review:</p>
+
+          <h3>Google Analytics 4 (if installed)</h3>
+          <p>Used to understand how visitors use this website. Data is pseudonymised and aggregated. IP addresses are anonymised. Google may transfer data to its servers in the United States — such transfers are covered by Google's Standard Contractual Clauses under GDPR. You may opt out globally via the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener" style="color:var(--gold,#c9a84c)">Google Analytics Opt-Out Add-on</a>. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color:var(--gold,#c9a84c)">Google's Privacy Policy →</a></p>
+
+          <h3>Plausible Analytics (if installed)</h3>
+          <p>A cookie-free, privacy-first analytics tool hosted on EU-based servers. Plausible collects no personal data, sets no cookies, and requires no consent mechanism under GDPR, CCPA, or any Caribbean privacy law. <a href="https://plausible.io/privacy" target="_blank" rel="noopener" style="color:var(--gold,#c9a84c)">Plausible Privacy Policy →</a></p>
+<p class="m-3">
+  Where Google Analytics is used, IP anonymization is enabled where applicable, and data is processed in accordance 
+  with Google’s data protection terms. Where privacy-focused analytics tools such as Plausible are used, no personal 
+  data or cross-site tracking is performed.
+</p>
+          <h3>WhatsApp (Meta Platforms)</h3>
+          <p>This website contains links that open WhatsApp. Tapping these links takes you off this website. Any communication in WhatsApp — including your name, phone number, and message content — is governed by WhatsApp's Privacy Policy, not ours. We use WhatsApp solely to receive and fulfil orders. We do not export, store externally, or share WhatsApp data. Note that WhatsApp is owned by Meta Platforms Inc., a US company. Data shared in WhatsApp may be processed in the United States. </p>
+
+          <p>
+  By clicking the WhatsApp contact button, you will be redirected to WhatsApp, a service operated by Meta Platforms, Inc. 
+  WhatsApp and <span class="jl-biz"></span> act as independent data controllers. Any personal data you provide within WhatsApp 
+  is processed in accordance with WhatsApp’s Privacy Policy. <span class="jl-biz"></span> does not control how WhatsApp processes 
+  or stores your data once you leave this website.
+            <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" rel="noopener" style="color:var(--gold,#c9a84c)">WhatsApp Privacy Policy →</a>
+</p>
+          <h3>PayPal (if payment integration is installed)</h3>
+          <p>Payments are processed entirely by PayPal. <span class="jl-biz"></span> does not receive, see, store, or process your payment card details. All financial data is handled by PayPal under their PCI-DSS compliance framework. PayPal may transfer your data internationally. <a href="https://www.paypal.com/webapps/mpp/ua/privacy-full" target="_blank" rel="noopener" style="color:var(--gold,#c9a84c)">PayPal Privacy Policy →</a></p>
+
+          <h3>Google Fonts</h3>
+          <p>Typography on this website is served by Google Fonts. This may result in a request being logged by Google's servers. No personal data meaningful to this site's operations is shared. <a href="https://developers.google.com/fonts/faq/privacy" target="_blank" rel="noopener" style="color:var(--gold,#c9a84c)">Google Fonts Privacy →</a></p>
+
+          <h3>Bootstrap CDN (jsDelivr)</h3>
+          <p>This website loads the Bootstrap CSS framework from jsDelivr, a public CDN. jsDelivr may log your IP address when serving these files. <a href="https://www.jsdelivr.com/privacy-policy-jsdelivr-net" target="_blank" rel="noopener" style="color:var(--gold,#c9a84c)">jsDelivr Privacy Policy →</a></p>
+        </div>
+
+        <!-- ─── 7. INTERNATIONAL TRANSFERS ───────────── -->
+        <div class="legal-card" id="international">
+          <div class="legal-card-icon"><i class="bi bi-globe2"></i></div>
+          <h2>7. International Data Transfers <span class="j-flag flag-eu">EU / GDPR</span></h2>
+          <p>Some of the third-party services we use may transfer data outside the European Economic Area (EEA). Where this occurs, we ensure appropriate safeguards are in place:</p>
+          <table class="data-table">
+            <thead><tr><th>Service</th><th>Transfer Destination</th><th>Safeguard</th></tr></thead>
+            <tbody>
+              <tr><td>Google Analytics</td><td>United States</td><td>Standard Contractual Clauses (SCCs)</td></tr>
+              <tr><td>WhatsApp / Meta</td><td>United States</td><td>SCCs + WhatsApp's own compliance framework</td></tr>
+              <tr><td>PayPal</td><td>United States</td><td>SCCs + Adequacy Decision (where applicable)</td></tr>
+              <tr><td>Plausible Analytics</td><td>EU only</td><td>No international transfer — EU-hosted</td></tr>
+            </tbody>
+          </table>
+          <p>If you are located in the EU and have concerns about international data transfers, you have the right to obtain a copy of the transfer mechanism in use by contacting us using the details in Section 19.</p>
+        </div>
+
+        <!-- ─── 8. GDPR RIGHTS ─────────────────────── -->
+        <div class="legal-card" id="gdpr-rights">
+          <div class="legal-card-icon"><i class="bi bi-eu"></i></div>
+          <h2>8. Your Rights — EU Residents (GDPR) <span class="j-flag flag-eu">GDPR</span></h2>
+          <p>If you are located in the European Union or European Economic Area, you have the following rights under the General Data Protection Regulation:</p>
+          <div class="rights-grid">
+            <div class="right-item">
+              <i class="bi bi-eye"></i>
+              <strong>Right of Access (Art. 15)</strong>
+              Request a copy of all personal data we hold about you.
+              <span class="j-tag">GDPR Art. 15</span>
+            </div>
+            <div class="right-item">
+              <i class="bi bi-pencil"></i>
+              <strong>Right to Rectification (Art. 16)</strong>
+              Require correction of inaccurate personal data.
+              <span class="j-tag">GDPR Art. 16</span>
+            </div>
+            <div class="right-item">
+              <i class="bi bi-trash3"></i>
+              <strong>Right to Erasure (Art. 17)</strong>
+              Request deletion of your data ("right to be forgotten").
+              <span class="j-tag">GDPR Art. 17</span>
+            </div>
+            <div class="right-item">
+              <i class="bi bi-pause-circle"></i>
+              <strong>Right to Restriction (Art. 18)</strong>
+              Restrict how we process your data in certain circumstances.
+              <span class="j-tag">GDPR Art. 18</span>
+            </div>
+            <div class="right-item">
+              <i class="bi bi-download"></i>
+              <strong>Right to Portability (Art. 20)</strong>
+              Receive your data in a structured, machine-readable format.
+              <span class="j-tag">GDPR Art. 20</span>
+            </div>
+            <div class="right-item">
+              <i class="bi bi-x-circle"></i>
+              <strong>Right to Object (Art. 21)</strong>
+              Object to processing based on legitimate interest.
+              <span class="j-tag">GDPR Art. 21</span>
+            </div>
+            <div class="right-item">
+              <i class="bi bi-toggle-off"></i>
+              <strong>Right to Withdraw Consent (Art. 7)</strong>
+              Withdraw previously given consent at any time.
+              <span class="j-tag">GDPR Art. 7</span>
+            </div>
+            <div class="right-item">
+              <i class="bi bi-flag"></i>
+              <strong>Right to Lodge a Complaint</strong>
+              Complain to your local supervisory authority.
+              <span class="j-tag">GDPR Art. 77</span>
+            </div>
+          </div>
+          <p>To exercise any of these rights, contact us using the details in Section 19. We will respond within 30 days. If you are unsatisfied with our response, you may contact your national Data Protection Authority. A list of EU DPAs is available at <a href="https://edpb.europa.eu/about-edpb/about-edpb/members_en" target="_blank" rel="noopener" style="color:var(--gold,#c9a84c)">edpb.europa.eu</a>. UK residents may contact the <a href="https://ico.org.uk" target="_blank" rel="noopener" style="color:var(--gold,#c9a84c)">ICO</a>.</p>
+
+          <p>
+  We may request verification of identity before processing certain requests. Responses will be provided within 
+  the timeframes required by applicable law.
+</p>
+        </div>
+
+        <!-- ─── 9. CCPA RIGHTS ─────────────────────── -->
+        <div class="legal-card" id="ccpa-rights">
+          <div class="legal-card-icon"><i class="bi bi-flag-fill"></i></div>
+          <h2>9. Your Rights — California Residents (CCPA / CPRA) <span class="j-flag flag-us">CCPA</span></h2>
+          <p>If you are a California resident, the California Consumer Privacy Act (CCPA) as amended by the California Privacy Rights Act (CPRA) grants you specific rights regarding your personal information.</p>
+
+          <h3>Rights Under CCPA / CPRA</h3>
+          <div class="rights-grid">
+            <div class="right-item">
+              <i class="bi bi-eye"></i>
+              <strong>Right to Know</strong>
+              Know what personal information we collect, use, disclose, or sell.
+              <span class="j-tag">CCPA § 1798.100</span>
+            </div>
+            <div class="right-item">
+              <i class="bi bi-trash3"></i>
+              <strong>Right to Delete</strong>
+              Request deletion of personal information we have collected from you.
+              <span class="j-tag">CCPA § 1798.105</span>
+            </div>
+            <div class="right-item">
+              <i class="bi bi-pencil"></i>
+              <strong>Right to Correct</strong>
+              Request correction of inaccurate personal information.
+              <span class="j-tag">CPRA Addition</span>
+            </div>
+            <div class="right-item">
+              <i class="bi bi-download"></i>
+              <strong>Right to Portability</strong>
+              Receive a copy of your personal information in a usable format.
+              <span class="j-tag">CCPA § 1798.100</span>
+            </div>
+            <div class="right-item">
+              <i class="bi bi-ban"></i>
+              <strong>Right to Opt-Out</strong>
+              Opt out of sale or sharing of personal information.
+              <span class="j-tag">CCPA § 1798.120</span>
+            </div>
+            <div class="right-item">
+              <i class="bi bi-shield-check"></i>
+              <strong>Right to Non-Discrimination</strong>
+              We will not discriminate against you for exercising your rights.
+              <span class="j-tag">CCPA § 1798.125</span>
+            </div>
+          </div>
+
+          <h3>Do Not Sell or Share My Personal Information</h3>
+          <div class="optout-box">
+            <h4>Do Not Sell or Share My Personal Information</h4>
+            <p>This right is required to be disclosed clearly under California law. Here is our answer:</p>
+            <div class="optout-answer">
+              <i class="bi bi-check-circle-fill"></i>
+              We do not sell or share your personal information. Period.
+            </div>
+            <p style="margin-top:.85rem;margin-bottom:0;font-size:.78rem;">
+              <span class="jl-biz"></span> does not sell, rent, share, or disclose personal information to third parties for their own commercial purposes. No opt-out mechanism is required because there is nothing to opt out of. This statement satisfies the CCPA § 1798.120 disclosure requirement.
+            </p>
+          </div>
+
+          <h3>Categories of Personal Information Collected (Last 12 Months)</h3>
+          <table class="data-table">
+            <thead><tr><th>Category</th><th>Collected?</th><th>Source</th><th>Purpose</th><th>Sold?</th></tr></thead>
+            <tbody>
+              <tr><td>Identifiers (name, email, phone)</td><td>Only if shared by you via WhatsApp</td><td>You</td><td>Order fulfilment</td><td>No</td></tr>
+              <tr><td>Internet / network activity</td><td>Yes (anonymised analytics)</td><td>Analytics tool</td><td>Website improvement</td><td>No</td></tr>
+              <tr><td>Geolocation (general)</td><td>Country/region only</td><td>Analytics tool</td><td>Audience understanding</td><td>No</td></tr>
+              <tr><td>Financial information</td><td>No — handled by PayPal</td><td>N/A</td><td>N/A</td><td>No</td></tr>
+              <tr><td>Sensitive personal information</td><td>No</td><td>N/A</td><td>N/A</td><td>No</td></tr>
+            </tbody>
+          </table>
+
+          <p>To exercise any California privacy right, contact us via the details in Section 19. We will verify your identity and respond within 45 days as required by law, with one possible extension of an additional 45 days where reasonably necessary.</p>
+
+          <p>
+  We may request verification of identity before processing certain requests. Responses will be provided within 
+  the timeframes required by applicable law.
+</p>
+        </div>
+
+        <!-- ─── 10. US STATE LAWS ──────────────────── -->
+        <div class="legal-card" id="us-state-rights">
+          <div class="legal-card-icon"><i class="bi bi-map"></i></div>
+          <h2>10. US State Privacy Laws <span class="j-flag flag-us">US States</span></h2>
+          <p>In addition to California, the following US states have enacted comprehensive privacy laws. Residents of these states have rights substantially similar to those described in Section 9. This policy is designed to satisfy all of them simultaneously.</p>
+          <table class="data-table">
+            <thead><tr><th>State</th><th>Law</th><th>Core Rights Covered by This Policy</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Virginia</strong></td><td>CDPA</td><td>Access, delete, correct, portability, opt-out of sale</td></tr>
+              <tr><td><strong>Colorado</strong></td><td>CPA</td><td>Access, delete, correct, portability, opt-out, appeal</td></tr>
+              <tr><td><strong>Connecticut</strong></td><td>CTDPA</td><td>Access, delete, correct, portability, opt-out, appeal</td></tr>
+              <tr><td><strong>Texas</strong></td><td>TDPSA</td><td>Access, delete, correct, portability, opt-out of sale</td></tr>
+              <tr><td><strong>Oregon</strong></td><td>OCPA</td><td>Access, delete, correct, portability, opt-out</td></tr>
+              <tr><td><strong>Montana</strong></td><td>MCDPA</td><td>Access, delete, correct, portability, opt-out</td></tr>
+              <tr><td><strong>Indiana</strong></td><td>IDPA</td><td>Access, delete, correct, portability, opt-out</td></tr>
+              <tr><td><strong>Tennessee</strong></td><td>TIPA</td><td>Access, delete, correct, portability, opt-out</td></tr>
+            </tbody>
+          </table>
+          <div class="legal-highlight">
+            Residents of all listed states may exercise their rights by contacting us using the details in Section 19. We treat all US state privacy requests with the same response standard — 45 days, with one possible extension — regardless of which state you reside in. We do not discriminate against residents exercising their privacy rights.
+          </div>
+          <p>If you believe we have not responded to your request appropriately, you have the right to appeal our decision and to lodge a complaint with your state's Attorney General. Contact details for state AGs are available via your state government's official website.</p>
+        </div>
+
+        <!-- ─── 11. CARIBBEAN RIGHTS ──────────────── -->
+        <div class="legal-card" id="carib-rights">
+          <div class="legal-card-icon"><i class="bi bi-water"></i></div>
+          <h2>11. Caribbean Residents' Rights <span class="j-flag flag-carib">Caribbean</span></h2>
+          <p>Data protection law across the Caribbean is at various stages of development. The following territories have active legislation that may apply to this website and its visitors:</p>
+          <table class="data-table">
+            <thead><tr><th>Territory</th><th>Law</th><th>Key Rights</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Jamaica</strong></td><td>Data Protection Act 2020</td><td>Access, correction, erasure, objection, complaint to Access to Information Unit</td></tr>
+              <tr><td><strong>Trinidad &amp; Tobago</strong></td><td>Data Protection Act 2011</td><td>Access, correction, suppression, complaint to the Information Commissioner</td></tr>
+              <tr><td><strong>Barbados</strong></td><td>Data Protection Act 2019</td><td>Access, rectification, erasure, complaint to the Data Protection Commissioner</td></tr>
+              <tr><td><strong>Cayman Islands</strong></td><td>Data Protection Act 2017</td><td>Access, rectification, erasure, restriction, portability, complaint to the Ombudsman</td></tr>
+              <tr><td><strong>Bahamas</strong></td><td>Data Protection (Privacy) Act 2003</td><td>Access, correction, complaint to the Data Protection Commissioner</td></tr>
+              <tr><td><strong>Saint Lucia</strong></td><td>No comprehensive law (drafts in progress)</td><td>GDPR-equivalent protections applied voluntarily by this business</td></tr>
+              <tr><td><strong>Other OECS territories</strong></td><td>OECS harmonisation in progress</td><td>GDPR-equivalent protections applied voluntarily by this business</td></tr>
+            </tbody>
+          </table>
+          <p>Regardless of your specific territory, <span class="jl-biz"></span> applies GDPR-equivalent data protection standards to all visitors. If your territory has active legislation, you may also exercise your rights through that territory's designated authority. Contact us directly and we will assist you.</p>
+        </div>
+
+        <!-- ─── 12. COPPA ─────────────────────────── -->
+        <div class="legal-card" id="coppa">
+          <div class="legal-card-icon"><i class="bi bi-person-heart"></i></div>
+          <h2>12. Children's Privacy (COPPA) <span class="j-flag flag-us">COPPA</span> <span class="j-flag flag-all">All Regions</span></h2>
+          <p>This website is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13 (or under 16 where required by GDPR for EU residents).</p>
+          <p>If you are a parent or guardian and believe your child has submitted personal information to this website, please contact us immediately at the details in Section 19. We will promptly delete such information from our records.</p>
+          <p>This business complies with the US Children's Online Privacy Protection Act (COPPA) and with GDPR Article 8 regarding children's consent in the European Union.</p>
+        </div>
+
+        <!-- ─── 13. CAN-SPAM ──────────────────────── -->
+        <div class="legal-card" id="canspam">
+          <div class="legal-card-icon"><i class="bi bi-envelope-check"></i></div>
+          <h2>13. Commercial Email (CAN-SPAM Act) <span class="j-flag flag-us">US</span></h2>
+          <p>If <span class="jl-biz"></span> sends commercial email communications, we comply with the US CAN-SPAM Act. This means:</p>
+          <ul>
+            <li>We never use deceptive subject lines or sender information</li>
+            <li>We identify every commercial message clearly as an advertisement where required</li>
+            <li>We include our physical or postal address in every commercial email</li>
+            <li>We provide a clear and easy way to opt out of future emails</li>
+            <li>We honour opt-out requests within 10 business days</li>
+            <li>We do not sell or transfer your email address to third-party mailing lists</li>
+          </ul>
+          <p>This website does not currently collect email addresses. If this changes, this section will be updated accordingly.</p>
+        </div>
+
+        <!-- ─── 14. ACCESSIBILITY ─────────────────── -->
+        <div class="legal-card" id="accessibility">
+          <div class="legal-card-icon"><i class="bi bi-universal-access"></i></div>
+          <h2>14. Web Accessibility <span class="j-flag flag-us">US / ADA</span></h2>
+          <p><span class="jl-biz"></span> is committed to making this website accessible to all users, including those with disabilities. This website is designed with the goal of meeting Web Content Accessibility Guidelines (WCAG) 2.1 Level AA standards 
+  to improve accessibility and usability for all users. These standards include:</p>
+          <ul>
+            <li>Descriptive alternative text on all meaningful images</li>
+            <li>Sufficient color contrast between text and background elements</li>
+            <li>Keyboard navigability throughout the page</li>
+            <li>Semantic HTML structure for screen reader compatibility</li>
+            <li>No content conveyed by color alone</li>
+          </ul>
+          <p>If you experience accessibility barriers on this website, please contact us via WhatsApp or email (Section 19) and we will make reasonable accommodations or provide the information you need through an accessible alternative format.</p>
+          <p style="font-size:.8rem;opacity:.65;">Note: US businesses are subject to ADA Title III web accessibility requirements. Accessibility compliance is not a privacy issue, but it is a legal obligation for US-facing businesses and is included here for complete legal transparency.</p>
+        </div>
+
+        <!-- ─── 15. DATA RETENTION ────────────────── -->
+        <div class="legal-card" id="retention">
+          <div class="legal-card-icon"><i class="bi bi-clock-history"></i></div>
+          <h2>15. Data Retention <span class="j-flag flag-all">All Regions</span></h2>
+          <p>We retain personal data only as long as necessary for the purposes stated in this policy:</p>
+          <table class="data-table">
+            <thead><tr><th>Data Type</th><th>Retention Period</th><th>Reason</th></tr></thead>
+            <tbody>
+              <tr><td>Google Analytics data</td><td>14 months, then auto-deleted by Google</td><td>GA4 default — we have set the minimum retention period</td></tr>
+              <tr><td>Plausible Analytics data</td><td>Up to 5 years in aggregate, anonymised form</td><td>No personal data stored — aggregate statistics only</td></tr>
+              <tr><td>WhatsApp conversations</td><td>Within WhatsApp's platform per their policy</td><td>We do not export or store chat logs externally</td></tr>
+              <tr><td>Cookie consent record</td><td>12 months (stored locally in your browser)</td><td>To avoid asking again unnecessarily</td></tr>
+              <tr><td>Order information (shared via WhatsApp)</td><td>As required for transaction records — typically 7 years for tax/accounting purposes</td><td>Legal and accounting obligation</td></tr>
+            </tbody>
+          </table>
+          <p>When data is no longer required, it is deleted or anonymised. You may request earlier deletion of any personal data we hold about you (subject to legal retention requirements) by contacting us at the details in Section 19.</p>
+        </div>
+
+        <!-- ─── 16. SECURITY ──────────────────────── -->
+        <div class="legal-card" id="security">
+          <div class="legal-card-icon"><i class="bi bi-shield-lock"></i></div>
+          <h2>16. Security <span class="j-flag flag-all">All Regions</span></h2>
+          <p>We implement appropriate technical and organisational measures to protect your personal data against accidental loss, unauthorised access, disclosure, alteration, or destruction. These measures include:</p>
+          <ul>
+            <li>HTTPS encryption on all pages (TLS/SSL)</li>
+            <li>No storage of payment card data on our servers (PayPal handles all financial transactions)</li>
+            <li>Analytics data limited to anonymised, aggregate statistics</li>
+            <li>No local databases storing visitor personal information</li>
+          </ul>
+          <p>While we take all reasonable precautions, no method of internet transmission is 100% secure. In the event of a data breach that is likely to result in high risk to your rights and freedoms, we will notify affected individuals and relevant supervisory authorities as required by applicable law (within 72 hours under GDPR; as required under applicable US state laws).</p>
+        </div>
+
+        <!-- ─── 17. TERMS OF SERVICE ──────────────── -->
+        <div class="legal-card" id="terms">
+          <div class="legal-card-icon"><i class="bi bi-file-earmark-text"></i></div>
+          <h2>17. Terms of Service <span class="j-flag flag-all">All Regions</span></h2>
+
+          <h3>Acceptance of Terms</h3>
+          <p>By accessing or using this website, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use this website.</p>
+
+          <h3>Acceptable Use</h3>
+          <p>You agree to use this website only for lawful purposes. You must not use this website in any way that is unlawful, harmful, fraudulent, misleading, defamatory, or that violates the rights of any third party. You must not attempt to gain unauthorised access to any part of this website or its underlying infrastructure.</p>
+
+          <h3>Intellectual Property</h3>
+          <p>All content on this website — including text, images, logos, graphics, design, layout, and code — is the intellectual property of <strong><span class="jl-biz"></span></strong> unless otherwise attributed. You may not reproduce, copy, modify, distribute, transmit, display, publish, or create derivative works from any content on this website without prior written permission from <span class="jl-biz"></span>.</p>
+
+          <h3>Accuracy of Information</h3>
+          <p><span class="jl-biz"></span> makes reasonable efforts to ensure all information on this website is accurate, current, and complete. However, we make no warranties or representations regarding the accuracy, completeness, or fitness for any particular purpose of the content. Prices, availability, product descriptions, and business hours are subject to change without notice.</p>
+
+          <h3>Orders and Transactions</h3>
+          <p>All orders placed via WhatsApp are subject to acceptance and availability. Placing an order does not constitute a binding contract until we confirm acceptance. <span class="jl-biz"></span> reserves the right to refuse or cancel any order at its sole discretion. 
+            Refund and cancellation terms are available upon request via WhatsApp prior to placing an order.</p>
+          <p>All prices are displayed in <strong>United States Dollars (USD)</strong> unless otherwise stated. Eastern Caribbean Dollar (XCD) equivalents may be accepted for in-person transactions at the prevailing pegged exchange rate.</p>
+
+<h3>Refunds and Cancellations</h3>
+<p>
+  Due to the nature of digital services, all sales are considered final unless otherwise specified in a separate 
+  written agreement. However, refund requests may be considered on a case-by-case basis if submitted within 
+  7 days of purchase. <span class="jl-biz"></span> reserves the right to approve or deny such requests at its sole discretion.
+</p>
+          
+          <h3>External Links</h3>
+          <p>This website contains links to external platforms including WhatsApp, Instagram, Facebook, and PayPal. These links are provided for your convenience. <span class="jl-biz"></span> is not responsible for the content, privacy practices, or terms of any external website. Accessing external links is at your own risk.</p>
+
+          <h3>Limitation of Liability</h3>
+          <p>To the fullest extent permitted by applicable law, <span class="jl-biz"></span> and its operators shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of, or inability to use, this website — including but not limited to loss of revenue, loss of data, or loss of business opportunity — even if we have been advised of the possibility of such damages.</p>
+          <p>Our total liability to you for any claim arising from use of this website shall not exceed the amount you paid to <span class="jl-biz"></span> in the 12 months preceding the claim, or USD $100, whichever is greater.</p>
+
+          <h3>Service Availability</h3>
+<p>
+  While we strive to ensure that the website is available at all times, we do not guarantee uninterrupted or 
+  error-free operation. Access may be suspended temporarily without notice due to maintenance, system failure, 
+  or other factors beyond our control.
+</p>
+          
+          <h3>Disclaimer of Warranties</h3>
+          <p>This website is provided "as is" and "as available" without warranty of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that this website will be uninterrupted, error-free, or free of viruses or other harmful components.</p>
+
+          <h3>Governing Law and Jurisdiction</h3>
+          <p>These Terms of Service are governed by and construed in accordance with the laws of <strong><span class="jl-location"></span></strong>, without regard to its conflict of law provisions. Any disputes arising under these terms shall be subject to the exclusive jurisdiction of the courts of <span class="jl-location"></span>, except where mandatory local consumer protection laws in your jurisdiction require otherwise.</p>
+          <p>For US customers: nothing in these terms limits any rights you may have under applicable US federal or state consumer protection law. For EU customers: nothing in these terms overrides your statutory rights under applicable EU consumer protection directives.</p>
+
+          <h3>Severability</h3>
+          <p>If any provision of these Terms of Service is found to be unenforceable or invalid by a court of competent jurisdiction, that provision shall be modified to the minimum extent necessary to make it enforceable, or severed if modification is not possible, and the remaining provisions shall continue in full force and effect.</p>
+
+          <h3>Indemnification</h3>
+<p>
+  You agree to indemnify, defend, and hold harmless <span class="jl-biz"></span>, its owners, affiliates, and service providers 
+  from and against any claims, liabilities, damages, losses, and expenses, including legal fees, arising out of or 
+  in any way connected with your use or misuse of this website, your violation of these terms, or your violation of 
+  any applicable laws or regulations.
+</p>
+          <h3>Force Majeure</h3>
+<p>
+  <span class="jl-biz"></span> shall not be held liable for any failure or delay in performance resulting from events beyond its 
+  reasonable control, including but not limited to natural disasters, acts of government, internet outages, 
+  third-party service failures, or other unforeseen circumstances.
+</p>
+        </div>
+
+        <!-- ─── 18. POLICY CHANGES ─────────────────── -->
+        <div class="legal-card" id="changes">
+          <div class="legal-card-icon"><i class="bi bi-arrow-repeat"></i></div>
+          <h2>18. Changes to This Policy <span class="j-flag flag-all">All Regions</span></h2>
+          <p>We reserve the right to update this Privacy Policy and Terms of Service at any time. When we make changes, we will update the "Last updated" date at the top of this page.</p>
+          <p>For material changes — particularly those that affect how we process personal data or limit your rights — we will make reasonable efforts to notify users proactively, which may include a notice on the website homepage or, where applicable, a direct notification via WhatsApp.</p>
+          <p>Your continued use of this website after any changes have been posted constitutes your acceptance of the revised policy. If you do not agree to the revised terms, you should discontinue use of this website.</p>
+          <p>We recommend reviewing this page periodically. The most current version will always be available at <strong><span class="jl-url"></span>/legal.html</strong>.</p>
+        </div>
+
+        <!-- ─── 19. CONTACT ───────────────────────── -->
+        <div class="legal-card" id="contact">
+          <div class="legal-card-icon"><i class="bi bi-chat-dots"></i></div>
+          <h2>19. Contact Us &amp; Rights Requests <span class="j-flag flag-all">All Regions</span></h2>
+          <p>To exercise any of your privacy rights, ask a question about this policy, report an accessibility issue, or raise a data protection concern — contact us directly. We take all requests seriously and will respond within the legally required timeframe for your jurisdiction (30 days for GDPR; 45 days for CCPA; without undue delay for Caribbean laws).</p>
+          <p>Please state clearly in your message which right you wish to exercise and which jurisdiction's law you are relying on. This helps us process your request correctly and promptly.</p>
+          <div class="contact-card">
+            <h4><span class="jl-biz"></span></h4>
+            <p>Send us a message on WhatsApp and we will respond during business hours — Monday to Saturday, 9 AM to 6 PM.</p>
+            <a href="https://wa.me/JL_WA_NUM?text=I%20have%20a%20privacy%20rights%20request%20regarding%20your%20website">
+              <i class="bi bi-whatsapp"></i> Contact Us on WhatsApp
+            </a>
+          </div>
+          <p style="text-align:center;font-size:.78rem;opacity:.55;margin-top:1rem;">
+            This Privacy Policy was last reviewed and updated: <strong><span class="jl-date"></span></strong>.<br>
+            Website designed and built by <a href="https://jamalinks758.github.io/jamalinks" target="_blank" rel="noopener" style="color:var(--gold,#c9a84c)">jamaLinks</a> · Saint Lucia, Caribbean.
+          </p>
+        </div>
+
+      </div><!-- end col-lg-9 -->
+    </div><!-- end row -->
+  </div><!-- end container -->
+</section>
+
+<!-- ══ FOOTER ═══════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <span>© <span id="footer-year"></span> <span class="jl-biz"></span>. All rights reserved.</span>
+      <div style="display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;">
+        <!-- CCPA Required Footer Link — auto-hidden if targetsUS = false -->
+        <a id="ccpa-footer-link" href="#ccpa-rights" style="font-size:.75rem;opacity:.55;color:inherit;text-decoration:none;">Do Not Sell or Share My Personal Information</a>
+        <a href="index.html" style="font-size:.82rem;opacity:.55;color:inherit;text-decoration:none;">← Back to Website</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ WHATSAPP FLOAT ═══════════════════════════════════ -->
+<a href="https://wa.me/JL_WA_NUM?text=Hi%20I%20have%20a%20question" class="wa-float" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<!-- ══ SCRIPTS ══════════════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+/* ── Theme Engine ──────────────────────────────────── */
+const html  = document.documentElement;
+const STORE = 'jama-theme';
+function getInitialTheme() {
+  const saved = localStorage.getItem(STORE);
+  if (saved) return saved;
+  const h = new Date().getHours();
+  return (h >= 19 || h < 6) ? 'dark' : 'light';
+}
+let current = getInitialTheme();
+function applyTheme(t) {
+  current = t;
+  html.setAttribute('data-theme', t);
+  localStorage.setItem(STORE, t);
+  const dark = t === 'dark';
+  const icon  = document.getElementById('themeIcon');
+  const iconM = document.getElementById('themeIconMob');
+  if (icon)  icon.className  = dark ? 'bi bi-moon-stars-fill' : 'bi bi-sun-fill';
+  if (iconM) iconM.className = dark ? 'bi bi-moon-stars-fill' : 'bi bi-sun-fill';
+}
+applyTheme(current);
+const toggle = () => applyTheme(current === 'light' ? 'dark' : 'light');
+document.getElementById('themeToggle')    ?.addEventListener('click', toggle);
+document.getElementById('themeToggleMob') ?.addEventListener('click', toggle);
+
+/* ── Navbar scroll ─────────────────────────────────── */
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60), { passive: true });
+
+/* ── Smooth scroll TOC ─────────────────────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (!t) return;
+    e.preventDefault();
+    t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+/* ── Auto year ─────────────────────────────────────── */
+document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+  // Update logo alt text with business name
+const logoImg = document.getElementById('jl-logo-img');
+if (logoImg) logoImg.alt = C.businessName + ' Logo';
+</script>
+
+<!--
+════════════════════════════════════════════════════════════════════
+  jamaLinks LEGAL CONFIG SYSTEM
+  ════════════════════════════════════════════════════════════════════
+  INSTRUCTIONS FOR EACH CLIENT BUILD:
+  ─────────────────────────────────────────────────────────────────
+  1. Edit ONLY the values inside CONFIG below
+  2. Set feature flags (true/false) to match what's on the site
+  3. Save. The rest is automatic.
+  ════════════════════════════════════════════════════════════════════
+-->
+<script id="jl-config">
+
+/* ══════════════════════════════════════════════════════════════════
+   STEP 1 — CLIENT INFORMATION
+   Fill in every field. Leave empty string "" if not applicable.
+   ══════════════════════════════════════════════════════════════════ */
+const CONFIG = {
+
+  // ── Business Identity ──────────────────────────────────────────
+  businessName   : "Fresh Flow Juices",           // Client's trading name
+  businessPhone  : "17587231234",                 // WhatsApp number — digits only, no spaces
+  businessEmail  : "hello@freshflowjuices.com",   // Business email — leave "" if none
+  businessAddress: "Castries, Saint Lucia",       // Physical address or "Based in X, Y"
+  websiteURL     : "freshflowjuices.com",         // Domain — no https://
+  location       : "Saint Lucia",                 // Island / Country (for governing law)
+  policyDate     : "January 2026",                // Month Year of this policy version
+
+  // ── Business Hours (shown in contact section) ──────────────────
+  businessHours  : "Monday – Saturday, 9 AM – 6 PM",
+
+  // ── Refund Window (shown in refund policy) ─────────────────────
+  refundDays     : "7",                           // Number of days for refund consideration
+
+/* ══════════════════════════════════════════════════════════════════
+   STEP 2 — FEATURE FLAGS
+   Set each to true or false based on what's installed on the site.
+   This controls which legal sections appear automatically.
+   ══════════════════════════════════════════════════════════════════ */
+
+  // ── Analytics ──────────────────────────────────────────────────
+  usesGA4        : true,    // Google Analytics 4 installed?
+  usesPlausible  : false,   // Plausible Analytics installed?
+  // NOTE: Set only one to true. If both false, analytics section hides.
+
+  // ── Tracking & Advertising ────────────────────────────────────
+  usesFbPixel    : false,   // Facebook / Meta Pixel installed?
+
+  // ── Payments ──────────────────────────────────────────────────
+  usesPaypal     : true,    // PayPal payment button or checkout?
+  usesStripe     : false,   // Stripe (future use)
+
+  // ── Communication ─────────────────────────────────────────────
+  usesWhatsapp   : true,    // WhatsApp buttons on the site?
+  usesEmail      : false,   // Does client collect email addresses?
+  usesForms      : false,   // Any contact / order forms on the site?
+
+  // ── Market ────────────────────────────────────────────────────
+  targetsUS      : true,    // Will US visitors be targeted or expected?
+  targetsEU      : true,    // Will EU visitors be targeted or expected?
+
+};
+
+
+/* ══════════════════════════════════════════════════════════════════
+   ─── DO NOT EDIT BELOW THIS LINE ───────────────────────────────
+   The engine reads CONFIG and populates the entire page.
+   ══════════════════════════════════════════════════════════════════ */
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  const C = CONFIG;
+  const waBase = `https://wa.me/${C.businessPhone}`;
+
+  /* ── 1. Text replacements ────────────────────────────────────── */
+  const fill = (sel, val) => {
+    document.querySelectorAll(sel).forEach(el => { el.textContent = val; });
+  };
+  const fillHTML = (sel, val) => {
+    document.querySelectorAll(sel).forEach(el => { el.innerHTML = val; });
+  };
+
+  fill('.jl-biz',      C.businessName);
+  fill('.jl-url',      C.websiteURL);
+  fill('.jl-location', C.location);
+  fill('.jl-date',     C.policyDate);
+  fill('.jl-phone',    C.businessPhone);
+  fill('.jl-hours',    C.businessHours);
+  fill('.jl-refund-days', C.refundDays);
+
+  // Email line — show or hide depending on whether email is provided
+  document.querySelectorAll('.jl-email-line').forEach(el => {
+    if (C.businessEmail) {
+      el.innerHTML = `✉️ <a href="mailto:${C.businessEmail}" style="color:var(--gold,#c9a84c)">${C.businessEmail}</a>`;
+    } else {
+      el.closest('br') && el.previousSibling && el.previousSibling.remove();
+      el.remove();
+    }
+  });
+  fill('.jl-email', C.businessEmail || '');
+
+  /* ── 2. Page meta ────────────────────────────────────────────── */
+  document.title = `Privacy Policy & Terms of Service — ${C.businessName}`;
+  const metaDesc = document.getElementById('page-desc');
+  if (metaDesc) metaDesc.content = `Privacy Policy and Terms of Service for ${C.businessName}. Full international compliance covering GDPR, CCPA, and Caribbean data protection laws.`;
+
+  /* ── 3. WhatsApp links — update all wa.me URLs ───────────────── */
+  document.querySelectorAll('a[href*="JL_WA_NUM"]').forEach(a => {
+    a.href = a.href.replace('JL_WA_NUM', C.businessPhone);
+  });
+  // Also catch any WhatsApp links that were already partially built
+  document.querySelectorAll('a[href^="https://wa.me/"]').forEach(a => {
+    if (a.href.includes('JL_WA_NUM')) {
+      a.href = a.href.replace('JL_WA_NUM', C.businessPhone);
+    }
+  });
+
+  /* ── 4. Address block ────────────────────────────────────────── */
+  document.querySelectorAll('.jl-address').forEach(el => {
+    el.textContent = C.businessAddress;
+  });
+
+  /* ── 5. Website URL links ────────────────────────────────────── */
+  document.querySelectorAll('.jl-url-link').forEach(a => {
+    a.href = `https://${C.websiteURL}`;
+    a.textContent = C.websiteURL;
+  });
+
+  /* ── 6. Feature Flag: Analytics sections ─────────────────────── */
+  const ga4Section     = document.getElementById('jl-section-ga4');
+  const plausibleSection = document.getElementById('jl-section-plausible');
+  const analyticsCard  = document.getElementById('jl-analytics-card');
+
+  if (ga4Section)      ga4Section.style.display      = C.usesGA4      ? '' : 'none';
+  if (plausibleSection) plausibleSection.style.display = C.usesPlausible ? '' : 'none';
+  if (analyticsCard) {
+    // If no analytics at all, hide the retention rows for both
+    if (!C.usesGA4 && !C.usesPlausible) {
+      document.querySelectorAll('.jl-row-ga4, .jl-row-plausible').forEach(r => r.style.display = 'none');
+    } else {
+      if (!C.usesGA4)      document.querySelectorAll('.jl-row-ga4').forEach(r => r.style.display = 'none');
+      if (!C.usesPlausible) document.querySelectorAll('.jl-row-plausible').forEach(r => r.style.display = 'none');
+    }
+  }
+
+  /* ── 7. Feature Flag: Facebook Pixel ────────────────────────── */
+  document.querySelectorAll('.jl-section-fbpixel').forEach(el => {
+    el.style.display = C.usesFbPixel ? '' : 'none';
+  });
+
+  /* ── 8. Feature Flag: PayPal ─────────────────────────────────── */
+  document.querySelectorAll('.jl-section-paypal').forEach(el => {
+    el.style.display = C.usesPaypal ? '' : 'none';
+  });
+
+  /* ── 9. Feature Flag: WhatsApp sections ─────────────────────── */
+  document.querySelectorAll('.jl-section-whatsapp').forEach(el => {
+    el.style.display = C.usesWhatsapp ? '' : 'none';
+  });
+
+  /* ── 10. Feature Flag: Email / CAN-SPAM ─────────────────────── */
+  const canspamCard = document.getElementById('canspam');
+  if (canspamCard) canspamCard.style.display = (C.usesEmail || C.targetsUS) ? '' : 'none';
+
+  /* ── 11. Feature Flag: US sections ──────────────────────────── */
+  document.querySelectorAll('.jl-section-us').forEach(el => {
+    el.style.display = C.targetsUS ? '' : 'none';
+  });
+  // US state law card
+  const usStateCard = document.getElementById('us-state-rights');
+  if (usStateCard) usStateCard.style.display = C.targetsUS ? '' : 'none';
+  // CCPA card
+  const ccpaCard = document.getElementById('ccpa-rights');
+  if (ccpaCard) ccpaCard.style.display = C.targetsUS ? '' : 'none';
+  // CCPA footer link
+  const ccpaFooterLink = document.getElementById('ccpa-footer-link');
+  if (ccpaFooterLink) ccpaFooterLink.style.display = C.targetsUS ? '' : 'none';
+
+  /* ── 12. Feature Flag: EU sections ──────────────────────────── */
+  const gdprCard = document.getElementById('gdpr-rights');
+  if (gdprCard) gdprCard.style.display = C.targetsEU ? '' : 'none';
+  const intlCard = document.getElementById('international');
+  if (intlCard) intlCard.style.display = C.targetsEU ? '' : 'none';
+  const legalBasisCard = document.getElementById('legal-basis');
+  if (legalBasisCard) legalBasisCard.style.display = C.targetsEU ? '' : 'none';
+
+  /* ── 13. Compliance pills in hero ────────────────────────────── */
+  const pillGDPR  = document.getElementById('pill-gdpr');
+  const pillCCPA  = document.getElementById('pill-ccpa');
+  const pillStates = document.getElementById('pill-states');
+  if (pillGDPR)   pillGDPR.style.display   = C.targetsEU ? '' : 'none';
+  if (pillCCPA)   pillCCPA.style.display   = C.targetsUS ? '' : 'none';
+  if (pillStates) pillStates.style.display = C.targetsUS ? '' : 'none';
+
+  /* ── 14. TOC links — hide entries for hidden sections ──────────  */
+  const tocLinks = {
+    '#gdpr-rights'     : C.targetsEU,
+    '#ccpa-rights'     : C.targetsUS,
+    '#us-state-rights' : C.targetsUS,
+    '#international'   : C.targetsEU,
+    '#legal-basis'     : C.targetsEU,
+    '#canspam'         : (C.usesEmail || C.targetsUS),
+  };
+  document.querySelectorAll('.toc-link').forEach(a => {
+    const href = a.getAttribute('href');
+    if (href && tocLinks.hasOwnProperty(href) && !tocLinks[href]) {
+      a.style.display = 'none';
+    }
+  });
+
+  /* ── 15. Console confirmation ────────────────────────────────── */
+  console.log(`%cjamaLinks Legal Config Loaded`, 'color:#c9a84c;font-weight:bold;font-size:12px');
+  console.log(`Business: ${C.businessName} | Location: ${C.location}`);
+  console.log(`GA4: ${C.usesGA4} | Plausible: ${C.usesPlausible} | PayPal: ${C.usesPaypal} | US Targeting: ${C.targetsUS} | EU Targeting: ${C.targetsEU}`);
+
+});
+</script>
+
+</body>
+</html>
