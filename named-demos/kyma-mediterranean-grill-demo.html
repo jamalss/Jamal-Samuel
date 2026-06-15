@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kyma Mediterranean Grill | Fresh Mediterranean, Made to Order</title>
+<meta name="description" content="Kyma Mediterranean Grill — gyros, falafel, and Mediterranean classics made fresh to order. Order online for pickup or delivery.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- AOS scroll animations -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
+
+<!-- Font Awesome (deferred) -->
+<link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+<style>
+  /* ============ TOKENS ============ */
+  :root{
+    --color-bg:#F7FBFD;
+    --color-bg-alt:#EFE8DB;
+    --color-surface:#FFFFFF;
+    --color-text:#18242C;
+    --color-text-soft:#52646F;
+    --color-primary:#15486B;
+    --color-accent:#2E86AB;
+    --color-cta:#C1592C;
+    --color-cta-text:#FFFFFF;
+    --color-olive:#5E7245;
+    --color-border:rgba(21,72,107,0.14);
+    --shadow-soft:0 12px 30px -18px rgba(21,72,107,0.35);
+    --radius-lg:20px;
+    --radius-md:12px;
+    --font-display:'Cormorant Garamond', Georgia, serif;
+    --font-body:'Inter', system-ui, -apple-system, sans-serif;
+    --container:1180px;
+    color-scheme: light;
+  }
+  [data-theme="dark"]{
+    --color-bg:#0C2233;
+    --color-bg-alt:#11314A;
+    --color-surface:#15405E;
+    --color-text:#EAF3F8;
+    --color-text-soft:#AAC6D6;
+    --color-primary:#8FD0F2;
+    --color-accent:#6FC0EA;
+    --color-cta:#E0824B;
+    --color-cta-text:#1A2230;
+    --color-olive:#B7C79A;
+    --color-border:rgba(255,255,255,0.12);
+    --shadow-soft:0 12px 30px -18px rgba(0,0,0,0.6);
+    color-scheme: dark;
+  }
+
+  /* ============ RESET / BASE ============ */
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:var(--font-body);
+    background:var(--color-bg);
+    color:var(--color-text);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    transition:background-color .3s ease, color .3s ease;
+  }
+  img{max-width:100%;display:block;}
+  a{color:var(--color-primary);}
+  h1,h2,h3,h4{
+    font-family:var(--font-display);
+    font-weight:600;
+    line-height:1.15;
+    margin:0 0 .4em;
+    color:var(--color-primary);
+  }
+  p{margin:0 0 1em;}
+  .container{max-width:var(--container);margin:0 auto;padding:0 24px;}
+  section{padding:72px 0;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--color-olive);margin-bottom:10px;
+  }
+  .section-head{max-width:640px;margin-bottom:44px;}
+  .section-head p{color:var(--color-text-soft);font-size:1.05rem;}
+
+  /* Skip link */
+  .skip-link{
+    position:absolute;left:-999px;top:auto;
+    background:var(--color-primary);color:#fff;padding:10px 18px;border-radius:0 0 8px 0;z-index:1000;
+  }
+  .skip-link:focus{left:0;top:0;}
+
+  /* Focus visibility */
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{
+    outline:3px solid var(--color-accent);
+    outline-offset:2px;
+  }
+
+  /* ============ BUTTONS ============ */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    font-family:var(--font-body);font-weight:600;font-size:1rem;
+    padding:14px 28px;border-radius:999px;border:2px solid transparent;
+    text-decoration:none;cursor:pointer;transition:transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+    line-height:1;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn--primary{background:var(--color-cta);color:var(--color-cta-text);box-shadow:var(--shadow-soft);}
+  .btn--primary:hover{box-shadow:0 16px 34px -16px rgba(193,89,44,.55);}
+  .btn--ghost{background:transparent;border-color:currentColor;color:var(--color-primary);}
+  [data-theme="dark"] .btn--ghost{color:var(--color-text);}
+  .btn--block{width:100%;}
+  .btn--sm{padding:10px 20px;font-size:.92rem;}
+
+  /* ============ HEADER ============ */
+  .site-header{
+    position:sticky;top:0;z-index:100;
+    background:color-mix(in srgb, var(--color-bg) 88%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--color-border);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 0;
+  }
+  .logo{
+    display:flex;align-items:center;gap:10px;
+    font-family:var(--font-display);font-weight:700;font-size:1.6rem;color:var(--color-primary);
+    text-decoration:none;letter-spacing:.02em;
+  }
+  .logo svg{width:34px;height:34px;flex-shrink:0;}
+  .nav__links{display:flex;align-items:center;gap:32px;list-style:none;margin:0;padding:0;}
+  .nav__links a{
+    color:var(--color-text);text-decoration:none;font-weight:500;font-size:.98rem;
+    padding:6px 2px;border-bottom:2px solid transparent;transition:border-color .15s ease, color .15s ease;
+  }
+  .nav__links a:hover{color:var(--color-accent);border-color:var(--color-accent);}
+  .nav__actions{display:flex;align-items:center;gap:10px;}
+  .theme-toggle{
+    width:42px;height:42px;border-radius:50%;border:1px solid var(--color-border);
+    background:var(--color-surface);color:var(--color-primary);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;
+    transition:transform .2s ease;
+  }
+  .theme-toggle:hover{transform:rotate(20deg);}
+  .nav__toggle{
+    display:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--color-border);
+    background:var(--color-surface);color:var(--color-primary);align-items:center;justify-content:center;
+    cursor:pointer;font-size:1.1rem;
+  }
+  @media (max-width: 860px){
+    .nav__links{
+      position:absolute;top:100%;left:0;right:0;
+      flex-direction:column;align-items:flex-start;gap:4px;
+      background:var(--color-surface);border-bottom:1px solid var(--color-border);
+      padding:12px 24px 20px;transform-origin:top;
+      max-height:0;overflow:hidden;opacity:0;visibility:hidden;
+      transition:max-height .25s ease, opacity .2s ease;
+    }
+    .nav__links.is-open{max-height:320px;opacity:1;visibility:visible;padding:16px 24px 24px;}
+    .nav__links a{display:block;width:100%;padding:10px 0;}
+    .nav__toggle{display:flex;}
+  }
+
+  /* ============ WAVE DIVIDERS ============ */
+  .wave{display:block;width:100%;line-height:0;}
+  .wave svg{display:block;width:100%;height:46px;}
+  @media (min-width:760px){ .wave svg{height:84px;} }
+  .wave--bg-to-alt{background:var(--color-bg);}
+  .wave--bg-to-alt path{fill:var(--color-bg-alt);}
+  .wave--alt-to-bg{background:var(--color-bg-alt);}
+  .wave--alt-to-bg path{fill:var(--color-bg);}
+  .wave--alt-to-surface{background:var(--color-bg-alt);}
+  .wave--alt-to-surface path{fill:var(--color-surface);}
+  .wave--surface-to-bg{background:var(--color-surface);}
+  .wave--surface-to-bg path{fill:var(--color-bg);}
+
+  /* ============ HERO ============ */
+  .hero{
+    padding:64px 0 0;
+    background:var(--color-bg);
+  }
+  .hero__grid{
+    display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center;
+  }
+  .hero__tagline{
+    font-size:1.1rem;color:var(--color-text-soft);max-width:480px;
+  }
+  .hero h1{font-size:clamp(2.6rem, 5vw, 4.1rem);}
+  .hero h1 em{font-style:italic;color:var(--color-accent);}
+  .hero__cta-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:30px;}
+  .hero__trust{
+    margin-top:34px;display:flex;flex-wrap:wrap;gap:22px;
+    font-size:.92rem;color:var(--color-text-soft);font-weight:500;
+  }
+  .hero__trust span{display:inline-flex;align-items:center;gap:8px;}
+  .hero__trust i{color:var(--color-olive);}
+  .hero__media{
+    position:relative;border-radius:var(--radius-lg);overflow:hidden;
+    box-shadow:var(--shadow-soft);
+    aspect-ratio:4/5;
+    background:linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  }
+  .hero__media img{width:100%;height:100%;object-fit:cover;}
+  .hero__media-badge{
+    position:absolute;bottom:18px;left:18px;right:18px;
+    background:rgba(12,34,51,.55);backdrop-filter:blur(6px);
+    color:#fff;padding:14px 18px;border-radius:var(--radius-md);
+    font-size:.92rem;display:flex;align-items:center;gap:10px;
+  }
+  @media (max-width:900px){
+    .hero__grid{grid-template-columns:1fr;gap:36px;}
+    .hero__media{aspect-ratio:16/10;order:-1;}
+  }
+
+  /* ============ INFO BAR ============ */
+  .info-bar{background:var(--color-bg-alt);padding:0;}
+  .info-bar__grid{
+    display:grid;grid-template-columns:repeat(4,1fr);
+  }
+  .info-bar__item{
+    padding:30px 24px;text-align:center;border-right:1px solid var(--color-border);
+  }
+  .info-bar__item:last-child{border-right:none;}
+  .info-bar__item i{font-size:1.5rem;color:var(--color-accent);margin-bottom:10px;display:block;}
+  .info-bar__item h3{font-size:1.05rem;margin-bottom:4px;color:var(--color-text);font-family:var(--font-body);font-weight:700;}
+  .info-bar__item p{margin:0;color:var(--color-text-soft);font-size:.92rem;}
+  .info-bar__item a{color:var(--color-text-soft);text-decoration:none;}
+  .info-bar__item a:hover{color:var(--color-accent);}
+  @media (max-width:860px){
+    .info-bar__grid{grid-template-columns:repeat(2,1fr);}
+    .info-bar__item{border-right:1px solid var(--color-border);border-bottom:1px solid var(--color-border);}
+    .info-bar__item:nth-child(2n){border-right:none;}
+  }
+
+  /* ============ MENU ============ */
+  .menu{background:var(--color-bg-alt);}
+  .menu__grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-bottom:48px;
+  }
+  .menu__card{
+    background:var(--color-surface);border-radius:var(--radius-lg);overflow:hidden;
+    box-shadow:var(--shadow-soft);display:flex;flex-direction:column;
+  }
+  .menu__card-image{aspect-ratio:4/3;overflow:hidden;background:var(--color-bg-alt);}
+  .menu__card-image img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
+  .menu__card:hover .menu__card-image img{transform:scale(1.05);}
+  .menu__card-body{padding:20px 22px 24px;flex-grow:1;display:flex;flex-direction:column;}
+  .menu__card-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
+  .menu__card-top h3{font-size:1.3rem;margin-bottom:6px;}
+  .menu__price{font-family:var(--font-display);font-weight:700;font-size:1.25rem;color:var(--color-cta);white-space:nowrap;}
+  .menu__card p{color:var(--color-text-soft);font-size:.95rem;margin-bottom:0;}
+  .menu__card--featured{grid-column:span 2;}
+  .menu__card--featured .menu__card-image{aspect-ratio:16/9;}
+  @media (max-width:900px){
+    .menu__grid{grid-template-columns:1fr 1fr;}
+    .menu__card--featured{grid-column:span 2;}
+  }
+  @media (max-width:620px){
+    .menu__grid{grid-template-columns:1fr;}
+    .menu__card--featured{grid-column:span 1;}
+  }
+  .menu__more{
+    background:var(--color-surface);border-radius:var(--radius-lg);box-shadow:var(--shadow-soft);
+    padding:32px clamp(20px,4vw,44px);
+  }
+  .menu__more h3{font-size:1.4rem;margin-bottom:18px;}
+  .menu__more-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:14px 36px;}
+  .menu__more-list li{
+    display:flex;justify-content:space-between;gap:12px;
+    padding-bottom:12px;border-bottom:1px dashed var(--color-border);
+    font-size:1rem;
+  }
+  .menu__more-list li span:last-child{font-weight:700;color:var(--color-cta);font-family:var(--font-display);}
+  @media (max-width:620px){.menu__more-list{grid-template-columns:1fr;}}
+
+  /* ============ STORY ============ */
+  .story{background:var(--color-bg);}
+  .story__grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .story__art{
+    border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-soft);aspect-ratio:1/1;
+    background:var(--color-bg-alt);
+  }
+  .story__art img{width:100%;height:100%;object-fit:cover;}
+  .story ul{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:14px;}
+  .story ul li{display:flex;gap:12px;align-items:flex-start;font-size:1rem;}
+  .story ul i{color:var(--color-olive);margin-top:4px;}
+  @media (max-width:900px){
+    .story__grid{grid-template-columns:1fr;gap:36px;}
+    .story__art{order:-1;aspect-ratio:16/10;}
+  }
+
+  /* ============ ORDER ============ */
+  .order{background:var(--color-bg-alt);}
+  .order__card{
+    background:var(--color-surface);border-radius:var(--radius-lg);box-shadow:var(--shadow-soft);
+    display:grid;grid-template-columns:1fr 1.3fr;overflow:hidden;
+  }
+  .order__side{
+    background:var(--color-primary);color:#fff;padding:44px 36px;
+    display:flex;flex-direction:column;justify-content:center;
+  }
+  [data-theme="dark"] .order__side{background:var(--color-bg-alt);}
+  .order__side h2{color:#fff;}
+  [data-theme="dark"] .order__side h2{color:var(--color-primary);}
+  .order__side p{opacity:.9;}
+  [data-theme="dark"] .order__side p{color:var(--color-text-soft);opacity:1;}
+  .order__side .btn--ghost{border-color:rgba(255,255,255,.55);color:#fff;}
+  [data-theme="dark"] .order__side .btn--ghost{border-color:var(--color-border);color:var(--color-text);}
+  .order__form{padding:44px 36px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px;}
+  .field{display:flex;flex-direction:column;gap:6px;}
+  .field--full{grid-column:1 / -1;}
+  label{font-size:.88rem;font-weight:600;color:var(--color-text-soft);}
+  input, textarea, select{
+    font-family:var(--font-body);font-size:1rem;padding:12px 14px;
+    border:1px solid var(--color-border);border-radius:10px;
+    background:var(--color-bg);color:var(--color-text);
+  }
+  textarea{resize:vertical;min-height:96px;}
+  fieldset{border:1px solid var(--color-border);border-radius:10px;padding:10px 14px;margin:0;}
+  fieldset legend{font-size:.88rem;font-weight:600;color:var(--color-text-soft);padding:0 6px;}
+  .radio-row{display:flex;gap:20px;flex-wrap:wrap;margin-top:6px;}
+  .radio-row label{display:flex;align-items:center;gap:8px;font-weight:500;color:var(--color-text);font-size:.96rem;}
+  .order__actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px;}
+  .order__status{
+    margin-top:16px;font-size:.92rem;color:var(--color-olive);font-weight:600;min-height:1.4em;
+  }
+  @media (max-width:900px){
+    .order__card{grid-template-columns:1fr;}
+    .form-row{grid-template-columns:1fr;}
+  }
+
+  /* ============ GALLERY ============ */
+  .gallery{background:var(--color-surface);}
+  .gallery__grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
+  }
+  .gallery__grid figure{margin:0;border-radius:var(--radius-md);overflow:hidden;aspect-ratio:1/1;box-shadow:var(--shadow-soft);background:var(--color-bg-alt);}
+  .gallery__grid img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
+  .gallery__grid figure:hover img{transform:scale(1.06);}
+  .gallery__grid figure:first-child{grid-row:span 2;grid-column:span 2;aspect-ratio:1/1;}
+  @media (max-width:760px){
+    .gallery__grid{grid-template-columns:repeat(2,1fr);}
+    .gallery__grid figure:first-child{grid-column:span 2;}
+  }
+
+  /* ============ VISIT ============ */
+  .visit{background:var(--color-bg);}
+  .visit__grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
+  .hours{width:100%;border-collapse:collapse;}
+  .hours th{display:none;}
+  .hours td{padding:10px 0;border-bottom:1px dashed var(--color-border);font-size:1rem;}
+  .hours td:last-child{text-align:right;color:var(--color-text-soft);}
+  .hours tr.is-today td{font-weight:700;color:var(--color-primary);}
+  .visit__contact{
+    background:var(--color-bg-alt);border-radius:var(--radius-lg);padding:32px;
+  }
+  .visit__contact .btn{margin-top:8px;}
+  .visit__contact-row{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px;}
+  .visit__contact-row i{font-size:1.2rem;color:var(--color-accent);margin-top:4px;}
+  .visit__contact-row h3{font-size:1.05rem;margin-bottom:2px;font-family:var(--font-body);}
+  .visit__contact-row p{margin:0;color:var(--color-text-soft);}
+  @media (max-width:900px){.visit__grid{grid-template-columns:1fr;gap:40px;}}
+
+  /* ============ FOOTER ============ */
+  footer{background:var(--color-primary);color:#fff;padding:56px 0 28px;}
+  [data-theme="dark"] footer{background:var(--color-bg-alt);}
+  footer .logo{color:#fff;}
+  [data-theme="dark"] footer .logo{color:var(--color-primary);}
+  .footer__grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:36px;}
+  footer h4{color:#fff;font-family:var(--font-body);font-size:.92rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;}
+  [data-theme="dark"] footer h4{color:var(--color-text);}
+  footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;}
+  footer a{color:rgba(255,255,255,.82);text-decoration:none;font-size:.95rem;}
+  [data-theme="dark"] footer a{color:var(--color-text-soft);}
+  footer a:hover{color:#fff;}
+  [data-theme="dark"] footer a:hover{color:var(--color-primary);}
+  footer p.tagline{color:rgba(255,255,255,.78);max-width:340px;}
+  [data-theme="dark"] footer p.tagline{color:var(--color-text-soft);}
+  .footer__social{display:flex;gap:12px;margin-top:14px;}
+  .footer__social a{
+    width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.3);
+    display:flex;align-items:center;justify-content:center;
+  }
+  [data-theme="dark"] .footer__social a{border-color:var(--color-border);}
+  .footer__bottom{
+    border-top:1px solid rgba(255,255,255,.15);padding-top:22px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+    font-size:.85rem;color:rgba(255,255,255,.65);
+  }
+  [data-theme="dark"] .footer__bottom{border-color:var(--color-border);color:var(--color-text-soft);}
+  .footer__bottom a{color:rgba(255,255,255,.85);font-weight:600;}
+  [data-theme="dark"] .footer__bottom a{color:var(--color-primary);}
+  @media (max-width:760px){.footer__grid{grid-template-columns:1fr;gap:30px;}}
+
+  /* ============ FLOATING ORDER CTA ============ */
+  .floating-cta{
+    position:fixed;right:20px;bottom:20px;z-index:90;
+    background:var(--color-cta);color:var(--color-cta-text);
+    padding:14px 24px;border-radius:999px;text-decoration:none;font-weight:700;
+    box-shadow:0 12px 28px -10px rgba(193,89,44,.6);
+    display:flex;align-items:center;gap:10px;font-size:.98rem;
+  }
+
+  /* ============ REDUCED MOTION ============ */
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    [data-aos]{opacity:1 !important;transform:none !important;transition:none !important;}
+    .menu__card-image img,.gallery__grid img{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container nav">
+    <a href="#main" class="logo" aria-label="Kyma Mediterranean Grill, home">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M2 30c4-6 10-6 14 0s10 6 14 0 10-6 14 0" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M2 38c4-6 10-6 14 0s10 6 14 0 10-6 14 0" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" opacity=".45"/><circle cx="24" cy="14" r="7" fill="currentColor"/></svg>
+      Kyma
+    </a>
+    <nav>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#order">Order Online</a></li>
+        <li><a href="#visit">Visit Us</a></li>
+      </ul>
+    </nav>
+    <div class="nav__actions">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" type="button"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links" type="button"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container hero__grid">
+      <div data-aos="fade-up">
+        <p class="eyebrow"><i class="fa-solid fa-leaf" aria-hidden="true"></i> Mediterranean Grill &middot; Pickup, Delivery &amp; Dine-In</p>
+        <h1>Fresh Mediterranean,<br><em>made when you order it.</em></h1>
+        <p class="hero__tagline">Hand-stacked gyros, crisp falafel, and family recipes &mdash; grilled to order and ready fast, every single day.</p>
+        <div class="hero__cta-row">
+          <a href="#order" class="btn btn--primary"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i> Order Online</a>
+          <a href="#menu" class="btn btn--ghost">View the Menu</a>
+        </div>
+        <div class="hero__trust">
+          <span><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Locally owned</span>
+          <span><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Family recipes</span>
+          <span><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Fresh ingredients daily</span>
+        </div>
+      </div>
+      <div class="hero__media" data-aos="fade-up" data-aos-delay="100">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pita_giros.JPG?width=900" alt="A warm pita stuffed with seasoned gyro meat, fresh tomato, and onion" loading="eager" fetchpriority="high">
+        <div class="hero__media-badge"><i class="fa-solid fa-clock" aria-hidden="true"></i> Tue&ndash;Sat, 11am&ndash;8pm &bull; Closed Sun &amp; Mon</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wave wave--bg-to-alt" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,32 C220,84 420,0 660,32 C900,64 1080,8 1440,40 L1440,80 L0,80 Z"/></svg></div>
+
+  <!-- ============ INFO BAR ============ -->
+  <section class="info-bar">
+    <div class="container info-bar__grid">
+      <div class="info-bar__item" data-aos="fade-up">
+        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+        <h3>Find Us</h3>
+        <p><a href="https://maps.google.com/?q=123+Coastal+Ave%2C+Your+City%2C+ST" target="_blank" rel="noopener">123 Coastal Ave, Your City, ST</a></p>
+      </div>
+      <div class="info-bar__item" data-aos="fade-up" data-aos-delay="50">
+        <i class="fa-solid fa-clock" aria-hidden="true"></i>
+        <h3>Hours</h3>
+        <p>Tue&ndash;Sat, 11am&ndash;8pm</p>
+      </div>
+      <div class="info-bar__item" data-aos="fade-up" data-aos-delay="100">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+        <h3>Order by Phone</h3>
+        <p><a href="tel:+10000000000">(000) 000-0000</a></p>
+      </div>
+      <div class="info-bar__item" data-aos="fade-up" data-aos-delay="150">
+        <i class="fa-solid fa-truck" aria-hidden="true"></i>
+        <h3>Pickup &amp; Delivery</h3>
+        <p>Ready in about 15&ndash;20 min</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MENU ============ -->
+  <section class="menu" id="menu">
+    <div class="container">
+      <div class="section-head" data-aos="fade-up">
+        <p class="eyebrow"><i class="fa-solid fa-utensils" aria-hidden="true"></i> The Menu</p>
+        <h2>Fresh from the grill, every day.</h2>
+        <p>A few of our most-loved dishes &mdash; made the same way whether it's your first visit or your fiftieth.</p>
+      </div>
+
+      <div class="menu__grid">
+        <div class="menu__card menu__card--featured" data-aos="fade-up">
+          <div class="menu__card-image">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pita_giros.JPG?width=700" alt="The Kyma Gyro: seasoned beef and lamb wrapped in warm pita with tomato, onion, and tzatziki" loading="lazy">
+          </div>
+          <div class="menu__card-body">
+            <div class="menu__card-top">
+              <h3>The Kyma Gyro</h3>
+              <span class="menu__price">$11.95</span>
+            </div>
+            <p>Seasoned beef &amp; lamb, grilled onion, tomato, and house tzatziki, wrapped in warm pita. Served with fries.</p>
+          </div>
+        </div>
+
+        <div class="menu__card" data-aos="fade-up" data-aos-delay="50">
+          <div class="menu__card-image">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Falafels_2.jpg?width=500" alt="Crispy golden falafel patties" loading="lazy">
+          </div>
+          <div class="menu__card-body">
+            <div class="menu__card-top">
+              <h3>Falafel Wrap</h3>
+              <span class="menu__price">$10.50</span>
+            </div>
+            <p>Crispy housemade falafel, hummus, pickled vegetables, and tahini in warm pita.</p>
+          </div>
+        </div>
+
+        <div class="menu__card" data-aos="fade-up" data-aos-delay="100">
+          <div class="menu__card-image">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Spanikopita_Greek_dish.jpg?width=500" alt="Spanakopita, a flaky filo pastry filled with spinach and feta" loading="lazy">
+          </div>
+          <div class="menu__card-body">
+            <div class="menu__card-top">
+              <h3>Spanakopita</h3>
+              <span class="menu__price">$6.95</span>
+            </div>
+            <p>Spinach and feta wrapped in crisp, golden filo. Baked fresh daily.</p>
+          </div>
+        </div>
+
+        <div class="menu__card" data-aos="fade-up" data-aos-delay="150">
+          <div class="menu__card-image">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Homemade_hummus_and_pita_01.jpg?width=500" alt="Smooth hummus drizzled with olive oil, served with warm pita" loading="lazy">
+          </div>
+          <div class="menu__card-body">
+            <div class="menu__card-top">
+              <h3>Hummus &amp; Pita</h3>
+              <span class="menu__price">$7.50</span>
+            </div>
+            <p>House-made hummus, olive oil, and za'atar, served with warm pita for dipping.</p>
+          </div>
+        </div>
+
+        <div class="menu__card" data-aos="fade-up" data-aos-delay="200">
+          <div class="menu__card-image">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Baklava_ST_06.JPG?width=500" alt="Baklava, layered filo pastry with nuts and honey syrup" loading="lazy">
+          </div>
+          <div class="menu__card-body">
+            <div class="menu__card-top">
+              <h3>Baklava</h3>
+              <span class="menu__price">$4.95</span>
+            </div>
+            <p>Honey-soaked filo with walnuts and a touch of cinnamon.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu__more" data-aos="fade-up">
+        <h3>Also on the Menu</h3>
+        <ul class="menu__more-list">
+          <li><span>Chicken Souvlaki Plate</span><span>$13.50</span></li>
+          <li><span>Greek Salad</span><span>$9.50</span></li>
+          <li><span>Lamb &amp; Beef Combo Plate</span><span>$14.95</span></li>
+          <li><span>Lemon Rice Soup</span><span>$5.50</span></li>
+          <li><span>Pita &amp; Tzatziki</span><span>$4.00</span></li>
+          <li><span>Baklava Cheesecake</span><span>$5.95</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="wave wave--alt-to-bg" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,48 C260,0 480,72 760,36 C1040,0 1240,64 1440,24 L1440,80 L0,80 Z"/></svg></div>
+
+  <!-- ============ STORY ============ -->
+  <section class="story" id="story">
+    <div class="container story__grid">
+      <div class="story__art" data-aos="fade-up">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Homemade_hummus_and_pita_01.jpg?width=800" alt="Fresh Mediterranean ingredients including pita and hummus, prepared by hand" loading="lazy">
+      </div>
+      <div data-aos="fade-up" data-aos-delay="100">
+        <p class="eyebrow"><i class="fa-solid fa-heart" aria-hidden="true"></i> Our Story</p>
+        <h2>Cooked the way it's always been done.</h2>
+        <p>Every dish at Kyma starts the same way it would in a Mediterranean home kitchen &mdash; fresh herbs, good olive oil, and recipes that haven't changed in generations. We don't pre-make and hold trays of food. When you order, we start cooking.</p>
+        <ul>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Made-to-order, never sitting under a heat lamp</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> House-made tzatziki, hummus, and dressings</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Vegetarian options on every part of the menu</li>
+        </ul>
+        <div class="hero__cta-row" style="margin-top:28px;">
+          <a href="#order" class="btn btn--primary"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i> Order Online</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ORDER ONLINE ============ -->
+  <section class="order" id="order">
+    <div class="container">
+      <div class="order__card" data-aos="fade-up">
+        <div class="order__side">
+          <p class="eyebrow" style="color:var(--color-cta);">Order Online</p>
+          <h2>No app. No account.<br>Just send your order.</h2>
+          <p>Fill in the form and choose how to send it &mdash; we'll get it ready for pickup or delivery at the time you ask for.</p>
+          <p>Prefer to talk it through?</p>
+          <a href="tel:+10000000000" class="btn btn--ghost"><i class="fa-solid fa-phone" aria-hidden="true"></i> Call (000) 000-0000</a>
+        </div>
+        <div class="order__form">
+          <form id="order-form" novalidate>
+            <div class="form-row">
+              <div class="field">
+                <label for="order-name">Your name</label>
+                <input type="text" id="order-name" name="name" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="order-phone">Phone number</label>
+                <input type="tel" id="order-phone" name="phone" autocomplete="tel" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <fieldset>
+                  <legend>Order type</legend>
+                  <div class="radio-row">
+                    <label><input type="radio" name="orderType" value="Pickup" checked> Pickup</label>
+                    <label><input type="radio" name="orderType" value="Delivery"> Delivery</label>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="field">
+                <label for="order-time">Preferred time</label>
+                <input type="time" id="order-time" name="time">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field field--full">
+                <label for="order-details">What would you like to order?</label>
+                <textarea id="order-details" name="details" placeholder="e.g. 2 Kyma Gyros, 1 Falafel Wrap, 1 Baklava" required></textarea>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field field--full">
+                <label for="order-address">Delivery address <span style="font-weight:400;">(if applicable)</span></label>
+                <input type="text" id="order-address" name="address" autocomplete="street-address">
+              </div>
+            </div>
+
+            <div class="order__actions">
+              <button type="button" id="email-order" class="btn btn--primary"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Email My Order</button>
+              <button type="button" id="text-order" class="btn btn--ghost"><i class="fa-solid fa-comment-sms" aria-hidden="true"></i> Text My Order</button>
+            </div>
+            <p class="order__status" id="order-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wave wave--bg-to-alt" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C200,4 460,76 740,38 C1020,0 1220,60 1440,28 L1440,80 L0,80 Z"/></svg></div>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="gallery">
+    <div class="container">
+      <div class="section-head" data-aos="fade-up">
+        <p class="eyebrow"><i class="fa-solid fa-camera" aria-hidden="true"></i> A Taste of Kyma</p>
+        <h2>What's coming out of the kitchen.</h2>
+      </div>
+      <div class="gallery__grid">
+        <figure data-aos="fade-up"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pita_giros.JPG?width=900" alt="Gyro wrapped in pita with fresh vegetables" loading="lazy"></figure>
+        <figure data-aos="fade-up" data-aos-delay="50"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Falafels_2.jpg?width=500" alt="A plate of crispy falafel" loading="lazy"></figure>
+        <figure data-aos="fade-up" data-aos-delay="100"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Spanikopita_Greek_dish.jpg?width=500" alt="Spanakopita pastry" loading="lazy"></figure>
+        <figure data-aos="fade-up" data-aos-delay="150"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Baklava_ST_06.JPG?width=500" alt="A tray of fresh baklava" loading="lazy"></figure>
+        <figure data-aos="fade-up" data-aos-delay="200"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Homemade_hummus_and_pita_01.jpg?width=500" alt="Hummus served with warm pita bread" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="wave wave--alt-to-bg" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,24 C260,72 520,8 800,40 C1080,72 1260,16 1440,44 L1440,80 L0,80 Z"/></svg></div>
+
+  <!-- ============ VISIT ============ -->
+  <section class="visit" id="visit">
+    <div class="container visit__grid">
+      <div data-aos="fade-up">
+        <p class="eyebrow"><i class="fa-solid fa-clock" aria-hidden="true"></i> Hours</p>
+        <h2>When to find us.</h2>
+        <table class="hours">
+          <tbody>
+            <tr><td>Sunday</td><td>Closed</td></tr>
+            <tr><td>Monday</td><td>Closed</td></tr>
+            <tr><td>Tuesday</td><td>11:00 AM &ndash; 8:00 PM</td></tr>
+            <tr><td>Wednesday</td><td>11:00 AM &ndash; 8:00 PM</td></tr>
+            <tr><td>Thursday</td><td>11:00 AM &ndash; 8:00 PM</td></tr>
+            <tr><td>Friday</td><td>11:00 AM &ndash; 8:00 PM</td></tr>
+            <tr><td>Saturday</td><td>11:00 AM &ndash; 8:00 PM</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="visit__contact" data-aos="fade-up" data-aos-delay="100">
+        <div class="visit__contact-row">
+          <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+          <div>
+            <h3>Address</h3>
+            <p>123 Coastal Ave, Your City, ST 00000</p>
+          </div>
+        </div>
+        <div class="visit__contact-row">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i>
+          <div>
+            <h3>Phone</h3>
+            <p>(000) 000-0000</p>
+          </div>
+        </div>
+        <div class="visit__contact-row">
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          <div>
+            <h3>Email</h3>
+            <p>orders@kymagrill.example</p>
+          </div>
+        </div>
+        <a href="https://maps.google.com/?q=123+Coastal+Ave%2C+Your+City%2C+ST" target="_blank" rel="noopener" class="btn btn--primary btn--block"><i class="fa-solid fa-diamond-turn-right" aria-hidden="true"></i> Get Directions</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a href="#main" class="logo" style="margin-bottom:14px;">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M2 30c4-6 10-6 14 0s10 6 14 0 10-6 14 0" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M2 38c4-6 10-6 14 0s10 6 14 0 10-6 14 0" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" opacity=".45"/><circle cx="24" cy="14" r="7" fill="currentColor"/></svg>
+          Kyma
+        </a>
+        <p class="tagline">Fresh Mediterranean food, made to order for pickup, delivery, and dine-in.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Kyma on Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Kyma on Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#story">Our Story</a></li>
+          <li><a href="#order">Order Online</a></li>
+          <li><a href="#visit">Visit Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+10000000000">(000) 000-0000</a></li>
+          <li><a href="mailto:orders@kymagrill.example">orders@kymagrill.example</a></li>
+          <li><a href="https://maps.google.com/?q=123+Coastal+Ave%2C+Your+City%2C+ST" target="_blank" rel="noopener">123 Coastal Ave, Your City, ST</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; <span id="year"></span> Kyma Mediterranean Grill. All rights reserved.</span>
+      <span>Website by <a href="#">JAMALINKS</a></span>
+    </div>
+  </div>
+</footer>
+
+<a href="#order" class="floating-cta"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i> Order Online</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // AOS init (respect reduced motion)
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.AOS) {
+    AOS.init({ once: true, duration: 600, easing: 'ease-out', offset: 60 });
+  }
+
+  // Mobile nav
+  const navToggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('is-open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    navToggle.innerHTML = open ? '<i class="fa-solid fa-xmark" aria-hidden="true"></i>' : '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.innerHTML = '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+    });
+  });
+
+  // Theme: time-based default + manual override (persisted)
+  (function initTheme(){
+    const root = document.documentElement;
+    const toggle = document.getElementById('theme-toggle');
+    let saved = null;
+    try { saved = localStorage.getItem('kyma-theme'); } catch(e) {}
+
+    function applyTheme(theme){
+      if (theme === 'dark') {
+        root.setAttribute('data-theme', 'dark');
+        toggle.innerHTML = '<i class="fa-solid fa-sun" aria-hidden="true"></i>';
+      } else {
+        root.removeAttribute('data-theme');
+        toggle.innerHTML = '<i class="fa-solid fa-moon" aria-hidden="true"></i>';
+      }
+    }
+
+    if (saved === 'dark' || saved === 'light') {
+      applyTheme(saved);
+    } else {
+      const hour = new Date().getHours();
+      applyTheme((hour >= 19 || hour < 7) ? 'dark' : 'light');
+    }
+
+    toggle.addEventListener('click', () => {
+      const isDark = root.getAttribute('data-theme') === 'dark';
+      const next = isDark ? 'light' : 'dark';
+      applyTheme(next);
+      try { localStorage.setItem('kyma-theme', next); } catch(e) {}
+    });
+  })();
+
+  // Order form -> email / SMS
+  (function orderForm(){
+    const form = document.getElementById('order-form');
+    const status = document.getElementById('order-status');
+    const RESTAURANT_EMAIL = 'orders@kymagrill.example';
+    const RESTAURANT_SMS = '+10000000000';
+
+    function buildMessage(){
+      const name = form.name.value.trim();
+      const phone = form.phone.value.trim();
+      const type = form.orderType.value;
+      const time = form.time.value;
+      const details = form.details.value.trim();
+      const address = form.address.value.trim();
+
+      if (!name || !phone || !details) {
+        status.textContent = 'Please fill in your name, phone number, and order details.';
+        return null;
+      }
+
+      let msg = `New order from ${name} (${phone})\nType: ${type}`;
+      if (time) msg += `\nPreferred time: ${time}`;
+      if (type === 'Delivery' && address) msg += `\nDelivery address: ${address}`;
+      msg += `\nOrder: ${details}`;
+      return msg;
+    }
+
+    document.getElementById('email-order').addEventListener('click', () => {
+      const msg = buildMessage();
+      if (!msg) return;
+      const subject = encodeURIComponent('New online order - ' + form.name.value.trim());
+      window.location.href = `mailto:${RESTAURANT_EMAIL}?subject=${subject}&body=${encodeURIComponent(msg)}`;
+      status.textContent = 'Opening your email app with your order filled in...';
+    });
+
+    document.getElementById('text-order').addEventListener('click', () => {
+      const msg = buildMessage();
+      if (!msg) return;
+      window.location.href = `sms:${RESTAURANT_SMS}?body=${encodeURIComponent(msg)}`;
+      status.textContent = 'Opening your messages app with your order filled in...';
+    });
+  })();
+</script>
+</body>
+</html>
