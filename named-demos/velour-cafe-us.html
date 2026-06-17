@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="en" data-time="morning">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Velour Café — Where Every Cup Tells a Story</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════════
+   TIME-OF-DAY THEME SYSTEM
+═══════════════════════════════════════════ */
+:root {
+  /* Morning — golden sunrise */
+  --bg:         #fdf6ed;
+  --bg2:        #f5e8d0;
+  --bg3:        #ede0c4;
+  --surface:    #ffffff;
+  --text:       #2c1810;
+  --text2:      #7a5c48;
+  --accent:     #b8862e;
+  --accent2:    #e8c373;
+  --accent-glow:rgba(184,134,46,0.25);
+  --deep:       #6e1f2f;
+  --deep2:      #8a2e42;
+  --deep-glow:  rgba(110,31,47,0.22);
+  --border:     rgba(184,134,46,0.18);
+  --steam:      rgba(184,134,46,0.15);
+  --nav-bg:     rgba(253,246,237,0.92);
+  --card-bg:    #ffffff;
+  --mood-label: "Good Morning ☀️";
+  --transition: all 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+[data-time="afternoon"] {
+  --bg:         #fef9f0;
+  --bg2:        #f7eed8;
+  --bg3:        #f0e2c0;
+  --surface:    #ffffff;
+  --text:       #2a1a08;
+  --text2:      #8a6a40;
+  --accent:     #c2901f;
+  --accent2:    #edc16a;
+  --accent-glow:rgba(194,144,31,0.25);
+  --deep:       #7a2438;
+  --deep2:      #99354c;
+  --deep-glow:  rgba(122,36,56,0.22);
+  --border:     rgba(194,144,31,0.18);
+  --steam:      rgba(194,144,31,0.12);
+  --nav-bg:     rgba(254,249,240,0.92);
+  --card-bg:    #ffffff;
+}
+
+[data-time="evening"] {
+  --bg:         #1c1008;
+  --bg2:        #241408;
+  --bg3:        #2e1a0a;
+  --surface:    #2a180a;
+  --text:       #f5e6cc;
+  --text2:      #c4a06a;
+  --accent:     #d9a23e;
+  --accent2:    #f0c873;
+  --accent-glow:rgba(217,162,62,0.3);
+  --deep:       #a8324a;
+  --deep2:      #c44a64;
+  --deep-glow:  rgba(168,50,74,0.3);
+  --border:     rgba(217,162,62,0.2);
+  --steam:      rgba(217,162,62,0.18);
+  --nav-bg:     rgba(28,16,8,0.93);
+  --card-bg:    #241a0c;
+}
+
+[data-time="night"] {
+  --bg:         #0e0a06;
+  --bg2:        #160e06;
+  --bg3:        #1c1208;
+  --surface:    #1a1008;
+  --text:       #e8d4b0;
+  --text2:      #a08060;
+  --accent:     #c08c3a;
+  --accent2:    #dba858;
+  --accent-glow:rgba(192,140,58,0.25);
+  --deep:       #8f2c42;
+  --deep2:      #ab3f58;
+  --deep-glow:  rgba(143,44,66,0.28);
+  --border:     rgba(192,140,58,0.15);
+  --steam:      rgba(192,140,58,0.15);
+  --nav-bg:     rgba(14,10,6,0.95);
+  --card-bg:    #160e06;
+}
+
+/* ═══════════════════════════════════════════
+   BASE
+═══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  transition: background 1.2s ease, color 1.2s ease;
+}
+
+/* grain */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9999; opacity: 0.5;
+}
+
+/* ═══════════════════════════════════════════
+   NAVBAR
+═══════════════════════════════════════════ */
+.v-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  height: 64px;
+  display: flex; align-items: center;
+  padding: 0 32px;
+  justify-content: space-between;
+  transition: var(--transition);
+}
+
+.nav-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; font-weight: 700; font-style: italic;
+  color: var(--accent); text-decoration: none;
+  letter-spacing: -0.5px;
+  transition: color 1.2s ease;
+}
+.nav-brand span { font-style: normal; font-size: 0.6rem; opacity: 0.6; }
+
+.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links a {
+  font-size: 0.82rem; font-weight: 500; color: var(--text2);
+  text-decoration: none; letter-spacing: 0.3px;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--accent); }
+
+.nav-right { display: flex; align-items: center; gap: 12px; }
+
+/* time badge */
+.time-badge {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--accent-glow);
+  border: 1px solid var(--border);
+  border-radius: 50px; padding: 5px 12px;
+  font-size: 0.72rem; font-weight: 500; color: var(--accent);
+  letter-spacing: 0.3px; transition: var(--transition);
+}
+
+.time-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+  animation: timePulse 2s ease-in-out infinite;
+}
+@keyframes timePulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+.btn-nav {
+  background: var(--accent); color: white; border: none;
+  border-radius: 50px; padding: 9px 20px;
+  font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 500;
+  cursor: pointer; text-decoration: none;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.btn-nav:hover {
+  filter: brightness(1.1); transform: scale(1.04);
+  box-shadow: 0 6px 20px var(--accent-glow);
+}
+
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
+.v-hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 80px 24px 60px;
+  position: relative; overflow: hidden;
+}
+
+/* animated background gradient */
+.hero-atmosphere {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 20%, var(--accent-glow), transparent 55%),
+    radial-gradient(ellipse at 70% 80%, var(--accent-glow), transparent 55%);
+  transition: var(--transition);
+  pointer-events: none;
+}
+
+/* COFFEE CUP + STEAM */
+.cup-wrap {
+  position: relative; margin-bottom: 36px; display: inline-block;
+}
+
+.coffee-cup {
+  font-size: 5rem; display: block;
+  filter: drop-shadow(0 8px 24px var(--accent-glow));
+  animation: cupFloat 4s ease-in-out infinite;
+  position: relative; z-index: 2;
+}
+@keyframes cupFloat {
+  0%,100%{transform:translateY(0) rotate(-2deg)}
+  50%{transform:translateY(-10px) rotate(2deg)}
+}
+
+/* steam strands */
+.steam-wrap {
+  position: absolute; bottom: 100%; left: 50%;
+  transform: translateX(-50%);
+  display: flex; gap: 8px;
+  pointer-events: none;
+}
+
+.steam {
+  width: 3px; border-radius: 4px;
+  background: linear-gradient(to top, var(--accent-glow), transparent);
+  animation: steamRise 2.5s ease-in-out infinite;
+  opacity: 0;
+}
+.steam:nth-child(1) { height: 40px; animation-delay: 0s; }
+.steam:nth-child(2) { height: 55px; animation-delay: 0.4s; }
+.steam:nth-child(3) { height: 35px; animation-delay: 0.8s; }
+.steam:nth-child(4) { height: 50px; animation-delay: 1.2s; }
+.steam:nth-child(5) { height: 42px; animation-delay: 0.2s; }
+
+@keyframes steamRise {
+  0%   { opacity: 0; transform: translateY(0) scaleX(1); }
+  20%  { opacity: 0.8; }
+  80%  { opacity: 0.3; transform: translateY(-60px) scaleX(1.8) translateX(6px); }
+  100% { opacity: 0; transform: translateY(-80px) scaleX(2.2) translateX(-4px); }
+}
+
+/* time greeting */
+.hero-greeting {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--accent-glow);
+  border: 1px solid var(--border);
+  border-radius: 50px; padding: 7px 18px;
+  font-size: 0.8rem; font-weight: 500; color: var(--accent);
+  letter-spacing: 0.5px; margin-bottom: 22px;
+  transition: var(--transition);
+  animation: fadeUp 0.6s ease both;
+}
+
+.v-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  font-weight: 900; line-height: 0.95;
+  letter-spacing: -2px; color: var(--text);
+  margin-bottom: 20px;
+  transition: color 1.2s ease;
+  animation: fadeUp 0.7s 0.1s ease both;
+}
+.v-hero h1 em { font-style: italic; color: var(--accent); }
+
+.hero-tagline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-style: italic; color: var(--text2);
+  max-width: 480px; line-height: 1.6;
+  margin-bottom: 36px; font-weight: 400;
+  transition: color 1.2s ease;
+  animation: fadeUp 0.7s 0.2s ease both;
+}
+
+.hero-btns {
+  display: flex; gap: 14px; flex-wrap: wrap;
+  justify-content: center; margin-bottom: 52px;
+  animation: fadeUp 0.7s 0.3s ease both;
+}
+
+.btn-primary {
+  background: var(--accent); color: white; border: none;
+  border-radius: 8px; padding: 15px 34px;
+  font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 500;
+  cursor: pointer; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: filter 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+.btn-primary:hover {
+  filter: brightness(1.1); transform: translateY(-2px);
+  box-shadow: 0 12px 30px var(--accent-glow);
+}
+
+.btn-ghost {
+  background: transparent; color: var(--text);
+  border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 14px 28px;
+  font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 400;
+  cursor: pointer; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+/* trust pills */
+.hero-trust {
+  display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+  animation: fadeUp 0.7s 0.45s ease both;
+}
+.trust-pill {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 50px; padding: 7px 16px;
+  font-size: 0.75rem; font-weight: 400; color: var(--text2);
+  display: flex; align-items: center; gap: 6px;
+  transition: var(--transition);
+}
+
+/* scroll hint */
+.scroll-hint {
+  position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  color: var(--text2); font-size: 0.68rem; letter-spacing: 2px;
+  text-transform: uppercase; animation: bounce 2s ease-in-out infinite;
+}
+.scroll-arrow { color: var(--accent); font-size: 1.1rem; }
+@keyframes bounce {
+  0%,100%{transform:translateX(-50%) translateY(0)}
+  50%{transform:translateX(-50%) translateY(-6px)}
+}
+
+/* ═══════════════════════════════════════════
+   DAILY SPECIAL TICKER
+═══════════════════════════════════════════ */
+.special-bar {
+  background: var(--accent); padding: 11px 0;
+  overflow: hidden; white-space: nowrap;
+  transition: background 1.2s ease;
+}
+.special-track {
+  display: inline-flex; gap: 0;
+  animation: specialScroll 35s linear infinite;
+}
+.special-item {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.88rem; font-style: italic; color: white;
+  padding: 0 32px; display: inline-flex; align-items: center; gap: 14px;
+}
+.special-dot { font-style: normal; opacity: 0.5; font-size: 0.45rem; }
+@keyframes specialScroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* ═══════════════════════════════════════════
+   MOOD SELECTOR
+═══════════════════════════════════════════ */
+.mood-section {
+  padding: 72px 24px 0;
+  max-width: 900px; margin: 0 auto;
+  text-align: center;
+}
+
+.mood-label {
+  font-size: 0.72rem; font-weight: 500; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+  display: block;
+}
+.mood-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700;
+  color: var(--text); margin-bottom: 10px; line-height: 1.1;
+  transition: color 1.2s ease;
+}
+.mood-title em { font-style: italic; color: var(--accent); }
+.mood-sub {
+  font-size: 0.92rem; color: var(--text2); margin-bottom: 32px;
+  font-weight: 300; line-height: 1.6;
+  transition: color 1.2s ease;
+}
+
+.mood-pills {
+  display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+  margin-bottom: 0;
+}
+
+.mood-pill {
+  background: var(--surface); border: 1.5px solid var(--border);
+  color: var(--text2); border-radius: 50px; padding: 11px 24px;
+  font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500;
+  cursor: pointer; transition: all 0.25s;
+  display: flex; align-items: center; gap: 8px;
+}
+.mood-pill:hover { border-color: var(--accent); color: var(--accent); }
+.mood-pill.active {
+  background: var(--accent); border-color: var(--accent);
+  color: white; box-shadow: 0 6px 20px var(--accent-glow);
+}
+
+/* ═══════════════════════════════════════════
+   MENU SECTION
+═══════════════════════════════════════════ */
+.menu-section {
+  padding: 48px 24px 80px;
+  max-width: 1100px; margin: 0 auto;
+}
+
+.menu-cat-tabs {
+  display: flex; gap: 6px; flex-wrap: wrap;
+  margin-bottom: 36px; border-bottom: 1px solid var(--border);
+  padding-bottom: 0;
+}
+
+.cat-tab {
+  background: transparent; border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text2); padding: 12px 20px;
+  font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500;
+  cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 6px;
+  margin-bottom: -1px;
+}
+.cat-tab:hover { color: var(--accent); }
+.cat-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* menu grid */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 18px;
+}
+
+/* ── MENU CARD ── */
+.menu-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px 22px 20px;
+  transition: transform 0.3s, border-color 0.25s, box-shadow 0.3s, background 1.2s ease;
+  position: relative; overflow: hidden;
+  cursor: default;
+}
+.menu-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--accent); transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.menu-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+.menu-card:hover::before { transform: scaleX(1); }
+.menu-card.in-order {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-glow);
+}
+.menu-card.in-order::before { transform: scaleX(1); }
+
+/* mood highlight */
+.menu-card.mood-match {
+  background: var(--card-bg);
+  box-shadow: 0 4px 24px var(--accent-glow);
+}
+.mood-badge {
+  position: absolute; top: 14px; right: 14px;
+  background: var(--accent); color: white;
+  border-radius: 50px; padding: 3px 10px;
+  font-size: 0.62rem; font-weight: 600; letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.card-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 10px; }
+.card-emoji { font-size: 2.2rem; flex-shrink: 0; transition: transform 0.3s; }
+.menu-card:hover .card-emoji { transform: scale(1.15) rotate(-5deg); }
+.card-info { flex: 1; }
+
+.card-cat {
+  font-size: 0.65rem; color: var(--accent); letter-spacing: 2px;
+  text-transform: uppercase; font-weight: 500; margin-bottom: 3px;
+}
+.card-name {
+  font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700;
+  color: var(--text); line-height: 1.2; margin-bottom: 4px;
+  transition: color 1.2s ease;
+}
+.card-desc {
+  font-size: 0.8rem; color: var(--text2); line-height: 1.55;
+  font-weight: 300; transition: color 1.2s ease;
+}
+
+.card-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 14px; gap: 10px; flex-wrap: wrap;
+}
+.card-price {
+  font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700;
+  color: var(--accent);
+}
+.card-price small { font-family: 'DM Sans', sans-serif; font-size: 0.72rem; color: var(--text2); font-weight: 300; }
+
+/* card actions */
+.card-actions { display: flex; align-items: center; gap: 8px; }
+
+.qty-wrap {
+  display: flex; align-items: center;
+  background: var(--bg2); border-radius: 8px; overflow: hidden;
+  border: 1px solid var(--border);
+}
+.qty-btn {
+  background: none; border: none; color: var(--accent);
+  width: 30px; height: 30px; font-size: 1rem; font-weight: 700;
+  cursor: pointer; transition: background 0.15s;
+  display: flex; align-items: center; justify-content: center;
+}
+.qty-btn:hover { background: var(--accent-glow); }
+.qty-num {
+  min-width: 26px; text-align: center;
+  font-size: 0.88rem; font-weight: 600; color: var(--text);
+}
+
+.add-btn {
+  background: var(--accent); color: white; border: none;
+  border-radius: 8px; padding: 7px 16px;
+  font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 500;
+  cursor: pointer; transition: filter 0.2s, transform 0.15s;
+  white-space: nowrap; display: flex; align-items: center; gap: 5px;
+}
+.add-btn:hover { filter: brightness(1.1); transform: scale(1.04); }
+.add-btn.added { background: var(--bg3); color: var(--accent); }
+
+/* empty state */
+.menu-empty {
+  grid-column: 1 / -1; text-align: center; padding: 60px 20px;
+  color: var(--text2); font-size: 0.95rem; font-style: italic;
+}
+
+/* ═══════════════════════════════════════════
+   CLOSED STATE
+═══════════════════════════════════════════ */
+.closed-banner {
+  display: none;
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 16px; padding: 32px; text-align: center;
+  margin-bottom: 36px;
+}
+.closed-banner.show { display: block; }
+.closed-icon { font-size: 2.5rem; margin-bottom: 12px; display: block; }
+.closed-title {
+  font-family: 'Playfair Display', serif; font-size: 1.5rem;
+  font-weight: 700; color: var(--text); margin-bottom: 8px;
+}
+.closed-sub { font-size: 0.88rem; color: var(--text2); line-height: 1.6; margin-bottom: 20px; }
+
+/* ═══════════════════════════════════════════
+   STORY SECTION
+═══════════════════════════════════════════ */
+.story-section {
+  background: var(--bg2); padding: 88px 24px;
+  transition: background 1.2s ease;
+}
+.story-inner {
+  max-width: 900px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+}
+@media(max-width:700px){ .story-inner{ grid-template-columns:1fr; gap:36px; } }
+
+.story-left {}
+.story-eyebrow {
+  font-size: 0.72rem; font-weight: 500; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 14px; display: block;
+}
+.story-h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700;
+  color: var(--text); line-height: 1.1; margin-bottom: 22px;
+  transition: color 1.2s ease;
+}
+.story-h2 em { font-style: italic; color: var(--accent); }
+.story-body {
+  font-size: 0.92rem; color: var(--text2); line-height: 1.8;
+  font-weight: 300; transition: color 1.2s ease;
+}
+.story-body p + p { margin-top: 14px; }
+
+.story-quote {
+  border-left: 3px solid var(--accent);
+  padding-left: 20px; margin-top: 24px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-size: 1.05rem;
+  color: var(--text); line-height: 1.65;
+  transition: color 1.2s ease;
+}
+
+.story-right {}
+.story-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+.story-stat {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; padding: 24px 20px;
+  text-align: center; transition: background 1.2s ease, transform 0.25s;
+}
+.story-stat:hover { transform: translateY(-3px); }
+.stat-num {
+  font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700;
+  color: var(--accent); line-height: 1;
+}
+.stat-lbl {
+  font-size: 0.72rem; color: var(--text2); letter-spacing: 1px;
+  text-transform: uppercase; margin-top: 6px; font-weight: 400;
+  transition: color 1.2s ease;
+}
+
+.hours-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; padding: 22px 20px; margin-top: 16px;
+  transition: background 1.2s ease;
+}
+.hours-title {
+  font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700;
+  color: var(--text); margin-bottom: 12px; display: flex; align-items: center; gap: 7px;
+  transition: color 1.2s ease;
+}
+.hours-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 7px 0; border-bottom: 1px solid var(--border);
+  font-size: 0.82rem;
+}
+.hours-row:last-child { border-bottom: none; }
+.hours-day { color: var(--text2); font-weight: 400; transition: color 1.2s ease; }
+.hours-time { color: var(--accent); font-weight: 500; }
+.open-now {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(34,197,94,0.12); color: #16a34a;
+  border-radius: 50px; padding: 3px 10px; font-size: 0.68rem; font-weight: 600;
+}
+.closed-now {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(239,68,68,0.12); color: #dc2626;
+  border-radius: 50px; padding: 3px 10px; font-size: 0.68rem; font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════
+   FINAL CTA
+═══════════════════════════════════════════ */
+.final-cta {
+  padding: 88px 24px;
+  text-align: center;
+  background: var(--bg); transition: background 1.2s ease;
+}
+.cta-inner {
+  max-width: 640px; margin: 0 auto;
+  background: linear-gradient(135deg, var(--deep), var(--accent));
+  border-radius: 28px; padding: 64px 40px;
+  position: relative; overflow: hidden;
+  transition: background 1.2s ease;
+}
+.cta-inner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.12), transparent 55%),
+              radial-gradient(ellipse at 80% 50%, rgba(0,0,0,0.15), transparent 55%);
+  pointer-events: none;
+}
+.cta-cup { font-size: 3rem; margin-bottom: 16px; display: block; animation: cupFloat 3s ease-in-out infinite; }
+.cta-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3rem); font-weight: 900;
+  color: white; letter-spacing: -1px; margin-bottom: 14px; line-height: 1;
+  position: relative;
+}
+.cta-title em { font-style: italic; }
+.cta-sub {
+  color: rgba(255,255,255,0.8); font-size: 1rem; margin-bottom: 30px;
+  font-weight: 300; line-height: 1.6; position: relative;
+}
+.btn-wa-cta {
+  background: white; color: var(--accent); border: none;
+  border-radius: 10px; padding: 15px 36px;
+  font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 600;
+  cursor: pointer; display: inline-flex; align-items: center; gap: 9px;
+  transition: transform 0.15s, box-shadow 0.2s; position: relative;
+}
+.btn-wa-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0,0,0,0.2); }
+.cta-footnote {
+  margin-top: 18px; color: rgba(255,255,255,0.85); font-size: 0.82rem; position: relative;
+}
+.cta-footnote a { color: white; text-decoration: underline; font-weight: 600; }
+
+/* ═══════════════════════════════════════════
+   FLOATING ORDER BAR
+═══════════════════════════════════════════ */
+.float-bar {
+  position: fixed; bottom: 24px; left: 50%;
+  transform: translateX(-50%) translateY(120px);
+  z-index: 600;
+  background: var(--text); color: var(--bg);
+  border-radius: 18px; padding: 14px 18px;
+  display: flex; align-items: center; gap: 14px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.4s, background 1.2s ease;
+  opacity: 0; min-width: 320px; max-width: 92vw;
+}
+.float-bar.visible { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+.fb-left { flex: 1; }
+.fb-count { font-size: 0.7rem; opacity: 0.6; letter-spacing: 0.5px; text-transform: uppercase; }
+.fb-amount {
+  font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700;
+  color: var(--accent); line-height: 1;
+}
+
+.fb-wa {
+  background: linear-gradient(135deg, var(--deep), var(--accent)); color: white; border: none;
+  border-radius: 10px; padding: 11px 18px;
+  font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 600;
+  cursor: pointer; display: flex; align-items: center; gap: 7px;
+  transition: filter 0.2s, transform 0.15s, background 1.2s ease;
+  white-space: nowrap;
+}
+.fb-wa:hover { filter: brightness(1.1); transform: scale(1.04); }
+.fb-wa:disabled { background: #888; cursor: not-allowed; transform: none; filter: none; }
+
+.fb-clear {
+  background: rgba(255,255,255,0.1); border: none; color: inherit;
+  width: 32px; height: 32px; border-radius: 8px; cursor: pointer;
+  font-size: 0.75rem; transition: background 0.15s;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.fb-clear:hover { background: rgba(255,255,255,0.2); }
+
+/* ═══════════════════════════════════════════
+   FLOAT WA BTN
+═══════════════════════════════════════════ */
+.float-wa {
+  position: fixed; bottom: 24px; right: 24px; z-index: 550;
+  background: linear-gradient(135deg, var(--deep), var(--accent)); color: white;
+  width: 56px; height: 56px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; text-decoration: none;
+  box-shadow: 0 6px 24px var(--accent-glow);
+  transition: transform 0.2s, background 1.2s ease, box-shadow 1.2s ease;
+  animation: waPulse 2.5s ease-in-out infinite;
+}
+.float-wa:hover { transform: scale(1.1); animation: none; }
+@keyframes waPulse {
+  0%,100%{box-shadow:0 6px 24px var(--accent-glow)}
+  50%{box-shadow:0 6px 30px var(--accent-glow),0 0 0 10px var(--accent-glow)}
+}
+
+/* ═══════════════════════════════════════════
+   ORNAMENT DIVIDER
+═══════════════════════════════════════════ */
+.ornament-divider {
+  height: 26px;
+  background-image:
+    repeating-linear-gradient(135deg, var(--border) 0 2px, transparent 2px 18px),
+    repeating-linear-gradient(45deg, var(--border) 0 2px, transparent 2px 18px);
+  background-repeat: repeat-x;
+  background-size: 26px 26px;
+  background-position: center;
+  opacity: 0.55;
+  transition: background 1.2s ease;
+}
+
+/* ═══════════════════════════════════════════
+   EVENTS & EXPERIENCES
+═══════════════════════════════════════════ */
+.events-section {
+  padding: 76px 24px 90px;
+  max-width: 1100px; margin: 0 auto;
+  text-align: center;
+}
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px; margin: 44px 0 56px;
+  text-align: left;
+}
+.event-card {
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 18px; padding: 32px 26px;
+  transition: transform 0.3s, box-shadow 0.3s, background 1.2s ease, border-color 1.2s ease;
+}
+.event-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px var(--accent-glow); }
+.event-card.featured { border-color: var(--deep); box-shadow: 0 0 0 1px var(--deep-glow); }
+.event-icon { font-size: 2.2rem; margin-bottom: 14px; }
+.event-tag {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--deep); margin-bottom: 10px;
+  transition: color 1.2s ease;
+}
+.event-name {
+  font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700;
+  color: var(--text); margin-bottom: 10px; line-height: 1.2;
+  transition: color 1.2s ease;
+}
+.event-desc {
+  font-size: 0.86rem; color: var(--text2); line-height: 1.65;
+  font-weight: 300; margin-bottom: 22px; transition: color 1.2s ease;
+}
+.btn-event {
+  background: transparent; border: 1.5px solid var(--accent); color: var(--accent);
+  border-radius: 8px; padding: 11px 20px; font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.2s; width: 100%;
+}
+.btn-event:hover { background: var(--accent); color: white; }
+.btn-event.deep { border-color: var(--deep); color: var(--deep); }
+.btn-event.deep:hover { background: var(--deep); color: white; }
+
+.inquiry-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 22px; padding: 44px 36px;
+  max-width: 600px; margin: 0 auto; text-align: left;
+  transition: background 1.2s ease, border-color 1.2s ease;
+}
+.inquiry-title {
+  font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700;
+  color: var(--text); margin-bottom: 6px; transition: color 1.2s ease;
+}
+.inquiry-sub { font-size: 0.86rem; color: var(--text2); margin-bottom: 26px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media(max-width:560px){ .form-row{ grid-template-columns:1fr; } }
+.form-field { margin-bottom: 16px; }
+.form-field label {
+  display: block; font-size: 0.74rem; font-weight: 600; letter-spacing: 0.5px;
+  color: var(--text2); margin-bottom: 6px; text-transform: uppercase;
+}
+.form-field input, .form-field select, .form-field textarea {
+  width: 100%; background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 8px; padding: 11px 14px; font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem; color: var(--text); transition: border-color 0.2s, background 1.2s ease;
+}
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+  outline: none; border-color: var(--accent);
+}
+.inquiry-success { display: none; text-align: center; padding: 10px 0; }
+.inquiry-success.show { display: block; }
+.success-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--accent-glow); color: var(--accent);
+  font-size: 1.4rem; margin-bottom: 14px;
+}
+.success-title {
+  font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700;
+  color: var(--text); margin-bottom: 6px;
+}
+.success-sub { font-size: 0.85rem; color: var(--text2); }
+
+/* LOCATIONS MINI */
+.locations-mini { display: grid; gap: 10px; margin-top: 16px; }
+.loc-chip {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 14px 16px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 6px; transition: background 1.2s ease, border-color 1.2s ease;
+}
+.loc-name { font-size: 0.85rem; font-weight: 600; color: var(--text); transition: color 1.2s ease; }
+.loc-detail { font-size: 0.78rem; color: var(--text2); }
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+.v-footer {
+  background: var(--bg3); border-top: 1px solid var(--border);
+  padding: 48px 24px 28px;
+  transition: background 1.2s ease;
+}
+.footer-inner {
+  max-width: 900px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 36px;
+}
+@media(max-width:600px){ .footer-inner{ grid-template-columns:1fr; gap:28px; } }
+
+.footer-brand {}
+.footer-name {
+  font-family: 'Playfair Display', serif; font-size: 1.4rem;
+  font-weight: 700; font-style: italic; color: var(--accent); margin-bottom: 8px;
+}
+.footer-tagline {
+  font-size: 0.82rem; color: var(--text2); line-height: 1.6; font-weight: 300;
+  max-width: 200px; transition: color 1.2s ease;
+}
+
+.footer-col-title {
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+}
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.footer-links a {
+  color: var(--text2); text-decoration: none; font-size: 0.85rem;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--accent); }
+
+.footer-bottom {
+  max-width: 900px; margin: 36px auto 0;
+  border-top: 1px solid var(--border); padding-top: 20px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 10px;
+  font-size: 0.75rem; color: var(--text2);
+}
+.footer-bottom a { color: var(--accent); text-decoration: none; }
+
+/* ═══════════════════════════════════════════
+   TOAST
+═══════════════════════════════════════════ */
+.toast {
+  position: fixed; bottom: 96px; right: 24px; z-index: 700;
+  background: var(--accent); color: white; border-radius: 10px;
+  padding: 10px 18px; font-size: 0.82rem; font-weight: 500;
+  opacity: 0; transform: translateY(8px);
+  transition: opacity 0.3s, transform 0.3s; pointer-events: none;
+}
+.toast.show { opacity: 1; transform: translateY(0); }
+
+/* ═══════════════════════════════════════════
+   REVEAL ANIMATION
+═══════════════════════════════════════════ */
+.reveal { opacity:0; transform:translateY(24px); transition:opacity 0.6s ease,transform 0.6s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+@keyframes fadeUp {
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media(max-width:768px){
+  .nav-links { display: none; }
+  .v-nav { padding: 0 20px; }
+  .float-bar { min-width: unset; width: calc(100vw - 32px); }
+  .float-wa { bottom: 100px; }
+  .hero-btns { gap: 10px; }
+}
+
+/* scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     NAV
+═══════════════════════════════════════ -->
+<nav class="v-nav">
+  <a href="#" class="nav-brand">Velour<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#story">Hours</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="time-badge">
+      <div class="time-dot"></div>
+      <span id="timeBadgeText">Morning</span>
+    </div>
+    <button class="btn-nav" onclick="openOrder()">☕ My Order</button>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     HERO
+═══════════════════════════════════════ -->
+<section class="v-hero" id="home">
+  <div class="hero-atmosphere"></div>
+
+  <div class="cup-wrap">
+    <div class="steam-wrap">
+      <div class="steam"></div>
+      <div class="steam"></div>
+      <div class="steam"></div>
+      <div class="steam"></div>
+      <div class="steam"></div>
+    </div>
+    <span class="coffee-cup" id="heroCup">☕</span>
+  </div>
+
+  <div class="hero-greeting" id="heroGreeting">☀️ Good Morning</div>
+
+  <h1 id="heroH1">Where Every <em>Cup</em><br/>Tells a Story</h1>
+
+  <p class="hero-tagline" id="heroTagline">
+    "Every cup at Velour is a quiet ceremony —<br/>brewed slowly, served with warmth, savoured fully."
+  </p>
+
+  <div class="hero-btns">
+    <a href="#menu" class="btn-primary">☕ Browse the Menu</a>
+    <button class="btn-ghost" onclick="openOrder()">View My Order</button>
+  </div>
+
+  <div class="hero-trust">
+    <div class="trust-pill">🌱 Ethically Sourced</div>
+    <div class="trust-pill">✦ Boutique Coffeehouse</div>
+    <div class="trust-pill">📞 Call-Ahead Ordering</div>
+    <div class="trust-pill">🎉 Private Events Welcome</div>
+  </div>
+
+  <div class="scroll-hint">
+    <span class="scroll-arrow">↓</span>
+    Explore the menu
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     TICKER
+═══════════════════════════════════════ -->
+<div class="special-bar">
+  <div class="special-track" id="specialTrack"></div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     CLOSED BANNER (night only)
+═══════════════════════════════════════ -->
+<div class="closed-banner" id="closedBanner">
+  <span class="closed-icon">🌙</span>
+  <div class="closed-title">We're Resting for the Night</div>
+  <p class="closed-sub">Velour Café is closed right now, but we open again at 7:00 AM.<br/>Call or text us and we'll have your order ready for when you arrive.</p>
+  <a href="tel:+17587235872" class="btn-primary" style="display:inline-flex;">
+    📞 Call to Pre-order
+  </a>
+</div>
+
+<!-- ═══════════════════════════════════════
+     MOOD SELECTOR
+═══════════════════════════════════════ -->
+<div class="mood-section reveal" id="menu">
+  <span class="mood-label">What Are You Feeling?</span>
+  <h2 class="mood-title">Let Your Mood <em>Choose</em> for You</h2>
+  <p class="mood-sub">Pick a vibe and we'll highlight the perfect picks — or browse everything below.</p>
+  <div class="mood-pills">
+    <button class="mood-pill active" onclick="setMood('all', this)">☕ Show Everything</button>
+    <button class="mood-pill" onclick="setMood('fuel', this)">⚡ Morning Fuel</button>
+    <button class="mood-pill" onclick="setMood('chill', this)">🍃 Slow &amp; Easy</button>
+    <button class="mood-pill" onclick="setMood('sweet', this)">🍰 Sweet Treat</button>
+    <button class="mood-pill" onclick="setMood('fresh', this)">🌿 Something Fresh</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     MENU
+═══════════════════════════════════════ -->
+<div class="menu-section">
+  <div class="menu-cat-tabs" id="catTabs"></div>
+  <div class="menu-grid" id="menuGrid"></div>
+</div>
+
+<div class="ornament-divider" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════
+     EVENTS & EXPERIENCES
+═══════════════════════════════════════ -->
+<section class="events-section reveal" id="events">
+  <span class="mood-label">Beyond the Counter</span>
+  <h2 class="mood-title">Events &amp; <em>Experiences</em></h2>
+  <p class="mood-sub">From big-screen match days to private celebrations — see what's happening, and reserve your spot.</p>
+
+  <div class="events-grid">
+    <div class="event-card">
+      <div class="event-icon">🏆</div>
+      <div class="event-tag">Live &amp; Recurring</div>
+      <h3 class="event-name">Match Day Screenings</h3>
+      <p class="event-desc">Big-screen coverage of major tournaments, with the room set up for groups. Doors open early on game days.</p>
+      <button class="btn-event" onclick="scrollToInquiry('Match Day Screening')">Reserve a Table</button>
+    </div>
+    <div class="event-card featured">
+      <div class="event-icon">✨</div>
+      <div class="event-tag">Private Booking</div>
+      <h3 class="event-name">Henna Nights &amp; Celebrations</h3>
+      <p class="event-desc">Host your henna night, engagement, or milestone celebration in our space — catering and setup available on request.</p>
+      <button class="btn-event deep" onclick="scrollToInquiry('Henna Night / Private Celebration')">Inquire About Booking</button>
+    </div>
+    <div class="event-card">
+      <div class="event-icon">🌙</div>
+      <div class="event-tag">Seasonal</div>
+      <h3 class="event-name">Holiday &amp; Seasonal Specials</h3>
+      <p class="event-desc">Eid, Ramadan, and seasonal celebrations get their own menu and decor — announced here first, not just on social media.</p>
+      <button class="btn-event" onclick="scrollToInquiry('Seasonal Event')">Get Notified</button>
+    </div>
+  </div>
+
+  <div class="inquiry-card" id="inquiry">
+    <h3 class="inquiry-title">Plan Your Event</h3>
+    <p class="inquiry-sub">Tell us what you have in mind — we'll follow up to confirm details.</p>
+    <form id="eventForm" onsubmit="submitEventInquiry(event)">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="evName">Name</label>
+          <input type="text" id="evName" required placeholder="Your name">
+        </div>
+        <div class="form-field">
+          <label for="evPhone">Phone</label>
+          <input type="tel" id="evPhone" required placeholder="(555) 555-5555">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="evType">Event Type</label>
+          <select id="evType">
+            <option>Match Day Screening</option>
+            <option>Henna Night / Private Celebration</option>
+            <option>Seasonal Event</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="evDate">Preferred Date</label>
+          <input type="date" id="evDate">
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="evMsg">A few details</label>
+        <textarea id="evMsg" rows="3" placeholder="Group size, time of day, anything we should know..."></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">Send Inquiry</button>
+    </form>
+    <div class="inquiry-success" id="inquirySuccess">
+      <span class="success-icon">✓</span>
+      <div class="success-title">Got it — thank you.</div>
+      <p class="success-sub">We'll call or text you within one business day to confirm details.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     STORY
+═══════════════════════════════════════ -->
+<section class="story-section" id="story">
+  <div class="story-inner">
+    <div class="story-left reveal">
+      <span class="story-eyebrow">Our Story</span>
+      <h2 class="story-h2">Brewed with <em>Purpose,</em><br/>Served with Soul</h2>
+      <div class="story-body">
+        <p>Velour Café was born from a simple conviction: this neighborhood deserved a coffeehouse that felt like a destination, not a stop. Unhurried. Intentional. Deeply good.</p>
+        <p>We source single-origin beans from small ethical farms, roast in small batches, and train our team to treat every order — and every gathering — as a craft. Nothing here is rushed. Everything is made with intention.</p>
+        <p>Whether you're stopping in for a quiet morning espresso or booking the whole room for a celebration, you'll find the same warmth — because we believe the best things in life deserve to be savoured together.</p>
+      </div>
+      <div class="story-quote">
+        "A boutique coffeehouse dedicated to the art of slow coffee — and the gatherings worth slowing down for."
+      </div>
+    </div>
+    <div class="story-right reveal">
+      <div class="story-stats">
+        <div class="story-stat">
+          <div class="stat-num">2019</div>
+          <div class="stat-lbl">Founded With Care</div>
+        </div>
+        <div class="story-stat">
+          <div class="stat-num">100%</div>
+          <div class="stat-lbl">Ethically Sourced</div>
+        </div>
+        <div class="story-stat">
+          <div class="stat-num">5★</div>
+          <div class="stat-lbl">Customer Rating</div>
+        </div>
+        <div class="story-stat">
+          <div class="stat-num">Daily</div>
+          <div class="stat-lbl">Handcrafted Fresh</div>
+        </div>
+      </div>
+      <div class="hours-card">
+        <div class="hours-title">
+          ⏰ Hours
+          <span id="openStatus"></span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Monday – Friday</span>
+          <span class="hours-time">7:00 AM – 8:00 PM</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Saturday – Sunday</span>
+          <span class="hours-time">8:00 AM – 9:00 PM</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Call / Text Orders</span>
+          <span class="hours-time">Anytime 📞</span>
+        </div>
+      </div>
+      <div class="locations-mini">
+        <div class="loc-chip">
+          <div class="loc-name">📍 Main Street Location</div>
+          <div class="loc-detail">Open daily · 7AM – 8PM</div>
+        </div>
+        <div class="loc-chip">
+          <div class="loc-name">📍 Uptown Location</div>
+          <div class="loc-detail">Open daily · 8AM – 9PM</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FINAL CTA
+═══════════════════════════════════════ -->
+<section class="final-cta reveal">
+  <div class="cta-inner">
+    <span class="cta-cup" id="ctaCup">☕</span>
+    <div class="cta-title">Your Next Favourite<br/><em>Cup Awaits.</em></div>
+    <p class="cta-sub">Browse the menu above, add what you love, and text your order to us in one tap. We'll have it ready.</p>
+    <button class="btn-wa-cta" onclick="openOrder()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      View &amp; Text My Order
+    </button>
+    <p class="cta-footnote">Planning a celebration instead? <a href="#events">Reserve an event →</a></p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
+<footer class="v-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-name">Velour.</div>
+      <p class="footer-tagline">A boutique coffeehouse experience — and a home for your celebrations.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#story">Hours &amp; Locations</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Order &amp; Book</div>
+      <ul class="footer-links">
+        <li><a href="tel:+17587235872">Call to Order</a></li>
+        <li><a href="#menu">Browse Menu</a></li>
+        <li><a href="#inquiry">Book an Event</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Velour Café · Est. 2019 · All rights reserved</span>
+    <a href="https://jamalinks758.github.io/jamalinks/" target="_blank">Powered by JAMALINKS</a>
+  </div>
+</footer>
+
+<!-- FLOAT CALL BUTTON -->
+<a href="tel:+17587235872" class="float-wa" title="Call to Order">📞</a>
+
+<!-- FLOAT ORDER BAR -->
+<div class="float-bar" id="floatBar">
+  <div class="fb-left">
+    <div class="fb-count" id="fbCount">0 items</div>
+    <div class="fb-amount">$<span id="fbAmt">0.00</span></div>
+  </div>
+  <button class="fb-clear" onclick="clearOrder()" title="Clear order">✕</button>
+  <button class="fb-wa" id="fbWaBtn" onclick="sendOrder()" disabled>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    Text Order
+  </button>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* ═══════════════════════════════════════
+   CONSTANTS
+   NOTE: PHONE routes Call/Text CTAs. Replace
+   with the client's real number at deployment.
+═══════════════════════════════════════ */
+const PHONE = '17587235872';
+
+/* ═══════════════════════════════════════
+   MENU DATA
+═══════════════════════════════════════ */
+const menuData = [
+  /* ── COFFEE ── */
+  { id:1, cat:'Coffee', emoji:'☕', name:'Velour Espresso',
+    desc:'Double shot of our signature single-origin blend. Rich, bold, and smooth to the last drop.',
+    price:8, moods:['fuel','all'], timeMatch:['morning','afternoon'] },
+  { id:2, cat:'Coffee', emoji:'🥛', name:'Flat White',
+    desc:'Velvety microfoam over a double ristretto. The perfect balance of strength and silk.',
+    price:10, moods:['fuel','chill','all'], timeMatch:['morning','afternoon'] },
+  { id:3, cat:'Coffee', emoji:'🍦', name:'Iced Caramel Latte',
+    desc:'Espresso, cold milk, and a drizzle of house caramel over ice. Refreshing and indulgent.',
+    price:12, moods:['sweet','chill','all'], timeMatch:['afternoon','morning'] },
+  { id:4, cat:'Coffee', emoji:'🌙', name:'Evening Velvet',
+    desc:'Decaf espresso with warm oat milk and a hint of vanilla. Wind down beautifully.',
+    price:11, moods:['chill','all'], timeMatch:['evening'] },
+  { id:5, cat:'Coffee', emoji:'🧊', name:'Cold Brew',
+    desc:'Steeped for 16 hours, served over ice. Smooth, strong, zero bitterness.',
+    price:11, moods:['fuel','fresh','all'], timeMatch:['morning','afternoon'] },
+
+  /* ── DRINKS ── */
+  { id:6, cat:'Drinks', emoji:'🍵', name:'Matcha Latte',
+    desc:'Ceremonial grade matcha whisked with steamed oat milk. Earthy, calming, beautiful.',
+    price:12, moods:['chill','fresh','all'], timeMatch:['morning','afternoon','evening'] },
+  { id:7, cat:'Drinks', emoji:'🍋', name:'Velour Lemonade',
+    desc:'House-pressed lemon with cane sugar, fresh mint, and a splash of sparkling water.',
+    price:9, moods:['fresh','all'], timeMatch:['afternoon'] },
+  { id:8, cat:'Drinks', emoji:'🧃', name:'Passion Fruit Cooler',
+    desc:'Fresh passion fruit blended with hibiscus and honey. Bright, floral, refreshing.',
+    price:10, moods:['fresh','all'], timeMatch:['afternoon','morning'] },
+  { id:9, cat:'Drinks', emoji:'🍫', name:'Dark Hot Chocolate',
+    desc:'Melted 70% dark chocolate with steamed whole milk and sea salt. Pure indulgence.',
+    price:11, moods:['sweet','chill','all'], timeMatch:['evening','morning'] },
+
+  /* ── FOOD ── */
+  { id:10, cat:'Food', emoji:'🥑', name:'Avocado Toast',
+    desc:'Sourdough, smashed avo, chilli flakes, poached egg, and a squeeze of lime.',
+    price:18, moods:['fuel','fresh','all'], timeMatch:['morning','afternoon'] },
+  { id:11, cat:'Food', emoji:'🥗', name:'Garden Grain Bowl',
+    desc:'Quinoa, roasted veg, feta, and our house herb dressing. Light, filling, and fresh.',
+    price:22, moods:['fresh','chill','all'], timeMatch:['afternoon'] },
+  { id:12, cat:'Food', emoji:'🥪', name:'Velour Club Sandwich',
+    desc:'Toasted brioche, chicken, bacon, lettuce, tomato, and herb mayo. A café classic done right.',
+    price:24, moods:['fuel','all'], timeMatch:['afternoon','morning'] },
+  { id:13, cat:'Food', emoji:'🍳', name:'Full Breakfast Plate',
+    desc:'Eggs your way, sausage, grilled tomato, toast, and fresh juice. The full morning ritual.',
+    price:28, moods:['fuel','all'], timeMatch:['morning'] },
+
+  /* ── PASTRIES ── */
+  { id:14, cat:'Pastries', emoji:'🥐', name:'Butter Croissant',
+    desc:'Flaky, golden, freshly baked each morning. Best with our espresso.',
+    price:7, moods:['sweet','chill','all'], timeMatch:['morning'] },
+  { id:15, cat:'Pastries', emoji:'🍰', name:'Velour Cheesecake Slice',
+    desc:'New York-style cheesecake with a local passion fruit coulis. Light yet luxurious.',
+    price:14, moods:['sweet','all'], timeMatch:['afternoon','evening'] },
+  { id:16, cat:'Pastries', emoji:'🍫', name:'Chocolate Lava Brownie',
+    desc:'Warm, fudgy brownie with a molten centre. Pairs perfectly with a scoop of vanilla.',
+    price:12, moods:['sweet','all'], timeMatch:['afternoon','evening'] },
+  { id:17, cat:'Pastries', emoji:'🫐', name:'Blueberry Muffin',
+    desc:'Bursting with fresh blueberries, light crumb, buttery top. Made daily.',
+    price:8, moods:['sweet','fuel','all'], timeMatch:['morning'] },
+];
+
+const categories = ['Coffee','Drinks','Food','Pastries'];
+
+const specials = [
+  "Today's Special: Passionfruit Cold Brew — $12",
+  "New: Dark Chocolate Lava Brownie — $12",
+  "Morning Deal: Flat White + Croissant — $15",
+  "Weekend Special: Full Breakfast Plate — $28",
+  "Velour Favourite: Iced Caramel Latte — $12",
+  "Fresh Daily: Blueberry Muffins — $8",
+  "Garden Grain Bowl — Light, Fresh, $22",
+];
+
+/* ═══════════════════════════════════════
+   STATE
+═══════════════════════════════════════ */
+let cart    = {}; // id → { item, qty }
+let activeMood  = 'all';
+let activeCat   = 'All';
+let currentTime = 'morning';
+
+/* ═══════════════════════════════════════
+   TIME OF DAY
+═══════════════════════════════════════ */
+const timeConfig = {
+  morning: {
+    range:[6,11], label:'Morning ☀️', greeting:'Good Morning ☀️',
+    cup:'☕', tagline:'"Start your morning right — every cup a quiet ceremony."',
+    h1:'Where Every <em>Cup</em><br/>Tells a Story', badge:'Morning',
+  },
+  afternoon: {
+    range:[11,16], label:'Afternoon 🌤️', greeting:'Good Afternoon 🌤️',
+    cup:'🧋', tagline:'"Midday fuel or an afternoon pause — we have just the thing."',
+    h1:'Take a <em>Moment</em><br/>Just for You', badge:'Afternoon',
+  },
+  evening: {
+    range:[16,20], label:'Evening 🌇', greeting:'Good Evening 🌇',
+    cup:'🍵', tagline:'"Wind down slowly. The best evenings start with a warm cup."',
+    h1:'The Perfect <em>Evening</em><br/>Ritual Awaits', badge:'Evening',
+  },
+  night: {
+    range:[20,24], label:'Late Night 🌙', greeting:'Night Owl? 🌙',
+    cup:'🌙', tagline:'"We\'re resting — but message us and we\'ll be ready for you."',
+    h1:'Come Find <em>Us</em><br/>in the Morning', badge:'Closed',
+  },
+};
+
+function getTimeOfDay() {
+  const h = new Date().getHours();
+  if (h >= 6  && h < 11) return 'morning';
+  if (h >= 11 && h < 16) return 'afternoon';
+  if (h >= 16 && h < 20) return 'evening';
+  return 'night';
+}
+
+function isOpen() {
+  const h = new Date().getHours();
+  const day = new Date().getDay(); // 0=Sun,6=Sat
+  const isWeekend = day === 0 || day === 6;
+  return isWeekend ? (h >= 8 && h < 21) : (h >= 7 && h < 20);
+}
+
+function applyTimeTheme() {
+  currentTime = getTimeOfDay();
+  const cfg   = timeConfig[currentTime];
+  const html  = document.documentElement;
+
+  // apply theme
+  html.setAttribute('data-time', currentTime);
+
+  // hero content
+  document.getElementById('heroGreeting').textContent = cfg.greeting;
+  document.getElementById('heroH1').innerHTML = cfg.h1;
+  document.getElementById('heroTagline').textContent = cfg.tagline.replace(/"/g,'');
+  document.getElementById('heroCup').textContent = cfg.cup;
+  document.getElementById('ctaCup').textContent = cfg.cup;
+  document.getElementById('timeBadgeText').textContent = cfg.badge;
+
+  // closed banner
+  const banner = document.getElementById('closedBanner');
+  if (currentTime === 'night') banner.classList.add('show');
+  else banner.classList.remove('show');
+
+  // hours open/closed
+  const status = document.getElementById('openStatus');
+  if (isOpen()) {
+    status.innerHTML = '<span class="open-now">● Open Now</span>';
+  } else {
+    status.innerHTML = '<span class="closed-now">● Closed</span>';
+  }
+
+  // re-render grid to apply timeMatch highlights
+  renderGrid();
+}
+
+/* ═══════════════════════════════════════
+   TICKER
+═══════════════════════════════════════ */
+function buildTicker() {
+  const doubled = [...specials, ...specials];
+  document.getElementById('specialTrack').innerHTML = doubled
+    .map(s => `<span class="special-item"><span class="special-dot">✦</span>${s}</span>`)
+    .join('');
+}
+
+/* ═══════════════════════════════════════
+   MOOD
+═══════════════════════════════════════ */
+function setMood(mood, btn) {
+  activeMood = mood;
+  document.querySelectorAll('.mood-pill').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderGrid();
+}
+
+/* ═══════════════════════════════════════
+   CATEGORY TABS
+═══════════════════════════════════════ */
+const catEmoji = { Coffee:'☕', Drinks:'🥤', Food:'🍽️', Pastries:'🍰', All:'✦' };
+
+function buildCatTabs() {
+  const tabs = ['All', ...categories];
+  document.getElementById('catTabs').innerHTML = tabs
+    .map(c => `<button class="cat-tab ${c===activeCat?'active':''}" onclick="setCat('${c}',this)">
+      ${catEmoji[c]||'✦'} ${c}
+    </button>`).join('');
+}
+
+function setCat(cat, btn) {
+  activeCat = cat;
+  document.querySelectorAll('.cat-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderGrid();
+}
+
+/* ═══════════════════════════════════════
+   MENU GRID
+═══════════════════════════════════════ */
+function renderGrid() {
+  buildCatTabs();
+  let items = menuData;
+
+  // filter category
+  if (activeCat !== 'All') items = items.filter(i => i.cat === activeCat);
+
+  // filter mood (show all but dim non-matches unless 'all')
+  const grid = document.getElementById('menuGrid');
+  if (!items.length) {
+    grid.innerHTML = '<div class="menu-empty">Nothing here yet — try a different filter.</div>';
+    return;
+  }
+
+  grid.innerHTML = items.map(item => buildCard(item)).join('');
+  observeReveal();
+}
+
+function buildCard(item) {
+  const inCart    = !!cart[item.id];
+  const qty       = cart[item.id]?.qty || 0;
+  const isMoodMatch = activeMood !== 'all' && item.moods.includes(activeMood);
+  const isTimeMatch = item.timeMatch.includes(currentTime);
+
+  // badge logic
+  let badge = '';
+  if (isMoodMatch) badge = `<div class="mood-badge">✦ Perfect Pick</div>`;
+  else if (isTimeMatch && !isMoodMatch && activeMood === 'all')
+    badge = `<div class="mood-badge" style="background:var(--text2);">Now Serving</div>`;
+
+  return `
+  <div class="menu-card ${inCart?'in-order':''} ${isMoodMatch?'mood-match':''}" id="mc-${item.id}">
+    ${badge}
+    <div class="card-top">
+      <span class="card-emoji">${item.emoji}</span>
+      <div class="card-info">
+        <div class="card-cat">${item.cat}</div>
+        <div class="card-name">${item.name}</div>
+        <div class="card-desc">${item.desc}</div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">$${item.price} <small>/ item</small></div>
+      <div class="card-actions">
+        ${inCart ? `
+          <div class="qty-wrap">
+            <button class="qty-btn" onclick="changeQty(${item.id},-1)">−</button>
+            <span class="qty-num">${qty}</span>
+            <button class="qty-btn" onclick="changeQty(${item.id},1)">+</button>
+          </div>
+        ` : ''}
+        <button class="add-btn ${inCart?'added':''}" onclick="addItem(${item.id})">
+          ${inCart ? '✓ Added' : '+ Add'}
+        </button>
+      </div>
+    </div>
+  </div>`;
+}
+
+/* ═══════════════════════════════════════
+   CART
+═══════════════════════════════════════ */
+function addItem(id) {
+  const item = menuData.find(i => i.id === id);
+  if (!cart[id]) cart[id] = { item, qty: 1 };
+  else cart[id].qty++;
+  refreshCard(id);
+  updateBar();
+  showToast(`${item.emoji} ${item.name} added!`);
+  popBar();
+}
+
+function changeQty(id, delta) {
+  if (!cart[id]) return;
+  cart[id].qty = Math.max(0, cart[id].qty + delta);
+  if (cart[id].qty === 0) delete cart[id];
+  refreshCard(id);
+  updateBar();
+}
+
+function refreshCard(id) {
+  const item = menuData.find(i => i.id === id);
+  const el   = document.getElementById(`mc-${id}`);
+  if (el) el.outerHTML = buildCard(item);
+}
+
+function getTotal() {
+  return Object.values(cart).reduce((s,i) => s + i.item.price * i.qty, 0);
+}
+
+function getTotalQty() {
+  return Object.values(cart).reduce((s,i) => s + i.qty, 0);
+}
+
+function updateBar() {
+  const qty = getTotalQty();
+  const amt = getTotal();
+  document.getElementById('fbCount').textContent =
+    qty === 0 ? '0 items' : `${qty} item${qty>1?'s':''} in order`;
+  document.getElementById('fbAmt').textContent = amt.toFixed(2);
+  document.getElementById('fbWaBtn').disabled = qty === 0;
+  const bar = document.getElementById('floatBar');
+  if (qty > 0) bar.classList.add('visible');
+  else bar.classList.remove('visible');
+}
+
+function popBar() {
+  const bar = document.getElementById('floatBar');
+  bar.style.transform = 'translateX(-50%) translateY(-6px) scale(1.02)';
+  setTimeout(() => bar.style.transform = 'translateX(-50%) translateY(0) scale(1)', 200);
+}
+
+function clearOrder() {
+  Object.keys(cart).forEach(k => delete cart[k]);
+  renderGrid();
+  updateBar();
+}
+
+function openOrder() {
+  const qty = getTotalQty();
+  if (qty === 0) {
+    document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
+    showToast('Add something from the menu first ☕');
+  } else {
+    sendOrder();
+  }
+}
+
+/* ═══════════════════════════════════════
+   ORDER VIA TEXT (US-market: SMS/Call, not WhatsApp)
+═══════════════════════════════════════ */
+function smsHref(number, body) {
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const sep = isIOS ? '&' : '?';
+  return `sms:${number}${sep}body=${encodeURIComponent(body)}`;
+}
+
+function sendOrder() {
+  const items = Object.values(cart);
+  if (!items.length) return;
+
+  const lines = items.map(i =>
+    `${i.item.emoji} ${i.item.name} x${i.qty} = $${(i.item.price * i.qty).toFixed(2)}`
+  );
+  const total = getTotal();
+  const totalQty = getTotalQty();
+
+  const msg = [
+    'Velour Cafe order:',
+    ...lines,
+    `Items: ${totalQty} | Total: $${total.toFixed(2)}`,
+    'Pickup or delivery? Please confirm.'
+  ].join('\n');
+
+  window.location.href = smsHref(PHONE, msg);
+}
+
+/* ═══════════════════════════════════════
+   EVENTS INQUIRY
+═══════════════════════════════════════ */
+function scrollToInquiry(eventType) {
+  const select = document.getElementById('evType');
+  if (select) {
+    for (const opt of select.options) {
+      if (opt.value === eventType) { select.value = opt.value; break; }
+    }
+  }
+  document.getElementById('inquiry').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  const nameField = document.getElementById('evName');
+  if (nameField) setTimeout(() => nameField.focus(), 500);
+}
+
+function submitEventInquiry(e) {
+  e.preventDefault();
+  const form = document.getElementById('eventForm');
+  const success = document.getElementById('inquirySuccess');
+  if (form) form.style.display = 'none';
+  if (success) success.classList.add('show');
+  showToast("Inquiry received — we'll be in touch soon ✨");
+}
+
+/* ═══════════════════════════════════════
+   TOAST
+═══════════════════════════════════════ */
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+/* ═══════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════ */
+function observeReveal() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => obs.observe(el));
+}
+
+/* ═══════════════════════════════════════
+   INIT
+═══════════════════════════════════════ */
+buildTicker();
+applyTimeTheme();
+renderGrid();
+observeReveal();
+
+// re-check time every 5 minutes
+setInterval(applyTimeTheme, 5 * 60 * 1000);
+</script>
+</body>
+</html>
+
