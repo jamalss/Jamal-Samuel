@@ -1,0 +1,1845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sasha Grant — Immigration Attorney serving Caribbean and international clients across US, UK, and Canadian immigration pathways. Confidential consultations available on WhatsApp.">
+  <meta property="og:title" content="Sasha Grant | Immigration Attorney">
+  <meta property="og:description" content="Strategic immigration counsel for family, work, study, investment, and protection pathways. Caribbean roots. International reach.">
+  <meta property="og:type" content="profile">
+  <title>Sasha Grant | Immigration Attorney</title>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["Person", "LegalService", "Attorney"],
+    "name": "Sasha Grant",
+    "jobTitle": "Immigration Attorney",
+    "description": "Immigration attorney advising Caribbean and international clients on US, UK, and Canadian immigration pathways including family sponsorship, work visas, study permits, investment migration, and protection claims.",
+    "url": "https://jamalinks758.github.io/jamalinks/sasha-grant.html",
+    "telephone": "+17587235872",
+    "address": { "@type": "PostalAddress", "addressLocality": "Castries", "addressCountry": "LC" },
+    "areaServed": ["Saint Lucia", "Caribbean", "United States", "United Kingdom", "Canada"],
+    "knowsAbout": ["US Immigration Law", "UK Immigration Law", "Canadian Immigration Law", "Family Sponsorship", "Work Visas", "Investment Migration", "Asylum & Protection"]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+
+  <style>
+    /* =============================================
+       TOKENS — Chambers Luxe
+    ============================================= */
+    :root {
+      --ink:        #0B1220;
+      --ink-2:      #131B2C;
+      --ink-3:      #1C2738;
+      --charcoal:   #1C2230;
+      --gold:       #C9A227;
+      --gold-light: #E0C158;
+      --gold-dim:   rgba(201,162,39,0.14);
+      --gold-glow:  rgba(201,162,39,0.25);
+      --marble:     #FAFAF7;
+      --parchment:  #F0EDE4;
+      --slate:      #5C6478;
+      --slate-pale: #8A90A0;
+      --border:     rgba(255,255,255,0.07);
+      --border-g:   rgba(201,162,39,0.25);
+      --white:      #FFFFFF;
+      --wa:         #25D366;
+      --wa-dark:    #128C7E;
+
+      /* Light mode */
+      --bg:         #FAFAF7;
+      --bg-2:       #F0EDE4;
+      --text:       #0B1220;
+      --text-m:     #3D4358;
+      --card-l:     #FFFFFF;
+      --bdr-l:      rgba(11,18,32,0.09);
+
+      --font-d: 'Playfair Display', Georgia, serif;
+      --font-b: 'Inter', system-ui, sans-serif;
+      --r-sm: 4px; --r-md: 10px; --r-lg: 18px;
+    }
+
+    [data-theme="dark"] {
+      --bg:    var(--ink);
+      --bg-2:  var(--ink-2);
+      --text:  var(--marble);
+      --text-m:var(--slate-pale);
+      --card-l:var(--ink-2);
+      --bdr-l: var(--border);
+    }
+
+    /* =============================================
+       BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-b); font-weight: 400;
+      background: var(--bg); color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden; transition: background .3s, color .3s;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* =============================================
+       FLOATING WA
+    ============================================= */
+    .wa-float {
+      position: fixed; bottom: 26px; right: 20px; z-index: 9999;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .wa-pill {
+      background: var(--ink-2); color: var(--marble);
+      font-family: var(--font-b); font-size: .72rem; font-weight: 500;
+      padding: .38rem .9rem; border-radius: 30px; white-space: nowrap;
+      opacity: 0; transform: translateX(6px);
+      transition: opacity .3s, transform .3s; pointer-events: none;
+      border: 1px solid var(--border-g);
+    }
+    .wa-float:hover .wa-pill { opacity: 1; transform: translateX(0); }
+    .wa-btn-f {
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--wa); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,.4);
+      animation: waPulse 2.8s ease-in-out infinite; transition: transform .2s;
+    }
+    .wa-btn-f:hover { transform: scale(1.07); }
+    .wa-btn-f i { font-size: 1.55rem; color: #fff; }
+    @keyframes waPulse {
+      0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,.4); }
+      50%      { box-shadow: 0 4px 32px rgba(37,211,102,.65), 0 0 0 8px rgba(37,211,102,.1); }
+    }
+
+    .demo-badge {
+      position: fixed; bottom: 26px; left: 16px; z-index: 9997;
+      background: var(--ink-2); color: var(--slate-pale);
+      font-family: var(--font-b); font-size: .62rem; font-weight: 500;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: .3rem .78rem; border-radius: 30px;
+      border: 1px solid var(--border-g);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .demo-dot { width: 5px; height: 5px; background: var(--gold); border-radius: 50%; }
+
+    /* =============================================
+       NAVBAR
+    ============================================= */
+    .navbar-sg {
+      position: sticky; top: 0; z-index: 900;
+      background: rgba(11,18,32,0.97);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      padding: 1rem 2.2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid rgba(201,162,39,.12);
+    }
+    .nav-brand-sg { display: flex; align-items: center; gap: 14px; }
+    .nav-monogram {
+      width: 42px; height: 42px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-d); font-size: 1.1rem; font-style: italic;
+      color: var(--gold); flex-shrink: 0;
+    }
+    .nav-name-sg {
+      font-family: var(--font-d); font-size: 1.15rem; font-weight: 600;
+      color: var(--marble); letter-spacing: .02em; line-height: 1;
+    }
+    .nav-sub-sg {
+      font-family: var(--font-b); font-size: .55rem; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--gold); opacity: .8; margin-top: 3px;
+    }
+    .nav-right-sg { display: flex; align-items: center; gap: 1.6rem; }
+    .nav-links-sg {
+      display: flex; align-items: center; gap: 1.6rem;
+      list-style: none; margin: 0; padding: 0;
+    }
+    .nav-links-sg a {
+      font-family: var(--font-b); font-size: .73rem; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--slate-pale); transition: color .2s; white-space: nowrap;
+    }
+    .nav-links-sg a:hover { color: var(--gold); }
+    .nav-div-sg { width: 1px; height: 18px; background: var(--border); flex-shrink: 0; }
+    .theme-toggle {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--gold-dim); border: 1px solid var(--border-g);
+      border-radius: 30px; padding: .3rem .72rem; cursor: pointer;
+      font-size: .7rem; font-family: var(--font-b); font-weight: 400;
+      color: var(--slate-pale); transition: border-color .2s, color .2s;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .theme-toggle:hover { border-color: var(--gold); color: var(--gold); }
+    .theme-toggle i { font-size: .76rem; }
+    .nav-cta-sg {
+      font-family: var(--font-b); font-size: .73rem; font-weight: 600;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: .55rem 1.4rem; border-radius: var(--r-sm);
+      background: var(--gold); color: var(--ink) !important;
+      transition: background .2s, box-shadow .2s !important;
+      white-space: nowrap; flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 7px;
+      box-shadow: 0 4px 16px var(--gold-glow);
+    }
+    .nav-cta-sg:hover { background: var(--gold-light) !important; box-shadow: 0 6px 22px var(--gold-glow) !important; }
+    @media (max-width: 768px) {
+      .nav-links-sg, .nav-div-sg { display: none; }
+      .navbar-sg { padding: .9rem 1.2rem; }
+    }
+
+    /* =============================================
+       HERO — Chambers / Skyline
+    ============================================= */
+    .hero-sg {
+      background: var(--ink);
+      position: relative; overflow: hidden;
+      min-height: 96vh; display: flex; align-items: center;
+      padding: 6rem 0 5rem;
+    }
+
+    .hero-skyline {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 45%;
+      pointer-events: none; opacity: .5;
+    }
+    .hero-skyline svg { width: 100%; height: 100%; display: block; }
+
+    .hero-gold-glow {
+      position: absolute; top: -15%; right: 0;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,162,39,.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-vignette {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 100%, rgba(11,18,32,.6) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow-sg {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--font-b); font-size: .68rem; font-weight: 600;
+      letter-spacing: .24em; text-transform: uppercase; color: var(--gold);
+      margin-bottom: 1.8rem;
+    }
+    .hero-eyebrow-sg::before { content: ''; width: 28px; height: 1px; background: var(--gold); display: block; }
+
+    .hero-name-sg {
+      font-family: var(--font-d);
+      font-size: clamp(3rem, 6.5vw, 5.8rem);
+      font-weight: 600; line-height: 1.02;
+      color: var(--marble); margin-bottom: .8rem; letter-spacing: -.01em;
+    }
+    .hero-name-sg em { font-style: italic; font-weight: 500; color: var(--gold); }
+
+    .hero-title-sg {
+      font-family: var(--font-b); font-size: .82rem; font-weight: 500;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--slate-pale); margin-bottom: 2rem;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .hero-title-sg .sep { color: var(--gold); opacity: .6; }
+
+    .hero-statement-sg {
+      font-family: var(--font-b); font-size: .98rem; font-weight: 300;
+      color: rgba(250,250,247,.62); line-height: 1.85; max-width: 480px;
+      margin-bottom: 2.4rem;
+    }
+    .hero-statement-sg strong { color: var(--marble); font-weight: 500; }
+
+    .hero-cta-row-sg { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .btn-gold-sg {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: var(--gold); color: var(--ink);
+      font-family: var(--font-b); font-size: .85rem; font-weight: 600;
+      letter-spacing: .02em; padding: .9rem 1.9rem;
+      border-radius: var(--r-sm); border: none; cursor: pointer;
+      box-shadow: 0 6px 24px var(--gold-glow);
+      transition: background .2s, transform .15s;
+    }
+    .btn-gold-sg:hover { background: var(--gold-light); color: var(--ink); transform: translateY(-2px); }
+    .btn-wa-sg {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: var(--wa); color: #fff;
+      font-family: var(--font-b); font-size: .85rem; font-weight: 600;
+      padding: .9rem 1.7rem; border-radius: var(--r-sm);
+      border: none; cursor: pointer;
+      box-shadow: 0 6px 24px rgba(37,211,102,.28);
+      transition: background .2s, transform .15s;
+    }
+    .btn-wa-sg:hover { background: var(--wa-dark); color: #fff; transform: translateY(-2px); }
+    .btn-ghost-sg {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid rgba(250,250,247,.2); color: rgba(250,250,247,.6);
+      font-family: var(--font-b); font-size: .85rem; font-weight: 400;
+      padding: .9rem 1.6rem; border-radius: var(--r-sm);
+      transition: all .2s; background: transparent; cursor: pointer;
+    }
+    .btn-ghost-sg:hover { border-color: var(--gold); color: var(--gold); }
+
+    .hero-jur-row { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 2.2rem; }
+    .jur-chip {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,.04); border: 1px solid var(--border);
+      color: rgba(250,250,247,.7); font-family: var(--font-b);
+      font-size: .73rem; font-weight: 500; padding: .32rem .9rem; border-radius: 30px;
+    }
+    .jur-chip .flag { font-size: .95rem; }
+
+    .hero-plate-col { position: relative; }
+    @media (max-width: 991px) { .hero-plate-col { display: none; } }
+
+    .hero-photo-frame-sg {
+      position: relative; border-radius: var(--r-lg); overflow: hidden;
+      background: linear-gradient(155deg, var(--ink-2), var(--charcoal));
+      aspect-ratio: 4/5;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border-g);
+    }
+    .hero-photo-illus-sg { font-size: 9rem; opacity: .35; }
+    .hero-photo-img-sg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero-photo-grad-sg {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 45%, rgba(11,18,32,.85) 100%);
+    }
+
+    .hero-credential-plate {
+      position: absolute; bottom: -22px; left: -22px; right: 40px;
+      background: rgba(250,250,247,.97); backdrop-filter: blur(16px);
+      border-radius: var(--r-md); padding: 1.4rem 1.6rem;
+      box-shadow: 0 20px 60px rgba(11,18,32,.3);
+      border: 1px solid var(--border-g);
+    }
+    .hcp-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: .7rem; }
+    .hcp-row:last-child { margin-bottom: 0; }
+    .hcp-label { font-family: var(--font-b); font-size: .65rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--slate); }
+    .hcp-val { font-family: var(--font-d); font-size: .92rem; font-weight: 600; color: var(--ink); }
+    .hcp-div { height: 1px; background: rgba(11,18,32,.08); margin: .2rem 0; }
+
+    /* =============================================
+       SECTION UTILITY
+    ============================================= */
+    .sec { padding: 6rem 0; }
+    .sec-sm { padding: 3.5rem 0; }
+    .sec-eyebrow-sg {
+      font-family: var(--font-b); font-size: .65rem; font-weight: 600;
+      letter-spacing: .24em; text-transform: uppercase; color: var(--gold);
+      margin-bottom: .8rem; display: flex; align-items: center; gap: 10px;
+    }
+    .sec-eyebrow-sg::before { content: ''; width: 22px; height: 1px; background: var(--gold); display: block; }
+    .sec-h2-sg {
+      font-family: var(--font-d);
+      font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+      font-weight: 600; line-height: 1.15;
+      color: var(--text); margin-bottom: .8rem;
+    }
+    .sec-h2-sg em { font-style: italic; font-weight: 500; color: var(--gold); }
+    .sec-para-sg {
+      font-family: var(--font-b); font-size: .93rem; font-weight: 300;
+      color: var(--text-m); line-height: 1.85; max-width: 520px;
+    }
+    .gold-rule { width: 42px; height: 1px; background: var(--gold); margin: 1.1rem 0 1.7rem; }
+
+    /* =============================================
+       TRUST STRIP
+    ============================================= */
+    .trust-strip-sg {
+      background: var(--ink-2);
+      border-top: 1px solid rgba(201,162,39,.12);
+      border-bottom: 1px solid rgba(201,162,39,.12);
+      padding: 1.6rem 0;
+    }
+    [data-theme="light"] .trust-strip-sg { background: var(--parchment); border-color: var(--bdr-l); }
+    .ts-items { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .6rem 2.8rem; }
+    .ts-item { display: flex; align-items: center; gap: 10px; font-family: var(--font-b); font-size: .83rem; font-weight: 500; color: var(--text); white-space: nowrap; }
+    .ts-icon {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--gold-dim); border: 1px solid var(--border-g);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .8rem; color: var(--gold); flex-shrink: 0;
+    }
+
+    /* =============================================
+       PRACTICE AREAS GRID
+    ============================================= */
+    .practice-card {
+      background: var(--card-l); border-radius: var(--r-md);
+      border: 1px solid var(--bdr-l); padding: 2.1rem;
+      transition: box-shadow .3s, border-color .3s, transform .2s; height: 100%;
+      position: relative; overflow: hidden;
+    }
+    [data-theme="dark"] .practice-card { border-color: var(--border); }
+    .practice-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      opacity: 0; transition: opacity .3s;
+    }
+    .practice-card:hover {
+      box-shadow: 0 16px 50px rgba(201,162,39,.1);
+      border-color: var(--border-g); transform: translateY(-3px);
+    }
+    .practice-card:hover::before { opacity: 1; }
+    .pc-num {
+      font-family: var(--font-d); font-size: .78rem; font-weight: 600;
+      color: var(--gold); letter-spacing: .1em; margin-bottom: 1.1rem; display: block;
+    }
+    .pc-name {
+      font-family: var(--font-d); font-size: 1.3rem; font-weight: 600;
+      color: var(--text); margin-bottom: .6rem; line-height: 1.3;
+    }
+    .pc-desc {
+      font-family: var(--font-b); font-size: .85rem; font-weight: 300;
+      color: var(--text-m); line-height: 1.75; margin-bottom: 1.2rem;
+    }
+    .pc-jurisdictions { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .pc-jur-tag {
+      font-family: var(--font-b); font-size: .64rem; font-weight: 600;
+      letter-spacing: .04em; background: var(--bg-2); border: 1px solid var(--bdr-l);
+      color: var(--text-m); padding: .2rem .65rem; border-radius: 30px;
+    }
+    [data-theme="dark"] .pc-jur-tag { background: rgba(255,255,255,.05); border-color: var(--border); }
+
+    /* =============================================
+       ★ UNIQUE: IMMIGRATION PATHWAY SELECTOR
+    ============================================= */
+    .pathway-widget {
+      background: var(--ink-2);
+      border: 1px solid var(--border-g);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(11,18,32,.3), 0 0 0 1px rgba(201,162,39,.05);
+    }
+    [data-theme="light"] .pathway-widget {
+      background: var(--card-l); border-color: var(--bdr-l);
+      box-shadow: 0 30px 80px rgba(11,18,32,.1);
+    }
+
+    .pw-header {
+      background: linear-gradient(135deg, rgba(201,162,39,.13) 0%, rgba(201,162,39,.03) 100%);
+      border-bottom: 1px solid var(--border-g);
+      padding: 1.5rem 2rem;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .pw-header-icon {
+      width: 46px; height: 46px; border-radius: 50%;
+      background: var(--gold); display: flex; align-items: center;
+      justify-content: center; font-size: 1.2rem; color: var(--ink); flex-shrink: 0;
+    }
+    .pw-header-title {
+      font-family: var(--font-d); font-size: 1.05rem; font-weight: 600;
+      color: var(--marble); line-height: 1.3;
+    }
+    [data-theme="light"] .pw-header-title { color: var(--text); }
+    .pw-header-sub { font-family: var(--font-b); font-size: .65rem; color: var(--slate-pale); margin-top: 2px; }
+    .pw-live-tag {
+      margin-left: auto; flex-shrink: 0;
+      font-family: var(--font-b); font-size: .6rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      background: var(--gold-dim); border: 1px solid var(--border-g);
+      color: var(--gold); padding: .24rem .75rem; border-radius: 30px;
+    }
+
+    .pw-body { padding: 2rem; }
+
+    .pw-step-label {
+      font-family: var(--font-b); font-size: .68rem; font-weight: 700;
+      letter-spacing: .16em; text-transform: uppercase; color: var(--slate);
+      margin-bottom: 1rem;
+    }
+
+    .pw-countries {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem;
+      margin-bottom: 1.6rem;
+    }
+    @media (max-width: 480px) { .pw-countries { grid-template-columns: 1fr; } }
+    .pw-country {
+      background: rgba(255,255,255,.03); border: 1.5px solid rgba(255,255,255,.08);
+      border-radius: var(--r-md); padding: 1.1rem .9rem;
+      text-align: center; cursor: pointer; transition: all .2s;
+    }
+    [data-theme="light"] .pw-country { background: var(--bg-2); border-color: var(--bdr-l); }
+    .pw-country:hover { border-color: var(--border-g); }
+    .pw-country.selected { border-color: var(--gold); background: var(--gold-dim); }
+    .pw-country-flag { font-size: 1.8rem; display: block; margin-bottom: .5rem; }
+    .pw-country-name {
+      font-family: var(--font-b); font-size: .8rem; font-weight: 600; color: var(--text);
+    }
+
+    .pw-situations {
+      display: flex; flex-direction: column; gap: .65rem; margin-bottom: 1.6rem;
+    }
+    .pw-sit {
+      display: flex; align-items: center; gap: 12px;
+      background: rgba(255,255,255,.03); border: 1.5px solid rgba(255,255,255,.08);
+      border-radius: var(--r-md); padding: .95rem 1.1rem;
+      cursor: pointer; transition: all .2s;
+    }
+    [data-theme="light"] .pw-sit { background: var(--bg-2); border-color: var(--bdr-l); }
+    .pw-sit:hover { border-color: var(--border-g); }
+    .pw-sit.selected { border-color: var(--gold); background: var(--gold-dim); }
+    .pw-sit-icon { font-size: 1.25rem; flex-shrink: 0; width: 26px; text-align: center; }
+    .pw-sit-text { font-family: var(--font-b); font-size: .85rem; font-weight: 500; color: var(--text); flex: 1; }
+    .pw-sit-check {
+      width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0;
+      border: 1.5px solid rgba(255,255,255,.15);
+      display: flex; align-items: center; justify-content: center; transition: all .2s;
+    }
+    [data-theme="light"] .pw-sit-check { border-color: var(--bdr-l); }
+    .pw-sit.selected .pw-sit-check { background: var(--gold); border-color: var(--gold); }
+    .pw-sit.selected .pw-sit-check::after { content: '✓'; font-size: .6rem; color: var(--ink); font-weight: 700; }
+
+    .pw-btn-next {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; background: var(--gold); color: var(--ink);
+      font-family: var(--font-b); font-size: .85rem; font-weight: 700;
+      padding: .85rem; border-radius: var(--r-sm); border: none;
+      cursor: pointer; transition: background .2s, opacity .2s;
+      opacity: .4; pointer-events: none;
+    }
+    .pw-btn-next.ready { opacity: 1; pointer-events: auto; }
+    .pw-btn-next:hover { background: var(--gold-light); }
+
+    .pw-result { display: none; }
+    .pw-result.active { display: block; }
+    .pw-result-header {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 1.4rem;
+    }
+    .pwr-flag { font-size: 2.2rem; }
+    .pwr-title { font-family: var(--font-d); font-size: 1.3rem; font-weight: 600; color: var(--marble); line-height: 1.25; }
+    [data-theme="light"] .pwr-title { color: var(--text); }
+    .pwr-sub { font-family: var(--font-b); font-size: .78rem; color: var(--slate-pale); margin-top: 2px; }
+
+    .pw-result-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .7rem; margin-bottom: 1.3rem; }
+    .pwr-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: var(--r-md); padding: 1rem; }
+    [data-theme="light"] .pwr-card { background: var(--bg-2); border-color: var(--bdr-l); }
+    .pwr-card.gold-c { background: var(--gold-dim); border-color: var(--border-g); }
+    .pwrc-label { font-family: var(--font-b); font-size: .6rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--slate); margin-bottom: .35rem; }
+    .pwrc-val { font-family: var(--font-d); font-size: 1.25rem; font-weight: 600; color: var(--marble); }
+    [data-theme="light"] .pwrc-val { color: var(--text); }
+    .pwr-card.gold-c .pwrc-val { color: var(--gold); }
+    .pwrc-sub { font-family: var(--font-b); font-size: .65rem; color: var(--slate-pale); margin-top: 2px; }
+
+    .pw-result-desc {
+      font-family: var(--font-b); font-size: .85rem; font-weight: 300;
+      color: var(--slate-pale); line-height: 1.75; margin-bottom: 1.3rem;
+    }
+    .pw-result-points { list-style: none; display: flex; flex-direction: column; gap: .55rem; margin-bottom: 1.4rem; }
+    .pw-result-points li { display: flex; align-items: flex-start; gap: 9px; font-family: var(--font-b); font-size: .82rem; font-weight: 300; color: var(--slate-pale); line-height: 1.5; }
+    .pw-result-points li i { color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+
+    .pw-wa-btn {
+      display: flex; align-items: center; justify-content: center; gap: 9px;
+      width: 100%; background: var(--wa); color: #fff;
+      font-family: var(--font-b); font-size: .88rem; font-weight: 700;
+      padding: .9rem; border-radius: var(--r-sm); border: none;
+      cursor: pointer; box-shadow: 0 6px 20px rgba(37,211,102,.25);
+      transition: background .2s; letter-spacing: .02em;
+    }
+    .pw-wa-btn:hover { background: var(--wa-dark); }
+    .pw-disclaimer {
+      font-family: var(--font-b); font-size: .65rem; font-weight: 300;
+      color: var(--slate); line-height: 1.55; margin-top: .9rem; font-style: italic; text-align: center;
+    }
+    .pw-restart {
+      background: none; border: none; cursor: pointer;
+      font-family: var(--font-b); font-size: .72rem; color: var(--slate);
+      margin-top: .6rem; display: block; width: 100%; text-align: center;
+      transition: color .2s; padding: 0;
+    }
+    .pw-restart:hover { color: var(--gold); }
+
+    /* =============================================
+       PROCESS
+    ============================================= */
+    .proc-sg {
+      background: var(--card-l); border-radius: var(--r-md);
+      border: 1px solid var(--bdr-l); padding: 1.9rem 1.5rem;
+      text-align: center; transition: border-color .2s;
+    }
+    [data-theme="dark"] .proc-sg { border-color: var(--border); }
+    .proc-sg:hover { border-color: var(--border-g); }
+    .proc-num-sg { font-family: var(--font-d); font-size: 2.6rem; font-weight: 600; color: var(--gold); opacity: .2; line-height: 1; margin-bottom: .7rem; }
+    .proc-icon-sg {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: var(--gold-dim); border: 1px solid var(--border-g);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1rem; font-size: 1.3rem; color: var(--gold);
+    }
+    .proc-title-sg { font-family: var(--font-d); font-size: 1.05rem; font-weight: 600; color: var(--text); margin-bottom: .4rem; }
+    .proc-desc-sg { font-family: var(--font-b); font-size: .8rem; font-weight: 300; color: var(--text-m); line-height: 1.7; }
+
+    /* =============================================
+       ABOUT / BIO
+    ============================================= */
+    .about-grid-sg { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4.5rem; align-items: start; }
+    @media (max-width: 768px) { .about-grid-sg { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+    .about-photo-sg {
+      border-radius: var(--r-lg); overflow: hidden; position: relative;
+      background: linear-gradient(155deg, var(--ink-2), var(--charcoal));
+      aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border-g);
+    }
+    [data-theme="light"] .about-photo-sg { background: linear-gradient(155deg, var(--parchment), var(--bg-2)); }
+    .about-photo-illus-sg { font-size: 7rem; opacity: .4; }
+    .about-photo-real-sg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .about-badge-sg {
+      position: absolute; bottom: -16px; right: -16px;
+      background: var(--gold); border-radius: var(--r-md); padding: 1rem 1.2rem; text-align: center;
+      box-shadow: 0 8px 28px var(--gold-glow);
+    }
+    .abs-num { font-family: var(--font-d); font-size: 1.7rem; font-weight: 700; color: var(--ink); line-height: 1; }
+    .abs-label { font-family: var(--font-b); font-size: .58rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgba(11,18,32,.7); }
+
+    .about-bio-sg { font-family: var(--font-b); font-size: .94rem; font-weight: 300; color: var(--text-m); line-height: 1.9; margin-bottom: 1.1rem; }
+    .cred-list-sg { list-style: none; display: flex; flex-direction: column; gap: .65rem; margin-bottom: 1.8rem; }
+    .cred-item-sg { display: flex; align-items: flex-start; gap: 11px; font-family: var(--font-b); font-size: .85rem; font-weight: 400; color: var(--text-m); }
+    .cred-item-sg i { color: var(--gold); flex-shrink: 0; margin-top: 2px; font-size: .85rem; }
+
+    .bar-strip { display: flex; flex-wrap: wrap; gap: .55rem; margin-bottom: 1.6rem; }
+    .bar-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--bg-2); border: 1px solid var(--bdr-l);
+      font-family: var(--font-b); font-size: .73rem; font-weight: 500;
+      color: var(--text-m); padding: .3rem .8rem; border-radius: 30px;
+    }
+    [data-theme="dark"] .bar-chip { background: rgba(255,255,255,.05); border-color: var(--border); }
+    .bar-chip .flag { font-size: .85rem; }
+
+    /* =============================================
+       TESTIMONIALS — PREMIUM BLUR
+    ============================================= */
+    .premium-wrap { position: relative; border-radius: var(--r-lg); overflow: hidden; }
+    .blur-layer { filter: blur(6px); user-select: none; pointer-events: none; opacity: .5; }
+    .unlock-overlay {
+      position: absolute; inset: 0; display: flex; align-items: center;
+      justify-content: center; background: rgba(250,250,247,.84);
+      backdrop-filter: blur(2px); z-index: 10;
+    }
+    [data-theme="dark"] .unlock-overlay { background: rgba(11,18,32,.86); }
+    .unlock-box {
+      background: var(--card-l); border-radius: var(--r-md); border: 1px solid var(--bdr-l);
+      box-shadow: 0 20px 60px rgba(201,162,39,.12);
+      padding: 2.1rem 2.5rem; text-align: center; max-width: 350px; width: 90%;
+    }
+    [data-theme="dark"] .unlock-box { border-color: var(--border-g); }
+    .unlock-icon-wrap {
+      width: 50px; height: 50px; border-radius: 50%;
+      background: var(--gold-dim); border: 1px solid var(--border-g);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.1rem; font-size: 1.15rem; color: var(--gold);
+    }
+    .unlock-plan-pill {
+      display: inline-block; border: 1px solid var(--border-g); color: var(--gold);
+      font-family: var(--font-b); font-size: .6rem; font-weight: 600;
+      letter-spacing: .16em; text-transform: uppercase;
+      padding: .24rem .8rem; border-radius: 30px; margin-bottom: 1.1rem;
+    }
+    .unlock-box h5 { font-family: var(--font-d); font-size: 1.2rem; font-weight: 600; color: var(--text); margin-bottom: .5rem; }
+    .unlock-box p { font-family: var(--font-b); font-size: .83rem; font-weight: 300; color: var(--text-m); line-height: 1.7; margin-bottom: 1.4rem; }
+
+    .rv-sg { background: var(--card-l); border-radius: var(--r-md); border: 1px solid var(--bdr-l); padding: 1.9rem; height: 100%; }
+    [data-theme="dark"] .rv-sg { border-color: var(--border); }
+    .rv-quote-mark-sg { font-family: var(--font-d); font-style: italic; font-size: 3.8rem; color: var(--gold-dim); line-height: 1; margin-bottom: .2rem; }
+    .rv-text-sg { font-family: var(--font-d); font-style: italic; font-size: .97rem; font-weight: 500; color: var(--text); line-height: 1.7; margin-bottom: 1.3rem; }
+    .rv-name-sg { font-family: var(--font-b); font-size: .85rem; font-weight: 700; color: var(--text); }
+    .rv-detail-sg { font-family: var(--font-b); font-size: .72rem; color: var(--text-m); }
+
+    /* =============================================
+       FAQ
+    ============================================= */
+    .faq-sg {
+      background: var(--card-l); border-radius: var(--r-md);
+      border: 1px solid var(--bdr-l); padding: 1.5rem 1.7rem;
+      margin-bottom: .7rem; cursor: pointer; transition: border-color .2s;
+    }
+    [data-theme="dark"] .faq-sg { border-color: var(--border); }
+    .faq-sg:hover { border-color: var(--border-g); }
+    .faq-q-sg {
+      font-family: var(--font-d); font-size: 1.02rem; font-weight: 600;
+      color: var(--text); display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    }
+    .faq-q-sg i { color: var(--gold); font-size: .8rem; flex-shrink: 0; transition: transform .3s; }
+    .faq-sg.open .faq-q-sg i { transform: rotate(45deg); }
+    .faq-a-sg { font-family: var(--font-b); font-size: .86rem; font-weight: 300; color: var(--text-m); line-height: 1.8; margin-top: .9rem; display: none; }
+    .faq-sg.open .faq-a-sg { display: block; }
+
+    /* =============================================
+       CONFIDENTIAL CONSULTATION INTAKE
+    ============================================= */
+    .consult-form-wrap {
+      background: var(--ink-2); border: 1px solid var(--border-g);
+      border-radius: var(--r-lg); overflow: hidden;
+      box-shadow: 0 30px 80px rgba(11,18,32,.3);
+    }
+    [data-theme="light"] .consult-form-wrap { background: var(--card-l); border-color: var(--bdr-l); box-shadow: 0 30px 80px rgba(11,18,32,.1); }
+    .cf-header {
+      background: linear-gradient(135deg, rgba(201,162,39,.13) 0%, rgba(201,162,39,.03) 100%);
+      border-bottom: 1px solid var(--border-g); padding: 1.5rem 2rem;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .cf-header-icon {
+      width: 46px; height: 46px; border-radius: 50%; background: var(--gold);
+      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+      color: var(--ink); flex-shrink: 0;
+    }
+    .cf-header-title { font-family: var(--font-d); font-size: 1.05rem; font-weight: 600; color: var(--marble); }
+    [data-theme="light"] .cf-header-title { color: var(--text); }
+    .cf-header-sub { font-family: var(--font-b); font-size: .65rem; color: var(--slate-pale); margin-top: 2px; }
+    .cf-private-tag {
+      margin-left: auto; flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--gold-dim); border: 1px solid var(--border-g);
+      color: var(--gold); font-family: var(--font-b); font-size: .6rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase; padding: .24rem .75rem; border-radius: 30px;
+    }
+    .cf-body { padding: 2rem; display: flex; flex-direction: column; gap: 1.1rem; }
+    .cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 576px) { .cf-row { grid-template-columns: 1fr; } }
+    .cf-field, .cf-field-full { display: flex; flex-direction: column; gap: .45rem; }
+    .cf-label { font-family: var(--font-b); font-size: .68rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--slate-pale); }
+    .cf-required { color: #D4889A; margin-left: 2px; }
+    .cf-input {
+      width: 100%; background: rgba(255,255,255,.05); border: 1.5px solid rgba(255,255,255,.1);
+      border-radius: var(--r-md); padding: .75rem 1rem;
+      font-family: var(--font-b); font-size: .88rem; font-weight: 400; color: var(--marble);
+      transition: border-color .2s, box-shadow .2s; outline: none;
+    }
+    [data-theme="light"] .cf-input { background: var(--bg-2); border-color: var(--bdr-l); color: var(--text); }
+    .cf-input::placeholder { color: var(--slate); font-weight: 300; }
+    .cf-input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-dim); }
+    .cf-input.error { border-color: #D4889A; }
+    .cf-select {
+      appearance: none; -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A90A0' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; cursor: pointer;
+    }
+    .cf-select option { background: var(--ink-2); color: var(--marble); }
+    [data-theme="light"] .cf-select option { background: var(--card-l); color: var(--text); }
+    .cf-textarea { resize: vertical; min-height: 95px; line-height: 1.7; }
+    .cf-privacy-note {
+      font-family: var(--font-b); font-size: .73rem; font-weight: 300; color: var(--slate-pale); line-height: 1.65;
+      display: flex; align-items: flex-start; gap: 8px; padding: .85rem 1.05rem;
+      background: var(--gold-dim); border: 1px solid var(--border-g); border-radius: var(--r-md);
+    }
+    .cf-privacy-note i { color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+    .cf-error {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(212,136,154,.1); border: 1px solid rgba(212,136,154,.25);
+      border-radius: var(--r-md); padding: .75rem 1rem;
+      font-family: var(--font-b); font-size: .82rem; font-weight: 500; color: #D4889A;
+    }
+    .cf-submit-btn {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; background: var(--wa); color: #fff;
+      font-family: var(--font-b); font-size: .92rem; font-weight: 700;
+      padding: 1.05rem; border-radius: var(--r-sm); border: none; cursor: pointer;
+      transition: background .2s; box-shadow: 0 6px 20px rgba(37,211,102,.25); letter-spacing: .02em;
+    }
+    .cf-submit-btn:hover { background: var(--wa-dark); }
+
+    /* =============================================
+       FINAL CTA
+    ============================================= */
+    .cta-sg {
+      background: var(--ink); border: 1px solid var(--border-g);
+      border-radius: var(--r-lg); padding: 6.5rem 3rem; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-sg::before {
+      content: ''; position: absolute; top: -40%; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,162,39,.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .cta-inner-sg { position: relative; z-index: 1; }
+    .cta-tag-sg { font-family: var(--font-b); font-size: .65rem; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+    .cta-h2-sg { font-family: var(--font-d); font-size: clamp(2.2rem, 5.5vw, 4.2rem); font-weight: 600; line-height: 1.1; color: var(--marble); margin-bottom: 1.1rem; }
+    .cta-h2-sg em { font-style: italic; font-weight: 500; color: var(--gold); }
+    .cta-para-sg { font-family: var(--font-b); font-size: .94rem; font-weight: 300; color: rgba(250,250,247,.6); max-width: 460px; margin: 0 auto 2.6rem; line-height: 1.85; }
+    .cta-btn-group-sg { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .cta-note-sg { font-family: var(--font-b); font-size: .73rem; font-weight: 300; color: rgba(250,250,247,.3); margin-top: 1.3rem; }
+
+    /* =============================================
+       FOOTER — always dark
+    ============================================= */
+    .footer-sg { background: #080D16; padding: 4.2rem 0 2rem; border-top: 1px solid rgba(201,162,39,.15); }
+    .footer-sg .fl-name { font-family: var(--font-d); font-size: 1.55rem; font-weight: 600; color: var(--marble); line-height: 1; }
+    .footer-sg .fl-name em { font-style: italic; color: var(--gold); }
+    .footer-sg .fl-sub { font-family: var(--font-b); font-size: .56rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(250,250,247,.3); margin-top: 4px; }
+    .footer-sg .fl-about { font-family: var(--font-b); font-size: .84rem; font-weight: 300; color: rgba(250,250,247,.42); line-height: 1.8; max-width: 280px; margin-top: 1.1rem; }
+    .footer-sg .fl-h { font-family: var(--font-b); font-size: .6rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.3rem; }
+    .footer-sg .fl-links { list-style: none; display: flex; flex-direction: column; gap: .75rem; }
+    .footer-sg .fl-links a { font-family: var(--font-b); font-size: .84rem; font-weight: 300; color: rgba(250,250,247,.42); transition: color .2s; }
+    .footer-sg .fl-links a:hover { color: var(--gold); }
+    .footer-sg .fl-wa-box { background: rgba(37,211,102,.06); border: 1px solid rgba(37,211,102,.18); border-radius: var(--r-md); padding: 1.35rem; }
+    .footer-sg .fl-wa-box p { font-family: var(--font-b); font-size: .81rem; font-weight: 300; color: rgba(250,250,247,.42); margin-bottom: .95rem; line-height: 1.65; }
+    .footer-sg .fl-wa-btn { display: inline-flex; align-items: center; gap: 7px; background: var(--wa); color: #fff; font-family: var(--font-b); font-size: .79rem; font-weight: 600; padding: .55rem 1.15rem; border-radius: var(--r-sm); transition: background .2s; }
+    .footer-sg .fl-wa-btn:hover { background: #128C7E; color: #fff; }
+    .footer-sg .fl-bottom { border-top: 1px solid rgba(255,255,255,.06); margin-top: 2.9rem; padding-top: 1.6rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .8rem; }
+    .footer-sg .fl-bottom p { font-family: var(--font-b); font-size: .73rem; font-weight: 300; color: rgba(250,250,247,.22); }
+    .footer-sg .fl-bottom a { font-family: var(--font-b); font-size: .73rem; font-weight: 600; color: var(--gold); transition: color .2s; }
+    .footer-sg .fl-bottom a:hover { color: var(--gold-light); }
+
+    /* =============================================
+       ANIMATIONS
+    ============================================= */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .rv-d1 { transition-delay: .1s; } .rv-d2 { transition-delay: .2s; } .rv-d3 { transition-delay: .3s; }
+
+    @media (max-width: 576px) {
+      .sec { padding: 4.5rem 0; }
+      .cta-sg { padding: 4rem 1.5rem; }
+      .pw-body, .cf-body { padding: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FLOATING WA -->
+  <a href="https://wa.me/17587235872?text=Hi%20Sasha%2C%20I%27d%20like%20to%20arrange%20a%20confidential%20immigration%20consultation."
+     class="wa-float" aria-label="Arrange a consultation on WhatsApp"
+     target="_blank" rel="noopener noreferrer">
+    <span class="wa-pill">Confidential Consultation</span>
+    <button class="wa-btn-f" aria-label="Open WhatsApp">
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </button>
+  </a>
+
+  <!-- DEMO BADGE -->
+  <div class="demo-badge" role="note" aria-label="JamaLinks demo profile">
+    <span class="demo-dot" aria-hidden="true"></span>Demo Profile
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar-sg" role="navigation" aria-label="Main navigation">
+    <div class="nav-brand-sg">
+      <div class="nav-monogram" aria-hidden="true">SG</div>
+      <div>
+        <div class="nav-name-sg">Sasha Grant</div>
+        <div class="nav-sub-sg">Immigration Attorney</div>
+      </div>
+    </div>
+    <div class="nav-right-sg">
+      <ul class="nav-links-sg" role="list">
+        <li><a href="#practice">Practice Areas</a></li>
+        <li><a href="#pathway">Pathway Tool</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#consult">Consult</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light or dark mode">
+        <i class="bi bi-moon-fill" id="themeIcon" aria-hidden="true"></i>
+        <span id="themeLabel">Dark</span>
+      </button>
+      <div class="nav-div-sg" aria-hidden="true"></div>
+      <a href="https://wa.me/17587235872?text=Hi%20Sasha%2C%20I%27d%20like%20to%20arrange%20a%20confidential%20immigration%20consultation."
+         class="nav-cta-sg" aria-label="Arrange a confidential consultation"
+         target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-shield-lock-fill" aria-hidden="true"></i> Consult Privately
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-sg" role="banner" aria-label="Sasha Grant immigration attorney hero">
+    <div class="hero-vignette" aria-hidden="true"></div>
+    <div class="hero-gold-glow" aria-hidden="true"></div>
+
+    <div class="hero-skyline" aria-hidden="true">
+      <svg viewBox="0 0 1200 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="40" y="120" width="60" height="180" fill="#C9A227" opacity="0.06"/>
+        <rect x="120" y="80" width="45" height="220" fill="#C9A227" opacity="0.08"/>
+        <rect x="190" y="150" width="70" height="150" fill="#C9A227" opacity="0.05"/>
+        <rect x="290" y="60" width="50" height="240" fill="#C9A227" opacity="0.09"/>
+        <rect x="370" y="110" width="40" height="190" fill="#C9A227" opacity="0.06"/>
+        <rect x="440" y="40" width="55" height="260" fill="#C9A227" opacity="0.1"/>
+        <rect x="530" y="95" width="65" height="205" fill="#C9A227" opacity="0.07"/>
+        <rect x="630" y="130" width="48" height="170" fill="#C9A227" opacity="0.05"/>
+        <rect x="710" y="55" width="58" height="245" fill="#C9A227" opacity="0.09"/>
+        <rect x="800" y="100" width="42" height="200" fill="#C9A227" opacity="0.06"/>
+        <rect x="870" y="70" width="60" height="230" fill="#C9A227" opacity="0.08"/>
+        <rect x="960" y="140" width="50" height="160" fill="#C9A227" opacity="0.05"/>
+        <rect x="1040" y="85" width="55" height="215" fill="#C9A227" opacity="0.07"/>
+        <rect x="1120" y="115" width="45" height="185" fill="#C9A227" opacity="0.06"/>
+      </svg>
+    </div>
+
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="row align-items-center g-5">
+
+        <div class="col-lg-7">
+          <div class="hero-eyebrow-sg">Immigration &amp; Cross-Border Counsel</div>
+          <h1 class="hero-name-sg">Sasha <em>Grant</em></h1>
+          <div class="hero-title-sg">
+            Immigration Attorney <span class="sep">·</span> US, UK &amp; Canadian Pathways <span class="sep">·</span> Caribbean Roots
+          </div>
+          <p class="hero-statement-sg">
+            For families separated by borders, professionals seeking new opportunity, 
+            and investors building a future abroad — Sasha Grant provides 
+            <strong>strategic, discreet, and decisive immigration counsel</strong> 
+            across three jurisdictions, grounded in a deep understanding of 
+            the Caribbean clients she serves.
+          </p>
+          <div class="hero-cta-row-sg">
+            <a href="#pathway" class="btn-gold-sg" aria-label="Find your immigration pathway">
+              <i class="bi bi-compass" aria-hidden="true"></i>
+              Find Your Pathway
+            </a>
+            <a href="https://wa.me/17587235872?text=Hi%20Sasha%2C%20I%27d%20like%20to%20arrange%20a%20confidential%20consultation%20regarding%20my%20immigration%20matter."
+               class="btn-wa-sg" aria-label="Arrange a confidential consultation"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Confidential Consultation
+            </a>
+          </div>
+          <div class="hero-jur-row" role="list" aria-label="Jurisdictions covered">
+            <span class="jur-chip" role="listitem"><span class="flag">🇺🇸</span> United States</span>
+            <span class="jur-chip" role="listitem"><span class="flag">🇬🇧</span> United Kingdom</span>
+            <span class="jur-chip" role="listitem"><span class="flag">🇨🇦</span> Canada</span>
+            <span class="jur-chip" role="listitem"><span class="flag">🇱🇨</span> Caribbean-Based</span>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="hero-plate-col" role="complementary">
+            <div class="hero-photo-frame-sg">
+              <span class="hero-photo-illus-sg" aria-hidden="true">⚖️</span>
+              <img
+                src="../images/sasha-grant.webp"
+                alt="Sasha Grant — Immigration Attorney"
+                class="hero-photo-img-sg"
+                width="500" height="625"
+                loading="eager"
+                onerror="this.style.display='none'">
+              <div class="hero-photo-grad-sg" aria-hidden="true"></div>
+
+              <div class="hero-credential-plate" role="complementary" aria-label="Key credentials">
+                <div class="hcp-row">
+                  <span class="hcp-label">Years in Practice</span>
+                  <span class="hcp-val">11</span>
+                </div>
+                <div class="hcp-div" aria-hidden="true"></div>
+                <div class="hcp-row">
+                  <span class="hcp-label">Cases Resolved</span>
+                  <span class="hcp-val">450+</span>
+                </div>
+                <div class="hcp-div" aria-hidden="true"></div>
+                <div class="hcp-row">
+                  <span class="hcp-label">Jurisdictions</span>
+                  <span class="hcp-val">US · UK · CA</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="trust-strip-sg" aria-label="Key professional credentials">
+    <div class="container">
+      <div class="ts-items" role="list">
+        <div class="ts-item" role="listitem"><div class="ts-icon" aria-hidden="true"><i class="bi bi-bank2" aria-hidden="true"></i></div> Licensed — Multiple Jurisdictions</div>
+        <div class="ts-item" role="listitem"><div class="ts-icon" aria-hidden="true"><i class="bi bi-shield-lock-fill" aria-hidden="true"></i></div> Strictly Confidential Consultations</div>
+        <div class="ts-item" role="listitem"><div class="ts-icon" aria-hidden="true"><i class="bi bi-globe2" aria-hidden="true"></i></div> US · UK · Canadian Pathways</div>
+        <div class="ts-item" role="listitem"><div class="ts-icon" aria-hidden="true"><i class="bi bi-clock-history" aria-hidden="true"></i></div> 11 Years in Immigration Law</div>
+        <div class="ts-item" role="listitem"><div class="ts-icon" aria-hidden="true"><i class="fab fa-whatsapp" aria-hidden="true"></i></div> Direct WhatsApp Access</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRACTICE AREAS -->
+  <section class="sec" id="practice" style="background:var(--bg);" aria-label="Practice areas">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-7 reveal">
+          <div class="sec-eyebrow-sg">Practice Areas</div>
+          <h2 class="sec-h2-sg">Counsel Across Every <em>Stage of the Journey</em></h2>
+          <div class="gold-rule" aria-hidden="true"></div>
+          <p class="sec-para-sg">
+            Immigration law is not one practice — it is many, each with its own evidentiary 
+            standard, timeline, and risk profile. Sasha Grant brings precision to each, 
+            translating complex regulatory frameworks into a clear strategic path.
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-4 reveal">
+        <div class="col-md-6 col-lg-4">
+          <div class="practice-card">
+            <span class="pc-num">01 — Family</span>
+            <h3 class="pc-name">Family Sponsorship &amp; Reunification</h3>
+            <p class="pc-desc">Spousal sponsorship, parent and child petitions, and fiancé visas. Guiding families through the evidentiary requirements that determine approval — with care for what reunification means to a Caribbean household.</p>
+            <div class="pc-jurisdictions" aria-label="Available jurisdictions">
+              <span class="pc-jur-tag">🇺🇸 US</span><span class="pc-jur-tag">🇬🇧 UK</span><span class="pc-jur-tag">🇨🇦 Canada</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="practice-card">
+            <span class="pc-num">02 — Work</span>
+            <h3 class="pc-name">Employment &amp; Skilled Worker Visas</h3>
+            <p class="pc-desc">Sponsored work permits, skilled worker pathways, and employer petitions. Strategic positioning for professionals — nurses, engineers, tradespeople, and specialists — pursuing legitimate employment abroad.</p>
+            <div class="pc-jurisdictions" aria-label="Available jurisdictions">
+              <span class="pc-jur-tag">🇺🇸 US</span><span class="pc-jur-tag">🇬🇧 UK</span><span class="pc-jur-tag">🇨🇦 Canada</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="practice-card">
+            <span class="pc-num">03 — Study</span>
+            <h3 class="pc-name">Student Visas &amp; Post-Study Pathways</h3>
+            <p class="pc-desc">University and college admissions support, study permit applications, and the post-graduation work and residency pathways that follow. Planning the full journey — not just the entry point.</p>
+            <div class="pc-jurisdictions" aria-label="Available jurisdictions">
+              <span class="pc-jur-tag">🇺🇸 US</span><span class="pc-jur-tag">🇬🇧 UK</span><span class="pc-jur-tag">🇨🇦 Canada</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="practice-card">
+            <span class="pc-num">04 — Investment</span>
+            <h3 class="pc-name">Investment &amp; Business Migration</h3>
+            <p class="pc-desc">Investor visas, business immigration, and entrepreneur pathways for Caribbean professionals and business owners seeking residency through capital and enterprise.</p>
+            <div class="pc-jurisdictions" aria-label="Available jurisdictions">
+              <span class="pc-jur-tag">🇺🇸 US</span><span class="pc-jur-tag">🇨🇦 Canada</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="practice-card">
+            <span class="pc-num">05 — Protection</span>
+            <h3 class="pc-name">Asylum &amp; Humanitarian Protection</h3>
+            <p class="pc-desc">Asylum claims, humanitarian protection, and appeals for individuals facing persecution or danger. Handled with the discretion, urgency, and care these matters demand.</p>
+            <div class="pc-jurisdictions" aria-label="Available jurisdictions">
+              <span class="pc-jur-tag">🇺🇸 US</span><span class="pc-jur-tag">🇬🇧 UK</span><span class="pc-jur-tag">🇨🇦 Canada</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="practice-card">
+            <span class="pc-num">06 — Status</span>
+            <h3 class="pc-name">Citizenship, Residency &amp; Appeals</h3>
+            <p class="pc-desc">Naturalisation applications, permanent residency renewals, status appeals, and representation before immigration tribunals when an application has been refused.</p>
+            <div class="pc-jurisdictions" aria-label="Available jurisdictions">
+              <span class="pc-jur-tag">🇺🇸 US</span><span class="pc-jur-tag">🇬🇧 UK</span><span class="pc-jur-tag">🇨🇦 Canada</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ★ UNIQUE: IMMIGRATION PATHWAY SELECTOR -->
+  <section class="sec" id="pathway" style="background:var(--bg-2);" aria-label="Immigration pathway selector tool">
+    <div class="container">
+      <div class="row align-items-center g-5">
+
+        <div class="col-lg-5 reveal">
+          <div class="sec-eyebrow-sg">Pathway Selector</div>
+          <h2 class="sec-h2-sg">Which Path<br><em>Applies to You?</em></h2>
+          <div class="gold-rule" aria-hidden="true"></div>
+          <p class="sec-para-sg">
+            Immigration law has dozens of routes — and choosing the wrong one 
+            can cost months, or an entire application. This selector identifies 
+            the pathway most relevant to your situation, gives you a realistic 
+            sense of timeline, and prepares a precise enquiry for Sasha.
+          </p>
+          <p class="sec-para-sg" style="margin-top:.9rem;">
+            This is a starting orientation, not legal advice. 
+            A confidential consultation will confirm the exact strategy for your case.
+          </p>
+          <div style="margin-top:1.8rem;display:flex;flex-direction:column;gap:.7rem;">
+            <div style="display:flex;align-items:center;gap:9px;">
+              <i class="bi bi-check-circle-fill" style="color:var(--gold);" aria-hidden="true"></i>
+              <span style="font-family:var(--font-b);font-size:.85rem;color:var(--text-m);">Two questions. Instant orientation.</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:9px;">
+              <i class="bi bi-check-circle-fill" style="color:var(--gold);" aria-hidden="true"></i>
+              <span style="font-family:var(--font-b);font-size:.85rem;color:var(--text-m);">Nothing recorded or stored</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:9px;">
+              <i class="bi bi-check-circle-fill" style="color:var(--gold);" aria-hidden="true"></i>
+              <span style="font-family:var(--font-b);font-size:.85rem;color:var(--text-m);">Generates a precise WhatsApp enquiry</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7 reveal">
+          <div class="pathway-widget" role="region" aria-label="Immigration pathway selector">
+
+            <div class="pw-header">
+              <div class="pw-header-icon" aria-hidden="true"><i class="bi bi-compass" aria-hidden="true"></i></div>
+              <div>
+                <div class="pw-header-title">Immigration Pathway Selector</div>
+                <div class="pw-header-sub">Select your destination and situation</div>
+              </div>
+              <span class="pw-live-tag">Interactive</span>
+            </div>
+
+            <div class="pw-body">
+
+              <div class="pw-step active" id="pwStep1" role="group" aria-label="Select destination country">
+                <div class="pw-step-label">Step 1 of 2 — Where are you immigrating to?</div>
+                <div class="pw-countries" role="radiogroup" aria-label="Destination country">
+                  <div class="pw-country" role="radio" aria-checked="false" tabindex="0" data-country="us" onclick="pwSelectCountry(this)" onkeydown="if(event.key==='Enter'||event.key===' ')pwSelectCountry(this)">
+                    <span class="pw-country-flag" aria-hidden="true">🇺🇸</span>
+                    <span class="pw-country-name">United States</span>
+                  </div>
+                  <div class="pw-country" role="radio" aria-checked="false" tabindex="0" data-country="uk" onclick="pwSelectCountry(this)" onkeydown="if(event.key==='Enter'||event.key===' ')pwSelectCountry(this)">
+                    <span class="pw-country-flag" aria-hidden="true">🇬🇧</span>
+                    <span class="pw-country-name">United Kingdom</span>
+                  </div>
+                  <div class="pw-country" role="radio" aria-checked="false" tabindex="0" data-country="ca" onclick="pwSelectCountry(this)" onkeydown="if(event.key==='Enter'||event.key===' ')pwSelectCountry(this)">
+                    <span class="pw-country-flag" aria-hidden="true">🇨🇦</span>
+                    <span class="pw-country-name">Canada</span>
+                  </div>
+                </div>
+
+                <div class="pw-step-label">Step 2 of 2 — What is your situation?</div>
+                <div class="pw-situations" role="radiogroup" aria-label="Immigration situation">
+                  <div class="pw-sit" role="radio" aria-checked="false" tabindex="0" data-sit="family" onclick="pwSelectSit(this)" onkeydown="if(event.key==='Enter'||event.key===' ')pwSelectSit(this)">
+                    <span class="pw-sit-icon" aria-hidden="true">👨‍👩‍👧</span>
+                    <span class="pw-sit-text">Family sponsorship or reunification</span>
+                    <span class="pw-sit-check" aria-hidden="true"></span>
+                  </div>
+                  <div class="pw-sit" role="radio" aria-checked="false" tabindex="0" data-sit="work" onclick="pwSelectSit(this)" onkeydown="if(event.key==='Enter'||event.key===' ')pwSelectSit(this)">
+                    <span class="pw-sit-icon" aria-hidden="true">💼</span>
+                    <span class="pw-sit-text">Employment or skilled worker visa</span>
+                    <span class="pw-sit-check" aria-hidden="true"></span>
+                  </div>
+                  <div class="pw-sit" role="radio" aria-checked="false" tabindex="0" data-sit="study" onclick="pwSelectSit(this)" onkeydown="if(event.key==='Enter'||event.key===' ')pwSelectSit(this)">
+                    <span class="pw-sit-icon" aria-hidden="true">🎓</span>
+                    <span class="pw-sit-text">Study visa or post-study pathway</span>
+                    <span class="pw-sit-check" aria-hidden="true"></span>
+                  </div>
+                  <div class="pw-sit" role="radio" aria-checked="false" tabindex="0" data-sit="invest" onclick="pwSelectSit(this)" onkeydown="if(event.key==='Enter'||event.key===' ')pwSelectSit(this)">
+                    <span class="pw-sit-icon" aria-hidden="true">📈</span>
+                    <span class="pw-sit-text">Investment or business migration</span>
+                    <span class="pw-sit-check" aria-hidden="true"></span>
+                  </div>
+                  <div class="pw-sit" role="radio" aria-checked="false" tabindex="0" data-sit="protect" onclick="pwSelectSit(this)" onkeydown="if(event.key==='Enter'||event.key===' ')pwSelectSit(this)">
+                    <span class="pw-sit-icon" aria-hidden="true">🛡️</span>
+                    <span class="pw-sit-text">Asylum or humanitarian protection</span>
+                    <span class="pw-sit-check" aria-hidden="true"></span>
+                  </div>
+                </div>
+
+                <button class="pw-btn-next" id="pwGetResult" aria-label="Show my pathway overview" onclick="pwShowResult()">
+                  Show My Pathway Overview <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                </button>
+              </div>
+
+              <div class="pw-result" id="pwResult" role="region" aria-live="polite" aria-label="Your pathway overview">
+                <div class="pw-result-header">
+                  <span class="pwr-flag" id="pwrFlag" aria-hidden="true">🇺🇸</span>
+                  <div>
+                    <div class="pwr-title" id="pwrTitle">Family Sponsorship — United States</div>
+                    <div class="pwr-sub" id="pwrSub">A general orientation, not a guarantee of outcome</div>
+                  </div>
+                </div>
+
+                <div class="pw-result-grid">
+                  <div class="pwr-card gold-c">
+                    <div class="pwrc-label">Typical Timeline</div>
+                    <div class="pwrc-val" id="pwrTimeline">12–24 mo</div>
+                    <div class="pwrc-sub">varies by case complexity</div>
+                  </div>
+                  <div class="pwr-card">
+                    <div class="pwrc-label">Pathway Type</div>
+                    <div class="pwrc-val" id="pwrType">Petition-Based</div>
+                    <div class="pwrc-sub" id="pwrTypeSub">requires sponsor</div>
+                  </div>
+                </div>
+
+                <p class="pw-result-desc" id="pwrDesc">
+                  This pathway typically requires a qualifying relationship with a sponsor, 
+                  documented evidence of that relationship, and financial sponsorship 
+                  affidavits. Processing times vary significantly by relationship category and country of filing.
+                </p>
+
+                <ul class="pw-result-points" id="pwrPoints">
+                  <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Review of your specific eligibility</li>
+                  <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Document checklist tailored to your case</li>
+                  <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Realistic timeline based on current processing data</li>
+                  <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Strategy session on strengthening your application</li>
+                </ul>
+
+                <a id="pwWaBtn"
+                   href="https://wa.me/17587235872?text=Hi%20Sasha%2C%20I%20used%20the%20pathway%20selector%20on%20your%20profile."
+                   class="pw-wa-btn"
+                   aria-label="Discuss this pathway on WhatsApp"
+                   target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                  Discuss This Pathway With Sasha
+                </a>
+
+                <p class="pw-disclaimer">
+                  This overview is general information, not legal advice. Immigration law changes frequently and outcomes depend on individual circumstances. A confidential consultation is required before any strategy is recommended.
+                </p>
+
+                <button class="pw-restart" onclick="pwRestart()" aria-label="Start the selector again">
+                  ↩ Start again
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="sec" style="background:var(--bg);" aria-label="How a consultation works">
+    <div class="container">
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-lg-6 reveal">
+          <div class="sec-eyebrow-sg" style="justify-content:center;">The Process</div>
+          <h2 class="sec-h2-sg" style="text-align:center;">From First Enquiry<br>to <em>Filed Application</em></h2>
+          <div class="gold-rule" aria-hidden="true" style="margin:1.1rem auto 1.6rem;"></div>
+          <p class="sec-para-sg" style="margin:0 auto;text-align:center;">A structured, transparent process — so you always know exactly where your case stands.</p>
+        </div>
+      </div>
+      <div class="row g-4 reveal">
+        <div class="col-sm-6 col-lg-3">
+          <div class="proc-sg">
+            <div class="proc-num-sg" aria-hidden="true">01</div>
+            <div class="proc-icon-sg" aria-hidden="true"><i class="fab fa-whatsapp" aria-hidden="true"></i></div>
+            <h3 class="proc-title-sg">Confidential Enquiry</h3>
+            <p class="proc-desc-sg">Reach out via WhatsApp or the consultation form. Every enquiry is treated with strict confidentiality from the first message.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="proc-sg">
+            <div class="proc-num-sg" aria-hidden="true">02</div>
+            <div class="proc-icon-sg" aria-hidden="true"><i class="bi bi-clipboard2-check-fill" aria-hidden="true"></i></div>
+            <h3 class="proc-title-sg">Case Assessment</h3>
+            <p class="proc-desc-sg">A thorough review of your circumstances, documentation, and eligibility — identifying the strongest pathway and any risk factors early.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="proc-sg">
+            <div class="proc-num-sg" aria-hidden="true">03</div>
+            <div class="proc-icon-sg" aria-hidden="true"><i class="bi bi-map-fill" aria-hidden="true"></i></div>
+            <h3 class="proc-title-sg">Strategy &amp; Engagement</h3>
+            <p class="proc-desc-sg">A clear engagement letter outlining scope, fees, and timeline. No surprises — you know precisely what is being done and why.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="proc-sg">
+            <div class="proc-num-sg" aria-hidden="true">04</div>
+            <div class="proc-icon-sg" aria-hidden="true"><i class="bi bi-send-check-fill" aria-hidden="true"></i></div>
+            <h3 class="proc-title-sg">Filing &amp; Advocacy</h3>
+            <p class="proc-desc-sg">Meticulous preparation and filing of your application, with ongoing case monitoring and advocacy through to resolution.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="sec" id="about" style="background:var(--bg-2);" aria-label="About Sasha Grant">
+    <div class="container">
+      <div class="about-grid-sg">
+
+        <div class="reveal">
+          <div style="position:relative;">
+            <div class="about-photo-sg" aria-label="Sasha Grant professional photo">
+              <span class="about-photo-illus-sg" aria-hidden="true">⚖️</span>
+              <img
+                src="../images/sasha-grant-about.webp"
+                alt="Sasha Grant — Immigration Attorney"
+                class="about-photo-real-sg"
+                width="400" height="533"
+                loading="lazy"
+                onerror="this.style.display='none'">
+            </div>
+            <div class="about-badge-sg" aria-label="450+ cases resolved">
+              <div class="abs-num">450+</div>
+              <div class="abs-label">Cases Resolved</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="sec-eyebrow-sg">About Sasha</div>
+          <h2 class="sec-h2-sg">Caribbean Roots.<br><em>International Standard.</em></h2>
+          <div class="gold-rule" aria-hidden="true"></div>
+          <p class="about-bio-sg">
+            Sasha Grant was born in Saint Lucia and watched her own family navigate 
+            the immigration process — the waiting, the paperwork, the uncertainty 
+            of a system that rarely explains itself clearly. That early experience 
+            shaped her decision to practise immigration law, and continues to shape 
+            how she practises it now.
+          </p>
+          <p class="about-bio-sg">
+            After completing her law degree and qualifying to practise across multiple 
+            jurisdictions, Sasha built a private practice specifically serving Caribbean 
+            clients and the diaspora — people who deserve the same calibre of representation 
+            available in London, Toronto, or Miami, delivered with an understanding of 
+            where they are actually coming from.
+          </p>
+          <p class="about-bio-sg">
+            Her approach is precise, candid, and unhurried with the details that matter. 
+            She does not promise outcomes she cannot guarantee — but she does promise 
+            that every client understands exactly where their case stands, at every stage.
+          </p>
+
+          <div class="sec-eyebrow-sg" style="margin-top:.4rem;margin-bottom:.8rem;">Admitted to Practise</div>
+          <div class="bar-strip" role="list" aria-label="Bar admissions">
+            <span class="bar-chip" role="listitem"><span class="flag">🇱🇨</span> Saint Lucia Bar Association</span>
+            <span class="bar-chip" role="listitem"><span class="flag">🇬🇧</span> England &amp; Wales (Solicitor)</span>
+            <span class="bar-chip" role="listitem"><span class="flag">🇺🇸</span> New York State Bar</span>
+          </div>
+
+          <ul class="cred-list-sg" aria-label="Qualifications">
+            <li class="cred-item-sg"><i class="bi bi-mortarboard-fill" aria-hidden="true"></i> LLB (Hons) Law — University of the West Indies, Cave Hill</li>
+            <li class="cred-item-sg"><i class="bi bi-mortarboard-fill" aria-hidden="true"></i> LLM International &amp; Immigration Law — University College London</li>
+            <li class="cred-item-sg"><i class="bi bi-award-fill" aria-hidden="true"></i> 11 years in private immigration practice</li>
+            <li class="cred-item-sg"><i class="bi bi-award-fill" aria-hidden="true"></i> Member, American Immigration Lawyers Association (AILA)</li>
+            <li class="cred-item-sg"><i class="bi bi-translate" aria-hidden="true"></i> Consultations available in English and French Creole</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS — PREMIUM BLUR -->
+  <section class="sec" style="background:var(--bg);" aria-label="Client testimonials">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-5 reveal">
+          <div class="sec-eyebrow-sg">Client Outcomes</div>
+          <h2 class="sec-h2-sg">Families Reunited.<br><em>Futures Secured.</em></h2>
+          <div class="gold-rule" aria-hidden="true"></div>
+          <p class="sec-para-sg">Shared with full client consent. Identifying details withheld for confidentiality.</p>
+        </div>
+      </div>
+      <div class="premium-wrap" aria-label="Client testimonials — professional profile feature">
+        <div class="blur-layer">
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="rv-sg">
+                <div class="rv-quote-mark-sg" aria-hidden="true">"</div>
+                <p class="rv-text-sg">Sasha was the third lawyer we spoke to. The other two gave us hope without honesty. Sasha told us exactly what was strong and what was weak in our case — and then she fixed the weak parts. Our petition was approved in 14 months.</p>
+                <div class="rv-name-sg">R. &amp; M. Joseph</div>
+                <div class="rv-detail-sg">Spousal sponsorship · United States</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="rv-sg">
+                <div class="rv-quote-mark-sg" aria-hidden="true">"</div>
+                <p class="rv-text-sg">I am a nurse from Saint Lucia and the UK skilled worker process felt designed to confuse. Sasha walked me through every document, every deadline. I am now working in Manchester. I would not have managed this alone.</p>
+                <div class="rv-name-sg">K. Edwards</div>
+                <div class="rv-detail-sg">Skilled worker visa · United Kingdom</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="rv-sg">
+                <div class="rv-quote-mark-sg" aria-hidden="true">"</div>
+                <p class="rv-text-sg">Our first application was refused before we found Sasha. She identified exactly why, restructured our appeal, and we were approved on review. Her attention to the small details made the entire difference.</p>
+                <div class="rv-name-sg">D. Charles</div>
+                <div class="rv-detail-sg">Permanent residency appeal · Canada</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="unlock-overlay">
+          <div class="unlock-box">
+            <div class="unlock-icon-wrap" aria-hidden="true"><i class="bi bi-star-fill" aria-hidden="true"></i></div>
+            <span class="unlock-plan-pill">USA / Diaspora Professional · $450–$750</span>
+            <h5>Client Outcomes</h5>
+            <p>Verified case outcomes are the single most persuasive trust signal for an immigration practice — they show prospective clients exactly what successful representation looks like. Included in the Diaspora Professional build.</p>
+            <a href="https://wa.me/17587235872?text=I%27m%20interested%20in%20a%20professional%20attorney%20profile%20with%20client%20testimonials."
+               class="btn-wa-sg" style="font-size:.8rem;padding:.6rem 1.2rem;"
+               aria-label="Inquire about a professional profile build"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Inquire on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONFIDENTIAL CONSULTATION FORM -->
+  <section class="sec" id="consult" style="background:var(--bg-2);" aria-label="Confidential consultation request form">
+    <div class="container">
+      <div class="row align-items-start g-5">
+
+        <div class="col-lg-5 reveal">
+          <div class="sec-eyebrow-sg">Begin Confidentially</div>
+          <h2 class="sec-h2-sg">Request a<br><em>Private Consultation</em></h2>
+          <div class="gold-rule" aria-hidden="true"></div>
+          <p class="sec-para-sg">
+            Complete the form with as much detail as you're comfortable sharing. 
+            Your information is sent directly and privately to Sasha on WhatsApp — 
+            nothing is stored on this page. She will respond personally within one business day.
+          </p>
+          <div style="margin-top:1.8rem;display:flex;flex-direction:column;gap:.75rem;">
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <i class="bi bi-shield-lock-fill" style="color:var(--gold);margin-top:2px;flex-shrink:0;" aria-hidden="true"></i>
+              <span style="font-family:var(--font-b);font-size:.83rem;font-weight:300;color:var(--text-m);line-height:1.6;">Strictly confidential — attorney-client privilege applies from first contact</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <i class="bi bi-clock-fill" style="color:var(--gold);margin-top:2px;flex-shrink:0;" aria-hidden="true"></i>
+              <span style="font-family:var(--font-b);font-size:.83rem;font-weight:300;color:var(--text-m);line-height:1.6;">Personal response within one business day</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <i class="bi bi-x-circle" style="color:var(--gold);margin-top:2px;flex-shrink:0;" aria-hidden="true"></i>
+              <span style="font-family:var(--font-b);font-size:.83rem;font-weight:300;color:var(--text-m);line-height:1.6;">No obligation — this is the start of a conversation, not a retainer</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7 reveal">
+          <div class="consult-form-wrap" role="region" aria-label="Confidential consultation form">
+
+            <div class="cf-header">
+              <div class="cf-header-icon" aria-hidden="true"><i class="bi bi-shield-lock-fill" aria-hidden="true"></i></div>
+              <div>
+                <div class="cf-header-title">Confidential Consultation Request</div>
+                <div class="cf-header-sub">Sent directly and privately to Sasha via WhatsApp</div>
+              </div>
+              <span class="cf-private-tag"><i class="bi bi-lock-fill" aria-hidden="true"></i> Private</span>
+            </div>
+
+            <div class="cf-body">
+
+              <div class="cf-row">
+                <div class="cf-field">
+                  <label class="cf-label" for="cfName">Full Name <span class="cf-required" aria-label="required">*</span></label>
+                  <input type="text" id="cfName" class="cf-input" placeholder="Your full name" autocomplete="name" aria-required="true">
+                </div>
+                <div class="cf-field">
+                  <label class="cf-label" for="cfPhone">WhatsApp / Phone <span class="cf-required" aria-label="required">*</span></label>
+                  <input type="tel" id="cfPhone" class="cf-input" placeholder="+1 758 000 0000" autocomplete="tel" aria-required="true">
+                </div>
+              </div>
+
+              <div class="cf-row">
+                <div class="cf-field">
+                  <label class="cf-label" for="cfEmail">Email Address</label>
+                  <input type="email" id="cfEmail" class="cf-input" placeholder="your@email.com" autocomplete="email">
+                </div>
+                <div class="cf-field">
+                  <label class="cf-label" for="cfCountry">Destination Country <span class="cf-required" aria-label="required">*</span></label>
+                  <select id="cfCountry" class="cf-input cf-select" aria-required="true">
+                    <option value="" disabled selected>Select a country</option>
+                    <option value="United States">🇺🇸 United States</option>
+                    <option value="United Kingdom">🇬🇧 United Kingdom</option>
+                    <option value="Canada">🇨🇦 Canada</option>
+                    <option value="Other / Not sure">Other / Not sure</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="cf-field-full">
+                <label class="cf-label" for="cfMatter">What is your immigration matter? <span class="cf-required" aria-label="required">*</span></label>
+                <select id="cfMatter" class="cf-input cf-select" aria-required="true">
+                  <option value="" disabled selected>Choose the closest match</option>
+                  <option value="Family sponsorship or reunification">Family sponsorship or reunification</option>
+                  <option value="Employment or skilled worker visa">Employment or skilled worker visa</option>
+                  <option value="Study visa or post-study pathway">Study visa or post-study pathway</option>
+                  <option value="Investment or business migration">Investment or business migration</option>
+                  <option value="Asylum or humanitarian protection">Asylum or humanitarian protection</option>
+                  <option value="Citizenship, residency, or appeal">Citizenship, residency, or appeal</option>
+                  <option value="Not sure — need guidance">Not sure — need guidance</option>
+                </select>
+              </div>
+
+              <div class="cf-field-full">
+                <label class="cf-label" for="cfMessage">
+                  Briefly describe your situation
+                  <span style="font-weight:300;opacity:.65;">(optional, but helpful)</span>
+                </label>
+                <textarea
+                  id="cfMessage"
+                  class="cf-input cf-textarea"
+                  placeholder="Share as much as you're comfortable with — for example, your current status, key dates, or what prompted your enquiry."
+                  rows="4"
+                  aria-label="Optional details about your immigration matter"></textarea>
+              </div>
+
+              <p class="cf-privacy-note">
+                <i class="bi bi-info-circle" aria-hidden="true"></i>
+                By submitting, your details are compiled and sent directly to Sasha's private WhatsApp. Nothing is stored on this website. Attorney-client privilege considerations apply from the moment you reach out.
+              </p>
+
+              <div class="cf-error" id="cfError" role="alert" aria-live="polite" style="display:none;">
+                <i class="bi bi-exclamation-circle-fill" aria-hidden="true"></i>
+                Please complete the required fields before submitting.
+              </div>
+
+              <button class="cf-submit-btn" id="cfSubmit" onclick="submitConsult()" aria-label="Send consultation request to Sasha on WhatsApp">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                Send Confidential Request to Sasha
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec" id="faq" style="background:var(--bg);" aria-label="Frequently asked questions">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-5 reveal">
+          <div class="sec-eyebrow-sg">Common Questions</div>
+          <h2 class="sec-h2-sg">Before You<br><em>Reach Out</em></h2>
+          <div class="gold-rule" aria-hidden="true"></div>
+          <p class="sec-para-sg">Anything else — ask directly on WhatsApp.</p>
+        </div>
+      </div>
+      <div class="col-lg-8 reveal">
+        <div class="faq-sg" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaqSg(this)" onkeydown="if(event.key==='Enter'||event.key===' ')toggleFaqSg(this)">
+          <div class="faq-q-sg">Is my consultation truly confidential? <i class="bi bi-plus-circle" aria-hidden="true"></i></div>
+          <div class="faq-a-sg">Yes. Attorney-client privilege considerations apply from the moment you make contact, whether by WhatsApp message or the consultation form. Your information is never shared with third parties, employers, or government bodies without your explicit written consent.</div>
+        </div>
+        <div class="faq-sg" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaqSg(this)" onkeydown="if(event.key==='Enter'||event.key===' ')toggleFaqSg(this)">
+          <div class="faq-q-sg">I'm based in the Caribbean. Can Sasha actually help me with US, UK, or Canadian immigration? <i class="bi bi-plus-circle" aria-hidden="true"></i></div>
+          <div class="faq-a-sg">Yes. Sasha is admitted to practise in multiple relevant jurisdictions and works specifically with Caribbean-based clients pursuing immigration to the US, UK, and Canada. Many consultations and case preparation stages are conducted remotely via WhatsApp and video call, with in-person meetings arranged when required.</div>
+        </div>
+        <div class="faq-sg" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaqSg(this)" onkeydown="if(event.key==='Enter'||event.key===' ')toggleFaqSg(this)">
+          <div class="faq-q-sg">What does the first consultation cost? <i class="bi bi-plus-circle" aria-hidden="true"></i></div>
+          <div class="faq-a-sg">Initial enquiries and a brief case orientation are complimentary. A formal paid consultation — typically 45 minutes — is recommended once your situation has been outlined, and fees for this and any onward representation are confirmed in writing before any work begins. There are never hidden costs.</div>
+        </div>
+        <div class="faq-sg" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaqSg(this)" onkeydown="if(event.key==='Enter'||event.key===' ')toggleFaqSg(this)">
+          <div class="faq-q-sg">My previous application was refused. Can Sasha still help? <i class="bi bi-plus-circle" aria-hidden="true"></i></div>
+          <div class="faq-a-sg">Often, yes. A prior refusal is not the end of the road — it is information. Sasha will review the refusal reasons in detail, identify what went wrong, and advise honestly on whether an appeal, a fresh application, or an alternative pathway gives you the strongest chance of success.</div>
+        </div>
+        <div class="faq-sg" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaqSg(this)" onkeydown="if(event.key==='Enter'||event.key===' ')toggleFaqSg(this)">
+          <div class="faq-q-sg">How quickly will my case move? <i class="bi bi-plus-circle" aria-hidden="true"></i></div>
+          <div class="faq-a-sg">Timelines depend entirely on the pathway, jurisdiction, and current government processing volumes — which is exactly why the pathway selector tool above gives general ranges rather than promises. Once your case assessment is complete, Sasha will provide a realistic, case-specific timeline rather than a generic estimate.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="sec" style="background:var(--bg-2);" aria-label="Begin your immigration case">
+    <div class="container">
+      <div class="cta-sg reveal">
+        <div class="cta-inner-sg">
+          <div class="cta-tag-sg">Your Next Chapter</div>
+          <h2 class="cta-h2-sg">
+            Every Journey Abroad<br>
+            Begins With <em>One Conversation.</em>
+          </h2>
+          <p class="cta-para-sg">
+            Whether you are reuniting with family, pursuing a career opportunity, 
+            or seeking protection — Sasha Grant brings clarity and strategy 
+            to a process that often feels anything but clear.
+          </p>
+          <div class="cta-btn-group-sg">
+            <a href="https://wa.me/17587235872?text=Hi%20Sasha%2C%20I%27d%20like%20to%20arrange%20a%20confidential%20consultation%20regarding%20my%20immigration%20matter."
+               class="btn-wa-sg" style="font-size:.92rem;padding:1rem 2.2rem;"
+               aria-label="Message Sasha on WhatsApp"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+              Message Sasha on WhatsApp
+            </a>
+            <a href="#pathway" class="btn-ghost-sg" aria-label="Use the pathway selector first">
+              Find Your Pathway First
+            </a>
+          </div>
+          <p class="cta-note-sg">
+            <i class="bi bi-shield-lock-fill me-1" aria-hidden="true"></i>
+            Strictly confidential &nbsp;·&nbsp; Response within one business day &nbsp;·&nbsp; No obligation at first contact
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-sg" role="contentinfo">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <div class="fl-name">Sasha <em>Grant</em></div>
+          <div class="fl-sub">Immigration Attorney · US · UK · Canada</div>
+          <p class="fl-about">Strategic immigration counsel for Caribbean and international clients across family, work, study, investment, and protection pathways.</p>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <div class="fl-h">Practice Areas</div>
+          <ul class="fl-links" role="list">
+            <li><a href="#practice">Family Sponsorship</a></li>
+            <li><a href="#practice">Work Visas</a></li>
+            <li><a href="#practice">Study Pathways</a></li>
+            <li><a href="#practice">Investment Migration</a></li>
+            <li><a href="#practice">Asylum &amp; Protection</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <div class="fl-h">Profile</div>
+          <ul class="fl-links" role="list">
+            <li><a href="#pathway">Pathway Tool</a></li>
+            <li><a href="#about">About Sasha</a></li>
+            <li><a href="#consult">Consultation</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <div class="fl-h">Confidential Consultation</div>
+          <div class="fl-wa-box">
+            <p>Reach out directly on WhatsApp or complete the consultation form above. Every enquiry is treated with strict confidentiality from the first message.</p>
+            <a href="https://wa.me/17587235872?text=Hi%20Sasha%2C%20I%27d%20like%20to%20arrange%20a%20confidential%20immigration%20consultation."
+               class="fl-wa-btn" aria-label="Message Sasha on WhatsApp"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Message Sasha
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="fl-bottom">
+        <p>© 2025 Sasha Grant. All rights reserved. Demonstration profile — <a href="https://jamalinks758.github.io/jamalinks/profiles.html" target="_blank" rel="noopener noreferrer">built by JAMALINKS</a>.</p>
+        <p>Built by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank" rel="noopener noreferrer">JAMALINKS</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // ===== THEME =====
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon   = document.getElementById('themeIcon');
+    const themeLabel  = document.getElementById('themeLabel');
+    const html        = document.documentElement;
+    function applyTheme(dark) {
+      html.setAttribute('data-theme', dark ? 'dark' : 'light');
+      themeIcon.className = dark ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+      themeLabel.textContent = dark ? 'Light' : 'Dark';
+    }
+    const hour = new Date().getHours();
+    let isDark = hour >= 18 || hour < 6;
+    applyTheme(isDark);
+    themeToggle.addEventListener('click', () => { isDark = !isDark; applyTheme(isDark); });
+
+    // ===== PATHWAY SELECTOR =====
+    let pwCountry = null;
+    let pwSituation = null;
+
+    const pathwayData = {
+      us: {
+        flag: '🇺🇸', label: 'United States',
+        family:  { title: 'Family Sponsorship — United States', timeline: '12–24 mo', type: 'Petition-Based', typeSub: 'requires US sponsor',
+          desc: 'This pathway typically requires a qualifying relationship with a US citizen or permanent resident sponsor, documented evidence of that relationship, and financial sponsorship affidavits. Processing times vary significantly by relationship category — spousal petitions generally move faster than parent or sibling categories.',
+          points: ['Review of your specific relationship category and eligibility', 'Document checklist — relationship evidence, financial affidavits, forms', 'Realistic timeline based on current USCIS processing data', 'Strategy session on strengthening your petition before filing'] },
+        work:    { title: 'Employment & Skilled Worker Visa — United States', timeline: '6–18 mo', type: 'Employer-Sponsored', typeSub: 'requires job offer',
+          desc: 'Most US work visa pathways require an employer sponsor and, in many categories, a labour certification process. Specialty occupation visas, intracompany transfers, and seasonal worker categories each carry distinct eligibility criteria and annual caps.',
+          points: ['Identification of the correct visa category for your occupation', 'Employer sponsorship and labour certification guidance', 'Realistic timeline including any annual cap or lottery considerations', 'Strategy session on strengthening your petition'] },
+        study:   { title: 'Study Visa & Post-Study Pathway — United States', timeline: '3–6 mo', type: 'Institution-Sponsored', typeSub: 'requires I-20 form',
+          desc: 'US student visas require acceptance at a SEVP-certified institution and proof of financial support for the duration of study. Post-graduation work authorisation (OPT/CPT) and transition pathways to longer-term status are planned from the outset.',
+          points: ['Guidance on institution selection and SEVP certification', 'Financial documentation and visa interview preparation', 'Post-study work authorisation (OPT) and visa transition planning', 'Long-term residency pathway strategy from day one'] },
+        invest:  { title: 'Investment & Business Migration — United States', timeline: '18–36 mo', type: 'Capital-Based', typeSub: 'investment threshold applies',
+          desc: 'US investment pathways involve significant capital commitment and detailed business plan documentation. Source-of-funds evidence is closely scrutinised, and timelines vary considerably based on category and processing centre workload.',
+          points: ['Assessment of investment category eligibility', 'Source-of-funds documentation strategy', 'Business plan and job creation requirement guidance', 'Realistic timeline given current processing volumes'] },
+        protect: { title: 'Asylum & Humanitarian Protection — United States', timeline: '1–4 yrs', type: 'Protection Claim', typeSub: 'urgent cases prioritised',
+          desc: 'Asylum claims require demonstrating a well-founded fear of persecution on specific protected grounds. Filing deadlines are strict — generally within one year of arrival — and case preparation involves detailed documentary and testimonial evidence.',
+          points: ['Urgent review of filing deadlines and eligibility', 'Evidence and documentation strategy for your claim', 'Preparation for interview or hearing', 'Realistic, honest assessment of claim strength'] }
+      },
+      uk: {
+        flag: '🇬🇧', label: 'United Kingdom',
+        family:  { title: 'Family Visa — United Kingdom', timeline: '6–12 mo', type: 'Sponsor-Based', typeSub: 'financial threshold applies',
+          desc: 'UK family visas require the sponsoring partner or relative to meet a minimum income threshold and provide relationship evidence. The route to settlement typically follows a structured five-year pathway with renewal stages.',
+          points: ['Financial requirement assessment for your sponsor', 'Relationship evidence and documentation strategy', 'Settlement pathway planning from the first application', 'Realistic timeline based on current Home Office processing'] },
+        work:    { title: 'Skilled Worker Visa — United Kingdom', timeline: '3–8 mo', type: 'Sponsor-Licensed', typeSub: 'requires licensed employer',
+          desc: 'The UK Skilled Worker route requires sponsorship from a Home Office-licensed employer, a job at the appropriate skill and salary level, and English language proficiency. This is currently the primary route for Caribbean healthcare and skilled professionals.',
+          points: ['Confirmation of sponsor licence status and eligibility', 'Salary threshold and skill level assessment', 'English language requirement guidance', 'Settlement and dependant visa planning'] },
+        study:   { title: 'Student Visa & Graduate Route — United Kingdom', timeline: '3–6 mo', type: 'CAS-Sponsored', typeSub: 'requires university CAS',
+          desc: 'UK student visas require a Confirmation of Acceptance for Studies (CAS) from a licensed institution and proof of financial maintenance. The Graduate Route then allows two to three years of post-study work authorisation.',
+          points: ['CAS and institution verification guidance', 'Financial maintenance evidence strategy', 'Graduate Route post-study work planning', 'Long-term settlement pathway options'] },
+        invest:  { title: 'Business & Investment Migration — United Kingdom', timeline: '12–24 mo', type: 'Capital-Based', typeSub: 'investment threshold applies',
+          desc: 'UK business and innovator routes require endorsement from an approved body and a viable, innovative business plan. Source-of-funds documentation and genuine entrepreneurship evidence are central to these applications.',
+          points: ['Endorsing body and route eligibility assessment', 'Business plan development guidance', 'Source-of-funds documentation strategy', 'Settlement pathway timeline'] },
+        protect: { title: 'Asylum & Protection Claim — United Kingdom', timeline: '1–3 yrs', type: 'Protection Claim', typeSub: 'urgent cases prioritised',
+          desc: 'UK asylum claims require demonstrating a well-founded fear of persecution under the Refugee Convention. Initial decisions can take significant time, and legal representation materially affects the quality of evidence presented.',
+          points: ['Urgent review of your claim and current status', 'Evidence and witness statement strategy', 'Interview preparation and representation', 'Honest assessment of claim strength and next steps'] }
+      },
+      ca: {
+        flag: '🇨🇦', label: 'Canada',
+        family:  { title: 'Family Sponsorship — Canada', timeline: '12–24 mo', type: 'Sponsor-Based', typeSub: 'requires Canadian sponsor',
+          desc: 'Canadian family sponsorship requires the sponsor to meet income and undertaking requirements, with spousal applications generally processed faster than parent and grandparent categories, which are subject to annual intake caps.',
+          points: ['Sponsor eligibility and undertaking requirement review', 'Relationship evidence documentation strategy', 'Realistic timeline by sponsorship category', 'Guidance on concurrent temporary resident options'] },
+        work:    { title: 'Express Entry & Skilled Worker — Canada', timeline: '6–14 mo', type: 'Points-Based', typeSub: 'CRS score dependent',
+          desc: 'Canada\'s Express Entry system ranks candidates by a Comprehensive Ranking System (CRS) score based on age, education, work experience, and language ability. Provincial nomination programmes can significantly improve standing.',
+          points: ['CRS score assessment and improvement strategy', 'Provincial Nominee Program (PNP) eligibility review', 'Language test and credential assessment guidance', 'Realistic timeline based on recent invitation rounds'] },
+        study:   { title: 'Study Permit & Post-Graduate Pathway — Canada', timeline: '2–5 mo', type: 'Institution-Sponsored', typeSub: 'requires DLI letter of acceptance',
+          desc: 'Canadian study permits require acceptance at a Designated Learning Institution (DLI) and proof of financial support. The Post-Graduation Work Permit (PGWP) and subsequent permanent residency pathways are typically planned together.',
+          points: ['DLI selection and acceptance guidance', 'Financial proof and study plan documentation', 'PGWP and permanent residency pathway planning', 'Provincial program alignment for long-term settlement'] },
+        invest:  { title: 'Business & Investment Migration — Canada', timeline: '12–30 mo', type: 'Capital-Based', typeSub: 'provincial programs vary',
+          desc: 'Canadian investor and entrepreneur pathways are largely administered through provincial programs, each with distinct capital requirements, business plan standards, and job creation expectations.',
+          points: ['Provincial program selection and eligibility review', 'Business plan and capital documentation strategy', 'Source-of-funds evidence guidance', 'Realistic timeline by province and program'] },
+        protect: { title: 'Refugee Protection Claim — Canada', timeline: '1–2 yrs', type: 'Protection Claim', typeSub: 'urgent cases prioritised',
+          desc: 'Canadian refugee protection claims are heard by the Immigration and Refugee Board. Strong documentary evidence and credible, consistent testimony are central to a successful claim.',
+          points: ['Urgent review of your eligibility and claim basis', 'Evidence and documentation strategy', 'Hearing preparation and representation', 'Honest assessment of claim strength'] }
+      }
+    };
+
+    function pwSelectCountry(el) {
+      document.querySelectorAll('.pw-country').forEach(c => {
+        c.classList.remove('selected');
+        c.setAttribute('aria-checked', 'false');
+      });
+      el.classList.add('selected');
+      el.setAttribute('aria-checked', 'true');
+      pwCountry = el.dataset.country;
+      pwCheckReady();
+    }
+
+    function pwSelectSit(el) {
+      document.querySelectorAll('.pw-sit').forEach(s => {
+        s.classList.remove('selected');
+        s.setAttribute('aria-checked', 'false');
+      });
+      el.classList.add('selected');
+      el.setAttribute('aria-checked', 'true');
+      pwSituation = el.dataset.sit;
+      pwCheckReady();
+    }
+
+    function pwCheckReady() {
+      const btn = document.getElementById('pwGetResult');
+      btn.classList.toggle('ready', !!(pwCountry && pwSituation));
+    }
+
+    function pwShowResult() {
+      if (!pwCountry || !pwSituation) return;
+      const countryData = pathwayData[pwCountry];
+      const result = countryData[pwSituation];
+
+      document.getElementById('pwrFlag').textContent = countryData.flag;
+      document.getElementById('pwrTitle').textContent = result.title;
+      document.getElementById('pwrTimeline').textContent = result.timeline;
+      document.getElementById('pwrType').textContent = result.type;
+      document.getElementById('pwrTypeSub').textContent = result.typeSub;
+      document.getElementById('pwrDesc').textContent = result.desc;
+
+      const pointsList = document.getElementById('pwrPoints');
+      pointsList.innerHTML = result.points.map(p =>
+        `<li><i class="bi bi-check-circle-fill" aria-hidden="true"></i>${p}</li>`
+      ).join('');
+
+      const msg = encodeURIComponent(
+        `Hi Sasha, I used the pathway selector on your profile. ` +
+        `I'm interested in: ${result.title}. ` +
+        `The tool indicated a typical timeline of ${result.timeline}. ` +
+        `I'd like to arrange a confidential consultation to discuss my specific situation.`
+      );
+      document.getElementById('pwWaBtn').href = `https://wa.me/17587235872?text=${msg}`;
+
+      document.getElementById('pwStep1').classList.remove('active');
+      document.getElementById('pwResult').classList.add('active');
+    }
+
+    function pwRestart() {
+      pwCountry = null; pwSituation = null;
+      document.querySelectorAll('.pw-country, .pw-sit').forEach(el => {
+        el.classList.remove('selected');
+        el.setAttribute('aria-checked', 'false');
+      });
+      document.getElementById('pwGetResult').classList.remove('ready');
+      document.getElementById('pwResult').classList.remove('active');
+      document.getElementById('pwStep1').classList.add('active');
+    }
+
+    // ===== CONSULTATION FORM =====
+    function submitConsult() {
+      const name    = document.getElementById('cfName').value.trim();
+      const phone   = document.getElementById('cfPhone').value.trim();
+      const email   = document.getElementById('cfEmail').value.trim();
+      const country = document.getElementById('cfCountry').value;
+      const matter  = document.getElementById('cfMatter').value;
+      const message = document.getElementById('cfMessage').value.trim();
+      const errorEl = document.getElementById('cfError');
+
+      const requiredFields = [
+        { id: 'cfName',    val: name },
+        { id: 'cfPhone',   val: phone },
+        { id: 'cfCountry', val: country },
+        { id: 'cfMatter',  val: matter },
+      ];
+
+      let hasError = false;
+      requiredFields.forEach(f => {
+        const el = document.getElementById(f.id);
+        if (!f.val) { el.classList.add('error'); hasError = true; }
+        else { el.classList.remove('error'); }
+      });
+
+      if (hasError) {
+        errorEl.style.display = 'flex';
+        errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      errorEl.style.display = 'none';
+
+      const lines = [
+        `⚖️ *Confidential Consultation Request — Sasha Grant*`,
+        ``,
+        `*Full Name:* ${name}`,
+        `*WhatsApp / Phone:* ${phone}`,
+        email ? `*Email:* ${email}` : null,
+        `*Destination Country:* ${country}`,
+        ``,
+        `*Immigration Matter:* ${matter}`,
+        ``,
+        message ? `*Their description:*\n${message}` : `_No additional details provided._`,
+        ``,
+        `_Sent via Sasha's profile consultation form._`
+      ].filter(l => l !== null).join('\n');
+
+      const encoded = encodeURIComponent(lines);
+      window.open(`https://wa.me/17587235872?text=${encoded}`, '_blank', 'noopener,noreferrer');
+    }
+
+    ['cfName','cfPhone','cfCountry','cfMatter'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener('input', () => el.classList.remove('error'));
+        el.addEventListener('change', () => el.classList.remove('error'));
+      }
+    });
+
+    // ===== FAQ =====
+    function toggleFaqSg(el) {
+      const isOpen = el.classList.contains('open');
+      document.querySelectorAll('.faq-sg').forEach(f => {
+        f.classList.remove('open');
+        f.setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) { el.classList.add('open'); el.setAttribute('aria-expanded', 'true'); }
+    }
+
+    // ===== SCROLL REVEAL =====
+    const revEls = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    revEls.forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
