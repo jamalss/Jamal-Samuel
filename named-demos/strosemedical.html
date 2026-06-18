@@ -979,6 +979,77 @@
     .btn-specialty i { color: var(--gold-light); flex-shrink: 0; }
 
     /* =====================
+       QUICK APPOINTMENT FORM (sends via WhatsApp)
+    ===================== */
+    .appt-form-card {
+      background: rgba(255,255,255,.07);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius-xl);
+      padding: 2.75rem;
+    }
+    .appt-form-card h5 { font-size: 1.4rem; color: white; margin-bottom: .4rem; }
+    .appt-form-card > p.appt-sub { font-size: .88rem; color: rgba(255,255,255,.6); margin-bottom: 2rem; }
+
+    .appt-label {
+      font-size: .72rem; text-transform: uppercase; letter-spacing: .08em;
+      color: rgba(255,255,255,.65); font-weight: 600;
+      margin-bottom: .45rem; display: block;
+    }
+    .appt-input, .appt-select, .appt-textarea {
+      width: 100%;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 3px;
+      color: white;
+      padding: .72rem 1rem;
+      font-size: .9rem;
+      font-family: 'DM Sans', sans-serif;
+      transition: var(--transition);
+    }
+    .appt-input::placeholder, .appt-textarea::placeholder { color: rgba(255,255,255,.35); }
+    .appt-input:focus, .appt-select:focus, .appt-textarea:focus {
+      outline: none;
+      border-color: var(--gold-light);
+      background: rgba(255,255,255,.1);
+    }
+    .appt-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23D4AF37' stroke-width='1.5' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+    .appt-select option { background: var(--primary-dark); color: white; }
+    .appt-textarea { resize: vertical; min-height: 90px; }
+    .appt-field { margin-bottom: 1.25rem; }
+    .appt-note {
+      font-size: .76rem; color: rgba(255,255,255,.45);
+      display: flex; align-items: flex-start; gap: .5rem;
+      margin-top: 1.5rem; line-height: 1.6;
+    }
+    .appt-note i { color: var(--gold-light); margin-top: .15rem; flex-shrink: 0; }
+    .btn-form-submit {
+      display: inline-flex; align-items: center; justify-content: center; gap: .65rem;
+      background: var(--green-wa); color: white;
+      border: none;
+      padding: 1rem 2.5rem; border-radius: 3px;
+      font-weight: 600; font-size: .95rem;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 8px 28px rgba(37,211,102,.3);
+    }
+    .btn-form-submit:hover {
+      background: #1EB457;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(37,211,102,.4);
+    }
+    .appt-error {
+      border-color: var(--accent-light) !important;
+    }
+
+    /* =====================
        FOOTER
     ===================== */
     footer {
@@ -1127,7 +1198,7 @@
           <li class="nav-item"><a class="nav-link" href="#education">Health Topics</a></li>
           <li class="nav-item ms-lg-2">
             <a class="nav-link nav-book"
-               href="https://wa.me/17584522978?text=Hello%20St.%20Rose%20Medical%2C%20I%E2%80%99d%20like%20to%20book%20an%20appointment."
+               href="https://wa.me/17584848220?text=Hello%20St.%20Rose%20Medical%2C%20I%E2%80%99d%20like%20to%20book%20an%20appointment."
                target="_blank" rel="noopener noreferrer">
               <i class="bi bi-calendar-check me-1" aria-hidden="true"></i>Book Appointment
             </a>
@@ -1157,7 +1228,7 @@
             Drs. Peter and Alphonsus St. Rose bring over 25 years of specialist excellence to every patient — offering world-class Gynecology, Obstetrics, Gastroenterology, and Internal Medicine right here in Saint Lucia.
           </p>
           <div class="d-flex flex-wrap gap-3">
-            <a href="https://wa.me/17584522978?text=Hello%20St.%20Rose%20Medical%2C%20I%E2%80%99d%20like%20to%20book%20an%20appointment."
+            <a href="https://wa.me/17584848220?text=Hello%20St.%20Rose%20Medical%2C%20I%E2%80%99d%20like%20to%20book%20an%20appointment."
                class="btn-primary-cta" target="_blank" rel="noopener noreferrer"
                aria-label="Book an appointment via WhatsApp">
               <i class="bi bi-whatsapp" aria-hidden="true"></i>
@@ -1539,7 +1610,7 @@
             </div>
 
             <div class="loc-cta-row">
-              <a href="https://wa.me/17584522978?text=Hello%2C%20I%E2%80%99d%20like%20to%20book%20an%20appointment%20at%20the%20Castries%20clinic."
+              <a href="https://wa.me/17584848220?text=Hello%2C%20I%E2%80%99d%20like%20to%20book%20an%20appointment%20at%20the%20Castries%20clinic."
                  target="_blank" rel="noopener noreferrer" class="loc-btn-wa">
                 <i class="bi bi-whatsapp" aria-hidden="true"></i> WhatsApp
               </a>
@@ -1647,7 +1718,7 @@
                 <i class="bi bi-calendar3" aria-hidden="true"></i>
                 Thursdays — 10:00am to 3:00pm
               </div>
-              <a href="https://wa.me/17584522978?text=Hello%2C%20I%E2%80%99d%20like%20to%20book%20a%20Nutrition%20Consultation%20with%20Sam%20Alex."
+              <a href="https://wa.me/17584848220?text=Hello%2C%20I%E2%80%99d%20like%20to%20book%20a%20Nutrition%20Consultation%20with%20Sam%20Alex."
                  target="_blank" rel="noopener noreferrer"
                  class="btn-primary-cta" style="margin-top: 0;">
                 <i class="bi bi-whatsapp" aria-hidden="true"></i>
@@ -1788,7 +1859,7 @@
           <div class="book-card">
             <h5><i class="bi bi-whatsapp me-2 text-success" aria-hidden="true"></i>Book via WhatsApp</h5>
             <p>The fastest way to secure your appointment. Send us a message and we'll confirm swiftly.</p>
-            <a href="https://wa.me/17584522978?text=Hello%20St.%20Rose%20Medical%2C%20I%E2%80%99d%20like%20to%20book%20an%20appointment."
+            <a href="https://wa.me/17584848220?text=Hello%20St.%20Rose%20Medical%2C%20I%E2%80%99d%20like%20to%20book%20an%20appointment."
                class="btn-wa" target="_blank" rel="noopener noreferrer"
                aria-label="Book appointment via WhatsApp">
               <i class="bi bi-whatsapp" aria-hidden="true"></i>
@@ -1827,8 +1898,16 @@
             <div class="info-row">
               <div class="info-ico" aria-hidden="true"><i class="bi bi-telephone-fill"></i></div>
               <div>
-                <div class="info-lbl">Phone</div>
+                <div class="info-lbl">Phone (Calls)</div>
                 <div class="info-val">758 452 2978</div>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-ico" aria-hidden="true"><i class="bi bi-whatsapp" style="color:#4CD96A;"></i></div>
+              <div>
+                <div class="info-lbl">WhatsApp</div>
+                <div class="info-val">758 484 8220</div>
               </div>
             </div>
 
@@ -1848,7 +1927,7 @@
             <h5>Book by Specialty</h5>
             <p>Tell us who you'd like to see. We'll arrange it as quickly as possible.</p>
 
-            <a href="https://wa.me/17584522978?text=Hello%2C%20I%E2%80%99d%20like%20to%20book%20an%20appointment%20with%20Dr.%20Peter%20St.%20Rose%20(Gynecology%2FObstetrics)."
+            <a href="https://wa.me/17584848220?text=Hello%2C%20I%E2%80%99d%20like%20to%20book%20an%20appointment%20with%20Dr.%20Peter%20St.%20Rose%20(Gynecology%2FObstetrics)."
                target="_blank" rel="noopener noreferrer" class="btn-specialty">
               <i class="bi bi-person-circle" aria-hidden="true"></i>
               Dr. Peter — Gynecology / OB (Castries)
@@ -1860,19 +1939,19 @@
               Dr. Peter — Vieux Fort Clinic (Fridays)
             </a>
 
-            <a href="https://wa.me/17584522978?text=Hello%2C%20I%E2%80%99d%20like%20to%20book%20an%20appointment%20with%20Dr.%20Alphonsus%20St.%20Rose%20(Gastroenterology%2FInternal%20Medicine)."
+            <a href="https://wa.me/17584848220?text=Hello%2C%20I%E2%80%99d%20like%20to%20book%20an%20appointment%20with%20Dr.%20Alphonsus%20St.%20Rose%20(Gastroenterology%2FInternal%20Medicine)."
                target="_blank" rel="noopener noreferrer" class="btn-specialty">
               <i class="bi bi-person-circle" aria-hidden="true"></i>
               Dr. Alphonsus — Gastro / Internal Med
             </a>
 
-            <a href="https://wa.me/17584522978?text=Hello%2C%20I%E2%80%99d%20like%20to%20book%20a%20Nutrition%20Consultation%20with%20Sam%20Alex."
+            <a href="https://wa.me/17584848220?text=Hello%2C%20I%E2%80%99d%20like%20to%20book%20a%20Nutrition%20Consultation%20with%20Sam%20Alex."
                target="_blank" rel="noopener noreferrer" class="btn-specialty">
               <i class="bi bi-leaf" aria-hidden="true"></i>
               Sam Alex — Nutrition (Thursdays)
             </a>
 
-            <a href="https://wa.me/17584522978?text=Hello%2C%20I%E2%80%99d%20like%20to%20learn%20about%20the%2030-Day%20Peri%20%26%20Menopause%20Programme."
+            <a href="https://wa.me/17584848220?text=Hello%2C%20I%E2%80%99d%20like%20to%20learn%20about%20the%2030-Day%20Peri%20%26%20Menopause%20Programme."
                target="_blank" rel="noopener noreferrer" class="btn-specialty">
               <i class="bi bi-flower1" aria-hidden="true"></i>
               30-Day Menopause Programme
@@ -1881,6 +1960,64 @@
         </div>
 
       </div>
+
+      <!-- Quick Appointment Request — compiles to a pre-filled WhatsApp message -->
+      <div class="row justify-content-center mt-4 reveal reveal-delay-4">
+        <div class="col-lg-9">
+          <div class="appt-form-card">
+            <h5><i class="bi bi-clipboard2-check me-2" aria-hidden="true" style="color:var(--gold-light);"></i>Prefer a Quick Form?</h5>
+            <p class="appt-sub">Fill in a few details below — we'll prepare a clear, organized message and open WhatsApp for you to review and send.</p>
+
+            <form id="apptForm" novalidate>
+              <div class="row">
+                <div class="col-md-6 appt-field">
+                  <label class="appt-label" for="apptName">Full Name *</label>
+                  <input type="text" id="apptName" class="appt-input" placeholder="e.g. Maria Charles" required>
+                </div>
+                <div class="col-md-6 appt-field">
+                  <label class="appt-label" for="apptPhone">Your Phone Number *</label>
+                  <input type="tel" id="apptPhone" class="appt-input" placeholder="e.g. 758 xxx xxxx" required>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 appt-field">
+                  <label class="appt-label" for="apptReason">I'd Like To See *</label>
+                  <select id="apptReason" class="appt-select" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="Dr. Peter St. Rose — Gynecology/Obstetrics (Castries)">Dr. Peter St. Rose — Gynecology/Obstetrics (Castries)</option>
+                    <option value="Dr. Peter St. Rose — Vieux Fort Clinic (Friday)">Dr. Peter St. Rose — Vieux Fort Clinic (Friday)</option>
+                    <option value="Dr. Alphonsus St. Rose — Gastroenterology/Internal Medicine">Dr. Alphonsus St. Rose — Gastroenterology/Internal Medicine</option>
+                    <option value="Sam Alex — Nutrition Consultation (Thursday)">Sam Alex — Nutrition Consultation (Thursday)</option>
+                    <option value="30-Day Peri & Menopause Programme">30-Day Peri &amp; Menopause Programme</option>
+                    <option value="Not sure — please advise">Not sure — please advise</option>
+                  </select>
+                </div>
+                <div class="col-md-6 appt-field">
+                  <label class="appt-label" for="apptDate">Preferred Date (optional)</label>
+                  <input type="date" id="apptDate" class="appt-input">
+                </div>
+              </div>
+
+              <div class="appt-field">
+                <label class="appt-label" for="apptNotes">Anything Else? (optional)</label>
+                <textarea id="apptNotes" class="appt-textarea" placeholder="e.g. preferred time of day, returning patient, etc."></textarea>
+              </div>
+
+              <button type="submit" class="btn-form-submit">
+                <i class="bi bi-whatsapp" aria-hidden="true"></i>
+                Send Request via WhatsApp
+              </button>
+
+              <div class="appt-note">
+                <i class="bi bi-shield-lock" aria-hidden="true"></i>
+                <span>Nothing is stored or sent anywhere on this page. This simply opens WhatsApp with your details pre-filled — you'll see and confirm the message before it's sent.</span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1954,7 +2091,7 @@
           <div class="foot-contact-item">
             <i class="bi bi-whatsapp" style="color: #4CD96A;" aria-hidden="true"></i>
             <span>
-              <a href="https://wa.me/17584522978" target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/17584848220" target="_blank" rel="noopener noreferrer"
                  style="color: #4CD96A; display:inline; padding:0; margin:0;">WhatsApp Us</a>
             </span>
           </div>
@@ -1978,7 +2115,7 @@
   <!-- =====================
        FLOATING WHATSAPP
   ===================== -->
-  <a href="https://wa.me/17584522978?text=Hello%20St.%20Rose%20Medical%2C%20I%E2%80%99d%20like%20to%20book%20an%20appointment."
+  <a href="https://wa.me/17584848220?text=Hello%20St.%20Rose%20Medical%2C%20I%E2%80%99d%20like%20to%20book%20an%20appointment."
      class="wa-float"
      target="_blank" rel="noopener noreferrer"
      aria-label="Book an appointment on WhatsApp">
@@ -2045,6 +2182,54 @@
         if (bsCollapse && collapse.classList.contains('show')) bsCollapse.hide();
       });
     });
+
+    // ─── Quick Appointment Request → WhatsApp ────────
+    const apptForm = document.getElementById('apptForm');
+    if (apptForm) {
+      apptForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const name   = document.getElementById('apptName');
+        const phone  = document.getElementById('apptPhone');
+        const reason = document.getElementById('apptReason');
+        const date   = document.getElementById('apptDate');
+        const notes  = document.getElementById('apptNotes');
+
+        // Simple required-field validation with inline visual feedback
+        let valid = true;
+        [name, phone, reason].forEach(field => {
+          if (!field.value.trim()) {
+            field.classList.add('appt-error');
+            valid = false;
+          } else {
+            field.classList.remove('appt-error');
+          }
+        });
+        if (!valid) return;
+
+        // Build a clean, readable message
+        const lines = [
+          'Hello St. Rose Medical, I would like to request an appointment.',
+          '',
+          'Name: ' + name.value.trim(),
+          'Phone: ' + phone.value.trim(),
+          'Service: ' + reason.value
+        ];
+        if (date.value) {
+          const d = new Date(date.value + 'T00:00:00');
+          lines.push('Preferred Date: ' + d.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }));
+        }
+        if (notes.value.trim()) {
+          lines.push('Notes: ' + notes.value.trim());
+        }
+
+        const message = encodeURIComponent(lines.join('\n'));
+        const waUrl = 'https://wa.me/17584848220?text=' + message;
+
+        // Open directly in response to the click — avoids popup blockers
+        window.open(waUrl, '_blank', 'noopener,noreferrer');
+      });
+    }
   </script>
 
 </body>
