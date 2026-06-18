@@ -6,8 +6,8 @@
   <title>St. Rose Medical | Your Health, Our Priority | Castries, Saint Lucia</title>
 
   <!-- SEO Meta -->
-  <meta name="description" content="St. Rose Medical offers expert Gynecology, Obstetrics, Gastroenterology, and Internal Medicine in Castries, Saint Lucia. Drs. Peter and Alphonsus St. Rose — 25+ years of medical excellence. Scheduled &amp; walk-in appointments available.">
-  <meta name="keywords" content="St Rose Medical, doctor Castries Saint Lucia, gynecologist Saint Lucia, obstetrician Saint Lucia, gastroenterologist Saint Lucia, internal medicine Saint Lucia, women health Saint Lucia, pap smear Saint Lucia, endoscopy Saint Lucia">
+  <meta name="description" content="St. Rose Medical offers expert Gynecology, Obstetrics, Gastroenterology, and Internal Medicine in Castries and Vieux Fort, Saint Lucia. Drs. Peter and Alphonsus St. Rose — 25+ years of medical excellence. Scheduled &amp; walk-in appointments available.">
+  <meta name="keywords" content="St Rose Medical, doctor Castries Saint Lucia, doctor Vieux Fort, gynecologist Saint Lucia, obstetrician Saint Lucia, gastroenterologist Saint Lucia, internal medicine Saint Lucia, women health Saint Lucia, pap smear Saint Lucia, endoscopy Saint Lucia">
   <meta name="author" content="St. Rose Medical">
   <meta name="robots" content="index, follow">
 
@@ -43,7 +43,7 @@
     "@context": "https://schema.org",
     "@type": "MedicalClinic",
     "name": "St. Rose Medical",
-    "description": "Expert medical care in Gynecology, Obstetrics, Gastroenterology, and Internal Medicine. Serving Castries, Saint Lucia for over 25 years.",
+    "description": "Expert medical care in Gynecology, Obstetrics, Gastroenterology, and Internal Medicine. Serving Castries and Vieux Fort, Saint Lucia for over 25 years.",
     "url": "https://strosemedical.com",
     "telephone": "+17584522978",
     "slogan": "Your Health, Our Priority",
@@ -84,6 +84,34 @@
         "name": "Dr. Alphonsus St. Rose",
         "medicalSpecialty": "Gastroenterology"
       }
+    ],
+    "department": [
+      {
+        "@type": "MedicalClinic",
+        "name": "St. Rose Medical — Castries (Main Clinic)",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "#40 Micoud Street",
+          "addressLocality": "Castries",
+          "addressCountry": "LC"
+        },
+        "telephone": "+17584522978"
+      },
+      {
+        "@type": "MedicalClinic",
+        "name": "St. Rose Medical — Vieux Fort Satellite Clinic (Fridays, Dr. Peter St. Rose)",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "7 Louisville, United Medical and Surgical Clinic, next to the Ti Rocher bus stop",
+          "addressLocality": "Vieux Fort",
+          "addressCountry": "LC"
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Friday"
+        },
+        "telephone": "+17584522978"
+      }
     ]
   }
   </script>
@@ -95,19 +123,20 @@
     :root {
       --primary:       #1A4B6E;
       --primary-light: #2A6B9E;
-      --primary-dark:  #0F2D44;
-      --accent:        #9B2335;
-      --accent-light:  #B83048;
-      --gold:          #B8860B;
-      --gold-light:    #D4A827;
-      --cream:         #F6F1EA;
-      --cream-mid:     #EDE7DC;
-      --cream-dark:    #E0D6C7;
+      --primary-dark:  #0C2233;
+      --accent:        #7C1F2E;
+      --accent-light:  #9B2E40;
+      --gold:          #A87C12;
+      --gold-light:    #D4AF37;
+      --cream:         #FAF6EF;
+      --cream-mid:     #EFE8D9;
+      --cream-dark:    #E1D5BC;
       --white:         #FFFFFF;
       --text-dark:     #121A22;
       --text-mid:      #3A4550;
       --text-light:    #6B7A88;
       --green-wa:      #25D366;
+      --new-badge:     #1E7B4D;
 
       --radius-xs: 6px;
       --radius-sm: 10px;
@@ -127,18 +156,21 @@
        BASE
     ===================== */
     *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 110px; }
     body {
       font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
       color: var(--text-dark);
       background: var(--cream);
       overflow-x: hidden;
-      line-height: 1.7;
+      line-height: 1.75;
+      letter-spacing: .005em;
     }
     h1,h2,h3,h4,h5,h6 {
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-weight: 600;
-      line-height: 1.15;
+      line-height: 1.12;
+      letter-spacing: .005em;
     }
     img { max-width: 100%; height: auto; display: block; }
     a { text-decoration: none; transition: var(--transition); }
@@ -150,8 +182,8 @@
     ===================== */
     .section-eyebrow {
       font-family: 'DM Sans', sans-serif;
-      font-size: 0.7rem;
-      letter-spacing: .28em;
+      font-size: 0.68rem;
+      letter-spacing: .32em;
       text-transform: uppercase;
       font-weight: 600;
       color: var(--accent);
@@ -163,34 +195,43 @@
     .section-eyebrow::before {
       content: '';
       display: inline-block;
-      width: 32px; height: 1.5px;
-      background: var(--accent);
+      width: 32px; height: 1px;
+      background: var(--gold-light);
       flex-shrink: 0;
     }
     .section-eyebrow.light { color: var(--gold-light); }
     .section-eyebrow.light::before { background: var(--gold-light); }
 
     .section-title {
-      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-size: clamp(2.1rem, 3.5vw, 3.15rem);
       color: var(--primary-dark);
       margin-bottom: .75rem;
+      letter-spacing: .002em;
     }
-    .section-title em { font-style: italic; color: var(--accent); }
+    .section-title em { font-style: italic; color: var(--accent); font-weight: 500; }
     .section-title.on-dark { color: white; }
     .section-title.on-dark em { color: var(--gold-light); }
 
     .section-lead {
       font-size: .97rem;
       color: var(--text-mid);
-      line-height: 1.8;
+      line-height: 1.85;
+      font-weight: 400;
     }
     .section-lead.on-dark { color: rgba(255,255,255,.72); }
 
     .rule {
-      width: 56px; height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--gold-light));
-      border-radius: 2px;
-      margin: 1.25rem 0 1.75rem;
+      width: 64px; height: 1px;
+      background: var(--gold-light);
+      position: relative;
+      margin: 1.4rem 0 1.85rem;
+    }
+    .rule::after {
+      content: '';
+      position: absolute; left: 0; top: -4px;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
     }
 
     /* Scroll reveal */
@@ -206,16 +247,54 @@
     .reveal-delay-4 { transition-delay: .4s; }
 
     /* =====================
+       ANNOUNCEMENT BAR
+    ===================== */
+    .announce-bar {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 1001;
+      background: var(--primary-dark);
+      border-bottom: 1px solid rgba(212,175,55,.25);
+      padding: .55rem 0;
+      text-align: center;
+    }
+    .announce-bar p {
+      margin: 0;
+      font-size: .8rem;
+      color: rgba(255,255,255,.92);
+      font-weight: 500;
+      letter-spacing: .01em;
+    }
+    .announce-bar .new-tag {
+      background: var(--new-badge);
+      color: white;
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      padding: .18rem .55rem;
+      border-radius: 3px;
+      margin-right: .6rem;
+      text-transform: uppercase;
+    }
+    .announce-bar a {
+      color: var(--gold-light);
+      font-weight: 600;
+      text-decoration: underline;
+      text-decoration-color: rgba(212,175,55,.4);
+    }
+    .announce-bar a:hover { color: white; }
+
+    /* =====================
        NAVBAR
     ===================== */
     #navbar {
-      position: fixed; top: 0; left: 0; right: 0;
+      position: fixed; top: 38px; left: 0; right: 0;
       z-index: 1000;
       padding: 1.4rem 0;
       transition: var(--transition);
     }
     #navbar.scrolled {
-      background: rgba(15, 45, 68, .97);
+      top: 0;
+      background: rgba(12, 34, 51, .97);
       backdrop-filter: blur(14px);
       padding: .85rem 0;
       box-shadow: 0 4px 24px rgba(0,0,0,.18);
@@ -278,6 +357,7 @@
     ===================== */
     .hero {
       min-height: 100svh;
+      padding-top: 96px;
       background: linear-gradient(130deg, var(--primary-dark) 0%, var(--primary) 55%, #1E6090 100%);
       display: flex; align-items: center;
       position: relative;
@@ -538,10 +618,11 @@
     .svc-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 
     .svc-icon {
-      width: 62px; height: 62px;
+      width: 60px; height: 60px;
       border-radius: var(--radius-md);
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.55rem;
+      font-size: 1.5rem;
+      color: white;
       margin-bottom: 1.5rem;
       transition: var(--transition);
       background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
@@ -621,8 +702,82 @@
     }
 
     /* =====================
-       NUTRITION SPECIALIST
+       LOCATIONS
     ===================== */
+    .locations-section {
+      padding: 8rem 0;
+      background: white;
+      position: relative;
+    }
+
+    .loc-card {
+      background: var(--cream);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      height: 100%;
+      border: 1px solid var(--cream-mid);
+      position: relative;
+      transition: var(--transition);
+    }
+    .loc-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .loc-card.is-new { border: 1px solid rgba(212,175,55,.4); background: linear-gradient(160deg, #FFFDF7 0%, var(--cream) 100%); }
+
+    .loc-badge {
+      position: absolute; top: -13px; right: 2rem;
+      background: var(--new-badge);
+      color: white;
+      font-size: .65rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: .35rem 1rem; border-radius: 50px;
+      box-shadow: 0 6px 16px rgba(30,123,77,.3);
+    }
+
+    .loc-icon-row {
+      display: flex; align-items: center; gap: .9rem;
+      margin-bottom: 1.5rem;
+    }
+    .loc-icon {
+      width: 52px; height: 52px; flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem;
+    }
+    .loc-card.is-new .loc-icon { background: var(--accent); }
+    .loc-card h4 { font-size: 1.5rem; color: var(--primary-dark); margin-bottom: 0; }
+    .loc-card .loc-sub { font-size: .8rem; color: var(--text-light); font-weight: 500; }
+
+    .loc-detail {
+      display: flex; align-items: flex-start; gap: .75rem;
+      padding: .55rem 0;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    .loc-detail:last-of-type { border-bottom: none; }
+    .loc-detail i { color: var(--accent); font-size: .95rem; margin-top: .2rem; flex-shrink: 0; width: 18px; }
+    .loc-detail-label { font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; color: var(--text-light); font-weight: 600; margin-bottom: .15rem; }
+    .loc-detail-val { font-size: .9rem; color: var(--text-dark); font-weight: 500; }
+
+    .loc-cta-row { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 1.5rem; }
+    .loc-btn-wa {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--green-wa); color: white;
+      padding: .65rem 1.3rem; border-radius: 50px;
+      font-size: .82rem; font-weight: 600;
+      transition: var(--transition);
+    }
+    .loc-btn-wa:hover { background: #1EB457; color: white; transform: translateY(-2px); }
+    .loc-btn-call {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: transparent; color: var(--primary);
+      border: 1.5px solid var(--primary);
+      padding: .62rem 1.3rem; border-radius: 50px;
+      font-size: .82rem; font-weight: 600;
+      transition: var(--transition);
+    }
+    .loc-btn-call:hover { background: var(--primary); color: white; }
+
+
     .nutrition-section { padding: 8rem 0; background: white; }
 
     .nutr-card {
@@ -714,7 +869,8 @@
       background: var(--cream);
       border-radius: var(--radius-sm);
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
+      color: var(--accent);
     }
 
     /* Symptoms list in education */
@@ -925,10 +1081,24 @@
       .symptom-list { grid-template-columns: 1fr; }
       .nutr-card { padding: 1.75rem; }
       .book-card { padding: 1.75rem; }
+      .announce-bar { padding: .5rem 1rem; }
+      .announce-bar p { font-size: .72rem; line-height: 1.4; }
+      .loc-badge { right: 1.25rem; }
     }
   </style>
 </head>
 <body>
+
+  <!-- =====================
+       ANNOUNCEMENT BAR
+  ===================== -->
+  <div class="announce-bar" role="banner">
+    <p>
+      <span class="new-tag">New</span>
+      Dr. Peter St. Rose now also sees patients in Vieux Fort every Friday —
+      <a href="#locations">see South location details</a>
+    </p>
+  </div>
 
   <!-- =====================
        NAVBAR
@@ -953,6 +1123,7 @@
           <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
           <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
           <li class="nav-item"><a class="nav-link" href="#doctors">Our Doctors</a></li>
+          <li class="nav-item"><a class="nav-link" href="#locations">Locations</a></li>
           <li class="nav-item"><a class="nav-link" href="#education">Health Topics</a></li>
           <li class="nav-item ms-lg-2">
             <a class="nav-link nav-book"
@@ -1115,8 +1286,8 @@
               <div class="lbl">Expert Specialist Physicians</div>
             </div>
             <div class="astat">
-              <div class="num" style="font-size:1.8rem; margin-top:.2rem;">✓ Walk-In</div>
-              <div class="lbl">No appointment needed for walk-ins</div>
+              <div class="num"><i class="bi bi-person-walking" style="font-size:1.7rem;"></i></div>
+              <div class="lbl">Walk-ins welcome — no appointment needed</div>
             </div>
           </div>
         </div>
@@ -1144,16 +1315,18 @@
         <!-- Gynecology & Obstetrics -->
         <div class="col-md-6 col-xl-3 reveal reveal-delay-1">
           <div class="svc-card">
-            <div class="svc-icon" role="img" aria-label="Gynecology icon">🩺</div>
+            <div class="svc-icon"><i class="bi bi-gender-female" aria-hidden="true"></i></div>
             <h4>Gynecology &amp; Obstetrics</h4>
             <p>Expert women's health care — from prenatal through post-menopause — delivered with skill and compassion by Dr. Peter St. Rose.</p>
             <ul class="svc-list" aria-label="Gynecology and Obstetrics services">
               <li>Prenatal &amp; Antenatal Care</li>
               <li>Fertility Consultations</li>
               <li>Cervical Cancer Screening (Pap Smear)</li>
-              <li>Colposcopy</li>
-              <li>Minor &amp; Major Gynecological Surgeries</li>
+              <li>Colposcopy &amp; Laparoscopy</li>
+              <li>Myomectomy &amp; Hysterectomy</li>
+              <li>Fibroids &amp; Endometriosis Treatment</li>
               <li>PCOS &amp; Hormonal Disorders</li>
+              <li>Breast Disease Diagnosis &amp; Treatment</li>
               <li>Menopause Management</li>
               <li>Ultrasound Services</li>
             </ul>
@@ -1163,7 +1336,7 @@
         <!-- Gastroenterology -->
         <div class="col-md-6 col-xl-3 reveal reveal-delay-2">
           <div class="svc-card">
-            <div class="svc-icon" role="img" aria-label="Gastroenterology icon">🔬</div>
+            <div class="svc-icon"><i class="bi bi-clipboard2-pulse" aria-hidden="true"></i></div>
             <h4>Gastroenterology</h4>
             <p>Advanced digestive health diagnostics and treatment by Dr. Alphonsus St. Rose, including minimally invasive endoscopic procedures.</p>
             <ul class="svc-list" aria-label="Gastroenterology services">
@@ -1182,7 +1355,7 @@
         <!-- Internal Medicine -->
         <div class="col-md-6 col-xl-3 reveal reveal-delay-3">
           <div class="svc-card">
-            <div class="svc-icon" role="img" aria-label="Internal Medicine icon">❤️</div>
+            <div class="svc-icon"><i class="bi bi-heart-pulse" aria-hidden="true"></i></div>
             <h4>Internal Medicine</h4>
             <p>Thorough diagnosis and management of complex adult medical conditions — whole-body care for lasting wellbeing.</p>
             <ul class="svc-list" aria-label="Internal Medicine services">
@@ -1201,7 +1374,7 @@
         <!-- Holistic Nutrition -->
         <div class="col-md-6 col-xl-3 reveal reveal-delay-4">
           <div class="svc-card">
-            <div class="svc-icon" role="img" aria-label="Holistic Nutrition icon">🥗</div>
+            <div class="svc-icon"><i class="bi bi-flower2" aria-hidden="true"></i></div>
             <h4>Holistic Nutrition &amp; Lifestyle</h4>
             <p>Personalised coaching with Sam Alex (CINHC &amp; CFNC) — addressing root causes through food, lifestyle, and natural health strategies.</p>
             <ul class="svc-list" aria-label="Holistic Nutrition services">
@@ -1258,15 +1431,21 @@
               <h3>Dr. Peter St. Rose</h3>
               <p class="doc-sub">MBBS · Obstetrician &amp; Gynecologist · 25+ Years Experience</p>
               <p>
-                Dr. Peter St. Rose is an expert Obstetrician/Gynecologist offering a comprehensive range of women's health services — from fertility consultations and pregnancy care to cervical cancer screening and surgical procedures. He is known for combining clinical precision with a deeply personal, caring approach to every patient.
+                Dr. Peter St. Rose is an expert Obstetrician/Gynecologist offering a comprehensive range of women's health services — from fertility consultations and pregnancy care to cervical cancer screening and surgical procedures. He is known for combining clinical precision with a deeply personal, caring approach to every patient. He now also holds a Friday clinic in Vieux Fort, bringing his expertise directly to patients in the South.
               </p>
               <div class="doc-tags">
                 <span class="doc-tag">Fertility</span>
-                <span class="doc-tag">Pregnancy</span>
+                <span class="doc-tag">Pregnancy Care</span>
                 <span class="doc-tag">Colposcopy</span>
                 <span class="doc-tag">PCOS</span>
                 <span class="doc-tag">Menopause</span>
-                <span class="doc-tag">Gynecological Surgery</span>
+                <span class="doc-tag">Endometriosis</span>
+                <span class="doc-tag">Fibroids</span>
+                <span class="doc-tag">Myomectomy</span>
+                <span class="doc-tag">Hysterectomy</span>
+                <span class="doc-tag">Laparoscopy</span>
+                <span class="doc-tag">Breast Disease</span>
+                <span class="doc-tag">STI Diagnosis &amp; Treatment</span>
               </div>
             </div>
           </div>
@@ -1302,6 +1481,117 @@
                 <span class="doc-tag">Hypertension</span>
                 <span class="doc-tag">Internal Medicine</span>
               </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       LOCATIONS
+  ===================== -->
+  <section class="locations-section" id="locations" aria-labelledby="loc-title">
+    <div class="container">
+
+      <div class="text-center mb-5 reveal">
+        <p class="section-eyebrow justify-content-center">Where to Find Us</p>
+        <h2 class="section-title" id="loc-title">Now Serving <em>Two</em> Communities</h2>
+        <p class="section-lead mx-auto" style="max-width:560px;">
+          Quality care should never require a long journey. St. Rose Medical now welcomes patients in both Castries and Vieux Fort.
+        </p>
+      </div>
+
+      <div class="row g-4">
+
+        <!-- Castries Main Clinic -->
+        <div class="col-lg-6 reveal reveal-delay-1">
+          <div class="loc-card">
+            <div class="loc-icon-row">
+              <div class="loc-icon"><i class="bi bi-building" aria-hidden="true"></i></div>
+              <div>
+                <h4>Castries</h4>
+                <div class="loc-sub">Main Clinic — Drs. Peter &amp; Alphonsus St. Rose</div>
+              </div>
+            </div>
+
+            <div class="loc-detail">
+              <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+              <div>
+                <div class="loc-detail-label">Address</div>
+                <div class="loc-detail-val">#40 Micoud Street, Castries, Saint Lucia</div>
+              </div>
+            </div>
+            <div class="loc-detail">
+              <i class="bi bi-clock-fill" aria-hidden="true"></i>
+              <div>
+                <div class="loc-detail-label">Hours</div>
+                <div class="loc-detail-val">Mon–Fri: 9:00am – 4:00pm &nbsp;·&nbsp; Sat: 8:00am – 12:00pm</div>
+              </div>
+            </div>
+            <div class="loc-detail">
+              <i class="bi bi-person-walking" aria-hidden="true"></i>
+              <div>
+                <div class="loc-detail-label">Access</div>
+                <div class="loc-detail-val">Scheduled appointments &amp; walk-ins welcome</div>
+              </div>
+            </div>
+
+            <div class="loc-cta-row">
+              <a href="https://wa.me/17584522978?text=Hello%2C%20I%E2%80%99d%20like%20to%20book%20an%20appointment%20at%20the%20Castries%20clinic."
+                 target="_blank" rel="noopener noreferrer" class="loc-btn-wa">
+                <i class="bi bi-whatsapp" aria-hidden="true"></i> WhatsApp
+              </a>
+              <a href="tel:+17584522978" class="loc-btn-call">
+                <i class="bi bi-telephone" aria-hidden="true"></i> 758 452 2978
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vieux Fort Satellite Clinic -->
+        <div class="col-lg-6 reveal reveal-delay-2">
+          <div class="loc-card is-new">
+            <span class="loc-badge">New Location</span>
+            <div class="loc-icon-row">
+              <div class="loc-icon"><i class="bi bi-signpost-split-fill" aria-hidden="true"></i></div>
+              <div>
+                <h4>Vieux Fort</h4>
+                <div class="loc-sub">Satellite Clinic — Dr. Peter St. Rose, OB/GYN</div>
+              </div>
+            </div>
+
+            <div class="loc-detail">
+              <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+              <div>
+                <div class="loc-detail-label">Address</div>
+                <div class="loc-detail-val">United Medical &amp; Surgical Clinic, 7 Louisville, Vieux Fort — next to the Ti Rocher bus stop</div>
+              </div>
+            </div>
+            <div class="loc-detail">
+              <i class="bi bi-calendar3" aria-hidden="true"></i>
+              <div>
+                <div class="loc-detail-label">Clinic Day</div>
+                <div class="loc-detail-val">Fridays — no need to travel north for your appointment</div>
+              </div>
+            </div>
+            <div class="loc-detail">
+              <i class="bi bi-clipboard2-check" aria-hidden="true"></i>
+              <div>
+                <div class="loc-detail-label">Services Available</div>
+                <div class="loc-detail-val">Full gynecological care — pregnancy, fertility, PCOS, fibroids, pap smears, and surgical procedures</div>
+              </div>
+            </div>
+
+            <div class="loc-cta-row">
+              <a href="https://wa.me/17584848220?text=Hello%2C%20I%E2%80%99d%20like%20to%20book%20an%20appointment%20with%20Dr.%20Peter%20St.%20Rose%20at%20the%20Vieux%20Fort%20clinic%20on%20Friday."
+                 target="_blank" rel="noopener noreferrer" class="loc-btn-wa">
+                <i class="bi bi-whatsapp" aria-hidden="true"></i> WhatsApp South Clinic
+              </a>
+              <a href="tel:+17584522978" class="loc-btn-call">
+                <i class="bi bi-telephone" aria-hidden="true"></i> 758 452 2978
+              </a>
             </div>
           </div>
         </div>
@@ -1416,7 +1706,7 @@
               <a href="https://www.instagram.com/strosemedical" target="_blank" rel="noopener noreferrer" class="read-more">
                 Learn more <i class="bi bi-arrow-right" aria-hidden="true"></i>
               </a>
-              <div class="edu-emoji" aria-hidden="true">🎗️</div>
+              <div class="edu-emoji" aria-hidden="true"><i class="bi bi-shield-plus"></i></div>
             </div>
           </div>
         </div>
@@ -1443,7 +1733,7 @@
               <a href="https://www.instagram.com/strosemedical" target="_blank" rel="noopener noreferrer" class="read-more">
                 Learn more <i class="bi bi-arrow-right" aria-hidden="true"></i>
               </a>
-              <div class="edu-emoji" aria-hidden="true">🔥</div>
+              <div class="edu-emoji" aria-hidden="true"><i class="bi bi-droplet-half"></i></div>
             </div>
           </div>
         </div>
@@ -1468,7 +1758,7 @@
               <a href="https://www.instagram.com/strosemedical" target="_blank" rel="noopener noreferrer" class="read-more">
                 Learn more <i class="bi bi-arrow-right" aria-hidden="true"></i>
               </a>
-              <div class="edu-emoji" aria-hidden="true">🌸</div>
+              <div class="edu-emoji" aria-hidden="true"><i class="bi bi-flower1"></i></div>
             </div>
           </div>
         </div>
@@ -1561,7 +1851,13 @@
             <a href="https://wa.me/17584522978?text=Hello%2C%20I%E2%80%99d%20like%20to%20book%20an%20appointment%20with%20Dr.%20Peter%20St.%20Rose%20(Gynecology%2FObstetrics)."
                target="_blank" rel="noopener noreferrer" class="btn-specialty">
               <i class="bi bi-person-circle" aria-hidden="true"></i>
-              Dr. Peter — Gynecology / OB
+              Dr. Peter — Gynecology / OB (Castries)
+            </a>
+
+            <a href="https://wa.me/17584848220?text=Hello%2C%20I%E2%80%99d%20like%20to%20book%20an%20appointment%20with%20Dr.%20Peter%20St.%20Rose%20at%20the%20Vieux%20Fort%20clinic%20on%20Friday."
+               target="_blank" rel="noopener noreferrer" class="btn-specialty">
+              <i class="bi bi-signpost-split" aria-hidden="true"></i>
+              Dr. Peter — Vieux Fort Clinic (Fridays)
             </a>
 
             <a href="https://wa.me/17584522978?text=Hello%2C%20I%E2%80%99d%20like%20to%20book%20an%20appointment%20with%20Dr.%20Alphonsus%20St.%20Rose%20(Gastroenterology%2FInternal%20Medicine)."
@@ -1622,6 +1918,7 @@
           <a href="#about">About Us</a>
           <a href="#services">Our Services</a>
           <a href="#doctors">Our Doctors</a>
+          <a href="#locations">Locations</a>
           <a href="#nutrition">Nutrition Specialist</a>
           <a href="#education">Health Topics</a>
           <a href="#contact">Book Appointment</a>
@@ -1644,7 +1941,7 @@
           <h6>Contact &amp; Hours</h6>
           <div class="foot-contact-item">
             <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
-            <span>#40 Micoud Street, Castries, Saint Lucia</span>
+            <span>Castries: #40 Micoud Street<br>Vieux Fort: United Medical &amp; Surgical Clinic, 7 Louisville (Fridays)</span>
           </div>
           <div class="foot-contact-item">
             <i class="bi bi-clock-fill" aria-hidden="true"></i>
@@ -1695,10 +1992,23 @@
     // ─── Dynamic year ───────────────────────────────
     document.getElementById('yr').textContent = new Date().getFullYear();
 
+    // ─── Sync navbar top offset to announcement bar's real height ───
+    const announceBar = document.querySelector('.announce-bar');
+    const navEl = document.getElementById('navbar');
+    function syncNavOffset() {
+      if (announceBar && navEl && !navEl.classList.contains('scrolled')) {
+        navEl.style.top = announceBar.offsetHeight + 'px';
+      }
+    }
+    syncNavOffset();
+    window.addEventListener('resize', syncNavOffset, { passive: true });
+
     // ─── Navbar scroll class ─────────────────────────
     const nav = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 80);
+      const scrolled = window.scrollY > 80;
+      nav.classList.toggle('scrolled', scrolled);
+      if (!scrolled) syncNavOffset();
     }, { passive: true });
 
     // ─── Scroll reveal (IntersectionObserver) ────────
