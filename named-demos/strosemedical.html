@@ -1,0 +1,1741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>St. Rose Medical | Your Health, Our Priority | Castries, Saint Lucia</title>
+
+  <!-- SEO Meta -->
+  <meta name="description" content="St. Rose Medical offers expert Gynecology, Obstetrics, Gastroenterology, and Internal Medicine in Castries, Saint Lucia. Drs. Peter and Alphonsus St. Rose — 25+ years of medical excellence. Scheduled &amp; walk-in appointments available.">
+  <meta name="keywords" content="St Rose Medical, doctor Castries Saint Lucia, gynecologist Saint Lucia, obstetrician Saint Lucia, gastroenterologist Saint Lucia, internal medicine Saint Lucia, women health Saint Lucia, pap smear Saint Lucia, endoscopy Saint Lucia">
+  <meta name="author" content="St. Rose Medical">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="St. Rose Medical | Your Health, Our Priority">
+  <meta property="og:description" content="Expert medical care in Gynecology, Obstetrics, Gastroenterology &amp; Internal Medicine — Castries, Saint Lucia.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_LC">
+  <meta property="og:site_name" content="St. Rose Medical">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="St. Rose Medical | Saint Lucia">
+  <meta name="twitter:description" content="Expert Gynecology, Obstetrics, Gastroenterology &amp; Internal Medicine in Castries, Saint Lucia.">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://strosemedical.com/">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "St. Rose Medical",
+    "description": "Expert medical care in Gynecology, Obstetrics, Gastroenterology, and Internal Medicine. Serving Castries, Saint Lucia for over 25 years.",
+    "url": "https://strosemedical.com",
+    "telephone": "+17584522978",
+    "slogan": "Your Health, Our Priority",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "#40 Micoud Street",
+      "addressLocality": "Castries",
+      "addressCountry": "LC"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "09:00",
+        "closes": "16:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "medicalSpecialty": ["Gynecology","Obstetrics","Gastroenterology","InternalMedicine"],
+    "hasMap": "https://maps.google.com/?q=40+Micoud+Street,+Castries,+Saint+Lucia",
+    "sameAs": [
+      "https://www.instagram.com/strosemedical",
+      "https://www.facebook.com/profile.php?id=6156335"
+    ],
+    "employee": [
+      {
+        "@type": "Physician",
+        "name": "Dr. Peter St. Rose",
+        "medicalSpecialty": "Obstetrics and Gynecology"
+      },
+      {
+        "@type": "Physician",
+        "name": "Dr. Alphonsus St. Rose",
+        "medicalSpecialty": "Gastroenterology"
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* =====================
+       CSS CUSTOM PROPERTIES
+    ===================== */
+    :root {
+      --primary:       #1A4B6E;
+      --primary-light: #2A6B9E;
+      --primary-dark:  #0F2D44;
+      --accent:        #9B2335;
+      --accent-light:  #B83048;
+      --gold:          #B8860B;
+      --gold-light:    #D4A827;
+      --cream:         #F6F1EA;
+      --cream-mid:     #EDE7DC;
+      --cream-dark:    #E0D6C7;
+      --white:         #FFFFFF;
+      --text-dark:     #121A22;
+      --text-mid:      #3A4550;
+      --text-light:    #6B7A88;
+      --green-wa:      #25D366;
+
+      --radius-xs: 6px;
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 36px;
+
+      --shadow-sm: 0 2px 10px rgba(15,45,68,.07);
+      --shadow-md: 0 8px 32px rgba(15,45,68,.12);
+      --shadow-lg: 0 20px 60px rgba(15,45,68,.18);
+
+      --ease: cubic-bezier(.4,0,.2,1);
+      --transition: all .35s var(--ease);
+    }
+
+    /* =====================
+       BASE
+    ===================== */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text-dark);
+      background: var(--cream);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+    h1,h2,h3,h4,h5,h6 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 600;
+      line-height: 1.15;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; transition: var(--transition); }
+    section { overflow: hidden; }
+    ::selection { background: var(--primary); color: white; }
+
+    /* =====================
+       UTILITIES
+    ===================== */
+    .section-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin-bottom: .75rem;
+    }
+    .section-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 32px; height: 1.5px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .section-eyebrow.light { color: var(--gold-light); }
+    .section-eyebrow.light::before { background: var(--gold-light); }
+
+    .section-title {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      color: var(--primary-dark);
+      margin-bottom: .75rem;
+    }
+    .section-title em { font-style: italic; color: var(--accent); }
+    .section-title.on-dark { color: white; }
+    .section-title.on-dark em { color: var(--gold-light); }
+
+    .section-lead {
+      font-size: .97rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+    .section-lead.on-dark { color: rgba(255,255,255,.72); }
+
+    .rule {
+      width: 56px; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--gold-light));
+      border-radius: 2px;
+      margin: 1.25rem 0 1.75rem;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .75s var(--ease), transform .75s var(--ease);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
+    .reveal-delay-4 { transition-delay: .4s; }
+
+    /* =====================
+       NAVBAR
+    ===================== */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1.4rem 0;
+      transition: var(--transition);
+    }
+    #navbar.scrolled {
+      background: rgba(15, 45, 68, .97);
+      backdrop-filter: blur(14px);
+      padding: .85rem 0;
+      box-shadow: 0 4px 24px rgba(0,0,0,.18);
+    }
+    .nav-brand-text .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: white;
+      display: block;
+      letter-spacing: .03em;
+    }
+    .nav-brand-text .tagline {
+      font-size: .6rem;
+      font-weight: 400;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.65);
+      display: block;
+    }
+    .navbar-nav .nav-link {
+      color: rgba(255,255,255,.88) !important;
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .45rem 1rem !important;
+      position: relative;
+    }
+    .navbar-nav .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 1rem; right: 1rem;
+      height: 1.5px;
+      background: var(--gold-light);
+      transform: scaleX(0);
+      transition: transform .3s ease;
+    }
+    .navbar-nav .nav-link:hover::after,
+    .navbar-nav .nav-link.active::after { transform: scaleX(1); }
+    .nav-book {
+      background: var(--accent) !important;
+      border-radius: 50px !important;
+      padding: .45rem 1.4rem !important;
+      font-weight: 600 !important;
+      color: white !important;
+    }
+    .nav-book:hover { background: var(--accent-light) !important; transform: translateY(-1px); }
+    .nav-book::after { display: none !important; }
+    .navbar-toggler {
+      border: 1.5px solid rgba(255,255,255,.3) !important;
+      padding: 5px 9px;
+    }
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,.85)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    }
+
+    /* =====================
+       HERO
+    ===================== */
+    .hero {
+      min-height: 100svh;
+      background: linear-gradient(130deg, var(--primary-dark) 0%, var(--primary) 55%, #1E6090 100%);
+      display: flex; align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Layered depth */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 10% 60%, rgba(155,35,53,.18) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 85% 15%, rgba(184,134,11,.08) 0%, transparent 55%);
+    }
+    /* Decorative geometry */
+    .hero-geo {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,.03);
+      pointer-events: none;
+    }
+    .hero-geo-1 { width:700px;height:700px; top:-220px;right:-180px; }
+    .hero-geo-2 { width:280px;height:280px; bottom:-80px;left:-60px; }
+    .hero-geo-3 {
+      width:110px;height:110px;
+      top:32%; left:12%;
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,.06);
+    }
+    /* Gold horizontal rule accent */
+    .hero-rule {
+      width: 48px; height: 2px;
+      background: linear-gradient(90deg, var(--gold-light), transparent);
+      margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow {
+      font-size: .68rem;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: .75rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.8rem,6vw,5.2rem);
+      color: white;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+    .hero-lead {
+      font-size: 1rem;
+      color: rgba(255,255,255,.78);
+      line-height: 1.85;
+      max-width: 510px;
+      margin-bottom: 2.5rem;
+    }
+    .btn-primary-cta {
+      display: inline-flex; align-items: center; gap: .6rem;
+      background: var(--accent);
+      color: white;
+      padding: .9rem 2.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: .92rem;
+      letter-spacing: .04em;
+      transition: var(--transition);
+      box-shadow: 0 8px 28px rgba(155,35,53,.35);
+    }
+    .btn-primary-cta:hover {
+      background: var(--accent-light); color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(155,35,53,.45);
+    }
+    .btn-outline-hero {
+      display: inline-flex; align-items: center; gap: .6rem;
+      color: white;
+      padding: .9rem 2.2rem;
+      border-radius: 50px;
+      font-weight: 500;
+      font-size: .92rem;
+      border: 1.5px solid rgba(255,255,255,.38);
+      transition: var(--transition);
+    }
+    .btn-outline-hero:hover {
+      background: rgba(255,255,255,.1);
+      border-color: rgba(255,255,255,.65);
+      color: white;
+    }
+
+    /* Hero image frame */
+    .hero-img-frame {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      transform: perspective(1200px) rotateY(-4deg);
+      transition: transform .6s var(--ease);
+    }
+    .hero-img-frame:hover { transform: perspective(1200px) rotateY(0deg); }
+    .hero-img-frame img {
+      width: 100%; height: 560px;
+      object-fit: cover; object-position: top center;
+    }
+
+    /* Floating stats */
+    .hero-float {
+      position: absolute;
+      background: white;
+      border-radius: var(--radius-md);
+      padding: 1.1rem 1.6rem;
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-float .f-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1;
+    }
+    .hero-float .f-label {
+      font-size: .73rem;
+      color: var(--text-light);
+      font-weight: 500;
+      margin-top: .2rem;
+    }
+    .hero-float-a { bottom: 36px; left: -24px; }
+    .hero-float-b {
+      top: 36px; right: -24px;
+      background: var(--accent);
+      color: white;
+    }
+    .hero-float-b .f-num { color: white; }
+    .hero-float-b .f-label { color: rgba(255,255,255,.75); }
+
+    /* Scroll nudge */
+    .scroll-nudge {
+      position: absolute; bottom: 2.5rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: .5rem;
+      color: rgba(255,255,255,.4);
+      font-size: .65rem; letter-spacing: .18em; text-transform: uppercase;
+    }
+    .scroll-nudge .line {
+      width: 1px; height: 48px;
+      background: linear-gradient(to bottom, rgba(255,255,255,.5), transparent);
+      animation: lineDrop 1.6s ease-in-out infinite;
+    }
+    @keyframes lineDrop {
+      0%   { transform: scaleY(0); transform-origin: top; opacity:1; }
+      49%  { transform: scaleY(1); transform-origin: top; opacity:1; }
+      50%  { transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; opacity:0; }
+    }
+
+    /* =====================
+       TRUST STRIP
+    ===================== */
+    .trust-strip {
+      background: var(--primary-dark);
+      padding: 1.4rem 0;
+    }
+    .trust-inner {
+      display: flex; flex-wrap: wrap;
+      justify-content: center; gap: 2.5rem 4rem;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: .7rem;
+      color: rgba(255,255,255,.82);
+      font-size: .85rem;
+      font-weight: 400;
+    }
+    .trust-item i { color: var(--gold-light); font-size: 1.2rem; }
+
+    /* =====================
+       ABOUT
+    ===================== */
+    .about-section { padding: 8rem 0; background: white; }
+
+    .about-visual { position: relative; }
+    .about-img-main {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      position: relative; z-index: 2;
+    }
+    .about-img-main img { width: 100%; height: 440px; object-fit: cover; object-position: top; }
+    .about-block-a {
+      position: absolute; bottom: -20px; right: -20px;
+      width: 160px; height: 160px;
+      background: var(--primary);
+      border-radius: var(--radius-md);
+      z-index: 1;
+    }
+    .about-block-b {
+      position: absolute; top: -16px; left: -16px;
+      width: 90px; height: 90px;
+      background: var(--cream-dark);
+      border-radius: var(--radius-sm);
+      z-index: 1;
+    }
+
+    .about-stats-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .astat {
+      background: var(--cream);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.35rem;
+      border-left: 3px solid var(--primary);
+      transition: var(--transition);
+    }
+    .astat:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .astat .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem; font-weight: 700;
+      color: var(--primary); line-height: 1;
+    }
+    .astat .lbl {
+      font-size: .78rem; color: var(--text-light);
+      font-weight: 500; margin-top: .25rem;
+    }
+
+    /* =====================
+       SERVICES
+    ===================== */
+    .services-section {
+      padding: 8rem 0;
+      background: var(--cream);
+      position: relative;
+    }
+    .services-section::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-dark), var(--primary), var(--accent), var(--gold));
+    }
+
+    .svc-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 1.85rem;
+      height: 100%;
+      border: 1px solid rgba(15,45,68,.06);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .svc-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: var(--primary);
+      transform: scaleY(0); transform-origin: bottom;
+      transition: transform .4s var(--ease);
+    }
+    .svc-card:hover::before { transform: scaleY(1); }
+    .svc-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+
+    .svc-icon {
+      width: 62px; height: 62px;
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.55rem;
+      margin-bottom: 1.5rem;
+      transition: var(--transition);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    }
+    .svc-card:hover .svc-icon {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+      transform: scale(1.06);
+    }
+    .svc-card h4 { font-size: 1.35rem; color: var(--primary-dark); margin-bottom: .65rem; }
+    .svc-card > p { font-size: .9rem; color: var(--text-mid); margin-bottom: 1.2rem; }
+
+    .svc-list { list-style: none; padding: 0; margin: 0; }
+    .svc-list li {
+      font-size: .84rem; color: var(--text-light);
+      padding: .28rem 0;
+      display: flex; align-items: flex-start; gap: .55rem;
+    }
+    .svc-list li::before {
+      content: '✓'; color: var(--primary);
+      font-weight: 700; flex-shrink: 0; margin-top: .05rem;
+    }
+
+    /* =====================
+       DOCTORS
+    ===================== */
+    .doctors-section {
+      padding: 8rem 0;
+      background: var(--primary-dark);
+      position: relative; overflow: hidden;
+    }
+    .doctors-section::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 110%, rgba(155,35,53,.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .doc-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      transition: var(--transition);
+      height: 100%;
+    }
+    .doc-card:hover {
+      background: rgba(255,255,255,.09);
+      border-color: rgba(255,255,255,.2);
+      transform: translateY(-8px);
+      box-shadow: 0 24px 60px rgba(0,0,0,.3);
+    }
+    .doc-card-img {
+      width: 100%; height: 360px;
+      object-fit: cover; object-position: top center;
+    }
+    .doc-card-body { padding: 2rem; }
+
+    .specialty-pill {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: rgba(184,134,11,.14);
+      border: 1px solid rgba(212,168,39,.28);
+      color: var(--gold-light);
+      font-size: .68rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: .38rem 1rem; border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+    .doc-card h3 { font-size: 1.7rem; color: white; margin-bottom: .35rem; }
+    .doc-sub { font-size: .84rem; color: rgba(255,255,255,.55); margin-bottom: 1rem; }
+    .doc-card p { font-size: .9rem; color: rgba(255,255,255,.7); line-height: 1.75; margin-bottom: 1.5rem; }
+    .doc-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .doc-tag {
+      background: rgba(255,255,255,.08);
+      color: rgba(255,255,255,.78);
+      font-size: .7rem; font-weight: 500;
+      padding: .3rem .8rem; border-radius: 50px;
+    }
+
+    /* =====================
+       NUTRITION SPECIALIST
+    ===================== */
+    .nutrition-section { padding: 8rem 0; background: white; }
+
+    .nutr-card {
+      background: linear-gradient(135deg, var(--cream) 0%, white 100%);
+      border-radius: var(--radius-xl);
+      padding: 3rem;
+      border: 1px solid var(--cream-mid);
+      position: relative; overflow: hidden;
+    }
+    .nutr-card::after {
+      content: '';
+      position: absolute; top: -80px; right: -80px;
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(26,75,110,.05), transparent);
+      pointer-events: none;
+    }
+
+    .nutr-img {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .nutr-img img { width: 100%; height: 400px; object-fit: cover; object-position: top; }
+
+    .pill-grid { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1.25rem; }
+    .svc-pill {
+      display: inline-flex; align-items: center; gap: .45rem;
+      background: var(--cream);
+      border: 1px solid var(--cream-dark);
+      color: var(--primary);
+      font-size: .8rem; font-weight: 500;
+      padding: .45rem 1.1rem; border-radius: 50px;
+      transition: var(--transition);
+    }
+    .svc-pill:hover { background: var(--primary); color: white; border-color: var(--primary); transform: translateY(-2px); }
+    .svc-pill i { font-size: .85rem; color: var(--accent); }
+    .svc-pill:hover i { color: rgba(255,255,255,.8); }
+
+    .nutr-schedule-badge {
+      display: inline-flex; align-items: center; gap: .6rem;
+      background: var(--primary-dark);
+      color: white;
+      padding: .75rem 1.5rem;
+      border-radius: 50px;
+      font-size: .85rem; font-weight: 500;
+      margin-top: 1.5rem;
+    }
+    .nutr-schedule-badge i { color: var(--gold-light); }
+
+    /* =====================
+       HEALTH EDUCATION
+    ===================== */
+    .edu-section { padding: 8rem 0; background: var(--cream); }
+
+    .edu-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,.04);
+      height: 100%;
+      transition: var(--transition);
+    }
+    .edu-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+
+    .edu-top { padding: 2rem 2rem 1rem; }
+    .edu-tag {
+      display: inline-block;
+      background: var(--primary); color: white;
+      font-size: .63rem; font-weight: 600;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: .28rem .85rem; border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+    .edu-card h5 { font-size: 1.22rem; color: var(--primary-dark); margin-bottom: .7rem; }
+    .edu-card p { font-size: .87rem; color: var(--text-mid); line-height: 1.75; }
+    .edu-bottom {
+      padding: 1rem 2rem 1.75rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .read-more {
+      font-size: .8rem; font-weight: 600;
+      color: var(--primary);
+      display: flex; align-items: center; gap: .4rem;
+    }
+    .read-more:hover { color: var(--accent); gap: .65rem; }
+    .edu-emoji {
+      width: 46px; height: 46px;
+      background: var(--cream);
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    /* Symptoms list in education */
+    .symptom-list {
+      list-style: none; padding: 0; margin: 0;
+      display: grid; grid-template-columns: 1fr 1fr; gap: .25rem .75rem;
+    }
+    .symptom-list li {
+      font-size: .8rem; color: var(--text-mid);
+      display: flex; align-items: flex-start; gap: .4rem;
+      padding: .2rem 0;
+    }
+    .symptom-list li::before { content: '•'; color: var(--accent); font-weight: 700; }
+
+    /* =====================
+       BOOKING / CONTACT
+    ===================== */
+    .booking-section {
+      padding: 8rem 0;
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      position: relative; overflow: hidden;
+    }
+    .booking-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 70% at 25% 60%, rgba(155,35,53,.2) 0%, transparent 60%);
+    }
+
+    .book-card {
+      background: rgba(255,255,255,.07);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      height: 100%;
+      display: flex; flex-direction: column;
+    }
+    .book-card h5 { font-size: 1.3rem; color: white; margin-bottom: .4rem; }
+    .book-card > p { font-size: .88rem; color: rgba(255,255,255,.6); margin-bottom: 1.5rem; }
+
+    .info-row {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: .9rem 0;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .info-row:last-of-type { border-bottom: none; }
+    .info-ico {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: rgba(184,134,11,.14);
+      border-radius: var(--radius-xs);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold-light); font-size: 1.05rem;
+    }
+    .info-lbl {
+      font-size: .68rem; text-transform: uppercase;
+      letter-spacing: .1em; color: rgba(255,255,255,.45);
+      font-weight: 600; margin-bottom: .15rem;
+    }
+    .info-val { font-size: .93rem; color: white; font-weight: 500; }
+
+    .btn-wa {
+      display: flex; align-items: center; justify-content: center; gap: .7rem;
+      background: var(--green-wa); color: white;
+      padding: 1rem 2rem; border-radius: 50px;
+      font-weight: 600; font-size: .95rem;
+      transition: var(--transition);
+      box-shadow: 0 8px 28px rgba(37,211,102,.3);
+      margin-top: auto; margin-bottom: .75rem;
+    }
+    .btn-wa:hover {
+      background: #1EB457; color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(37,211,102,.4);
+    }
+    .btn-wa i { font-size: 1.4rem; }
+
+    .btn-call-outline {
+      display: flex; align-items: center; justify-content: center; gap: .7rem;
+      background: transparent; color: white;
+      padding: .9rem 2rem; border-radius: 50px;
+      font-weight: 500; font-size: .9rem;
+      border: 1.5px solid rgba(255,255,255,.28);
+      transition: var(--transition);
+    }
+    .btn-call-outline:hover {
+      background: rgba(255,255,255,.1);
+      border-color: rgba(255,255,255,.6);
+      color: white;
+    }
+
+    .btn-specialty {
+      display: flex; align-items: center; gap: .6rem;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.15);
+      color: rgba(255,255,255,.88);
+      padding: .8rem 1.25rem; border-radius: var(--radius-sm);
+      font-size: .85rem; font-weight: 500;
+      transition: var(--transition);
+      margin-bottom: .6rem;
+    }
+    .btn-specialty:hover {
+      background: rgba(255,255,255,.14);
+      border-color: rgba(255,255,255,.3);
+      color: white; transform: translateX(4px);
+    }
+    .btn-specialty i { color: var(--gold-light); flex-shrink: 0; }
+
+    /* =====================
+       FOOTER
+    ===================== */
+    footer {
+      background: var(--primary-dark);
+      padding: 5rem 0 2.5rem;
+      border-top: 1px solid rgba(255,255,255,.07);
+    }
+    .foot-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem; font-weight: 700;
+      color: white; margin-bottom: .2rem;
+    }
+    .foot-tagline {
+      font-size: .68rem; letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold-light); margin-bottom: 1rem;
+    }
+    footer p {
+      font-size: .87rem;
+      color: rgba(255,255,255,.55);
+      line-height: 1.75;
+      max-width: 280px;
+    }
+    .foot-social { display: flex; gap: .6rem; margin-top: 1.75rem; }
+    .soc-btn {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.65);
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    .soc-btn:hover { background: var(--primary-light); border-color: var(--primary-light); color: white; }
+
+    footer h6 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: .72rem; font-weight: 700;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: rgba(255,255,255,.5); margin-bottom: 1.35rem;
+    }
+    footer a {
+      color: rgba(255,255,255,.58);
+      font-size: .87rem; display: block;
+      margin-bottom: .65rem;
+    }
+    footer a:hover { color: var(--gold-light); padding-left: 3px; }
+    .foot-contact-item {
+      display: flex; align-items: flex-start; gap: .6rem;
+      margin-bottom: .75rem;
+    }
+    .foot-contact-item i { color: var(--gold-light); font-size: .9rem; margin-top: .2rem; flex-shrink: 0; }
+    .foot-contact-item span { font-size: .86rem; color: rgba(255,255,255,.58); line-height: 1.5; }
+
+    .foot-divider { border-color: rgba(255,255,255,.07); margin: 3.5rem 0 1.75rem; }
+    .foot-bottom { font-size: .78rem; color: rgba(255,255,255,.3); }
+    .foot-bottom a { display: inline; font-size: .78rem; color: var(--gold-light); padding: 0; margin: 0; }
+    .foot-bottom a:hover { color: white; }
+
+    /* =====================
+       FLOATING WHATSAPP
+    ===================== */
+    .wa-float {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
+      width: 60px; height: 60px;
+      background: var(--green-wa);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 1.75rem;
+      box-shadow: 0 8px 28px rgba(37,211,102,.4);
+      transition: var(--transition);
+    }
+    .wa-float:hover { transform: scale(1.1) translateY(-3px); color: white; }
+    .wa-float::before {
+      content: '';
+      position: absolute; inset: -5px;
+      border-radius: 50%;
+      background: rgba(37,211,102,.25);
+      animation: waPulse 2s ease-out infinite;
+    }
+    @keyframes waPulse {
+      0%   { transform: scale(.9); opacity: 1; }
+      100% { transform: scale(1.45); opacity: 0; }
+    }
+
+    /* =====================
+       RESPONSIVE
+    ===================== */
+    @media (max-width: 991.98px) {
+      .hero { padding: 8rem 0 5rem; min-height: auto; }
+      .hero-img-frame { margin-top: 3rem; }
+      .hero-float-a, .hero-float-b { display: none; }
+      .about-stats-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 575.98px) {
+      .hero h1 { font-size: 2.3rem; }
+      .about-stats-grid { grid-template-columns: 1fr; }
+      .trust-inner { gap: 1.25rem 2rem; }
+      .symptom-list { grid-template-columns: 1fr; }
+      .nutr-card { padding: 1.75rem; }
+      .book-card { padding: 1.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =====================
+       NAVBAR
+  ===================== -->
+  <nav id="navbar" aria-label="Main navigation">
+    <div class="container d-flex align-items-center justify-content-between gap-3">
+
+      <a href="#home" class="d-flex align-items-center gap-2 text-decoration-none" aria-label="St. Rose Medical – home">
+        <!-- When you have the logo SVG/PNG, swap the text below with an <img> tag -->
+        <div class="nav-brand-text">
+          <span class="name">St. Rose Medical</span>
+          <span class="tagline">Your Health, Our Priority</span>
+        </div>
+      </a>
+
+      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-center gap-1">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#doctors">Our Doctors</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Health Topics</a></li>
+          <li class="nav-item ms-lg-2">
+            <a class="nav-link nav-book"
+               href="https://wa.me/17584522978?text=Hello%20St.%20Rose%20Medical%2C%20I%E2%80%99d%20like%20to%20book%20an%20appointment."
+               target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-calendar-check me-1" aria-hidden="true"></i>Book Appointment
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- =====================
+       HERO
+  ===================== -->
+  <section class="hero" id="home" aria-label="Welcome to St. Rose Medical">
+    <div class="hero-geo hero-geo-1" aria-hidden="true"></div>
+    <div class="hero-geo hero-geo-2" aria-hidden="true"></div>
+    <div class="hero-geo hero-geo-3" aria-hidden="true"></div>
+
+    <div class="container position-relative" style="z-index:2;">
+      <div class="row align-items-center g-5">
+
+        <!-- Copy -->
+        <div class="col-lg-6">
+          <p class="hero-eyebrow">Castries, Saint Lucia</p>
+          <div class="hero-rule" aria-hidden="true"></div>
+          <h1>Expert Care.<br><em>Trusted</em> Physicians.</h1>
+          <p class="hero-lead">
+            Drs. Peter and Alphonsus St. Rose bring over 25 years of specialist excellence to every patient — offering world-class Gynecology, Obstetrics, Gastroenterology, and Internal Medicine right here in Saint Lucia.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="https://wa.me/17584522978?text=Hello%20St.%20Rose%20Medical%2C%20I%E2%80%99d%20like%20to%20book%20an%20appointment."
+               class="btn-primary-cta" target="_blank" rel="noopener noreferrer"
+               aria-label="Book an appointment via WhatsApp">
+              <i class="bi bi-whatsapp" aria-hidden="true"></i>
+              Book via WhatsApp
+            </a>
+            <a href="tel:+17584522978" class="btn-outline-hero">
+              <i class="bi bi-telephone" aria-hidden="true"></i>
+              758 452 2978
+            </a>
+          </div>
+        </div>
+
+        <!-- Image -->
+        <div class="col-lg-6">
+          <div style="position: relative; padding: 1.5rem 2rem 1.5rem 1.5rem;">
+            <div class="hero-img-frame">
+              <!--
+                ★ PHOTO SWAP POINT ★
+                Replace the src below with the actual professional photo of Dr. Peter St. Rose.
+                The uploaded Image 9 (AI-generated style OB/GYN photo) can be used here.
+                Ideal: Real professional headshot or clinic shot.
+                Height: 560px / object-position: top center
+              -->
+              <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=700&q=80"
+                   alt="Dr. Peter St. Rose, Obstetrician/Gynecologist – St. Rose Medical, Castries, Saint Lucia"
+                   loading="eager" width="700" height="560">
+            </div>
+            <div class="hero-float hero-float-a" aria-hidden="true">
+              <div class="f-num">25+</div>
+              <div class="f-label">Years of Medical Excellence</div>
+            </div>
+            <div class="hero-float hero-float-b" aria-hidden="true">
+              <div class="f-num">4</div>
+              <div class="f-label">Medical Specialties</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="scroll-nudge" aria-hidden="true">
+      <div class="line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- =====================
+       TRUST STRIP
+  ===================== -->
+  <div class="trust-strip" aria-label="Quick practice facts">
+    <div class="container">
+      <div class="trust-inner">
+        <div class="trust-item">
+          <i class="bi bi-shield-check" aria-hidden="true"></i>
+          <span>Experienced Specialists</span>
+        </div>
+        <div class="trust-item">
+          <i class="bi bi-person-walking" aria-hidden="true"></i>
+          <span>Walk-Ins Welcome</span>
+        </div>
+        <div class="trust-item">
+          <i class="bi bi-heart-pulse" aria-hidden="true"></i>
+          <span>Compassionate Patient Care</span>
+        </div>
+        <div class="trust-item">
+          <i class="bi bi-calendar2-check" aria-hidden="true"></i>
+          <span>Scheduled &amp; Same-Day Appointments</span>
+        </div>
+        <div class="trust-item">
+          <i class="bi bi-geo-alt" aria-hidden="true"></i>
+          <span>#40 Micoud St, Castries</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================
+       ABOUT
+  ===================== -->
+  <section class="about-section" id="about" aria-labelledby="about-title">
+    <div class="container">
+      <div class="row align-items-center g-5">
+
+        <!-- Visual -->
+        <div class="col-lg-5 reveal">
+          <div class="about-visual" style="padding: 1.5rem 1.75rem 1.75rem 1.5rem;">
+            <div class="about-block-b" aria-hidden="true"></div>
+            <div class="about-img-main">
+              <!--
+                ★ PHOTO SWAP POINT ★
+                Best here: The duo photo of Drs. Peter & Alphonsus (Image 1 banner, or a professional clinic shot).
+                height: 440px
+              -->
+              <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80"
+                   alt="Drs. Peter and Alphonsus St. Rose – brothers and specialist physicians at St. Rose Medical"
+                   loading="lazy" width="600" height="440">
+            </div>
+            <div class="about-block-a" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="col-lg-7 reveal reveal-delay-2">
+          <p class="section-eyebrow">About St. Rose Medical</p>
+          <h2 class="section-title" id="about-title">Brothers by Blood.<br><em>United</em> by Medicine.</h2>
+          <div class="rule" aria-hidden="true"></div>
+          <p class="section-lead mb-3">
+            At the heart of St. Rose Medical are Drs. Peter and Alphonsus St. Rose — two brothers who share not only a family bond but an unwavering commitment to exceptional medical care. Together, they bring over 25 years of specialist experience to the people of Saint Lucia.
+          </p>
+          <p class="section-lead mb-4">
+            From routine consultations to complex procedures, we combine clinical expertise with genuine compassion. We offer both scheduled appointments and walk-in services — because quality healthcare should always be accessible.
+          </p>
+
+          <div class="about-stats-grid">
+            <div class="astat">
+              <div class="num">25+</div>
+              <div class="lbl">Years Combined Experience</div>
+            </div>
+            <div class="astat">
+              <div class="num">4</div>
+              <div class="lbl">Medical Specialties</div>
+            </div>
+            <div class="astat">
+              <div class="num">2</div>
+              <div class="lbl">Expert Specialist Physicians</div>
+            </div>
+            <div class="astat">
+              <div class="num" style="font-size:1.8rem; margin-top:.2rem;">✓ Walk-In</div>
+              <div class="lbl">No appointment needed for walk-ins</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       SERVICES
+  ===================== -->
+  <section class="services-section" id="services" aria-labelledby="services-title">
+    <div class="container">
+
+      <div class="text-center mb-5 reveal">
+        <p class="section-eyebrow justify-content-center">What We Offer</p>
+        <h2 class="section-title" id="services-title">Our Medical <em>Specialties</em></h2>
+        <p class="section-lead mx-auto" style="max-width:560px;">
+          Comprehensive care across four key disciplines — delivered by specialists with decades of real-world clinical experience in Saint Lucia.
+        </p>
+      </div>
+
+      <div class="row g-4">
+
+        <!-- Gynecology & Obstetrics -->
+        <div class="col-md-6 col-xl-3 reveal reveal-delay-1">
+          <div class="svc-card">
+            <div class="svc-icon" role="img" aria-label="Gynecology icon">🩺</div>
+            <h4>Gynecology &amp; Obstetrics</h4>
+            <p>Expert women's health care — from prenatal through post-menopause — delivered with skill and compassion by Dr. Peter St. Rose.</p>
+            <ul class="svc-list" aria-label="Gynecology and Obstetrics services">
+              <li>Prenatal &amp; Antenatal Care</li>
+              <li>Fertility Consultations</li>
+              <li>Cervical Cancer Screening (Pap Smear)</li>
+              <li>Colposcopy</li>
+              <li>Minor &amp; Major Gynecological Surgeries</li>
+              <li>PCOS &amp; Hormonal Disorders</li>
+              <li>Menopause Management</li>
+              <li>Ultrasound Services</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Gastroenterology -->
+        <div class="col-md-6 col-xl-3 reveal reveal-delay-2">
+          <div class="svc-card">
+            <div class="svc-icon" role="img" aria-label="Gastroenterology icon">🔬</div>
+            <h4>Gastroenterology</h4>
+            <p>Advanced digestive health diagnostics and treatment by Dr. Alphonsus St. Rose, including minimally invasive endoscopic procedures.</p>
+            <ul class="svc-list" aria-label="Gastroenterology services">
+              <li>Endoscopy</li>
+              <li>Colonoscopy</li>
+              <li>Acid Reflux (GERD) Management</li>
+              <li>Irritable Bowel Syndrome (IBS)</li>
+              <li>Peptic Ulcer Treatment</li>
+              <li>Gastrointestinal Bleeding</li>
+              <li>Liver &amp; Bowel Disorders</li>
+              <li>Gut Health Evaluations</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Internal Medicine -->
+        <div class="col-md-6 col-xl-3 reveal reveal-delay-3">
+          <div class="svc-card">
+            <div class="svc-icon" role="img" aria-label="Internal Medicine icon">❤️</div>
+            <h4>Internal Medicine</h4>
+            <p>Thorough diagnosis and management of complex adult medical conditions — whole-body care for lasting wellbeing.</p>
+            <ul class="svc-list" aria-label="Internal Medicine services">
+              <li>Diabetes Management</li>
+              <li>Hypertension Treatment</li>
+              <li>Cardiac Risk Assessment</li>
+              <li>Chronic Disease Management</li>
+              <li>General Health Screenings</li>
+              <li>Preventive Medicine</li>
+              <li>Adult Physical Examinations</li>
+              <li>Metabolic Syndrome</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Holistic Nutrition -->
+        <div class="col-md-6 col-xl-3 reveal reveal-delay-4">
+          <div class="svc-card">
+            <div class="svc-icon" role="img" aria-label="Holistic Nutrition icon">🥗</div>
+            <h4>Holistic Nutrition &amp; Lifestyle</h4>
+            <p>Personalised coaching with Sam Alex (CINHC &amp; CFNC) — addressing root causes through food, lifestyle, and natural health strategies.</p>
+            <ul class="svc-list" aria-label="Holistic Nutrition services">
+              <li>Pregnancy &amp; Anti-Inflammatory Diets</li>
+              <li>Weight &amp; Cholesterol Management</li>
+              <li>Gut Rebalancing</li>
+              <li>Hormonal Health Nutrition</li>
+              <li>Peri &amp; Post-Menopause Support</li>
+              <li>Autoimmune &amp; Chronic Disease Diet</li>
+              <li>Immune Strengthening</li>
+              <li>Thursdays 10am – 3pm</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       DOCTORS
+  ===================== -->
+  <section class="doctors-section" id="doctors" aria-labelledby="doctors-title">
+    <div class="container position-relative" style="z-index:1;">
+
+      <div class="text-center mb-5 reveal">
+        <p class="section-eyebrow light justify-content-center">Meet the Physicians</p>
+        <h2 class="section-title on-dark" id="doctors-title">The <em>St. Rose</em> Brothers</h2>
+        <p class="section-lead on-dark mx-auto" style="max-width: 520px;">
+          Two brothers. Two specialties. One unwavering mission — providing Saint Lucia with the highest standard of medical care available anywhere.
+        </p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+
+        <!-- Dr. Peter -->
+        <div class="col-lg-5 reveal reveal-delay-1">
+          <div class="doc-card">
+            <!--
+              ★ PHOTO SWAP POINT ★
+              Replace with actual Dr. Peter St. Rose headshot.
+              Image 9 from your upload (AI-generated doctor) is suitable here.
+              Ideal: Real photo in white coat, clinic setting.
+            -->
+            <img class="doc-card-img"
+                 src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=600&q=80"
+                 alt="Dr. Peter St. Rose – Obstetrician &amp; Gynecologist, St. Rose Medical"
+                 loading="lazy" width="600" height="360">
+            <div class="doc-card-body">
+              <span class="specialty-pill">
+                <i class="bi bi-award-fill" aria-hidden="true"></i>
+                OB/GYN Specialist
+              </span>
+              <h3>Dr. Peter St. Rose</h3>
+              <p class="doc-sub">MBBS · Obstetrician &amp; Gynecologist · 25+ Years Experience</p>
+              <p>
+                Dr. Peter St. Rose is an expert Obstetrician/Gynecologist offering a comprehensive range of women's health services — from fertility consultations and pregnancy care to cervical cancer screening and surgical procedures. He is known for combining clinical precision with a deeply personal, caring approach to every patient.
+              </p>
+              <div class="doc-tags">
+                <span class="doc-tag">Fertility</span>
+                <span class="doc-tag">Pregnancy</span>
+                <span class="doc-tag">Colposcopy</span>
+                <span class="doc-tag">PCOS</span>
+                <span class="doc-tag">Menopause</span>
+                <span class="doc-tag">Gynecological Surgery</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dr. Alphonsus -->
+        <div class="col-lg-5 reveal reveal-delay-2">
+          <div class="doc-card">
+            <!--
+              ★ PHOTO SWAP POINT ★
+              Replace with actual Dr. Alphonsus St. Rose headshot.
+              The duo photo from Image 1 shows both doctors.
+            -->
+            <img class="doc-card-img"
+                 src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80"
+                 alt="Dr. Alphonsus St. Rose – Gastroenterologist &amp; Internist, St. Rose Medical"
+                 loading="lazy" width="600" height="360">
+            <div class="doc-card-body">
+              <span class="specialty-pill">
+                <i class="bi bi-award-fill" aria-hidden="true"></i>
+                Gastroenterology &amp; Internal Medicine
+              </span>
+              <h3>Dr. Alphonsus St. Rose</h3>
+              <p class="doc-sub">MBBS · Gastroenterologist &amp; Internist · 25+ Years Experience</p>
+              <p>
+                Dr. Alphonsus St. Rose is a highly skilled Gastroenterologist and Internist offering a wide range of services — including diagnostic endoscopy, colonoscopy, and comprehensive management of complex adult medical conditions. His depth of experience and diagnostic precision have made him a trusted name in Saint Lucian healthcare.
+              </p>
+              <div class="doc-tags">
+                <span class="doc-tag">Endoscopy</span>
+                <span class="doc-tag">Colonoscopy</span>
+                <span class="doc-tag">Acid Reflux</span>
+                <span class="doc-tag">Diabetes</span>
+                <span class="doc-tag">Hypertension</span>
+                <span class="doc-tag">Internal Medicine</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       NUTRITION SPECIALIST
+  ===================== -->
+  <section class="nutrition-section" id="nutrition" aria-labelledby="nutr-title">
+    <div class="container">
+      <div class="nutr-card reveal">
+        <div class="row align-items-center g-5">
+
+          <div class="col-lg-5">
+            <div class="nutr-img">
+              <!--
+                ★ PHOTO SWAP POINT ★
+                Replace with actual Sam Alex photo.
+                Image 5 in your upload shows Sam Alex's promotional graphic — use her real headshot here.
+              -->
+              <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=600&q=80"
+                   alt="Sam Alex, CINHC &amp; CFNC – Holistic Nutrition &amp; Lifestyle Specialist at St. Rose Medical"
+                   loading="lazy" width="600" height="400">
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <p class="section-eyebrow">Featured Specialist</p>
+            <h2 class="section-title" id="nutr-title">Holistic Nutrition &amp;<br><em>Lifestyle Coaching</em></h2>
+            <div class="rule" aria-hidden="true"></div>
+            <p class="section-lead mb-3">
+              St. Rose Medical is proud to host <strong>Sam Alex</strong> (CINHC &amp; CFNC) — a Functional &amp; Integrative Nutrition Specialist who takes a whole-body approach to your health. Food is medicine, and Sam helps patients harness it.
+            </p>
+
+            <div class="pill-grid">
+              <span class="svc-pill"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Weight Management</span>
+              <span class="svc-pill"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Gut Rebalancing</span>
+              <span class="svc-pill"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Pregnancy Diet</span>
+              <span class="svc-pill"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Anti-Inflammatory Diet</span>
+              <span class="svc-pill"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Autoimmune Diet</span>
+              <span class="svc-pill"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Chronic Disease Diet</span>
+              <span class="svc-pill"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Hormonal Health</span>
+              <span class="svc-pill"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Peri &amp; Post-Menopause</span>
+              <span class="svc-pill"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Reduce Cholesterol</span>
+              <span class="svc-pill"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Boost Energy &amp; Immunity</span>
+            </div>
+
+            <div class="d-flex flex-wrap gap-3 align-items-center mt-4">
+              <div class="nutr-schedule-badge">
+                <i class="bi bi-calendar3" aria-hidden="true"></i>
+                Thursdays — 10:00am to 3:00pm
+              </div>
+              <a href="https://wa.me/17584522978?text=Hello%2C%20I%E2%80%99d%20like%20to%20book%20a%20Nutrition%20Consultation%20with%20Sam%20Alex."
+                 target="_blank" rel="noopener noreferrer"
+                 class="btn-primary-cta" style="margin-top: 0;">
+                <i class="bi bi-whatsapp" aria-hidden="true"></i>
+                Book Nutrition Consult
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       HEALTH EDUCATION
+  ===================== -->
+  <section class="edu-section" id="education" aria-labelledby="edu-title">
+    <div class="container">
+
+      <div class="row align-items-end mb-5 reveal">
+        <div class="col-lg-8">
+          <p class="section-eyebrow">Patient Resources</p>
+          <h2 class="section-title" id="edu-title">Know Your <em>Health</em></h2>
+          <div class="rule" aria-hidden="true"></div>
+          <p class="section-lead">
+            Our physicians believe an informed patient is an empowered patient. These are some of the common conditions we treat — and what you should know about them.
+          </p>
+        </div>
+        <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+          <a href="https://www.instagram.com/strosemedical" target="_blank" rel="noopener noreferrer"
+             class="btn btn-outline-primary rounded-pill px-4 py-2" style="font-size:.85rem; font-weight:600;">
+            <i class="bi bi-instagram me-2" aria-hidden="true"></i>More Health Content
+          </a>
+        </div>
+      </div>
+
+      <div class="row g-4">
+
+        <!-- Cervical Cancer -->
+        <div class="col-md-6 col-lg-4 reveal reveal-delay-1">
+          <div class="edu-card">
+            <div class="edu-top">
+              <span class="edu-tag">Gynecology</span>
+              <h5>Cervical Cancer: Symptoms &amp; Prevention</h5>
+              <p>Cervical cancer remains one of the leading causes of cancer-related deaths among women in Saint Lucia — yet it is one of the most preventable when detected early. Know the signs:</p>
+              <ul class="symptom-list mt-2" aria-label="Cervical cancer symptoms">
+                <li>Unusual vaginal bleeding</li>
+                <li>Pelvic pain or discomfort</li>
+                <li>Bleeding after sex</li>
+                <li>Abnormal discharge</li>
+                <li>Post-menopausal bleeding</li>
+                <li>Pain during intercourse</li>
+              </ul>
+            </div>
+            <div class="edu-bottom">
+              <a href="https://www.instagram.com/strosemedical" target="_blank" rel="noopener noreferrer" class="read-more">
+                Learn more <i class="bi bi-arrow-right" aria-hidden="true"></i>
+              </a>
+              <div class="edu-emoji" aria-hidden="true">🎗️</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Acid Reflux -->
+        <div class="col-md-6 col-lg-4 reveal reveal-delay-2">
+          <div class="edu-card">
+            <div class="edu-top">
+              <span class="edu-tag">Gastroenterology</span>
+              <h5>Acid Reflux: More Than Just Heartburn</h5>
+              <p>Acid reflux affects millions and presents in ways many don't immediately recognise. Don't ignore these common signs:</p>
+              <ul class="symptom-list mt-2" aria-label="Acid reflux symptoms">
+                <li>Chest pain</li>
+                <li>Burning throat</li>
+                <li>Bloating</li>
+                <li>Heart palpitations</li>
+                <li>Difficulty swallowing</li>
+                <li>Constipation</li>
+                <li>Sporadic coughing</li>
+                <li>Fullness feeling</li>
+              </ul>
+            </div>
+            <div class="edu-bottom">
+              <a href="https://www.instagram.com/strosemedical" target="_blank" rel="noopener noreferrer" class="read-more">
+                Learn more <i class="bi bi-arrow-right" aria-hidden="true"></i>
+              </a>
+              <div class="edu-emoji" aria-hidden="true">🔥</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Menopause -->
+        <div class="col-md-6 col-lg-4 reveal reveal-delay-3">
+          <div class="edu-card">
+            <div class="edu-top">
+              <span class="edu-tag">Women's Health</span>
+              <h5>Navigating Peri &amp; Post-Menopause</h5>
+              <p>Menopause is a natural transition — but its symptoms don't have to be endured alone. St. Rose Medical's integrated 30-day programme combines medical expertise and nutritional support to help women thrive:</p>
+              <ul class="symptom-list mt-2" aria-label="Menopause programme features">
+                <li>Physiology education</li>
+                <li>Tailored meal plans</li>
+                <li>Hormone therapy info</li>
+                <li>Support group access</li>
+                <li>Exercise guidance</li>
+                <li>Supplement planning</li>
+              </ul>
+            </div>
+            <div class="edu-bottom">
+              <a href="https://www.instagram.com/strosemedical" target="_blank" rel="noopener noreferrer" class="read-more">
+                Learn more <i class="bi bi-arrow-right" aria-hidden="true"></i>
+              </a>
+              <div class="edu-emoji" aria-hidden="true">🌸</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       BOOKING / CONTACT
+  ===================== -->
+  <section class="booking-section" id="contact" aria-labelledby="booking-title">
+    <div class="container position-relative" style="z-index:1;">
+
+      <div class="text-center mb-5 reveal">
+        <p class="section-eyebrow light justify-content-center">Book an Appointment</p>
+        <h2 class="section-title on-dark" id="booking-title">We're Here <em>For You</em></h2>
+        <p class="section-lead on-dark mx-auto" style="max-width:520px;">
+          Booking is quick and easy. Reach us via WhatsApp, call directly, or simply walk in during our operating hours.
+        </p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+
+        <!-- WhatsApp & Call -->
+        <div class="col-md-6 col-lg-4 reveal reveal-delay-1">
+          <div class="book-card">
+            <h5><i class="bi bi-whatsapp me-2 text-success" aria-hidden="true"></i>Book via WhatsApp</h5>
+            <p>The fastest way to secure your appointment. Send us a message and we'll confirm swiftly.</p>
+            <a href="https://wa.me/17584522978?text=Hello%20St.%20Rose%20Medical%2C%20I%E2%80%99d%20like%20to%20book%20an%20appointment."
+               class="btn-wa" target="_blank" rel="noopener noreferrer"
+               aria-label="Book appointment via WhatsApp">
+              <i class="bi bi-whatsapp" aria-hidden="true"></i>
+              Chat on WhatsApp
+            </a>
+            <a href="tel:+17584522978" class="btn-call-outline">
+              <i class="bi bi-telephone" aria-hidden="true"></i>
+              Call 758 452 2978
+            </a>
+          </div>
+        </div>
+
+        <!-- Practice Info -->
+        <div class="col-md-6 col-lg-4 reveal reveal-delay-2">
+          <div class="book-card">
+            <h5>Practice Information</h5>
+            <p>Find us at the heart of Castries — scheduled appointments and walk-ins both welcome.</p>
+
+            <div class="info-row">
+              <div class="info-ico" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></div>
+              <div>
+                <div class="info-lbl">Location</div>
+                <div class="info-val">#40 Micoud Street, Castries, Saint Lucia</div>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-ico" aria-hidden="true"><i class="bi bi-clock-fill"></i></div>
+              <div>
+                <div class="info-lbl">Operating Hours</div>
+                <div class="info-val">Monday – Friday: 9:00am – 4:00pm</div>
+                <div class="info-val" style="margin-top:.2rem;">Saturday: 8:00am – 12:00pm</div>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-ico" aria-hidden="true"><i class="bi bi-telephone-fill"></i></div>
+              <div>
+                <div class="info-lbl">Phone</div>
+                <div class="info-val">758 452 2978</div>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-ico" aria-hidden="true"><i class="bi bi-person-walking"></i></div>
+              <div>
+                <div class="info-lbl">Walk-Ins</div>
+                <div class="info-val">Welcome during all operating hours</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Specialty Booking -->
+        <div class="col-md-6 col-lg-4 reveal reveal-delay-3">
+          <div class="book-card">
+            <h5>Book by Specialty</h5>
+            <p>Tell us who you'd like to see. We'll arrange it as quickly as possible.</p>
+
+            <a href="https://wa.me/17584522978?text=Hello%2C%20I%E2%80%99d%20like%20to%20book%20an%20appointment%20with%20Dr.%20Peter%20St.%20Rose%20(Gynecology%2FObstetrics)."
+               target="_blank" rel="noopener noreferrer" class="btn-specialty">
+              <i class="bi bi-person-circle" aria-hidden="true"></i>
+              Dr. Peter — Gynecology / OB
+            </a>
+
+            <a href="https://wa.me/17584522978?text=Hello%2C%20I%E2%80%99d%20like%20to%20book%20an%20appointment%20with%20Dr.%20Alphonsus%20St.%20Rose%20(Gastroenterology%2FInternal%20Medicine)."
+               target="_blank" rel="noopener noreferrer" class="btn-specialty">
+              <i class="bi bi-person-circle" aria-hidden="true"></i>
+              Dr. Alphonsus — Gastro / Internal Med
+            </a>
+
+            <a href="https://wa.me/17584522978?text=Hello%2C%20I%E2%80%99d%20like%20to%20book%20a%20Nutrition%20Consultation%20with%20Sam%20Alex."
+               target="_blank" rel="noopener noreferrer" class="btn-specialty">
+              <i class="bi bi-leaf" aria-hidden="true"></i>
+              Sam Alex — Nutrition (Thursdays)
+            </a>
+
+            <a href="https://wa.me/17584522978?text=Hello%2C%20I%E2%80%99d%20like%20to%20learn%20about%20the%2030-Day%20Peri%20%26%20Menopause%20Programme."
+               target="_blank" rel="noopener noreferrer" class="btn-specialty">
+              <i class="bi bi-flower1" aria-hidden="true"></i>
+              30-Day Menopause Programme
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       FOOTER
+  ===================== -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="row g-5">
+
+        <!-- Brand -->
+        <div class="col-lg-4">
+          <div class="foot-brand">St. Rose Medical</div>
+          <div class="foot-tagline">Your Health, Our Priority</div>
+          <p>Expert medical care in Gynecology, Obstetrics, Gastroenterology, and Internal Medicine — serving Saint Lucia with excellence for over 25 years.</p>
+          <div class="foot-social">
+            <a href="https://www.instagram.com/strosemedical" target="_blank" rel="noopener noreferrer"
+               class="soc-btn" aria-label="St. Rose Medical on Instagram">
+              <i class="bi bi-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=6156335" target="_blank" rel="noopener noreferrer"
+               class="soc-btn" aria-label="St. Rose Medical on Facebook">
+              <i class="bi bi-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/st-rose-medical" target="_blank" rel="noopener noreferrer"
+               class="soc-btn" aria-label="St. Rose Medical on LinkedIn">
+              <i class="bi bi-linkedin" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Nav links -->
+        <div class="col-sm-6 col-lg-2">
+          <h6>Navigate</h6>
+          <a href="#about">About Us</a>
+          <a href="#services">Our Services</a>
+          <a href="#doctors">Our Doctors</a>
+          <a href="#nutrition">Nutrition Specialist</a>
+          <a href="#education">Health Topics</a>
+          <a href="#contact">Book Appointment</a>
+        </div>
+
+        <!-- Specialties -->
+        <div class="col-sm-6 col-lg-3">
+          <h6>Specialties</h6>
+          <a href="#services">Gynecology &amp; Obstetrics</a>
+          <a href="#services">Gastroenterology</a>
+          <a href="#services">Internal Medicine</a>
+          <a href="#nutrition">Holistic Nutrition</a>
+          <a href="#services">Endoscopy &amp; Colonoscopy</a>
+          <a href="#services">Fertility Services</a>
+          <a href="#services">Cervical Cancer Screening</a>
+        </div>
+
+        <!-- Contact -->
+        <div class="col-lg-3">
+          <h6>Contact &amp; Hours</h6>
+          <div class="foot-contact-item">
+            <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+            <span>#40 Micoud Street, Castries, Saint Lucia</span>
+          </div>
+          <div class="foot-contact-item">
+            <i class="bi bi-clock-fill" aria-hidden="true"></i>
+            <span>Mon–Fri: 9:00am – 4:00pm<br>Saturday: 8:00am – 12:00pm</span>
+          </div>
+          <div class="foot-contact-item">
+            <i class="bi bi-telephone-fill" aria-hidden="true"></i>
+            <span><a href="tel:+17584522978" style="color: inherit; display:inline;">758 452 2978</a></span>
+          </div>
+          <div class="foot-contact-item">
+            <i class="bi bi-whatsapp" style="color: #4CD96A;" aria-hidden="true"></i>
+            <span>
+              <a href="https://wa.me/17584522978" target="_blank" rel="noopener noreferrer"
+                 style="color: #4CD96A; display:inline; padding:0; margin:0;">WhatsApp Us</a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <hr class="foot-divider">
+
+      <div class="row align-items-center">
+        <div class="col-md-7 foot-bottom">
+          &copy; <span id="yr"></span> St. Rose Medical. All rights reserved. &nbsp;·&nbsp; Castries, Saint Lucia
+        </div>
+        <div class="col-md-5 foot-bottom text-md-end mt-2 mt-md-0">
+          Designed &amp; built by <a href="https://jamalinks.com" target="_blank" rel="noopener noreferrer">JAMALINKS</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================
+       FLOATING WHATSAPP
+  ===================== -->
+  <a href="https://wa.me/17584522978?text=Hello%20St.%20Rose%20Medical%2C%20I%E2%80%99d%20like%20to%20book%20an%20appointment."
+     class="wa-float"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="Book an appointment on WhatsApp">
+    <i class="bi bi-whatsapp" aria-hidden="true"></i>
+  </a>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+
+  <script>
+    // ─── Dynamic year ───────────────────────────────
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // ─── Navbar scroll class ─────────────────────────
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 80);
+    }, { passive: true });
+
+    // ─── Scroll reveal (IntersectionObserver) ────────
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => revealObs.observe(el));
+
+    // ─── Active nav on scroll ────────────────────────
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('#navbar .nav-link');
+    const activeObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          const match = document.querySelector(`#navbar .nav-link[href="#${e.target.id}"]`);
+          if (match) match.classList.add('active');
+        }
+      });
+    }, { threshold: 0.4 });
+    sections.forEach(s => activeObs.observe(s));
+
+    // ─── Collapse mobile nav on link click ───────────
+    const collapse = document.getElementById('navMenu');
+    document.querySelectorAll('#navbar .nav-link').forEach(l => {
+      l.addEventListener('click', () => {
+        const bsCollapse = bootstrap.Collapse.getInstance(collapse);
+        if (bsCollapse && collapse.classList.contains('show')) bsCollapse.hide();
+      });
+    });
+  </script>
+
+</body>
+</html>
