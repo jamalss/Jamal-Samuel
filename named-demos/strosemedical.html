@@ -45,7 +45,8 @@
     "name": "St. Rose Medical",
     "description": "Expert medical care in Gynecology, Obstetrics, Gastroenterology, and Internal Medicine. Serving Castries and Vieux Fort, Saint Lucia for over 25 years.",
     "url": "https://strosemedical.com",
-    "telephone": "+17584522978",
+    "telephone": "+17584848220",
+    "email": "drpeterstroseclinic@gmail.com",
     "slogan": "Your Health, Our Priority",
     "address": {
       "@type": "PostalAddress",
@@ -71,7 +72,7 @@
     "hasMap": "https://maps.google.com/?q=40+Micoud+Street,+Castries,+Saint+Lucia",
     "sameAs": [
       "https://www.instagram.com/strosemedical",
-      "https://www.facebook.com/profile.php?id=6156335"
+      "https://www.facebook.com/share/1btDY2aNNC/"
     ],
     "employee": [
       {
@@ -777,6 +778,43 @@
     }
     .loc-btn-call:hover { background: var(--primary); color: white; }
 
+    /* =====================
+       MAP EMBED
+    ===================== */
+    .map-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--cream-dark);
+      position: relative;
+      margin-top: 3rem;
+    }
+    .map-wrap iframe {
+      display: block;
+      width: 100%;
+      height: 380px;
+      border: none;
+      filter: grayscale(15%) contrast(1.05);
+    }
+    .map-label {
+      display: flex; align-items: center; gap: .65rem;
+      padding: 1rem 1.5rem;
+      background: var(--primary-dark);
+      color: rgba(255,255,255,.8);
+      font-size: .82rem; font-weight: 500;
+    }
+    .map-label i { color: var(--gold-light); }
+    .map-label a {
+      color: var(--gold-light);
+      font-weight: 600;
+      text-decoration: underline;
+      text-decoration-color: rgba(212,175,55,.4);
+      font-size: .82rem;
+      margin-left: auto;
+    }
+    .map-label a:hover { color: white; }
+
+
 
     .nutrition-section { padding: 8rem 0; background: white; }
 
@@ -832,6 +870,20 @@
        HEALTH EDUCATION
     ===================== */
     .edu-section { padding: 8rem 0; background: var(--cream); }
+
+    .edu-disclaimer {
+      display: flex; align-items: flex-start; gap: .85rem;
+      background: rgba(26,75,110,.07);
+      border: 1px solid rgba(26,75,110,.15);
+      border-left: 3px solid var(--primary);
+      border-radius: 3px;
+      padding: 1rem 1.35rem;
+      margin-top: 1.75rem;
+      font-size: .8rem;
+      color: var(--text-light);
+      line-height: 1.65;
+    }
+    .edu-disclaimer i { color: var(--primary); font-size: 1rem; margin-top: .1rem; flex-shrink: 0; }
 
     .edu-card {
       background: white;
@@ -1033,8 +1085,8 @@
       display: inline-flex; align-items: center; justify-content: center; gap: .65rem;
       background: var(--green-wa); color: white;
       border: none;
-      padding: 1rem 2.5rem; border-radius: 3px;
-      font-weight: 600; font-size: .95rem;
+      padding: 1rem 1.75rem; border-radius: 3px;
+      font-weight: 600; font-size: .92rem;
       font-family: 'DM Sans', sans-serif;
       cursor: pointer;
       transition: var(--transition);
@@ -1044,6 +1096,29 @@
       background: #1EB457;
       transform: translateY(-2px);
       box-shadow: 0 14px 40px rgba(37,211,102,.4);
+    }
+    .btn-form-email {
+      display: inline-flex; align-items: center; justify-content: center; gap: .65rem;
+      background: transparent; color: white;
+      border: 1.5px solid rgba(255,255,255,.3);
+      padding: 1rem 1.75rem; border-radius: 3px;
+      font-weight: 600; font-size: .92rem;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .btn-form-email:hover {
+      background: rgba(255,255,255,.1);
+      border-color: rgba(255,255,255,.6);
+      transform: translateY(-2px);
+    }
+    .form-btn-row {
+      display: flex; flex-wrap: wrap; gap: .75rem;
+      align-items: center;
+    }
+    .form-divider {
+      font-size: .75rem; color: rgba(255,255,255,.35);
+      font-weight: 500; white-space: nowrap;
     }
     .appt-error {
       border-color: var(--accent-light) !important;
@@ -1668,6 +1743,27 @@
         </div>
 
       </div>
+
+      <!-- Embedded Map — Castries main clinic -->
+      <div class="reveal reveal-delay-3">
+        <div class="map-wrap">
+          <div class="map-label">
+            <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+            <span>St. Rose Medical — #40 Micoud Street, Castries, Saint Lucia</span>
+            <a href="https://maps.app.goo.gl/jtff5vC1SzeNo9Py7" target="_blank" rel="noopener noreferrer">
+              Open in Google Maps <i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i>
+            </a>
+          </div>
+          <iframe
+            src="https://maps.google.com/maps?q=2267%2B22V+Castries+Saint+Lucia&z=17&output=embed"
+            title="St. Rose Medical location map — #40 Micoud Street, Castries, Saint Lucia"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            aria-label="Interactive map showing St. Rose Medical clinic location in Castries, Saint Lucia">
+          </iframe>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1746,6 +1842,10 @@
           <p class="section-lead">
             Our physicians believe an informed patient is an empowered patient. These are some of the common conditions we treat — and what you should know about them.
           </p>
+          <div class="edu-disclaimer" role="note">
+            <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
+            <span>The health information on this page is intended for general educational purposes only and is not a substitute for professional medical diagnosis, advice, or treatment. Always consult a qualified physician regarding any medical condition or symptoms.</span>
+          </div>
         </div>
         <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
           <a href="https://www.instagram.com/strosemedical" target="_blank" rel="noopener noreferrer"
@@ -1896,6 +1996,17 @@
             </div>
 
             <div class="info-row">
+              <div class="info-ico" aria-hidden="true"><i class="bi bi-envelope-fill"></i></div>
+              <div>
+                <div class="info-lbl">Email</div>
+                <div class="info-val">
+                  <a href="mailto:drpeterstroseclinic@gmail.com"
+                     style="color: var(--gold-light); font-size:.93rem; font-weight:500;">drpeterstroseclinic@gmail.com</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-row">
               <div class="info-ico" aria-hidden="true"><i class="bi bi-telephone-fill"></i></div>
               <div>
                 <div class="info-lbl">Phone (Calls)</div>
@@ -2004,14 +2115,21 @@
                 <textarea id="apptNotes" class="appt-textarea" placeholder="e.g. preferred time of day, returning patient, etc."></textarea>
               </div>
 
-              <button type="submit" class="btn-form-submit">
-                <i class="bi bi-whatsapp" aria-hidden="true"></i>
-                Send Request via WhatsApp
-              </button>
+              <div class="form-btn-row">
+                <button type="submit" id="submitWa" class="btn-form-submit">
+                  <i class="bi bi-whatsapp" aria-hidden="true"></i>
+                  Send via WhatsApp
+                </button>
+                <span class="form-divider">or</span>
+                <button type="button" id="submitEmail" class="btn-form-email">
+                  <i class="bi bi-envelope" aria-hidden="true"></i>
+                  Send via Email
+                </button>
+              </div>
 
               <div class="appt-note">
                 <i class="bi bi-shield-lock" aria-hidden="true"></i>
-                <span>Nothing is stored or sent anywhere on this page. This simply opens WhatsApp with your details pre-filled — you'll see and confirm the message before it's sent.</span>
+                <span>Nothing is stored on this page. <strong>WhatsApp</strong> opens the app with your details pre-filled for you to review before sending. <strong>Email</strong> opens your mail app with a pre-drafted message to drpeterstroseclinic@gmail.com.</span>
               </div>
             </form>
           </div>
@@ -2038,7 +2156,7 @@
                class="soc-btn" aria-label="St. Rose Medical on Instagram">
               <i class="bi bi-instagram" aria-hidden="true"></i>
             </a>
-            <a href="https://www.facebook.com/profile.php?id=6156335" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.facebook.com/share/1btDY2aNNC/" target="_blank" rel="noopener noreferrer"
                class="soc-btn" aria-label="St. Rose Medical on Facebook">
               <i class="bi bi-facebook" aria-hidden="true"></i>
             </a>
@@ -2083,6 +2201,13 @@
           <div class="foot-contact-item">
             <i class="bi bi-clock-fill" aria-hidden="true"></i>
             <span>Mon–Fri: 9:00am – 4:00pm<br>Saturday: 8:00am – 12:00pm</span>
+          </div>
+          <div class="foot-contact-item">
+            <i class="bi bi-envelope-fill" aria-hidden="true"></i>
+            <span>
+              <a href="mailto:drpeterstroseclinic@gmail.com"
+                 style="color: var(--gold-light); display:inline; padding:0; margin:0;">drpeterstroseclinic@gmail.com</a>
+            </span>
           </div>
           <div class="foot-contact-item">
             <i class="bi bi-telephone-fill" aria-hidden="true"></i>
@@ -2183,19 +2308,18 @@
       });
     });
 
-    // ─── Quick Appointment Request → WhatsApp ────────
+    // ─── Quick Appointment Request → WhatsApp OR Email ──
     const apptForm = document.getElementById('apptForm');
     if (apptForm) {
-      apptForm.addEventListener('submit', function (e) {
-        e.preventDefault();
 
+      // Shared validation + message builder
+      function buildMessage() {
         const name   = document.getElementById('apptName');
         const phone  = document.getElementById('apptPhone');
         const reason = document.getElementById('apptReason');
         const date   = document.getElementById('apptDate');
         const notes  = document.getElementById('apptNotes');
 
-        // Simple required-field validation with inline visual feedback
         let valid = true;
         [name, phone, reason].forEach(field => {
           if (!field.value.trim()) {
@@ -2205,9 +2329,8 @@
             field.classList.remove('appt-error');
           }
         });
-        if (!valid) return;
+        if (!valid) return null;
 
-        // Build a clean, readable message
         const lines = [
           'Hello St. Rose Medical, I would like to request an appointment.',
           '',
@@ -2222,13 +2345,28 @@
         if (notes.value.trim()) {
           lines.push('Notes: ' + notes.value.trim());
         }
+        return lines.join('\n');
+      }
 
-        const message = encodeURIComponent(lines.join('\n'));
-        const waUrl = 'https://wa.me/17584848220?text=' + message;
-
-        // Open directly in response to the click — avoids popup blockers
-        window.open(waUrl, '_blank', 'noopener,noreferrer');
+      // WhatsApp submit
+      apptForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const msg = buildMessage();
+        if (!msg) return;
+        window.open('https://wa.me/17584848220?text=' + encodeURIComponent(msg), '_blank', 'noopener,noreferrer');
       });
+
+      // Email submit
+      const emailBtn = document.getElementById('submitEmail');
+      if (emailBtn) {
+        emailBtn.addEventListener('click', function () {
+          const msg = buildMessage();
+          if (!msg) return;
+          const subject = encodeURIComponent('Appointment Request — St. Rose Medical');
+          const body    = encodeURIComponent(msg);
+          window.location.href = 'mailto:drpeterstroseclinic@gmail.com?subject=' + subject + '&body=' + body;
+        });
+      }
     }
   </script>
 
