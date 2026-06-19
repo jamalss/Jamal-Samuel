@@ -112,6 +112,11 @@ body::after{
   background:var(--dark2);
   overflow:hidden;position:relative;
 }
+.mosaic-cell::after{
+  content:'';position:absolute;inset:0;
+  background:rgba(5,5,5,0.35);
+  pointer-events:none;
+}
 .hero-overlay{
   position:absolute;inset:0;z-index:2;
   background:
@@ -303,12 +308,7 @@ body::after{
   position:relative;overflow:hidden;
 }
 .photo-frame-bg{position:absolute;inset:0;}
-.photo-frame-silhouette{
-  position:absolute;inset:0;
-  display:flex;align-items:center;justify-content:center;
-  opacity:0.07;
-}
-.photo-frame-silhouette svg{width:55%;height:55%;fill:currentColor;color:var(--gold);}
+/* photo-frame-silhouette removed — real images in use */
 .photo-frame-cat{
   position:absolute;top:14px;left:14px;z-index:2;
   font-size:0.55rem;letter-spacing:2.5px;text-transform:uppercase;
@@ -1218,18 +1218,18 @@ const SITE  = 'The Brand Frame Studio';
    DATA
 ═══════════════════════════════════════════ */
 const portfolio = [
-  {cat:'Personal Brand', h:280, gradient:'linear-gradient(135deg,#1a1510 0%,#2d2218 50%,#1a1510 100%)', caption:'Authority without stiffness. A founder portrait that means business.', wa:'I want a founder portrait session like this — can we chat?'},
-  {cat:'Entrepreneur',   h:220, gradient:'linear-gradient(135deg,#0f1a14 0%,#162a1e 50%,#0f1a14 100%)', caption:'Behind-the-scenes content designed to feel intentional, not candid.', wa:'I need behind-the-scenes brand content — interested in a session.'},
-  {cat:'Beauty & Wellness', h:260, gradient:'linear-gradient(135deg,#1a1218 0%,#2a1c28 50%,#1a1218 100%)', caption:'Visuals that made her beauty brand feel like the premium it always was.', wa:'I run a beauty brand and need professional photos — can we talk?'},
-  {cat:'Corporate',      h:200, gradient:'linear-gradient(135deg,#0f1520 0%,#16203a 50%,#0f1520 100%)', caption:'Clean, confident, corporate. LinkedIn-ready from the first shot.', wa:'I need corporate brand photography — let\'s discuss.'},
-  {cat:'Personal Brand', h:240, gradient:'linear-gradient(135deg,#1f1508 0%,#2e1e0a 50%,#1f1508 100%)', caption:'Lifestyle images that show how she works — not just what she does.', wa:'I want lifestyle brand images for my business — when are you available?'},
-  {cat:'Creative Studio', h:260, gradient:'linear-gradient(135deg,#0a0f1a 0%,#0f1828 50%,#0a0f1a 100%)', caption:'Creative direction that matched her studio aesthetic exactly.', wa:'I have a creative studio and need brand imagery — interested.'},
-  {cat:'Entrepreneur',   h:220, gradient:'linear-gradient(135deg,#180f0a 0%,#281810 50%,#180f0a 100%)', caption:'Founder portraits with warmth and confidence — not stiff headshots.', wa:'I want warm, confident founder portraits — let\'s talk.'},
-  {cat:'Beauty & Wellness', h:240, gradient:'linear-gradient(135deg,#1a1020 0%,#261838 50%,#1a1020 100%)', caption:'Images designed for her booking page, website, and Instagram — all in one session.', wa:'I need brand photos for my wellness brand — can we chat?'},
-  {cat:'Corporate',      h:200, gradient:'linear-gradient(135deg,#0c1a10 0%,#102818 50%,#0c1a10 100%)', caption:'Team images that made their brand feel consistent and credible.', wa:'I need team brand photography — interested in a session.'},
-  {cat:'Creative Studio', h:260, gradient:'linear-gradient(135deg,#1a0e10 0%,#281418 50%,#1a0e10 100%)', caption:'A shoot that became the entire visual identity for her course launch.', wa:'I\'m launching a course and need brand imagery — let\'s talk.'},
-  {cat:'Product/Lifestyle', h:220, gradient:'linear-gradient(135deg,#10180a 0%,#182610 50%,#10180a 100%)', caption:'Product and lifestyle images that brought the brand to life online.', wa:'I need product and lifestyle photography — can we discuss?'},
-  {cat:'Product/Lifestyle', h:250, gradient:'linear-gradient(135deg,#1a1400 0%,#2a2008 50%,#1a1400 100%)', caption:'Flat-lays and lifestyle shots that filled a month of social content.', wa:'I want product lifestyle photography — let\'s chat about my brand.'},
+  {cat:'Personal Brand',    h:280, img:'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&q=85&fit=crop', caption:'Authority without stiffness. A founder portrait that means business.', wa:'I want a founder portrait session like this — can we chat?'},
+  {cat:'Entrepreneur',      h:220, img:'https://images.unsplash.com/photo-1664575602554-2087b04935a5?w=700&q=85&fit=crop', caption:'Behind-the-scenes content designed to feel intentional, not candid.', wa:'I need behind-the-scenes brand content — interested in a session.'},
+  {cat:'Beauty & Wellness', h:260, img:'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=700&q=85&fit=crop', caption:'Visuals that made her beauty brand feel like the premium it always was.', wa:'I run a beauty brand and need professional photos — can we talk?'},
+  {cat:'Corporate',         h:200, img:'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=700&q=85&fit=crop', caption:'Clean, confident, corporate. LinkedIn-ready from the first shot.', wa:'I need corporate brand photography — let\'s discuss.'},
+  {cat:'Personal Brand',    h:240, img:'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=700&q=85&fit=crop', caption:'Lifestyle images that show how she works — not just what she does.', wa:'I want lifestyle brand images for my business — when are you available?'},
+  {cat:'Creative Studio',   h:260, img:'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=700&q=85&fit=crop', caption:'Creative direction that matched her studio aesthetic exactly.', wa:'I have a creative studio and need brand imagery — interested.'},
+  {cat:'Entrepreneur',      h:220, img:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&q=85&fit=crop', caption:'Founder portraits with warmth and confidence — not stiff headshots.', wa:'I want warm, confident founder portraits — let\'s talk.'},
+  {cat:'Beauty & Wellness', h:240, img:'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=700&q=85&fit=crop', caption:'Images built for her booking page, website, and Instagram — one session.', wa:'I need brand photos for my wellness brand — can we chat?'},
+  {cat:'Corporate',         h:200, img:'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=700&q=85&fit=crop', caption:'Team images that made their brand feel consistent and credible.', wa:'I need team brand photography — interested in a session.'},
+  {cat:'Creative Studio',   h:260, img:'https://images.unsplash.com/photo-1614786269829-d24616faf56d?w=700&q=85&fit=crop', caption:'A shoot that became the entire visual identity for her course launch.', wa:'I\'m launching a course and need brand imagery — let\'s talk.'},
+  {cat:'Product/Lifestyle', h:220, img:'https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?w=700&q=85&fit=crop', caption:'Product and lifestyle images that brought the brand to life online.', wa:'I need product and lifestyle photography — can we discuss?'},
+  {cat:'Product/Lifestyle', h:250, img:'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=700&q=85&fit=crop', caption:'Flat-lays and lifestyle shots that filled a month of social content.', wa:'I want product lifestyle photography — let\'s chat about my brand.'},
 ];
 
 const packages = [
@@ -1343,34 +1343,34 @@ const faqs = [
 ];
 
 const styles = [
-  {word:'Authority',    desc:'Strong, sharp, commanding',    bg:'linear-gradient(135deg,#1a1510,#2d2218)',   wa:'I want my brand to feel authoritative and commanding — can we discuss?'},
-  {word:'Warm',         desc:'Approachable, genuine, human', bg:'linear-gradient(135deg,#1f1508,#2e1e0a)',   wa:'I want my brand to feel warm and approachable — what does that look like in a session?'},
-  {word:'Luxury',       desc:'Premium, refined, elevated',   bg:'linear-gradient(135deg,#100a1a,#1e1030)',   wa:'I want my brand to feel luxurious and premium — let\'s discuss what that session looks like.'},
-  {word:'Creative',     desc:'Expressive, bold, distinctive', bg:'linear-gradient(135deg,#0a1018,#0f1828)',   wa:'I want my brand to feel creative and expressive — interested in a session.'},
-  {word:'Minimal',      desc:'Clean, simple, confident',     bg:'linear-gradient(135deg,#0c0c0c,#181818)',   wa:'I want a clean, minimal brand aesthetic — can we chat about a session?'},
+  {word:'Authority',    desc:'Strong, sharp, commanding',     bg:'url(https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80&fit=crop) center/cover', wa:'I want my brand to feel authoritative and commanding — can we discuss?'},
+  {word:'Warm',         desc:'Approachable, genuine, human',  bg:'url(https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80&fit=crop) center/cover', wa:'I want my brand to feel warm and approachable — what does that look like in a session?'},
+  {word:'Luxury',       desc:'Premium, refined, elevated',    bg:'url(https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&q=80&fit=crop) center/cover', wa:'I want my brand to feel luxurious and premium — let\'s discuss what that session looks like.'},
+  {word:'Creative',     desc:'Expressive, bold, distinctive', bg:'url(https://images.unsplash.com/photo-1614786269829-d24616faf56d?w=400&q=80&fit=crop) center/cover', wa:'I want my brand to feel creative and expressive — interested in a session.'},
+  {word:'Minimal',      desc:'Clean, simple, confident',      bg:'url(https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&fit=crop) center/cover', wa:'I want a clean, minimal brand aesthetic — can we chat about a session?'},
 ];
 
 /* ═══════════════════════════════════════════
    HERO MOSAIC — CSS gradient panels
 ═══════════════════════════════════════════ */
 function buildMosaic() {
-  const gradients = [
-    'linear-gradient(135deg,#1a1510 0%,#2d2218 100%)',
-    'linear-gradient(135deg,#0f1a14 0%,#162a1e 100%)',
-    'linear-gradient(135deg,#1a1218 0%,#2a1c28 100%)',
-    'linear-gradient(135deg,#0f1520 0%,#16203a 100%)',
-    'linear-gradient(135deg,#1f1508 0%,#2e1e0a 100%)',
-    'linear-gradient(135deg,#0a0f1a 0%,#0f1828 100%)',
-    'linear-gradient(135deg,#180f0a 0%,#281810 100%)',
-    'linear-gradient(135deg,#1a1020 0%,#261838 100%)',
-    'linear-gradient(135deg,#0c1a10 0%,#102818 100%)',
-    'linear-gradient(135deg,#1a0e10 0%,#281418 100%)',
-    'linear-gradient(135deg,#10180a 0%,#182610 100%)',
-    'linear-gradient(135deg,#1a1400 0%,#2a2008 100%)',
+  const photos = [
+    'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=600&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1614786269829-d24616faf56d?w=600&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&q=80&fit=crop',
+    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80&fit=crop',
   ];
   const mosaic = document.getElementById('heroMosaic');
-  mosaic.innerHTML = gradients.map(g =>
-    `<div class="mosaic-cell" style="background:${g};"></div>`
+  mosaic.innerHTML = photos.map(src =>
+    `<div class="mosaic-cell" style="background-image:url('${src}');background-size:cover;background-position:center;"></div>`
   ).join('');
 }
 
@@ -1407,17 +1407,13 @@ function filterPort(cat, btn) {
   renderMasonry();
 }
 
-// SVG silhouette for portrait placeholder
-const personSVG = `<svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="35" r="22"/><path d="M10 130 Q10 85 50 80 Q90 85 90 130Z"/></svg>`;
-
 function renderMasonry() {
   buildPortTabs();
   const filtered = activePortCat==='All' ? portfolio : portfolio.filter(p=>p.cat===activePortCat);
   document.getElementById('masonryGrid').innerHTML = filtered.map(p=>`
     <div class="masonry-item">
       <div class="photo-frame" style="height:${p.h}px">
-        <div class="photo-frame-bg" style="background:${p.gradient};"></div>
-        <div class="photo-frame-silhouette">${personSVG}</div>
+        <div class="photo-frame-bg" style="background-image:url('${p.img}');background-size:cover;background-position:center top;"></div>
         <div class="photo-frame-cat">${p.cat}</div>
         <div class="photo-overlay">
           <div class="photo-caption">${p.caption}</div>
@@ -1474,7 +1470,7 @@ let selectedStyle = null;
 function buildStyleSelector() {
   document.getElementById('styleGrid').innerHTML = styles.map((s,i)=>`
     <div class="style-btn" onclick="selectStyle(${i},this)">
-      <div class="style-visual" style="background:${s.bg};"></div>
+      <div class="style-visual" style="background:${s.bg};border-radius:50%;overflow:hidden;"></div>
       <div class="style-word">${s.word}</div>
       <div class="style-desc">${s.desc}</div>
     </div>`).join('');
