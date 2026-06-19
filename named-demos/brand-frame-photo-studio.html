@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Brand Frame Studio — Brand Photography for Entrepreneurs & Professionals</title>
+<meta name="description" content="Brand photography for founders, coaches, consultants, beauty brands, and service professionals in Saint Lucia and the Caribbean. Stop hiding behind inconsistent visuals."/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════════
+   ROOT — The Brand Frame Studio
+═══════════════════════════════════════════ */
+:root {
+  --black:    #050505;
+  --dark:     #0c0c0c;
+  --dark2:    #141414;
+  --dark3:    #1c1c1c;
+  --card:     #111111;
+  --gold:     #c9a84c;
+  --gold2:    #e2c06a;
+  --gold-g:   rgba(201,168,76,0.15);
+  --gold-b:   rgba(201,168,76,0.07);
+  --champagne:#d4b896;
+  --taupe:    #2a2420;
+  --white:    #ffffff;
+  --cream:    #f5f0e8;
+  --ivory:    #ede8df;
+  --off:      #e8e0d0;
+  --muted:    #888070;
+  --muted2:   #6a6258;
+  --border:   rgba(201,168,76,0.15);
+  --wa:       #25D366;
+  --radius:   14px;
+  --font-d:   'Cormorant Garamond', serif;
+  --font-b:   'Outfit', sans-serif;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--font-b);
+  background:var(--black);
+  color:var(--white);
+  overflow-x:hidden;
+}
+
+/* grain texture */
+body::after{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:9999;opacity:0.5;
+}
+
+/* ═══════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════ */
+.ll-nav{
+  position:fixed;top:0;left:0;right:0;z-index:600;
+  height:66px;display:flex;align-items:center;
+  justify-content:space-between;padding:0 36px;
+  background:rgba(5,5,5,0.92);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.nav-brand{display:flex;flex-direction:column;gap:1px;text-decoration:none;}
+.nav-brand-name{
+  font-family:var(--font-d);font-size:1.1rem;font-weight:300;
+  letter-spacing:4px;text-transform:uppercase;color:var(--white);line-height:1;
+}
+.nav-brand-tag{font-size:0.52rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-weight:400;}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{
+  font-size:0.72rem;font-weight:400;color:var(--muted);
+  text-decoration:none;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--gold);}
+.btn-nav-book{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--gold);color:var(--black);
+  border:none;border-radius:4px;padding:9px 22px;
+  font-family:var(--font-b);font-size:0.72rem;font-weight:600;
+  cursor:pointer;text-decoration:none;
+  letter-spacing:1.5px;text-transform:uppercase;
+  transition:all 0.2s;
+}
+.btn-nav-book:hover{background:var(--gold2);transform:translateY(-1px);}
+
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
+.ll-hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  justify-content:flex-end;
+  padding:0 56px 80px;
+  position:relative;overflow:hidden;
+}
+.hero-letterbox-top{
+  position:absolute;top:0;left:0;right:0;height:66px;
+  background:var(--black);z-index:3;
+}
+/* editorial brand mosaic — CSS gradient panels instead of emoji */
+.hero-mosaic{
+  position:absolute;inset:0;z-index:1;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:repeat(3,1fr);
+  gap:2px;opacity:0.22;
+}
+.mosaic-cell{
+  display:flex;align-items:center;justify-content:center;
+  background:var(--dark2);
+  overflow:hidden;position:relative;
+}
+.hero-overlay{
+  position:absolute;inset:0;z-index:2;
+  background:
+    linear-gradient(to right, rgba(5,5,5,0.97) 45%, rgba(5,5,5,0.3) 100%),
+    linear-gradient(to top, rgba(5,5,5,1) 0%, transparent 55%);
+}
+.hero-line{
+  position:absolute;left:0;top:20%;bottom:20%;
+  width:3px;background:linear-gradient(to bottom,transparent,var(--gold),transparent);
+  z-index:4;opacity:0.6;
+}
+.hero-content{position:relative;z-index:5;max-width:680px;}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  margin-bottom:22px;animation:fadeUp 0.7s ease both;
+}
+.eyebrow-line{width:32px;height:1px;background:var(--gold);}
+.eyebrow-text{font-size:0.65rem;color:var(--gold);letter-spacing:4px;text-transform:uppercase;font-weight:400;}
+.hero h1{
+  font-family:var(--font-d);
+  font-size:clamp(3.2rem,7.5vw,6.5rem);
+  font-weight:300;line-height:0.96;
+  letter-spacing:-1px;margin-bottom:26px;
+  animation:fadeUp 0.7s 0.1s ease both;
+}
+.hero h1 em{font-style:italic;color:var(--gold);}
+.hero-desc{
+  font-size:0.97rem;color:rgba(255,255,255,0.52);
+  max-width:460px;line-height:1.78;font-weight:300;
+  margin-bottom:22px;animation:fadeUp 0.7s 0.2s ease both;
+}
+.hero-who-strip{
+  display:flex;flex-wrap:wrap;gap:6px;margin-bottom:26px;
+  animation:fadeUp 0.7s 0.25s ease both;
+}
+.hero-who-pill{
+  font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);border:1px solid rgba(255,255,255,0.08);
+  border-radius:50px;padding:4px 12px;
+}
+.hero-location{
+  display:flex;align-items:center;gap:8px;
+  font-size:0.72rem;color:var(--muted);
+  letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:32px;animation:fadeUp 0.7s 0.28s ease both;
+}
+.hero-location::before{content:'📍';font-size:0.85rem;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp 0.7s 0.32s ease both;}
+.btn-primary-ll{
+  background:var(--gold);color:var(--black);border:none;
+  border-radius:4px;padding:15px 32px;
+  font-family:var(--font-b);font-size:0.82rem;font-weight:600;
+  cursor:pointer;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;
+  letter-spacing:1.5px;text-transform:uppercase;
+  transition:background 0.2s,transform 0.15s,box-shadow 0.2s;
+}
+.btn-primary-ll:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 10px 28px rgba(201,168,76,0.35);}
+.btn-ghost-ll{
+  background:transparent;color:var(--white);
+  border:1px solid rgba(255,255,255,0.2);
+  border-radius:4px;padding:14px 28px;
+  font-family:var(--font-b);font-size:0.82rem;font-weight:400;
+  cursor:pointer;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;
+  letter-spacing:1px;transition:all 0.2s;
+}
+.btn-ghost-ll:hover{border-color:var(--gold);color:var(--gold);}
+.hero-stats{
+  position:absolute;bottom:80px;right:56px;z-index:5;
+  display:flex;flex-direction:column;gap:18px;
+  animation:fadeUp 0.7s 0.5s ease both;
+}
+.h-stat{text-align:right;}
+.h-stat-num{font-family:var(--font-d);font-size:2.2rem;font-weight:300;color:var(--gold);letter-spacing:-1px;line-height:1;}
+.h-stat-lbl{font-size:0.6rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
+.hero-scroll{
+  position:absolute;bottom:32px;left:50%;
+  transform:translateX(-50%);z-index:5;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  color:var(--muted);font-size:0.58rem;letter-spacing:3px;text-transform:uppercase;
+  animation:fadeUp 0.7s 0.7s ease both;
+}
+.scroll-tick{width:1px;height:28px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollTick 2s ease-in-out infinite;}
+@keyframes scrollTick{0%,100%{opacity:0.3;transform:scaleY(0.7)}50%{opacity:1;transform:scaleY(1)}}
+
+/* ═══════════════════════════════════════════
+   TICKER
+═══════════════════════════════════════════ */
+.ll-ticker{background:var(--gold);padding:10px 0;overflow:hidden;white-space:nowrap;}
+.ticker-track{display:inline-flex;gap:0;animation:tickScroll 40s linear infinite;}
+.ticker-item{font-family:var(--font-d);font-size:0.92rem;font-style:italic;color:var(--black);padding:0 28px;display:inline-flex;align-items:center;gap:14px;}
+.t-sep{font-style:normal;opacity:0.35;font-size:0.5rem;}
+@keyframes tickScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ═══════════════════════════════════════════
+   SECTION BASE
+═══════════════════════════════════════════ */
+.ll-section{padding:96px 24px;}
+.sec-inner{max-width:1100px;margin:0 auto;}
+.sec-center{text-align:center;}
+.sec-eye{font-size:0.63rem;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:block;}
+.sec-h2{
+  font-family:var(--font-d);font-size:clamp(2.4rem,5.5vw,4.2rem);
+  font-weight:300;letter-spacing:-0.5px;color:var(--white);line-height:1;margin-bottom:14px;
+}
+.sec-h2 em{font-style:italic;color:var(--gold);}
+.sec-sub{font-size:0.92rem;color:var(--muted);max-width:520px;line-height:1.78;font-weight:300;}
+
+/* ═══════════════════════════════════════════
+   PROBLEM SECTION
+═══════════════════════════════════════════ */
+.problem-bg{background:var(--dark);}
+.problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:48px;}
+.prob-card{
+  background:var(--card);border:1px solid rgba(255,255,255,0.04);
+  border-radius:var(--radius);padding:32px 26px;
+  position:relative;overflow:hidden;
+  transition:transform 0.3s,border-color 0.25s;
+}
+.prob-card:hover{transform:translateY(-3px);border-color:rgba(201,168,76,0.12);}
+.prob-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(to right,transparent,rgba(201,168,76,0.4),transparent);
+}
+.prob-num{
+  font-family:var(--font-d);font-size:4rem;font-weight:300;
+  color:var(--gold);opacity:0.12;line-height:1;margin-bottom:12px;
+}
+.prob-title{
+  font-family:var(--font-d);font-size:1.3rem;font-weight:400;
+  color:var(--white);margin-bottom:10px;line-height:1.2;
+}
+.prob-desc{font-size:0.82rem;color:var(--muted);line-height:1.7;font-weight:300;}
+
+/* ═══════════════════════════════════════════
+   TRANSFORMATION — BEFORE / AFTER
+═══════════════════════════════════════════ */
+.transform-bg{background:var(--dark2);}
+.transform-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:2px;
+  margin-top:48px;border-radius:var(--radius);overflow:hidden;
+  border:1px solid var(--border);
+}
+@media(max-width:640px){.transform-grid{grid-template-columns:1fr;}}
+.transform-col{padding:40px 32px;background:var(--card);}
+.transform-col.after-col{background:var(--taupe);}
+.transform-label{
+  font-size:0.6rem;letter-spacing:3px;text-transform:uppercase;
+  margin-bottom:22px;display:flex;align-items:center;gap:8px;font-weight:500;
+}
+.before-label{color:var(--muted2);}
+.after-label{color:var(--gold);}
+.transform-label-line{width:20px;height:1px;background:currentColor;}
+.transform-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.transform-item{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:0.85rem;line-height:1.5;color:var(--off);font-weight:300;
+}
+.before-item{color:var(--muted);}
+.t-marker{flex-shrink:0;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.55rem;font-weight:700;margin-top:1px;}
+.t-marker.x{background:rgba(248,113,113,0.15);color:#f87171;}
+.t-marker.check{background:rgba(201,168,76,0.15);color:var(--gold);}
+
+/* ═══════════════════════════════════════════
+   PORTFOLIO MASONRY
+═══════════════════════════════════════════ */
+.portfolio-bg{background:var(--dark);}
+.port-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:36px 0 32px;}
+.port-tab{
+  background:transparent;border:1px solid rgba(255,255,255,0.1);
+  color:var(--muted);border-radius:4px;padding:8px 20px;
+  font-family:var(--font-b);font-size:0.72rem;font-weight:400;
+  cursor:pointer;letter-spacing:2px;text-transform:uppercase;
+  transition:all 0.2s;
+}
+.port-tab:hover{border-color:var(--gold);color:var(--gold);}
+.port-tab.active{background:var(--gold);border-color:var(--gold);color:var(--black);font-weight:600;}
+.masonry{columns:3;column-gap:12px;}
+@media(max-width:768px){.masonry{columns:2;}}
+@media(max-width:480px){.masonry{columns:1;}}
+.masonry-item{break-inside:avoid;margin-bottom:12px;border-radius:10px;overflow:hidden;position:relative;cursor:pointer;transition:transform 0.3s;}
+.masonry-item:hover{transform:scale(1.015);}
+
+/* CSS editorial photo frame — no emoji */
+.photo-frame{
+  width:100%;display:flex;align-items:flex-end;justify-content:flex-start;
+  padding:16px;
+  position:relative;overflow:hidden;
+}
+.photo-frame-bg{position:absolute;inset:0;}
+.photo-frame-silhouette{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0.07;
+}
+.photo-frame-silhouette svg{width:55%;height:55%;fill:currentColor;color:var(--gold);}
+.photo-frame-cat{
+  position:absolute;top:14px;left:14px;z-index:2;
+  font-size:0.55rem;letter-spacing:2.5px;text-transform:uppercase;
+  background:rgba(5,5,5,0.7);color:var(--gold);
+  padding:4px 10px;border-radius:2px;
+  backdrop-filter:blur(4px);
+}
+.photo-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(5,5,5,0.9) 0%,transparent 45%);
+  opacity:0;transition:opacity 0.3s;
+  display:flex;align-items:flex-end;padding:18px;z-index:3;
+}
+.masonry-item:hover .photo-overlay{opacity:1;}
+.photo-caption{font-family:var(--font-d);font-style:italic;font-size:0.95rem;color:white;line-height:1.4;}
+.photo-wa{
+  position:absolute;top:14px;right:14px;z-index:4;
+  background:var(--wa);color:white;border:none;
+  border-radius:50px;padding:5px 12px;
+  font-size:0.62rem;font-weight:600;cursor:pointer;
+  opacity:0;transition:opacity 0.3s;font-family:var(--font-b);
+  white-space:nowrap;
+}
+.masonry-item:hover .photo-wa{opacity:1;}
+
+/* ═══════════════════════════════════════════
+   BRAND SESSION SECTION
+═══════════════════════════════════════════ */
+.session-bg{background:var(--dark2);}
+.session-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:48px;}
+@media(max-width:720px){.session-grid{grid-template-columns:1fr;gap:32px;}}
+.session-visual{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:40px;
+  display:flex;flex-direction:column;gap:18px;
+}
+.session-vis-item{
+  display:flex;align-items:flex-start;gap:14px;
+  padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.session-vis-item:last-child{border-bottom:none;padding-bottom:0;}
+.svi-num{
+  font-family:var(--font-d);font-size:1.8rem;font-weight:300;
+  color:var(--gold);opacity:0.3;line-height:1;flex-shrink:0;width:32px;
+}
+.svi-title{font-size:0.82rem;font-weight:500;color:var(--white);margin-bottom:3px;}
+.svi-desc{font-size:0.76rem;color:var(--muted);line-height:1.6;font-weight:300;}
+
+/* ═══════════════════════════════════════════
+   PACKAGES
+═══════════════════════════════════════════ */
+.packages-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:18px;margin-top:48px;
+}
+.pkg-card{
+  background:var(--card);border:1px solid rgba(255,255,255,0.05);
+  border-radius:var(--radius);padding:30px 26px;
+  position:relative;overflow:hidden;
+  transition:transform 0.3s,border-color 0.25s,box-shadow 0.3s;
+}
+.pkg-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(to right,transparent,var(--gold),transparent);
+  transform:scaleX(0);transition:transform 0.4s ease;
+}
+.pkg-card:hover{transform:translateY(-4px);border-color:rgba(201,168,76,0.2);box-shadow:0 20px 50px rgba(0,0,0,0.5);}
+.pkg-card:hover::before{transform:scaleX(1);}
+.pkg-card.featured{border-color:rgba(201,168,76,0.3);box-shadow:0 0 0 1px rgba(201,168,76,0.1);}
+.pkg-card.featured::before{transform:scaleX(1);}
+.pkg-feat-tag{
+  position:absolute;top:16px;right:16px;
+  background:var(--gold);color:var(--black);
+  border-radius:50px;padding:3px 12px;
+  font-size:0.58rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+}
+.pkg-icon-bar{
+  width:28px;height:2px;background:var(--gold);
+  margin-bottom:18px;border-radius:1px;
+}
+.pkg-type{font-size:0.6rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-weight:500;margin-bottom:6px;}
+.pkg-name{font-family:var(--font-d);font-size:1.55rem;font-weight:400;color:var(--white);margin-bottom:10px;line-height:1.1;}
+.pkg-desc{font-size:0.8rem;color:var(--muted);line-height:1.65;font-weight:300;margin-bottom:16px;}
+.pkg-includes{display:flex;flex-direction:column;gap:7px;margin-bottom:22px;}
+.pkg-include{display:flex;align-items:flex-start;gap:8px;font-size:0.78rem;color:var(--off);}
+.pkg-include::before{content:'—';color:var(--gold);flex-shrink:0;margin-top:1px;}
+.pkg-footer{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+.pkg-price{font-family:var(--font-d);font-size:2rem;font-weight:300;color:var(--gold);line-height:1;}
+.pkg-price small{font-family:var(--font-b);font-size:0.7rem;color:var(--muted);font-weight:300;}
+.pkg-duration{font-size:0.65rem;color:var(--muted);margin-top:4px;}
+.btn-book-pkg{
+  background:transparent;color:var(--gold);
+  border:1px solid var(--gold);border-radius:4px;
+  padding:9px 18px;font-family:var(--font-b);
+  font-size:0.7rem;font-weight:500;
+  cursor:pointer;display:flex;align-items:center;gap:6px;
+  transition:all 0.2s;letter-spacing:1.5px;text-transform:uppercase;
+  white-space:nowrap;
+}
+.btn-book-pkg:hover{background:var(--gold);color:var(--black);}
+.btn-book-pkg.featured-btn{background:var(--gold);color:var(--black);}
+.btn-book-pkg.featured-btn:hover{background:var(--gold2);}
+
+/* ═══════════════════════════════════════════
+   IMAGE USAGE PLANNER
+═══════════════════════════════════════════ */
+.usage-bg{background:var(--dark);}
+.usage-visual{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:20px;padding:44px;margin-top:48px;
+  max-width:900px;margin-left:auto;margin-right:auto;
+}
+.usage-headline{
+  font-family:var(--font-d);font-style:italic;font-size:1.35rem;
+  color:var(--champagne);margin-bottom:8px;text-align:center;
+}
+.usage-sub{font-size:0.8rem;color:var(--muted);text-align:center;margin-bottom:36px;}
+.usage-equation{
+  display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;
+}
+.usage-block{
+  text-align:center;padding:20px 24px;
+  border:1px solid rgba(201,168,76,0.1);
+  background:var(--dark2);border-radius:10px;min-width:120px;
+  transition:border-color 0.2s,transform 0.2s;
+}
+.usage-block:hover{border-color:var(--gold);transform:translateY(-2px);}
+.usage-block-num{font-family:var(--font-d);font-size:2.4rem;font-weight:300;color:var(--gold);line-height:1;}
+.usage-block-label{font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:4px;}
+.usage-arrow{font-size:1.2rem;color:var(--muted);padding:0 8px;}
+.usage-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-top:36px;}
+.usage-card{
+  background:var(--dark2);border:1px solid rgba(255,255,255,0.05);
+  border-radius:8px;padding:16px;
+  transition:border-color 0.2s;
+}
+.usage-card:hover{border-color:var(--border);}
+.usage-card-icon{width:20px;height:20px;margin-bottom:8px;opacity:0.5;}
+.usage-card-name{font-size:0.78rem;font-weight:500;color:var(--white);margin-bottom:3px;}
+.usage-card-ex{font-size:0.68rem;color:var(--muted);line-height:1.5;}
+
+/* ═══════════════════════════════════════════
+   PROCESS
+═══════════════════════════════════════════ */
+.process-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:1px;margin-top:48px;
+  border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
+}
+.process-step{background:var(--dark2);padding:36px 24px;transition:background 0.25s;}
+.process-step:hover{background:var(--dark3);}
+.ps-num{font-family:var(--font-d);font-size:4rem;font-weight:300;color:var(--gold);opacity:0.15;line-height:1;margin-bottom:12px;}
+.ps-title{font-family:var(--font-d);font-size:1.1rem;font-weight:400;color:var(--white);margin-bottom:8px;letter-spacing:0.5px;}
+.ps-desc{font-size:0.78rem;color:var(--muted);line-height:1.68;font-weight:300;}
+
+/* ═══════════════════════════════════════════
+   BRAND STYLE SELECTOR
+═══════════════════════════════════════════ */
+.style-bg{background:var(--dark2);}
+.style-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:44px;}
+.style-btn{
+  background:var(--card);border:1px solid rgba(255,255,255,0.07);
+  border-radius:10px;padding:24px 16px;text-align:center;
+  cursor:pointer;transition:all 0.25s;
+  font-family:var(--font-b);
+}
+.style-btn:hover,.style-btn.selected{
+  border-color:var(--gold);background:rgba(201,168,76,0.06);
+  transform:translateY(-3px);
+}
+.style-btn.selected .style-word{color:var(--gold);}
+.style-visual{
+  width:48px;height:48px;border-radius:50%;margin:0 auto 12px;
+  display:flex;align-items:center;justify-content:center;font-size:1.3rem;
+}
+.style-word{font-family:var(--font-d);font-size:1.1rem;font-weight:300;color:var(--white);margin-bottom:4px;transition:color 0.2s;}
+.style-desc{font-size:0.65rem;color:var(--muted);letter-spacing:1px;}
+.style-action{
+  text-align:center;margin-top:28px;display:none;
+}
+.style-action.show{display:block;}
+.style-action-text{font-size:0.88rem;color:var(--ivory);margin-bottom:14px;}
+.style-action-text span{color:var(--gold);font-family:var(--font-d);font-style:italic;font-size:1.05rem;}
+
+/* ═══════════════════════════════════════════
+   ENQUIRY / AVAILABILITY
+═══════════════════════════════════════════ */
+.avail-section{background:var(--dark2);}
+.avail-card{
+  background:rgba(201,168,76,0.04);border:1px solid var(--border);
+  border-radius:20px;padding:44px;max-width:740px;margin:44px auto 0;
+}
+.avail-h{font-family:var(--font-d);font-size:1.5rem;font-weight:300;font-style:italic;color:var(--white);margin-bottom:8px;}
+.avail-sub{font-size:0.83rem;color:var(--muted);margin-bottom:28px;font-weight:300;}
+.avail-form{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+@media(max-width:540px){.avail-form{grid-template-columns:1fr;}}
+.avail-field label{display:block;font-size:0.6rem;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.avail-select,.avail-input{
+  width:100%;background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:6px;padding:12px 14px;
+  color:var(--white);font-family:var(--font-b);font-size:0.86rem;
+  outline:none;transition:border-color 0.2s;appearance:none;
+}
+.avail-select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888070' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;
+}
+.avail-select:focus,.avail-input:focus{border-color:var(--gold);}
+.avail-input::placeholder{color:rgba(255,255,255,0.2);}
+.avail-select option{background:var(--dark);}
+.btn-check-avail{
+  width:100%;background:var(--wa);color:white;border:none;
+  border-radius:6px;padding:14px;
+  font-family:var(--font-b);font-size:0.88rem;font-weight:600;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:background 0.2s,transform 0.15s,box-shadow 0.2s;
+  letter-spacing:1px;text-transform:uppercase;
+}
+.btn-check-avail:hover{background:#20c05a;transform:translateY(-2px);box-shadow:0 10px 28px rgba(37,211,102,0.35);}
+.avail-note{text-align:center;margin-top:12px;font-size:0.7rem;color:var(--muted);}
+
+/* ═══════════════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════════════ */
+.testi-bg{background:var(--dark);}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:44px;}
+.testi-card{
+  background:var(--card);border:1px solid rgba(255,255,255,0.04);
+  border-radius:var(--radius);padding:28px 24px;
+  transition:transform 0.25s,border-color 0.2s;
+}
+.testi-card:hover{transform:translateY(-3px);border-color:var(--border);}
+.t-pkg{font-size:0.6rem;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:6px;}
+.t-pkg::before{content:'';width:16px;height:1px;background:var(--gold);}
+.t-quote{font-family:var(--font-d);font-style:italic;font-size:1.02rem;color:var(--off);line-height:1.68;margin-bottom:20px;}
+.t-author{display:flex;align-items:center;gap:12px;}
+.t-avatar{
+  width:40px;height:40px;border-radius:50%;
+  background:var(--dark3);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.75rem;font-weight:600;color:var(--gold);
+  flex-shrink:0;font-family:var(--font-d);
+}
+.t-name{font-size:0.84rem;font-weight:500;color:var(--white);}
+.t-occasion{font-size:0.68rem;color:var(--muted);}
+
+/* ═══════════════════════════════════════════
+   FAQ
+═══════════════════════════════════════════ */
+.faq-bg{background:var(--dark2);}
+.faq-list{margin-top:44px;display:flex;flex-direction:column;gap:2px;}
+.faq-item{
+  background:var(--card);border:1px solid rgba(255,255,255,0.04);
+  border-radius:8px;overflow:hidden;
+}
+.faq-q{
+  width:100%;background:none;border:none;color:var(--white);
+  padding:20px 24px;text-align:left;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  font-family:var(--font-b);font-size:0.9rem;font-weight:400;
+  transition:color 0.2s;
+}
+.faq-q:hover{color:var(--gold);}
+.faq-icon{
+  flex-shrink:0;width:20px;height:20px;border:1px solid rgba(255,255,255,0.15);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:0.8rem;color:var(--muted);transition:all 0.25s;
+}
+.faq-item.open .faq-icon{background:var(--gold);border-color:var(--gold);color:var(--black);transform:rotate(45deg);}
+.faq-a{
+  max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.3s ease;
+  font-size:0.84rem;color:var(--muted);line-height:1.75;font-weight:300;
+  padding:0 24px;
+}
+.faq-item.open .faq-a{max-height:220px;padding-bottom:20px;}
+
+/* ═══════════════════════════════════════════
+   FINAL CTA
+═══════════════════════════════════════════ */
+.final-sec{padding:0 24px 96px;}
+.final-inner{
+  max-width:900px;margin:0 auto;
+  position:relative;
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;gap:0;
+  border:1px solid var(--border);border-radius:20px;overflow:hidden;
+}
+@media(max-width:680px){.final-inner{grid-template-columns:1fr;}}
+.final-left{padding:60px 48px;background:var(--dark2);}
+.final-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
+.final-eyebrow-line{width:24px;height:1px;background:var(--gold);}
+.final-eyebrow-text{font-size:0.6rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase;}
+.final-h2{font-family:var(--font-d);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;color:var(--white);line-height:1.08;margin-bottom:14px;}
+.final-h2 em{font-style:italic;color:var(--gold);}
+.final-sub{font-size:0.86rem;color:var(--muted);line-height:1.72;font-weight:300;margin-bottom:28px;}
+.btn-wa-final{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--wa);color:white;border:none;
+  border-radius:6px;padding:14px 28px;
+  font-family:var(--font-b);font-size:0.85rem;font-weight:600;
+  cursor:pointer;text-decoration:none;
+  transition:background 0.2s,transform 0.15s,box-shadow 0.2s;letter-spacing:0.5px;
+}
+.btn-wa-final:hover{background:#20c05a;transform:translateY(-2px);box-shadow:0 10px 26px rgba(37,211,102,0.4);}
+.final-right{
+  padding:60px 40px;background:var(--black);
+  border-left:1px solid var(--border);
+  display:flex;flex-direction:column;gap:16px;
+}
+.final-avail-label{font-size:0.6rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:4px;}
+.month-slots{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.slot{background:var(--dark2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;}
+.slot-month{font-size:0.72rem;color:var(--white);font-weight:500;margin-bottom:3px;}
+.slot-avail{font-size:0.62rem;letter-spacing:1px;text-transform:uppercase;}
+.slot.open .slot-avail{color:#4ade80;}
+.slot.limited .slot-avail{color:var(--gold);}
+.slot.full .slot-avail{color:#f87171;}
+.slot.full{opacity:0.5;}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+.ll-footer{background:var(--dark);border-top:1px solid var(--border);padding:48px 24px 28px;}
+.footer-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;}
+@media(max-width:600px){.footer-inner{grid-template-columns:1fr;gap:24px;}}
+.footer-brand-name{font-family:var(--font-d);font-size:1.2rem;font-weight:300;letter-spacing:4px;text-transform:uppercase;color:white;margin-bottom:6px;}
+.footer-brand-tag{font-size:0.5rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase;}
+.footer-tagline{font-size:0.78rem;color:var(--muted);line-height:1.65;max-width:230px;margin-top:10px;}
+.footer-col-title{font-size:0.6rem;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.footer-links a{color:var(--muted);text-decoration:none;font-size:0.8rem;transition:color 0.2s;}
+.footer-links a:hover{color:white;}
+.footer-bottom{
+  max-width:1000px;margin:36px auto 0;
+  border-top:1px solid var(--border);padding-top:20px;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:10px;font-size:0.7rem;color:var(--muted);
+}
+.footer-bottom a{color:var(--gold);text-decoration:none;}
+
+/* ═══════════════════════════════════════════
+   STICKY MOBILE BAR
+═══════════════════════════════════════════ */
+.sticky-bar{
+  position:fixed;bottom:0;left:0;right:0;z-index:700;
+  background:var(--dark);border-top:1px solid var(--border);
+  padding:12px 20px;display:none;
+  align-items:center;justify-content:space-between;gap:12px;
+  box-shadow:0 -4px 20px rgba(0,0,0,0.6);
+}
+@media(max-width:768px){.sticky-bar{display:flex;}}
+.sticky-text{font-size:0.78rem;color:var(--muted);line-height:1.3;}
+.sticky-text strong{color:white;display:block;font-size:0.84rem;}
+.btn-sticky-wa{
+  flex-shrink:0;background:var(--wa);color:white;border:none;
+  border-radius:6px;padding:10px 20px;
+  font-family:var(--font-b);font-size:0.8rem;font-weight:600;
+  cursor:pointer;text-decoration:none;
+  display:flex;align-items:center;gap:7px;white-space:nowrap;
+}
+
+/* ═══════════════════════════════════════════
+   FLOAT WA
+═══════════════════════════════════════════ */
+.float-wa{
+  position:fixed;bottom:80px;right:24px;z-index:650;
+  background:var(--wa);color:white;
+  width:56px;height:56px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;text-decoration:none;
+  box-shadow:0 6px 24px rgba(37,211,102,0.5);
+  transition:transform 0.2s;
+  animation:waPulse 2.5s ease-in-out infinite;
+}
+.float-wa:hover{transform:scale(1.1);animation:none;}
+@keyframes waPulse{
+  0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}
+  50%{box-shadow:0 6px 32px rgba(37,211,102,0.8),0 0 0 12px rgba(37,211,102,0.08)}
+}
+@media(min-width:769px){.float-wa{bottom:24px;}}
+
+/* ═══════════════════════════════════════════
+   REVEAL / ANIMATIONS
+═══════════════════════════════════════════ */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media(max-width:768px){
+  .ll-nav{padding:0 18px;}
+  .nav-links{display:none;}
+  .ll-hero{padding:0 20px 60px;}
+  .hero-stats{display:none;}
+  .hero-mosaic{grid-template-columns:repeat(2,1fr);}
+  .ll-section{padding:72px 20px;}
+}
+@media(max-width:480px){
+  .ll-hero{padding:0 16px 54px;}
+  .hero-btns{flex-direction:column;}
+  .btn-primary-ll,.btn-ghost-ll{text-align:center;justify-content:center;}
+  .final-left{padding:40px 24px;}
+  .final-right{padding:32px 24px;}
+}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--dark);}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="ll-nav">
+  <a href="#" class="nav-brand">
+    <span class="nav-brand-name">The Brand Frame</span>
+    <span class="nav-brand-tag">Brand Photography Studio</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="https://wa.me/17584269328?text=Hi%20The%20Brand%20Frame%20Studio!%20I%27d%20like%20to%20enquire%20about%20a%20brand%20photography%20session." target="_blank" class="btn-nav-book">
+    Book a Session
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="ll-hero" id="home">
+  <div class="hero-letterbox-top"></div>
+  <div class="hero-mosaic" id="heroMosaic"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-line"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Brand Photography</span>
+    </div>
+
+    <h1>
+      Look Ready<br/>
+      <em>To Be</em><br/>
+      Booked.
+    </h1>
+
+    <p class="hero-desc">
+      For founders, coaches, consultants, and service-based professionals who need more than nice pictures — they need visuals that build trust, tell the right story, and make people feel confident enough to enquire.
+    </p>
+
+    <div class="hero-who-strip">
+      <span class="hero-who-pill">Coaches</span>
+      <span class="hero-who-pill">Consultants</span>
+      <span class="hero-who-pill">Realtors</span>
+      <span class="hero-who-pill">Beauty Brands</span>
+      <span class="hero-who-pill">Creatives</span>
+      <span class="hero-who-pill">Founders</span>
+      <span class="hero-who-pill">Service Providers</span>
+    </div>
+
+    <div class="hero-location">Saint Lucia · Caribbean · Available for Travel</div>
+
+    <div class="hero-btns">
+      <a href="https://wa.me/17584269328?text=Hi%20The%20Brand%20Frame%20Studio!%20I%27d%20like%20to%20book%20a%20brand%20session.%20Can%20you%20tell%20me%20about%20your%20packages?" target="_blank" class="btn-primary-ll">
+        Book a Brand Session
+      </a>
+      <a href="#packages" class="btn-ghost-ll">View Brand Packages →</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="h-stat">
+      <div class="h-stat-num">100+</div>
+      <div class="h-stat-lbl">Brands Served</div>
+    </div>
+    <div class="h-stat">
+      <div class="h-stat-num">5★</div>
+      <div class="h-stat-lbl">Client Reviews</div>
+    </div>
+    <div class="h-stat">
+      <div class="h-stat-num">7day</div>
+      <div class="h-stat-lbl">Image Delivery</div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-tick"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ll-ticker">
+  <div class="ticker-track" id="tickerTrack"></div>
+</div>
+
+<!-- PROBLEM SECTION -->
+<div class="ll-section problem-bg" id="about">
+  <div class="sec-inner">
+    <div class="reveal">
+      <span class="sec-eye">The Real Problem</span>
+      <h2 class="sec-h2">Your Business Is Good.<br/><em>Your Visuals Don't Show It.</em></h2>
+      <p class="sec-sub">You've built something worth being seen. But if your visuals look scattered, inconsistent, or like they were taken on the go — people hesitate before they even read what you offer.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="prob-card reveal">
+        <div class="prob-num">01</div>
+        <div class="prob-title">Your photos don't match your level of service</div>
+        <div class="prob-desc">You show up professionally in person. But a potential client Googles you and finds a blurry headshot from three years ago, or no photos at all. The first impression is already hurting you.</div>
+      </div>
+      <div class="prob-card reveal">
+        <div class="prob-num">02</div>
+        <div class="prob-title">Your social media feels inconsistent and rushed</div>
+        <div class="prob-desc">You know you should be posting, but you're using random selfies, cropped screenshots, and whatever you could grab in the moment. It doesn't reflect what you're actually capable of delivering.</div>
+      </div>
+      <div class="prob-card reveal">
+        <div class="prob-num">03</div>
+        <div class="prob-title">Your website doesn't build trust visually</div>
+        <div class="prob-desc">Great copy falls flat when the images around it look amateur. Visitors make a judgment about your credibility within seconds — and low-quality visuals are one of the fastest ways to lose a potential client.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRANSFORMATION SECTION -->
+<div class="ll-section transform-bg" id="results">
+  <div class="sec-inner">
+    <div class="reveal sec-center">
+      <span class="sec-eye">The Transformation</span>
+      <h2 class="sec-h2">Before & <em>After</em> a Brand Session</h2>
+      <p class="sec-sub" style="margin:0 auto;">One intentional shoot changes how your entire online presence feels — to you, and to the people you want to attract.</p>
+    </div>
+    <div class="transform-grid reveal" style="margin-top:48px;">
+      <div class="transform-col">
+        <div class="transform-label before-label">
+          <div class="transform-label-line"></div>
+          Before
+        </div>
+        <ul class="transform-list">
+          <li class="transform-item before-item"><span class="t-marker x">✕</span>Random selfies and phone photos</li>
+          <li class="transform-item before-item"><span class="t-marker x">✕</span>Cropped screenshots from events</li>
+          <li class="transform-item before-item"><span class="t-marker x">✕</span>No consistent look or colour palette</li>
+          <li class="transform-item before-item"><span class="t-marker x">✕</span>Embarrassed to share your website link</li>
+          <li class="transform-item before-item"><span class="t-marker x">✕</span>Hesitating to post because nothing looks right</li>
+          <li class="transform-item before-item"><span class="t-marker x">✕</span>Clients underestimating your professionalism</li>
+        </ul>
+      </div>
+      <div class="transform-col after-col">
+        <div class="transform-label after-label">
+          <div class="transform-label-line"></div>
+          After
+        </div>
+        <ul class="transform-list">
+          <li class="transform-item"><span class="t-marker check">✓</span>Strategic brand portraits that command respect</li>
+          <li class="transform-item"><span class="t-marker check">✓</span>Lifestyle images that show how you work</li>
+          <li class="transform-item"><span class="t-marker check">✓</span>Behind-the-scenes content that builds trust</li>
+          <li class="transform-item"><span class="t-marker check">✓</span>Website-ready hero shots and headers</li>
+          <li class="transform-item"><span class="t-marker check">✓</span>Social media content library for weeks</li>
+          <li class="transform-item"><span class="t-marker check">✓</span>Visuals that make you look worth the price</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PORTFOLIO -->
+<div class="ll-section portfolio-bg" id="portfolio">
+  <div class="sec-inner">
+    <div class="reveal">
+      <span class="sec-eye">Portfolio</span>
+      <h2 class="sec-h2">Brand Stories <em>Worth Telling.</em></h2>
+      <p class="sec-sub">Every image here represents a business owner who decided their brand deserved to look the part. This is what strategic brand photography looks like.</p>
+    </div>
+    <div class="port-tabs reveal" id="portTabs"></div>
+    <div class="masonry reveal" id="masonryGrid"></div>
+    <div style="text-align:center;margin-top:44px;" class="reveal">
+      <a href="https://wa.me/17584269328?text=Hi%20The%20Brand%20Frame%20Studio!%20I%27d%20love%20to%20see%20more%20of%20your%20brand%20photography%20work." target="_blank" class="btn-ghost-ll">
+        See More Work on WhatsApp →
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND SESSION SECTION -->
+<div class="ll-section session-bg" id="approach">
+  <div class="sec-inner">
+    <div class="reveal">
+      <span class="sec-eye">Our Approach</span>
+      <h2 class="sec-h2">Not Just Photos.<br/><em>A Visual System</em> For Your Business.</h2>
+      <p class="sec-sub">Most photographers show up and take pictures. We show up with a plan — built around your brand, your audience, and where you want to use the images.</p>
+    </div>
+    <div class="session-grid reveal">
+      <div>
+        <p style="font-size:0.9rem;color:var(--muted);line-height:1.82;font-weight:300;margin-bottom:24px;">
+          Before your session, we get clear on what your brand needs to communicate and to whom. During the shoot, we guide every angle, every outfit, every location — so nothing is left to chance. You walk away with a curated image library you can use across every platform your business lives on.
+        </p>
+        <p style="font-size:0.9rem;color:var(--muted);line-height:1.82;font-weight:300;margin-bottom:32px;">
+          The result isn't just beautiful photos. It's a visual identity that works — for your website, your social media, your proposals, your LinkedIn, your ads, and everywhere else you show up professionally.
+        </p>
+        <a href="https://wa.me/17584269328?text=Hi%20The%20Brand%20Frame%20Studio!%20I%27d%20like%20to%20learn%20more%20about%20the%20brand%20session%20approach." target="_blank" class="btn-primary-ll">Let's Talk About Your Brand</a>
+      </div>
+      <div class="session-visual">
+        <div class="session-vis-item">
+          <div class="svi-num">01</div>
+          <div><div class="svi-title">Brand Clarity Call</div><div class="svi-desc">We discuss your business, your audience, and exactly what your images need to communicate.</div></div>
+        </div>
+        <div class="session-vis-item">
+          <div class="svi-num">02</div>
+          <div><div class="svi-title">Shoot Plan & Creative Direction</div><div class="svi-desc">Outfit guidance, location scouting, mood boards, and a shot list tailored to your brand goals.</div></div>
+        </div>
+        <div class="session-vis-item">
+          <div class="svi-num">03</div>
+          <div><div class="svi-title">Guided Brand Photoshoot</div><div class="svi-desc">You're guided through every pose and moment. No experience needed — we handle the direction.</div></div>
+        </div>
+        <div class="session-vis-item">
+          <div class="svi-num">04</div>
+          <div><div class="svi-title">Edited Image Library</div><div class="svi-desc">Professionally edited, formatted, and delivered for immediate use across all your platforms.</div></div>
+        </div>
+        <div class="session-vis-item">
+          <div class="svi-num">05</div>
+          <div><div class="svi-title">Your Brand, Everywhere</div><div class="svi-desc">Website, Instagram, LinkedIn, ads, proposals — images built to work across your entire presence.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PACKAGES -->
+<div class="ll-section" id="packages">
+  <div class="sec-inner">
+    <span class="sec-eye reveal">Packages & Pricing</span>
+    <h2 class="sec-h2 reveal">Choose Your <em>Brand Session.</em></h2>
+    <p class="sec-sub reveal">Every package is built around real business needs — not just photos, but a content library you can use. Custom packages available for teams and larger brands.</p>
+    <div class="packages-grid" id="packagesGrid"></div>
+  </div>
+</div>
+
+<!-- IMAGE USAGE PLANNER -->
+<div class="ll-section usage-bg" id="usage">
+  <div class="sec-inner sec-center">
+    <span class="sec-eye reveal">What You Walk Away With</span>
+    <h2 class="sec-h2 reveal">One Session.<br/><em>Weeks of Content.</em></h2>
+    <p class="sec-sub reveal" style="margin:0 auto;">Here's what a single brand session can become when you use the images strategically across your platforms.</p>
+    <div class="usage-visual reveal">
+      <div class="usage-headline">"One brand session, used everywhere your business shows up."</div>
+      <div class="usage-sub">Here's a realistic breakdown of what 35 edited images gives you:</div>
+      <div class="usage-grid">
+        <div class="usage-card">
+          <svg class="usage-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+          <div class="usage-card-name">Website</div>
+          <div class="usage-card-ex">Hero images, about page, service sections, team photos — 6–8 images</div>
+        </div>
+        <div class="usage-card">
+          <svg class="usage-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          <div class="usage-card-name">Instagram</div>
+          <div class="usage-card-ex">Feed posts, stories, reels covers — 10–14 images planned for 2+ weeks</div>
+        </div>
+        <div class="usage-card">
+          <svg class="usage-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          <div class="usage-card-name">LinkedIn</div>
+          <div class="usage-card-ex">Profile photo, banner image, content posts — 4–6 images</div>
+        </div>
+        <div class="usage-card">
+          <svg class="usage-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <div class="usage-card-name">Email & Proposals</div>
+          <div class="usage-card-ex">Headers, author photos, service visual — 3–5 images</div>
+        </div>
+        <div class="usage-card">
+          <svg class="usage-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          <div class="usage-card-name">Ads & Promotions</div>
+          <div class="usage-card-ex">Facebook, Instagram, Google ads — 4–6 creatives ready</div>
+        </div>
+        <div class="usage-card">
+          <svg class="usage-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <div class="usage-card-name">Press & Features</div>
+          <div class="usage-card-ex">Media kits, blog features, speaking bios — 2–3 images</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<div class="ll-section" id="process">
+  <div class="sec-inner">
+    <span class="sec-eye reveal">How It Works</span>
+    <h2 class="sec-h2 reveal">From <em>First Message</em> to Full Library.</h2>
+    <p class="sec-sub reveal">Simple, strategic, and guided at every stage. You show up prepared and confident — we take care of the rest.</p>
+    <div class="process-grid reveal">
+      <div class="process-step">
+        <div class="ps-num">01</div>
+        <div class="ps-title">Brand Clarity Call</div>
+        <div class="ps-desc">We start with a conversation about your business, your goals, and your audience. We learn what your images need to say before we decide how to say it.</div>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">02</div>
+        <div class="ps-title">Shoot Plan & Creative Direction</div>
+        <div class="ps-desc">We map out your outfits, locations, and shot list. You receive a preparation guide so the day of your shoot feels organised, not stressful.</div>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">03</div>
+        <div class="ps-title">Your Guided Brand Shoot</div>
+        <div class="ps-desc">We direct every angle. You don't need to know how to pose — we guide you through it. Our goal is to make you look natural, confident, and authentic.</div>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">04</div>
+        <div class="ps-title">Edited Image Library</div>
+        <div class="ps-desc">Your images are professionally retouched and delivered in a private digital gallery within 7 days. Sized and formatted for every platform you need.</div>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">05</div>
+        <div class="ps-title">Use Across Your Marketing</div>
+        <div class="ps-desc">Update your website. Refresh your Instagram. Upgrade your LinkedIn. Your new visuals go to work across every place your business shows up online.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND STYLE SELECTOR -->
+<div class="ll-section style-bg" id="style">
+  <div class="sec-inner sec-center">
+    <span class="sec-eye reveal">Find Your Brand Aesthetic</span>
+    <h2 class="sec-h2 reveal">What Should Your<br/><em>Brand Feel Like?</em></h2>
+    <p class="sec-sub reveal" style="margin:0 auto;">Select the vibe that best reflects how you want to show up — and we'll let you know what that looks like in a session.</p>
+    <div class="style-grid reveal" id="styleGrid"></div>
+    <div class="style-action" id="styleAction">
+      <p class="style-action-text">You want your brand to feel <span id="styleWord">—</span>. Let's make that happen.</p>
+      <a href="#" id="styleWaBtn" target="_blank" class="btn-primary-ll">Tell Us Your Style on WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<!-- ENQUIRY SECTION -->
+<div class="ll-section avail-section" id="enquiry">
+  <div class="sec-inner sec-center">
+    <span class="sec-eye reveal">Book Your Session</span>
+    <h2 class="sec-h2 reveal">Ready to Look the <em>Part?</em></h2>
+    <p class="sec-sub reveal" style="margin:0 auto;">Tell us a bit about your business and what you need — your enquiry goes straight to WhatsApp and we'll respond within the hour.</p>
+    <div class="avail-card reveal">
+      <div class="avail-h">"Let's build a brand that looks as good as it actually is."</div>
+      <div class="avail-sub">Fill in the details below and we'll confirm availability and the right package for you.</div>
+      <div class="avail-form">
+        <div class="avail-field">
+          <label>Business Type</label>
+          <select class="avail-select" id="enquiryType">
+            <option value="Coach / Consultant">Coach / Consultant</option>
+            <option value="Realtor / Property Professional">Realtor / Property Professional</option>
+            <option value="Beauty / Wellness Brand">Beauty / Wellness Brand</option>
+            <option value="Creative / Designer / Artist">Creative / Designer / Artist</option>
+            <option value="Service Business Owner">Service Business Owner</option>
+            <option value="Corporate / Executive">Corporate / Executive</option>
+            <option value="Product Business">Product Business</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="avail-field">
+          <label>Main Goal</label>
+          <select class="avail-select" id="enquiryGoal">
+            <option value="Refresh my website visuals">Refresh my website visuals</option>
+            <option value="Build a social media content library">Build a social media content library</option>
+            <option value="Update my LinkedIn and headshot">Update my LinkedIn and headshot</option>
+            <option value="Launch a new offer or brand">Launch a new offer or brand</option>
+            <option value="Look more professional overall">Look more professional overall</option>
+            <option value="Create ad and marketing content">Create ad and marketing content</option>
+          </select>
+        </div>
+        <div class="avail-field">
+          <label>Preferred Month</label>
+          <select class="avail-select" id="enquiryMonth">
+            <option>July 2026</option>
+            <option>August 2026</option>
+            <option>September 2026</option>
+            <option>October 2026</option>
+            <option>November 2026</option>
+            <option>December 2026</option>
+            <option>January 2027</option>
+          </select>
+        </div>
+        <div class="avail-field">
+          <label>Package Interest</label>
+          <select class="avail-select" id="enquiryPkg">
+            <option value="Brand Starter Session (From $250)">Brand Starter — From $250</option>
+            <option value="Signature Brand Story Session (From $550)">Signature Brand Story — From $550</option>
+            <option value="Business Content Library (From $950)">Business Content Library — From $950</option>
+            <option value="Monthly Retainer (Custom)">Monthly Retainer — Custom</option>
+            <option value="Not sure yet — need guidance">Not sure yet</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn-check-avail" onclick="sendEnquiry()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
+        Send My Enquiry on WhatsApp
+      </button>
+      <div class="avail-note">We respond within 1 hour during business hours · Saint Lucia time</div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="ll-section testi-bg" id="reviews">
+  <div class="sec-inner">
+    <span class="sec-eye reveal">Client Stories</span>
+    <h2 class="sec-h2 reveal">What Happens When<br/><em>Your Brand Looks Right.</em></h2>
+    <p class="sec-sub reveal">Real words from business owners who invested in their visual presence and felt the difference almost immediately.</p>
+    <div class="testi-grid" id="testiGrid"></div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="ll-section faq-bg" id="faq">
+  <div class="sec-inner">
+    <div class="reveal">
+      <span class="sec-eye">Frequently Asked</span>
+      <h2 class="sec-h2">Questions About<br/><em>Brand Photography</em></h2>
+    </div>
+    <div class="faq-list reveal" id="faqList"></div>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<div class="ll-section final-sec reveal" style="padding-top:0;">
+  <div class="final-inner">
+    <div class="final-left">
+      <div class="final-eyebrow">
+        <div class="final-eyebrow-line"></div>
+        <span class="final-eyebrow-text">Book Your Brand Session</span>
+      </div>
+      <div class="final-h2">Your Brand Is Already<br/>Doing the Work.<br/><em>Your Visuals Should Look Like It.</em></div>
+      <p class="final-sub">You've put time and care into building something worth showing up for. Let's make sure the first thing people see when they look you up reflects the professional you actually are.</p>
+      <a href="https://wa.me/17584269328?text=Hi%20The%20Brand%20Frame%20Studio!%20I%27m%20ready%20to%20book%20a%20brand%20photography%20session.%20Can%20we%20discuss%20packages%20and%20availability?" target="_blank" class="btn-wa-final">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
+        Book Your Brand Session on WhatsApp
+      </a>
+    </div>
+    <div class="final-right">
+      <div class="final-avail-label">2026 Session Availability</div>
+      <div class="month-slots" id="monthSlots"></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="ll-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">The Brand Frame</div>
+      <div class="footer-brand-tag">Brand Photography Studio</div>
+      <p class="footer-tagline">Brand photography for entrepreneurs, professionals, and small businesses. Saint Lucia · Caribbean · Available for Travel.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigation</div>
+      <ul class="footer-links">
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#reviews">Client Stories</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Book a Session</div>
+      <ul class="footer-links">
+        <li><a href="https://wa.me/17584269328?text=Brand%20Starter%20Session%20enquiry" target="_blank">Brand Starter Session</a></li>
+        <li><a href="https://wa.me/17584269328?text=Signature%20Brand%20Story%20enquiry" target="_blank">Signature Brand Story</a></li>
+        <li><a href="https://wa.me/17584269328?text=Business%20Content%20Library%20enquiry" target="_blank">Content Library</a></li>
+        <li><a href="https://wa.me/17584269328?text=Monthly%20Retainer%20enquiry" target="_blank">Monthly Retainer</a></li>
+        <li><a href="#enquiry">Send an Enquiry</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 The Brand Frame Studio · Saint Lucia</span>
+    <span>Website by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank">JAMALINKS</a></span>
+  </div>
+</footer>
+
+<!-- STICKY MOBILE BAR -->
+<div class="sticky-bar">
+  <div class="sticky-text">
+    <strong>Ready to look more professional?</strong>
+    Book your brand session today
+  </div>
+  <a href="https://wa.me/17584269328?text=Hi%20The%20Brand%20Frame%20Studio!%20I%27d%20like%20to%20book%20a%20brand%20session." target="_blank" class="btn-sticky-wa">
+    Book on WhatsApp
+  </a>
+</div>
+
+<!-- FLOAT WA -->
+<a href="https://wa.me/17584269328?text=Hi%20The%20Brand%20Frame%20Studio!%20I%27d%20like%20to%20enquire%20about%20a%20brand%20photography%20session." target="_blank" class="float-wa" aria-label="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
+</a>
+
+<script>
+/* ═══════════════════════════════════════════
+   CONFIG
+═══════════════════════════════════════════ */
+const PHONE = '17584269328';
+const SITE  = 'The Brand Frame Studio';
+
+/* ═══════════════════════════════════════════
+   DATA
+═══════════════════════════════════════════ */
+const portfolio = [
+  {cat:'Personal Brand', h:280, gradient:'linear-gradient(135deg,#1a1510 0%,#2d2218 50%,#1a1510 100%)', caption:'Authority without stiffness. A founder portrait that means business.', wa:'I want a founder portrait session like this — can we chat?'},
+  {cat:'Entrepreneur',   h:220, gradient:'linear-gradient(135deg,#0f1a14 0%,#162a1e 50%,#0f1a14 100%)', caption:'Behind-the-scenes content designed to feel intentional, not candid.', wa:'I need behind-the-scenes brand content — interested in a session.'},
+  {cat:'Beauty & Wellness', h:260, gradient:'linear-gradient(135deg,#1a1218 0%,#2a1c28 50%,#1a1218 100%)', caption:'Visuals that made her beauty brand feel like the premium it always was.', wa:'I run a beauty brand and need professional photos — can we talk?'},
+  {cat:'Corporate',      h:200, gradient:'linear-gradient(135deg,#0f1520 0%,#16203a 50%,#0f1520 100%)', caption:'Clean, confident, corporate. LinkedIn-ready from the first shot.', wa:'I need corporate brand photography — let\'s discuss.'},
+  {cat:'Personal Brand', h:240, gradient:'linear-gradient(135deg,#1f1508 0%,#2e1e0a 50%,#1f1508 100%)', caption:'Lifestyle images that show how she works — not just what she does.', wa:'I want lifestyle brand images for my business — when are you available?'},
+  {cat:'Creative Studio', h:260, gradient:'linear-gradient(135deg,#0a0f1a 0%,#0f1828 50%,#0a0f1a 100%)', caption:'Creative direction that matched her studio aesthetic exactly.', wa:'I have a creative studio and need brand imagery — interested.'},
+  {cat:'Entrepreneur',   h:220, gradient:'linear-gradient(135deg,#180f0a 0%,#281810 50%,#180f0a 100%)', caption:'Founder portraits with warmth and confidence — not stiff headshots.', wa:'I want warm, confident founder portraits — let\'s talk.'},
+  {cat:'Beauty & Wellness', h:240, gradient:'linear-gradient(135deg,#1a1020 0%,#261838 50%,#1a1020 100%)', caption:'Images designed for her booking page, website, and Instagram — all in one session.', wa:'I need brand photos for my wellness brand — can we chat?'},
+  {cat:'Corporate',      h:200, gradient:'linear-gradient(135deg,#0c1a10 0%,#102818 50%,#0c1a10 100%)', caption:'Team images that made their brand feel consistent and credible.', wa:'I need team brand photography — interested in a session.'},
+  {cat:'Creative Studio', h:260, gradient:'linear-gradient(135deg,#1a0e10 0%,#281418 50%,#1a0e10 100%)', caption:'A shoot that became the entire visual identity for her course launch.', wa:'I\'m launching a course and need brand imagery — let\'s talk.'},
+  {cat:'Product/Lifestyle', h:220, gradient:'linear-gradient(135deg,#10180a 0%,#182610 50%,#10180a 100%)', caption:'Product and lifestyle images that brought the brand to life online.', wa:'I need product and lifestyle photography — can we discuss?'},
+  {cat:'Product/Lifestyle', h:250, gradient:'linear-gradient(135deg,#1a1400 0%,#2a2008 50%,#1a1400 100%)', caption:'Flat-lays and lifestyle shots that filled a month of social content.', wa:'I want product lifestyle photography — let\'s chat about my brand.'},
+];
+
+const packages = [
+  {
+    featured:false,
+    type:'Brand Starter',
+    name:'Starter Session',
+    desc:'For professionals who need a polished online presence without the full brand overhaul. Perfect for a new headshot, profile refresh, or service page update.',
+    includes:['60–90 minute session','1 location','2 outfit looks','15 professionally edited images','Headshots + lifestyle portraits','Pre-session WhatsApp consultation'],
+    price:'250',
+    duration:'60–90 mins',
+    wa:'Hi The Brand Frame Studio! I\'d like to book the Brand Starter Session (from $250). Can we discuss availability?'
+  },
+  {
+    featured:true,
+    type:'Signature Session',
+    name:'Brand Story Session',
+    desc:'For entrepreneurs ready to refresh their website, social media, and brand presence in one strategic shoot. Our most popular package for a reason.',
+    includes:['2–3 hour session','2 locations','4 outfit looks','35 professionally edited images','Brand portraits + lifestyle + behind-the-scenes','Website hero shots','Social media content angles','Creative direction guide'],
+    price:'550',
+    duration:'2–3 hours',
+    wa:'Hi The Brand Frame Studio! I\'m interested in the Signature Brand Story Session (from $550). Can we chat about what\'s included?'
+  },
+  {
+    featured:false,
+    type:'Content Library',
+    name:'Business Content Library',
+    desc:'For brands that need enough visuals to cover their website, social media, ads, and marketing materials — all from one strategic half-day session.',
+    includes:['Half-day session','Multiple brand scenes','Team, founder, product + lifestyle images','75 professionally edited images','Website + Instagram + LinkedIn formatted','Ads and marketing content ready','30-day content usage plan included'],
+    price:'950',
+    duration:'Half day',
+    wa:'Hi The Brand Frame Studio! I\'m interested in the Business Content Library package (from $950). Can we discuss what\'s included?'
+  },
+  {
+    featured:false,
+    type:'Monthly Retainer',
+    name:'Monthly Brand Retainer',
+    desc:'For businesses that want fresh, professional content every single month. Never run out of quality visuals again. Priority scheduling guaranteed.',
+    includes:['Monthly mini brand shoot','Seasonal campaign coverage','Product and service highlights each month','Social media-ready image library','Priority scheduling — always first availability','Custom pricing based on your needs'],
+    price:'Custom',
+    duration:'Monthly',
+    wa:'Hi The Brand Frame Studio! I\'m interested in the Monthly Brand Retainer. Can we discuss custom pricing for my business?'
+  },
+];
+
+const testimonials = [
+  {
+    pkg:'Signature Brand Story Session',
+    quote:'"I had been putting off professional photos for two years. I always thought I\'d do it later, when the business was bigger, when I looked better. After my session I couldn\'t believe I waited so long. My website enquiries went up the week I updated the photos."',
+    name:'Sheriece M.',
+    occasion:'Business Coach · Saint Lucia',
+    initials:'SM'
+  },
+  {
+    pkg:'Brand Starter Session',
+    quote:'"I\'m a realtor and my headshot was genuinely embarrassing. Within three days of updating my profile with the new images, I had a client message me saying they chose to reach out because I looked like someone they could trust."',
+    name:'David A.',
+    occasion:'Real Estate Professional · Barbados',
+    initials:'DA'
+  },
+  {
+    pkg:'Business Content Library',
+    quote:'"I used to dread posting because I never had good images. After my content library session I had over 60 images to work with. I pre-scheduled an entire month of content the same week. The quality made my brand look completely different."',
+    name:'Camille R.',
+    occasion:'Beauty Brand Owner · Trinidad',
+    initials:'CR'
+  },
+  {
+    pkg:'Signature Brand Story Session',
+    quote:'"I\'m a consultant. My work is serious but I always came across as stiff in photos. The team found a way to make me look confident and approachable at the same time. My LinkedIn profile completely changed how people see me professionally."',
+    name:'Nigel T.',
+    occasion:'Management Consultant · Jamaica',
+    initials:'NT'
+  },
+  {
+    pkg:'Monthly Brand Retainer',
+    quote:'"Having fresh brand content every month is something I didn\'t know I needed until I had it. I never have to scramble for content anymore. The brand looks consistent and professional everywhere — and that consistency is building real trust."',
+    name:'Asha P.',
+    occasion:'Online Coach · Saint Lucia',
+    initials:'AP'
+  },
+  {
+    pkg:'Brand Starter Session',
+    quote:'"I was nervous because I\'m not photogenic — I said it before we even started. By the end I had forgotten about the camera. The images are genuinely the best photos I\'ve ever taken. They look like me, just a more confident, polished version."',
+    name:'Nadine C.',
+    occasion:'Nutritionist & Wellness Educator',
+    initials:'NC'
+  },
+];
+
+const availSlots = [
+  {month:'July 2026',    status:'limited', label:'2 Dates Left'},
+  {month:'August 2026',  status:'open',    label:'Available'},
+  {month:'Sept 2026',    status:'open',    label:'Available'},
+  {month:'Oct 2026',     status:'open',    label:'Available'},
+  {month:'Nov 2026',     status:'limited', label:'1 Date Left'},
+  {month:'Dec 2026',     status:'open',    label:'Available'},
+  {month:'Jan 2027',     status:'open',    label:'Available'},
+  {month:'Feb 2027',     status:'full',    label:'Fully Booked'},
+];
+
+const faqs = [
+  {q:'What is brand photography?', a:'Brand photography is a strategic photoshoot specifically designed to create professional images for use in your business — for your website, social media, marketing materials, proposals, LinkedIn, and more. Unlike a standard portrait session, brand photography considers your business goals, your audience, and where the images will be used before a single shot is taken.'},
+  {q:'Is this different from getting a headshot?', a:'Yes. A headshot is a single professional portrait. Brand photography is an entire image library — headshots, lifestyle shots, behind-the-scenes content, product or workspace images, social media angles, and website hero photos. You walk away with enough content to use across your entire digital presence for weeks or months.'},
+  {q:'What if I don\'t know how to pose or I\'m awkward in front of a camera?', a:'Most of our clients say this before their session — and almost none of them believe it afterward. We guide you through every pose and angle. Our job is to direct you in a way that looks natural and confident, not stiff or performative. You don\'t need to know how to pose. Just show up.'},
+  {q:'Can I use these images for my website and social media?', a:'That\'s exactly what they\'re designed for. Every image is delivered in formats suitable for websites, Instagram, LinkedIn, Facebook, email marketing, ads, and print. We\'ll also advise you on how to use each type of image strategically across your platforms.'},
+  {q:'Do you help with outfit selection and locations?', a:'Yes. Every session includes pre-shoot guidance on outfits, colours, and locations that will photograph well and align with your brand aesthetic. You\'ll receive a preparation guide before your shoot so you arrive knowing exactly what to bring.'},
+  {q:'How many images will I receive?', a:'It depends on your package. The Starter Session includes 15 professionally edited images. The Signature Brand Story Session includes 35. The Business Content Library delivers 75. Every image is fully retouched and formatted for digital and print use.'},
+  {q:'How do I book?', a:'Simply click any "Book" button on this page or message us directly on WhatsApp. We\'ll have a short conversation about your business and goals, confirm availability, and walk you through everything you need to prepare. The whole process is simple and designed to feel easy.'},
+  {q:'Do you shoot in Saint Lucia only?', a:'Saint Lucia is our home base, but we\'re available for travel across the Caribbean and internationally. Travel fees may apply for sessions outside of Saint Lucia. Message us with your location and we\'ll provide a custom quote.'},
+];
+
+const styles = [
+  {word:'Authority',    desc:'Strong, sharp, commanding',    bg:'linear-gradient(135deg,#1a1510,#2d2218)',   wa:'I want my brand to feel authoritative and commanding — can we discuss?'},
+  {word:'Warm',         desc:'Approachable, genuine, human', bg:'linear-gradient(135deg,#1f1508,#2e1e0a)',   wa:'I want my brand to feel warm and approachable — what does that look like in a session?'},
+  {word:'Luxury',       desc:'Premium, refined, elevated',   bg:'linear-gradient(135deg,#100a1a,#1e1030)',   wa:'I want my brand to feel luxurious and premium — let\'s discuss what that session looks like.'},
+  {word:'Creative',     desc:'Expressive, bold, distinctive', bg:'linear-gradient(135deg,#0a1018,#0f1828)',   wa:'I want my brand to feel creative and expressive — interested in a session.'},
+  {word:'Minimal',      desc:'Clean, simple, confident',     bg:'linear-gradient(135deg,#0c0c0c,#181818)',   wa:'I want a clean, minimal brand aesthetic — can we chat about a session?'},
+];
+
+/* ═══════════════════════════════════════════
+   HERO MOSAIC — CSS gradient panels
+═══════════════════════════════════════════ */
+function buildMosaic() {
+  const gradients = [
+    'linear-gradient(135deg,#1a1510 0%,#2d2218 100%)',
+    'linear-gradient(135deg,#0f1a14 0%,#162a1e 100%)',
+    'linear-gradient(135deg,#1a1218 0%,#2a1c28 100%)',
+    'linear-gradient(135deg,#0f1520 0%,#16203a 100%)',
+    'linear-gradient(135deg,#1f1508 0%,#2e1e0a 100%)',
+    'linear-gradient(135deg,#0a0f1a 0%,#0f1828 100%)',
+    'linear-gradient(135deg,#180f0a 0%,#281810 100%)',
+    'linear-gradient(135deg,#1a1020 0%,#261838 100%)',
+    'linear-gradient(135deg,#0c1a10 0%,#102818 100%)',
+    'linear-gradient(135deg,#1a0e10 0%,#281418 100%)',
+    'linear-gradient(135deg,#10180a 0%,#182610 100%)',
+    'linear-gradient(135deg,#1a1400 0%,#2a2008 100%)',
+  ];
+  const mosaic = document.getElementById('heroMosaic');
+  mosaic.innerHTML = gradients.map(g =>
+    `<div class="mosaic-cell" style="background:${g};"></div>`
+  ).join('');
+}
+
+/* ═══════════════════════════════════════════
+   TICKER
+═══════════════════════════════════════════ */
+function buildTicker() {
+  const items = [
+    'Personal Brand Sessions','Website & Social Content','Strategy-Led Shoots',
+    'Founder Portraits','Behind-the-Scenes Content','LinkedIn & Profile Photos',
+    'Saint Lucia & Caribbean','Available for Travel','Business Content Libraries'
+  ];
+  const doubled = [...items,...items];
+  document.getElementById('tickerTrack').innerHTML = doubled
+    .map(t=>`<span class="ticker-item"><span class="t-sep">✦</span>${t}</span>`).join('');
+}
+
+/* ═══════════════════════════════════════════
+   PORTFOLIO
+═══════════════════════════════════════════ */
+const portCats = ['All','Personal Brand','Entrepreneur','Beauty & Wellness','Corporate','Creative Studio','Product/Lifestyle'];
+let activePortCat = 'All';
+
+function buildPortTabs() {
+  document.getElementById('portTabs').innerHTML = portCats
+    .map(c=>`<button class="port-tab ${c===activePortCat?'active':''}"
+      onclick="filterPort('${c}',this)">${c}</button>`).join('');
+}
+
+function filterPort(cat, btn) {
+  activePortCat = cat;
+  document.querySelectorAll('.port-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderMasonry();
+}
+
+// SVG silhouette for portrait placeholder
+const personSVG = `<svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="35" r="22"/><path d="M10 130 Q10 85 50 80 Q90 85 90 130Z"/></svg>`;
+
+function renderMasonry() {
+  buildPortTabs();
+  const filtered = activePortCat==='All' ? portfolio : portfolio.filter(p=>p.cat===activePortCat);
+  document.getElementById('masonryGrid').innerHTML = filtered.map(p=>`
+    <div class="masonry-item">
+      <div class="photo-frame" style="height:${p.h}px">
+        <div class="photo-frame-bg" style="background:${p.gradient};"></div>
+        <div class="photo-frame-silhouette">${personSVG}</div>
+        <div class="photo-frame-cat">${p.cat}</div>
+        <div class="photo-overlay">
+          <div class="photo-caption">${p.caption}</div>
+        </div>
+        <button class="photo-wa" onclick="bookFromPhoto('${p.wa.replace(/'/g,"\\'")}')">
+          Create This Look
+        </button>
+      </div>
+    </div>`).join('');
+  observeReveal();
+}
+
+function bookFromPhoto(wa) {
+  window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(wa)}`, '_blank');
+}
+
+/* ═══════════════════════════════════════════
+   PACKAGES
+═══════════════════════════════════════════ */
+function buildPackages() {
+  document.getElementById('packagesGrid').innerHTML = packages.map(p=>`
+    <div class="pkg-card ${p.featured?'featured':''} reveal">
+      ${p.featured?'<div class="pkg-feat-tag">Most Popular</div>':''}
+      <div class="pkg-icon-bar"></div>
+      <div class="pkg-type">${p.type}</div>
+      <div class="pkg-name">${p.name}</div>
+      <div class="pkg-desc">${p.desc}</div>
+      <div class="pkg-includes">
+        ${p.includes.map(i=>`<div class="pkg-include">${i}</div>`).join('')}
+      </div>
+      <div class="pkg-footer">
+        <div>
+          <div class="pkg-price">${p.price==='Custom'?'Custom':('$'+p.price)}<small> ${p.price==='Custom'?'pricing':'from'}</small></div>
+          <div class="pkg-duration">${p.duration}</div>
+        </div>
+        <button class="btn-book-pkg ${p.featured?'featured-btn':''}"
+          onclick="bookPkg('${p.wa.replace(/'/g,"\\'")}')">
+          Book This
+        </button>
+      </div>
+    </div>`).join('');
+  observeReveal();
+}
+
+function bookPkg(wa) {
+  window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(wa)}`, '_blank');
+}
+
+/* ═══════════════════════════════════════════
+   STYLE SELECTOR
+═══════════════════════════════════════════ */
+let selectedStyle = null;
+
+function buildStyleSelector() {
+  document.getElementById('styleGrid').innerHTML = styles.map((s,i)=>`
+    <div class="style-btn" onclick="selectStyle(${i},this)">
+      <div class="style-visual" style="background:${s.bg};"></div>
+      <div class="style-word">${s.word}</div>
+      <div class="style-desc">${s.desc}</div>
+    </div>`).join('');
+}
+
+function selectStyle(i, el) {
+  document.querySelectorAll('.style-btn').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedStyle = styles[i];
+  document.getElementById('styleWord').textContent = styles[i].word.toLowerCase();
+  document.getElementById('styleWaBtn').href = `https://wa.me/${PHONE}?text=${encodeURIComponent(styles[i].wa)}`;
+  document.getElementById('styleAction').classList.add('show');
+}
+
+/* ═══════════════════════════════════════════
+   ENQUIRY
+═══════════════════════════════════════════ */
+function sendEnquiry() {
+  const type  = document.getElementById('enquiryType').value;
+  const goal  = document.getElementById('enquiryGoal').value;
+  const month = document.getElementById('enquiryMonth').value;
+  const pkg   = document.getElementById('enquiryPkg').value;
+  const msg = [
+    `📸 *Brand Photography Enquiry — ${SITE}*`,
+    `────────────────────────`,
+    `Business Type: ${type}`,
+    `Main Goal: ${goal}`,
+    `Preferred Month: ${month}`,
+    `Package Interest: ${pkg}`,
+    `────────────────────────`,
+    `Please confirm availability and next steps.`
+  ].join('\n');
+  window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+/* ═══════════════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════════════ */
+function buildTestimonials() {
+  document.getElementById('testiGrid').innerHTML = testimonials.map(t=>`
+    <div class="testi-card reveal">
+      <div class="t-pkg">${t.pkg}</div>
+      <div class="t-quote">${t.quote}</div>
+      <div class="t-author">
+        <div class="t-avatar">${t.initials}</div>
+        <div>
+          <div class="t-name">${t.name}</div>
+          <div class="t-occasion">${t.occasion}</div>
+        </div>
+      </div>
+    </div>`).join('');
+  observeReveal();
+}
+
+/* ═══════════════════════════════════════════
+   FAQ
+═══════════════════════════════════════════ */
+function buildFaq() {
+  document.getElementById('faqList').innerHTML = faqs.map((f,i)=>`
+    <div class="faq-item" id="faq-${i}">
+      <button class="faq-q" onclick="toggleFaq(${i})">
+        ${f.q}
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">${f.a}</div>
+    </div>`).join('');
+}
+
+function toggleFaq(i) {
+  const item = document.getElementById(`faq-${i}`);
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(el=>el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+/* ═══════════════════════════════════════════
+   AVAILABILITY SLOTS
+═══════════════════════════════════════════ */
+function buildSlots() {
+  document.getElementById('monthSlots').innerHTML = availSlots.slice(0,8).map(s=>`
+    <div class="slot ${s.status}">
+      <div class="slot-month">${s.month}</div>
+      <div class="slot-avail">${s.status==='open'?'● Available':s.status==='limited'?'⚠ '+s.label:'✕ Fully Booked'}</div>
+    </div>`).join('');
+}
+
+/* ═══════════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════════ */
+function observeReveal() {
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){
+        setTimeout(()=>e.target.classList.add('visible'),i*80);
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.08});
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el=>obs.observe(el));
+}
+
+/* ═══════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════ */
+buildMosaic();
+buildTicker();
+renderMasonry();
+buildPackages();
+buildStyleSelector();
+buildTestimonials();
+buildFaq();
+buildSlots();
+observeReveal();
+</script>
+</body>
+</html>
