@@ -1,0 +1,1944 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Custom handmade piñatas in Saint Lucia. Birthdays, baby showers, special events. Order on WhatsApp today."/>
+<title>Wat's Poppin' Piñatas SLU — Custom Handmade Piñatas in Saint Lucia</title>
+
+<!-- Preconnect -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+
+<!-- Fonts: Fredoka (display) + Nunito (body) -->
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet"/>
+
+<!-- Bootstrap 5.3 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+<!-- AOS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
+
+<style>
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root {
+  --pink:    #FF3D7F;
+  --yellow:  #FFB800;
+  --blue:    #00B4D8;
+  --teal:    #2EC4B6;
+  --green:   #48C774;
+  --orange:  #FF6B35;
+  --purple:  #9B59B6;
+
+  --bg:        #FFFBF5;
+  --bg-2:      #FFF5F9;
+  --bg-3:      #F0FAFE;
+  --card-bg:   #FFFFFF;
+  --text:      #1A1A2E;
+  --text-muted:#6B7280;
+  --border:    rgba(0,0,0,0.07);
+
+  --shadow:       0 4px 24px rgba(0,0,0,0.07);
+  --shadow-hover: 0 10px 40px rgba(0,0,0,0.13);
+  --radius:    20px;
+  --radius-sm: 12px;
+
+  --transition: 0.25s ease;
+}
+
+[data-theme="dark"] {
+  --bg:        #12111A;
+  --bg-2:      #1C1828;
+  --bg-3:      #161E2E;
+  --card-bg:   #211F30;
+  --text:      #F0ECFF;
+  --text-muted:#9B99AA;
+  --border:    rgba(255,255,255,0.07);
+  --shadow:       0 4px 24px rgba(0,0,0,0.4);
+  --shadow-hover: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-family: 'Nunito', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+  margin: 0; padding: 0;
+}
+
+h1,h2,h3,h4,h5,.ff-display {
+  font-family: 'Fredoka', sans-serif;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { text-decoration: none; }
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255,251,245,0.9);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background var(--transition);
+}
+
+[data-theme="dark"] .site-nav {
+  background: rgba(18,17,26,0.92);
+}
+
+.nav-logo {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--pink);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-logo .logo-dark { color: var(--text); }
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-nav-order {
+  background: #25D366;
+  color: #fff !important;
+  border: none;
+  border-radius: 50px;
+  padding: 8px 18px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 0.82rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.btn-nav-order:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 18px rgba(37,211,102,0.4);
+  color: #fff;
+}
+
+.theme-toggle {
+  width: 38px; height: 38px;
+  background: none;
+  border: 1.5px solid var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: var(--text);
+  transition: background var(--transition), border-color var(--transition);
+}
+.theme-toggle:hover { background: var(--bg-2); }
+
+/* ============================================================
+   SHARED BUTTON STYLES
+   ============================================================ */
+.btn-pink {
+  background: var(--pink);
+  color: #fff !important;
+  border: none;
+  border-radius: 50px;
+  padding: 13px 28px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 4px 20px rgba(255,61,127,0.3);
+}
+.btn-pink:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(255,61,127,0.42);
+  color: #fff;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text) !important;
+  border: 2px solid var(--border);
+  border-radius: 50px;
+  padding: 11px 26px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color var(--transition), color var(--transition), background var(--transition);
+}
+.btn-ghost:hover {
+  border-color: var(--pink);
+  color: var(--pink) !important;
+  background: rgba(255,61,127,0.04);
+}
+
+.btn-wa {
+  background: #25D366;
+  color: #fff !important;
+  border: none;
+  border-radius: 50px;
+  padding: 13px 28px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+}
+.btn-wa:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(37,211,102,0.42);
+  color: #fff;
+}
+
+.btn-wa-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #25D366;
+  color: #fff !important;
+  border: none;
+  border-radius: 50px;
+  padding: 9px 16px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  width: 100%;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.btn-wa-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(37,211,102,0.38);
+  color: #fff;
+}
+
+/* ============================================================
+   SECTION WRAPPERS
+   ============================================================ */
+.sec { padding: 72px 0; }
+.sec-alt  { background: var(--bg-2); }
+.sec-alt2 { background: var(--bg-3); }
+
+.sec-label {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 10px;
+}
+
+.sec-title {
+  font-size: clamp(1.7rem, 5vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.sec-sub {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 520px;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  background: var(--bg);
+  padding: 64px 0 80px;
+  position: relative;
+  overflow: hidden;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-2);
+  color: var(--pink);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 50px;
+  margin-bottom: 22px;
+  border: 1.5px solid rgba(255,61,127,0.15);
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 9vw, 4.4rem);
+  font-weight: 700;
+  line-height: 1.08;
+  margin-bottom: 20px;
+}
+
+.hero h1 .c-pink   { color: var(--pink); }
+.hero h1 .c-yellow { color: var(--yellow); }
+
+.hero-sub {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 32px;
+  max-width: 460px;
+}
+
+.hero-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+/* Pricing pills */
+.price-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.price-pill {
+  background: var(--card-bg);
+  border: 1.5px solid var(--border);
+  border-radius: 50px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--shadow);
+}
+.price-pill .p-size {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.price-pill .p-div {
+  width: 1px; height: 16px;
+  background: var(--border);
+}
+.price-pill .p-amt {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--pink);
+}
+
+.price-footnote {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Hero image placeholder */
+.hero-visual {
+  position: relative;
+}
+.hero-img-box {
+  width: 100%;
+  aspect-ratio: 4/5;
+  background: linear-gradient(135deg, #FFE5F0 0%, #FFF6D6 50%, #E0F7FF 100%);
+  border-radius: var(--radius);
+  border: 2px dashed rgba(255,61,127,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-img-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 12px,
+    rgba(255,61,127,0.025) 12px,
+    rgba(255,61,127,0.025) 24px
+  );
+}
+.hero-img-box .ph-big   { font-size: 3.6rem; position: relative; z-index: 1; }
+.hero-img-box .ph-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--pink);
+  opacity: 0.7;
+  text-align: center;
+  line-height: 1.5;
+  position: relative;
+  z-index: 1;
+}
+
+/* Floating shapes – desktop only */
+.hero-shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.fshape {
+  position: absolute;
+  border-radius: 50%;
+}
+
+@keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
+@keyframes bob-spin { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-14px) rotate(18deg); } }
+@keyframes bob-rot { 0%,100% { transform: rotate(45deg) translateY(0); } 50% { transform: rotate(45deg) translateY(-12px); } }
+
+/* ============================================================
+   TRUST STRIP
+   ============================================================ */
+.trust-strip {
+  background: var(--card-bg);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 0;
+}
+.trust-scroll {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0 16px;
+}
+.trust-scroll::-webkit-scrollbar { display: none; }
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 24px;
+  border-right: 1px solid var(--border);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.trust-item:last-child { border-right: none; }
+
+.t-icon {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.t-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* ============================================================
+   DESIGN CAROUSEL
+   ============================================================ */
+.scroll-hint {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+.sh-line {
+  flex: 1;
+  max-width: 60px;
+  height: 1px;
+  background: var(--border);
+}
+
+.card-carousel {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 6px 20px 24px;
+  margin: 0 -20px;
+}
+.card-carousel::-webkit-scrollbar { display: none; }
+
+.d-card {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  width: 230px;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+@media (min-width: 768px) { .d-card { width: 265px; } }
+
+.d-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.d-card-img {
+  width: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+  border-bottom: 1px solid var(--border);
+}
+/* photo placeholder layers */
+.d-card-img .ci-icon  { font-size: 2.8rem; }
+.d-card-img .ci-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: rgba(0,0,0,0.3);
+  text-align: center;
+  padding: 0 10px;
+  line-height: 1.4;
+}
+
+.d-card-body { padding: 16px; }
+.d-card-title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 5px;
+}
+.d-card-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+
+/* Card gradient backgrounds */
+.gb-pink   { background: linear-gradient(135deg,#FFE5F0,#FFCCE0); }
+.gb-yellow { background: linear-gradient(135deg,#FFF9D6,#FFE87A); }
+.gb-blue   { background: linear-gradient(135deg,#E0F7FF,#B3E8FF); }
+.gb-green  { background: linear-gradient(135deg,#E0FFE8,#B3F0C0); }
+.gb-orange { background: linear-gradient(135deg,#FFE8D9,#FFCAAB); }
+.gb-purple { background: linear-gradient(135deg,#F3E8FF,#E9D5FF); }
+.gb-teal   { background: linear-gradient(135deg,#CCFAF6,#A8F0EB); }
+
+/* ============================================================
+   BUILDER — SPECIAL FEATURE
+   ============================================================ */
+.builder-sec {
+  background: linear-gradient(135deg, #FF3D7F 0%, #FF6B35 100%);
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative blobs */
+.builder-sec::before,
+.builder-sec::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  pointer-events: none;
+}
+.builder-sec::before { width: 380px; height: 380px; top: -120px; left: -80px; }
+.builder-sec::after  { width: 280px; height: 280px; bottom: -90px; right: -60px; }
+
+.builder-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.95);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 50px;
+  margin-bottom: 16px;
+}
+
+.builder-sec h2 {
+  color: #fff;
+  font-size: clamp(2rem, 6vw, 3rem);
+  margin-bottom: 12px;
+}
+.builder-intro {
+  color: rgba(255,255,255,0.85);
+  font-size: 0.98rem;
+  line-height: 1.75;
+  margin-bottom: 32px;
+}
+
+.builder-perk {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255,255,255,0.88);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.builder-perk span.bp-icon { font-size: 1.4rem; }
+
+/* Builder card */
+.builder-card {
+  background: rgba(255,255,255,0.11);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: var(--radius);
+  padding: 28px;
+}
+[data-theme="dark"] .builder-card {
+  background: rgba(0,0,0,0.22);
+}
+
+/* Step header */
+.b-step-hdr {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.b-step-num {
+  width: 30px; height: 30px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+.b-step-title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+.b-step-note {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.6);
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+/* Shape options */
+.shape-opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 24px;
+}
+.s-opt {
+  background: rgba(255,255,255,0.14);
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: var(--radius-sm);
+  padding: 9px 13px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  min-width: 68px;
+  transition: all 0.2s;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+}
+.s-opt:hover, .s-opt.active {
+  background: rgba(255,255,255,0.32);
+  border-color: rgba(255,255,255,0.65);
+  transform: scale(1.05);
+}
+.s-opt .so-icon { font-size: 1.5rem; }
+
+/* Color swatch options */
+.color-opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.c-opt {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: transform 0.18s, border-color 0.18s;
+  position: relative;
+}
+.c-opt:hover { transform: scale(1.15); }
+.c-opt.active {
+  border-color: #fff;
+  transform: scale(1.15);
+}
+.c-opt.active::after {
+  content: '✓';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 900;
+  font-size: 0.85rem;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.35);
+}
+
+/* Theme input */
+.theme-txt {
+  width: 100%;
+  background: rgba(255,255,255,0.14);
+  border: 2px solid rgba(255,255,255,0.22);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  margin-bottom: 6px;
+}
+.theme-txt::placeholder { color: rgba(255,255,255,0.45); }
+.theme-txt:focus {
+  border-color: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.22);
+}
+
+.theme-hint {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+/* Message preview box */
+.msg-preview {
+  background: rgba(255,255,255,0.1);
+  border: 1.5px solid rgba(255,255,255,0.2);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  margin: 20px 0;
+  min-height: 84px;
+}
+.msg-preview-lbl {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.msg-preview-body {
+  font-size: 0.88rem;
+  color: #fff;
+  line-height: 1.65;
+  font-weight: 600;
+}
+.msg-preview-body em {
+  opacity: 0.5;
+  font-style: normal;
+}
+
+/* Send button */
+.btn-builder-send {
+  width: 100%;
+  background: #fff;
+  color: var(--pink) !important;
+  border: none;
+  border-radius: 50px;
+  padding: 15px 24px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.16);
+}
+.btn-builder-send:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+  color: var(--pink);
+}
+.btn-builder-send i { font-size: 1.2rem; }
+
+/* ============================================================
+   HOW IT WORKS
+   ============================================================ */
+.step-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 28px 22px;
+  text-align: center;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  height: 100%;
+  position: relative;
+}
+.step-badge {
+  position: absolute;
+  top: 16px; right: 18px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--border);
+  line-height: 1;
+  opacity: 0.5;
+}
+.step-icon {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  margin: 0 auto 16px;
+}
+.step-title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.step-desc {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ============================================================
+   OCCASIONS GRID
+   ============================================================ */
+.occ-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+@media (min-width: 576px)  { .occ-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 992px)  { .occ-grid { grid-template-columns: repeat(4, 1fr); } }
+
+.occ-tile {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 22px 14px;
+  text-align: center;
+  border: 1.5px solid var(--border);
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+.occ-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+.occ-tile:nth-child(1):hover { border-color: var(--pink); }
+.occ-tile:nth-child(2):hover { border-color: var(--blue); }
+.occ-tile:nth-child(3):hover { border-color: var(--yellow); }
+.occ-tile:nth-child(4):hover { border-color: var(--teal); }
+.occ-tile:nth-child(5):hover { border-color: var(--orange); }
+.occ-tile:nth-child(6):hover { border-color: var(--green); }
+.occ-tile:nth-child(7):hover { border-color: var(--purple); }
+.occ-tile:nth-child(8):hover { border-color: var(--yellow); }
+
+.occ-icon  { font-size: 2rem; display: block; margin-bottom: 8px; }
+.occ-label { font-size: 0.85rem; font-weight: 700; color: var(--text); }
+
+/* ============================================================
+   GALLERY (MASONRY PLACEHOLDER)
+   ============================================================ */
+.masonry {
+  columns: 2;
+  column-gap: 12px;
+}
+@media (min-width: 576px) { .masonry { columns: 3; } }
+@media (min-width: 992px) { .masonry { columns: 4; } }
+
+.m-item {
+  break-inside: avoid;
+  margin-bottom: 12px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.m-ph {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 20px 10px;
+}
+.m-ph .m-emoji { font-size: 2rem; }
+.m-ph .m-lbl   { font-size: 0.68rem; font-weight: 700; color: rgba(0,0,0,0.3); text-align: center; }
+
+/* heights */
+.mh-tall   { min-height: 210px; }
+.mh-med    { min-height: 165px; }
+.mh-short  { min-height: 130px; }
+
+/* bg tints */
+.mp-pink   { background: linear-gradient(135deg,#FFE5F0,#FFCCE0); }
+.mp-yellow { background: linear-gradient(135deg,#FFF9D6,#FFE87A); }
+.mp-blue   { background: linear-gradient(135deg,#E0F7FF,#B3E8FF); }
+.mp-teal   { background: linear-gradient(135deg,#CCFAF6,#A8F0EB); }
+.mp-orange { background: linear-gradient(135deg,#FFE8D9,#FFCAAB); }
+.mp-green  { background: linear-gradient(135deg,#E0FFE8,#B3F0C0); }
+.mp-purple { background: linear-gradient(135deg,#F3E8FF,#E9D5FF); }
+.mp-red    { background: linear-gradient(135deg,#FFE5E5,#FFBFBF); }
+
+.gallery-note {
+  text-align: center;
+  margin-top: 28px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+.gallery-note a { color: var(--pink); font-weight: 700; }
+
+/* ============================================================
+   FINAL CTA
+   ============================================================ */
+.final-cta {
+  background: var(--bg-2);
+  padding: 88px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.confetti-bg {
+  position: absolute;
+  pointer-events: none;
+  font-size: 1.8rem;
+  opacity: 0.12;
+}
+
+.final-cta h2 {
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  margin-bottom: 16px;
+}
+.final-cta p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  max-width: 460px;
+  margin: 0 auto 36px;
+  line-height: 1.75;
+}
+
+.wa-contact-line {
+  margin-top: 18px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px 16px;
+}
+.wa-contact-line a { color: var(--text-muted); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  background: var(--text);
+  color: rgba(255,255,255,0.65);
+  padding: 36px 20px;
+  text-align: center;
+}
+[data-theme="dark"] .site-footer { background: #0A0910; }
+
+.footer-brand {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.footer-tagline { font-size: 0.82rem; margin-bottom: 10px; }
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px 14px;
+  font-size: 0.8rem;
+  margin-bottom: 18px;
+}
+.footer-links a { color: rgba(255,255,255,0.55); }
+.footer-links a:hover { color: rgba(255,255,255,0.9); }
+.footer-sep { opacity: 0.3; }
+.footer-credit {
+  font-size: 0.72rem;
+  opacity: 0.4;
+  margin-top: 4px;
+}
+.footer-credit a { color: rgba(255,255,255,0.5); }
+
+/* ============================================================
+   FLOATING WA BUTTON
+   ============================================================ */
+.wa-float {
+  position: fixed;
+  bottom: 22px;
+  right: 18px;
+  z-index: 9999;
+  width: 58px; height: 58px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.65rem;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+  animation: wapulse 2.8s ease-in-out infinite;
+  transition: transform 0.2s;
+}
+.wa-float:hover { transform: scale(1.1); color: #fff; }
+
+@keyframes wapulse {
+  0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.45), 0 0 0 0 rgba(37,211,102,0.35); }
+  55%      { box-shadow: 0 4px 20px rgba(37,211,102,0.45), 0 0 0 14px rgba(37,211,102,0); }
+}
+
+/* ============================================================
+   CONFETTI CANVAS
+   ============================================================ */
+#confetti-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99997;
+  display: none;
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .fshape, .wa-float { animation: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========================================================
+     CONFETTI CANVAS
+     ======================================================== -->
+<canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+<!-- ========================================================
+     FLOATING WHATSAPP
+     ======================================================== -->
+<a href="https://wa.me/17582879301?text=Hi!%20I'd%20like%20to%20order%20a%20custom%20pi%C3%B1ata%20%F0%9F%8E%89"
+   target="_blank" rel="noopener"
+   class="wa-float"
+   aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- ========================================================
+     NAV
+     ======================================================== -->
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <a href="#" class="nav-logo" aria-label="Wat's Poppin' Piñatas home">
+    Wat's Poppin' <span class="logo-dark">🎉</span>
+  </a>
+  <div class="nav-actions">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+    <a href="https://wa.me/17582879301?text=Hi!%20I'd%20like%20to%20order%20a%20custom%20pi%C3%B1ata%20%F0%9F%8E%89"
+       target="_blank" rel="noopener"
+       class="btn-nav-order">
+      <i class="fab fa-whatsapp"></i> Order
+    </a>
+  </div>
+</nav>
+
+<!-- ========================================================
+     HERO
+     ======================================================== -->
+<section class="hero" aria-label="Hero">
+
+  <!-- Floating decorative shapes (desktop, aria-hidden) -->
+  <div class="hero-shapes" aria-hidden="true">
+    <!-- Star -->
+    <svg style="position:absolute;top:12%;right:22%;width:78px;height:78px;animation:bob-spin 4.2s ease-in-out infinite;animation-delay:0s;" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="39,4 47,28 74,28 52,43 60,68 39,53 18,68 26,43 4,28 31,28" fill="#FFB800" opacity="0.85"/>
+    </svg>
+    <!-- Diamond -->
+    <div class="fshape" style="width:54px;height:54px;border-radius:6px;background:var(--pink);top:8%;right:46%;animation:bob-rot 5s ease-in-out infinite;animation-delay:0.5s;transform:rotate(45deg);opacity:0.75;"></div>
+    <!-- Blue circle -->
+    <div class="fshape" style="width:62px;height:62px;background:var(--blue);top:65%;right:28%;animation:bob 4.5s ease-in-out infinite;animation-delay:1s;opacity:0.7;"></div>
+    <!-- Teal circle small -->
+    <div class="fshape" style="width:38px;height:38px;background:var(--teal);top:22%;right:44%;animation:bob 3.8s ease-in-out infinite;animation-delay:0.3s;opacity:0.65;"></div>
+    <!-- Orange circle -->
+    <div class="fshape" style="width:48px;height:48px;background:var(--orange);top:50%;right:12%;animation:bob 4.8s ease-in-out infinite;animation-delay:1.4s;opacity:0.7;"></div>
+    <!-- Green small -->
+    <div class="fshape" style="width:32px;height:32px;background:var(--green);top:78%;right:42%;animation:bob 3.5s ease-in-out infinite;animation-delay:2s;opacity:0.6;"></div>
+    <!-- Purple -->
+    <div class="fshape" style="width:44px;height:44px;background:var(--purple);top:35%;right:8%;animation:bob 4s ease-in-out infinite;animation-delay:0.9s;opacity:0.55;"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:2;">
+    <div class="row align-items-center gy-5">
+
+      <!-- Text column -->
+      <div class="col-md-7" data-aos="fade-right">
+        <div class="hero-eyebrow">🇱🇨 Handmade in Saint Lucia</div>
+        <h1>
+          Custom Piñatas<br>
+          <span class="c-pink">Made</span> For Your<br>
+          <span class="c-yellow">Moment</span>
+        </h1>
+        <p class="hero-sub">
+          Birthdays. Baby showers. Special events. Every piñata is handcrafted right here in Saint Lucia — built around your theme, your colors, your celebration.
+        </p>
+        <div class="hero-btns">
+          <a href="https://wa.me/17582879301?text=Hi!%20I'd%20like%20to%20order%20a%20custom%20pi%C3%B1ata%20%F0%9F%8E%89"
+             target="_blank" rel="noopener"
+             class="btn-pink">
+            <i class="fab fa-whatsapp"></i> Order On WhatsApp
+          </a>
+          <a href="#designs" class="btn-ghost">View Designs ↓</a>
+        </div>
+
+        <!-- Pricing quick-view -->
+        <div class="price-strip">
+          <div class="price-pill">
+            <span class="p-size">Small</span>
+            <div class="p-div"></div>
+            <span class="p-amt">$80</span>
+          </div>
+          <div class="price-pill">
+            <span class="p-size">Medium</span>
+            <div class="p-div"></div>
+            <span class="p-amt">$100</span>
+          </div>
+          <div class="price-pill">
+            <span class="p-size">Large</span>
+            <div class="p-div"></div>
+            <span class="p-amt">$120</span>
+          </div>
+        </div>
+        <p class="price-footnote">+ Decorated baton $5 · Mask $5 · Delivery available island-wide</p>
+      </div>
+
+      <!-- Visual column (desktop) -->
+      <div class="col-md-5 d-none d-md-flex align-items-center justify-content-center" data-aos="fade-left">
+        <div class="hero-visual w-100">
+          <!-- Replace this div with a real <picture> tag once photos are provided -->
+          <div class="hero-img-box">
+            <span class="ph-big">🎊</span>
+            <span class="ph-label">Add your best piñata photo here<br>to complete this section ✨</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     TRUST STRIP
+     ======================================================== -->
+<div class="trust-strip" aria-label="Trust signals">
+  <div class="trust-scroll" role="list">
+    <div class="trust-item" role="listitem">
+      <div class="t-icon" style="background:#FFE5F0;">🤝</div>
+      <span class="t-label">Handmade With Care</span>
+    </div>
+    <div class="trust-item" role="listitem">
+      <div class="t-icon" style="background:#FFF0CC;">✨</div>
+      <span class="t-label">Custom Designs</span>
+    </div>
+    <div class="trust-item" role="listitem">
+      <div class="t-icon" style="background:#E0F7FF;">🚚</div>
+      <span class="t-label">Delivery Available</span>
+    </div>
+    <div class="trust-item" role="listitem">
+      <div class="t-icon" style="background:#CCFAF6;">🎂</div>
+      <span class="t-label">Kids &amp; Adult Themes</span>
+    </div>
+    <div class="trust-item" role="listitem">
+      <div class="t-icon" style="background:#FFE8D9;">🇱🇨</div>
+      <span class="t-label">Made In Saint Lucia</span>
+    </div>
+    <div class="trust-item" role="listitem">
+      <div class="t-icon" style="background:#DCFCE7;">📱</div>
+      <span class="t-label">Easy WhatsApp Ordering</span>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================
+     POPULAR DESIGNS — CAROUSEL
+     ======================================================== -->
+<section class="sec" id="designs" aria-label="Popular designs">
+  <div class="container">
+    <div data-aos="fade-up">
+      <span class="sec-label">Popular Designs</span>
+      <h2 class="sec-title">Any Theme. Any Occasion.</h2>
+      <p class="sec-sub">From milestone numbers to your favourite character — if you can imagine it, we can make it.</p>
+    </div>
+
+    <div class="scroll-hint mt-4" aria-hidden="true">
+      <span>Swipe to explore</span>
+      <div class="sh-line"></div>
+      <span>→</span>
+    </div>
+
+    <div class="card-carousel" role="list" aria-label="Design categories">
+
+      <div class="d-card" role="listitem">
+        <div class="d-card-img gb-yellow">
+          <!-- Replace with: <picture><source srcset="number-pinata.webp" type="image/webp"><img src="number-pinata.jpg" alt="Number piñata" loading="lazy"></picture> -->
+          <span class="ci-icon">5️⃣</span>
+          <span class="ci-label">Add number piñata photo</span>
+        </div>
+        <div class="d-card-body">
+          <h3 class="d-card-title">Number Piñatas</h3>
+          <p class="d-card-desc">Milestone birthdays deserve to be remembered — any age, any color combination.</p>
+          <a href="https://wa.me/17582879301?text=Hi!%20I'd%20like%20to%20ask%20about%20a%20Number%20Pi%C3%B1ata%20%F0%9F%8E%89"
+             target="_blank" rel="noopener" class="btn-wa-card">
+            <i class="fab fa-whatsapp"></i> Ask About This Design
+          </a>
+        </div>
+      </div>
+
+      <div class="d-card" role="listitem">
+        <div class="d-card-img gb-pink">
+          <span class="ci-icon">🎂</span>
+          <span class="ci-label">Add birthday theme photo</span>
+        </div>
+        <div class="d-card-body">
+          <h3 class="d-card-title">Birthday Themes</h3>
+          <p class="d-card-desc">Make their day the one everyone talks about — fully matched to the party theme.</p>
+          <a href="https://wa.me/17582879301?text=Hi!%20I'd%20like%20to%20ask%20about%20a%20Birthday%20Pi%C3%B1ata%20%F0%9F%8E%82"
+             target="_blank" rel="noopener" class="btn-wa-card">
+            <i class="fab fa-whatsapp"></i> Ask About This Design
+          </a>
+        </div>
+      </div>
+
+      <div class="d-card" role="listitem">
+        <div class="d-card-img gb-blue">
+          <span class="ci-icon">👶</span>
+          <span class="ci-label">Add baby shower photo</span>
+        </div>
+        <div class="d-card-body">
+          <h3 class="d-card-title">Baby Shower</h3>
+          <p class="d-card-desc">Sweet, soft, and stunning — the perfect centrepiece before the little one arrives.</p>
+          <a href="https://wa.me/17582879301?text=Hi!%20I'd%20like%20to%20ask%20about%20a%20Baby%20Shower%20Pi%C3%B1ata%20%F0%9F%91%B6"
+             target="_blank" rel="noopener" class="btn-wa-card">
+            <i class="fab fa-whatsapp"></i> Ask About This Design
+          </a>
+        </div>
+      </div>
+
+      <div class="d-card" role="listitem">
+        <div class="d-card-img gb-green">
+          <span class="ci-icon">⚽</span>
+          <span class="ci-label">Add sports theme photo</span>
+        </div>
+        <div class="d-card-body">
+          <h3 class="d-card-title">Sports Piñatas</h3>
+          <p class="d-card-desc">Soccer balls, team colors, crests — perfect for every sports-mad birthday boy or girl.</p>
+          <a href="https://wa.me/17582879301?text=Hi!%20I'd%20like%20to%20ask%20about%20a%20Sports%20Pi%C3%B1ata%20%E2%9A%BD"
+             target="_blank" rel="noopener" class="btn-wa-card">
+            <i class="fab fa-whatsapp"></i> Ask About This Design
+          </a>
+        </div>
+      </div>
+
+      <div class="d-card" role="listitem">
+        <div class="d-card-img gb-orange">
+          <span class="ci-icon">🦁</span>
+          <span class="ci-label">Add animal theme photo</span>
+        </div>
+        <div class="d-card-body">
+          <h3 class="d-card-title">Animal Piñatas</h3>
+          <p class="d-card-desc">Lions, unicorns, dogs, dinosaurs — kids absolutely love these. Adults do too.</p>
+          <a href="https://wa.me/17582879301?text=Hi!%20I'd%20like%20to%20ask%20about%20an%20Animal%20Pi%C3%B1ata%20%F0%9F%A6%81"
+             target="_blank" rel="noopener" class="btn-wa-card">
+            <i class="fab fa-whatsapp"></i> Ask About This Design
+          </a>
+        </div>
+      </div>
+
+      <div class="d-card" role="listitem">
+        <div class="d-card-img gb-purple">
+          <span class="ci-icon">💜</span>
+          <span class="ci-label">Add hearts & love photo</span>
+        </div>
+        <div class="d-card-body">
+          <h3 class="d-card-title">Hearts &amp; Love</h3>
+          <p class="d-card-desc">Weddings, anniversaries, Valentine's — love woven into every layer.</p>
+          <a href="https://wa.me/17582879301?text=Hi!%20I'd%20like%20to%20ask%20about%20a%20Hearts%20Pi%C3%B1ata%20%F0%9F%92%9C"
+             target="_blank" rel="noopener" class="btn-wa-card">
+            <i class="fab fa-whatsapp"></i> Ask About This Design
+          </a>
+        </div>
+      </div>
+
+      <div class="d-card" role="listitem">
+        <div class="d-card-img gb-teal">
+          <span class="ci-icon">🌟</span>
+          <span class="ci-label">Your custom design here</span>
+        </div>
+        <div class="d-card-body">
+          <h3 class="d-card-title">Custom Requests</h3>
+          <p class="d-card-desc">Have something specific in mind? Send your idea — no theme is too unique.</p>
+          <a href="https://wa.me/17582879301?text=Hi!%20I%20have%20a%20custom%20pi%C3%B1ata%20idea%20%F0%9F%8C%9F"
+             target="_blank" rel="noopener" class="btn-wa-card">
+            <i class="fab fa-whatsapp"></i> Ask About This Design
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /card-carousel -->
+  </div>
+</section>
+
+<!-- ========================================================
+     SPECIAL FEATURE: BUILD YOUR PIÑATA IDEA
+     ======================================================== -->
+<section class="builder-sec" id="builder" aria-label="Build Your Piñata Idea">
+  <div class="container" style="position:relative;z-index:2;">
+    <div class="row align-items-start gy-5">
+
+      <!-- Left: intro -->
+      <div class="col-lg-5" data-aos="fade-right">
+        <span class="builder-badge">✨ Special Feature</span>
+        <h2>Build Your<br>Piñata Idea</h2>
+        <p class="builder-intro">
+          Tell us your vision in three simple steps. Your choices get sent directly to WhatsApp — so we can reply with an exact quote, fast.
+        </p>
+        <div class="builder-perk">
+          <span class="bp-icon">🎨</span>
+          <span>Choose your shape, colors &amp; theme</span>
+        </div>
+        <div class="builder-perk">
+          <span class="bp-icon">⚡</span>
+          <span>We reply with your custom quote</span>
+        </div>
+        <div class="builder-perk">
+          <span class="bp-icon">🎊</span>
+          <span>Your handmade piñata is ready for the party</span>
+        </div>
+      </div>
+
+      <!-- Right: interactive builder -->
+      <div class="col-lg-7" data-aos="fade-left">
+        <div class="builder-card">
+
+          <!-- Step 1: Shape -->
+          <div class="b-step-hdr">
+            <div class="b-step-num">1</div>
+            <h3 class="b-step-title">Choose Your Shape</h3>
+          </div>
+          <div class="shape-opts" role="group" aria-label="Shape selection">
+            <button class="s-opt" data-shape="Star" onclick="selectShape(this)">
+              <span class="so-icon">⭐</span>Star
+            </button>
+            <button class="s-opt" data-shape="Heart" onclick="selectShape(this)">
+              <span class="so-icon">❤️</span>Heart
+            </button>
+            <button class="s-opt" data-shape="Number" onclick="selectShape(this)">
+              <span class="so-icon">5️⃣</span>Number
+            </button>
+            <button class="s-opt" data-shape="Ball" onclick="selectShape(this)">
+              <span class="so-icon">⚽</span>Ball
+            </button>
+            <button class="s-opt" data-shape="Animal" onclick="selectShape(this)">
+              <span class="so-icon">🦁</span>Animal
+            </button>
+            <button class="s-opt" data-shape="Custom Shape" onclick="selectShape(this)">
+              <span class="so-icon">✨</span>Custom
+            </button>
+          </div>
+
+          <!-- Step 2: Colors -->
+          <div class="b-step-hdr">
+            <div class="b-step-num">2</div>
+            <h3 class="b-step-title">Pick Your Colors <span class="b-step-note">(up to 3)</span></h3>
+          </div>
+          <div class="color-opts mb-4" role="group" aria-label="Color selection">
+            <button class="c-opt" data-color="Pink"   style="background:#FF3D7F;" onclick="toggleColor(this)" aria-label="Pink"></button>
+            <button class="c-opt" data-color="Yellow" style="background:#FFB800;" onclick="toggleColor(this)" aria-label="Yellow"></button>
+            <button class="c-opt" data-color="Blue"   style="background:#00B4D8;" onclick="toggleColor(this)" aria-label="Blue"></button>
+            <button class="c-opt" data-color="Green"  style="background:#48C774;" onclick="toggleColor(this)" aria-label="Green"></button>
+            <button class="c-opt" data-color="Orange" style="background:#FF6B35;" onclick="toggleColor(this)" aria-label="Orange"></button>
+            <button class="c-opt" data-color="Purple" style="background:#9B59B6;" onclick="toggleColor(this)" aria-label="Purple"></button>
+            <button class="c-opt" data-color="White"  style="background:#FFFFFF;border:3px solid rgba(255,255,255,0.4);" onclick="toggleColor(this)" aria-label="White"></button>
+            <button class="c-opt" data-color="Red"    style="background:#E74C3C;" onclick="toggleColor(this)" aria-label="Red"></button>
+          </div>
+
+          <!-- Step 3: Theme -->
+          <div class="b-step-hdr">
+            <div class="b-step-num">3</div>
+            <h3 class="b-step-title">Describe Your Theme</h3>
+          </div>
+          <input type="text"
+                 class="theme-txt"
+                 id="themeInput"
+                 placeholder="e.g. Frozen birthday, Real Madrid, tropical flowers, princess…"
+                 oninput="updatePreview()"
+                 maxlength="140"
+                 aria-label="Your theme description"/>
+          <div class="theme-hint">Add any extra details — age, size preference, event date.</div>
+
+          <!-- Size -->
+          <div class="b-step-hdr">
+            <div class="b-step-num" style="background:rgba(255,255,255,0.18);">+</div>
+            <h3 class="b-step-title">Preferred Size</h3>
+          </div>
+          <div class="shape-opts" role="group" aria-label="Size selection">
+            <button class="s-opt" data-size="Small ($80)" onclick="selectSize(this)">
+              <span class="so-icon">🔹</span>Small<br><small style="font-size:0.65rem;opacity:0.75;">$80</small>
+            </button>
+            <button class="s-opt" data-size="Medium ($100)" onclick="selectSize(this)">
+              <span class="so-icon">🔷</span>Medium<br><small style="font-size:0.65rem;opacity:0.75;">$100</small>
+            </button>
+            <button class="s-opt" data-size="Large ($120)" onclick="selectSize(this)">
+              <span class="so-icon">💎</span>Large<br><small style="font-size:0.65rem;opacity:0.75;">$120</small>
+            </button>
+            <button class="s-opt" data-size="Not sure yet" onclick="selectSize(this)">
+              <span class="so-icon">🤔</span>Not sure
+            </button>
+          </div>
+
+          <!-- Live preview -->
+          <div class="msg-preview" aria-live="polite" aria-atomic="true">
+            <div class="msg-preview-lbl">📱 Your WhatsApp Message Preview</div>
+            <div class="msg-preview-body" id="previewText">
+              <em>Make your selections above to see your order message take shape...</em>
+            </div>
+          </div>
+
+          <!-- Send CTA -->
+          <button class="btn-builder-send" onclick="sendToWhatsApp()" aria-label="Send order idea via WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+            Send Your Idea On WhatsApp
+          </button>
+
+        </div><!-- /builder-card -->
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     HOW IT WORKS
+     ======================================================== -->
+<section class="sec sec-alt2" id="how-it-works" aria-label="How ordering works">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="sec-label">The Process</span>
+      <h2 class="sec-title">Ordering Is Simple</h2>
+      <p class="sec-sub mx-auto">From your first message to the party centrepiece — here's exactly what happens.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+        <div class="step-card">
+          <div class="step-badge">01</div>
+          <div class="step-icon" style="background:#FFE5F0;">📱</div>
+          <h4 class="step-title">Send Your Idea</h4>
+          <p class="step-desc">Message us on WhatsApp with your theme, colors, and event date. No forms. No waiting rooms.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="step-card">
+          <div class="step-badge">02</div>
+          <div class="step-icon" style="background:#FFF0CC;">💬</div>
+          <h4 class="step-title">Get Your Quote</h4>
+          <p class="step-desc">We reply fast with your custom price and confirm every detail before we start anything.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="step-card">
+          <div class="step-badge">03</div>
+          <div class="step-icon" style="background:#E0F7FF;">🎨</div>
+          <h4 class="step-title">We Create It</h4>
+          <p class="step-desc">Your piñata is handcrafted with care right here in Saint Lucia — built just for your celebration.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="step-card">
+          <div class="step-badge">04</div>
+          <div class="step-icon" style="background:#DCFCE7;">🎊</div>
+          <h4 class="step-title">Pickup or Delivery</h4>
+          <p class="step-desc">Collect at your convenience or choose island-wide delivery. Then let the party begin.</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-5" data-aos="fade-up">
+      <a href="https://wa.me/17582879301?text=Hi!%20I'd%20like%20to%20start%20an%20order%20%F0%9F%8E%89"
+         target="_blank" rel="noopener"
+         class="btn-wa">
+        <i class="fab fa-whatsapp"></i> Start Your Order
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     FOR EVERY CELEBRATION
+     ======================================================== -->
+<section class="sec" id="occasions" aria-label="Occasions">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="sec-label">Every Occasion</span>
+      <h2 class="sec-title">Built For Every Celebration</h2>
+      <p class="sec-sub mx-auto">Intimate family party or big-event production — there's a piñata for it.</p>
+    </div>
+    <div class="occ-grid" data-aos="fade-up" data-aos-delay="100">
+      <div class="occ-tile">
+        <span class="occ-icon">🎂</span>
+        <div class="occ-label">Birthdays</div>
+      </div>
+      <div class="occ-tile">
+        <span class="occ-icon">👶</span>
+        <div class="occ-label">Baby Showers</div>
+      </div>
+      <div class="occ-tile">
+        <span class="occ-icon">🏫</span>
+        <div class="occ-label">School Events</div>
+      </div>
+      <div class="occ-tile">
+        <span class="occ-icon">💙🩷</span>
+        <div class="occ-label">Gender Reveals</div>
+      </div>
+      <div class="occ-tile">
+        <span class="occ-icon">🥂</span>
+        <div class="occ-label">Adult Parties</div>
+      </div>
+      <div class="occ-tile">
+        <span class="occ-icon">💼</span>
+        <div class="occ-label">Corporate Events</div>
+      </div>
+      <div class="occ-tile">
+        <span class="occ-icon">🎄</span>
+        <div class="occ-label">Holiday Parties</div>
+      </div>
+      <div class="occ-tile">
+        <span class="occ-icon">🎁</span>
+        <div class="occ-label">Surprise Gifts</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     GALLERY — MASONRY PLACEHOLDER
+     ======================================================== -->
+<section class="sec sec-alt" id="gallery" aria-label="Design gallery">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="sec-label">Gallery</span>
+      <h2 class="sec-title">See The Work</h2>
+      <p class="sec-sub mx-auto">Every piñata below was handmade right here in Saint Lucia. No two are ever the same.</p>
+    </div>
+
+    <!-- Replace each .m-item block with a real <picture> tag once photos are provided -->
+    <div class="masonry" data-aos="fade-up">
+      <div class="m-item">
+        <div class="m-ph mh-tall mp-pink">
+          <span class="m-emoji">🎂</span>
+          <span class="m-lbl">Birthday Theme</span>
+        </div>
+      </div>
+      <div class="m-item">
+        <div class="m-ph mh-short mp-yellow">
+          <span class="m-emoji">5️⃣</span>
+          <span class="m-lbl">Number Piñata</span>
+        </div>
+      </div>
+      <div class="m-item">
+        <div class="m-ph mh-med mp-blue">
+          <span class="m-emoji">⚽</span>
+          <span class="m-lbl">Sports Theme</span>
+        </div>
+      </div>
+      <div class="m-item">
+        <div class="m-ph mh-short mp-teal">
+          <span class="m-emoji">👶</span>
+          <span class="m-lbl">Baby Shower</span>
+        </div>
+      </div>
+      <div class="m-item">
+        <div class="m-ph mh-med mp-orange">
+          <span class="m-emoji">🦁</span>
+          <span class="m-lbl">Animal Theme</span>
+        </div>
+      </div>
+      <div class="m-item">
+        <div class="m-ph mh-tall mp-purple">
+          <span class="m-emoji">💜</span>
+          <span class="m-lbl">Hearts Theme</span>
+        </div>
+      </div>
+      <div class="m-item">
+        <div class="m-ph mh-short mp-green">
+          <span class="m-emoji">🌟</span>
+          <span class="m-lbl">Custom Design</span>
+        </div>
+      </div>
+      <div class="m-item">
+        <div class="m-ph mh-med mp-red">
+          <span class="m-emoji">❤️</span>
+          <span class="m-lbl">Love Theme</span>
+        </div>
+      </div>
+      <div class="m-item">
+        <div class="m-ph mh-short mp-yellow">
+          <span class="m-emoji">🏆</span>
+          <span class="m-lbl">Sports Theme</span>
+        </div>
+      </div>
+      <div class="m-item">
+        <div class="m-ph mh-med mp-pink">
+          <span class="m-emoji">🦄</span>
+          <span class="m-lbl">Fantasy Theme</span>
+        </div>
+      </div>
+      <div class="m-item">
+        <div class="m-ph mh-tall mp-blue">
+          <span class="m-emoji">🎊</span>
+          <span class="m-lbl">Party Theme</span>
+        </div>
+      </div>
+      <div class="m-item">
+        <div class="m-ph mh-short mp-teal">
+          <span class="m-emoji">🌺</span>
+          <span class="m-lbl">Floral Theme</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="gallery-note">
+      See something you like?
+      <a href="https://wa.me/17582879301?text=Hi!%20I%20saw%20a%20design%20I%20like%20and%20want%20to%20ask%20about%20it%20%F0%9F%8E%89"
+         target="_blank" rel="noopener">
+        Send us a screenshot and we'll guide you.
+      </a>
+    </p>
+  </div>
+</section>
+
+<!-- ========================================================
+     FINAL CTA
+     ======================================================== -->
+<section class="final-cta" aria-label="Call to action">
+  <!-- Decorative background confetti emojis -->
+  <span class="confetti-bg" style="top:8%;left:4%;animation:bob 4s ease-in-out infinite;" aria-hidden="true">🎊</span>
+  <span class="confetti-bg" style="top:15%;right:6%;animation:bob 3.5s ease-in-out infinite 0.8s;" aria-hidden="true">⭐</span>
+  <span class="confetti-bg" style="bottom:12%;left:10%;animation:bob 4.5s ease-in-out infinite 0.4s;" aria-hidden="true">🎉</span>
+  <span class="confetti-bg" style="bottom:8%;right:4%;animation:bob 3.8s ease-in-out infinite 1.2s;" aria-hidden="true">✨</span>
+  <span class="confetti-bg" style="top:50%;left:1%;animation:bob 5s ease-in-out infinite 1.8s;" aria-hidden="true">🌟</span>
+  <span class="confetti-bg" style="top:40%;right:1%;animation:bob 4.2s ease-in-out infinite 0.6s;" aria-hidden="true">🎀</span>
+
+  <div class="container" style="position:relative;z-index:2;" data-aos="fade-up">
+    <h2 class="sec-title">
+      Let's Make Your Next<br>
+      <span style="color:var(--pink);">Party Pop!</span> 🎊
+    </h2>
+    <p>
+      Custom handmade piñatas, crafted with care right here in Saint Lucia.<br>
+      Your theme. Your colors. Your celebration.
+    </p>
+    <a href="https://wa.me/17582879301?text=Hi!%20I'd%20like%20to%20order%20a%20custom%20pi%C3%B1ata%20%F0%9F%8E%89%20Can%20you%20help%20me?"
+       target="_blank" rel="noopener"
+       class="btn-wa" style="font-size:1.05rem;padding:15px 34px;">
+      <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i>
+      Order Now On WhatsApp
+    </a>
+    <div class="wa-contact-line mt-4">
+      <span>📞 <a href="https://wa.me/17582879301">1-758-287-9301</a></span>
+      <span class="footer-sep">·</span>
+      <span>🇱🇨 Saint Lucia</span>
+      <span class="footer-sep">·</span>
+      <span>🚚 Delivery Available</span>
+      <span class="footer-sep">·</span>
+      <span>📸 <a href="https://www.instagram.com/pinatas.slu" target="_blank" rel="noopener">@pinatas.slu</a></span>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     FOOTER
+     ======================================================== -->
+<footer class="site-footer">
+  <div class="footer-brand">Wat's Poppin' Piñatas SLU 🎉</div>
+  <p class="footer-tagline">Custom Handmade Piñatas in Saint Lucia · Birthdays · Baby Showers · Special Events</p>
+  <div class="footer-links">
+    <a href="https://wa.me/17582879301">📱 WhatsApp</a>
+    <span class="footer-sep">·</span>
+    <a href="https://www.instagram.com/pinatas.slu" target="_blank" rel="noopener">📸 Instagram</a>
+    <span class="footer-sep">·</span>
+    <a href="#builder">Build Your Piñata</a>
+    <span class="footer-sep">·</span>
+    <a href="#how-it-works">How It Works</a>
+  </div>
+  <p class="footer-credit">Website by <a href="#" target="_blank" rel="noopener">AkraLink</a></p>
+</footer>
+
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" defer></script>
+
+<script>
+/* ============================================================
+   AOS INIT
+   ============================================================ */
+window.addEventListener('load', () => {
+  if (typeof AOS !== 'undefined') {
+    AOS.init({ duration: 580, once: true, offset: 70 });
+  }
+});
+
+/* ============================================================
+   THEME: TIME-BASED AUTO WITH MANUAL OVERRIDE + localStorage
+   ============================================================ */
+(function() {
+  const html = document.documentElement;
+  const btn  = document.getElementById('themeToggle');
+  const KEY  = 'wpp-theme';
+
+  function getAutoTheme() {
+    const h = new Date().getHours();
+    return (h >= 18 || h < 6) ? 'dark' : 'light';
+  }
+
+  function applyTheme(t) {
+    html.setAttribute('data-theme', t);
+    if (btn) btn.textContent = (t === 'dark') ? '☀️' : '🌙';
+    localStorage.setItem(KEY, t);
+  }
+
+  const saved = localStorage.getItem(KEY);
+  applyTheme(saved || getAutoTheme());
+
+  if (btn) {
+    btn.addEventListener('click', () => {
+      applyTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  }
+})();
+
+/* ============================================================
+   PIÑATA BUILDER — STATE
+   ============================================================ */
+let _shape  = '';
+let _colors = [];
+let _size   = '';
+
+function selectShape(el) {
+  document.querySelectorAll('.s-opt[data-shape]').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  _shape = el.dataset.shape;
+  updatePreview();
+}
+
+function selectSize(el) {
+  document.querySelectorAll('.s-opt[data-size]').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  _size = el.dataset.size;
+  updatePreview();
+}
+
+function toggleColor(el) {
+  const c = el.dataset.color;
+  if (el.classList.contains('active')) {
+    el.classList.remove('active');
+    _colors = _colors.filter(x => x !== c);
+  } else {
+    if (_colors.length >= 3) {
+      // Deselect the earliest selected color
+      const firstActive = document.querySelector('.c-opt.active');
+      if (firstActive) {
+        _colors = _colors.filter(x => x !== firstActive.dataset.color);
+        firstActive.classList.remove('active');
+      }
+    }
+    el.classList.add('active');
+    _colors.push(c);
+  }
+  updatePreview();
+}
+
+function updatePreview() {
+  const theme   = (document.getElementById('themeInput').value || '').trim();
+  const el      = document.getElementById('previewText');
+  const lines   = [];
+
+  if (_shape)          lines.push('<strong>Shape:</strong> ' + _shape);
+  if (_colors.length)  lines.push('<strong>Colors:</strong> ' + _colors.join(', '));
+  if (theme)           lines.push('<strong>Theme:</strong> '  + theme);
+  if (_size)           lines.push('<strong>Size:</strong> '   + _size);
+
+  if (!lines.length) {
+    el.innerHTML = '<em>Make your selections above to see your order message take shape...</em>';
+    return;
+  }
+
+  el.innerHTML =
+    'Hi! I\'d like to order a custom piñata 🎉<br><br>' +
+    lines.join('<br>') +
+    '<br><br>Can you help me?';
+}
+
+function sendToWhatsApp() {
+  const theme = (document.getElementById('themeInput').value || '').trim();
+  const parts = [];
+
+  if (_shape)         parts.push('Shape: ' + _shape);
+  if (_colors.length) parts.push('Colors: ' + _colors.join(', '));
+  if (theme)          parts.push('Theme: '  + theme);
+  if (_size)          parts.push('Size: '   + _size);
+
+  const body = parts.length
+    ? 'Hi! I\'d like to order a custom piñata 🎉\n\n' + parts.join('\n') + '\n\nCan you help me?'
+    : 'Hi! I\'d like to order a custom piñata 🎉 Can you help me?';
+
+  launchConfetti();
+
+  setTimeout(() => {
+    window.open(
+      'https://wa.me/17582879301?text=' + encodeURIComponent(body),
+      '_blank', 'noopener,noreferrer'
+    );
+  }, 460);
+}
+
+/* ============================================================
+   CONFETTI BURST (fires when builder is submitted)
+   ============================================================ */
+function launchConfetti() {
+  const canvas = document.getElementById('confetti-canvas');
+  if (!canvas) return;
+
+  canvas.style.display = 'block';
+  canvas.width  = window.innerWidth;
+  canvas.height = window.innerHeight;
+  const ctx = canvas.getContext('2d');
+
+  const COLORS = [
+    '#FF3D7F','#FFB800','#00B4D8',
+    '#2EC4B6','#FF6B35','#48C774','#9B59B6'
+  ];
+
+  const pieces = Array.from({ length: 90 }, () => ({
+    x:      Math.random() * canvas.width,
+    y:      Math.random() * canvas.height - canvas.height * 0.6,
+    w:      Math.random() * 11 + 5,
+    h:      Math.random() * 6  + 4,
+    color:  COLORS[Math.floor(Math.random() * COLORS.length)],
+    vy:     Math.random() * 4 + 2,
+    vx:     (Math.random() - 0.5) * 2.5,
+    angle:  Math.random() * Math.PI * 2,
+    spin:   (Math.random() - 0.5) * 0.18,
+    wobble: Math.random() * 0.08,
+    wPos:   Math.random() * Math.PI * 2,
+    alpha:  1
+  }));
+
+  let frame = 0;
+  const TOTAL = 100;
+
+  function tick() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const progress = frame / TOTAL;
+
+    pieces.forEach(p => {
+      p.y    += p.vy;
+      p.wPos += p.wobble;
+      p.x    += p.vx + Math.sin(p.wPos) * 1.2;
+      p.angle+= p.spin;
+      p.alpha = Math.max(0, 1 - progress * 1.1);
+
+      ctx.save();
+      ctx.globalAlpha = p.alpha;
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.angle);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+      ctx.restore();
+    });
+
+    frame++;
+    if (frame < TOTAL) {
+      requestAnimationFrame(tick);
+    } else {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      canvas.style.display = 'none';
+    }
+  }
+
+  requestAnimationFrame(tick);
+}
+</script>
+</body>
+</html>
