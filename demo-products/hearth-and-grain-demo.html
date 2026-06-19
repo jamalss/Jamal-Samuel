@@ -201,8 +201,9 @@
   .btn-secondary:hover{ background:var(--charcoal); color:var(--cream); }
   .btn-sm{ padding:9px 18px; font-size:13.5px; }
   .btn-nav{
-    padding:10px 20px;
+    padding:11px 24px;
     font-size:13.5px;
+    box-shadow:0 3px 10px rgba(168,84,46,0.28);
   }
 
   .mobile-toggle{
@@ -277,6 +278,16 @@
     overflow:hidden;
     aspect-ratio:4/4.6;
     box-shadow:var(--shadow-card);
+  }
+  .real-photo{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    background:linear-gradient(135deg, var(--oat), #B98A52);
+  }
+  .real-photo[src=""], .real-photo:not([src]){
+    visibility:hidden;
   }
   .hero-visual .ph-image{
     width:100%; height:100%;
@@ -357,6 +368,47 @@
 
   .section-alt{ background:var(--crust); }
 
+  /* ============ HOW ORDERING WORKS ============ */
+  .how-it-works{
+    padding:0 0 88px;
+  }
+  .how-grid{
+    background:var(--white);
+    border-radius:18px;
+    padding:30px 36px;
+    box-shadow:var(--shadow-soft);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+  }
+  .how-step{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    flex:1;
+  }
+  .how-num{
+    width:34px; height:34px;
+    border-radius:50%;
+    background:var(--sage);
+    color:var(--cream);
+    font-family:var(--display);
+    font-weight:700;
+    font-size:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+  .how-step h3{ font-size:15.5px; margin-bottom:2px; }
+  .how-step p{ font-size:13px; color:#6B5A4D; }
+  .how-arrow{
+    color:var(--oat);
+    font-size:20px;
+    flex-shrink:0;
+  }
+
   /* ============ FEATURED BAKE ============ */
   .bake-grid{
     display:grid;
@@ -377,6 +429,11 @@
     aspect-ratio:5/4;
     background:linear-gradient(135deg, var(--oat), #B98A52);
     position:relative;
+    overflow:hidden;
+  }
+  .bake-img .real-photo{
+    width:100%; height:100%;
+    object-fit:cover;
   }
   .bake-img .ph-tag{
     position:absolute; bottom:10px; left:10px;
@@ -528,6 +585,24 @@
   .schedule-info h3{ font-size:17px; margin-bottom:4px; }
   .schedule-info p{ font-size:13.5px; color:#6B5A4D; }
 
+  .ig-follow{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    margin-top:36px;
+    font-size:13.5px;
+    color:#6B5A4D;
+    font-weight:600;
+  }
+  .ig-follow svg{ color:var(--clay); flex-shrink:0; }
+  .ig-follow a{
+    color:var(--clay-dark);
+    font-weight:700;
+    border-bottom:1px solid currentColor;
+  }
+  .ig-follow a:hover{ color:var(--clay); }
+
   /* ============ TESTIMONIALS ============ */
   .test-grid{
     display:grid;
@@ -556,6 +631,54 @@
     color:#8A7765;
     font-weight:600;
     letter-spacing:0.02em;
+  }
+
+  /* ============ JOIN THE BAKE LIST ============ */
+  .visually-hidden{
+    position:absolute;
+    width:1px; height:1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    white-space:nowrap;
+  }
+  .bake-list-card{
+    background:var(--white);
+    border-radius:22px;
+    padding:48px 52px;
+    box-shadow:var(--shadow-card);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:40px;
+  }
+  .bake-list-copy{ max-width:420px; }
+  .bake-list-copy h2{ font-size:1.9rem; margin:14px 0 12px; }
+  .bake-list-copy p{ font-size:15px; color:#5A493F; }
+  .bake-list-form{
+    display:flex;
+    gap:10px;
+    flex-shrink:0;
+  }
+  .bake-list-form input{
+    font-family:var(--body);
+    font-size:14.5px;
+    padding:13px 18px;
+    border-radius:999px;
+    border:1.5px solid var(--oat);
+    background:var(--cream);
+    color:var(--charcoal);
+    min-width:230px;
+  }
+  .bake-list-form input:focus-visible{
+    outline:2px solid var(--clay);
+    outline-offset:2px;
+    border-color:var(--clay);
+  }
+  .bake-list-note{
+    font-size:12px;
+    color:#8A7765;
+    text-align:center;
+    margin-top:10px;
   }
 
   /* ============ FAQ-ish objection handling woven into final CTA ============ */
@@ -617,17 +740,29 @@
     display:none;
     position:fixed;
     bottom:0; left:0; right:0;
+    width:100%;
     z-index:300;
     padding:12px 16px;
     background:rgba(250,246,239,0.97);
     backdrop-filter:blur(8px);
     border-top:1px solid rgba(62,43,34,0.1);
     box-shadow:0 -6px 20px rgba(0,0,0,0.08);
+    box-sizing:border-box;
   }
-  .mobile-sticky-cta .btn{ width:100%; }
+  .mobile-sticky-cta .btn{
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+  }
 
   /* ============ RESPONSIVE ============ */
   @media (max-width: 880px){
+    .bake-list-card{ flex-direction:column; text-align:center; padding:36px 28px; }
+    .bake-list-copy{ max-width:100%; }
+    .bake-list-form{ width:100%; flex-direction:column; }
+    .bake-list-form input{ width:100%; min-width:0; }
+    .how-grid{ flex-direction:column; align-items:flex-start; padding:26px 24px; }
+    .how-arrow{ display:none; }
     .hero-grid{ grid-template-columns:1fr; gap:40px; }
     .hero-visual{ order:-1; aspect-ratio:16/11; }
     .bake-grid{ grid-template-columns:1fr; }
@@ -667,6 +802,15 @@
   @media (max-width: 480px){
     .bake-bar-inner{ font-size:12px; padding:9px 16px; }
     .hero-loaf-counter{ position:static; margin-top:16px; max-width:100%; }
+    .hero-ctas{ flex-direction:column; align-items:stretch; }
+    .hero-ctas .btn{ width:100%; }
+    .final-ctas{ flex-direction:column; align-items:stretch; }
+    .final-ctas .btn{ width:100%; }
+  }
+
+  html, body{
+    max-width:100%;
+    overflow-x:hidden;
   }
 </style>
 </head>
@@ -715,14 +859,43 @@
           </ul>
         </div>
         <div class="hero-visual">
-          <div class="ph-image" role="img" aria-label="Hands shaping artisan sourdough dough on a floured wooden table">
-            <span class="ph-label">Photo: hands shaping sourdough, flour-dusted table</span>
-          </div>
+          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=900&q=80&auto=format&fit=crop" alt="Hands shaping artisan sourdough dough on a floured wooden table" class="real-photo">
           <div class="hero-loaf-counter">
             <div class="label">Saturday Bake</div>
             <div class="big">6 left</div>
             <div class="small">of 12 sourdough loaves</div>
             <div class="loaf-bar"><div class="loaf-bar-fill"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW ORDERING WORKS -->
+    <section class="how-it-works">
+      <div class="wrap">
+        <div class="how-grid">
+          <div class="how-step">
+            <span class="how-num">1</span>
+            <div>
+              <h3>Choose your bake</h3>
+              <p>Pick from this week's loaves and pastries</p>
+            </div>
+          </div>
+          <div class="how-arrow" aria-hidden="true">→</div>
+          <div class="how-step">
+            <span class="how-num">2</span>
+            <div>
+              <h3>Select pickup</h3>
+              <p>Choose a market, pop-up, or pickup day</p>
+            </div>
+          </div>
+          <div class="how-arrow" aria-hidden="true">→</div>
+          <div class="how-step">
+            <span class="how-num">3</span>
+            <div>
+              <h3>Pay securely on Square</h3>
+              <p>Reserve your order in under a minute</p>
+            </div>
           </div>
         </div>
       </div>
@@ -740,8 +913,8 @@
 
           <article class="bake-card">
             <div class="bake-img">
+              <img src="https://images.unsplash.com/photo-1549931319-a545749fcd3d?w=600&q=80&auto=format&fit=crop" alt="Sliced country sourdough boule showing open crumb" class="real-photo">
               <span class="stock-tag low">6 left</span>
-              <span class="ph-tag">Photo: sliced sourdough boule</span>
             </div>
             <div class="bake-body">
               <h3>Country Sourdough</h3>
@@ -756,8 +929,8 @@
 
           <article class="bake-card">
             <div class="bake-img">
+              <img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=600&q=80&auto=format&fit=crop" alt="Glazed cinnamon rolls, close-up" class="real-photo">
               <span class="stock-tag">9 left</span>
-              <span class="ph-tag">Photo: glazed cinnamon rolls, close-up</span>
             </div>
             <div class="bake-body">
               <h3>Brown Butter Cinnamon Rolls</h3>
@@ -772,8 +945,8 @@
 
           <article class="bake-card">
             <div class="bake-img">
+              <img src="https://images.unsplash.com/photo-1573821663912-6df460f9c684?w=600&q=80&auto=format&fit=crop" alt="Rosemary focaccia, overhead view" class="real-photo">
               <span class="stock-tag">11 left</span>
-              <span class="ph-tag">Photo: rosemary focaccia, overhead</span>
             </div>
             <div class="bake-body">
               <h3>Seasonal Focaccia</h3>
@@ -786,52 +959,6 @@
             </div>
           </article>
 
-        </div>
-      </div>
-    </section>
-
-    <!-- OWNER STORY -->
-    <section id="story" class="section-alt">
-      <div class="wrap story-grid">
-        <div class="story-visual">
-          <div class="ph-image" role="img" aria-label="The baker kneading dough in a small home kitchen">
-            <span class="ph-label" style="background:rgba(0,0,0,0.4);">Photo: baker at work, early morning kitchen</span>
-          </div>
-        </div>
-        <div class="story-copy">
-          <span class="eyebrow">Meet the baker</span>
-          <h2 style="margin:14px 0 18px;">Meet The Baker Behind The Loaves</h2>
-          <p>This started in a kitchen built for a family of four, not a bakery. Early mornings, one oven, and a starter that's been fed every day for three years.</p>
-          <p>There's no factory, no shortcuts, and no mass production here — just slow fermentation, real ingredients, and loaves shaped by hand the night before they're baked. Every order is for someone whose name I'll know by pickup.</p>
-          <p>If you've been buying bread that's mostly air and additives, this is the difference good flour, time, and care actually make.</p>
-          <p class="signature">— Hearth &amp; Grain, started in one kitchen</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROCESS / PHILOSOPHY -->
-    <section>
-      <div class="wrap">
-        <div class="section-head">
-          <span class="eyebrow">Why it tastes different</span>
-          <h2>Slow Bread. Honest Ingredients. No Shortcuts.</h2>
-        </div>
-        <div class="process-grid">
-          <div class="process-card">
-            <div class="process-icon">🌾</div>
-            <h3>Naturally Leavened</h3>
-            <p>No commercial yeast. A wild starter and a long ferment do the work, which is why the crust crackles and the crumb stays open and tender.</p>
-          </div>
-          <div class="process-card">
-            <div class="process-icon">🔥</div>
-            <h3>Small-Batch Baking</h3>
-            <p>A dozen loaves at a time, not a hundred. Each one gets shaped, scored, and watched — not run through a line.</p>
-          </div>
-          <div class="process-card">
-            <div class="process-icon">🌿</div>
-            <h3>Seasonal Ingredients</h3>
-            <p>What's fresh locally shapes the weekly menu — so the focaccia in July tastes nothing like the one in November, on purpose.</p>
-          </div>
         </div>
       </div>
     </section>
@@ -874,6 +1001,72 @@
           </div>
 
         </div>
+        <p class="ig-follow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+          Follow the weekly bake list on Instagram <a href="https://instagram.com/hearthandgrainbakery" target="_blank" rel="noopener">@hearthandgrainbakery</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- OWNER STORY -->
+    <section id="story">
+      <div class="wrap story-grid">
+        <div class="story-visual">
+          <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=80&auto=format&fit=crop" alt="The baker at work in a small home kitchen, early morning light" class="real-photo">
+        </div>
+        <div class="story-copy">
+          <span class="eyebrow">Meet the baker</span>
+          <h2 style="margin:14px 0 18px;">Meet The Baker Behind The Loaves</h2>
+          <p>This started in a kitchen built for a family of four, not a bakery. Early mornings, one oven, and a starter that's been fed every day for three years.</p>
+          <p>There's no factory, no shortcuts, and no mass production here — just slow fermentation, real ingredients, and loaves shaped by hand the night before they're baked. Every order is for someone whose name I'll know by pickup.</p>
+          <p>If you've been buying bread that's mostly air and additives, this is the difference good flour, time, and care actually make.</p>
+          <p class="signature">— Hearth &amp; Grain, started in one kitchen</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS / PHILOSOPHY -->
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Why it tastes different</span>
+          <h2>Slow Bread. Honest Ingredients. No Shortcuts.</h2>
+        </div>
+        <div class="process-grid">
+          <div class="process-card">
+            <div class="process-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22c0-5 0-9 0-13"/>
+                <path d="M12 9c-3 0-5-2-5-5 3 0 5 2 5 5z"/>
+                <path d="M12 9c3 0 5-2 5-5-3 0-5 2-5 5z"/>
+                <path d="M12 14c-2.5 0-4-1.6-4-4 2.5 0 4 1.6 4 4z"/>
+                <path d="M12 14c2.5 0 4-1.6 4-4-2.5 0-4 1.6-4 4z"/>
+              </svg>
+            </div>
+            <h3>Naturally Leavened</h3>
+            <p>No commercial yeast. A wild starter and a long ferment do the work, which is why the crust crackles and the crumb stays open and tender.</p>
+          </div>
+          <div class="process-card">
+            <div class="process-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 2c1.2 2.4 3.8 4.4 3.8 7.6a3.8 3.8 0 0 1-7.6 0c0-1.4.6-2.4 1.3-3.4"/>
+                <path d="M9.5 12.8c-1.1 1-1.8 2.3-1.8 3.9a4.3 4.3 0 0 0 8.6 0c0-1.8-.9-3-1.9-4"/>
+              </svg>
+            </div>
+            <h3>Small-Batch Baking</h3>
+            <p>A dozen loaves at a time, not a hundred. Each one gets shaped, scored, and watched — not run through a line.</p>
+          </div>
+          <div class="process-card">
+            <div class="process-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 21c0-7.5 4-13 14-16-1 9-5 14-14 16z"/>
+                <path d="M5 21c2-3.5 4.5-6 8-8"/>
+              </svg>
+            </div>
+            <h3>Seasonal Ingredients</h3>
+            <p>What's fresh locally shapes the weekly menu — so the focaccia in July tastes nothing like the one in November, on purpose.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -908,6 +1101,25 @@
       </div>
     </section>
 
+    <!-- JOIN THE BAKE LIST -->
+    <section id="bake-list" class="section-alt">
+      <div class="wrap">
+        <div class="bake-list-card">
+          <div class="bake-list-copy">
+            <span class="eyebrow">Never miss a bake</span>
+            <h2>Join The Bake List</h2>
+            <p>Get a short email every Thursday with the weekend's bake, what's limited, and a link to order before walk-ups even see it. No spam — just bread.</p>
+          </div>
+          <form class="bake-list-form" id="bakeListForm">
+            <label for="bakeListEmail" class="visually-hidden">Email address</label>
+            <input type="email" id="bakeListEmail" name="email" placeholder="you@email.com" required>
+            <button type="submit" class="btn btn-primary">Join The Bake List</button>
+          </form>
+          <p class="bake-list-note" id="bakeListNote">Sent weekly. Unsubscribe anytime.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- FINAL CTA -->
     <section>
       <div class="wrap">
@@ -931,7 +1143,6 @@
     <div class="wrap">
       <a href="#top" class="logo">Hearth <span>&amp;</span> Grain</a>
       <p>Small-batch microbakery &middot; Local pickup &amp; weekend pop-ups</p>
-      <p>This is a demo site built to show how a simple, order-focused page helps a microbakery sell out its bakes faster.</p>
       <div class="foot-links">
         <a href="#bakes">This Week's Bake</a>
         <a href="#schedule">Schedule</a>
@@ -959,6 +1170,16 @@
           toggle.setAttribute('aria-expanded', 'false');
         });
       });
+
+      const bakeForm = document.getElementById('bakeListForm');
+      const bakeNote = document.getElementById('bakeListNote');
+      if(bakeForm){
+        bakeForm.addEventListener('submit', function(e){
+          e.preventDefault();
+          bakeNote.textContent = "You're on the list — look for Thursday's email.";
+          bakeForm.querySelector('input').value = '';
+        });
+      }
     })();
   </script>
 
