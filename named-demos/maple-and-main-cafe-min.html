@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Maple & Main Café — Coffee Worth Slowing Down For</title>
+<meta name="description" content="Handcrafted coffee, fresh-baked pastries, and a welcoming neighborhood café. Order ahead or visit us today." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --cream:#F7F3EC;
+  --warm-white:#FCFAF6;
+  --espresso:#3D2B1F;
+  --espresso-light:#5A4434;
+  --charcoal:#26211C;
+  --gold:#C89B5C;
+  --gold-light:#E0C291;
+  --line:rgba(61,43,31,0.12);
+  --shadow-soft: 0 10px 30px rgba(38,33,28,0.08);
+  --shadow-strong: 0 20px 50px rgba(38,33,28,0.18);
+  --radius: 6px;
+  --maxw: 1180px;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter', sans-serif;
+  color:var(--charcoal);
+  background:var(--cream);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Playfair Display', serif; font-weight:600; line-height:1.15; color:var(--espresso);}
+a{text-decoration:none; color:inherit;}
+img{display:block; max-width:100%;}
+button{font-family:inherit; cursor:pointer; border:none;}
+ul{list-style:none;}
+.container{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
+.eyebrow{
+  font-size:13px; letter-spacing:0.16em; text-transform:uppercase;
+  color:var(--gold); font-weight:600; margin-bottom:14px; display:block;
+}
+section{position:relative;}
+.section-pad{padding:110px 0;}
+@media(max-width:768px){ .section-pad{padding:72px 0;} .container{padding:0 20px;} }
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+}
+
+:focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+
+/* ---------- Loader ---------- */
+#loader{
+  position:fixed; inset:0; background:var(--espresso); z-index:9999;
+  display:flex; align-items:center; justify-content:center; flex-direction:column; gap:18px;
+  transition:opacity 0.6s ease, visibility 0.6s ease;
+}
+#loader.hide{opacity:0; visibility:hidden;}
+.loader-mark{font-family:'Playfair Display', serif; font-size:28px; color:var(--gold-light); letter-spacing:0.04em;}
+.loader-bar{width:120px; height:2px; background:rgba(255,255,255,0.15); position:relative; overflow:hidden; border-radius:2px;}
+.loader-bar::after{
+  content:''; position:absolute; left:-40%; top:0; height:100%; width:40%;
+  background:var(--gold); animation:loadsweep 1.1s ease-in-out infinite;
+}
+@keyframes loadsweep{ 0%{left:-40%;} 100%{left:100%;} }
+
+/* ---------- Header ---------- */
+header{
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  background:transparent;
+  transition:background 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease;
+  padding:26px 0;
+}
+header.scrolled{
+  background:var(--warm-white);
+  box-shadow:0 2px 20px rgba(38,33,28,0.08);
+  padding:14px 0;
+}
+.nav-row{display:flex; align-items:center; justify-content:space-between; gap:24px;}
+.logo{font-family:'Playfair Display', serif; font-size:22px; font-weight:700; color:var(--warm-white); letter-spacing:0.01em; transition:color 0.4s ease;}
+header.scrolled .logo{color:var(--espresso);}
+.nav-links{display:flex; gap:34px; align-items:center;}
+.nav-links a{
+  font-size:14.5px; font-weight:500; color:rgba(255,255,255,0.92);
+  position:relative; padding:4px 0; transition:color 0.4s ease;
+}
+header.scrolled .nav-links a{color:var(--charcoal);}
+.nav-links a::after{
+  content:''; position:absolute; left:0; bottom:0; width:0; height:1.5px; background:var(--gold);
+  transition:width 0.3s ease;
+}
+.nav-links a:hover::after{width:100%;}
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:13px 28px; border-radius:3px; font-size:14px; font-weight:600;
+  letter-spacing:0.02em; transition:transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+  white-space:nowrap;
+}
+.btn-gold{background:var(--gold); color:var(--espresso);}
+.btn-gold:hover{background:var(--gold-light); transform:translateY(-2px); box-shadow:var(--shadow-soft);}
+.btn-outline{background:transparent; border:1.5px solid currentColor; color:inherit;}
+.btn-outline:hover{background:rgba(255,255,255,0.1); transform:translateY(-2px);}
+.btn-dark{background:var(--espresso); color:var(--warm-white);}
+.btn-dark:hover{background:var(--charcoal); transform:translateY(-2px); box-shadow:var(--shadow-soft);}
+.nav-cta{display:none;}
+@media(min-width:992px){.nav-cta{display:inline-flex;}}
+
+.menu-toggle{
+  display:flex; flex-direction:column; gap:5px; background:none; padding:6px; z-index:1001;
+}
+.menu-toggle span{width:24px; height:2px; background:var(--warm-white); transition:all 0.3s ease;}
+header.scrolled .menu-toggle span{background:var(--espresso);}
+@media(min-width:992px){.menu-toggle{display:none;}}
+@media(max-width:991px){.nav-links{display:none;}}
+
+.mobile-menu{
+  position:fixed; top:0; right:-100%; width:78%; max-width:340px; height:100vh;
+  background:var(--warm-white); z-index:1002; transition:right 0.4s ease;
+  padding:90px 32px 32px; box-shadow:-10px 0 40px rgba(0,0,0,0.2);
+}
+.mobile-menu.open{right:0;}
+.mobile-menu a{display:block; padding:14px 0; font-size:17px; border-bottom:1px solid var(--line); color:var(--espresso); font-weight:500;}
+.mobile-overlay{position:fixed; inset:0; background:rgba(0,0,0,0.4); z-index:1001; opacity:0; visibility:hidden; transition:all 0.3s ease;}
+.mobile-overlay.open{opacity:1; visibility:visible;}
+
+/* ---------- Hero ---------- */
+.hero{
+  height:100vh; min-height:640px; position:relative; display:flex; align-items:center;
+  background:linear-gradient(180deg, rgba(38,28,20,0.55) 0%, rgba(38,28,20,0.45) 40%, rgba(28,20,14,0.85) 100%),
+    url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+}
+.hero-content{position:relative; z-index:2; max-width:680px;}
+.hero h1{
+  font-size:clamp(40px, 6vw, 68px); color:var(--warm-white); margin-bottom:22px; font-style:italic; font-weight:600;
+}
+.hero p{font-size:19px; color:rgba(255,255,255,0.88); max-width:520px; margin-bottom:38px; font-weight:400;}
+.hero-buttons{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:64px;}
+.hero-buttons .btn{padding:13px 24px;}
+@media(max-width:560px){ .hero-buttons{margin-bottom:48px;} .hero-buttons .btn{flex:1 1 calc(50% - 7px); padding:13px 16px; font-size:13.5px;} }
+.hero-buttons .btn-outline{color:var(--warm-white);}
+
+.hero-stats{display:flex; gap:48px; flex-wrap:wrap;}
+.stat-block{color:var(--warm-white);}
+.stat-num{font-family:'Playfair Display', serif; font-size:30px; font-weight:700; color:var(--gold-light); display:block;}
+.stat-label{font-size:13px; letter-spacing:0.05em; color:rgba(255,255,255,0.75); text-transform:uppercase; margin-top:2px;}
+
+.scroll-cue{
+  position:absolute; bottom:32px; left:50%; transform:translateX(-50%); z-index:2;
+  color:var(--warm-white); display:flex; flex-direction:column; align-items:center; gap:8px; font-size:11px;
+  letter-spacing:0.12em; text-transform:uppercase; opacity:0.85;
+}
+.scroll-cue .line{width:1px; height:34px; background:rgba(255,255,255,0.6); position:relative; overflow:hidden;}
+.scroll-cue .line::after{content:''; position:absolute; top:-100%; left:0; width:100%; height:100%; background:var(--gold-light); animation:scrolldown 1.8s ease-in-out infinite;}
+@keyframes scrolldown{ 0%{top:-100%;} 100%{top:100%;} }
+
+/* ---------- Fresh Bakes Board (signature element) ---------- */
+.bakes-wrap{ margin-top:-92px; position:relative; z-index:5; }
+@media(max-width:768px){ .bakes-wrap{ margin-top:-56px; } }
+.bakes-board{
+  background:var(--espresso);
+  background-image: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.03) 0, transparent 45%),
+                     radial-gradient(circle at 80% 80%, rgba(255,255,255,0.03) 0, transparent 45%);
+  border-radius:8px;
+  box-shadow:var(--shadow-strong);
+  border:1px solid rgba(200,155,92,0.25);
+  padding:38px 40px;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:32px;
+  align-items:center;
+}
+@media(max-width:900px){ .bakes-board{grid-template-columns:1fr; gap:24px;} }
+
+.bakes-head{display:flex; align-items:center; gap:14px;}
+.bakes-icon{
+  width:46px; height:46px; border-radius:50%; background:rgba(200,155,92,0.15);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.bakes-icon svg{width:22px; height:22px; stroke:var(--gold-light);}
+.bakes-head-text .eyebrow{margin-bottom:4px;}
+.bakes-head-text h3{color:var(--warm-white); font-size:20px;}
+.bakes-date{color:rgba(255,255,255,0.55); font-size:13px; margin-top:3px;}
+
+.bakes-items{
+  display:flex; gap:28px; overflow-x:auto; padding:4px 0;
+  scrollbar-width:thin; scrollbar-color:var(--gold) transparent;
+}
+.bakes-items::-webkit-scrollbar{height:4px;}
+.bakes-items::-webkit-scrollbar-thumb{background:var(--gold); border-radius:4px;}
+.bake-chip{
+  flex-shrink:0; display:flex; align-items:center; gap:10px;
+  border-left:2px solid var(--gold); padding-left:14px; min-width:180px;
+}
+.bake-chip .name{color:var(--warm-white); font-weight:600; font-size:14.5px; font-family:'Playfair Display', serif;}
+.bake-chip .tag{display:block; color:var(--gold-light); font-size:11.5px; letter-spacing:0.04em; text-transform:uppercase; margin-top:3px;}
+.bake-chip.sold .name{color:rgba(255,255,255,0.4); text-decoration:line-through;}
+.bake-chip.sold .tag{color:rgba(255,255,255,0.3);}
+
+.bakes-cta{text-align:right;}
+.bakes-cta .small{display:block; color:rgba(255,255,255,0.5); font-size:12px; margin-top:8px;}
+@media(max-width:900px){ .bakes-cta{text-align:left;} }
+
+/* ---------- Action Strip ---------- */
+.action-strip-wrap{margin-top:22px;}
+.action-strip{
+  background:var(--warm-white);
+  border:1px solid var(--line);
+  border-radius:8px;
+  box-shadow:var(--shadow-soft);
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+.action-item{
+  display:flex; align-items:center; gap:14px; padding:22px 24px;
+  border-right:1px solid var(--line);
+  transition:background 0.25s ease;
+}
+.action-item:last-child{border-right:none;}
+.action-item:hover{background:var(--cream);}
+.action-icon{
+  width:42px; height:42px; border-radius:50%; background:rgba(200,155,92,0.12);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  transition:background 0.25s ease;
+}
+.action-item:hover .action-icon{background:var(--gold);}
+.action-icon svg{width:19px; height:19px; stroke:var(--gold); transition:stroke 0.25s ease;}
+.action-item:hover .action-icon svg{stroke:var(--espresso);}
+.action-text{min-width:0;}
+.action-text .label{font-family:'Playfair Display', serif; font-weight:600; font-size:15px; color:var(--espresso); display:block;}
+.action-text .sub{font-size:12.5px; color:var(--espresso-light); display:block; margin-top:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+@media(max-width:900px){
+  .action-strip{grid-template-columns:repeat(2,1fr);}
+  .action-item{border-bottom:1px solid var(--line);}
+  .action-item:nth-child(2){border-right:none;}
+  .action-item:nth-child(3), .action-item:nth-child(4){border-bottom:none;}
+}
+@media(max-width:480px){
+  .action-strip{grid-template-columns:1fr;}
+  .action-item{border-right:none;}
+  .action-item:last-child{border-bottom:none;}
+}
+
+
+.section-head{max-width:620px; margin-bottom:56px;}
+.section-head.center{margin-left:auto; margin-right:auto; text-align:center;}
+.section-head h2{font-size:clamp(30px,4vw,44px);}
+.section-head p{color:var(--espresso-light); font-size:17px; margin-top:14px;}
+
+/* ---------- Reveal ---------- */
+.reveal{opacity:0; transform:translateY(28px); transition:opacity 0.7s ease, transform 0.7s ease;}
+.reveal.in{opacity:1; transform:none;}
+
+/* ---------- Menu ---------- */
+.menu-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+@media(max-width:900px){.menu-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.menu-grid{grid-template-columns:1fr;}}
+.menu-card{
+  background:var(--warm-white); border-radius:var(--radius); overflow:hidden;
+  box-shadow:var(--shadow-soft); transition:transform 0.35s ease, box-shadow 0.35s ease;
+}
+.menu-card:hover{transform:translateY(-8px); box-shadow:var(--shadow-strong);}
+.menu-card .img-wrap{height:220px; overflow:hidden;}
+.menu-card img{width:100%; height:100%; object-fit:cover; transition:transform 0.6s ease;}
+.menu-card:hover img{transform:scale(1.08);}
+.menu-card-body{padding:22px 22px 26px;}
+.menu-card-top{display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-bottom:8px;}
+.menu-card-top h4{font-size:18px;}
+.price{color:var(--gold); font-weight:700; font-family:'Playfair Display', serif; font-size:17px; white-space:nowrap;}
+.menu-card-body p{font-size:14.5px; color:var(--espresso-light);}
+
+/* ---------- Seasonal banner ---------- */
+.seasonal{
+  background:linear-gradient(120deg, rgba(38,28,20,0.78), rgba(38,28,20,0.55)),
+    url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1800&auto=format&fit=crop') center/cover;
+  border-radius:10px; padding:72px 56px; text-align:center; position:relative; overflow:hidden;
+}
+.seasonal .eyebrow{color:var(--gold-light);}
+.seasonal h2{color:var(--warm-white); font-size:clamp(28px,4vw,42px); font-style:italic; margin-bottom:14px;}
+.seasonal p{color:rgba(255,255,255,0.85); margin-bottom:30px; font-size:16.5px;}
+@media(max-width:600px){ .seasonal{padding:52px 26px;} }
+
+/* ---------- Story ---------- */
+.story-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;}
+@media(max-width:900px){.story-grid{grid-template-columns:1fr; gap:36px;}}
+.story-imgs{position:relative; height:460px;}
+.story-imgs img{position:absolute; border-radius:8px; box-shadow:var(--shadow-strong); object-fit:cover;}
+.story-imgs .img-a{width:72%; height:78%; top:0; left:0; z-index:2;}
+.story-imgs .img-b{width:55%; height:50%; bottom:0; right:0; z-index:3; border:6px solid var(--cream);}
+.story h2{font-size:clamp(28px,3.6vw,38px); margin-bottom:18px;}
+.story p{color:var(--espresso-light); margin-bottom:16px; font-size:16px;}
+.story-sign{font-family:'Playfair Display', serif; font-style:italic; font-size:20px; color:var(--espresso); margin-top:24px;}
+
+/* ---------- Why us ---------- */
+.why-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:36px;}
+@media(max-width:900px){.why-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.why-grid{grid-template-columns:1fr;}}
+.why-card{padding:8px 0;}
+.why-icon{
+  width:52px; height:52px; border-radius:50%; background:rgba(200,155,92,0.12);
+  display:flex; align-items:center; justify-content:center; margin-bottom:18px;
+}
+.why-icon svg{width:24px; height:24px; stroke:var(--espresso); fill:none; stroke-width:1.6;}
+.why-card h4{font-size:17px; margin-bottom:8px;}
+.why-card p{font-size:14.5px; color:var(--espresso-light);}
+
+/* ---------- Experience (alternating) ---------- */
+.exp-row{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; margin-bottom:64px;}
+.exp-row:last-child{margin-bottom:0;}
+.exp-row.rev .exp-img{order:2;}
+.exp-row.rev .exp-text{order:1;}
+@media(max-width:860px){
+  .exp-row, .exp-row.rev{grid-template-columns:1fr; gap:24px;}
+  .exp-row.rev .exp-img{order:1;} .exp-row.rev .exp-text{order:2;}
+}
+.exp-img{height:380px; border-radius:8px; overflow:hidden; box-shadow:var(--shadow-soft);}
+.exp-img img{width:100%; height:100%; object-fit:cover;}
+.exp-text .eyebrow{margin-bottom:10px;}
+.exp-text h3{font-size:clamp(24px,3vw,30px); margin-bottom:14px;}
+.exp-text p{color:var(--espresso-light); font-size:15.5px;}
+
+/* ---------- Gallery ---------- */
+.gallery-grid{
+  columns:3 260px; column-gap:20px;
+}
+@media(max-width:768px){ .gallery-grid{columns:2 200px;} }
+.gallery-item{
+  break-inside:avoid; margin-bottom:18px; position:relative; border-radius:6px; overflow:hidden;
+  cursor:pointer;
+}
+.gallery-item img{width:100%; display:block; transition:transform 0.5s ease;}
+.gallery-overlay{
+  position:absolute; inset:0; background:rgba(38,28,20,0.0); display:flex; align-items:center; justify-content:center;
+  transition:background 0.35s ease;
+}
+.gallery-item:hover .gallery-overlay{background:rgba(38,28,20,0.45);}
+.gallery-item:hover img{transform:scale(1.06);}
+.gallery-overlay svg{width:28px; height:28px; stroke:var(--warm-white); opacity:0; transition:opacity 0.35s ease;}
+.gallery-item:hover .gallery-overlay svg{opacity:1;}
+
+#lightbox{
+  position:fixed; inset:0; background:rgba(15,11,8,0.92); z-index:2000;
+  display:flex; align-items:center; justify-content:center; opacity:0; visibility:hidden;
+  transition:opacity 0.3s ease, visibility 0.3s ease; padding:24px;
+}
+#lightbox.open{opacity:1; visibility:visible;}
+#lightbox img{max-width:88vw; max-height:84vh; border-radius:6px; box-shadow:0 20px 60px rgba(0,0,0,0.5);}
+.lightbox-close, .lightbox-nav{
+  position:absolute; background:rgba(255,255,255,0.1); color:var(--warm-white);
+  width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  transition:background 0.25s ease;
+}
+.lightbox-close:hover, .lightbox-nav:hover{background:rgba(255,255,255,0.22);}
+.lightbox-close{top:24px; right:24px;}
+.lightbox-nav.prev{left:24px; top:50%; transform:translateY(-50%);}
+.lightbox-nav.next{right:24px; top:50%; transform:translateY(-50%);}
+.lightbox-nav svg, .lightbox-close svg{width:20px; height:20px;}
+
+/* ---------- Reviews ---------- */
+.reviews-wrap{position:relative; max-width:760px; margin:0 auto;}
+.review-track{overflow:hidden;}
+.review-slides{display:flex; transition:transform 0.5s ease;}
+.review-slide{flex:0 0 100%; text-align:center; padding:8px 20px;}
+.stars{color:var(--gold); font-size:18px; letter-spacing:3px; margin-bottom:18px;}
+.review-slide p{font-size:19px; font-style:italic; color:var(--espresso); font-family:'Playfair Display', serif; margin-bottom:22px; line-height:1.5;}
+.reviewer{font-size:14px; color:var(--espresso-light); font-weight:600;}
+.review-dots{display:flex; justify-content:center; gap:10px; margin-top:30px;}
+.review-dots button{width:8px; height:8px; border-radius:50%; background:var(--line); transition:background 0.25s ease, transform 0.25s ease;}
+.review-dots button.active{background:var(--gold); transform:scale(1.3);}
+.review-arrows{display:flex; justify-content:center; gap:16px; margin-top:8px;}
+.review-arrows button{
+  width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:var(--warm-white);
+  display:flex; align-items:center; justify-content:center; transition:background 0.25s ease, border-color 0.25s ease;
+}
+.review-arrows button:hover{background:var(--gold); border-color:var(--gold);}
+.review-arrows svg{width:16px; height:16px;}
+
+
+
+/* ---------- Ordering ---------- */
+.order-section{
+  background:var(--charcoal); border-radius:10px; padding:80px 56px; text-align:center; position:relative; overflow:hidden;
+}
+.order-section h2{color:var(--warm-white); font-size:clamp(30px,4vw,44px); font-style:italic;}
+.order-section p{color:rgba(255,255,255,0.75); margin:16px 0 34px; font-size:16.5px;}
+.order-buttons{display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
+@media(max-width:600px){.order-section{padding:54px 24px;}}
+
+/* ---------- Visit ---------- */
+.visit-badges{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:28px;}
+.vbadge{
+  display:inline-flex; align-items:center; gap:7px; padding:8px 14px; border-radius:30px;
+  background:var(--cream); font-size:12.5px; font-weight:600; color:var(--espresso-light);
+  border:1px solid var(--line);
+}
+.vbadge svg{width:13px; height:13px; stroke:var(--espresso-light);}
+.vbadge-gold{background:rgba(200,155,92,0.14); color:var(--espresso); border-color:rgba(200,155,92,0.3);}
+.vbadge-gold svg{fill:var(--gold); width:12px; height:12px;}
+.vbadge-status{color:var(--espresso); font-weight:700;}
+.vbadge-status .dot{width:8px; height:8px; border-radius:50%; background:#3a9d5d; flex-shrink:0;}
+.vbadge-status.closed .dot{background:#c2483e;}
+@media(max-width:560px){ .visit-badges{gap:8px;} .vbadge{font-size:11.5px; padding:7px 12px;} }
+
+.visit-grid{display:grid; grid-template-columns:0.85fr 1.15fr; gap:48px; align-items:stretch;}
+
+
+@media(max-width:900px){.visit-grid{grid-template-columns:1fr;}}
+.visit-card{background:var(--warm-white); border-radius:8px; padding:40px; box-shadow:var(--shadow-soft);}
+.visit-row{display:flex; gap:16px; padding:18px 0; border-bottom:1px solid var(--line);}
+.visit-row:last-child{border-bottom:none;}
+.visit-row svg{width:20px; height:20px; stroke:var(--gold); flex-shrink:0; margin-top:2px;}
+.visit-row h4{font-size:15px; margin-bottom:4px;}
+.visit-row p{font-size:14.5px; color:var(--espresso-light);}
+.map-embed{border-radius:8px; overflow:hidden; min-height:340px; box-shadow:var(--shadow-soft); background:#ddd;}
+.map-embed iframe{width:100%; height:100%; min-height:340px; border:0; display:block;}
+
+/* ---------- FAQ ---------- */
+.faq-list{max-width:760px; margin:0 auto;}
+.faq-item{border-bottom:1px solid var(--line);}
+.faq-q{
+  width:100%; display:flex; justify-content:space-between; align-items:center; gap:16px;
+  padding:24px 4px; background:none; text-align:left; font-family:'Playfair Display', serif; font-size:18px; color:var(--espresso); font-weight:600;
+}
+.faq-q .plus{
+  width:24px; height:24px; flex-shrink:0; position:relative;
+}
+.faq-q .plus::before, .faq-q .plus::after{
+  content:''; position:absolute; background:var(--gold); top:50%; left:50%; transform:translate(-50%,-50%);
+}
+.faq-q .plus::before{width:14px; height:2px;}
+.faq-q .plus::after{width:2px; height:14px; transition:transform 0.3s ease;}
+.faq-item.open .plus::after{transform:translate(-50%,-50%) rotate(90deg) scale(0);}
+.faq-a{max-height:0; overflow:hidden; transition:max-height 0.35s ease;}
+.faq-a p{padding:0 4px 24px; font-size:15px; color:var(--espresso-light); max-width:620px;}
+
+/* ---------- Final CTA ---------- */
+.final-cta{
+  background:linear-gradient(120deg, rgba(38,28,20,0.82), rgba(38,28,20,0.7)),
+    url('https://images.unsplash.com/photo-1453614512568-c4024d13c247?q=80&w=1800&auto=format&fit=crop') center/cover;
+  border-radius:10px; padding:90px 40px; text-align:center;
+}
+.final-cta h2{color:var(--warm-white); font-size:clamp(32px,5vw,50px); font-style:italic; margin-bottom:16px;}
+.final-cta p{color:rgba(255,255,255,0.85); font-size:17px; margin-bottom:34px;}
+.final-cta-buttons{display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
+
+/* ---------- Footer ---------- */
+footer{background:var(--espresso); color:rgba(255,255,255,0.7); padding:70px 0 28px;}
+.footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:40px; margin-bottom:50px;}
+@media(max-width:860px){.footer-grid{grid-template-columns:1fr 1fr; gap:36px;}}
+@media(max-width:560px){.footer-grid{grid-template-columns:1fr;}}
+.footer-logo{font-family:'Playfair Display', serif; font-size:22px; color:var(--warm-white); margin-bottom:14px;}
+.footer-col h5{color:var(--warm-white); font-size:13px; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:18px;}
+.footer-col ul li{margin-bottom:11px; font-size:14.5px;}
+.footer-col a:hover{color:var(--gold-light);}
+.footer-col-newsletter{opacity:0.78;}
+.footer-col-newsletter .newsletter-form{max-width:230px;}
+.footer-social{display:flex; gap:12px; margin-top:16px;}
+.footer-social a{
+  width:36px; height:36px; border-radius:50%; border:1px solid rgba(255,255,255,0.2);
+  display:flex; align-items:center; justify-content:center; transition:background 0.25s ease, border-color 0.25s ease;
+}
+.footer-social a:hover{background:var(--gold); border-color:var(--gold);}
+.footer-social svg{width:16px; height:16px;}
+.newsletter-form{display:flex; gap:8px; margin-top:8px;}
+.newsletter-form input{
+  flex:1; min-width:0; padding:11px 14px; border-radius:3px; border:1px solid rgba(255,255,255,0.2);
+  background:rgba(255,255,255,0.06); color:var(--warm-white); font-size:13.5px;
+}
+.newsletter-form input::placeholder{color:rgba(255,255,255,0.45);}
+.newsletter-form button{padding:0 16px; background:var(--gold); color:var(--espresso); border-radius:3px; font-weight:700; font-size:13px;}
+.newsletter-note{font-size:12px; color:rgba(255,255,255,0.4); margin-top:10px;}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.12); padding-top:26px; display:flex; justify-content:space-between;
+  flex-wrap:wrap; gap:12px; font-size:13px; color:rgba(255,255,255,0.45);
+}
+
+/* ---------- Floating buttons ---------- */
+.floating-stack{position:fixed; right:24px; bottom:24px; z-index:900; display:flex; flex-direction:column; gap:12px; align-items:flex-end;}
+.fab{
+  width:54px; height:54px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  box-shadow:var(--shadow-strong); transition:transform 0.25s ease;
+}
+.fab:hover{transform:scale(1.08);}
+.fab-order{background:var(--gold); color:var(--espresso);}
+.fab-call{background:var(--espresso); color:var(--warm-white);}
+.fab svg{width:22px; height:22px;}
+.back-top{
+  position:fixed; right:24px; bottom:160px; z-index:900;
+  width:44px; height:44px; border-radius:50%; background:var(--warm-white); color:var(--espresso);
+  border:1px solid var(--line); opacity:0; visibility:hidden; transition:all 0.3s ease;
+}
+.back-top.show{opacity:1; visibility:visible;}
+.back-top svg{width:18px; height:18px;}
+
+/* ---------- Sticky Mobile Action Bar ---------- */
+.mobile-action-bar{
+  display:none;
+  position:fixed; bottom:0; left:0; right:0; z-index:950;
+  background:var(--warm-white);
+  border-top:1px solid var(--line);
+  box-shadow:0 -6px 24px rgba(38,33,28,0.12);
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+}
+.mobile-action-bar .bar-row{display:grid; grid-template-columns:1fr 1fr 1.3fr; gap:10px;}
+.mobile-action-bar a{
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px;
+  padding:9px 4px; border-radius:8px; font-size:11.5px; font-weight:700;
+  letter-spacing:0.01em;
+}
+.mobile-action-bar svg{width:19px; height:19px;}
+.mab-call, .mab-directions{background:var(--cream); color:var(--espresso);}
+.mab-order{background:var(--gold); color:var(--espresso);}
+@media(max-width:680px){
+  .mobile-action-bar{display:block;}
+  body{padding-bottom:74px;}
+  .floating-stack{display:none;}
+  .back-top{bottom:90px; right:16px;}
+}
+
+
+/* ---------- Toast for forms ---------- */
+.toast{
+  position:fixed; bottom:28px; left:50%; transform:translateX(-50%) translateY(20px);
+  background:var(--espresso); color:var(--warm-white); padding:14px 24px; border-radius:6px;
+  font-size:14px; z-index:3000; opacity:0; visibility:hidden; transition:all 0.35s ease; box-shadow:var(--shadow-strong);
+}
+.toast.show{opacity:1; visibility:visible; transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+
+<div id="loader"><div class="loader-mark">Maple &amp; Main</div><div class="loader-bar"></div></div>
+
+<!-- HEADER -->
+<header id="siteHeader">
+  <div class="container nav-row">
+    <a href="#home" class="logo">Maple &amp; Main</a>
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#story">Our Story</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#visit">Visit Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#order" class="btn btn-gold nav-cta">Order Online</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home">Home</a>
+  <a href="#menu">Menu</a>
+  <a href="#story">Our Story</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#visit">Visit Us</a>
+  <a href="#contact">Contact</a>
+  <a href="#order" class="btn btn-gold" style="margin-top:18px; width:100%;">Order Online</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container hero-content">
+    <h1>Coffee Worth Slowing Down For.</h1>
+    <p>Handcrafted coffee, fresh pastries, and a welcoming space designed for meaningful moments.</p>
+    <div class="hero-buttons">
+      <a href="#menu" class="btn btn-gold">View Menu</a>
+      <a href="#order" class="btn btn-outline">Order Ahead</a>
+      <a href="#visit" class="btn btn-outline">Get Directions</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-block"><span class="stat-num" data-count="15000" data-suffix="+">0</span><span class="stat-label">Happy Guests</span></div>
+      <div class="stat-block"><span class="stat-num" data-decimal="4.9">0</span><span class="stat-label">★ Average Rating</span></div>
+      <div class="stat-block"><span class="stat-num" data-static="7 Days">7 Days</span><span class="stat-label">Freshly Baked</span></div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>Scroll</span><div class="line"></div></div>
+</section>
+
+<!-- TODAY'S FRESH BAKES BOARD (signature element) -->
+<div class="bakes-wrap container">
+  <div class="bakes-board reveal" id="bakesBoard">
+    <div class="bakes-head">
+      <div class="bakes-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16M5 19V9a7 7 0 0114 0v10M9 19v-5a3 3 0 016 0v5"/></svg>
+      </div>
+      <div class="bakes-head-text">
+        <span class="eyebrow">Today's Fresh Bakes</span>
+        <h3 id="bakesDay">—</h3>
+        <span class="bakes-date" id="bakesDate">—</span>
+      </div>
+    </div>
+    <div class="bakes-items" id="bakesItems"></div>
+    <div class="bakes-cta">
+      <a href="#order" class="btn btn-gold">Order Today's Bakes</a>
+      <span class="small">Updated fresh, every morning at 6 AM</span>
+    </div>
+  </div>
+</div>
+
+<!-- ACTION STRIP -->
+<div class="action-strip-wrap container">
+  <div class="action-strip reveal">
+    <a href="#" id="actionDirections" class="action-item">
+      <div class="action-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 21s7-7.5 7-12a7 7 0 10-14 0c0 4.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+      <div class="action-text"><span class="label">Directions</span><span class="sub">Main Street, Riverside</span></div>
+    </a>
+    <a href="tel:+15552048841" class="action-item">
+      <div class="action-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg></div>
+      <div class="action-text"><span class="label">Call Now</span><span class="sub">(555) 204-8841</span></div>
+    </a>
+    <a href="#order" class="action-item">
+      <div class="action-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="9" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/><path d="M3 4h2l2.4 11.5a2 2 0 002 1.5H17a2 2 0 002-1.6L21 8H6"/></svg></div>
+      <div class="action-text"><span class="label">Order Ahead</span><span class="sub">Skip the line</span></div>
+    </a>
+    <a href="#menu" class="action-item">
+      <div class="action-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 19.5V6a2 2 0 012-2h12a2 2 0 012 2v13.5M8 8h8M8 12h8M8 16h5"/></svg></div>
+      <div class="action-text"><span class="label">View Menu</span><span class="sub">Coffee &amp; pastries</span></div>
+    </a>
+  </div>
+</div>
+
+
+<!-- FEATURED MENU -->
+<section class="section-pad" id="menu">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Featured Menu</span>
+      <h2>Made to be savored, not rushed.</h2>
+      <p>A small menu, done properly. Every drink and pastry is made fresh, in small batches, throughout the day.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card reveal">
+        <div class="img-wrap"><img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?q=80&w=900&auto=format&fit=crop" alt="Latte art in a ceramic cup" loading="lazy"></div>
+        <div class="menu-card-body">
+          <div class="menu-card-top"><h4>Signature Latte</h4><span class="price">$5.25</span></div>
+          <p>Double espresso, steamed whole milk, our house-roasted blend, poured slow.</p>
+        </div>
+      </div>
+      <div class="menu-card reveal">
+        <div class="img-wrap"><img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=900&auto=format&fit=crop" alt="Cappuccino with cinnamon dusting" loading="lazy"></div>
+        <div class="menu-card-body">
+          <div class="menu-card-top"><h4>Honey Cinnamon Cappuccino</h4><span class="price">$5.75</span></div>
+          <p>Local honey, Saigon cinnamon, microfoam — a café favorite since day one.</p>
+        </div>
+      </div>
+      <div class="menu-card reveal">
+        <div class="img-wrap"><img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?q=80&w=900&auto=format&fit=crop" alt="Cold brew coffee in a glass" loading="lazy"></div>
+        <div class="menu-card-body">
+          <div class="menu-card-top"><h4>Cold Brew Reserve</h4><span class="price">$4.95</span></div>
+          <p>Steeped 18 hours. Bold, smooth, never bitter. Served over hand-cracked ice.</p>
+        </div>
+      </div>
+      <div class="menu-card reveal">
+        <div class="img-wrap"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=900&auto=format&fit=crop" alt="Fresh almond croissant" loading="lazy"></div>
+        <div class="menu-card-body">
+          <div class="menu-card-top"><h4>Almond Croissant</h4><span class="price">$4.50</span></div>
+          <p>Twice-baked, almond cream, toasted sliced almonds. Baked daily at dawn.</p>
+        </div>
+      </div>
+      <div class="menu-card reveal">
+        <div class="img-wrap"><img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?q=80&w=900&auto=format&fit=crop" alt="Blueberry danish pastry" loading="lazy"></div>
+        <div class="menu-card-body">
+          <div class="menu-card-top"><h4>Blueberry Danish</h4><span class="price">$4.25</span></div>
+          <p>Flaky laminated dough, wild blueberry compote, light vanilla glaze.</p>
+        </div>
+      </div>
+      <div class="menu-card reveal">
+        <div class="img-wrap"><img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=900&auto=format&fit=crop" alt="Seasonal breakfast bowl with fruit and grains" loading="lazy"></div>
+        <div class="menu-card-body">
+          <div class="menu-card-top"><h4>Seasonal Breakfast Bowl</h4><span class="price">$8.50</span></div>
+          <p>Local yogurt, seasonal fruit, toasted oats, a drizzle of maple.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEASONAL SPECIAL -->
+<section class="section-pad" style="padding-top:0;">
+  <div class="container">
+    <div class="seasonal reveal">
+      <span class="eyebrow">Limited Time</span>
+      <h2>Summer Peach Latte</h2>
+      <p>Ripe peach, espresso, vanilla bean, finished with cold foam. Here for the season, gone by fall.</p>
+      <a href="#order" class="btn btn-gold">Try It Today</a>
+    </div>
+  </div>
+</section>
+
+<!-- OUR STORY -->
+<section class="section-pad" id="story">
+  <div class="container story-grid">
+    <div class="story-imgs reveal">
+      <img class="img-a" src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?q=80&w=900&auto=format&fit=crop" alt="Barista preparing coffee behind the counter" loading="lazy">
+      <img class="img-b" src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=700&auto=format&fit=crop" alt="Bag of fresh roasted coffee beans" loading="lazy">
+    </div>
+    <div class="story reveal">
+      <span class="eyebrow">Our Story</span>
+      <h2>Started on a corner. Built by a neighborhood.</h2>
+      <p>Maple &amp; Main opened eight years ago in a space half this size, with a single espresso machine and a folding table for two. There was no business plan beyond making coffee worth walking for.</p>
+      <p>What kept people coming back wasn't the menu — it was the corner itself. Regulars started leaving their coats on the same chairs. Staff learned orders before names. The café grew because the neighborhood asked it to.</p>
+      <p>We still roast in small batches, still bake before sunrise, and still believe a good café is judged by how it treats a Tuesday morning, not just a Saturday.</p>
+      <p class="story-sign">— The Maple &amp; Main Family</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY PEOPLE CHOOSE US -->
+<section class="section-pad" style="background:var(--warm-white);">
+  <div class="container">
+    <div class="section-head center reveal" style="margin-left:auto; margin-right:auto;">
+      <span class="eyebrow">Why Maple &amp; Main</span>
+      <h2>The details people notice.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M4 9h16l-1.5 9.5a2 2 0 01-2 1.7H7.5a2 2 0 01-2-1.7L4 9z"/><path d="M9 9V6a3 3 0 016 0v3"/></svg></div>
+        <h4>Locally Roasted Coffee</h4>
+        <p>Beans roasted three miles from this counter, every week, in small batches.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M3 12h18M3 12a9 9 0 019-9M3 12a9 9 0 009 9M21 12a9 9 0 01-9 9M21 12a9 9 0 00-9-9"/></svg></div>
+        <h4>Fresh Baked Daily</h4>
+        <p>Our ovens start before sunrise. Nothing on the shelf is more than a day old.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M5 12.5a7 7 0 0114 0M2 16a10 10 0 0120 0M9 20h6"/></svg></div>
+        <h4>Free WiFi</h4>
+        <p>Fast, reliable, no login walls. Stay as long as the coffee holds out.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="11" rx="1.5"/><path d="M8 9V6a4 4 0 018 0v3"/></svg></div>
+        <h4>Outdoor Seating</h4>
+        <p>A shaded patio out front, open whenever the weather agrees with us.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20v-1a5 5 0 015-5h2a5 5 0 015 5M16 14a4 4 0 014 4v1"/></svg></div>
+        <h4>Community Events</h4>
+        <p>Open mic nights, local art shows, and a standing Sunday book club.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M8 14h3"/></svg></div>
+        <h4>Fast Online Ordering</h4>
+        <p>Order ahead, skip the line, walk out with your drink already waiting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE EXPERIENCE -->
+<section class="section-pad">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">The Maple &amp; Main Experience</span>
+      <h2>Two moments people come back for.</h2>
+    </div>
+
+    <div class="exp-row reveal">
+      <div class="exp-img"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=900&auto=format&fit=crop" alt="Customer holding a coffee cup in morning light" loading="lazy"></div>
+      <div class="exp-text">
+        <span class="eyebrow">Morning Ritual</span>
+        <h3>The first cup, done right.</h3>
+        <p>Doors open at 6 AM for the early crowd — the ones who want their order ready before the rest of the city wakes up. Quiet counters, low light, the smell of the first bake of the day.</p>
+      </div>
+    </div>
+
+    <div class="exp-row rev reveal">
+      <div class="exp-img"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=900&auto=format&fit=crop" alt="Brunch spread with coffee and pastries on a table" loading="lazy"></div>
+      <div class="exp-text">
+        <span class="eyebrow">Weekend Brunch</span>
+        <h3>Where Saturdays slow down.</h3>
+        <p>The patio fills up, the espresso machine doesn't stop, and the breakfast bowl becomes the most-ordered item on the board. Come early or expect a short wait — it's worth it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section-pad" id="gallery" style="background:var(--warm-white);">
+  <div class="container">
+    <div class="section-head center reveal" style="margin-left:auto; margin-right:auto;">
+      <span class="eyebrow">Follow Along</span>
+      <h2>@mapleandmaincafe</h2>
+    </div>
+    <div class="gallery-grid" id="galleryGrid">
+      <!-- populated by JS for lightbox indexing -->
+    </div>
+  </div>
+</section>
+
+<div id="lightbox">
+  <button class="lightbox-close" id="lbClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <button class="lightbox-nav prev" id="lbPrev" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <img id="lbImg" src="" alt="">
+  <button class="lightbox-nav next" id="lbNext" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+</div>
+
+<!-- REVIEWS -->
+<section class="section-pad" id="reviews">
+  <div class="container">
+    <div class="section-head center reveal" style="margin-left:auto; margin-right:auto;">
+      <span class="eyebrow">Customer Reviews</span>
+      <h2>What our regulars say.</h2>
+    </div>
+    <div class="reviews-wrap reveal">
+      <div class="review-track">
+        <div class="review-slides" id="reviewSlides">
+          <div class="review-slide">
+            <div class="stars">★★★★★</div>
+            <p>"I work remotely and have tried every café within walking distance — this is the only one where I actually get work done. Coffee's great too."</p>
+            <div class="reviewer">Dana R. — Local Guide</div>
+          </div>
+          <div class="review-slide">
+            <div class="stars">★★★★★</div>
+            <p>"The almond croissant alone is worth the trip. Add in the staff remembering my order after two visits, and I'm a customer for life."</p>
+            <div class="reviewer">Marcus T.</div>
+          </div>
+          <div class="review-slide">
+            <div class="stars">★★★★★</div>
+            <p>"Brought my whole book club here on a Sunday and they handled eight separate orders without breaking a sweat. Great patio too."</p>
+            <div class="reviewer">Priya N.</div>
+          </div>
+          <div class="review-slide">
+            <div class="stars">★★★★☆</div>
+            <p>"Consistently good coffee, friendly counter staff, and it never feels overly precious about it. Just a solid neighborhood spot."</p>
+            <div class="reviewer">Owen K.</div>
+          </div>
+          <div class="review-slide">
+            <div class="stars">★★★★★</div>
+            <p>"Their seasonal peach latte might be the best limited drink I've had at any café, chain or independent. Already asking when it's back next year."</p>
+            <div class="reviewer">Sofia M.</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-arrows">
+        <button id="revPrev" aria-label="Previous review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button id="revNext" aria-label="Next review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
+      <div class="review-dots" id="reviewDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDERING -->
+<section class="section-pad" id="order">
+  <div class="container">
+    <div class="order-section reveal">
+      <span class="eyebrow" style="color:var(--gold-light);">Order Ahead</span>
+      <h2>Skip The Line.<br>Order Ahead In Seconds.</h2>
+      <p>Place your order from your phone and walk straight to the pickup counter — your drink will already be waiting.</p>
+      <div class="order-buttons">
+        <button class="btn btn-gold" id="orderPickupBtn">Order Pickup</button>
+        <button class="btn btn-outline" style="color:var(--warm-white);" id="orderDeliveryBtn">Delivery Available</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT US -->
+<section class="section-pad" id="visit">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Visit Us</span>
+      <h2>Come find us on the corner.</h2>
+    </div>
+    <div class="visit-grid">
+      <div class="visit-card reveal">
+        <div class="visit-badges" id="visitBadges">
+          <span class="vbadge vbadge-status" id="openStatusBadge">
+            <span class="dot"></span><span id="openStatusText">Checking hours…</span>
+          </span>
+          <span class="vbadge"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg>Free Parking</span>
+          <span class="vbadge vbadge-gold"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l2.9 6.6L22 9.3l-5 4.9 1.2 7-6.2-3.5L5.8 21.2 7 14.2l-5-4.9 7.1-.7z"/></svg>4.9 Rating</span>
+        </div>
+        <div class="visit-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 21s7-7.5 7-12a7 7 0 10-14 0c0 4.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <div><h4>Address</h4><p>214 Main Street, Riverside District</p></div>
+        </div>
+        <div class="visit-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          <div><h4>Hours Today</h4><p id="hoursTodayText">Mon–Fri: 6:00 AM – 7:00 PM<br>Sat–Sun: 7:00 AM – 8:00 PM</p></div>
+        </div>
+        <div class="visit-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg>
+          <div><h4>Phone</h4><p>(555) 204-8841</p></div>
+        </div>
+        <div class="visit-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          <div><h4>Email</h4><p>hello@mapleandmaincafe.com</p></div>
+        </div>
+        <div class="visit-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M7 7V5a2 2 0 012-2h6a2 2 0 012 2v2"/></svg>
+          <div><h4>Parking</h4><p>Free lot behind the building, plus metered street parking on Main.</p></div>
+        </div>
+        <div class="visit-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M9 17h.01M15 17h.01"/></svg>
+          <div><h4>Public Transit</h4><p>Riverside Line, Main St. Station — a 2-minute walk.</p></div>
+        </div>
+        <a href="#" class="btn btn-dark" id="visitDirectionsBtn" style="width:100%; margin-top:10px;">Get Directions</a>
+      </div>
+      <div class="map-embed reveal">
+        <iframe
+          src="https://www.google.com/maps?q=Main%20Street%20Riverside&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Map showing Maple and Main Café location"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FAQ -->
+<section class="section-pad" style="background:var(--warm-white);">
+  <div class="container">
+    <div class="section-head center reveal" style="margin-left:auto; margin-right:auto;">
+      <span class="eyebrow">Good To Know</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list reveal" id="faqList">
+      <div class="faq-item">
+        <button class="faq-q"><span>Do you offer dairy-free options?</span><span class="plus"></span></button>
+        <div class="faq-a"><p>Yes — oat, almond, and soy milk are available at no extra charge on any drink.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Can I reserve a table?</span><span class="plus"></span></button>
+        <div class="faq-a"><p>We hold a few tables for groups of 6 or more with advance notice. Smaller tables are first-come, first-served.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Do you have WiFi?</span><span class="plus"></span></button>
+        <div class="faq-a"><p>Free, fast WiFi throughout the café and patio — no login or purchase required.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Do you cater events?</span><span class="plus"></span></button>
+        <div class="faq-a"><p>We do — coffee service and pastry boxes for office meetings, showers, and small gatherings. Email us at least 48 hours out.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Do you offer gift cards?</span><span class="plus"></span></button>
+        <div class="faq-a"><p>Yes, physical and digital gift cards are available at the counter or online, in any amount.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section-pad">
+  <div class="container">
+    <div class="final-cta reveal">
+      <h2>Your Favorite Table Is Waiting.</h2>
+      <p>Come experience handcrafted coffee, fresh pastries, and genuine hospitality.</p>
+      <div class="final-cta-buttons">
+        <a href="#visit" class="btn btn-gold">Get Directions</a>
+        <a href="#order" class="btn btn-outline" style="color:var(--warm-white);">Order Online</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">Maple &amp; Main</div>
+        <p style="font-size:14px; max-width:260px;">A neighborhood café on the corner of Maple and Main — handcrafted coffee, fresh bakes, genuine hospitality.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 9h3V6h-3a3 3 0 00-3 3v2H8v3h3v7h3v-7h3l1-3h-4V9a1 1 0 011-1z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 4v9.5a3 3 0 11-2.5-3M14 4a5 5 0 005 5"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Visit</h5>
+        <ul>
+          <li><a href="https://www.google.com/maps/dir/?api=1&destination=214%20Main%20Street%2C%20Riverside%20District" target="_blank" rel="noopener">214 Main Street, Riverside</a></li>
+          <li><a href="tel:+15552048841">(555) 204-8841</a></li>
+          <li>Mon–Fri: 6 AM – 7 PM</li>
+          <li>Sat–Sun: 7 AM – 8 PM</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#story">Our Story</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#order">Order Online</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-col-newsletter">
+        <h5 style="font-size:11.5px; opacity:0.8;">Newsletter</h5>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" placeholder="Your email" required>
+          <button type="submit">Join</button>
+        </form>
+        <p class="newsletter-note">Specials, once a month. No spam.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Maple &amp; Main Café. All rights reserved.</span>
+      <span>214 Main Street, Riverside District</span>
+    </div>
+  </div>
+</footer>
+
+<div class="floating-stack">
+  <a href="tel:+15552048841" class="fab fab-call" aria-label="Call the café"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg></a>
+  <a href="#order" class="fab fab-order" aria-label="Order online"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/><path d="M3 4h2l2.4 11.5a2 2 0 002 1.5H17a2 2 0 002-1.6L21 8H6"/></svg></a>
+</div>
+<button class="back-top" id="backTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+<div class="toast" id="toast"></div>
+
+<div class="mobile-action-bar">
+  <div class="bar-row">
+    <a href="tel:+15552048841" class="mab-call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg>Call</a>
+    <a href="#" id="mabDirections" target="_blank" rel="noopener" class="mab-directions"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-7.5 7-12a7 7 0 10-14 0c0 4.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Directions</a>
+    <a href="#order" class="mab-order"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/><path d="M3 4h2l2.4 11.5a2 2 0 002 1.5H17a2 2 0 002-1.6L21 8H6"/></svg>Order Now</a>
+  </div>
+</div>
+
+<script>
+/* ---------- Loader ---------- */
+window.addEventListener('load', () => {
+  setTimeout(() => document.getElementById('loader').classList.add('hide'), 400);
+});
+
+/* ---------- Header scroll state ---------- */
+const header = document.getElementById('siteHeader');
+const backTop = document.getElementById('backTop');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  header.classList.toggle('scrolled', y > 60);
+  backTop.classList.toggle('show', y > 700);
+}, {passive:true});
+backTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+/* ---------- Mobile menu ---------- */
+const menuToggle = document.getElementById('menuToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileOverlay = document.getElementById('mobileOverlay');
+function closeMobile(){ mobileMenu.classList.remove('open'); mobileOverlay.classList.remove('open'); }
+menuToggle.addEventListener('click', () => { mobileMenu.classList.toggle('open'); mobileOverlay.classList.toggle('open'); });
+mobileOverlay.addEventListener('click', closeMobile);
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobile));
+
+/* ---------- Smooth scroll (account for fixed header) ---------- */
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    const id = link.getAttribute('href');
+    if(id.length < 2) return;
+    const target = document.querySelector(id);
+    if(!target) return;
+    e.preventDefault();
+    const offset = 84;
+    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({top, behavior:'smooth'});
+  });
+});
+
+/* ---------- Scroll reveal ---------- */
+const revealEls = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('in');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, {threshold:0.15});
+revealEls.forEach(el => revealObserver.observe(el));
+
+/* ---------- Animated counters ---------- */
+function animateCount(el){
+  if(el.dataset.static) return;
+  const decimal = el.dataset.decimal;
+  const target = decimal ? parseFloat(decimal) : parseInt(el.dataset.count, 10);
+  const suffix = el.dataset.suffix || '';
+  const duration = 1600;
+  const start = performance.now();
+  function tick(now){
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    if(decimal){
+      el.textContent = (target * eased).toFixed(1);
+    } else {
+      el.textContent = Math.floor(target * eased).toLocaleString() + suffix;
+    }
+    if(progress < 1) requestAnimationFrame(tick);
+    else el.textContent = decimal ? target.toFixed(1) : target.toLocaleString() + suffix;
+  }
+  requestAnimationFrame(tick);
+}
+const countObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      animateCount(entry.target);
+      countObserver.unobserve(entry.target);
+    }
+  });
+}, {threshold:0.5});
+document.querySelectorAll('.stat-num').forEach(el => countObserver.observe(el));
+
+/* ---------- Today's Fresh Bakes board (day-of-week driven) ---------- */
+const bakesByDay = {
+  0: { items: [
+        {name:'Maple Pecan Sticky Bun', tag:'Limited — 12 made'},
+        {name:'Almond Croissant', tag:'Fresh until 11 AM'},
+        {name:'Seasonal Fruit Galette', tag:'Weekend special'},
+        {name:'Blueberry Danish', tag:'Available all day'}
+      ]},
+  1: { items: [
+        {name:'Classic Butter Croissant', tag:'Fresh until 11 AM'},
+        {name:'Banana Walnut Bread', tag:'Available all day'},
+        {name:'Blueberry Danish', tag:'Available all day'},
+        {name:'Plain Bagel & Schmear', tag:'Available all day'}
+      ]},
+  2: { items: [
+        {name:'Almond Croissant', tag:'Fresh until 11 AM'},
+        {name:'Cinnamon Roll', tag:'Limited — 18 made'},
+        {name:'Seasonal Breakfast Bowl', tag:'Available all day'},
+        {name:'Sourdough Loaf', tag:'Bakes at 7 AM'}
+      ]},
+  3: { items: [
+        {name:'Chocolate Croissant', tag:'Fresh until 11 AM'},
+        {name:'Lemon Poppyseed Muffin', tag:'Available all day'},
+        {name:'Blueberry Danish', tag:'Available all day'},
+        {name:'Seasonal Breakfast Bowl', tag:'Available all day'}
+      ]},
+  4: { items: [
+        {name:'Maple Pecan Sticky Bun', tag:'Limited — 12 made'},
+        {name:'Classic Butter Croissant', tag:'Fresh until 11 AM'},
+        {name:'Carrot Cake Loaf', tag:'Available all day'},
+        {name:'Plain Bagel & Schmear', tag:'Available all day'}
+      ]},
+  5: { items: [
+        {name:'Almond Croissant', tag:'Fresh until 11 AM'},
+        {name:'Cinnamon Roll', tag:'Limited — 20 made'},
+        {name:'Seasonal Fruit Galette', tag:'Weekend special'},
+        {name:'Sourdough Loaf', tag:'Bakes at 7 AM'}
+      ]},
+  6: { items: [
+        {name:'Maple Pecan Sticky Bun', tag:'Limited — 15 made'},
+        {name:'Seasonal Fruit Galette', tag:'Weekend special'},
+        {name:'Almond Croissant', tag:'Fresh until 11 AM'},
+        {name:'Seasonal Breakfast Bowl', tag:'Available all day'}
+      ]}
+};
+
+(function renderBakesBoard(){
+  const now = new Date();
+  const dayIdx = now.getDay();
+  const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  document.getElementById('bakesDay').textContent = dayNames[dayIdx] + "'s Board";
+  document.getElementById('bakesDate').textContent = now.toLocaleDateString(undefined, {month:'long', day:'numeric', year:'numeric'});
+
+  const hour = now.getHours();
+  const items = bakesByDay[dayIdx].items;
+  const wrap = document.getElementById('bakesItems');
+  wrap.innerHTML = '';
+  items.forEach((item, i) => {
+    const chip = document.createElement('div');
+    chip.className = 'bake-chip';
+    // Croissant-type items marked "Fresh until 11 AM" sell out after 11
+    const soldOut = item.tag.includes('11 AM') && hour >= 11;
+    if(soldOut) chip.classList.add('sold');
+    chip.innerHTML = `<div><span class="name">${item.name}</span><span class="tag">${soldOut ? 'Sold out for today' : item.tag}</span></div>`;
+    wrap.appendChild(chip);
+  });
+})();
+
+/* ---------- Hours config — EDIT THESE TO MATCH REAL CAFÉ HOURS ---------- */
+/* open/close are 24-hour values. 0 = Sunday ... 6 = Saturday */
+const cafeHours = {
+  0: { open: 7,  close: 20 },  // Sunday
+  1: { open: 6,  close: 19 },  // Monday
+  2: { open: 6,  close: 19 },  // Tuesday
+  3: { open: 6,  close: 19 },  // Wednesday
+  4: { open: 6,  close: 19 },  // Thursday
+  5: { open: 6,  close: 19 },  // Friday
+  6: { open: 7,  close: 20 },  // Saturday
+};
+const cafeAddress = "214 Main Street, Riverside District";
+
+(function renderOpenStatus(){
+  const now = new Date();
+  const day = now.getDay();
+  const hour = now.getHours() + now.getMinutes() / 60;
+  const today = cafeHours[day];
+  const isOpen = hour >= today.open && hour < today.close;
+
+  const badge = document.getElementById('openStatusBadge');
+  const text = document.getElementById('openStatusText');
+  const fmt = h => {
+    const hr12 = h % 12 === 0 ? 12 : h % 12;
+    const ampm = h < 12 || h === 24 ? 'AM' : 'PM';
+    return `${hr12}:00 ${ampm}`;
+  };
+
+  if(isOpen){
+    badge.classList.remove('closed');
+    text.textContent = `Open Now — Closes ${fmt(today.close)}`;
+  } else {
+    badge.classList.add('closed');
+    text.textContent = hour < today.open
+      ? `Closed — Opens ${fmt(today.open)} Today`
+      : `Closed — Opens ${fmt(cafeHours[(day+1)%7].open)} Tomorrow`;
+  }
+
+  document.getElementById('hoursTodayText').innerHTML =
+    `Today: ${fmt(today.open)} – ${fmt(today.close)}<br><span style="font-size:13px; opacity:0.75;">Mon–Fri: 6 AM–7 PM · Sat–Sun: 7 AM–8 PM</span>`;
+
+  const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(cafeAddress)}`;
+  document.getElementById('visitDirectionsBtn').href = mapsUrl;
+  document.getElementById('visitDirectionsBtn').setAttribute('target', '_blank');
+  document.getElementById('visitDirectionsBtn').setAttribute('rel', 'noopener');
+  document.getElementById('actionDirections').href = mapsUrl;
+  document.getElementById('actionDirections').setAttribute('target', '_blank');
+  document.getElementById('actionDirections').setAttribute('rel', 'noopener');
+  document.getElementById('mabDirections').href = mapsUrl;
+})();
+
+
+const galleryImages = [
+  {src:'https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=800&auto=format&fit=crop', alt:'Fresh roasted coffee beans'},
+  {src:'https://images.unsplash.com/photo-1572442388796-11668a67e53d?q=80&w=800&auto=format&fit=crop', alt:'Latte art close up'},
+  {src:'https://images.unsplash.com/photo-1453614512568-c4024d13c247?q=80&w=800&auto=format&fit=crop', alt:'Barista pouring coffee'},
+  {src:'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=800&auto=format&fit=crop', alt:'Brunch table spread'},
+  {src:'https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=800&auto=format&fit=crop', alt:'Cappuccino with cinnamon'},
+  {src:'https://images.unsplash.com/photo-1509365465985-25d11c17e812?q=80&w=800&auto=format&fit=crop', alt:'Blueberry danish pastry'},
+];
+const galleryGrid = document.getElementById('galleryGrid');
+galleryImages.forEach((img, i) => {
+  const item = document.createElement('div');
+  item.className = 'gallery-item reveal';
+  item.dataset.index = i;
+  item.innerHTML = `<img src="${img.src}" alt="${img.alt}" loading="lazy"><div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>`;
+  galleryGrid.appendChild(item);
+  revealObserver.observe(item);
+});
+
+const lightbox = document.getElementById('lightbox');
+const lbImg = document.getElementById('lbImg');
+let currentImgIdx = 0;
+function openLightbox(i){
+  currentImgIdx = i;
+  lbImg.src = galleryImages[i].src.replace('w=800','w=1600');
+  lbImg.alt = galleryImages[i].alt;
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(){
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+}
+function navLightbox(dir){
+  currentImgIdx = (currentImgIdx + dir + galleryImages.length) % galleryImages.length;
+  lbImg.src = galleryImages[currentImgIdx].src.replace('w=800','w=1600');
+  lbImg.alt = galleryImages[currentImgIdx].alt;
+}
+galleryGrid.addEventListener('click', e => {
+  const item = e.target.closest('.gallery-item');
+  if(item) openLightbox(parseInt(item.dataset.index, 10));
+});
+document.getElementById('lbClose').addEventListener('click', closeLightbox);
+document.getElementById('lbPrev').addEventListener('click', () => navLightbox(-1));
+document.getElementById('lbNext').addEventListener('click', () => navLightbox(1));
+lightbox.addEventListener('click', e => { if(e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', e => {
+  if(!lightbox.classList.contains('open')) return;
+  if(e.key === 'Escape') closeLightbox();
+  if(e.key === 'ArrowLeft') navLightbox(-1);
+  if(e.key === 'ArrowRight') navLightbox(1);
+});
+
+/* ---------- Reviews slider ---------- */
+const reviewSlides = document.getElementById('reviewSlides');
+const slides = reviewSlides.children;
+const dotsWrap = document.getElementById('reviewDots');
+let revIdx = 0;
+for(let i=0; i<slides.length; i++){
+  const dot = document.createElement('button');
+  if(i===0) dot.classList.add('active');
+  dot.addEventListener('click', () => goToReview(i));
+  dotsWrap.appendChild(dot);
+}
+function goToReview(i){
+  revIdx = (i + slides.length) % slides.length;
+  reviewSlides.style.transform = `translateX(-${revIdx * 100}%)`;
+  [...dotsWrap.children].forEach((d, idx) => d.classList.toggle('active', idx === revIdx));
+}
+document.getElementById('revPrev').addEventListener('click', () => goToReview(revIdx - 1));
+document.getElementById('revNext').addEventListener('click', () => goToReview(revIdx + 1));
+let reviewTimer = setInterval(() => goToReview(revIdx + 1), 6000);
+document.querySelector('.reviews-wrap').addEventListener('mouseenter', () => clearInterval(reviewTimer));
+document.querySelector('.reviews-wrap').addEventListener('mouseleave', () => { reviewTimer = setInterval(() => goToReview(revIdx + 1), 6000); });
+
+/* ---------- FAQ accordion ---------- */
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-q');
+  const a = item.querySelector('.faq-a');
+  q.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-a').style.maxHeight = null;
+    });
+    if(!isOpen){
+      item.classList.add('open');
+      a.style.maxHeight = a.scrollHeight + 'px';
+    }
+  });
+});
+
+/* ---------- Toast helper ---------- */
+const toast = document.getElementById('toast');
+let toastTimer;
+function showToast(msg){
+  clearTimeout(toastTimer);
+  toast.textContent = msg;
+  toast.classList.add('show');
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 3200);
+}
+
+/* ---------- Order buttons (demo behavior) ---------- */
+document.getElementById('orderPickupBtn').addEventListener('click', () => showToast('Pickup ordering demo — connect this to your POS or ordering platform.'));
+document.getElementById('orderDeliveryBtn').addEventListener('click', () => showToast('Delivery demo — connect this to your delivery partner of choice.'));
+
+/* ---------- Newsletter ---------- */
+document.getElementById('newsletterForm').addEventListener('submit', e => {
+  e.preventDefault();
+  showToast("Thanks for subscribing — you'll hear from us soon.");
+  e.target.reset();
+});
+
+/* ---------- Footer year ---------- */
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
