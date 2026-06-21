@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Charlene — The Blessed Money Coach | Faith-Based Financial Coaching for Christian Women</title>
+<meta name="description" content="Stop stressing about money and start building wealth with confidence. Faith-based money coaching for Christian women — financial clarity, stewardship, and peace of mind.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Charlene — The Blessed Money Coach">
+<meta property="og:description" content="Helping Christian women create healthier money habits, gain financial clarity, and build a future they feel good about.">
+<meta property="og:type" content="website">
+
+<!-- Schema markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Charlene — The Blessed Money Coach",
+  "description": "Faith-based money coaching for Christian women",
+  "areaServed": "Worldwide",
+  "knowsAbout": ["Christian Money Coaching", "Financial Stewardship", "Money Mindset Coaching", "Christian Wealth Building"]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================
+   TOKENS
+   ============================================ */
+:root{
+  --plum: #5B2C6F;
+  --plum-deep: #3E1D4D;
+  --lavender: #D7BDE2;
+  --gold: #C9A227;
+  --gold-soft: #E2CD8C;
+  --white: #FFFFFF;
+  --cream: #FAF7F2;
+  --cream-deep: #F2ECE1;
+  --charcoal: #2B2B2B;
+  --charcoal-soft: #5A5550;
+  --line: rgba(43,43,43,0.14);
+  --line-gold: rgba(201,162,39,0.4);
+
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', -apple-system, sans-serif;
+
+  --max: 1180px;
+  --pad: clamp(20px, 5vw, 64px);
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+}
+
+body{
+  font-family:var(--sans);
+  color:var(--charcoal);
+  background:var(--cream);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+ul{list-style:none;}
+
+::selection{background:var(--lavender);color:var(--plum-deep);}
+
+:focus-visible{
+  outline:2px solid var(--gold);
+  outline-offset:3px;
+}
+
+.wrap{
+  max-width:var(--max);
+  margin:0 auto;
+  padding-left:var(--pad);
+  padding-right:var(--pad);
+}
+
+.eyebrow{
+  font-family:var(--sans);
+  font-size:0.72rem;
+  font-weight:600;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--gold);
+}
+
+h1,h2,h3,h4{
+  font-family:var(--serif);
+  font-weight:600;
+  color:var(--plum-deep);
+  line-height:1.12;
+  letter-spacing:-0.01em;
+}
+
+.section-head{
+  max-width:680px;
+  margin-bottom:48px;
+}
+.section-head h2{
+  font-size:clamp(2rem, 4vw, 2.9rem);
+  margin-top:14px;
+}
+.section-head p{
+  margin-top:18px;
+  font-size:1.08rem;
+  color:var(--charcoal-soft);
+  max-width:560px;
+}
+
+/* Ledger-line signature motif: thin horizontal rules used structurally */
+.ledger-rule{
+  position:relative;
+  height:1px;
+  background:var(--line);
+  width:100%;
+}
+.ledger-rule.gold{background:var(--line-gold);}
+
+.ledger-mark{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+.ledger-mark::before{
+  content:'';
+  width:28px;
+  height:1px;
+  background:var(--gold);
+}
+
+section{
+  position:relative;
+  padding:clamp(64px, 9vw, 120px) 0;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:0.95rem;
+  padding:16px 32px;
+  border-radius:2px;
+  transition:all 0.3s var(--ease);
+  white-space:nowrap;
+}
+.btn-primary{
+  background:var(--plum-deep);
+  color:var(--white);
+  box-shadow:0 1px 0 var(--gold) inset;
+}
+.btn-primary:hover{
+  background:var(--plum);
+  transform:translateY(-1px);
+  box-shadow:0 6px 18px rgba(91,44,111,0.28);
+}
+.btn-secondary{
+  background:transparent;
+  color:var(--plum-deep);
+  border:1px solid var(--charcoal);
+  border-color:rgba(43,43,43,0.35);
+}
+.btn-secondary:hover{
+  border-color:var(--plum-deep);
+  background:rgba(91,44,111,0.04);
+}
+.btn-gold{
+  background:var(--gold);
+  color:var(--plum-deep);
+}
+.btn-gold:hover{
+  background:var(--gold-soft);
+  transform:translateY(-1px);
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+.reveal.in{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ============================================
+   NAV
+   ============================================ */
+header{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:100;
+  background:rgba(250,247,242,0.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid transparent;
+  transition:border-color 0.3s ease, box-shadow 0.3s ease;
+}
+header.scrolled{
+  border-bottom-color:var(--line);
+  box-shadow:0 2px 24px rgba(43,43,43,0.04);
+}
+.nav-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding-top:18px;
+  padding-bottom:18px;
+}
+.logo{
+  font-family:var(--serif);
+  font-size:1.3rem;
+  font-weight:600;
+  color:var(--plum-deep);
+  letter-spacing:0.01em;
+}
+.logo span{color:var(--gold);font-style:italic;font-weight:500;}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:36px;
+}
+.nav-links a{
+  font-size:0.88rem;
+  font-weight:500;
+  color:var(--charcoal);
+  position:relative;
+  padding:4px 0;
+}
+.nav-links a::after{
+  content:'';
+  position:absolute;
+  left:0;bottom:0;
+  width:0;height:1px;
+  background:var(--gold);
+  transition:width 0.3s var(--ease);
+}
+.nav-links a:hover::after{width:100%;}
+.nav-cta{display:none;}
+@media(min-width:980px){.nav-cta{display:inline-flex;}}
+
+.nav-toggle{
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  padding:8px;
+}
+.nav-toggle span{
+  width:22px;height:1.5px;
+  background:var(--plum-deep);
+  transition:all 0.3s var(--ease);
+}
+@media(min-width:980px){.nav-toggle{display:none;}}
+@media(max-width:979px){.nav-links{display:none;}}
+
+.mobile-menu{
+  position:fixed;
+  inset:0;
+  background:var(--cream);
+  z-index:99;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:var(--pad);
+  transform:translateY(-100%);
+  transition:transform 0.4s var(--ease);
+}
+.mobile-menu.open{transform:translateY(0);}
+.mobile-menu a{
+  font-family:var(--serif);
+  font-size:2rem;
+  color:var(--plum-deep);
+  padding:14px 0;
+  border-bottom:1px solid var(--line);
+}
+.mobile-menu .btn{margin-top:24px;align-self:flex-start;}
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero{
+  padding-top:clamp(140px, 18vw, 200px);
+  padding-bottom:80px;
+  position:relative;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.1fr 0.9fr;
+  gap:64px;
+  align-items:center;
+}
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr; gap:48px;}
+  .hero-image{order:-1;}
+}
+.hero-eyebrow{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:22px;
+}
+.hero h1{
+  font-size:clamp(2.5rem, 5.2vw, 4.1rem);
+  letter-spacing:-0.015em;
+}
+.hero h1 em{
+  font-style:italic;
+  color:var(--gold);
+  font-weight:500;
+}
+.hero-sub{
+  margin-top:24px;
+  font-size:1.18rem;
+  color:var(--charcoal-soft);
+  max-width:480px;
+  line-height:1.65;
+}
+.hero-actions{
+  margin-top:38px;
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.hero-faith-note{
+  margin-top:28px;
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:1rem;
+  color:var(--plum);
+  opacity:0.85;
+}
+
+.hero-image{
+  position:relative;
+}
+.hero-image-frame{
+  position:relative;
+  aspect-ratio:4/5;
+  border-radius:2px;
+  overflow:hidden;
+  background:linear-gradient(160deg, var(--lavender) 0%, var(--plum) 100%);
+}
+.portrait-placeholder{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:14px;
+  color:rgba(255,255,255,0.92);
+  text-align:center;
+  padding:24px;
+}
+.portrait-placeholder svg{width:64px;height:64px;opacity:0.85;}
+.portrait-placeholder .ph-label{
+  font-family:var(--sans);
+  font-size:0.72rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  font-weight:600;
+}
+.portrait-placeholder .ph-sub{
+  font-size:0.78rem;
+  opacity:0.8;
+  max-width:220px;
+}
+.hero-image-frame::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  border:1px solid rgba(255,255,255,0.25);
+  pointer-events:none;
+}
+.hero-tag{
+  position:absolute;
+  bottom:-22px;
+  left:-22px;
+  background:var(--white);
+  padding:18px 22px;
+  box-shadow:0 12px 32px rgba(43,43,43,0.12);
+  border-left:3px solid var(--gold);
+  max-width:240px;
+}
+@media(max-width:520px){
+  .hero-tag{left:8px; bottom:-18px; padding:14px 16px;}
+}
+.hero-tag .tag-num{
+  font-family:var(--serif);
+  font-size:1.6rem;
+  color:var(--plum-deep);
+  display:block;
+}
+.hero-tag .tag-label{
+  font-size:0.78rem;
+  color:var(--charcoal-soft);
+  margin-top:2px;
+}
+
+/* ============================================
+   TRUST BAR
+   ============================================ */
+.trust-bar{
+  padding:34px 0;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.trust-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:32px 40px;
+  justify-content:center;
+  align-items:center;
+}
+.trust-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:0.86rem;
+  font-weight:500;
+  color:var(--charcoal-soft);
+}
+.trust-item svg{
+  width:16px;height:16px;
+  color:var(--gold);
+  flex-shrink:0;
+}
+
+/* ============================================
+   PROBLEM SECTION
+   ============================================ */
+.problem{background:var(--white);}
+.problem-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+@media(max-width:780px){.problem-grid{grid-template-columns:1fr;}}
+.problem-card{
+  background:var(--cream);
+  padding:40px 34px;
+}
+.problem-card .p-num{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:0.95rem;
+  color:var(--gold);
+}
+.problem-card h3{
+  font-size:1.35rem;
+  margin-top:16px;
+  color:var(--plum-deep);
+}
+.problem-card p{
+  margin-top:12px;
+  color:var(--charcoal-soft);
+  font-size:0.98rem;
+}
+
+/* ============================================
+   TRANSFORMATION SECTION
+   ============================================ */
+.transform{background:var(--plum-deep); color:var(--cream);}
+.transform .section-head h2{color:var(--white);}
+.transform .section-head p{color:rgba(250,247,242,0.72);}
+.transform .eyebrow{color:var(--gold-soft);}
+.compare-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  border:1px solid rgba(250,247,242,0.18);
+}
+@media(max-width:760px){.compare-grid{grid-template-columns:1fr;}}
+.compare-col{padding:42px 38px;}
+.compare-col.before{
+  border-right:1px solid rgba(250,247,242,0.18);
+}
+@media(max-width:760px){
+  .compare-col.before{border-right:none; border-bottom:1px solid rgba(250,247,242,0.18);}
+}
+.compare-label{
+  font-family:var(--serif);
+  font-size:1.15rem;
+  font-style:italic;
+  margin-bottom:24px;
+  display:block;
+}
+.compare-col.before .compare-label{color:rgba(250,247,242,0.55);}
+.compare-col.after .compare-label{color:var(--gold-soft);}
+.compare-col li{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  padding:13px 0;
+  border-top:1px solid rgba(250,247,242,0.1);
+  font-size:0.98rem;
+}
+.compare-col li:first-of-type{border-top:none;}
+.compare-col.before li{color:rgba(250,247,242,0.65);}
+.compare-col.after li{color:rgba(250,247,242,0.95);}
+.compare-icon{flex-shrink:0;margin-top:3px;width:15px;height:15px;}
+.compare-col.before .compare-icon{color:rgba(250,247,242,0.4);}
+.compare-col.after .compare-icon{color:var(--gold);}
+
+/* ============================================
+   ABOUT
+   ============================================ */
+.about{background:var(--cream);}
+.about-grid{
+  display:grid;
+  grid-template-columns:0.85fr 1.15fr;
+  gap:72px;
+  align-items:start;
+}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr; gap:44px;}}
+.about-image-frame{
+  position:relative;
+  aspect-ratio:3/4;
+  background:linear-gradient(160deg, var(--cream-deep) 0%, var(--lavender) 140%);
+  border-radius:2px;
+  overflow:hidden;
+}
+.about-image-frame .portrait-placeholder{color:var(--plum-deep);}
+.about-image-frame .portrait-placeholder svg{opacity:0.5;color:var(--plum);}
+.about-content .eyebrow{margin-bottom:14px;display:block;}
+.about-content h2{
+  font-size:clamp(1.9rem,3.6vw,2.6rem);
+  margin-bottom:24px;
+}
+.about-content p{
+  color:var(--charcoal-soft);
+  font-size:1.04rem;
+  margin-bottom:18px;
+  max-width:600px;
+}
+.about-quote{
+  margin-top:32px;
+  padding:28px 0 28px 28px;
+  border-left:2px solid var(--gold);
+}
+.about-quote p{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:1.35rem;
+  color:var(--plum-deep);
+  line-height:1.5;
+  max-width:520px;
+}
+.about-quote span{
+  display:block;
+  margin-top:14px;
+  font-family:var(--sans);
+  font-style:normal;
+  font-size:0.82rem;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  color:var(--charcoal-soft);
+  font-weight:600;
+}
+
+/* ============================================
+   HOW IT WORKS
+   ============================================ */
+.process{background:var(--white);}
+.process-track{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:44px;
+}
+@media(max-width:780px){.process-track{grid-template-columns:1fr; gap:0;}}
+.process-track::before{
+  content:'';
+  position:absolute;
+  top:26px;left:0;right:0;
+  height:1px;
+  background:var(--line-gold);
+}
+@media(max-width:780px){.process-track::before{display:none;}}
+.process-step{position:relative;}
+@media(max-width:780px){
+  .process-step{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:22px;
+    padding:26px 0;
+    border-top:1px solid var(--line);
+  }
+  .process-step:first-child{border-top:none;}
+}
+.step-num{
+  width:52px;height:52px;
+  border-radius:50%;
+  background:var(--cream);
+  border:1px solid var(--line-gold);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--serif);
+  font-size:1.2rem;
+  color:var(--plum-deep);
+  position:relative;
+  z-index:1;
+  margin-bottom:24px;
+}
+.process-step h3{
+  font-size:1.3rem;
+  margin-bottom:10px;
+}
+.process-step p{
+  color:var(--charcoal-soft);
+  font-size:0.97rem;
+}
+
+/* ============================================
+   BOOK SECTION
+   ============================================ */
+.book-section{
+  background:var(--plum-deep);
+  color:var(--white);
+  position:relative;
+  overflow:hidden;
+}
+.book-grid{
+  display:grid;
+  grid-template-columns:0.7fr 1.3fr;
+  gap:64px;
+  align-items:center;
+}
+@media(max-width:880px){.book-grid{grid-template-columns:1fr; gap:48px;}}
+.book-mockup-wrap{
+  display:flex;
+  justify-content:center;
+  perspective:1200px;
+}
+.book-mockup{
+  position:relative;
+  width:200px;
+  height:300px;
+  transform:rotateY(-22deg) rotateX(2deg);
+  transform-style:preserve-3d;
+  transition:transform 0.6s var(--ease);
+}
+.book-mockup:hover{transform:rotateY(-12deg) rotateX(1deg);}
+.book-cover{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg, var(--gold) 0%, var(--gold-soft) 100%);
+  border-radius:1px 4px 4px 1px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:26px 22px;
+  box-shadow:8px 8px 30px rgba(0,0,0,0.35);
+}
+.book-cover .b-eyebrow{
+  font-size:0.62rem;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--plum-deep);
+  font-weight:700;
+}
+.book-cover h4{
+  font-family:var(--serif);
+  font-size:1.5rem;
+  color:var(--plum-deep);
+  line-height:1.15;
+}
+.book-cover .b-author{
+  font-size:0.78rem;
+  color:var(--plum-deep);
+  font-weight:600;
+}
+.book-spine{
+  position:absolute;
+  left:-18px;top:0;bottom:0;
+  width:18px;
+  background:var(--gold-soft);
+  filter:brightness(0.75);
+  transform:rotateY(90deg) translateZ(0px) translateX(9px);
+  transform-origin:right;
+  border-radius:1px 0 0 1px;
+}
+.book-pages{
+  position:absolute;
+  right:-6px;top:4px;bottom:4px;
+  width:6px;
+  background:repeating-linear-gradient(180deg,#fff 0px,#fff 1px,#f0ede5 1px,#f0ede5 2px);
+  transform:translateZ(-1px);
+}
+.book-content .eyebrow{color:var(--gold-soft); margin-bottom:14px; display:block;}
+.book-content h2{
+  color:var(--white);
+  font-size:clamp(1.9rem,3.6vw,2.7rem);
+  margin-bottom:20px;
+}
+.book-content p{
+  color:rgba(250,247,242,0.75);
+  font-size:1.05rem;
+  max-width:520px;
+  margin-bottom:28px;
+}
+.book-stats{
+  display:flex;
+  gap:36px;
+  margin-bottom:30px;
+  flex-wrap:wrap;
+}
+.book-stat strong{
+  font-family:var(--serif);
+  font-size:1.6rem;
+  display:block;
+  color:var(--gold-soft);
+}
+.book-stat span{
+  font-size:0.78rem;
+  color:rgba(250,247,242,0.6);
+}
+
+/* ============================================
+   TESTIMONIALS
+   ============================================ */
+.testimonials{background:var(--cream-deep);}
+.stars{
+  display:flex;
+  gap:3px;
+  color:var(--gold);
+  margin-bottom:16px;
+}
+.stars svg{width:15px;height:15px;}
+.t-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+@media(max-width:900px){.t-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:640px){.t-grid{grid-template-columns:1fr;}}
+.t-card{
+  background:var(--white);
+  padding:32px 28px;
+  border:1px solid var(--line);
+}
+.t-card.video-card{
+  display:flex;
+  flex-direction:column;
+}
+.video-placeholder{
+  aspect-ratio:16/10;
+  background:var(--plum-deep);
+  border-radius:2px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:18px;
+  position:relative;
+  cursor:pointer;
+}
+.video-placeholder .play-btn{
+  width:48px;height:48px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.95);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:transform 0.3s var(--ease);
+}
+.video-placeholder:hover .play-btn{transform:scale(1.08);}
+.video-placeholder .play-btn svg{width:16px;height:16px;color:var(--plum-deep); margin-left:2px;}
+.t-quote{
+  font-size:0.96rem;
+  color:var(--charcoal-soft);
+  line-height:1.6;
+  margin-bottom:18px;
+}
+.t-person{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.t-avatar{
+  width:38px;height:38px;
+  border-radius:50%;
+  background:linear-gradient(160deg, var(--lavender), var(--plum));
+  flex-shrink:0;
+}
+.t-name{font-weight:600; font-size:0.88rem; color:var(--plum-deep);}
+.t-detail{font-size:0.78rem; color:var(--charcoal-soft);}
+
+.metrics-row{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  margin-top:48px;
+}
+@media(max-width:680px){.metrics-row{grid-template-columns:1fr 1fr;}}
+.metric{
+  background:var(--white);
+  padding:30px 20px;
+  text-align:center;
+}
+.metric strong{
+  font-family:var(--serif);
+  font-size:2.1rem;
+  color:var(--plum-deep);
+  display:block;
+}
+.metric span{
+  font-size:0.78rem;
+  color:var(--charcoal-soft);
+  margin-top:6px;
+  display:block;
+}
+
+/* ============================================
+   FREE RESOURCE / EMAIL CAPTURE
+   ============================================ */
+.resource{
+  background:var(--white);
+}
+.resource-box{
+  display:grid;
+  grid-template-columns:1.1fr 0.9fr;
+  background:var(--plum-deep);
+  color:var(--white);
+  border-radius:2px;
+  overflow:hidden;
+}
+@media(max-width:840px){.resource-box{grid-template-columns:1fr;}}
+.resource-copy{padding:56px;}
+@media(max-width:560px){.resource-copy{padding:38px 28px;}}
+.resource-copy .eyebrow{color:var(--gold-soft); display:block; margin-bottom:14px;}
+.resource-copy h2{color:var(--white); font-size:clamp(1.7rem,3.2vw,2.3rem);}
+.resource-copy p{color:rgba(250,247,242,0.75); margin-top:16px; max-width:420px;}
+.resource-list{margin-top:22px;}
+.resource-list li{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  font-size:0.9rem;
+  color:rgba(250,247,242,0.85);
+  padding:6px 0;
+}
+.resource-list svg{width:14px;height:14px;color:var(--gold-soft);flex-shrink:0;margin-top:3px;}
+.resource-form-wrap{
+  background:var(--cream);
+  padding:56px 48px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+@media(max-width:560px){.resource-form-wrap{padding:38px 28px;}}
+.form-field{margin-bottom:16px;}
+.form-field label{
+  display:block;
+  font-size:0.78rem;
+  font-weight:600;
+  letter-spacing:0.03em;
+  text-transform:uppercase;
+  color:var(--charcoal-soft);
+  margin-bottom:8px;
+}
+.form-field input{
+  width:100%;
+  padding:14px 16px;
+  border:1px solid var(--line);
+  background:var(--white);
+  font-family:var(--sans);
+  font-size:0.95rem;
+  border-radius:1px;
+  transition:border-color 0.25s ease;
+}
+.form-field input:focus{
+  outline:none;
+  border-color:var(--plum);
+}
+.form-note{
+  font-size:0.76rem;
+  color:var(--charcoal-soft);
+  margin-top:12px;
+  text-align:center;
+}
+.form-success{
+  display:none;
+  text-align:center;
+  padding:20px 0;
+}
+.form-success.show{display:block;}
+.form-success svg{width:36px;height:36px;color:var(--plum); margin:0 auto 14px;}
+.form-success p{font-family:var(--serif); font-size:1.15rem; color:var(--plum-deep);}
+
+/* ============================================
+   STAN STORE
+   ============================================ */
+.stan{background:var(--cream-deep);}
+.stan-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+@media(max-width:900px){.stan-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:520px){.stan-grid{grid-template-columns:1fr;}}
+.stan-card{
+  background:var(--white);
+  padding:30px 26px;
+  border:1px solid var(--line);
+  transition:border-color 0.3s ease, transform 0.3s var(--ease);
+}
+.stan-card:hover{
+  border-color:var(--gold);
+  transform:translateY(-4px);
+}
+.stan-card svg{width:26px;height:26px;color:var(--gold); margin-bottom:18px;}
+.stan-card h3{font-size:1.1rem; margin-bottom:8px;}
+.stan-card p{font-size:0.88rem; color:var(--charcoal-soft);}
+.stan-cta{text-align:center; margin-top:44px;}
+
+/* ============================================
+   FAITH & MONEY
+   ============================================ */
+.faith{background:var(--white);}
+.faith-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:var(--line);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+@media(max-width:860px){.faith-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:520px){.faith-grid{grid-template-columns:1fr;}}
+.faith-pillar{
+  background:var(--cream);
+  padding:36px 28px;
+}
+.faith-pillar .f-num{
+  font-family:var(--serif);
+  font-style:italic;
+  color:var(--gold);
+  font-size:0.92rem;
+}
+.faith-pillar h3{font-size:1.18rem; margin-top:14px;}
+.faith-pillar p{font-size:0.9rem; color:var(--charcoal-soft); margin-top:10px;}
+
+/* ============================================
+   FAQ
+   ============================================ */
+.faq{background:var(--cream-deep);}
+.faq-list{max-width:760px;}
+.faq-item{
+  border-bottom:1px solid var(--line);
+}
+.faq-q{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:24px 4px;
+  text-align:left;
+  font-family:var(--serif);
+  font-size:1.12rem;
+  color:var(--plum-deep);
+}
+.faq-q .plus{
+  flex-shrink:0;
+  width:22px;height:22px;
+  position:relative;
+}
+.faq-q .plus::before,
+.faq-q .plus::after{
+  content:'';
+  position:absolute;
+  background:var(--plum-deep);
+  transition:transform 0.3s var(--ease);
+}
+.faq-q .plus::before{
+  left:0;top:50%;width:100%;height:1px;
+  transform:translateY(-50%);
+}
+.faq-q .plus::after{
+  top:0;left:50%;width:1px;height:100%;
+  transform:translateX(-50%);
+}
+.faq-item.open .faq-q .plus::after{transform:translateX(-50%) rotate(90deg); opacity:0;}
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.4s var(--ease);
+}
+.faq-answer-inner{
+  padding:0 4px 24px;
+  font-size:0.96rem;
+  color:var(--charcoal-soft);
+  max-width:620px;
+}
+
+/* ============================================
+   FINAL CTA
+   ============================================ */
+.final-cta{
+  background:var(--plum-deep);
+  color:var(--white);
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.final-cta::before{
+  content:'';
+  position:absolute;
+  top:0;left:50%;
+  transform:translateX(-50%);
+  width:1px;height:100%;
+  background:linear-gradient(180deg, transparent, var(--line-gold) 50%, transparent);
+  opacity:0.5;
+}
+.final-cta-inner{
+  position:relative;
+  max-width:620px;
+  margin:0 auto;
+}
+.final-cta h2{
+  color:var(--white);
+  font-size:clamp(2.1rem,4.4vw,3.2rem);
+}
+.final-cta p{
+  margin-top:20px;
+  color:rgba(250,247,242,0.72);
+  font-size:1.1rem;
+}
+.final-cta .hero-actions{justify-content:center; margin-top:38px;}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer{
+  background:var(--charcoal);
+  color:rgba(250,247,242,0.7);
+  padding:64px 0 28px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr 1fr;
+  gap:40px;
+  padding-bottom:48px;
+  border-bottom:1px solid rgba(250,247,242,0.12);
+}
+@media(max-width:760px){
+  .footer-grid{grid-template-columns:1fr 1fr; gap:32px 24px;}
+}
+.footer-brand .logo{color:var(--white);}
+.footer-brand p{
+  margin-top:16px;
+  font-size:0.88rem;
+  color:rgba(250,247,242,0.55);
+  max-width:280px;
+}
+.footer-col h4{
+  font-family:var(--sans);
+  font-size:0.78rem;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:rgba(250,247,242,0.9);
+  font-weight:600;
+  margin-bottom:18px;
+}
+.footer-col a{
+  display:block;
+  font-size:0.9rem;
+  color:rgba(250,247,242,0.62);
+  padding:7px 0;
+  transition:color 0.25s ease;
+}
+.footer-col a:hover{color:var(--gold-soft);}
+.footer-bottom{
+  padding-top:28px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:16px;
+  font-size:0.8rem;
+  color:rgba(250,247,242,0.45);
+}
+.footer-social{display:flex; gap:16px;}
+.footer-social a{
+  width:34px;height:34px;
+  border:1px solid rgba(250,247,242,0.2);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:border-color 0.25s ease, color 0.25s ease;
+}
+.footer-social a:hover{border-color:var(--gold); color:var(--gold-soft);}
+.footer-social svg{width:14px;height:14px;}
+
+/* ============================================
+   STICKY MOBILE CTA
+   ============================================ */
+.sticky-mobile-cta{
+  position:fixed;
+  bottom:0;left:0;right:0;
+  z-index:90;
+  background:var(--white);
+  border-top:1px solid var(--line);
+  padding:12px var(--pad);
+  display:flex;
+  gap:10px;
+  transform:translateY(100%);
+  transition:transform 0.4s var(--ease);
+  box-shadow:0 -8px 24px rgba(43,43,43,0.08);
+}
+.sticky-mobile-cta.show{transform:translateY(0);}
+.sticky-mobile-cta .btn{flex:1; justify-content:center; padding:14px;}
+@media(min-width:780px){.sticky-mobile-cta{display:none;}}
+
+.sticky-desktop-cta{
+  position:fixed;
+  bottom:28px;
+  right:28px;
+  z-index:90;
+  opacity:0;
+  transform:translateY(16px);
+  pointer-events:none;
+  transition:opacity 0.35s ease, transform 0.35s var(--ease);
+}
+.sticky-desktop-cta.show{opacity:1; transform:translateY(0); pointer-events:auto;}
+.sticky-desktop-cta .btn{
+  box-shadow:0 10px 30px rgba(43,43,43,0.2);
+}
+@media(max-width:779px){.sticky-desktop-cta{display:none;}}
+</style>
+</head>
+<body>
+
+<!-- ============================================
+     HEADER / NAV
+     ============================================ -->
+<header id="siteHeader">
+  <div class="wrap nav-inner">
+    <a href="#" class="logo">Charlene <span>The Blessed Money Coach</span></a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#process">Coaching</a>
+      <a href="#book">Book</a>
+      <a href="#resource">Resources</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:18px;">
+      <a href="#contact" class="btn btn-primary nav-cta">Book A Call</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about">About</a>
+  <a href="#process">Coaching</a>
+  <a href="#book">Book</a>
+  <a href="#resource">Resources</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact" class="btn btn-primary">Book A Discovery Call</a>
+</div>
+
+<!-- ============================================
+     HERO
+     ============================================ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy reveal in">
+      <div class="hero-eyebrow ledger-mark">
+        <span class="eyebrow">Faith-Based Money Coaching</span>
+      </div>
+      <h1>Stop Stressing About Money And Start Building Wealth <em>With Confidence</em></h1>
+      <p class="hero-sub">Helping Christian women create healthier money habits, gain financial clarity, and build a future they feel good about.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Book A Discovery Call</a>
+        <a href="#resource" class="btn btn-secondary">Get The Money Reset Guide</a>
+      </div>
+      <p class="hero-faith-note">"She is clothed with strength and dignity, and she can laugh at the days to come."</p>
+    </div>
+    <div class="hero-image reveal in">
+      <div class="hero-image-frame">
+        <div class="portrait-placeholder">
+          <svg fill="none" stroke="currentColor" stroke-width="1.3" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="ph-label">Portrait Of Charlene</span>
+          <span class="ph-sub">Replace with a professional photograph — warm, direct eye contact, soft natural light recommended</span>
+        </div>
+      </div>
+      <div class="hero-tag">
+        <span class="tag-num">500+</span>
+        <span class="tag-label">Women coached toward financial clarity</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     TRUST BAR
+     ============================================ -->
+<div class="trust-bar">
+  <div class="wrap trust-list">
+    <div class="trust-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Published Author</div>
+    <div class="trust-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Money Coach</div>
+    <div class="trust-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Christian Wealth Mentor</div>
+    <div class="trust-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Thousands Reached Through Content</div>
+    <div class="trust-item"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Trusted By Women Seeking Financial Clarity</div>
+  </div>
+</div>
+
+<!-- ============================================
+     PROBLEM SECTION
+     ============================================ -->
+<section class="problem">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow ledger-mark">The Real Cost</span>
+      <h2>Money Stress Is Costing You More Than You Think</h2>
+      <p>It's not just your bank balance. It's your sleep, your relationships, and your sense of who you are.</p>
+    </div>
+    <div class="problem-grid reveal">
+      <div class="problem-card">
+        <span class="p-num">01</span>
+        <h3>Financial Overwhelm</h3>
+        <p>Feeling like money disappears too quickly, no matter how hard you work or how careful you try to be.</p>
+      </div>
+      <div class="problem-card">
+        <span class="p-num">02</span>
+        <h3>Constant Worry</h3>
+        <p>Always wondering if you're doing enough — saving enough, earning enough, planning far enough ahead.</p>
+      </div>
+      <div class="problem-card">
+        <span class="p-num">03</span>
+        <h3>Lack Of Direction</h3>
+        <p>Working hard but unsure how to move forward, with no clear next step toward the future you want.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     TRANSFORMATION SECTION
+     ============================================ -->
+<section class="transform">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">The Shift</span>
+      <h2>Imagine A Different Financial Future</h2>
+      <p>This is the distance between where you are now and where one conversation can take you.</p>
+    </div>
+    <div class="compare-grid reveal">
+      <div class="compare-col before">
+        <span class="compare-label">Where You Are Now</span>
+        <ul>
+          <li><svg class="compare-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg> Living paycheck to paycheck</li>
+          <li><svg class="compare-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg> Avoiding financial conversations</li>
+          <li><svg class="compare-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg> Feeling guilty about spending</li>
+          <li><svg class="compare-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg> Unsure where your money goes</li>
+        </ul>
+      </div>
+      <div class="compare-col after">
+        <span class="compare-label">Where Coaching Takes You</span>
+        <ul>
+          <li><svg class="compare-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Confident with your finances</li>
+          <li><svg class="compare-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Clear financial goals</li>
+          <li><svg class="compare-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Better stewardship</li>
+          <li><svg class="compare-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Growing wealth intentionally</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     ABOUT
+     ============================================ -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-image reveal">
+      <div class="about-image-frame">
+        <div class="portrait-placeholder">
+          <svg fill="none" stroke="currentColor" stroke-width="1.3" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="ph-label">Charlene, In Her Own Space</span>
+          <span class="ph-sub">A relaxed, personal photo — at her desk, with a journal, or in conversation</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-content reveal">
+      <span class="eyebrow">Meet Charlene</span>
+      <h2>I Didn't Start Here. I Started In The Same Place You Might Be.</h2>
+      <p>Charlene didn't begin her financial journey with confidence — she began it the same way most women do: anxious about the mail, avoiding her bank app, and feeling like money was something that happened to her instead of something she controlled.</p>
+      <p>What changed wasn't a windfall. It was a decision to face her finances honestly, build habits that lasted, and root her approach to money in something steadier than fear — her faith. That shift didn't just change her bank account. It changed how she carried herself.</p>
+      <p>Today, Charlene coaches Christian women through that same shift — from financial anxiety to financial clarity, one honest conversation at a time. She's not a financial advisor selling products. She's a guide who has walked the road herself.</p>
+      <div class="about-quote">
+        <p>"Money isn't the goal. Peace is. Money is just the tool that gets you there — when you finally learn to steward it well."</p>
+        <span>Charlene</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     HOW COACHING WORKS
+     ============================================ -->
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow ledger-mark">The Process</span>
+      <h2>How Coaching Works</h2>
+      <p>A simple, guided path — no overwhelm, no jargon, just clear next steps.</p>
+    </div>
+    <div class="process-track reveal">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <h3>Book A Discovery Call</h3>
+        <p>A relaxed, no-pressure conversation to understand where you are and where you want to go.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <h3>Create Your Personalized Money Plan</h3>
+        <p>Together, you'll build a plan grounded in your real life, your real goals, and your values.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <h3>Build Habits That Create Long-Term Results</h3>
+        <p>Ongoing support as you turn that plan into daily habits — and those habits into lasting change.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FEATURED BOOK
+     ============================================ -->
+<section class="book-section" id="book">
+  <div class="wrap book-grid">
+    <div class="book-mockup-wrap reveal">
+      <div class="book-mockup">
+        <div class="book-spine"></div>
+        <div class="book-pages"></div>
+        <div class="book-cover">
+          <span class="b-eyebrow">A Guide To Financial Peace</span>
+          <h4>The<br>Money<br>Reset</h4>
+          <span class="b-author">Charlene</span>
+        </div>
+      </div>
+    </div>
+    <div class="book-content reveal">
+      <span class="eyebrow">Charlene's Book</span>
+      <h2>Start Your Financial Reset Today</h2>
+      <p>Charlene's book distills years of coaching Christian women through financial stress into a practical, faith-rooted guide — built for readers who want peace of mind, not another spreadsheet to maintain.</p>
+      <div class="book-stats">
+        <div class="book-stat"><strong>5.0</strong><span>Reader Rating</span></div>
+        <div class="book-stat"><strong>10+</strong><span>Chapters Of Guided Reset</span></div>
+        <div class="book-stat"><strong>1,000+</strong><span>Copies In Readers' Hands</span></div>
+      </div>
+      <a href="https://www.amazon.com/dp/B0H2PMXS53" target="_blank" rel="noopener" class="btn btn-gold">Buy On Amazon</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     TESTIMONIALS
+     ============================================ -->
+<section class="testimonials">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow ledger-mark">Client Success Stories</span>
+      <h2>Real Women. Real Financial Breakthroughs.</h2>
+      <p>Hear directly from women who walked this path before you.</p>
+    </div>
+    <div class="t-grid reveal">
+      <div class="t-card video-card">
+        <div class="video-placeholder" role="button" tabindex="0" aria-label="Play video testimonial">
+          <div class="play-btn"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="stars">★★★★★</div>
+        <p class="t-quote">Charlene helped me see my finances without shame for the first time in years. I finally feel in control.</p>
+        <div class="t-person">
+          <div class="t-avatar"></div>
+          <div><div class="t-name">Renee M.</div><div class="t-detail">Coaching Client, 6 Months</div></div>
+        </div>
+      </div>
+      <div class="t-card">
+        <div class="stars">★★★★★</div>
+        <p class="t-quote">I paid off $9,000 in debt and, more importantly, I stopped dreading my bank app every morning.</p>
+        <div class="t-person">
+          <div class="t-avatar"></div>
+          <div><div class="t-name">Danielle K.</div><div class="t-detail">Coaching Client, 1 Year</div></div>
+        </div>
+      </div>
+      <div class="t-card">
+        <div class="stars">★★★★★</div>
+        <p class="t-quote">This wasn't budgeting advice. It was a complete shift in how I think about money and what it's for.</p>
+        <div class="t-person">
+          <div class="t-avatar"></div>
+          <div><div class="t-name">Patrice O.</div><div class="t-detail">Coaching Client, 8 Months</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="metrics-row reveal">
+      <div class="metric"><strong>500+</strong><span>Women Coached</span></div>
+      <div class="metric"><strong>92%</strong><span>Report Reduced Money Anxiety</span></div>
+      <div class="metric"><strong>$1.2M+</strong><span>Combined Debt Paid Down</span></div>
+      <div class="metric"><strong>4.9 / 5</strong><span>Average Client Rating</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FREE RESOURCE / EMAIL CAPTURE
+     ============================================ -->
+<section class="resource" id="resource">
+  <div class="wrap">
+    <div class="resource-box reveal">
+      <div class="resource-copy">
+        <span class="eyebrow">Free Resource</span>
+        <h2>Take The First Step Toward Financial Freedom</h2>
+        <p>The Money Reset Guide — a short, practical starting point to help you see your finances clearly and calmly, without judgment.</p>
+        <ul class="resource-list">
+          <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> A clear starting point, even if you feel behind</li>
+          <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Faith-rooted, judgment-free guidance</li>
+          <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Delivered straight to your inbox</li>
+        </ul>
+      </div>
+      <div class="resource-form-wrap">
+        <form id="resourceForm" novalidate>
+          <div class="form-field">
+            <label for="rf-name">Name</label>
+            <input type="text" id="rf-name" name="name" required autocomplete="name">
+          </div>
+          <div class="form-field">
+            <label for="rf-email">Email</label>
+            <input type="email" id="rf-email" name="email" required autocomplete="email">
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send Me The Guide</button>
+          <p class="form-note">No spam. Just one helpful guide and occasional encouragement.</p>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          <p>Check your inbox — your guide is on its way.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     STAN STORE
+     ============================================ -->
+<section class="stan">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow ledger-mark">Keep Growing</span>
+      <h2>Continue Your Financial Growth</h2>
+      <p>Beyond one-on-one coaching, explore tools designed to meet you exactly where you are.</p>
+    </div>
+    <div class="stan-grid reveal">
+      <div class="stan-card">
+        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15Z"/></svg>
+        <h3>Courses</h3>
+        <p>Self-paced, faith-rooted financial courses you can work through on your own time.</p>
+      </div>
+      <div class="stan-card">
+        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg>
+        <h3>Resources</h3>
+        <p>Templates, planners, and guides to support your day-to-day financial decisions.</p>
+      </div>
+      <div class="stan-card">
+        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <h3>Coaching</h3>
+        <p>One-on-one and group coaching options for deeper, personalized support.</p>
+      </div>
+      <div class="stan-card">
+        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <h3>Workshops</h3>
+        <p>Live and recorded sessions on specific topics — from debt freedom to giving wisely.</p>
+      </div>
+    </div>
+    <div class="stan-cta reveal">
+      <a href="https://stan.store/uncomplicatedwealth" target="_blank" rel="noopener" class="btn btn-primary">Explore Resources</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FAITH & MONEY
+     ============================================ -->
+<section class="faith">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow ledger-mark">A Grounded Approach</span>
+      <h2>Faith And Finances Can Work Together</h2>
+      <p>You don't have to choose between your values and your wealth. They were never meant to be separate.</p>
+    </div>
+  </div>
+  <div class="faith-grid reveal">
+    <div class="faith-pillar">
+      <span class="f-num">I</span>
+      <h3>Stewardship</h3>
+      <p>Viewing what you have as something to manage well, not just spend or hoard.</p>
+    </div>
+    <div class="faith-pillar">
+      <span class="f-num">II</span>
+      <h3>Wisdom</h3>
+      <p>Making financial decisions with patience and discernment, not fear or impulse.</p>
+    </div>
+    <div class="faith-pillar">
+      <span class="f-num">III</span>
+      <h3>Intentionality</h3>
+      <p>Every dollar assigned a purpose, so your money reflects what you actually value.</p>
+    </div>
+    <div class="faith-pillar">
+      <span class="f-num">IV</span>
+      <h3>Purpose</h3>
+      <p>Building wealth not for its own sake, but to support the life and people you're called to.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FAQ
+     ============================================ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow ledger-mark">Common Questions</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Do I need to be Christian to work with you?
+          <span class="plus"></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Not at all. While Charlene's approach is rooted in her own faith, her coaching is open to any woman who wants practical financial guidance delivered with warmth and respect for her own beliefs.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Do you help with budgeting?
+          <span class="plus"></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Budgeting can be part of the conversation, but coaching with Charlene goes deeper — into the habits, mindset, and decisions that determine whether any budget actually sticks.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          How does coaching work?
+          <span class="plus"></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">It starts with a discovery call to understand your situation and goals. From there, you'll build a personalized plan together and work through it with ongoing support and accountability.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Do you provide financial advice?
+          <span class="plus"></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Charlene is a money coach, not a licensed financial advisor. Coaching focuses on mindset, habits, and decision-making rather than investment advice or product recommendations.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Can I work with you virtually?
+          <span class="plus"></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes. All coaching is conducted virtually, so you can work with Charlene from wherever you are.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          What results should I expect?
+          <span class="plus"></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Results vary by client and starting point, but most women report reduced financial anxiety within the first few sessions, followed by clearer goals and steadier progress over time.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FINAL CTA
+     ============================================ -->
+<section class="final-cta" id="contact">
+  <div class="wrap">
+    <div class="final-cta-inner reveal">
+      <span class="eyebrow" style="color:var(--gold-soft);">Let's Talk</span>
+      <h2>Your Financial Breakthrough Starts With One Conversation</h2>
+      <p>Let's create a plan that helps you move forward with confidence.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-gold">Book Your Discovery Call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">Charlene <span>The Blessed Money Coach</span></a>
+        <p>Faith-based money coaching for Christian women — helping you build financial clarity, confidence, and peace of mind.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="#about">About</a>
+        <a href="#process">Coaching</a>
+        <a href="#book">Book</a>
+        <a href="#resource">Resources</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="#contact">Contact</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://stan.store/uncomplicatedwealth" target="_blank" rel="noopener">Stan Store</a>
+        <a href="https://www.amazon.com/dp/B0H2PMXS53" target="_blank" rel="noopener">Amazon Book</a>
+      </div>
+      <div class="footer-col">
+        <h4>Stay In Touch</h4>
+        <a href="#resource">Newsletter</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Charlene — The Blessed Money Coach. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a href="https://stan.store/uncomplicatedwealth" target="_blank" rel="noopener" aria-label="Stan Store"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================
+     STICKY CTAs
+     ============================================ -->
+<div class="sticky-mobile-cta" id="stickyMobile">
+  <a href="#contact" class="btn btn-secondary">Free Guide</a>
+  <a href="#contact" class="btn btn-primary">Book A Call</a>
+</div>
+
+<div class="sticky-desktop-cta" id="stickyDesktop">
+  <a href="#contact" class="btn btn-primary">Book A Discovery Call</a>
+</div>
+
+<script>
+(function(){
+  // Header scroll state
+  var header = document.getElementById('siteHeader');
+  var stickyMobile = document.getElementById('stickyMobile');
+  var stickyDesktop = document.getElementById('stickyDesktop');
+  var heroEl = document.querySelector('.hero');
+
+  function onScroll(){
+    var y = window.scrollY || window.pageYOffset;
+    if(header) header.classList.toggle('scrolled', y > 8);
+    var heroBottom = heroEl ? heroEl.getBoundingClientRect().bottom + window.scrollY : 600;
+    var pastHero = y > heroBottom - 200;
+    if(stickyMobile) stickyMobile.classList.toggle('show', pastHero);
+    if(stickyDesktop) stickyDesktop.classList.toggle('show', pastHero);
+  }
+  document.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // Mobile menu
+  var navToggle = document.getElementById('navToggle');
+  var mobileMenu = document.getElementById('mobileMenu');
+  if(navToggle && mobileMenu){
+    navToggle.addEventListener('click', function(){
+      var isOpen = mobileMenu.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    mobileMenu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        mobileMenu.classList.remove('open');
+        navToggle.setAttribute('aria-expanded','false');
+      });
+    });
+  }
+
+  // Scroll reveal animations
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var btn = item.querySelector('.faq-q');
+    var answer = item.querySelector('.faq-answer');
+    btn.addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(openItem){
+        if(openItem !== item){
+          openItem.classList.remove('open');
+          openItem.querySelector('.faq-q').setAttribute('aria-expanded','false');
+          openItem.querySelector('.faq-answer').style.maxHeight = null;
+        }
+      });
+      if(isOpen){
+        item.classList.remove('open');
+        btn.setAttribute('aria-expanded','false');
+        answer.style.maxHeight = null;
+      } else {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded','true');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // Email capture form (front-end only — no backend wired up)
+  var resourceForm = document.getElementById('resourceForm');
+  var formSuccess = document.getElementById('formSuccess');
+  if(resourceForm){
+    resourceForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      resourceForm.style.display = 'none';
+      formSuccess.classList.add('show');
+    });
+  }
+
+  // Video placeholder click (no actual video wired up)
+  document.querySelectorAll('.video-placeholder').forEach(function(v){
+    v.addEventListener('click', function(){
+      v.style.opacity = '0.7';
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
