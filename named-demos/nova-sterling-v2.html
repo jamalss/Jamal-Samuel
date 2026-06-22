@@ -515,23 +515,21 @@ section{padding:116px 0;}
 }
 @media(max-width:860px){.story-layout{grid-template-columns:1fr;gap:48px;}}
 
-.story-img{
-  width:100%;aspect-ratio:3/4;
-  object-fit:cover;border:1px solid var(--ld);
+.story-picture{
   display:block;
-}
-.story-img-placeholder{
-  width:100%;aspect-ratio:3/4;
-  background:linear-gradient(160deg,#1A0A3E,#3D1FA0,#6B3FF5);
+  width:100%;
+  aspect-ratio:3/4;
+  overflow:hidden;
   border:1px solid var(--ld);
-  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
 }
-.story-img-placeholder span{
-  font-size:11px;letter-spacing:.12em;text-transform:uppercase;
-  color:rgba(255,255,255,.4);border:1px dashed rgba(255,255,255,.25);
-  padding:10px 18px;text-align:center;max-width:200px;
-  background:rgba(7,7,15,.3);backdrop-filter:blur(4px);
+.story-img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:top center;
+  display:block;
+  transition:transform .6s ease;
 }
+.story-picture:hover .story-img{transform:scale(1.03);}
 
 .story-copy p{
   font-size:16px;color:rgba(255,255,255,.68);
@@ -750,11 +748,29 @@ section{padding:116px 0;}
   background:linear-gradient(135deg,#1A0A3E,#4C2A9C);
   display:flex;align-items:center;justify-content:center;
   overflow:hidden;
+  position:relative;
 }
-.press-thumb img{width:100%;height:100%;object-fit:cover;opacity:.75;mix-blend-mode:luminosity;}
+.press-thumb picture{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  display:block;
+}
+.press-thumb picture img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center top;
+  opacity:.78;
+  mix-blend-mode:luminosity;
+  transition:transform .5s ease, opacity .3s ease;
+  display:block;
+}
+.press-card:hover .press-thumb picture img{
+  transform:scale(1.04);
+  opacity:.9;
+}
 .press-thumb-ph{
   font-size:10px;letter-spacing:.1em;text-transform:uppercase;
   color:rgba(255,255,255,.4);
+  position:relative;z-index:1;
 }
 .press-body{padding:22px;}
 .press-source{
@@ -1012,8 +1028,7 @@ footer{padding:56px 0 36px;border-top:1px solid var(--ld);}
   <div class="hero-right">
     <div class="hero-grid-lines"></div>
     <!-- Portrait image slot (AI-generated) -->
-    <!-- Find id="heroImg", set the src and remove style="display:none" -->
-    <img src="images/nova-portrait.webp" alt="Nova Sterling — portrait" class="hero-img" id="heroImg">
+    <img src="" alt="Nova Sterling — portrait" class="hero-img" id="heroImg" style="display:none;">
     <div class="hero-img-overlay"></div>
 
     <div class="scoreboard">
@@ -1234,9 +1249,18 @@ footer{padding:56px 0 36px;border-top:1px solid var(--ld);}
       <h2>Built Across Two Continents</h2>
     </div>
     <div class="story-layout reveal">
-      <div class="story-img-placeholder" id="storyImgWrap">
-        <span>[ Portrait — AI-generated image ]</span>
-      </div>
+      <picture class="story-picture">
+        <source srcset="images/nova-story.webp" type="image/webp">
+        <img
+          src="images/nova-story.png"
+          alt="Nova Sterling — editorial portrait, AI-generated fictional athlete"
+          class="story-img"
+          width="600"
+          height="800"
+          loading="lazy"
+          decoding="async"
+        >
+      </picture>
       <div>
         <div class="story-copy">
           <p>Nova Sterling's career has never followed one lane. Raised between American and European cultures, sharpened across professional leagues on two continents, and forged across four years of Olympic pressure — her story is not a straight line. It's a web of choices made under the highest stakes imaginable.</p>
@@ -1295,8 +1319,7 @@ footer{padding:56px 0 36px;border-top:1px solid var(--ld);}
       </div>
       <div class="culture-visual reveal">
         <div class="culture-grid-bg"></div>
-        <!-- Find id="cultureImg", set the src and remove style="display:none" -->
-        <img src="images/nova-lifestyle.webp" alt="Nova Sterling — off-court" class="culture-img" id="cultureImg">
+        <img src="" alt="Nova Sterling — off-court" class="culture-img" id="cultureImg" style="display:none;">
         <div class="cv-overlay"></div>
         <div class="cv-label">[ Off-court editorial — AI-generated image ]</div>
       </div>
@@ -1433,27 +1456,39 @@ footer{padding:56px 0 36px;border-top:1px solid var(--ld);}
     </div>
     <div class="press-grid reveal-stagger">
       <div class="press-card">
-        <div class="press-thumb"><span class="press-thumb-ph">[ AI-generated image ]</span></div>
+        <div class="press-thumb">
+          <picture><source srcset="images/nova-press.webp" type="image/webp"><img src="images/nova-press.png" alt="Nova Sterling featured in press — AI-generated" loading="lazy" decoding="async"></picture>
+        </div>
         <div class="press-body"><div class="press-source">ESPN</div><div class="press-title">Nova Sterling Signs Multiyear Deal With Unrivaled League</div><a href="#" class="press-link">Read Feature →</a></div>
       </div>
       <div class="press-card">
-        <div class="press-thumb"><span class="press-thumb-ph">[ AI-generated image ]</span></div>
+        <div class="press-thumb">
+          <picture><source srcset="images/nova-press.webp" type="image/webp"><img src="images/nova-press.png" alt="Nova Sterling featured in press — AI-generated" loading="lazy" decoding="async"></picture>
+        </div>
         <div class="press-body"><div class="press-source">WNBA.com</div><div class="press-title">Spotlight: The Defender Who Changed Everything This Season</div><a href="#" class="press-link">Read Feature →</a></div>
       </div>
       <div class="press-card">
-        <div class="press-thumb"><span class="press-thumb-ph">[ AI-generated image ]</span></div>
+        <div class="press-thumb">
+          <picture><source srcset="images/nova-press.webp" type="image/webp"><img src="images/nova-press.png" alt="Nova Sterling featured in press — AI-generated" loading="lazy" decoding="async"></picture>
+        </div>
         <div class="press-body"><div class="press-source">Unrivaled</div><div class="press-title">New Names On The Map: Year One in the Bay</div><a href="#" class="press-link">Read Feature →</a></div>
       </div>
       <div class="press-card">
-        <div class="press-thumb"><span class="press-thumb-ph">[ AI-generated image ]</span></div>
+        <div class="press-thumb">
+          <picture><source srcset="images/nova-press.webp" type="image/webp"><img src="images/nova-press.png" alt="Nova Sterling featured in press — AI-generated" loading="lazy" decoding="async"></picture>
+        </div>
         <div class="press-body"><div class="press-source">Olympic Coverage</div><div class="press-title">Two Games. Two Medals. France's Defensive Anchor on the Global Stage.</div><a href="#" class="press-link">Read Feature →</a></div>
       </div>
       <div class="press-card">
-        <div class="press-thumb"><span class="press-thumb-ph">[ AI-generated image ]</span></div>
+        <div class="press-thumb">
+          <picture><source srcset="images/nova-press.webp" type="image/webp"><img src="images/nova-press.png" alt="Nova Sterling featured in press — AI-generated" loading="lazy" decoding="async"></picture>
+        </div>
         <div class="press-body"><div class="press-source">SLAM Magazine</div><div class="press-title">30 Years In: The Athletes Defining the Future of the WNBA</div><a href="#" class="press-link">Read Feature →</a></div>
       </div>
       <div class="press-card">
-        <div class="press-thumb"><span class="press-thumb-ph">[ AI-generated image ]</span></div>
+        <div class="press-thumb">
+          <picture><source srcset="images/nova-press.webp" type="image/webp"><img src="images/nova-press.png" alt="Nova Sterling featured in press — AI-generated" loading="lazy" decoding="async"></picture>
+        </div>
         <div class="press-body"><div class="press-source">Culture Feature</div><div class="press-title">Beyond the Box Score: Basketball, Anime, and the Art of Being Yourself</div><a href="#" class="press-link">Read Feature →</a></div>
       </div>
     </div>
@@ -1611,7 +1646,7 @@ footer{padding:56px 0 36px;border-top:1px solid var(--ld);}
     </div>
     <div class="footer-bottom">
       <span>© 2026 Nova Sterling · Fictional Concept</span>
-      <span>Design concept by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank" rel="noopener">JAMALINKS</a></span>
+      <span>Design concept by <a href="https://jamalss.github.io/Jamal-Samuel/" target="_blank" rel="noopener">Jamal Samuel</a></span>
     </div>
     <div class="footer-disclaimer">
       <strong>DESIGN CONCEPT DEMO ONLY.</strong> "Nova Sterling" is a 100% fictional athlete created exclusively for design demonstration purposes. This website was produced as an unsolicited creative concept to illustrate what a professional athlete brand partnership hub could look like. It is not affiliated with, endorsed by, or connected to any real athlete, person, sports team, sports league, sports agency, or management company. All statistics, accolades, affiliations, testimonials, and achievements displayed are entirely fictional. <strong>All images used in this demo are AI-generated and do not depict any real person.</strong> No real individual's name, image, likeness, or identity has been used. All league names, team references, and brand names used descriptively remain the intellectual property of their respective owners.
