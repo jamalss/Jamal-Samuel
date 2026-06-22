@@ -262,19 +262,31 @@
     align-items:center;
     justify-content:center;
     border-left:1px solid var(--line);
+    overflow:hidden;
+  }
+  .hero-portrait svg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    opacity:0.55;
   }
   .hero-portrait .ph-label{
-    font-size:12px;
+    position:relative;
+    z-index:2;
+    font-size:11px;
     letter-spacing:0.12em;
     text-transform:uppercase;
-    color:rgba(255,255,255,0.55);
+    color:rgba(255,255,255,0.6);
     border:1px dashed rgba(255,255,255,0.35);
     padding:10px 16px;
     text-align:center;
     max-width:240px;
+    background:rgba(11,11,16,0.35);
+    backdrop-filter:blur(2px);
   }
   @media (max-width:900px){
-    .hero-portrait{ width:100%; opacity:0.35; }
+    .hero-portrait{ width:100%; opacity:0.45; }
   }
 
   .hero-content{
@@ -521,7 +533,14 @@
     font-size:22px;
     text-transform:uppercase;
     margin-top:4px;
+    color:var(--white);
   }
+
+  /* Light-section overrides: story + timeline sit on off-white background */
+  .light .story-text p{ color:rgba(11,11,16,0.68); }
+  .light .timeline{ border-left-color:var(--line-soft); }
+  .light .timeline li::before{ background:var(--off-white); border-color:var(--violet-deep); }
+  .light .timeline .t-label{ color:var(--ink); }
 
   /* ===================== ON-COURT ===================== */
   .feature-row{
@@ -603,15 +622,26 @@
     position:relative;
     overflow:hidden;
   }
+  .offcourt-imgblock svg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    opacity:0.6;
+  }
   .offcourt-imgblock .ph-label{
+    position:relative;
+    z-index:2;
     font-size:12px;
     letter-spacing:0.1em;
     text-transform:uppercase;
-    color:rgba(255,255,255,0.6);
+    color:rgba(255,255,255,0.65);
     border:1px dashed rgba(255,255,255,0.4);
     padding:10px 18px;
     text-align:center;
     max-width:220px;
+    background:rgba(11,11,16,0.3);
+    backdrop-filter:blur(2px);
   }
 
   /* ===================== PARTNERSHIPS ===================== */
@@ -691,7 +721,11 @@
   }
   .press-thumb{
     aspect-ratio:16/9;
-    background:linear-gradient(135deg, #2A1F45, #7C3AED);
+    background:
+      linear-gradient(135deg, #2A1F45, #7C3AED),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><path d='M0 60 Q30 20 60 60 Q90 100 120 60' stroke='white' stroke-opacity='0.08' stroke-width='1' fill='none'/></svg>");
+    background-blend-mode:normal;
+    background-size:cover, 200px 200px;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -753,6 +787,7 @@
     font-size:15px;
     color:rgba(255,255,255,0.7);
   }
+  .light .impact-item p{ color:rgba(11,11,16,0.68); }
 
   /* ===================== CONTACT ===================== */
   .contact{
@@ -928,6 +963,18 @@
   <!-- IMAGE NOTE: replace .hero-portrait with a full-bleed editorial action/lifestyle photo of Gabby Williams -->
   <div class="hero-imgblock">
     <div class="hero-portrait">
+      <svg viewBox="0 0 600 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="470" cy="180" r="230" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.35"/>
+        <circle cx="470" cy="180" r="230" fill="none" stroke="#D6B25E" stroke-width="1" stroke-dasharray="2 8" opacity="0.5"/>
+        <line x1="240" y1="180" x2="700" y2="180" stroke="#FFFFFF" stroke-width="1" opacity="0.25"/>
+        <line x1="470" y1="-50" x2="470" y2="410" stroke="#FFFFFF" stroke-width="1" opacity="0.25"/>
+        <path d="M 0,620 C 150,560 300,560 450,610 C 520,630 560,650 600,640" fill="none" stroke="#FFFFFF" stroke-width="1.2" opacity="0.3"/>
+        <path d="M 0,660 C 150,600 300,600 450,650 C 520,670 560,690 600,680" fill="none" stroke="#C4B5FD" stroke-width="1" opacity="0.3"/>
+        <circle cx="120" cy="700" r="3" fill="#D6B25E" opacity="0.7"/>
+        <circle cx="320" cy="120" r="3" fill="#D6B25E" opacity="0.5"/>
+        <circle cx="540" cy="560" r="3" fill="#FFFFFF" opacity="0.5"/>
+        <rect x="0" y="0" width="600" height="800" fill="none" stroke="#FFFFFF" stroke-width="0" />
+      </svg>
       <span class="ph-label">[ IMAGE: full-height editorial portrait or action shot — Valkyries violet kit or fashion-forward off-court styling ]</span>
     </div>
   </div>
@@ -1140,6 +1187,15 @@
       </div>
       <!-- IMAGE NOTE: replace with licensed lifestyle/fashion photography -->
       <div class="offcourt-imgblock reveal">
+        <svg viewBox="0 0 500 625" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <text x="250" y="430" font-family="Anton, sans-serif" font-size="420" fill="#FFFFFF" fill-opacity="0.10" text-anchor="middle">1</text>
+          <circle cx="250" cy="300" r="190" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.25"/>
+          <circle cx="250" cy="300" r="140" fill="none" stroke="#D6B25E" stroke-width="1" stroke-dasharray="1 6" opacity="0.45"/>
+          <line x1="60" y1="300" x2="440" y2="300" stroke="#FFFFFF" stroke-width="0.75" opacity="0.2"/>
+          <line x1="250" y1="110" x2="250" y2="490" stroke="#FFFFFF" stroke-width="0.75" opacity="0.2"/>
+          <path d="M 40,150 L 460,150" stroke="#C4B5FD" stroke-width="1" opacity="0.3" stroke-dasharray="6 4"/>
+          <path d="M 40,470 L 460,470" stroke="#C4B5FD" stroke-width="1" opacity="0.3" stroke-dasharray="6 4"/>
+        </svg>
         <span class="ph-label">[ IMAGE: off-court lifestyle / fashion editorial photo ]</span>
       </div>
     </div>
