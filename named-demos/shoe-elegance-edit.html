@@ -1,0 +1,1847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shoe Elegance — Luxury handcrafted footwear. Timeless style, Italian leather, Caribbean soul.">
+  <title>SHOE ELEGANCE — Luxury Footwear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       1. CSS VARIABLES
+    ============================================================ */
+    :root {
+      --charcoal:       #1A1A1A;
+      --charcoal-mid:   #222222;
+      --charcoal-card:  #272727;
+      --ivory:          #F8F5F0;
+      --ivory-warm:     #EDE8E0;
+      --gold:           #B38C35;
+      --gold-light:     #C9A84C;
+      --gold-faint:     rgba(179, 140, 53, 0.12);
+      --gold-border:    rgba(179, 140, 53, 0.25);
+      --white:          #FFFFFF;
+      --on-dark:        rgba(255,255,255,0.88);
+      --muted-dark:     rgba(255,255,255,0.48);
+      --on-light:       #1A1A1A;
+      --muted-light:    #7A7269;
+
+      --ff-serif:  'Cormorant Garamond', 'Times New Roman', serif;
+      --ff-sans:   'Manrope', 'Helvetica Neue', sans-serif;
+
+      --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --t-fast:   0.2s ease;
+      --t-base:   0.35s ease;
+      --t-slow:   0.65s var(--ease-out);
+
+      --max-w: 1280px;
+      --sp-section: 6.5rem;
+    }
+
+    /* ============================================================
+       2. RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      overflow-x: hidden;
+      background: var(--charcoal);
+      color: var(--on-dark);
+      font-family: var(--ff-sans);
+      font-weight: 300;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+    button { border: none; background: none; cursor: pointer; font-family: inherit; }
+    ul { list-style: none; }
+
+    /* ============================================================
+       3. SCROLLBAR
+    ============================================================ */
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--charcoal); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+    /* ============================================================
+       4. CUSTOM CURSOR — Desktop only
+    ============================================================ */
+    #cursor-dot,
+    #cursor-ring {
+      position: fixed;
+      top: 0; left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+      will-change: left, top;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      body, a, button, [role="button"] { cursor: none; }
+      #cursor-dot, #cursor-ring { display: block; }
+    }
+
+    #cursor-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      transition: opacity var(--t-fast), transform var(--t-fast);
+    }
+
+    #cursor-ring {
+      width: 32px;
+      height: 32px;
+      border: 1.5px solid rgba(179,140,53,0.6);
+      transition: width 0.28s var(--ease-out),
+                  height 0.28s var(--ease-out),
+                  border-color 0.28s ease,
+                  opacity 0.2s ease;
+    }
+
+    #cursor-dot.c-hidden  { opacity: 0; transform: translate(-50%,-50%) scale(0); }
+    #cursor-ring.c-expand { width: 52px; height: 52px; border-color: var(--gold); }
+
+    /* ============================================================
+       5. UTILITIES
+    ============================================================ */
+    .container {
+      max-width: var(--max-w);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.75rem;
+      padding-right: 1.75rem;
+    }
+
+    .eyebrow {
+      display: block;
+      font-family: var(--ff-sans);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.9rem;
+    }
+
+    .gold-rule {
+      width: 44px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 1.75rem;
+    }
+    .gold-rule--center { margin-left: auto; margin-right: auto; }
+
+    /* ============================================================
+       6. SCROLL REVEAL
+    ============================================================ */
+    .sr {
+      opacity: 0;
+      transform: translateY(38px);
+      transition: opacity var(--t-slow), transform var(--t-slow);
+    }
+    .sr.in { opacity: 1; transform: translateY(0); }
+
+    .sr-d1 { transition-delay: 0.08s; }
+    .sr-d2 { transition-delay: 0.16s; }
+    .sr-d3 { transition-delay: 0.24s; }
+    .sr-d4 { transition-delay: 0.32s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+      .sr { opacity: 1; transform: none; }
+    }
+
+    /* ============================================================
+       7. BUTTONS
+    ============================================================ */
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2.6rem;
+      font-family: var(--ff-sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      position: relative;
+      overflow: hidden;
+      transition: color var(--t-base);
+    }
+
+    .btn > span { position: relative; z-index: 1; }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      left: -101%;
+      transition: left 0.38s var(--ease-out);
+      z-index: 0;
+    }
+
+    .btn:hover::before { left: 0; }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--charcoal);
+    }
+    .btn-gold::before { background: var(--gold-light); }
+
+    .btn-outline-light {
+      border: 1px solid rgba(255,255,255,0.35);
+      color: var(--white);
+    }
+    .btn-outline-light::before { background: rgba(255,255,255,0.07); }
+    .btn-outline-light:hover { border-color: rgba(255,255,255,0.65); }
+
+    .btn-outline-gold {
+      border: 1px solid var(--gold-border);
+      color: var(--gold);
+    }
+    .btn-outline-gold::before { background: var(--gold-faint); }
+    .btn-outline-gold:hover { border-color: var(--gold); }
+
+    .btn-outline-dark {
+      border: 1px solid rgba(26,26,26,0.3);
+      color: var(--on-light);
+    }
+    .btn-outline-dark::before { background: rgba(26,26,26,0.06); }
+
+    /* ============================================================
+       8. NAVBAR
+    ============================================================ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1.6rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background var(--t-base), padding var(--t-base), box-shadow var(--t-base);
+    }
+
+    .nav.scrolled {
+      background: rgba(20,20,20,0.96);
+      padding: 1rem 2rem;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 var(--gold-border);
+    }
+
+    .nav__logo {
+      font-family: var(--ff-serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .nav__links {
+      display: flex;
+      gap: 2.75rem;
+    }
+
+    .nav__links a {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted-dark);
+      position: relative;
+      transition: color var(--t-fast);
+    }
+    .nav__links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width var(--t-base);
+    }
+    .nav__links a:hover { color: var(--white); }
+    .nav__links a:hover::after { width: 100%; }
+
+    .nav__cta {
+      font-size: 0.64rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold-border);
+      padding: 0.55rem 1.3rem;
+      transition: background var(--t-base), border-color var(--t-base);
+    }
+    .nav__cta:hover { background: var(--gold-faint); border-color: var(--gold); }
+
+    .nav__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+    .nav__hamburger span {
+      display: block;
+      width: 22px; height: 1.5px;
+      background: var(--white);
+      transition: all var(--t-base);
+    }
+
+    /* ============================================================
+       9. MOBILE MENU
+    ============================================================ */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: var(--charcoal);
+      z-index: 998;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity var(--t-base), visibility var(--t-base);
+    }
+    .mobile-menu.open { opacity: 1; visibility: visible; }
+
+    .mobile-menu__close {
+      position: absolute;
+      top: 1.75rem; right: 2rem;
+      font-family: var(--ff-serif);
+      font-size: 1.75rem;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .mobile-menu a {
+      font-family: var(--ff-serif);
+      font-size: 2.25rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      transition: color var(--t-fast);
+    }
+    .mobile-menu a:hover,
+    .mobile-menu a.mm-wa { color: var(--gold); }
+
+    /* ============================================================
+       10. HERO
+    ============================================================ */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero__bg {
+      position: absolute;
+      top: -25%; left: 0; right: 0; bottom: -25%;
+      background-image: url('https://picsum.photos/seed/luxury-runway-dark/1920/1280');
+      background-size: cover;
+      background-position: center top;
+      will-change: transform;
+    }
+
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        130deg,
+        rgba(8,8,8,0.88) 0%,
+        rgba(18,14,8,0.72) 55%,
+        rgba(25,18,8,0.55) 100%
+      );
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+
+    .hero__eyebrow {
+      display: block;
+      font-size: 0.63rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.6rem;
+      opacity: 0;
+      animation: fadeUpIn 0.85s var(--ease-out) 0.3s forwards;
+    }
+
+    .hero__h1 {
+      font-family: var(--ff-serif);
+      font-size: clamp(3.75rem, 8.5vw, 7.5rem);
+      font-weight: 300;
+      line-height: 1.04;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      margin-bottom: 1.6rem;
+      max-width: 720px;
+      opacity: 0;
+      animation: fadeUpIn 0.9s var(--ease-out) 0.5s forwards;
+    }
+
+    .hero__h1 em {
+      font-style: italic;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .hero__sub {
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--muted-dark);
+      max-width: 430px;
+      margin-bottom: 2.75rem;
+      opacity: 0;
+      animation: fadeUpIn 0.9s var(--ease-out) 0.7s forwards;
+    }
+
+    .hero__actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUpIn 0.9s var(--ease-out) 0.9s forwards;
+    }
+
+    .hero__scroll-indicator {
+      position: absolute;
+      bottom: 2.5rem; left: 2rem;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      opacity: 0;
+      animation: fadeIn 1s ease 1.3s forwards;
+    }
+    .hero__scroll-line {
+      width: 1px;
+      height: 52px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 2s ease infinite;
+    }
+    .hero__scroll-text {
+      font-size: 0.6rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted-dark);
+      writing-mode: vertical-rl;
+    }
+
+    /* ============================================================
+       11. COLLECTIONS
+    ============================================================ */
+    .collections {
+      background: var(--ivory);
+      padding: var(--sp-section) 0;
+    }
+
+    .collections__hd {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .collections__title {
+      font-family: var(--ff-serif);
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      font-weight: 400;
+      color: var(--on-light);
+      line-height: 1.15;
+    }
+
+    .collections__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+    }
+
+    .col-card {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      background: var(--charcoal-mid);
+    }
+
+    .col-card__img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.72s var(--ease-out);
+      filter: brightness(0.82) contrast(1.08);
+    }
+    .col-card:hover .col-card__img { transform: scale(1.06); }
+
+    .col-card__shade {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top,
+        rgba(8,8,8,0.88) 0%,
+        rgba(8,8,8,0.12) 50%,
+        transparent 100%);
+      transition: background var(--t-base);
+    }
+    .col-card:hover .col-card__shade {
+      background: linear-gradient(to top,
+        rgba(8,8,8,0.92) 0%,
+        rgba(8,8,8,0.35) 60%,
+        rgba(8,8,8,0.1) 100%);
+    }
+
+    .col-card__body {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 2rem 1.75rem;
+    }
+
+    .col-card__num {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.45rem;
+    }
+
+    .col-card__name {
+      font-family: var(--ff-serif);
+      font-size: 1.65rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 0.65rem;
+      line-height: 1.15;
+    }
+
+    .col-card__desc {
+      font-size: 0.76rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity var(--t-base), transform var(--t-base);
+    }
+    .col-card:hover .col-card__desc { opacity: 1; transform: translateY(0); }
+
+    .col-card__link {
+      font-size: 0.64rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding-bottom: 3px;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      transition: color var(--t-fast), border-color var(--t-fast);
+    }
+    .col-card__link:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* ============================================================
+       12. HORIZONTAL SHOWCASE
+    ============================================================ */
+    .showcase {
+      background: var(--charcoal);
+      padding: var(--sp-section) 0;
+    }
+
+    .showcase__hd {
+      padding: 0 1.75rem 3rem;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .showcase__title {
+      font-family: var(--ff-serif);
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.15;
+    }
+
+    .showcase__hint {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+    }
+
+    .showcase__track {
+      display: flex;
+      gap: 1.2rem;
+      padding: 0.5rem 1.75rem 2.5rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      cursor: grab;
+      user-select: none;
+    }
+    .showcase__track::-webkit-scrollbar { display: none; }
+    .showcase__track.dragging { cursor: grabbing; }
+    .showcase__track.dragging .p-card { pointer-events: none; }
+
+    /* Product Card */
+    .p-card {
+      flex: 0 0 290px;
+      scroll-snap-align: start;
+      background: var(--charcoal-card);
+      transition: transform var(--t-base);
+      position: relative;
+    }
+    .p-card:hover { transform: translateY(-7px); }
+
+    .p-card__img-wrap {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
+
+    .p-card__img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.65s var(--ease-out);
+      filter: brightness(0.88) contrast(1.06);
+    }
+    .p-card:hover .p-card__img { transform: scale(1.05); }
+
+    .p-card__badge {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-family: var(--ff-sans);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.65rem;
+    }
+
+    .p-card__body { padding: 1.3rem; }
+
+    .p-card__cat {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.35rem;
+    }
+
+    .p-card__name {
+      font-family: var(--ff-serif);
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+
+    .p-card__desc {
+      font-size: 0.74rem;
+      color: var(--muted-dark);
+      line-height: 1.55;
+      margin-bottom: 1rem;
+    }
+
+    .p-card__ft {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .p-card__price {
+      font-family: var(--ff-serif);
+      font-size: 1.45rem;
+      font-weight: 300;
+      color: var(--gold-light);
+    }
+
+    .p-card__wa {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.5rem 0.9rem;
+      transition: background var(--t-fast);
+    }
+    .p-card__wa:hover { background: var(--gold-light); }
+
+    /* ============================================================
+       13. WHY SECTION
+    ============================================================ */
+    .why {
+      background: var(--ivory);
+      padding: var(--sp-section) 0;
+    }
+
+    .why__hd {
+      text-align: center;
+      margin-bottom: 4.5rem;
+    }
+
+    .why__title {
+      font-family: var(--ff-serif);
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      font-weight: 400;
+      color: var(--on-light);
+      line-height: 1.2;
+    }
+
+    .why__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.75rem;
+    }
+
+    .why-item { text-align: center; }
+
+    .why-item__icon {
+      width: 46px; height: 46px;
+      margin: 0 auto 1.4rem;
+      color: var(--gold);
+    }
+
+    .why-item__name {
+      font-family: var(--ff-serif);
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--on-light);
+      margin-bottom: 0.7rem;
+    }
+
+    .why-item__desc {
+      font-size: 0.79rem;
+      line-height: 1.75;
+      color: var(--muted-light);
+    }
+
+    /* ============================================================
+       14. TESTIMONIALS
+    ============================================================ */
+    .reviews {
+      background: var(--charcoal-mid);
+      padding: var(--sp-section) 0;
+    }
+
+    .reviews__hd {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .reviews__title {
+      font-family: var(--ff-serif);
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      font-weight: 300;
+      color: var(--white);
+    }
+
+    .reviews__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+    }
+
+    .review-card {
+      background: var(--charcoal-card);
+      padding: 2.5rem 2rem;
+      border-top: 1px solid var(--gold);
+    }
+
+    .review-card__stars {
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .review-card__quote {
+      font-family: var(--ff-serif);
+      font-size: 1.08rem;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.65;
+      color: var(--on-dark);
+      margin-bottom: 1.75rem;
+    }
+
+    .review-card__author {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .review-card__avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1.5px solid var(--gold-border);
+    }
+
+    .review-card__name {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--white);
+      letter-spacing: 0.04em;
+    }
+
+    .review-card__loc {
+      font-size: 0.68rem;
+      color: var(--muted-dark);
+      margin-top: 0.1rem;
+    }
+
+    /* ============================================================
+       15. BRAND STORY
+    ============================================================ */
+    .story { background: var(--charcoal); overflow: hidden; }
+
+    .story__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 620px;
+    }
+
+    .story__img-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .story__img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(0.82) contrast(1.06);
+      transition: transform 0.85s var(--ease-out);
+    }
+    .story__img-wrap:hover .story__img { transform: scale(1.04); }
+
+    .story__content {
+      padding: 5rem 4.5rem 5rem 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .story__title {
+      font-family: var(--ff-serif);
+      font-size: clamp(2rem, 3.5vw, 3.1rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.18;
+      margin-bottom: 1.6rem;
+    }
+    .story__title em { font-style: italic; color: rgba(255,255,255,0.55); }
+
+    .story__p {
+      font-size: 0.83rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--muted-dark);
+      margin-bottom: 1rem;
+    }
+
+    .story__stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 1.75rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .story__stat-num {
+      font-family: var(--ff-serif);
+      font-size: 2.6rem;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+    .story__stat-lbl {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted-dark);
+    }
+
+    /* ============================================================
+       16. GALLERY
+    ============================================================ */
+    .gallery {
+      background: var(--ivory);
+      padding: var(--sp-section) 0;
+    }
+
+    .gallery__hd {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .gallery__title {
+      font-family: var(--ff-serif);
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      font-weight: 400;
+      color: var(--on-light);
+    }
+
+    .gallery__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 260px 260px;
+      gap: 0.8rem;
+    }
+
+    .gal-item {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .gal-item:nth-child(1) { grid-row: span 2; }
+    .gal-item:nth-child(5) { grid-column: span 2; }
+
+    .gal-item__img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(0.9) contrast(1.06) saturate(0.88);
+      transition: transform 0.65s var(--ease-out), filter 0.4s ease;
+    }
+    .gal-item:hover .gal-item__img {
+      transform: scale(1.05);
+      filter: brightness(0.95) contrast(1.06) saturate(0.95);
+    }
+
+    .gal-item::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(179,140,53,0);
+      transition: background var(--t-base);
+    }
+    .gal-item:hover::after { background: rgba(179,140,53,0.06); }
+
+    /* ============================================================
+       17. FINAL CTA
+    ============================================================ */
+    .final-cta {
+      background: var(--charcoal-mid);
+      padding: 9rem 1.75rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta::before {
+      content: 'ELEGANCE';
+      position: absolute;
+      font-family: var(--ff-serif);
+      font-size: clamp(5rem, 14vw, 15rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.018);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      pointer-events: none;
+      letter-spacing: 0.12em;
+      user-select: none;
+    }
+
+    .final-cta__inner {
+      position: relative;
+      z-index: 1;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    .final-cta__title {
+      font-family: var(--ff-serif);
+      font-size: clamp(2.5rem, 5.5vw, 4.8rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.12;
+      margin-bottom: 1.25rem;
+    }
+    .final-cta__title em { font-style: italic; color: var(--gold-light); }
+
+    .final-cta__sub {
+      font-size: 0.85rem;
+      color: var(--muted-dark);
+      margin-bottom: 3rem;
+      line-height: 1.75;
+    }
+
+    .final-cta__actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ============================================================
+       18. FOOTER
+    ============================================================ */
+    .footer {
+      background: var(--charcoal);
+      border-top: 1px solid var(--gold-border);
+      padding: 4.5rem 2rem 2.25rem;
+    }
+
+    .footer__top {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .footer__brand {
+      font-family: var(--ff-serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .footer__desc {
+      font-size: 0.77rem;
+      line-height: 1.7;
+      color: var(--muted-dark);
+      max-width: 270px;
+      margin-bottom: 1.6rem;
+    }
+
+    .footer__socials {
+      display: flex;
+      gap: 0.9rem;
+    }
+
+    .footer__soc {
+      width: 32px; height: 32px;
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted-dark);
+      transition: border-color var(--t-fast), color var(--t-fast);
+    }
+    .footer__soc:hover { border-color: var(--gold); color: var(--gold); }
+
+    .footer__col-title {
+      font-size: 0.63rem;
+      font-weight: 600;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1.35rem;
+    }
+
+    .footer__col-list { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .footer__col-list a {
+      font-size: 0.77rem;
+      color: var(--muted-dark);
+      transition: color var(--t-fast);
+    }
+    .footer__col-list a:hover { color: var(--gold); }
+
+    .footer__bottom {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer__copy {
+      font-size: 0.69rem;
+      color: var(--muted-dark);
+      letter-spacing: 0.04em;
+    }
+
+    .footer__credit {
+      font-size: 0.64rem;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.1em;
+    }
+    .footer__credit a {
+      color: rgba(179,140,53,0.55);
+      transition: color var(--t-fast);
+    }
+    .footer__credit a:hover { color: var(--gold); }
+
+    /* ============================================================
+       19. FLOATING WHATSAPP
+    ============================================================ */
+    .wa-fab {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      z-index: 900;
+      width: 54px; height: 54px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+      transition: transform var(--t-fast), box-shadow var(--t-fast);
+    }
+    .wa-fab:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 30px rgba(37,211,102,0.45);
+    }
+    .wa-fab::before {
+      content: '';
+      position: absolute;
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      background: rgba(37,211,102,0.38);
+      animation: waPulse 2.6s ease infinite;
+    }
+    .wa-fab svg { position: relative; z-index: 1; }
+
+    /* ============================================================
+       20. KEYFRAMES
+    ============================================================ */
+    @keyframes fadeUpIn {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes scrollPulse {
+      0%   { transform: scaleY(1) translateY(0); opacity: 1; }
+      60%  { transform: scaleY(0.4) translateY(4px); opacity: 0.4; }
+      100% { transform: scaleY(1) translateY(0); opacity: 1; }
+    }
+    @keyframes waPulse {
+      0%   { transform: scale(1); opacity: 0.65; }
+      70%  { transform: scale(1.65); opacity: 0; }
+      100% { transform: scale(1.65); opacity: 0; }
+    }
+
+    /* ============================================================
+       21. RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1100px) {
+      .why__grid { grid-template-columns: repeat(2, 1fr); }
+      .footer__top { grid-template-columns: 1fr 1fr; }
+      .story__content { padding: 4rem 3rem 4rem 3.5rem; }
+    }
+
+    @media (max-width: 900px) {
+      .reviews__grid { grid-template-columns: 1fr; }
+      .collections__grid { grid-template-columns: repeat(2, 1fr); }
+      .col-card:last-child { grid-column: span 2; aspect-ratio: 16/7; }
+    }
+
+    @media (max-width: 768px) {
+      :root { --sp-section: 4.5rem; }
+
+      .nav__links, .nav__cta { display: none; }
+      .nav__hamburger { display: flex; }
+
+      .hero__h1 { font-size: clamp(3rem, 11vw, 4.2rem); }
+      .hero__actions { flex-direction: column; align-items: flex-start; }
+      .hero__actions .btn { width: 100%; max-width: 300px; text-align: center; }
+
+      .collections__grid { grid-template-columns: 1fr; }
+      .col-card { aspect-ratio: 4/3; }
+      .col-card:last-child { grid-column: span 1; aspect-ratio: 4/3; }
+
+      .showcase__hd { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+      .p-card { flex: 0 0 255px; }
+
+      .story__inner { grid-template-columns: 1fr; }
+      .story__img-wrap { height: 380px; }
+      .story__content { padding: 3rem 1.75rem; }
+      .story__stats { gap: 2rem; }
+
+      .gallery__grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+      }
+      .gal-item:nth-child(1) { grid-row: span 1; }
+      .gal-item:nth-child(5) { grid-column: span 1; }
+      .gal-item__img { min-height: 200px; }
+
+      .footer__top { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer__bottom { flex-direction: column; text-align: center; }
+
+      .final-cta__actions { flex-direction: column; align-items: center; }
+      .final-cta__actions .btn { width: 100%; max-width: 300px; text-align: center; }
+    }
+
+    @media (max-width: 500px) {
+      .why__grid { grid-template-columns: 1fr; }
+      .gallery__grid { grid-template-columns: 1fr; }
+      .gal-item:nth-child(5) { grid-column: span 1; }
+      .story__stats { flex-wrap: wrap; gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── CUSTOM CURSOR ──────────────────────── -->
+  <div id="cursor-dot"  aria-hidden="true"></div>
+  <div id="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ── MOBILE MENU ───────────────────────── -->
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
+    <button class="mobile-menu__close" id="mmClose" aria-label="Close menu">✕</button>
+    <a href="#collections" class="mm-link">Collections</a>
+    <a href="#showcase"    class="mm-link">The Shoes</a>
+    <a href="#story"       class="mm-link">Our Story</a>
+    <a href="#gallery"     class="mm-link">Gallery</a>
+    <a href="https://wa.me/18687939351" class="mm-link mm-wa" target="_blank" rel="noopener">Order on WhatsApp</a>
+  </nav>
+
+  <!-- ── NAVBAR ────────────────────────────── -->
+  <header class="nav" id="navbar">
+    <a href="#" class="nav__logo" aria-label="Shoe Elegance — Home">Shoe Elegance</a>
+    <nav class="nav__links" aria-label="Site navigation">
+      <a href="#collections">Collections</a>
+      <a href="#showcase">The Shoes</a>
+      <a href="#story">Our Story</a>
+      <a href="#gallery">Gallery</a>
+    </nav>
+    <a href="https://wa.me/18687939351" class="nav__cta" target="_blank" rel="noopener">Order Now</a>
+    <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- ── HERO ──────────────────────────────── -->
+  <section class="hero" id="hero" aria-labelledby="hero-h1">
+    <div class="hero__bg" id="heroBg" role="img" aria-label="Luxury fashion backdrop"></div>
+    <div class="hero__overlay" aria-hidden="true"></div>
+    <div class="hero__content container">
+      <span class="hero__eyebrow">The Art of Luxury Footwear</span>
+      <h1 class="hero__h1" id="hero-h1">
+        Elegance<br><em>In Every Step</em>
+      </h1>
+      <p class="hero__sub">Luxury footwear designed for women who appreciate timeless style, Italian craftsmanship, and the quiet confidence of wearing something truly exceptional.</p>
+      <div class="hero__actions">
+        <a href="#showcase" class="btn btn-gold"><span>Shop Collection</span></a>
+        <a href="https://wa.me/18687939351?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20collection." class="btn btn-outline-light" target="_blank" rel="noopener"><span>Order on WhatsApp</span></a>
+      </div>
+    </div>
+    <div class="hero__scroll-indicator" aria-hidden="true">
+      <div class="hero__scroll-line"></div>
+      <span class="hero__scroll-text">Scroll</span>
+    </div>
+  </section>
+
+  <!-- ── COLLECTIONS ───────────────────────── -->
+  <section class="collections" id="collections" aria-labelledby="col-title">
+    <div class="container">
+      <div class="collections__hd">
+        <span class="eyebrow" style="color:var(--gold)">Curated For You</span>
+        <div class="gold-rule gold-rule--center"></div>
+        <h2 class="collections__title sr" id="col-title">The Collections</h2>
+      </div>
+      <div class="collections__grid">
+
+        <article class="col-card sr sr-d1">
+          <img src="https://picsum.photos/seed/col-evening/600/800" alt="Evening Collection — luxury sculpted heels" class="col-card__img" loading="lazy">
+          <div class="col-card__shade" aria-hidden="true"></div>
+          <div class="col-card__body">
+            <div class="col-card__num">01 — Formal</div>
+            <h3 class="col-card__name">Evening Collection</h3>
+            <p class="col-card__desc">Sculpted silhouettes and refined finishes for the moments that ask more of you.</p>
+            <a href="#showcase" class="col-card__link">
+              View Collection
+              <svg width="14" height="8" viewBox="0 0 14 8" fill="none" aria-hidden="true"><path d="M10 1l3 3-3 3M1 4h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="col-card sr sr-d2">
+          <img src="https://picsum.photos/seed/col-bridal/600/800" alt="Wedding Collection — bridal heels and sandals" class="col-card__img" loading="lazy">
+          <div class="col-card__shade" aria-hidden="true"></div>
+          <div class="col-card__body">
+            <div class="col-card__num">02 — Bridal</div>
+            <h3 class="col-card__name">Wedding Collection</h3>
+            <p class="col-card__desc">Handcrafted for the most important walk of your life. Worn once. Remembered forever.</p>
+            <a href="#showcase" class="col-card__link">
+              View Collection
+              <svg width="14" height="8" viewBox="0 0 14 8" fill="none" aria-hidden="true"><path d="M10 1l3 3-3 3M1 4h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="col-card sr sr-d3">
+          <img src="https://picsum.photos/seed/col-everyday/600/800" alt="Everyday Luxury — chic leather sandals for daily wear" class="col-card__img" loading="lazy">
+          <div class="col-card__shade" aria-hidden="true"></div>
+          <div class="col-card__body">
+            <div class="col-card__num">03 — Daily</div>
+            <h3 class="col-card__name">Everyday Luxury</h3>
+            <p class="col-card__desc">Premium leather that moves with your life. Comfort and elegance, without compromise.</p>
+            <a href="#showcase" class="col-card__link">
+              View Collection
+              <svg width="14" height="8" viewBox="0 0 14 8" fill="none" aria-hidden="true"><path d="M10 1l3 3-3 3M1 4h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HORIZONTAL SHOWCASE ───────────────── -->
+  <section class="showcase" id="showcase" aria-labelledby="showcase-title">
+    <div class="showcase__hd">
+      <div>
+        <span class="eyebrow">Handcrafted in the Caribbean</span>
+        <h2 class="showcase__title sr" id="showcase-title">The Shoe Edit</h2>
+      </div>
+      <div class="showcase__hint sr sr-d1" aria-label="Drag to scroll">
+        <svg width="22" height="10" viewBox="0 0 22 10" fill="none" aria-hidden="true">
+          <path d="M1 5h20M17 1l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Drag to explore</span>
+      </div>
+    </div>
+
+    <div class="showcase__track" id="showcaseTrack" role="list" aria-label="Shoe collection">
+
+      <!-- 1 -->
+      <article class="p-card" role="listitem">
+        <div class="p-card__img-wrap">
+          <img src="https://picsum.photos/seed/pc-rosalind/400/533" alt="The Rosalind — evening mule in Italian leather" class="p-card__img" loading="lazy">
+          <div class="p-card__badge">New</div>
+        </div>
+        <div class="p-card__body">
+          <div class="p-card__cat">Evening Mule</div>
+          <h3 class="p-card__name">The Rosalind</h3>
+          <p class="p-card__desc">Open-toe mule, sculpted block heel. Italian full-grain leather. Sizes 4–14.</p>
+          <div class="p-card__ft">
+            <span class="p-card__price">$485</span>
+            <a href="https://wa.me/18687939351?text=Hello%2C%20I%20would%20like%20to%20order%20The%20Rosalind%20Heel." class="p-card__wa" target="_blank" rel="noopener" aria-label="Order The Rosalind on WhatsApp">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              Order
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="p-card" role="listitem">
+        <div class="p-card__img-wrap">
+          <img src="https://picsum.photos/seed/pc-elara/400/533" alt="The Elara Sandal — strappy Tuscan leather sandal" class="p-card__img" loading="lazy">
+        </div>
+        <div class="p-card__body">
+          <div class="p-card__cat">Strappy Sandal</div>
+          <h3 class="p-card__name">The Elara</h3>
+          <p class="p-card__desc">Hand-cut leather straps, adjustable ankle tie. Your Caribbean essential, elevated.</p>
+          <div class="p-card__ft">
+            <span class="p-card__price">$340</span>
+            <a href="https://wa.me/18687939351?text=Hello%2C%20I%20would%20like%20to%20order%20The%20Elara%20Sandal." class="p-card__wa" target="_blank" rel="noopener" aria-label="Order The Elara on WhatsApp">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              Order
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="p-card" role="listitem">
+        <div class="p-card__img-wrap">
+          <img src="https://picsum.photos/seed/pc-claudette/400/533" alt="The Claudette — classic pointed-toe pump" class="p-card__img" loading="lazy">
+          <div class="p-card__badge">Bestseller</div>
+        </div>
+        <div class="p-card__body">
+          <div class="p-card__cat">Classic Pump</div>
+          <h3 class="p-card__name">The Claudette</h3>
+          <p class="p-card__desc">Pointed-toe pump reimagined. Kitten heel, buttery soft leather lining inside.</p>
+          <div class="p-card__ft">
+            <span class="p-card__price">$420</span>
+            <a href="https://wa.me/18687939351?text=Hello%2C%20I%20would%20like%20to%20order%20The%20Claudette%20Pump." class="p-card__wa" target="_blank" rel="noopener" aria-label="Order The Claudette on WhatsApp">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              Order
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="p-card" role="listitem">
+        <div class="p-card__img-wrap">
+          <img src="https://picsum.photos/seed/pc-serene/400/533" alt="The Serene — luxury leather flat for all-day wear" class="p-card__img" loading="lazy">
+        </div>
+        <div class="p-card__body">
+          <div class="p-card__cat">Luxury Flat</div>
+          <h3 class="p-card__name">The Serene</h3>
+          <p class="p-card__desc">Ballet-inspired leather flat. Memory foam footbed. The all-day answer to elegance.</p>
+          <div class="p-card__ft">
+            <span class="p-card__price">$285</span>
+            <a href="https://wa.me/18687939351?text=Hello%2C%20I%20would%20like%20to%20order%20The%20Serene%20Flat." class="p-card__wa" target="_blank" rel="noopener" aria-label="Order The Serene on WhatsApp">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              Order
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="p-card" role="listitem">
+        <div class="p-card__img-wrap">
+          <img src="https://picsum.photos/seed/pc-riviera/400/533" alt="The Riviera — platform wedge sandal" class="p-card__img" loading="lazy">
+        </div>
+        <div class="p-card__body">
+          <div class="p-card__cat">Platform Wedge</div>
+          <h3 class="p-card__name">The Riviera</h3>
+          <p class="p-card__desc">Island-ready wedge platform. Woven leather strap, comfortable lift. Caribbean-born.</p>
+          <div class="p-card__ft">
+            <span class="p-card__price">$365</span>
+            <a href="https://wa.me/18687939351?text=Hello%2C%20I%20would%20like%20to%20order%20The%20Riviera%20Wedge." class="p-card__wa" target="_blank" rel="noopener" aria-label="Order The Riviera on WhatsApp">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              Order
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6 -->
+      <article class="p-card" role="listitem">
+        <div class="p-card__img-wrap">
+          <img src="https://picsum.photos/seed/pc-midnight/400/533" alt="The Midnight — sleek evening stiletto in patent leather" class="p-card__img" loading="lazy">
+          <div class="p-card__badge">Limited</div>
+        </div>
+        <div class="p-card__body">
+          <div class="p-card__cat">Evening Stiletto</div>
+          <h3 class="p-card__name">The Midnight</h3>
+          <p class="p-card__desc">Glossed patent leather stiletto. Confidence, distilled into the purest possible form.</p>
+          <div class="p-card__ft">
+            <span class="p-card__price">$520</span>
+            <a href="https://wa.me/18687939351?text=Hello%2C%20I%20would%20like%20to%20order%20The%20Midnight%20Stiletto." class="p-card__wa" target="_blank" rel="noopener" aria-label="Order The Midnight on WhatsApp">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              Order
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ── WHY SECTION ────────────────────────── -->
+  <section class="why" id="why" aria-labelledby="why-title">
+    <div class="container">
+      <div class="why__hd">
+        <span class="eyebrow" style="color:var(--gold)">The Difference</span>
+        <div class="gold-rule gold-rule--center"></div>
+        <h2 class="why__title sr" id="why-title">Why Women Choose Shoe Elegance</h2>
+      </div>
+      <div class="why__grid">
+
+        <div class="why-item sr sr-d1">
+          <div class="why-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 46 46" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 6c-7 0-13 6.5-13 14 0 9 13 22 13 22s13-13 13-22c0-7.5-6-14-13-14z"/>
+              <circle cx="23" cy="20" r="4"/>
+            </svg>
+          </div>
+          <h3 class="why-item__name">Premium Materials</h3>
+          <p class="why-item__desc">Full-grain Italian and Tuscan leather sourced for durability and quiet beauty. Materials that age with grace and grow more personal with every step.</p>
+        </div>
+
+        <div class="why-item sr sr-d2">
+          <div class="why-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 46 46" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="8" y="8" width="30" height="30" rx="2"/>
+              <path d="M16 23h14M23 16v14"/>
+              <circle cx="23" cy="23" r="5"/>
+            </svg>
+          </div>
+          <h3 class="why-item__name">Timeless Design</h3>
+          <p class="why-item__desc">Silhouettes drawn from heritage shoe design, refined for the modern woman. Nothing trend-chasing. Everything intentional. Nothing disposable.</p>
+        </div>
+
+        <div class="why-item sr sr-d3">
+          <div class="why-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 46 46" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="23" cy="23" r="15"/>
+              <path d="M23 15v8l5 3"/>
+            </svg>
+          </div>
+          <h3 class="why-item__name">Comfort Meets Luxury</h3>
+          <p class="why-item__desc">Because elegance shouldn't hurt. Memory foam insoles and anatomical lasts mean you wear these shoes well past the first dance, the last speech, the final photo.</p>
+        </div>
+
+        <div class="why-item sr sr-d4">
+          <div class="why-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 46 46" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 35l7-7M38 8l-7 7M15 31l-4 4M31 15l4-4"/>
+              <path d="M19 27l8-8"/>
+              <circle cx="23" cy="23" r="7"/>
+              <path d="M20 23l2 2 4-4"/>
+            </svg>
+          </div>
+          <h3 class="why-item__name">Delivered With Care</h3>
+          <p class="why-item__desc">From Port of Spain to your door across the Caribbean and beyond. Nationwide delivery with personal service built into every single order.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ───────────────────────── -->
+  <section class="reviews" id="reviews" aria-labelledby="reviews-title">
+    <div class="container">
+      <div class="reviews__hd">
+        <span class="eyebrow">Her Words, Not Ours</span>
+        <div class="gold-rule gold-rule--center"></div>
+        <h2 class="reviews__title sr" id="reviews-title">What Our Clients Say</h2>
+      </div>
+      <div class="reviews__grid">
+
+        <article class="review-card sr sr-d1">
+          <div class="review-card__stars" aria-label="Five stars">★★★★★</div>
+          <blockquote class="review-card__quote">"I wore the Claudette pump to my sister's wedding and received more compliments on my shoes than on anything I have ever worn. The craftsmanship is remarkable."</blockquote>
+          <div class="review-card__author">
+            <img src="https://picsum.photos/seed/rev-simone/80/80" alt="Portrait of Simone A." class="review-card__avatar" loading="lazy">
+            <div>
+              <div class="review-card__name">Simone A.</div>
+              <div class="review-card__loc">Barbados</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card sr sr-d2">
+          <div class="review-card__stars" aria-label="Five stars">★★★★★</div>
+          <blockquote class="review-card__quote">"Ordered the Elara sandal from Saint Lucia — it arrived beautifully packaged and fit perfectly. I have never owned anything like them. The leather quality alone is worth every cent."</blockquote>
+          <div class="review-card__author">
+            <img src="https://picsum.photos/seed/rev-kiyara/80/80" alt="Portrait of Kiyara M." class="review-card__avatar" loading="lazy">
+            <div>
+              <div class="review-card__name">Kiyara M.</div>
+              <div class="review-card__loc">Saint Lucia</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card sr sr-d3">
+          <div class="review-card__stars" aria-label="Five stars">★★★★★</div>
+          <blockquote class="review-card__quote">"The Rosalind is the most elegant shoe I own. I was hesitant about ordering online but the WhatsApp process was seamless — I had my pair within days. Will never look elsewhere."</blockquote>
+          <div class="review-card__author">
+            <img src="https://picsum.photos/seed/rev-danielle/80/80" alt="Portrait of Danielle F." class="review-card__avatar" loading="lazy">
+            <div>
+              <div class="review-card__name">Danielle F.</div>
+              <div class="review-card__loc">Trinidad & Tobago</div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BRAND STORY ────────────────────────── -->
+  <section class="story" id="story" aria-labelledby="story-title">
+    <div class="story__inner">
+      <div class="story__img-wrap">
+        <img src="https://picsum.photos/seed/story-atelier/900/700" alt="Master cobbler crafting a leather sandal by hand in the atelier" class="story__img" loading="lazy">
+      </div>
+      <div class="story__content">
+        <span class="eyebrow">Our Heritage</span>
+        <div class="gold-rule"></div>
+        <h2 class="story__title sr" id="story-title">A Legacy of<br><em>Uncommon Craft</em></h2>
+        <p class="story__p sr sr-d1">Shoe Elegance was born from a belief that luxury and handcraft are inseparable. Every pair begins as a conversation — about you, your lifestyle, and the occasion that asks something exceptional of you.</p>
+        <p class="story__p sr sr-d2">Our leather is sourced from Tuscany's finest tanneries. Our construction follows methods that predate mass production. And our commitment to fit means no two feet are treated the same — because they aren't.</p>
+        <div class="story__stats sr sr-d3">
+          <div>
+            <div class="story__stat-num">200+</div>
+            <div class="story__stat-lbl">Years of Heritage</div>
+          </div>
+          <div>
+            <div class="story__stat-num">4th</div>
+            <div class="story__stat-lbl">Generation</div>
+          </div>
+          <div>
+            <div class="story__stat-num">15+</div>
+            <div class="story__stat-lbl">Islands Served</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GALLERY ────────────────────────────── -->
+  <section class="gallery" id="gallery" aria-labelledby="gallery-title">
+    <div class="container">
+      <div class="gallery__hd">
+        <span class="eyebrow" style="color:var(--gold)">The Edit</span>
+        <div class="gold-rule gold-rule--center"></div>
+        <h2 class="gallery__title sr" id="gallery-title">As Seen On Her</h2>
+      </div>
+      <div class="gallery__grid" role="list" aria-label="Lifestyle gallery">
+        <div class="gal-item sr" role="listitem"><img src="https://picsum.photos/seed/gal-a/600/800" alt="Editorial lifestyle — Shoe Elegance worn at golden hour" class="gal-item__img" loading="lazy"></div>
+        <div class="gal-item sr sr-d1" role="listitem"><img src="https://picsum.photos/seed/gal-b/600/400" alt="Editorial close-up — leather sandal detail shot" class="gal-item__img" loading="lazy"></div>
+        <div class="gal-item sr sr-d2" role="listitem"><img src="https://picsum.photos/seed/gal-c/600/400" alt="Editorial — evening heel against marble backdrop" class="gal-item__img" loading="lazy"></div>
+        <div class="gal-item sr sr-d1" role="listitem"><img src="https://picsum.photos/seed/gal-d/600/400" alt="Lifestyle — leather sandal poolside in the Caribbean" class="gal-item__img" loading="lazy"></div>
+        <div class="gal-item sr sr-d2" role="listitem"><img src="https://picsum.photos/seed/gal-e/1200/500" alt="Full collection flat lay — all styles together" class="gal-item__img" loading="lazy"></div>
+        <div class="gal-item sr sr-d3" role="listitem"><img src="https://picsum.photos/seed/gal-f/600/400" alt="Artisan portrait — cobbler at work in the workshop" class="gal-item__img" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FINAL CTA ──────────────────────────── -->
+  <section class="final-cta" aria-labelledby="cta-title">
+    <div class="final-cta__inner">
+      <span class="eyebrow">Ready When You Are</span>
+      <div class="gold-rule gold-rule--center"></div>
+      <h2 class="final-cta__title sr" id="cta-title">Your Next Favourite<br><em>Pair Awaits</em></h2>
+      <p class="final-cta__sub sr sr-d1">Browse the full collection and order directly through WhatsApp. Personal service, Caribbean-wide delivery, every time.</p>
+      <div class="final-cta__actions sr sr-d2">
+        <a href="#showcase" class="btn btn-gold"><span>Browse Collection</span></a>
+        <a href="https://wa.me/18687939351?text=Hello%2C%20I%20would%20like%20to%20browse%20the%20Shoe%20Elegance%20collection." class="btn btn-outline-light" target="_blank" rel="noopener"><span>Order On WhatsApp</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────── -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__top">
+      <div>
+        <div class="footer__brand">Shoe Elegance</div>
+        <p class="footer__desc">Luxury handcrafted footwear from the Caribbean. Italian leather. Generational craft. Timeless style delivered to your door.</p>
+        <nav class="footer__socials" aria-label="Social media links">
+          <a href="#" class="footer__soc" aria-label="Instagram">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="#" class="footer__soc" aria-label="Facebook">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://wa.me/18687939351" class="footer__soc" aria-label="WhatsApp" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          </a>
+        </nav>
+      </div>
+      <div>
+        <div class="footer__col-title">Collections</div>
+        <ul class="footer__col-list">
+          <li><a href="#showcase">Evening Collection</a></li>
+          <li><a href="#showcase">Wedding Collection</a></li>
+          <li><a href="#showcase">Everyday Luxury</a></li>
+          <li><a href="#showcase">New Arrivals</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Information</div>
+        <ul class="footer__col-list">
+          <li><a href="#story">Our Story</a></li>
+          <li><a href="#">Size Guide</a></li>
+          <li><a href="#">Care Guide</a></li>
+          <li><a href="#">Delivery Info</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Contact</div>
+        <ul class="footer__col-list">
+          <li><a href="https://wa.me/18687939351" target="_blank" rel="noopener">WhatsApp Us</a></li>
+          <li><a href="tel:+18687939351">+1 (868) 793-9351</a></li>
+          <li><a href="#">4 Locations — Trinidad</a></li>
+          <li><a href="#">Nationwide Delivery</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2025 Shoe Elegance. Handcrafted in the Caribbean. All rights reserved.</p>
+      <p class="footer__credit">Website by <a href="https://jamalinks758.github.io/jamalinks" target="_blank" rel="noopener noreferrer">JAMALINKS</a></p>
+    </div>
+  </footer>
+
+  <!-- ── FLOATING WHATSAPP ──────────────────── -->
+  <a href="https://wa.me/18687939351?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20Shoe%20Elegance."
+     class="wa-fab"
+     aria-label="Chat with us on WhatsApp"
+     target="_blank"
+     rel="noopener noreferrer">
+    <svg width="27" height="27" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+    </svg>
+  </a>
+
+  <script>
+    /* ================================================
+       CUSTOM CURSOR
+    ================================================ */
+    const dot  = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    const isDesktop = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    if (isDesktop) {
+      let mx = 0, my = 0, rx = 0, ry = 0;
+
+      document.addEventListener('mousemove', e => {
+        mx = e.clientX;
+        my = e.clientY;
+        dot.style.left = mx + 'px';
+        dot.style.top  = my + 'px';
+      });
+
+      // Ring follows with smooth lag (lerp)
+      (function lerpRing() {
+        rx += (mx - rx) * 0.11;
+        ry += (my - ry) * 0.11;
+        ring.style.left = rx + 'px';
+        ring.style.top  = ry + 'px';
+        requestAnimationFrame(lerpRing);
+      })();
+
+      // Expand on interactive elements
+      document.querySelectorAll('a, button, .p-card, .col-card, .gal-item').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          ring.classList.add('c-expand');
+          dot.classList.add('c-hidden');
+        });
+        el.addEventListener('mouseleave', () => {
+          ring.classList.remove('c-expand');
+          dot.classList.remove('c-hidden');
+        });
+      });
+
+      document.addEventListener('mouseleave',  () => { dot.style.opacity='0'; ring.style.opacity='0'; });
+      document.addEventListener('mouseenter',  () => { dot.style.opacity=''; ring.style.opacity=''; });
+    }
+
+    /* ================================================
+       NAVBAR — scroll state
+    ================================================ */
+    const navbar = document.getElementById('navbar');
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          navbar.classList.toggle('scrolled', window.scrollY > 55);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+
+    /* ================================================
+       HERO PARALLAX
+    ================================================ */
+    const heroBg = document.getElementById('heroBg');
+
+    window.addEventListener('scroll', () => {
+      if (!heroBg) return;
+      const sy = window.scrollY;
+      const heroH = document.getElementById('hero').offsetHeight;
+      if (sy < heroH * 1.2) {
+        heroBg.style.transform = `translateY(${sy * 0.38}px)`;
+      }
+    }, { passive: true });
+
+    /* ================================================
+       SCROLL REVEAL — IntersectionObserver
+    ================================================ */
+    const srObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          srObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.sr').forEach(el => srObserver.observe(el));
+
+    /* ================================================
+       HORIZONTAL DRAG SCROLL
+    ================================================ */
+    const track = document.getElementById('showcaseTrack');
+
+    if (track) {
+      let down = false, startX, startScroll, moved = false;
+
+      track.addEventListener('mousedown', e => {
+        down = true;
+        moved = false;
+        startX = e.pageX - track.offsetLeft;
+        startScroll = track.scrollLeft;
+        track.classList.add('dragging');
+      });
+
+      window.addEventListener('mouseup', () => {
+        down = false;
+        track.classList.remove('dragging');
+      });
+
+      track.addEventListener('mousemove', e => {
+        if (!down) return;
+        e.preventDefault();
+        moved = true;
+        const x = e.pageX - track.offsetLeft;
+        track.scrollLeft = startScroll - (x - startX) * 1.75;
+      });
+
+      // Prevent click-through after drag
+      track.addEventListener('click', e => { if (moved) e.preventDefault(); }, true);
+    }
+
+    /* ================================================
+       MOBILE MENU
+    ================================================ */
+    const burger   = document.getElementById('hamburger');
+    const mmenu    = document.getElementById('mobileMenu');
+    const mmClose  = document.getElementById('mmClose');
+    const mmLinks  = mmenu.querySelectorAll('a');
+
+    const openMM  = () => { mmenu.classList.add('open'); mmenu.removeAttribute('aria-hidden'); burger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; };
+    const closeMM = () => { mmenu.classList.remove('open'); mmenu.setAttribute('aria-hidden','true'); burger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; };
+
+    burger.addEventListener('click', openMM);
+    mmClose.addEventListener('click', closeMM);
+    mmLinks.forEach(l => l.addEventListener('click', closeMM));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && mmenu.classList.contains('open')) closeMM(); });
+  </script>
+</body>
+</html>
