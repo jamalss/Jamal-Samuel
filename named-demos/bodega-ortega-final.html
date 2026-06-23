@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bodega Ortega — A Piece of Old Miami</title>
+<meta name="description" content="Family-owned bodega, specialty market, café and sandwich shop in Coconut Grove, Miami. Built on good bread and good people.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:#F3F0E2; --cream-dark:#EAE6D0; --navy:#04567D; --navy-dark:#033d5a;
+  --sage:#D6DED5; --sage-dark:#b8c5b6; --coffee:#6F4E37; --dark:#1F2933;
+  --text:#2d3748; --text-light:#5a6a7a; --white:#fff;
+  --display:'Bebas Neue',sans-serif; --heading:'Oswald',sans-serif;
+  --body:'Inter',sans-serif; --hand:'Caveat',cursive;
+  --ease:0.3s ease; --r:4px;
+  --shadow:0 4px 20px rgba(4,86,125,.12); --shadow-lg:0 12px 40px rgba(4,86,125,.18);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--cream);color:var(--dark);overflow-x:hidden;line-height:1.6}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+
+/* UTILS */
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;
+  font-family:var(--heading);font-weight:600;font-size:.9rem;
+  letter-spacing:.08em;text-transform:uppercase;transition:all var(--ease)}
+.btn-primary{background:var(--navy);color:var(--cream)}
+.btn-primary:hover{background:var(--navy-dark);transform:translateY(-2px);box-shadow:var(--shadow)}
+.btn-outline{background:transparent;color:var(--navy);border:2px solid var(--navy)}
+.btn-outline:hover{background:var(--navy);color:var(--cream)}
+.btn-cream{background:var(--cream);color:var(--navy)}
+.btn-cream:hover{background:var(--cream-dark)}
+.btn-ghost{background:transparent;color:var(--cream);border:2px solid rgba(243,240,226,.4)}
+.btn-ghost:hover{border-color:var(--cream);background:rgba(243,240,226,.1)}
+
+.section-label{font-family:var(--hand);font-size:1.1rem;color:var(--coffee);margin-bottom:6px}
+.divider{width:48px;height:3px;background:var(--navy);margin:16px 0}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+/* ===== HEADER ===== */
+#hdr{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--cream);
+  border-bottom:2px solid var(--navy);transition:box-shadow var(--ease)}
+#hdr.scrolled{box-shadow:var(--shadow)}
+.hdr-inner{display:flex;align-items:center;justify-content:space-between;
+  padding:0 24px;height:68px;max-width:1400px;margin:0 auto}
+.logo-wrap{display:flex;align-items:center;gap:12px}
+.logo-svg{width:44px;height:44px;flex-shrink:0}
+.logo-name{font-family:var(--display);font-size:1.35rem;color:var(--navy);letter-spacing:.05em;line-height:1}
+.logo-sub{font-family:var(--hand);font-size:.74rem;color:var(--coffee);margin-top:1px}
+.nav-links{display:flex;align-items:center;gap:6px;list-style:none}
+.nav-links a{font-family:var(--heading);font-size:.78rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--dark);padding:8px 10px;
+  transition:color var(--ease)}
+.nav-links a:hover{color:var(--navy)}
+.nav-cta{background:var(--navy) !important;color:var(--cream) !important;
+  padding:10px 18px !important;border-radius:var(--r)}
+.nav-cta:hover{background:var(--navy-dark) !important}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:8px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--navy);transition:all var(--ease)}
+.mob-nav{display:none;flex-direction:column;background:var(--cream);
+  border-top:1px solid var(--sage);padding:16px 24px 24px}
+.mob-nav a{display:block;padding:12px 0;font-family:var(--heading);font-size:.95rem;
+  font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--dark);
+  border-bottom:1px solid var(--sage);transition:color var(--ease)}
+.mob-nav a:hover{color:var(--navy)}
+.mob-nav .btn{margin-top:16px;width:100%;justify-content:center}
+
+/* ===== HERO ===== */
+#hero{min-height:100vh;background:var(--navy);position:relative;overflow:hidden;
+  display:flex;flex-direction:column;padding-top:68px}
+.hero-bg{position:absolute;inset:0;
+  background:url('assets/hero-bg.jpg') center/cover;
+  opacity:.22}
+.hero-bg::after{content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(4,86,125,.35) 1px,transparent 1px);
+  background-size:6px 6px;opacity:.35}
+.hero-content{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;
+  justify-content:center;padding:80px 24px 40px;max-width:1200px;margin:0 auto;width:100%}
+.hero-eye{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.hero-eye-line{width:32px;height:2px;background:var(--sage)}
+.hero-eye span{font-family:var(--hand);font-size:1.05rem;color:var(--sage)}
+.hero-h1{font-family:var(--display);font-size:clamp(3.8rem,11vw,9rem);
+  color:var(--cream);line-height:.9;margin-bottom:28px}
+.hero-h1 em{font-style:normal;color:var(--sage)}
+.hero-p{font-size:clamp(.95rem,2vw,1.15rem);color:rgba(243,240,226,.8);
+  max-width:480px;line-height:1.75;margin-bottom:36px}
+.hero-p strong{color:var(--cream)}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:60px}
+.hero-cards{position:relative;z-index:2;border-top:1px solid rgba(243,240,226,.12);
+  padding:0 24px;max-width:1200px;margin:0 auto;width:100%}
+.hc-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.hc-item{padding:22px 18px;border-right:1px solid rgba(243,240,226,.12)}
+.hc-item:last-child{border-right:none}
+.hc-label{font-family:var(--hand);font-size:.88rem;color:var(--sage);margin-bottom:5px}
+.hc-val{font-family:var(--heading);font-size:.95rem;font-weight:600;color:var(--cream);line-height:1.3}
+.hc-sub{font-size:.75rem;color:rgba(243,240,226,.55);margin-top:3px}
+
+/* ===== TICKER ===== */
+.ticker{background:var(--coffee);overflow:hidden;padding:10px 0;white-space:nowrap}
+.ticker-inner{display:inline-flex;animation:tick 32s linear infinite}
+.t-item{display:inline-flex;align-items:center;gap:14px;padding:0 22px;
+  font-family:var(--hand);font-size:1rem;color:var(--cream)}
+.t-dot{width:6px;height:6px;border-radius:50%;background:var(--sage);flex-shrink:0}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ===== STORY ===== */
+#story{padding:100px 0;background:var(--cream);overflow:hidden}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.story-h{font-family:var(--display);font-size:clamp(3rem,6vw,5.5rem);
+  color:var(--navy);line-height:.93;margin:14px 0 24px}
+.story-p{font-size:.97rem;color:var(--text);line-height:1.82;margin-bottom:18px}
+.brothers{display:flex;gap:20px;padding:22px;background:var(--sage);
+  border-left:4px solid var(--navy);margin:32px 0}
+.bro{text-align:center;flex:1}
+.bro-init{width:46px;height:46px;border-radius:50%;background:var(--navy);color:var(--cream);
+  font-family:var(--display);font-size:1.3rem;display:flex;align-items:center;
+  justify-content:center;margin:0 auto 7px}
+.bro-name{font-family:var(--heading);font-size:.78rem;font-weight:600;
+  letter-spacing:.05em;text-transform:uppercase;color:var(--navy)}
+.bro-role{font-family:var(--hand);font-size:.82rem;color:var(--coffee);margin-top:2px}
+.story-q{font-family:var(--hand);font-size:1.35rem;color:var(--navy);
+  line-height:1.5;padding:18px 0;border-top:2px solid var(--navy)}
+.te-amo{margin-top:36px;padding:20px;background:var(--navy);
+  display:flex;align-items:center;gap:16px}
+.te-amo-icon{font-size:1.8rem;flex-shrink:0}
+.te-amo-t{font-size:.85rem;color:rgba(243,240,226,.9);line-height:1.55}
+.te-amo-t strong{color:var(--cream);display:block;margin-bottom:2px}
+/* Story visual */
+.story-vis{position:relative}
+.story-badge{position:absolute;bottom:-18px;right:-18px;width:112px;height:112px;
+  background:var(--coffee);border-radius:50%;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;border:4px solid var(--cream);
+  box-shadow:var(--shadow)}
+.sb-big{font-family:var(--display);font-size:1.9rem;color:var(--cream);line-height:1}
+.sb-sm{font-family:var(--hand);font-size:.68rem;color:var(--sage);text-align:center;line-height:1.2}
+
+/* ===== MENU ===== */
+#menu{padding:100px 0;background:var(--navy);position:relative;overflow:hidden}
+#menu::before{content:'MENU';position:absolute;right:-40px;top:50%;
+  transform:translateY(-50%) rotate(90deg);font-family:var(--display);font-size:11rem;
+  color:rgba(255,255,255,.025);letter-spacing:.1em;pointer-events:none}
+.menu-hdr{text-align:center;margin-bottom:56px}
+.menu-hdr .section-label{color:var(--sage)}
+.menu-h{font-family:var(--display);font-size:clamp(3rem,7vw,6rem);color:var(--cream);line-height:.93}
+.menu-tabs{display:flex;border:1px solid rgba(243,240,226,.18);
+  max-width:480px;margin:0 auto 44px;overflow:hidden}
+.m-tab{flex:1;padding:12px;text-align:center;font-family:var(--heading);
+  font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(243,240,226,.55);background:transparent;transition:all var(--ease);
+  border-right:1px solid rgba(243,240,226,.18);cursor:pointer}
+.m-tab:last-child{border-right:none}
+.m-tab.active{background:var(--cream);color:var(--navy)}
+.m-panel{display:none}
+.m-panel.active{display:block}
+
+/* Drink cards */
+.drinks-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.d-card{background:rgba(243,240,226,.055);border:1px solid rgba(243,240,226,.13);
+  padding:20px;transition:all var(--ease)}
+.d-card:hover{background:rgba(243,240,226,.1);transform:translateY(-3px)}
+.d-name{font-family:var(--heading);font-size:.95rem;font-weight:600;color:var(--cream);margin-bottom:4px}
+.d-detail{font-size:.78rem;color:rgba(243,240,226,.55);margin-bottom:12px;line-height:1.45}
+.d-price{font-family:var(--display);font-size:1.35rem;color:var(--sage)}
+.d-sizes{font-family:var(--hand);font-size:.82rem;color:rgba(243,240,226,.45);margin-top:3px}
+.d-hero{grid-column:1/-1;background:var(--coffee);border:none !important;
+  padding:28px;display:flex;align-items:center;gap:28px}
+.d-hero .d-name{font-size:1.25rem}
+.d-hero .d-detail{font-size:.9rem;color:rgba(243,240,226,.82)}
+.seasonal{background:var(--cream);color:var(--coffee);font-family:var(--display);
+  font-size:.78rem;padding:3px 10px;letter-spacing:.1em;white-space:nowrap;align-self:flex-start}
+
+/* Breakfast */
+.bk-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.m-sec-title{font-family:var(--display);font-size:1.9rem;color:var(--cream);margin-bottom:20px}
+.m-item{display:flex;justify-content:space-between;align-items:baseline;
+  padding:13px 0;border-bottom:1px dashed rgba(243,240,226,.13);gap:16px}
+.m-item:last-child{border-bottom:none}
+.m-item-name{font-family:var(--heading);font-size:.93rem;font-weight:600;color:var(--cream);line-height:1.3}
+.m-item-desc{font-size:.77rem;color:rgba(243,240,226,.52);margin-top:2px;line-height:1.4}
+.m-item-price{font-family:var(--display);font-size:1.15rem;color:var(--sage);flex-shrink:0}
+.addons{background:rgba(255,255,255,.04);padding:14px;border:1px solid rgba(243,240,226,.1);margin-top:14px}
+.addons-lbl{font-family:var(--hand);font-size:.88rem;color:var(--sage);margin-bottom:7px}
+.addons-pills{display:flex;flex-wrap:wrap;gap:7px}
+.pill{font-size:.73rem;color:rgba(243,240,226,.68);
+  background:rgba(243,240,226,.07);padding:4px 10px}
+.ln-box{background:#0a1a2e;border:1px solid rgba(243,240,226,.18);padding:22px;margin-top:20px}
+.ln-tag{background:var(--coffee);color:var(--cream);font-family:var(--display);
+  font-size:.78rem;padding:3px 12px;letter-spacing:.1em;display:inline-block;margin-bottom:14px}
+
+/* Sandwiches */
+.sw-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.sw-card{background:rgba(243,240,226,.05);border:1px solid rgba(243,240,226,.11);
+  padding:22px;position:relative;transition:all var(--ease)}
+.sw-card:hover{background:rgba(243,240,226,.09);border-color:rgba(243,240,226,.28);transform:translateY(-3px)}
+.sw-name{font-family:var(--display);font-size:1.55rem;color:var(--cream);line-height:1;margin-bottom:7px}
+.sw-desc{font-size:.8rem;color:rgba(243,240,226,.58);line-height:1.5;margin-bottom:14px}
+.sw-foot{display:flex;justify-content:space-between;align-items:center}
+.sw-price{font-family:var(--display);font-size:1.75rem;color:var(--sage)}
+.sw-bread{font-family:var(--hand);font-size:.83rem;color:rgba(243,240,226,.38)}
+.sw-card.fav{border-color:var(--coffee)}
+.sw-card.fav::before{content:'★ Fan Favorite';position:absolute;top:-1px;right:14px;
+  background:var(--coffee);color:var(--cream);font-family:var(--hand);font-size:.77rem;padding:3px 10px}
+.sw-note{text-align:center;margin-top:20px;font-family:var(--hand);
+  font-size:.95rem;color:rgba(243,240,226,.38)}
+
+/* ===== TODAY'S BOARD ===== */
+#board{padding:100px 0;background:#121c22;position:relative;overflow:hidden}
+#board::before{content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.013) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.013) 1px,transparent 1px);
+  background-size:40px 40px}
+.board-hdr{text-align:center;margin-bottom:52px;position:relative;z-index:1}
+.board-h{font-family:var(--hand);font-size:clamp(2.4rem,6vw,4.2rem);
+  color:#e8f4e8;letter-spacing:.02em;line-height:1}
+.board-sub{font-family:var(--hand);font-size:1.05rem;color:rgba(232,244,232,.45);margin-top:7px}
+.board-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;position:relative;z-index:1}
+.b-card{background:rgba(255,255,255,.04);border:1px dashed rgba(232,244,232,.14);
+  padding:26px 22px;font-family:var(--hand);transition:all var(--ease)}
+.b-card:hover{background:rgba(255,255,255,.07);border-color:rgba(232,244,232,.28)}
+.b-lbl{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;
+  color:rgba(232,244,232,.38);margin-bottom:11px;font-family:var(--body)}
+.b-title{font-size:1.7rem;color:#e8f4e8;line-height:1.1;margin-bottom:9px}
+.b-desc{font-size:.97rem;color:rgba(232,244,232,.62);line-height:1.5}
+.b-price{margin-top:14px;font-size:2rem;color:#a8d8a8}
+.b-time{margin-top:10px;font-size:.92rem;color:rgba(232,244,232,.42)}
+.b-wide{grid-column:span 2;background:rgba(111,78,55,.22);border-color:rgba(111,78,55,.45)}
+
+/* ===== EVENTS ===== */
+#events{padding:100px 0;background:var(--cream)}
+.events-h{font-family:var(--display);font-size:clamp(2.8rem,6vw,5rem);
+  color:var(--navy);line-height:.93;margin-bottom:4px}
+.ev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px}
+.ev-card{border:2px solid var(--navy);padding:30px 26px;position:relative;
+  overflow:hidden;transition:all var(--ease)}
+.ev-card:hover{background:var(--navy)}
+.ev-card:hover .ev-day,.ev-card:hover .ev-name,.ev-card:hover .ev-desc{color:var(--cream)}
+.ev-card:hover .ev-time{color:rgba(243,240,226,.7)}
+.ev-card:hover .ev-tag{background:var(--cream);color:var(--navy)}
+.ev-bg{position:absolute;right:-18px;bottom:-18px;font-size:7rem;opacity:.05;
+  transition:opacity var(--ease)}
+.ev-card:hover .ev-bg{opacity:.11}
+.ev-tag{display:inline-block;padding:3px 10px;background:var(--sage);color:var(--navy);
+  font-family:var(--heading);font-size:.69rem;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px;transition:all var(--ease)}
+.ev-day{font-family:var(--display);font-size:2.8rem;color:var(--navy);
+  line-height:1;transition:color var(--ease)}
+.ev-name{font-family:var(--heading);font-size:1.05rem;font-weight:700;color:var(--navy);
+  text-transform:uppercase;letter-spacing:.05em;margin:7px 0 3px;transition:color var(--ease)}
+.ev-time{font-family:var(--hand);font-size:.97rem;color:var(--coffee);transition:color var(--ease)}
+.ev-desc{font-size:.83rem;color:var(--text-light);margin-top:14px;line-height:1.6;transition:color var(--ease)}
+.ev-soon{background:var(--sage);border-color:var(--sage-dark)}
+
+/* ===== MARKET ===== */
+#market{padding:100px 0;background:var(--navy)}
+.mkt-hdr{text-align:center;margin-bottom:56px}
+.mkt-hdr .section-label{color:var(--sage)}
+.mkt-h{font-family:var(--display);font-size:clamp(3rem,6vw,5.5rem);color:var(--cream);line-height:.93}
+.mkt-sub{font-size:.97rem;color:rgba(243,240,226,.7);max-width:460px;
+  margin:18px auto 0;line-height:1.72}
+.mkt-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.mkt-card{background:var(--cream);padding:30px 22px;text-align:center;
+  position:relative;transition:all var(--ease)}
+.mkt-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.mkt-icon{font-size:2.8rem;margin-bottom:14px;display:block}
+.mkt-name{font-family:var(--heading);font-size:.97rem;font-weight:700;color:var(--navy);
+  text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px}
+.mkt-desc{font-size:.8rem;color:var(--text-light);line-height:1.5}
+.mkt-src{font-family:var(--hand);font-size:.83rem;color:var(--coffee);margin-top:10px}
+.mkt-badge{position:absolute;top:11px;right:11px;background:var(--coffee);
+  color:var(--cream);font-family:var(--hand);font-size:.69rem;padding:2px 8px}
+.mkt-more{text-align:center;margin-top:40px;padding:26px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(243,240,226,.14)}
+.mkt-more-t{font-family:var(--hand);font-size:1.15rem;color:var(--sage)}
+.mkt-more-t strong{color:var(--cream)}
+
+/* ===== PRESS ===== */
+#press{padding:80px 0;background:var(--cream-dark)}
+.press-hdr{text-align:center;margin-bottom:44px}
+.press-h{font-family:var(--display);font-size:clamp(2rem,5vw,3.8rem);color:var(--navy)}
+.press-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.pr-card{background:var(--cream);padding:26px 22px;
+  border-top:3px solid var(--navy);transition:all var(--ease)}
+.pr-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.pr-outlet{font-family:var(--display);font-size:1.15rem;color:var(--navy);
+  margin-bottom:11px;letter-spacing:.05em}
+.pr-quote{font-size:.83rem;color:var(--text-light);line-height:1.6;font-style:italic}
+.pr-date{font-family:var(--hand);font-size:.78rem;color:var(--coffee);margin-top:11px}
+
+/* ===== COMMUNITY ===== */
+#community{padding:100px 0;background:var(--cream)}
+.comm-hdr{text-align:center;margin-bottom:52px}
+.comm-h{font-family:var(--display);font-size:clamp(2.8rem,6vw,5rem);color:var(--navy);line-height:.93}
+.comm-sub{font-family:var(--hand);font-size:1.15rem;color:var(--coffee);margin-top:11px}
+.pol-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.pol{background:#fff;padding:10px 10px 38px;
+  box-shadow:0 4px 16px rgba(0,0,0,.1);transition:all var(--ease)}
+.pol:hover{transform:scale(1.03) translateY(-4px) rotate(0deg) !important;
+  box-shadow:0 16px 40px rgba(0,0,0,.15);z-index:2;position:relative}
+.pol:nth-child(1){transform:rotate(-2deg)}
+.pol:nth-child(2){transform:rotate(1.5deg)}
+.pol:nth-child(3){transform:rotate(-1deg)}
+.pol:nth-child(4){transform:rotate(2deg)}
+.pol-ph{width:100%;aspect-ratio:1;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:10px}
+.pol-icon{font-size:2.4rem}
+.pol-ph-txt{font-family:var(--hand);font-size:.82rem;color:var(--navy);
+  opacity:.58;text-align:center;padding:0 10px}
+.pol-cap{font-family:var(--hand);font-size:.95rem;color:var(--dark);
+  text-align:center;margin-top:9px;line-height:1.3}
+.vals{display:grid;grid-template-columns:repeat(4,1fr);
+  border:2px solid var(--navy);margin-top:60px}
+.val{padding:30px 22px;text-align:center;border-right:2px solid var(--navy)}
+.val:last-child{border-right:none}
+.val-icon{font-size:2.3rem;margin-bottom:11px}
+.val-title{font-family:var(--heading);font-size:.95rem;font-weight:700;color:var(--navy);
+  text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px}
+.val-desc{font-size:.8rem;color:var(--text-light);line-height:1.6}
+
+/* ===== VISIT ===== */
+#visit{padding:100px 0;background:var(--navy)}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.visit-hdr .section-label{color:var(--sage)}
+.visit-h{font-family:var(--display);font-size:clamp(2.8rem,6vw,5.5rem);
+  color:var(--cream);line-height:.93;margin:14px 0 30px}
+.addr-line{font-family:var(--display);font-size:1.55rem;color:var(--cream);line-height:1.1}
+.addr-sub{font-family:var(--hand);font-size:.97rem;color:var(--sage);margin-top:4px}
+.hrs-lbl{font-family:var(--hand);font-size:.97rem;color:var(--sage);margin-bottom:11px;margin-top:28px}
+.hr-row{display:flex;justify-content:space-between;padding:9px 0;
+  border-bottom:1px solid rgba(243,240,226,.09);font-size:.88rem;color:rgba(243,240,226,.78)}
+.hr-row:last-child{border-bottom:none}
+.hr-row .days{font-weight:500;color:var(--cream)}
+.visit-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.map-box{aspect-ratio:4/5;border:1px solid rgba(243,240,226,.14);position:relative;overflow:hidden}
+.map-box iframe{width:100%;height:100%;border:none;display:block}
+.map-tag{position:absolute;top:16px;left:16px;background:var(--cream);color:var(--navy);
+  padding:7px 14px;font-family:var(--heading);font-size:.73rem;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;z-index:1}
+
+/* ===== FOOTER ===== */
+footer{background:#0d1f2d;padding:52px 0 28px;border-top:3px solid var(--coffee)}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:44px;margin-bottom:44px}
+.ft-tagline{font-family:var(--hand);font-size:1.05rem;color:rgba(243,240,226,.68);
+  margin-top:14px;line-height:1.55}
+.ft-social{display:flex;gap:10px;margin-top:22px}
+.soc-btn{display:flex;align-items:center;gap:7px;padding:8px 13px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);
+  color:rgba(243,240,226,.78);font-family:var(--heading);font-size:.73rem;
+  font-weight:600;letter-spacing:.05em;text-transform:uppercase;transition:all var(--ease)}
+.soc-btn:hover{background:var(--navy);border-color:var(--navy);color:var(--cream)}
+.ft-col-title{font-family:var(--heading);font-size:.72rem;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--sage);margin-bottom:18px}
+.ft-links{list-style:none}
+.ft-links li{margin-bottom:9px}
+.ft-links a{font-size:.86rem;color:rgba(243,240,226,.62);transition:color var(--ease)}
+.ft-links a:hover{color:var(--cream)}
+.ft-info p{font-size:.83rem;color:rgba(243,240,226,.62);margin-bottom:5px;line-height:1.5}
+.ft-bottom{padding-top:28px;border-top:1px solid rgba(255,255,255,.07);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:11px}
+.ft-copy{font-size:.76rem;color:rgba(243,240,226,.3)}
+.ft-credit{font-family:var(--hand);font-size:.83rem;color:rgba(243,240,226,.3)}
+
+/* ===== FLOAT CTA ===== */
+.float-cta{position:fixed;bottom:26px;right:26px;z-index:500;
+  background:var(--navy);color:var(--cream);padding:13px 22px;
+  font-family:var(--heading);font-size:.8rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:9px;
+  box-shadow:0 8px 32px rgba(4,86,125,.4);transition:all var(--ease);
+  opacity:0;transform:translateY(20px);pointer-events:none}
+.float-cta.vis{opacity:1;transform:translateY(0);pointer-events:auto}
+.float-cta:hover{background:var(--coffee);box-shadow:0 12px 40px rgba(111,78,55,.4)}
+.f-dot{width:7px;height:7px;background:#4CAF50;border-radius:50%;animation:pdot 2s infinite}
+@keyframes pdot{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ===== MOBILE BOTTOM ACTION BAR ===== */
+.mob-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:900;
+  background:var(--navy);border-top:2px solid var(--coffee);
+  grid-template-columns:repeat(3,1fr)}
+.mob-bar a{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:4px;padding:10px 4px;color:rgba(243,240,226,.8);
+  font-family:var(--heading);font-size:.62rem;font-weight:600;
+  letter-spacing:.07em;text-transform:uppercase;transition:all var(--ease);
+  border-right:1px solid rgba(243,240,226,.1)}
+.mob-bar a:last-child{border-right:none}
+.mob-bar a:hover,.mob-bar a:active{background:rgba(255,255,255,.1);color:var(--cream)}
+.mob-bar-icon{font-size:1.2rem;line-height:1}
+.mob-bar a.mob-cta{background:var(--coffee);color:var(--cream)}
+.mob-bar a.mob-cta:hover{background:#5a3d2a}
+
+/* ===== PHOTO BLOCKS ===== */
+.photo-block{width:100%;background:var(--sage);position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center}
+.photo-block img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:10px;padding:32px;text-align:center;width:100%}
+.photo-ph-icon{font-size:3rem}
+.photo-ph-label{font-family:var(--hand);font-size:.88rem;color:var(--navy);
+  opacity:.55;line-height:1.4}
+.photo-ph-note{font-family:var(--body);font-size:.7rem;color:var(--navy);
+  opacity:.35;margin-top:4px;letter-spacing:.05em;text-transform:uppercase}
+
+/* ===== HERO TAGLINE ===== */
+.hero-tagline{font-family:var(--heading);font-size:clamp(.8rem,2vw,.95rem);
+  font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--sage);margin-bottom:16px;
+  background:rgba(4,86,125,.4);display:inline-block;padding:6px 14px;
+  border-left:3px solid var(--coffee)}
+
+/* ===== MENU SECTION CTA BAR ===== */
+.menu-cta-bar{margin-top:36px;padding:22px 24px;
+  background:rgba(243,240,226,.06);border:1px solid rgba(243,240,226,.14);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.menu-cta-text{font-family:var(--hand);font-size:1.05rem;color:rgba(243,240,226,.7)}
+.menu-cta-text strong{color:var(--cream);display:block;font-size:1.15rem}
+.menu-cta-btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn-sm{padding:10px 18px;font-size:.78rem}
+
+/* ===== PRESS — editorial style ===== */
+.pr-as-seen{font-family:var(--hand);font-size:.82rem;color:var(--coffee);
+  margin-bottom:6px;letter-spacing:.02em}
+.pr-coverage{font-size:.8rem;color:var(--text-light);line-height:1.55}
+
+/* ===== SOCIAL PROOF STRIP ===== */
+#social-proof{background:var(--navy);padding:48px 0;border-top:2px solid rgba(243,240,226,.08)}
+.sp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.sp-item{padding:24px 20px;text-align:center;border-right:1px solid rgba(243,240,226,.1)}
+.sp-item:last-child{border-right:none}
+.sp-number{font-family:var(--display);font-size:2.8rem;color:var(--cream);line-height:1}
+.sp-label{font-family:var(--hand);font-size:.95rem;color:var(--sage);margin-top:4px}
+.sp-sub{font-size:.73rem;color:rgba(243,240,226,.4);margin-top:3px;font-family:var(--body)}
+
+/* ===== BOARD — call ahead note ===== */
+.board-callout{position:relative;z-index:1;margin-top:28px;
+  text-align:center;padding:14px 20px;
+  background:rgba(111,78,55,.18);border:1px dashed rgba(232,244,232,.18)}
+.board-callout p{font-family:var(--hand);font-size:1rem;color:rgba(232,244,232,.65)}
+.board-callout strong{color:#e8f4e8}
+
+/* ===== DEMO DISCLAIMER ===== */
+.demo-disclaimer{text-align:center;padding:10px 24px;
+  font-size:.7rem;color:rgba(243,240,226,.22);font-family:var(--body);
+  border-top:1px solid rgba(255,255,255,.04);font-style:italic}
+
+/* ===== PHOTO STRIP BETWEEN SECTIONS ===== */
+.photo-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
+.photo-strip .photo-block{aspect-ratio:1}
+
+/* ===== BOARD SOLD-OUT BADGE ===== */
+.b-sold{display:inline-block;margin-top:10px;font-size:.75rem;
+  background:rgba(255,100,100,.2);color:#ffaaaa;
+  border:1px solid rgba(255,100,100,.3);padding:3px 10px;
+  font-family:var(--body);letter-spacing:.08em;text-transform:uppercase}
+.b-avail{display:inline-block;margin-top:10px;font-size:.75rem;
+  background:rgba(100,200,100,.12);color:#a8d8a8;
+  border:1px solid rgba(100,200,100,.25);padding:3px 10px;
+  font-family:var(--body);letter-spacing:.08em;text-transform:uppercase}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1100px){
+  .mkt-grid{grid-template-columns:repeat(2,1fr)}
+  .press-grid{grid-template-columns:repeat(2,1fr)}
+  .drinks-grid{grid-template-columns:repeat(2,1fr)}
+  .ft-grid{grid-template-columns:1fr 1fr}
+  .ft-grid .ft-brand{grid-column:1/-1}
+}
+@media(max-width:900px){
+  .story-grid{grid-template-columns:1fr;gap:44px}
+  .story-vis{order:-1}
+  .story-badge{right:14px}
+  .ev-grid{grid-template-columns:1fr 1fr}
+  .pol-grid{grid-template-columns:1fr 1fr}
+  .vals{grid-template-columns:1fr 1fr}
+  .val{border-bottom:2px solid var(--navy)}
+  .val:nth-child(2){border-right:none}
+  .val:nth-child(3){border-bottom:none}
+  .val:nth-child(4){border-right:none;border-bottom:none}
+  .hc-grid{grid-template-columns:repeat(2,1fr)}
+  .hc-item:nth-child(2){border-right:none}
+  .hc-item:nth-child(3),.hc-item:nth-child(4){border-top:1px solid rgba(243,240,226,.12)}
+  .hc-item:nth-child(4){border-right:none}
+  .visit-grid{grid-template-columns:1fr}
+  .map-box{aspect-ratio:4/3}
+  .board-grid{grid-template-columns:1fr 1fr}
+  .b-wide{grid-column:span 2}
+  .sw-grid{grid-template-columns:1fr 1fr}
+  .bk-grid{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .mob-nav.open{display:flex}
+  .hero-h1{font-size:clamp(3rem,13vw,4.8rem)}
+  .ev-grid{grid-template-columns:1fr}
+  .mkt-grid{grid-template-columns:1fr 1fr}
+  .press-grid{grid-template-columns:1fr}
+  .pol-grid{grid-template-columns:1fr 1fr}
+  .vals{grid-template-columns:1fr 1fr}
+  .board-grid{grid-template-columns:1fr}
+  .b-wide{grid-column:1}
+  .sw-grid{grid-template-columns:1fr}
+  .drinks-grid{grid-template-columns:1fr 1fr}
+  .d-hero{flex-direction:column;grid-column:1/-1}
+  .ft-grid{grid-template-columns:1fr;gap:28px}
+  .ft-bottom{flex-direction:column;text-align:center}
+  .float-cta{bottom:14px;right:14px;padding:11px 16px;font-size:.74rem}
+  .hero-btns,.visit-btns{flex-direction:column}
+  .hero-btns .btn,.visit-btns .btn{justify-content:center}
+  .brothers{flex-direction:column}
+}
+@media(max-width:420px){
+  .mkt-grid{grid-template-columns:1fr}
+  .pol-grid{grid-template-columns:1fr}
+  .pol{transform:none !important}
+  .drinks-grid{grid-template-columns:1fr}
+  .hc-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:680px){
+  .mob-bar{display:grid}
+  body{padding-bottom:64px}
+  .float-cta{bottom:80px;right:14px;padding:10px 14px;font-size:.72rem}
+  .sp-grid{grid-template-columns:repeat(2,1fr)}
+  .sp-item:nth-child(2){border-right:none}
+  .sp-item:nth-child(3),.sp-item:nth-child(4){border-top:1px solid rgba(243,240,226,.1)}
+  .sp-item:nth-child(4){border-right:none}
+  .photo-strip{grid-template-columns:repeat(2,1fr)}
+  .menu-cta-bar{flex-direction:column;align-items:flex-start}
+  .press-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- LOGO SVG MACRO (reused) -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="logo-bag" viewBox="0 0 80 80">
+    <path d="M18 30h44l-6 36H24L18 30z" fill="#04567D" opacity=".15" stroke="#04567D" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M30 30c0-8 4-14 10-14s10 6 10 14" stroke="#04567D" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <rect x="26" y="36" width="10" height="14" rx="2" fill="#6F4E37" opacity=".7"/>
+    <circle cx="50" cy="43" r="7" fill="#04567D" opacity=".5"/>
+    <ellipse cx="52" cy="60" rx="6" ry="4" fill="#04567D" opacity=".4"/>
+    <line x1="46" y1="58" x2="43" y2="55" stroke="#04567D" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="46" y1="60" x2="42" y2="60" stroke="#04567D" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="58" y1="58" x2="61" y2="55" stroke="#04567D" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="58" y1="60" x2="62" y2="60" stroke="#04567D" stroke-width="1.5" stroke-linecap="round"/>
+  </symbol>
+</svg>
+
+<!-- ===== HEADER ===== -->
+<header id="hdr">
+  <div class="hdr-inner">
+    <a href="#hero" class="logo-wrap">
+      <img src="assets/logo.jpg" alt="Bodega Ortega" class="logo-svg" style="border-radius:50%;object-fit:cover;">
+      <div><div class="logo-name">BODEGA ORTEGA</div><div class="logo-sub">Coconut Grove · Miami, FL · Est. 2026</div></div>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#story">Story</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#market">Market</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#visit">Visit</a></li>
+        <li><a href="https://maps.google.com/?q=2859+Bird+Ave+Miami+FL+33133" target="_blank" class="nav-cta">Get Directions</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+  <div class="mob-nav" id="mobNav">
+    <a href="#story">Our Story</a><a href="#menu">Menu</a>
+    <a href="#events">Events</a><a href="#market">Market</a>
+    <a href="#community">Community</a><a href="#visit">Visit</a>
+    <a href="https://maps.google.com/?q=2859+Bird+Ave+Miami+FL+33133" target="_blank" class="btn btn-primary">Get Directions</a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content reveal">
+    <div class="hero-eye">
+      <div class="hero-eye-line"></div>
+      <span>2859 Bird Ave · Coconut Grove · Miami, FL 33133</span>
+    </div>
+    <div class="hero-tagline">Coconut Grove's neighborhood bodega for coffee, sandwiches, local goods &amp; community</div>
+    <h1 class="hero-h1">A Piece Of<br><em>Old Miami,</em><br>Reimagined.</h1>
+    <p class="hero-p"><strong>Puerto Rican roots. Cuban flavor.</strong><br>Neighborhood hospitality. Coffee, handcrafted sandwiches, local goods and community events in the heart of Coconut Grove.</p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn btn-cream">View Menu</a>
+      <a href="tel:+13050000000" class="btn btn-outline" style="border-color:rgba(243,240,226,.5);color:var(--cream);">📞 Call Store</a>
+      <a href="https://maps.google.com/?q=2859+Bird+Ave+Miami+FL+33133" target="_blank" class="btn btn-ghost">Get Directions</a>
+    </div>
+  </div>
+  <div class="hero-cards">
+    <div class="hc-grid">
+      <div class="hc-item">
+        <div class="hc-label">Open Today</div>
+        <div class="hc-val" id="todayHours">Mon–Sat 7AM – 11PM</div>
+        <div class="hc-sub">2859 Bird Ave, Miami FL</div>
+      </div>
+      <div class="hc-item">
+        <div class="hc-label">Today's Special</div>
+        <div class="hc-val">Mango Cold Foam Latte</div>
+        <div class="hc-sub">Ask Carlos at the counter</div>
+      </div>
+      <div class="hc-item">
+        <div class="hc-label">Next Event</div>
+        <div class="hc-val">Sticker Night — Tuesday</div>
+        <div class="hc-sub">6:30 PM · All ages welcome</div>
+      </div>
+      <div class="hc-item">
+        <div class="hc-label">From The Market</div>
+        <div class="hc-val">Organic Eggs In Stock</div>
+        <div class="hc-sub">Paradise Farms · Miami, FL</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-inner">
+    <span class="t-item"><span class="t-dot"></span>Built on Good Bread and Good People</span>
+    <span class="t-item"><span class="t-dot"></span>Panini Sticker Trading Night · Every Tuesday 6:30PM · All Ages</span>
+    <span class="t-item"><span class="t-dot"></span>Mini Strawberry Pavlovas · Every Saturday 10AM Until Sold Out</span>
+    <span class="t-item"><span class="t-dot"></span>Locally Roasted by Mucaro Coffee · Miami, FL</span>
+    <span class="t-item"><span class="t-dot"></span>Organic Local Products from Paradise Farms · South Florida</span>
+    <span class="t-item"><span class="t-dot"></span>Late Night Fri & Sat · 9PM–11PM · Lito's Late Nite Special $15</span>
+    <span class="t-item"><span class="t-dot"></span>305 Local · Coconut Grove · Miami FL 🌴</span>
+    <span class="t-item"><span class="t-dot"></span>Built on Good Bread and Good People</span>
+    <span class="t-item"><span class="t-dot"></span>Panini Sticker Trading Night · Every Tuesday 6:30PM · All Ages</span>
+    <span class="t-item"><span class="t-dot"></span>Mini Strawberry Pavlovas · Every Saturday 10AM Until Sold Out</span>
+    <span class="t-item"><span class="t-dot"></span>Locally Roasted by Mucaro Coffee · Miami, FL</span>
+    <span class="t-item"><span class="t-dot"></span>Organic Local Products from Paradise Farms · South Florida</span>
+    <span class="t-item"><span class="t-dot"></span>Late Night Fri & Sat · 9PM–11PM · Lito's Late Nite Special $15</span>
+    <span class="t-item"><span class="t-dot"></span>305 Local · Coconut Grove · Miami FL 🌴</span>
+  </div>
+</div>
+
+<!-- PHOTO STRIP -->
+<div class="photo-strip" aria-hidden="true">
+  <div class="photo-block" style="aspect-ratio:1">
+    <img src="assets/coffeemaker.jpg" alt="Coffee at Bodega Ortega" class="img-fluid object-fit-cover mx-auto" loading="lazy">
+  </div>
+  <div class="photo-block" style="aspect-ratio:1">
+    <img src="assets/sandwich01.jpg" class="img-fluid object-fit-cover mx-auto" alt="Bodega sandwiches" loading="lazy">
+  </div>
+  <div class="photo-block" style="aspect-ratio:1">
+    <img src="assets/merch.jpg" alt="Fresh local produce" class="img-fluid object-fit-cover mx-auto" loading="lazy">
+  </div>
+  <div class="photo-block" style="aspect-ratio:1">
+    <img src="assets/rolls.jpg" class="img-fluid object-fit-cover mx-auto" alt="Neighborhood community" loading="lazy">
+  </div>
+</div>
+
+<!-- ===== STORY ===== -->
+<section id="story">
+  <div class="container">
+    <div class="story-grid">
+      <div>
+        <div class="section-label reveal">The Ortega Family</div>
+        <h2 class="story-h reveal d1">Built In Memory.<br>Built For Community.</h2>
+        <div class="divider reveal d1"></div>
+        <p class="story-p reveal d2">Three brothers. One vision. A love letter to the Miami they grew up in — and to the mother who taught them that community, culture, and a good meal could hold a neighborhood together.</p>
+        <p class="story-p reveal d2">Carlos, Alvaro, and Sebastian Ortega were born in Puerto Rico, raised by Cuban parents right here in the heart of Miami. They wanted their bodega to feel like a Puerto Rican-inspired New York deli — but with a Miami twist. A place with photos of Coral Gables, Key Biscayne, family on the walls, and the kind of hospitality where your order is already known when you walk in.</p>
+        <p class="story-p reveal d3">Good food at fair prices. No $20 bacon, egg and cheese. A local snack wall built from customer suggestions. Specialty items, always something new to try — and community that goes beyond the transaction.</p>
+        <div class="brothers reveal d3">
+          <div class="bro"><div class="bro-init">C</div><div class="bro-name">Carlos</div><div class="bro-role">Co-Founder</div></div>
+          <div class="bro"><div class="bro-init">A</div><div class="bro-name">Alvaro</div><div class="bro-role">Co-Founder</div></div>
+          <div class="bro"><div class="bro-init">S</div><div class="bro-name">Sebastian</div><div class="bro-role">Co-Founder</div></div>
+        </div>
+        <blockquote class="story-q reveal d4">"A place where you're known,<br>not just served."</blockquote>
+        <div class="te-amo reveal d4">
+          <div class="te-amo-icon" style="display:none"></div>
+          <div class="te-amo-t">
+            <strong>Te Amo Foundation</strong>
+            Supporting mental health awareness in honor of the Ortega family matriarch — because a bodega that feeds the community should also hold it together.
+          </div>
+        </div>
+      </div>
+      <div class="story-vis reveal">
+        <img src="assets/family.jpg" alt="The Ortega Brothers — Carlos, Alvaro and Sebastian" style="width:100%;display:block;border-radius:4px;box-shadow:0 12px 40px rgba(4,86,125,.18)">
+        <!-- SVG hidden, family photo used instead -->
+        <svg viewBox="0 0 400 520" style="width:100%;display:none" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="400" height="520" fill="#EAE6D0"/>
+          <!-- Sky detail -->
+          <circle cx="340" cy="80" r="30" fill="rgba(4,86,125,.08)"/>
+          <circle cx="320" cy="95" r="20" fill="rgba(4,86,125,.06)"/>
+          <!-- Palm trees -->
+          <rect x="32" y="260" width="8" height="100" fill="#6F4E37" opacity=".6"/>
+          <ellipse cx="36" cy="255" rx="28" ry="18" fill="#b8c5b6" opacity=".7"/>
+          <ellipse cx="22" cy="248" rx="18" ry="12" fill="#b8c5b6" opacity=".5"/>
+          <rect x="358" y="270" width="7" height="90" fill="#6F4E37" opacity=".55"/>
+          <ellipse cx="362" cy="265" rx="24" ry="16" fill="#b8c5b6" opacity=".65"/>
+          <!-- Building body -->
+          <rect x="58" y="230" width="284" height="220" fill="#F3F0E2" stroke="#04567D" stroke-width="2.5"/>
+          <!-- Upper windows -->
+          <rect x="78" y="248" width="52" height="40" fill="#D6DED5" stroke="#04567D" stroke-width="1.5" rx="1"/>
+          <line x1="104" y1="248" x2="104" y2="288" stroke="#04567D" stroke-width="1"/>
+          <rect x="174" y="248" width="52" height="40" fill="#D6DED5" stroke="#04567D" stroke-width="1.5" rx="1"/>
+          <line x1="200" y1="248" x2="200" y2="288" stroke="#04567D" stroke-width="1"/>
+          <rect x="270" y="248" width="52" height="40" fill="#D6DED5" stroke="#04567D" stroke-width="1.5" rx="1"/>
+          <line x1="296" y1="248" x2="296" y2="288" stroke="#04567D" stroke-width="1"/>
+          <!-- Sign band -->
+          <rect x="58" y="292" width="284" height="34" fill="#04567D"/>
+          <text x="200" y="314" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="20" fill="#F3F0E2" letter-spacing="4">BODEGA ORTEGA</text>
+          <!-- Category labels -->
+          <rect x="70" y="289" width="38" height="11" fill="#6F4E37" rx="2"/>
+          <text x="89" y="298" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#F3F0E2">CAFÉ</text>
+          <rect x="153" y="289" width="52" height="11" fill="#6F4E37" rx="2"/>
+          <text x="179" y="298" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#F3F0E2">SANDWICHES</text>
+          <rect x="257" y="289" width="36" height="11" fill="#6F4E37" rx="2"/>
+          <text x="275" y="298" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#F3F0E2">MARKET</text>
+          <rect x="305" y="289" width="30" height="11" fill="#6F4E37" rx="2"/>
+          <text x="320" y="298" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#F3F0E2">VINO</text>
+          <!-- Store windows -->
+          <rect x="68" y="332" width="76" height="88" fill="#D6DED5" opacity=".55" stroke="#04567D" stroke-width="1.5"/>
+          <line x1="106" y1="332" x2="106" y2="420" stroke="#04567D" stroke-width="1" opacity=".5"/>
+          <line x1="68" y1="376" x2="144" y2="376" stroke="#04567D" stroke-width="1" opacity=".5"/>
+          <rect x="158" y="332" width="84" height="88" fill="#D6DED5" opacity=".55" stroke="#04567D" stroke-width="1.5"/>
+          <line x1="200" y1="332" x2="200" y2="420" stroke="#04567D" stroke-width="1" opacity=".5"/>
+          <line x1="158" y1="376" x2="242" y2="376" stroke="#04567D" stroke-width="1" opacity=".5"/>
+          <!-- Door -->
+          <rect x="257" y="348" width="52" height="72" fill="#6F4E37" opacity=".65" stroke="#04567D" stroke-width="1.5" rx="2"/>
+          <circle cx="275" cy="387" r="3" fill="#F3F0E2"/>
+          <!-- OPEN sign -->
+          <rect x="80" y="340" width="38" height="16" fill="#04567D" rx="2"/>
+          <text x="99" y="351" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#F3F0E2" font-weight="bold">OPEN</text>
+          <!-- Products in window -->
+          <rect x="172" y="344" width="10" height="20" rx="2" fill="#6F4E37" opacity=".5"/>
+          <rect x="186" y="348" width="10" height="16" rx="2" fill="#04567D" opacity=".4"/>
+          <circle cx="215" cy="358" r="9" fill="#04567D" opacity=".3"/>
+          <!-- Sidewalk -->
+          <rect x="0" y="450" width="400" height="70" fill="#d4cdb8"/>
+          <line x1="0" y1="475" x2="400" y2="475" stroke="#c4bda8" stroke-width="1"/>
+          <!-- People silhouettes -->
+          <circle cx="330" cy="446" r="7" fill="#04567D" opacity=".35"/>
+          <rect x="326" y="453" width="8" height="14" fill="#04567D" opacity=".28" rx="2"/>
+          <circle cx="355" cy="448" r="6" fill="#6F4E37" opacity=".3"/>
+          <rect x="351" y="454" width="8" height="12" fill="#6F4E37" opacity=".25" rx="2"/>
+          <!-- 305 graffiti style -->
+          <text x="26" y="498" font-family="'Bebas Neue',sans-serif" font-size="22" fill="#04567D" opacity=".4" letter-spacing="2">305</text>
+          <text x="26" y="514" font-family="'Caveat',cursive" font-size="10" fill="#04567D" opacity=".35">LOCAL</text>
+        </svg>
+        <div class="story-badge">
+          <div class="sb-big">305</div>
+          <div class="sb-sm">Local<br>Miami</div>
+        </div>
+      </div>
+    </div>
+    <!-- Photo evidence strip below story -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:48px" class="reveal">
+      <div class="photo-block" style="aspect-ratio:16/9">
+        <img src="assets/store01.jpg" class="img-fluid object-fit-cover mx-auto" alt="Inside Bodega Ortega" loading="lazy">
+      </div>
+      <div class="photo-block" style="aspect-ratio:16/9">
+        <img src="assets/store02.jpg" class="img-fluid object-fit-cover mx-auto" alt="Fresh sandwiches and coffee" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MENU ===== -->
+<section id="menu">
+  <div class="container">
+    <div class="menu-hdr reveal">
+      <div class="section-label">Fresh Daily</div>
+      <h2 class="menu-h">OUR<br>MENU</h2>
+    </div>
+    <div class="menu-tabs reveal">
+      <button class="m-tab active" data-tab="coffee">Coffee &amp; Drinks</button>
+      <button class="m-tab" data-tab="breakfast">Breakfast</button>
+      <button class="m-tab" data-tab="sandwiches">Sandwiches</button>
+    </div>
+
+    <!-- COFFEE -->
+    <div class="m-panel active" id="panel-coffee">
+      <div class="drinks-grid">
+        <div class="d-card reveal"><div class="d-name">Cortadito</div><div class="d-detail">Cuban espresso, cut with steamed milk. The one your grandfather ordered.</div><div class="d-price">$2.95</div></div>
+        <div class="d-card reveal d1"><div class="d-name">Colada</div><div class="d-detail">Shared espresso for the counter crowd. Strong, sweet, meant for company.</div><div class="d-price">$2.60</div></div>
+        <div class="d-card reveal d2"><div class="d-name">Media Colada</div><div class="d-detail">Half a colada for one — the best way to share a slow morning.</div><div class="d-price">$1.50</div></div>
+        <div class="d-card reveal d3"><div class="d-name">Café con Leche</div><div class="d-detail">Warm milk, strong espresso. The one your abuela made on cold mornings.</div><div class="d-price">$3.20 – $4.95</div><div class="d-sizes">Sm / Med / Lg</div></div>
+        <div class="d-card reveal"><div class="d-name">Americano</div><div class="d-detail">Roasted dark. Using Mucaro's local Miami blend — simple, honest coffee.</div><div class="d-price">$2.80 – $4.20</div><div class="d-sizes">Sm / Med / Lg</div></div>
+        <div class="d-card reveal d1"><div class="d-name">Iced Latte</div><div class="d-detail">Double espresso, cold milk, poured over ice. Done right.</div><div class="d-price">$5.50</div></div>
+        <div class="d-card reveal d2"><div class="d-name">Iced Matcha Latte</div><div class="d-detail">Ceremonial grade matcha. Almond or oat milk +$0.50.</div><div class="d-price">$5.75</div></div>
+        <div class="d-card reveal d3"><div class="d-name">Fresh Squeezed OJ</div><div class="d-detail">Squeezed to order. Nothing added, nothing taken away.</div><div class="d-price">$5.90</div></div>
+        <div class="d-card d-hero reveal">
+          <div>
+            <span class="seasonal">★ Summer Special</span>
+            <div class="d-name" style="font-size:1.3rem;margin-top:8px">Mango Cold Foam Latte</div>
+            <div class="d-detail" style="font-size:.92rem;color:rgba(243,240,226,.82)">Ripe mango, double espresso, sweet cold foam on top. Miami in a cup — only here for summer, then it's gone. Ask Carlos about today's batch.</div>
+          </div>
+          <div style="flex-shrink:0;text-align:right">
+            <div class="d-price" style="font-size:1.9rem;color:var(--cream)">Ask Us</div>
+            <div class="d-sizes" style="color:rgba(243,240,226,.55)">Limited daily</div>
+          </div>
+        </div>
+      </div>
+      <p style="font-family:var(--hand);font-size:.88rem;color:rgba(243,240,226,.4);text-align:center;margin-top:20px">Alt milk: Almond or Oat +$0.50 · All coffee roasted by Mucaro Coffee · Miami, FL</p>
+      <div class="menu-cta-bar">
+        <div class="menu-cta-text"><strong>Want to know today's specials?</strong>Call ahead and ask Carlos what's on the board.</div>
+        <div class="menu-cta-btns">
+          <a href="tel:+13050000000" class="btn btn-cream btn-sm">📞 Call Store</a>
+          <a href="https://maps.google.com/?q=2859+Bird+Ave+Miami+FL+33133" target="_blank" class="btn btn-outline btn-sm" style="border-color:rgba(243,240,226,.3);color:var(--cream)">📍 Get Directions</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BREAKFAST -->
+    <div class="m-panel" id="panel-breakfast">
+      <div class="bk-grid">
+        <div>
+          <div class="m-sec-title">Breakfast · 7–11 AM</div>
+          <div class="m-item reveal"><div><div class="m-item-name">Benny's BEC</div><div class="m-item-desc">Bacon, Egg &amp; Cheese on Everything Bagel</div></div><div class="m-item-price">$9</div></div>
+          <div class="m-item reveal"><div><div class="m-item-name">Egg &amp; Cheese Bagel</div><div class="m-item-desc">On an Everything Bagel</div></div><div class="m-item-price">$8</div></div>
+          <div class="m-item reveal"><div><div class="m-item-name">Jalapeño Cream Cheese</div><div class="m-item-desc">Chopped jalapeño cream cheese on Everything Bagel</div></div><div class="m-item-price">$5.50</div></div>
+          <div class="m-item reveal"><div><div class="m-item-name">Plain Cream Cheese</div><div class="m-item-desc">On Everything Bagel</div></div><div class="m-item-price">$4.50</div></div>
+          <div class="m-item reveal"><div><div class="m-item-name">CC &amp; Tomato</div><div class="m-item-desc">Plain cream cheese and tomato slices on Plain Bagel</div></div><div class="m-item-price">$6.50</div></div>
+          <div class="m-item reveal" style="border:none"><div><div class="m-item-name">Tostadas</div><div class="m-item-desc">Classic · served with your morning café</div></div><div class="m-item-price">$2.50</div></div>
+          <div class="addons reveal">
+            <div class="addons-lbl">Add-ons →</div>
+            <div class="addons-pills">
+              <span class="pill">Tomato +$1</span><span class="pill">Arugula +$1</span>
+              <span class="pill">Avocado +$3</span><span class="pill">Smoked Trout +$7</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(243,240,226,.13);padding:30px;text-align:center">
+            <div style="font-family:var(--hand);font-size:1rem;color:var(--sage);margin-bottom:7px">Every morning</div>
+            <div style="font-family:var(--display);font-size:3.2rem;color:var(--cream);line-height:1;margin-bottom:10px">7 AM</div>
+            <div style="font-family:var(--hand);font-size:.95rem;color:rgba(243,240,226,.58);line-height:1.65">Fresh bagels. Strong coffee.<br>The first hour is always the best.</div>
+            <div style="width:36px;height:2px;background:var(--sage);margin:18px auto"></div>
+            <div style="font-family:var(--hand);font-size:.87rem;color:var(--sage)">Breakfast ends 11AM sharp</div>
+          </div>
+          <div class="ln-box reveal" style="margin-top:18px">
+            <span class="ln-tag">★ Late Night</span>
+            <div class="m-sec-title" style="font-size:1.4rem;margin-bottom:6px">Lito's Late Nite Special</div>
+            <div style="font-family:var(--hand);font-size:.95rem;color:var(--sage);margin-bottom:11px">Fri &amp; Sat · 9PM – 11PM only</div>
+            <div class="m-item" style="border-color:rgba(243,240,226,.1)">
+              <div><div class="m-item-name">Grilled Cheese + Tomato Soup</div><div class="m-item-desc">Housemade tomato soup. The kind worth staying up for.</div></div>
+              <div class="m-item-price">$15</div>
+            </div>
+          </div>
+          <div class="menu-cta-bar" style="margin-top:20px">
+            <div class="menu-cta-text"><strong>Breakfast ends at 11AM sharp.</strong>Come early or come for the late night special.</div>
+            <div class="menu-cta-btns">
+              <a href="tel:+13050000000" class="btn btn-cream btn-sm">📞 Call Store</a>
+              <a href="https://maps.google.com/?q=2859+Bird+Ave+Miami+FL+33133" target="_blank" class="btn btn-outline btn-sm" style="border-color:rgba(243,240,226,.3);color:var(--cream)">📍 Directions</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SANDWICHES -->
+    <div class="m-panel" id="panel-sandwiches">
+      <p style="font-family:var(--hand);font-size:1.05rem;color:var(--sage);text-align:center;margin-bottom:28px">Lunch &amp; Dinner · 11:30AM – 8:30PM · All meats sliced in-house daily</p>
+      <div class="sw-grid">
+        <div class="sw-card fav reveal"><div class="sw-name">La Tia Elenita</div><div class="sw-desc">Smoked turkey, cream cheese, guava marmalade. The sweet-savory one everyone comes back for — and back again after that.</div><div class="sw-foot"><div class="sw-price">$13</div><div class="sw-bread">Pan Cubano</div></div></div>
+        <div class="sw-card reveal d1"><div class="sw-name">Fausto's Turkey Cuban</div><div class="sw-desc">Smoked turkey, ham, Swiss, pickles, mustard. The Cuban reinvented for the Grove — pressed on Cuban bread.</div><div class="sw-foot"><div class="sw-price">$15</div><div class="sw-bread">Cuban Bread</div></div></div>
+        <div class="sw-card reveal d2"><div class="sw-name">Tony's Mortadella</div><div class="sw-desc">Mortadella, pistachio, stracciatella, arugula, EVOO. Probably the richest thing on the menu. Unapologetically so.</div><div class="sw-foot"><div class="sw-price">$16</div><div class="sw-bread">Ciabatta Roll</div></div></div>
+        <div class="sw-card reveal d3"><div class="sw-name">El Abuelo</div><div class="sw-desc">Pan con tomate, Manchego, Jamón Serrano. Spanish classics. Fresh baguette. Pure.</div><div class="sw-foot"><div class="sw-price">$19</div><div class="sw-bread">Fresh Baguette</div></div></div>
+        <div class="sw-card reveal"><div class="sw-name">Esty's Prosciutt Motz</div><div class="sw-desc">Prosciutto, pesto, fresh mozz, tomato, arugula, EVOO. The Italian answer to a great afternoon.</div><div class="sw-foot"><div class="sw-price">$17</div><div class="sw-bread">Fresh Baguette</div></div></div>
+        <div class="sw-card reveal d1"><div class="sw-name">Sebby's Parisian</div><div class="sw-desc">Jambon de Paris, Gruyère, Dijonnaise. Three ingredients. Zero notes.</div><div class="sw-foot"><div class="sw-price">$15</div><div class="sw-bread">Fresh Baguette</div></div></div>
+        <div class="sw-card reveal d2"><div class="sw-name">La Suegra</div><div class="sw-desc">Pickled eggplant, zucchini carpaccio, honey ricotta, alfalfa sprouts. For the plant people in the group.</div><div class="sw-foot"><div class="sw-price">$14</div><div class="sw-bread">Fresh Baguette</div></div></div>
+        <div class="sw-card reveal d3"><div class="sw-name">El Pavo Real</div><div class="sw-desc">Smoked turkey, Brie, fig compote, arugula. Elegant. Unexpected. The one that surprises you.</div><div class="sw-foot"><div class="sw-price">$15</div><div class="sw-bread">Fresh Baguette</div></div></div>
+      </div>
+      <p class="sw-note">All sandwiches can be modified for dietary restrictions · Just ask</p>
+      <div class="menu-cta-bar">
+        <div class="menu-cta-text"><strong>Planning lunch? Call ahead.</strong>We'll have your order ready when you arrive.</div>
+        <div class="menu-cta-btns">
+          <a href="tel:+13050000000" class="btn btn-cream btn-sm">📞 Call To Order</a>
+          <a href="https://maps.google.com/?q=2859+Bird+Ave+Miami+FL+33133" target="_blank" class="btn btn-outline btn-sm" style="border-color:rgba(243,240,226,.3);color:var(--cream)">📍 Get Directions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TODAY'S BOARD ===== -->
+<section id="board">
+  <div class="container">
+    <div class="board-hdr">
+      <div style="font-family:var(--body);font-size:.72rem;color:rgba(232,244,232,.35);letter-spacing:.18em;text-transform:uppercase;margin-bottom:7px">What's On</div>
+      <h2 class="board-h">Today's Board</h2>
+      <p class="board-sub">Updated daily · subject to sell-out</p>
+    </div>
+    <div class="board-grid">
+      <div class="b-card b-wide reveal"><div class="b-lbl">★ Today's Feature</div><div class="b-title">Mango Cold Foam Latte</div><div class="b-desc">Ripe mango, double espresso, sweet cold foam. Miami in a cup. Here in time for summer. Ask Carlos about today's batch.</div><div class="b-price">Ask at the counter</div><span class="b-avail">✓ Available Now</span></div>
+      <div class="b-card reveal d1"><div class="b-lbl">Fresh Arrival · Market</div><div class="b-title">Organic Eggs</div><div class="b-desc">Pasture raised, hand picked, Miami sourced. Paradise Farms. Limited stock. Goes fast.</div><span class="b-sold">Selling Fast</span></div>
+      
+      <div class="b-card reveal"><div class="b-lbl">This Saturday · 10AM</div><div class="b-title">Mini Strawberry Pavlovas</div><div class="b-desc">Made fresh each Saturday. Sold out every week without fail. Come early. Seriously.</div><span class="b-sold">Sells Out by 11AM</span></div>
+      
+      <div class="b-card reveal d1"><div class="b-lbl">Tonight / This Week</div><div class="b-title">Lito's Late Nite Special</div><div class="b-desc">Grilled cheese + homemade tomato soup. Fri &amp; Sat 9PM–11PM only.</div><div class="b-price">$15</div><span class="b-avail">Fri &amp; Sat Nights</span></div>
+      
+      <div class="b-card reveal d2"><div class="b-lbl">Local Finds In Stock</div><div class="b-title">Mucaro Coffee Beans</div><div class="b-desc">Take the Miami roast home. Same beans Carlos pulls shots with behind the counter.</div><span class="b-avail">✓ In Stock</span></div>
+      
+      <div class="b-card reveal d3" style="border-color:rgba(111,78,55,.4);background:rgba(111,78,55,.1)"><div class="b-lbl">This Summer</div><div class="b-title">Merch Drop</div><div class="b-desc">Caps, tees, new drink flavors. Follow @bodegaortegaco for the more info.</div><div class="b-time">Now Available · 2026</div></div>
+    </div>
+    
+    <div class="board-callout">
+      <p><strong>Availability changes daily.</strong> Call ahead or stop by early. Things sell out fast around here.</p>
+      <div style="margin-top:12px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="tel:+13050000000" class="btn btn-cream btn-sm">📞 Call Ahead</a>
+        <a href="https://maps.google.com/?q=2859+Bird+Ave+Miami+FL+33133" target="_blank" class="btn btn-outline btn-sm" style="border-color:rgba(232,244,232,.3);color:#e8f4e8">📍 Get Directions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EVENTS ===== -->
+<section id="events">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Always Something Going On</div>
+      <h2 class="events-h">THE WEEKLY<br>RHYTHM</h2>
+      <div class="divider"></div>
+    </div>
+    <div style="margin-bottom:28px;background:var(--navy);padding:18px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px" class="reveal">
+      <div>
+        <span style="font-family:var(--heading);font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:var(--coffee);color:var(--cream);padding:3px 10px;display:inline-block;margin-bottom:10px">Now Available</span>
+        <div style="font-family:var(--display);font-size:1.8rem;color:var(--cream);line-height:1">Summer Merch Drop</div>
+        <div style="font-family:var(--hand);font-size:1rem;color:var(--sage);margin-top:4px">Caps · T-shirts · Limited run. Come in before it sells out</div>
+      </div>
+      <a href="https://instagram.com/bodegaortegaco" target="_blank" class="btn btn-cream" style="flex-shrink:0">See On Instagram</a>
+    </div>
+    <div class="ev-grid">
+      <div class="ev-card reveal">
+        <div class="ev-tag">Every Week</div>
+        <div style="aspect-ratio:4/3;overflow:hidden;margin-bottom:14px;border-radius:2px"><img src="assets/sticker-night.jpg" alt="Panini FIFA World Cup 2026 card trading at Bodega Ortega" style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy"></div>
+        <div class="ev-day">TUE</div>
+        <div class="ev-name">Panini Sticker Trading Night</div>
+        <div class="ev-time">Every Tuesday · 6:30 PM</div>
+        <div class="ev-desc">Now on round three. FIFA World Cup 2026 Panini card exchange. Trade cards, meet fellow collectors, bring your friends. All ages welcome.</div>
+      </div>
+      <div class="ev-card reveal d1">
+        <div class="ev-tag">Every Week</div>
+        <div class="ev-day">SAT</div>
+        <div class="ev-name">Mini Strawberry Pavlovas</div>
+        <div class="ev-time">Every Saturday · 10 AM</div>
+        <div class="ev-desc">Made fresh each Saturday. Sold until they're gone, and they are always gone. Come early or come back next week.</div>
+      </div>
+      <div class="ev-card ev-soon reveal d2">
+        <div class="ev-tag" style="background:var(--coffee);color:var(--cream)">Now Available</div>
+        <div class="ev-day" style="font-size:2rem;margin-top:6px">Summer<br>2026</div>
+        <div class="ev-name">New Flavors + Merch Drop</div>
+        <div class="ev-time" style="color:var(--coffee)">Caps · Tees · Mango Cold Foam</div>
+        <div class="ev-desc" style="color:var(--text)">New drink releases are dropping soon. Come check out out just in time for Summer Merch now available. Follow the IG for exact dates and more info. It'll all be worth it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MARKET ===== -->
+<section id="market">
+  <div class="container">
+    <div class="mkt-hdr reveal">
+      <div class="section-label">Locally Sourced · South Florida</div>
+      <h2 class="mkt-h">FRESH<br>LOCAL<br>FINDS</h2>
+      <p class="mkt-sub">We don't just sell food. We curate it. Every product on our shelves is chosen because it belongs here — in the Grove, in Miami, in your home.</p>
+    </div>
+    <div class="mkt-grid">
+      <div class="mkt-card reveal"><span class="mkt-badge">New In</span><div class="photo-block" style="aspect-ratio:4/3;margin-bottom:16px"><img src="assets/organiceggs.jpg" alt="Organic eggs" class="img-fluid object-fit-cover mx-auto" loading="lazy"></div><div class="mkt-name">Organic Eggs</div><div class="mkt-desc">Pasture raised. Hand picked. From Miami. Grain and soy free. The ones you've been looking for.</div><div class="mkt-src">Paradise Farms · Miami, FL</div></div>
+      <div class="mkt-card reveal d1"><div class="photo-block" style="aspect-ratio:4/3;margin-bottom:16px"><img src="assets/greekyogurt.jpg" class="img-fluid object-fit-cover mx-auto" alt="Greek yogurt" loading="lazy"></div><div class="mkt-name">Greek Yogurt</div><div class="mkt-desc">Raw milk, organic, creamy, 100% grass-fed. The kind you'd find at a farmers market — but right here.</div><div class="mkt-src">Paradise Farms · Miami, FL</div></div>
+      <div class="mkt-card reveal d2"><div class="photo-block" style="aspect-ratio:4/3;margin-bottom:16px"><img src="assets/grass-fed-butter.jpg" class="img-fluid object-fit-cover mx-auto" alt="Grass-fed butter" loading="lazy"></div><div class="mkt-name">Grass-Fed Butter</div><div class="mkt-desc">Organic, salted, 100% grass-fed. One ingredient. It's the right one.</div><div class="mkt-src">Paradise Farms · Miami, FL</div></div>
+      <div class="mkt-card reveal d3"><div class="photo-block" style="aspect-ratio:4/3;margin-bottom:16px"><img src="assets/mucaro-coffee.jpg" class="img-fluid object-fit-cover mx-auto" alt="Mucaro local coffee" loading="lazy"></div><div class="mkt-name">Mucaro Coffee</div><div class="mkt-desc">Our local Miami roaster. The beans in your cup and on our shelves are roasted with intention, and sourced with care.</div><div class="mkt-src">Mucaro Roasters · Miami, FL</div></div>
+      <div class="mkt-card reveal d4"><span class="mkt-badge">New In</span><div class="photo-block" style="aspect-ratio:4/3;margin-bottom:16px"><img src="assets/milk-shelf.jpg" class="img-fluid object-fit-cover mx-auto" alt="Origin A2 Heritage Milk, Half and Half, and Cream — locally sourced at Bodega Ortega" loading="lazy"></div><div class="mkt-name">Origin A2 Heritage Milk</div><div class="mkt-desc">Whole milk, half &amp; half, and heavy cream. 100% A2 heritage breed. Non-homogenized, regenerative, organic. We… got milk. 🐄</div><div class="mkt-src">@paradisefarms · Miami, FL</div></div>
+    </div>
+    <div class="mkt-more reveal"><p class="mkt-more-t">Plus sodas, beers, wine, snacks, sweets, cereals, household items, kids snacks, energy drinks, and <strong>so much more</strong> — think your favorite corner store, with an Ortega twist 😉</p></div>
+  </div>
+</section>
+
+<!-- ===== PRESS ===== -->
+<section id="press">
+  <div class="container">
+    <div class="press-hdr reveal">
+      <div class="section-label" style="color:var(--coffee)">They're Talking</div>
+      <h2 class="press-h">MAKING<br>HEADLINES</h2>
+    </div>
+    <div class="press-grid">
+      <div class="pr-card reveal">
+        <div class="pr-as-seen">As seen in</div>
+        <div class="pr-outlet">THE BURN MIAMI</div>
+        <p class="pr-coverage">Covered Bodega Ortega's opening in Coconut Grove — breakfast, lunch, and dinner from three brothers bringing a neighborhood bodega to Bird Ave.</p>
+        <div class="pr-date">Press Mention · May 2026</div>
+      </div>
+      <div class="pr-card reveal d1">
+        <div class="pr-as-seen">As seen in</div>
+        <div class="pr-outlet">MIAMI NEW TIMES</div>
+        <p class="pr-coverage">Editorial mention covering Bodega Ortega as a new neighborhood standout in Coconut Grove — local food, community identity, and family-owned hospitality.</p>
+        <div class="pr-date">Press Mention · June 2026</div>
+      </div>
+      <div class="pr-card reveal d2">
+        <div class="pr-as-seen">Recommended by</div>
+        <div class="pr-outlet">THE INFATUATION</div>
+        <p class="pr-coverage">Listed as a spot worth knowing about in Coconut Grove — noted for their bodega concept, coffee program, and deli sandwiches.</p>
+        <div class="pr-date">Press Mention · May 2026</div>
+      </div>
+      <div class="pr-card reveal d3">
+        <div class="pr-as-seen">Featured in</div>
+        <div class="pr-outlet">COCONUT GROVE MAG</div>
+        <p class="pr-coverage">Video feature with Carlos Ortega sharing the family story, the inspiration behind the drinks, and what the bodega means for the Grove neighborhood.</p>
+        <div class="pr-date">Press Mention · June 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOCIAL PROOF STRIP ===== -->
+<section id="social-proof">
+  <div class="container">
+    <div class="sp-grid">
+      <div class="sp-item reveal">
+        <div class="sp-number">15K+</div>
+        <div class="sp-label">Instagram Community</div>
+        <div class="sp-sub">@bodegaortegaco · growing daily</div>
+      </div>
+      <div class="sp-item reveal d1">
+        <div class="sp-number">75K+</div>
+        <div class="sp-label">Video Views</div>
+        <div class="sp-sub">Local food content · organic reach</div>
+      </div>
+      <div class="sp-item reveal d2">
+        <div class="sp-number">2×</div>
+        <div class="sp-label">Weekly Neighborhood Events</div>
+        <div class="sp-sub">Tuesdays &amp; Saturdays · all ages</div>
+      </div>
+      <div class="sp-item reveal d3">
+        <div class="sp-number">305</div>
+        <div class="sp-label">Built for Coconut Grove</div>
+        <div class="sp-sub">Est. May 2026 · Bird Ave, Miami</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMMUNITY ===== -->
+<section id="community">
+  <div class="container">
+    <div class="comm-hdr reveal">
+      <div class="section-label">The Grove's Own</div>
+      <h2 class="comm-h">MORE THAN<br>A STORE.</h2>
+      <p class="comm-sub">A feeling. A neighborhood. A home.</p>
+    </div>
+    <div class="pol-grid">
+      <div class="pol reveal"><div class="pol-ph" style="background:var(--sage);padding:0;overflow:hidden"><img src="assets/cortadito.jpg" alt="Morning coffee at Bodega Ortega" style="width:100%;height:100%;object-fit:cover;aspect-ratio:1;display:block"></div><div class="pol-cap">First cortadito hits different here</div></div>
+      <div class="pol reveal d1"><div class="pol-ph" style="background:#d4cdb8;padding:0;overflow:hidden"><img src="assets/tuesday-nights.jpg" alt="Fresh local market finds" style="width:100%;height:100%;object-fit:cover;aspect-ratio:1;display:block"></div><div class="pol-cap">Tuesday nights at the bodega ❤</div></div>
+      <div class="pol reveal d2"><div class="pol-ph" style="background:#c8d4c0;padding:0;overflow:hidden"><img src="assets/pavlovas.jpg" alt="Saturday pavlovas" style="width:100%;height:100%;object-fit:cover;aspect-ratio:1;display:block"></div><div class="pol-cap">10AM. Sold out by 10:45. Every time.</div></div>
+      <div class="pol reveal d3"><div class="pol-ph" style="background:#cfd4d8;padding:0;overflow:hidden"><img src="assets/old-miami.jpg" alt="Bodega community spot" style="width:100%;height:100%;object-fit:cover;aspect-ratio:1;display:block"></div><div class="pol-cap">Old Miami never left 🇵🇷🇨🇺</div></div>
+    </div>
+    <div class="vals reveal">
+      <div class="val">
+        <div class="val-icon">
+          <!-- Hand-drawn style: three figures / family -->
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="11" r="5" stroke="#04567D" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M14 38c0-8 4-13 10-13s10 5 10 13" stroke="#04567D" stroke-width="2.2" stroke-linecap="round"/>
+            <circle cx="10" cy="16" r="3.5" stroke="#04567D" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M4 38c0-6 2.5-9 6-9" stroke="#04567D" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="38" cy="16" r="3.5" stroke="#04567D" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M44 38c0-6-2.5-9-6-9" stroke="#04567D" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="val-title">Family</div>
+        <div class="val-desc">Three brothers. One mission. Built in memory of their mother, and for the community she taught them to love.</div>
+      </div>
+      <div class="val">
+        <div class="val-icon">
+          <!-- Hand-drawn style: palm tree -->
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="24" y1="44" x2="24" y2="22" stroke="#04567D" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M24 22 Q18 14 8 16 Q14 22 24 22" stroke="#04567D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M24 22 Q30 12 40 13 Q35 21 24 22" stroke="#04567D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M24 22 Q20 10 22 4 Q26 10 24 22" stroke="#04567D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M20 44 Q24 42 28 44" stroke="#04567D" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="val-title">Culture</div>
+        <div class="val-desc">Puerto Rican and Cuban roots. Miami energy. NYC bodega spirit. All of it alive in one place.</div>
+      </div>
+      <div class="val">
+        <div class="val-icon">
+          <!-- Hand-drawn style: two hands shaking -->
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 28 L16 20 L22 24 L26 24 L32 20 L42 28" stroke="#04567D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 20 L16 14 Q16 12 18 12 L22 12 Q24 12 24 14 L24 24" stroke="#04567D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M32 20 L32 14 Q32 12 30 12 L26 12 Q24 12 24 14" stroke="#04567D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 28 Q4 32 8 34 L20 36 Q22 36 24 34 L28 30" stroke="#04567D" stroke-width="2" stroke-linecap="round"/>
+            <path d="M42 28 Q44 32 40 34 L28 36 Q26 36 24 34" stroke="#04567D" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="val-title">Community</div>
+        <div class="val-desc">Staff who learn your order. Weekly events for the neighborhood. A place where you walk in and belong.</div>
+      </div>
+      <div class="val">
+        <div class="val-icon">
+          <!-- Hand-drawn style: heart with pulse line -->
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 40 C24 40 6 28 6 17 C6 12 10 8 15 8 C19 8 22 10 24 13 C26 10 29 8 33 8 C38 8 42 12 42 17 C42 28 24 40 24 40Z" stroke="#04567D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10 22 L14 18 L18 24 L22 16 L26 22 L30 20 L34 23" stroke="#04567D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="val-title">Purpose</div>
+        <div class="val-desc">The Te Amo Foundation supports mental health — because the bodega that feeds the neighborhood should also hold it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VISIT ===== -->
+<section id="visit">
+  <div class="container">
+    <div class="visit-grid">
+      <div class="visit-hdr">
+        <div class="section-label">Come Find Us</div>
+        <h2 class="visit-h reveal">FIND YOUR<br>SPOT.</h2>
+        <div class="reveal">
+          <div class="addr-line">2859 Bird Ave</div>
+          <div class="addr-line">Miami, FL 33133</div>
+          <div class="addr-sub">Coconut Grove · On the corner that needed a bodega</div>
+        </div>
+        <div class="reveal">
+          <div class="hrs-lbl">Hours This Week</div>
+          <div class="hr-row"><span class="days">Monday – Saturday</span><span>7:00 AM – 11:00 PM</span></div>
+          <div class="hr-row"><span class="days">Sunday</span><span>9:00 AM – 10:00 PM</span></div>
+          <div class="hr-row"><span class="days">Late Night (Fri &amp; Sat)</span><span>9:00 PM – 11:00 PM</span></div>
+          <div style="margin-top:10px;font-family:var(--hand);font-size:.83rem;color:rgba(243,240,226,.33)">Closed Father's Day Sun 6/21 · Check IG for holiday updates</div>
+        </div>
+        <div class="visit-btns reveal">
+          <a href="https://maps.google.com/?q=2859+Bird+Ave+Miami+FL+33133" target="_blank" class="btn btn-cream">📍 Open Google Maps</a>
+          <a href="tel:+13050000000" class="btn btn-ghost">📞 Call Store</a>
+          <a href="#menu" class="btn btn-ghost">🍽 View Menu</a>
+        </div>
+      </div>
+      <div class="map-box reveal">
+        <div class="map-tag">📍 2859 Bird Ave · Coconut Grove</div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3593.8372820434615!2d-80.2820!3d25.7251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b7b0e1234567%3A0xabcdef!2s2859+Bird+Ave%2C+Miami%2C+FL+33133!5e0!3m2!1sen!2sus!4v1" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Bodega Ortega location map"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <div class="logo-wrap" style="margin-bottom:11px">
+          <img src="assets/logo.jpg" alt="Bodega Ortega" style="width:42px;height:42px;flex-shrink:0;border-radius:50%;object-fit:cover;">
+          <div><div class="logo-name" style="color:var(--cream)">BODEGA ORTEGA</div><div class="logo-sub" style="color:var(--sage)">Coconut Grove · Miami, FL · Est. 2026</div></div>
+        </div>
+        <p class="ft-tagline">A neighborhood bodega built on family, culture, community and good food.<br>Built in memory. Built for you.</p>
+        <div class="ft-social">
+          <a href="https://instagram.com/bodegaortegaco" target="_blank" class="soc-btn">📷 Instagram</a>
+          <a href="https://tiktok.com/@bodegaortegaco" target="_blank" class="soc-btn">TikTok</a>
+          <a href="https://maps.google.com/?q=2859+Bird+Ave+Miami+FL+33133" target="_blank" class="soc-btn">📍 Maps</a>
+        </div>
+      </div>
+      <div>
+        <div class="ft-col-title">Quick Links</div>
+        <ul class="ft-links">
+          <li><a href="#story">Our Story</a></li><li><a href="#menu">Menu</a></li>
+          <li><a href="#events">Events</a></li><li><a href="#market">The Market</a></li>
+          <li><a href="#community">Community</a></li><li><a href="#visit">Visit Us</a></li>
+        </ul>
+      </div>
+      <div class="ft-info">
+        <div class="ft-col-title">Find Us</div>
+        <p>2859 Bird Ave<br>Miami, FL 33133</p>
+        <p style="margin-top:10px">Mon–Sat: 7AM – 11PM<br>Sunday: 9AM – 10PM<br>Late Night Fri &amp; Sat: 9–11PM</p>
+        <p style="margin-top:10px;font-family:var(--hand);font-size:.88rem;color:rgba(243,240,226,.38)">@bodegaortegaco</p>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <div class="ft-copy">© 2026 Bodega Ortega · Coconut Grove, Miami FL · All rights reserved</div>
+      <div class="ft-credit">Website by JAMALINKS ✦</div>
+    </div>
+    <div class="demo-disclaimer">Demo concept created for presentation purposes. Final content, photos, pricing, and press references should be verified with Bodega Ortega before publishing.</div>
+  </div>
+</footer>
+
+<!-- FLOATING CTA -->
+<a href="https://maps.google.com/?q=2859+Bird+Ave+Miami+FL+33133" target="_blank" class="float-cta" id="floatCta">
+  <span class="f-dot"></span>Visit Today
+</a>
+
+<!-- MOBILE BOTTOM ACTION BAR -->
+<nav class="mob-bar" aria-label="Quick actions">
+  <a href="#menu">
+    <span class="mob-bar-icon">🍽</span>Menu
+  </a>
+  <a href="tel:+13050000000" class="mob-cta">
+    <span class="mob-bar-icon">📞</span>Call Store
+  </a>
+  <a href="https://maps.google.com/?q=2859+Bird+Ave+Miami+FL+33133" target="_blank">
+    <span class="mob-bar-icon">📍</span>Directions
+  </a>
+</nav>
+
+<script>
+// Hamburger
+const ham = document.getElementById('hamburger');
+const mob = document.getElementById('mobNav');
+ham.addEventListener('click', () => mob.classList.toggle('open'));
+mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mob.classList.remove('open')));
+
+// Header scroll
+const hdr = document.getElementById('hdr');
+const fc = document.getElementById('floatCta');
+window.addEventListener('scroll', () => {
+  hdr.classList.toggle('scrolled', scrollY > 40);
+  fc.classList.toggle('vis', scrollY > 600);
+}, {passive:true});
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, {threshold:.1, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Menu tabs
+document.querySelectorAll('.m-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.m-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.m-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    const panel = document.getElementById('panel-' + tab.dataset.tab);
+    panel.classList.add('active');
+    panel.querySelectorAll('.reveal').forEach(el => {
+      el.classList.remove('visible');
+      setTimeout(() => obs.observe(el), 30);
+    });
+  });
+});
+
+// Dynamic today hours
+const th = document.getElementById('todayHours');
+if(th){ th.textContent = new Date().getDay() === 0 ? 'Open Today: 9AM – 10PM' : 'Open Today: 7AM – 11PM'; }
+
+// Active nav on scroll
+const secs = document.querySelectorAll('section[id]');
+const navAs = document.querySelectorAll('.nav-links a[href^="#"]');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if(scrollY >= s.offsetTop - 120) cur = s.id; });
+  navAs.forEach(a => { a.style.color = a.getAttribute('href') === '#'+cur ? 'var(--navy)' : ''; });
+}, {passive:true});
+</script>
+</body>
+</html>
