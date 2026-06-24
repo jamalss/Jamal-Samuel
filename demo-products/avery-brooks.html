@@ -1,0 +1,1696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avery Brooks — More Than The Game</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --black: #0A0A0A;
+    --dark: #111111;
+    --dark-2: #1A1A1A;
+    --dark-3: #222222;
+    --gray: #888888;
+    --light: #F5F5F0;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* TYPOGRAPHY */
+  .font-display { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.04em; }
+  .font-serif { font-family: 'Playfair Display', serif; }
+
+  /* GOLD GRADIENT TEXT */
+  .gold-text {
+    background: linear-gradient(135deg, #C9A84C 0%, #E8C97A 50%, #C9A84C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.25rem 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: all 0.4s ease;
+  }
+  nav.scrolled {
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    padding: 0.9rem 2rem;
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.12em;
+    color: var(--white);
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.6rem 1.4rem;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--black); }
+
+  /* HAMBURGER */
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: white; transition: all 0.3s; }
+
+  /* MOBILE NAV */
+  .mobile-nav {
+    display: none;
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--black);
+    z-index: 99;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 0.1em;
+    color: white;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .mobile-nav a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #0A0A0A 0%, #1a1208 40%, #0A0A0A 100%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-glow {
+    position: absolute;
+    top: 20%; right: 10%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-number {
+    position: absolute;
+    right: -0.02em;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(200px, 30vw, 400px);
+    line-height: 1;
+    color: rgba(201,168,76,0.05);
+    pointer-events: none;
+    user-select: none;
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    padding: 2rem 4rem 5rem;
+    max-width: 900px;
+  }
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block; width: 40px; height: 1px;
+    background: var(--gold);
+  }
+  .hero-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 10vw, 9rem);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    margin-bottom: 1.5rem;
+  }
+  .hero-headline em {
+    font-style: normal;
+    background: linear-gradient(135deg, #C9A84C 0%, #E8C97A 50%, #C9A84C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-sub {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+    max-width: 500px;
+    margin-bottom: 0.75rem;
+  }
+  .hero-meta {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 2.5rem;
+  }
+  .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    background: var(--gold);
+    color: var(--black);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-secondary {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-stats {
+    position: absolute;
+    right: 4rem; bottom: 5rem;
+    display: flex; gap: 3rem;
+    z-index: 2;
+  }
+  .hero-stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--gold);
+  }
+  .hero-stat-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-top: 0.25rem;
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    z-index: 2;
+  }
+  .scroll-indicator span {
+    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+  }
+  .scroll-line {
+    width: 1px; height: 50px;
+    background: linear-gradient(to bottom, rgba(201,168,76,0.6), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.1); }
+  }
+
+  /* SECTIONS */
+  section { padding: 6rem 4rem; }
+  .section-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block; width: 24px; height: 1px;
+    background: var(--gold);
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: 0.03em;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ABOUT */
+  #about { background: var(--dark); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .about-image-block {
+    position: relative;
+  }
+  .about-image-placeholder {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(135deg, var(--dark-2) 0%, var(--dark-3) 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 1rem;
+    border: 1px solid rgba(201,168,76,0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  .about-image-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+  }
+  .about-img-icon {
+    font-size: 4rem;
+    opacity: 0.15;
+  }
+  .about-img-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+  }
+  .about-accent {
+    position: absolute;
+    bottom: -1.5rem; right: -1.5rem;
+    width: 120px; height: 120px;
+    border: 1px solid rgba(201,168,76,0.2);
+    z-index: -1;
+  }
+  .about-badge {
+    position: absolute;
+    bottom: 2rem; left: -2rem;
+    background: var(--gold);
+    color: var(--black);
+    padding: 1rem 1.25rem;
+  }
+  .about-badge-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem; line-height: 1;
+  }
+  .about-badge-text {
+    font-size: 0.6rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .about-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    font-style: italic;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+    border-left: 2px solid var(--gold);
+  }
+  .about-body {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 1.5rem;
+  }
+  .about-values {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+    margin-top: 2rem;
+  }
+  .value-tag {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold);
+  }
+
+  /* CAREER TIMELINE */
+  #career { background: var(--black); }
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold), rgba(201,168,76,0.1));
+  }
+  .timeline-item {
+    position: relative;
+    padding: 0 0 3rem 2.5rem;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.5s ease;
+  }
+  .timeline-item.visible { opacity: 1; transform: translateX(0); }
+  .timeline-dot {
+    position: absolute;
+    left: -0.45rem; top: 0.25rem;
+    width: 0.9rem; height: 0.9rem;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--black);
+  }
+  .timeline-year {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .timeline-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+  }
+  .timeline-body {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* STATS */
+  #stats { background: var(--dark); }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(201,168,76,0.1); margin-top: 3rem; }
+  .stat-card {
+    background: var(--dark-2);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .stat-card:hover { background: var(--dark-3); }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    line-height: 1;
+    color: var(--gold);
+  }
+  .stat-desc {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-top: 0.5rem;
+  }
+  .stat-season {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+    margin-top: 0.3rem;
+  }
+
+  /* HIGHLIGHTS / MEDIA */
+  #media { background: var(--black); }
+  .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .video-card {
+    position: relative;
+    aspect-ratio: 16/9;
+    background: var(--dark-2);
+    overflow: hidden;
+    cursor: pointer;
+    group: true;
+  }
+  .video-card-inner {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 0.75rem;
+    transition: transform 0.3s ease;
+  }
+  .video-card:hover .video-card-inner { transform: scale(1.03); }
+  .video-card::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .play-btn {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.9);
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+  .video-card:hover .play-btn { background: var(--gold); transform: scale(1.1); }
+  .play-icon {
+    width: 0; height: 0;
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-left: 16px solid var(--black);
+    margin-left: 3px;
+  }
+  .video-label {
+    position: absolute; bottom: 1rem; left: 1rem; right: 1rem; z-index: 1;
+  }
+  .video-label-title {
+    font-size: 0.8rem; font-weight: 600; line-height: 1.3;
+  }
+  .video-label-sub {
+    font-size: 0.65rem; color: rgba(255,255,255,0.5);
+    letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.25rem;
+  }
+  .video-bg-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5rem;
+    color: rgba(255,255,255,0.03);
+    letter-spacing: 0.05em;
+  }
+
+  /* GALLERY */
+  #gallery { background: var(--dark); }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+  .gallery-item {
+    background: var(--dark-2);
+    overflow: hidden;
+    position: relative;
+  }
+  .gallery-item-inner {
+    width: 100%; height: 100%;
+    min-height: 200px;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, var(--dark-2) 0%, var(--dark-3) 100%);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.15);
+    transition: all 0.3s;
+  }
+  .gallery-item:hover .gallery-item-inner { transform: scale(1.03); }
+  .g1 { grid-column: span 7; grid-row: span 2; }
+  .g2 { grid-column: span 5; }
+  .g3 { grid-column: span 5; }
+  .g4 { grid-column: span 4; }
+  .g5 { grid-column: span 4; }
+  .g6 { grid-column: span 4; }
+  .gallery-item-inner.tall { min-height: 400px; }
+
+  /* NIL PARTNERSHIPS */
+  #opportunities { background: var(--black); }
+  .nil-intro {
+    max-width: 640px;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 3rem;
+  }
+  .nil-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .nil-card {
+    padding: 2rem;
+    border: 1px solid rgba(201,168,76,0.12);
+    background: rgba(201,168,76,0.02);
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .nil-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .nil-card:hover { border-color: rgba(201,168,76,0.3); background: rgba(201,168,76,0.04); }
+  .nil-card:hover::before { opacity: 1; }
+  .nil-card-icon { font-size: 1.8rem; margin-bottom: 1.25rem; }
+  .nil-card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+  }
+  .nil-card-body {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 1.5rem;
+  }
+  .nil-card-cta {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 0.5rem;
+    transition: gap 0.2s;
+  }
+  .nil-card-cta:hover { gap: 0.8rem; }
+  .nil-card-cta::after { content: '→'; }
+
+  /* COMMUNITY */
+  #community { background: var(--dark); }
+  .community-hero {
+    background: linear-gradient(135deg, rgba(201,168,76,0.08) 0%, transparent 60%);
+    border: 1px solid rgba(201,168,76,0.1);
+    padding: 3rem;
+    margin-bottom: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  .community-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    font-style: italic;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.85);
+  }
+  .community-quote cite {
+    display: block;
+    font-size: 0.7rem;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 1.5rem;
+  }
+  .community-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .impact-stat { text-align: center; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.06); }
+  .impact-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem; line-height: 1;
+    color: var(--gold);
+  }
+  .impact-label {
+    font-size: 0.65rem; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-top: 0.4rem;
+  }
+  .community-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .community-card {
+    padding: 1.75rem;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: border-color 0.2s;
+  }
+  .community-card:hover { border-color: rgba(201,168,76,0.2); }
+  .community-card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.15rem; letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+    color: var(--white);
+  }
+  .community-card-body {
+    font-size: 0.85rem; line-height: 1.65;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* FOUNDATION */
+  #foundation {
+    background: linear-gradient(135deg, #0f0c02 0%, #0A0A0A 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .foundation-glow {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 800px; height: 400px;
+    background: radial-gradient(ellipse, rgba(201,168,76,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .foundation-inner {
+    position: relative; z-index: 1;
+    max-width: 700px; margin: 0 auto; text-align: center;
+  }
+  .foundation-badge {
+    display: inline-flex;
+    align-items: center; gap: 0.75rem;
+    padding: 0.5rem 1.25rem;
+    border: 1px solid rgba(201,168,76,0.3);
+    margin-bottom: 2rem;
+  }
+  .foundation-badge-text {
+    font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold);
+  }
+  .foundation-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+  .foundation-body {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 2.5rem;
+  }
+  .foundation-pillars { display: flex; gap: 1.5rem; margin-bottom: 2.5rem; }
+  .pillar {
+    flex: 1;
+    padding: 1.5rem 1rem;
+    border: 1px solid rgba(201,168,76,0.12);
+    text-align: center;
+  }
+  .pillar-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .pillar-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem; letter-spacing: 0.05em;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .pillar-body { font-size: 0.78rem; line-height: 1.6; color: rgba(255,255,255,0.4); }
+
+  /* CAMPS */
+  #camps { background: var(--dark); }
+  .camps-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .camp-card {
+    padding: 2.5rem;
+    background: var(--dark-2);
+    border: 1px solid rgba(255,255,255,0.06);
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .camp-card:hover { border-color: rgba(201,168,76,0.2); }
+  .camp-card-badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background: rgba(201,168,76,0.1);
+    color: var(--gold);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+  .camp-card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem; letter-spacing: 0.04em;
+    margin-bottom: 0.75rem;
+  }
+  .camp-card-body {
+    font-size: 0.85rem; line-height: 1.7;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 1.75rem;
+  }
+  .camp-details { display: flex; gap: 1.5rem; margin-bottom: 1.75rem; }
+  .camp-detail { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+  .camp-detail span { display: block; color: rgba(255,255,255,0.7); margin-top: 0.2rem; }
+
+  /* FAN SECTION */
+  #fan { background: var(--black); }
+  .fan-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: center;
+  }
+  .fan-form {
+    display: flex; flex-direction: column; gap: 1rem;
+    margin-top: 2rem;
+  }
+  .form-field {
+    padding: 0.85rem 1rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  .form-field:focus { border-color: rgba(201,168,76,0.4); }
+  .form-field::placeholder { color: rgba(255,255,255,0.25); }
+  .fan-features { display: flex; flex-direction: column; gap: 1.5rem; }
+  .fan-feature { display: flex; gap: 1.25rem; align-items: flex-start; }
+  .fan-feature-icon {
+    width: 40px; height: 40px;
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .fan-feature-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.3rem; }
+  .fan-feature-body { font-size: 0.82rem; color: rgba(255,255,255,0.45); line-height: 1.6; }
+
+  /* CONTACT */
+  #contact { background: var(--dark); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; }
+  .inquiry-cards { display: flex; flex-direction: column; gap: 1rem; }
+  .inquiry-card {
+    padding: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.07);
+    display: flex; gap: 1rem; align-items: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .inquiry-card:hover { border-color: rgba(201,168,76,0.3); background: rgba(201,168,76,0.03); }
+  .inquiry-icon { font-size: 1.4rem; width: 44px; text-align: center; }
+  .inquiry-title { font-weight: 600; font-size: 0.9rem; color: white; }
+  .inquiry-sub { font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-top: 0.2rem; }
+  .inquiry-arrow { margin-left: auto; color: var(--gold); opacity: 0; transition: opacity 0.2s; }
+  .inquiry-card:hover .inquiry-arrow { opacity: 1; }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  select.form-field {
+    cursor: pointer;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='rgba(201,168,76,0.6)'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+  }
+  select.form-field option { background: #1a1a1a; }
+  textarea.form-field { resize: vertical; min-height: 120px; }
+
+  /* FOOTER */
+  footer {
+    background: var(--black);
+    border-top: 1px solid rgba(201,168,76,0.1);
+    padding: 3rem 4rem;
+  }
+  .footer-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-brand { max-width: 280px; }
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.75rem; letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+  .footer-tagline {
+    font-size: 0.8rem; line-height: 1.6;
+    color: rgba(255,255,255,0.35);
+  }
+  .footer-nav-group h4 {
+    font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .footer-nav-group ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-nav-group a {
+    font-size: 0.85rem; color: rgba(255,255,255,0.45); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-nav-group a:hover { color: var(--white); }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.2); }
+  .social-links { display: flex; gap: 1rem; }
+  .social-link {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 700;
+    transition: all 0.2s;
+  }
+  .social-link:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* DEMO BANNER */
+  .demo-banner {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+    background: rgba(201,168,76,0.95);
+    backdrop-filter: blur(10px);
+    padding: 0.75rem 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem;
+  }
+  .demo-banner-text {
+    font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--black);
+  }
+  .demo-banner-close {
+    background: none; border: none; cursor: pointer;
+    font-size: 1.1rem; color: var(--black); opacity: 0.6;
+    padding: 0.25rem;
+    transition: opacity 0.2s;
+  }
+  .demo-banner-close:hover { opacity: 1; }
+
+  /* DIVIDER */
+  .gold-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent);
+  }
+
+  /* PRESS SECTION */
+  .press-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .press-card {
+    padding: 2rem;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: border-color 0.2s;
+  }
+  .press-card:hover { border-color: rgba(201,168,76,0.2); }
+  .press-outlet {
+    font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.75rem;
+  }
+  .press-headline { font-size: 0.95rem; font-weight: 600; line-height: 1.4; margin-bottom: 0.75rem; }
+  .press-date { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    section { padding: 5rem 2.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-stats { display: none; }
+    .hero-content { padding: 2rem 2.5rem 5rem; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .nil-grid { grid-template-columns: repeat(2, 1fr); }
+    .community-hero { grid-template-columns: 1fr; gap: 2rem; }
+    .community-grid { grid-template-columns: repeat(2, 1fr); }
+    .camps-grid { grid-template-columns: 1fr; }
+    .fan-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .footer-top { flex-direction: column; gap: 3rem; }
+    .gallery-grid { display: flex; flex-direction: column; }
+    .gallery-item-inner.tall { min-height: 250px; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 1.1rem 1.5rem; }
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    section { padding: 4rem 1.5rem; }
+    .hero-content { padding: 1.5rem 1.5rem 5rem; }
+    .hero-number { display: none; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .video-grid { grid-template-columns: 1fr; }
+    .nil-grid { grid-template-columns: 1fr; }
+    .community-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .foundation-pillars { flex-direction: column; }
+    .press-grid { grid-template-columns: 1fr; }
+    footer { padding: 2.5rem 1.5rem; }
+    .demo-banner { flex-direction: column; text-align: center; gap: 0.5rem; }
+  }
+
+  /* FADE IN ANIMATION */
+  .fade-in {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- DEMO BANNER -->
+<div class="demo-banner" id="demoBanner">
+  <span class="demo-banner-text">⚠ Design Concept Demo — "Avery Brooks" is a 100% fictional athlete — Not affiliated with any real person or institution — Interested in a site like this? Contact Jamal Samuel</span>
+  <button class="demo-banner-close" onclick="document.getElementById('demoBanner').style.display='none'">✕</button>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">Avery <span>Brooks</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#career">Career</a></li>
+    <li><a href="#media">Media</a></li>
+    <li><a href="#community">Community</a></li>
+    <li><a href="#opportunities">Opportunities</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Work With Avery</a>
+  <div class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#about" onclick="closeMobileNav()">About</a>
+  <a href="#career" onclick="closeMobileNav()">Career</a>
+  <a href="#media" onclick="closeMobileNav()">Media</a>
+  <a href="#community" onclick="closeMobileNav()">Community</a>
+  <a href="#opportunities" onclick="closeMobileNav()">Opportunities</a>
+  <a href="#contact" onclick="closeMobileNav()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-number">4</div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Westbrook University Women's Basketball</div>
+    <h1 class="hero-headline">
+      More Than<br>
+      <em>The Game.</em>
+    </h1>
+    <p class="hero-sub">Building a legacy through performance, leadership, and lasting impact — on the court and beyond.</p>
+    <p class="hero-meta">For media · appearances · camps · speaking engagements · community initiatives · partnership inquiries</p>
+    <div class="hero-buttons">
+      <a href="#media" class="btn-primary">View Highlights</a>
+      <a href="#contact" class="btn-secondary">Work With Avery</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div>
+      <div class="hero-stat-num">18.4</div>
+      <div class="hero-stat-label">Points Per Game</div>
+    </div>
+    <div>
+      <div class="hero-stat-num">6.2</div>
+      <div class="hero-stat-label">Assists Per Game</div>
+    </div>
+    <div>
+      <div class="hero-stat-num">3×</div>
+      <div class="hero-stat-label">All-Conference</div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-image-block">
+      <div class="about-image-placeholder">
+        <div class="about-img-icon">📸</div>
+        <div class="about-img-label">Athlete Portrait</div>
+      </div>
+      <div class="about-accent"></div>
+      <div class="about-badge">
+        <div class="about-badge-num">#4</div>
+        <div class="about-badge-text">Guard · Westbrook</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label">The Story</div>
+      <h2 class="section-title">Charlotte. Faith.<br>Basketball.</h2>
+      <blockquote class="about-quote">"I never played just to play. I played to prove something — to every girl from Charlotte who was told the dream was too big."</blockquote>
+      <p class="about-body">Avery Brooks grew up in the east side of Charlotte, North Carolina, where basketball wasn't a hobby — it was a language. The third of four siblings, she learned discipline at the kitchen table and resilience on cracked outdoor courts, long before anyone was watching.</p>
+      <p class="about-body">By her sophomore year of high school she was being recruited nationally. By her junior year she was a McDonald's All-American nominee. But the decision wasn't just about basketball. Avery chose Westbrook University because of its culture of faith, community, and the expectation that athletes leave the program better people — not just better players.</p>
+      <p class="about-body">Three years in, she leads the team in points and assists, mentors freshmen formally and informally, and is building a personal brand centered on the belief that sports are a platform — not a destination.</p>
+      <div class="about-values">
+        <span class="value-tag">Leadership</span>
+        <span class="value-tag">Faith</span>
+        <span class="value-tag">Discipline</span>
+        <span class="value-tag">Community</span>
+        <span class="value-tag">Excellence</span>
+        <span class="value-tag">Resilience</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- CAREER -->
+<section id="career">
+  <div class="section-label">Career</div>
+  <h2 class="section-title">The Journey So Far</h2>
+
+  <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem;">
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">Charlotte, NC · Early Years</div>
+        <div class="timeline-title">Where It Began</div>
+        <div class="timeline-body">Discovered basketball at age seven through an after-school program. By 13 she was playing AAU ball across the country. Two older brothers taught her to play without fear.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">High School · Myers Park Academy</div>
+        <div class="timeline-title">State Champion · 2× All-State Guard</div>
+        <div class="timeline-body">Led Myers Park to back-to-back state championships as a junior and senior. Named team captain her sophomore year — the first in school history at that age. 4-star recruit. 28 Division I offers.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">Westbrook University · Year One</div>
+        <div class="timeline-title">Conference Freshman of the Year</div>
+        <div class="timeline-body">Started all 34 games. Averaged 14.2 points and 5.1 assists. Named Conference Freshman of the Year. Helped Westbrook reach the Sweet 16 for the first time in 11 years.</div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">Westbrook University · Year Two</div>
+        <div class="timeline-title">All-Conference First Team</div>
+        <div class="timeline-body">Elevated to team captain. Led conference in assists. Career-high 34-point performance in March. Westbrook reached the Elite Eight. Named to Academic All-Conference team.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">Westbrook University · Year Three</div>
+        <div class="timeline-title">3× All-Conference · Conference POY Finalist</div>
+        <div class="timeline-body">18.4 PPG, 6.2 APG, 2.8 SPG. Conference Player of the Year finalist. Led Westbrook to their first conference championship since 2009. WNBA Draft prospect. Currently active season.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2025 → Beyond</div>
+        <div class="timeline-title">Professional Career · Legacy Building</div>
+        <div class="timeline-body">WNBA Draft prospect. Goal: professional basketball career across multiple seasons and leagues — while building a personal brand, foundation, and community program that lasts decades beyond the final buzzer.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="section-label">By The Numbers</div>
+  <h2 class="section-title">This Season</h2>
+
+  <div class="stats-grid fade-in">
+    <div class="stat-card">
+      <div class="stat-num">18.4</div>
+      <div class="stat-desc">Points Per Game</div>
+      <div class="stat-season">2nd in Conference</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">6.2</div>
+      <div class="stat-desc">Assists Per Game</div>
+      <div class="stat-season">1st in Conference</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">2.8</div>
+      <div class="stat-desc">Steals Per Game</div>
+      <div class="stat-season">1st in Conference</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">44%</div>
+      <div class="stat-desc">Field Goal Pct.</div>
+      <div class="stat-season">Career High</div>
+    </div>
+  </div>
+
+  <div class="stats-grid fade-in" style="margin-top: 1px;">
+    <div class="stat-card">
+      <div class="stat-num">1,847</div>
+      <div class="stat-desc">Career Points</div>
+      <div class="stat-season">Program Top 10</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">3×</div>
+      <div class="stat-desc">All-Conference</div>
+      <div class="stat-season">All 3 Eligible Seasons</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">34</div>
+      <div class="stat-desc">Career High Points</div>
+      <div class="stat-season">March 2024 · Regionals</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">3.9</div>
+      <div class="stat-desc">GPA</div>
+      <div class="stat-season">Academic All-Conference</div>
+    </div>
+  </div>
+  <p style="font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-top: 1rem; text-align: right;">All statistics fictional · Demo concept only</p>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- MEDIA / HIGHLIGHTS -->
+<section id="media">
+  <div class="section-label">Highlights & Media</div>
+  <h2 class="section-title">Watch The Game</h2>
+
+  <div class="video-grid">
+    <div class="video-card">
+      <div class="video-card-inner">
+        <div class="video-bg-text">01</div>
+        <div class="play-btn"><div class="play-icon"></div></div>
+      </div>
+      <div class="video-label">
+        <div class="video-label-title">34-Point Regional Semifinal</div>
+        <div class="video-label-sub">March 2024 · Career High</div>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="video-card-inner">
+        <div class="video-bg-text">02</div>
+        <div class="play-btn"><div class="play-icon"></div></div>
+      </div>
+      <div class="video-label">
+        <div class="video-label-title">Conference Championship Highlights</div>
+        <div class="video-label-sub">February 2025 · 26 Pts · 9 Ast</div>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="video-card-inner">
+        <div class="video-bg-text">03</div>
+        <div class="play-btn"><div class="play-icon"></div></div>
+      </div>
+      <div class="video-label">
+        <div class="video-label-title">ESPN Interview: Life at Westbrook</div>
+        <div class="video-label-sub">Feature · October 2024</div>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="video-card-inner">
+        <div class="video-bg-text">04</div>
+        <div class="play-btn"><div class="play-icon"></div></div>
+      </div>
+      <div class="video-label">
+        <div class="video-label-title">Season Highlights Reel 2024–25</div>
+        <div class="video-label-sub">Full Season Cut</div>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="video-card-inner">
+        <div class="video-bg-text">05</div>
+        <div class="play-btn"><div class="play-icon"></div></div>
+      </div>
+      <div class="video-label">
+        <div class="video-label-title">The Players Tribune: My Story</div>
+        <div class="video-label-sub">Long Form · January 2025</div>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="video-card-inner">
+        <div class="video-bg-text">06</div>
+        <div class="play-btn"><div class="play-icon"></div></div>
+      </div>
+      <div class="video-label">
+        <div class="video-label-title">Charlotte Youth Camp Recap</div>
+        <div class="video-label-sub">Community · Summer 2024</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRESS -->
+  <div style="margin-top: 5rem;">
+    <div class="section-label">In The Press</div>
+    <div class="press-grid">
+      <div class="press-card">
+        <div class="press-outlet">ESPN Women's Basketball</div>
+        <div class="press-headline">Avery Brooks Is Building a Brand as Big as Her Game</div>
+        <div class="press-date">March 2025 · Feature Story</div>
+      </div>
+      <div class="press-card">
+        <div class="press-outlet">The Players Tribune</div>
+        <div class="press-headline">From Charlotte to Wherever This Takes Me</div>
+        <div class="press-date">January 2025 · First-Person Essay</div>
+      </div>
+      <div class="press-card">
+        <div class="press-outlet">Slam Magazine</div>
+        <div class="press-headline">30 College Athletes Who Will Define the Next Decade of Women's Basketball</div>
+        <div class="press-date">December 2024 · Listed #7</div>
+      </div>
+    </div>
+    <p style="font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.18);margin-top:1rem;">Sample press content — fictional demonstration only</p>
+  </div>
+
+  <!-- GALLERY -->
+  <div id="gallery" style="margin-top: 5rem;">
+    <div class="section-label">Gallery</div>
+    <div class="gallery-grid">
+      <div class="gallery-item g1"><div class="gallery-item-inner tall">Game Action</div></div>
+      <div class="gallery-item g2"><div class="gallery-item-inner">Training</div></div>
+      <div class="gallery-item g3"><div class="gallery-item-inner">Editorial</div></div>
+      <div class="gallery-item g4"><div class="gallery-item-inner">Community</div></div>
+      <div class="gallery-item g5"><div class="gallery-item-inner">Press</div></div>
+      <div class="gallery-item g6"><div class="gallery-item-inner">Lifestyle</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section id="community">
+  <div class="section-label">Community Impact</div>
+  <h2 class="section-title">Standing For Something</h2>
+
+  <div class="community-hero fade-in">
+    <blockquote class="community-quote">
+      "The platform basketball gives you is borrowed. What you do with it is yours. I want the work I put into my community to outlast any career stat line."
+      <cite>— Avery Brooks</cite>
+    </blockquote>
+    <div class="community-stats">
+      <div class="impact-stat">
+        <div class="impact-num">400+</div>
+        <div class="impact-label">Young Athletes Mentored</div>
+      </div>
+      <div class="impact-stat">
+        <div class="impact-num">18</div>
+        <div class="impact-label">Youth Clinics Hosted</div>
+      </div>
+      <div class="impact-stat">
+        <div class="impact-num">3</div>
+        <div class="impact-label">Active Scholarships</div>
+      </div>
+      <div class="impact-stat">
+        <div class="impact-num">6</div>
+        <div class="impact-label">School Partnerships</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="community-grid">
+    <div class="community-card">
+      <div class="community-card-title">🏀 Annual Charlotte Youth Camp</div>
+      <div class="community-card-body">Every summer, Avery returns to Charlotte to host a free skills camp for girls ages 8–16. Over 200 athletes attended in 2024. No cost. No roster limit. Every girl plays.</div>
+    </div>
+    <div class="community-card">
+      <div class="community-card-title">📚 Study Hall Initiative</div>
+      <div class="community-card-body">A partnership with three Charlotte middle schools providing tutoring, mentorship, and college-prep support for student-athletes who lack access to resources but have the drive to succeed.</div>
+    </div>
+    <div class="community-card">
+      <div class="community-card-title">🎤 Leadership Workshop Series</div>
+      <div class="community-card-body">School visits, keynotes, and panel discussions on leadership, mental health, faith, and navigating high-pressure environments — delivered to students, athletes, and young professionals.</div>
+    </div>
+    <div class="community-card">
+      <div class="community-card-title">🤝 NIL with Purpose</div>
+      <div class="community-card-body">Every brand partnership Avery considers must have a community component — whether that's a percentage donated, a clinic co-sponsored, or a scholarship funded. No exceptions.</div>
+    </div>
+    <div class="community-card">
+      <div class="community-card-title">🙏 Faith & Wellness Programming</div>
+      <div class="community-card-body">Regular mental health check-ins, faith-based reflection sessions, and wellness conversations hosted for teammates and community youth groups throughout the academic year.</div>
+    </div>
+    <div class="community-card">
+      <div class="community-card-title">🏆 Scholarship Fund</div>
+      <div class="community-card-body">Three active scholarships for high school student-athletes from underserved communities in Charlotte — covering equipment, camp registration, and travel costs for AAU competition.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDATION -->
+<section id="foundation">
+  <div class="foundation-glow"></div>
+  <div class="foundation-inner">
+    <div class="foundation-badge">
+      <div class="foundation-badge-text">✦ Coming 2026 — The Avery Brooks Foundation</div>
+    </div>
+    <h2 class="foundation-title">Building What Lasts<br><em class="gold-text">Long After The Final Buzzer</em></h2>
+    <p class="foundation-body">The foundation is being built now — not after retirement. Because the work of creating access, mentorship, and opportunity for young athletes from underserved communities cannot wait until the career is over.</p>
+    <div class="foundation-pillars">
+      <div class="pillar">
+        <div class="pillar-icon">🎓</div>
+        <div class="pillar-title">Education</div>
+        <div class="pillar-body">Scholarships and academic support for student-athletes who have the drive but not the resources.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🏀</div>
+        <div class="pillar-title">Access</div>
+        <div class="pillar-body">Free camps, clinics, and equipment programs for communities where sport is the last funded priority.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🌱</div>
+        <div class="pillar-title">Mentorship</div>
+        <div class="pillar-body">Direct mentorship connecting young athletes with professionals who've navigated the same journey.</div>
+      </div>
+    </div>
+    <a href="#contact" class="btn-primary">Inquire About Foundation Partnerships</a>
+  </div>
+</section>
+
+<!-- OPPORTUNITIES / NIL -->
+<section id="opportunities">
+  <div class="section-label">Opportunities</div>
+  <h2 class="section-title">Work With Avery</h2>
+  <p class="nil-intro">Avery is selective about partnerships — every collaboration must align with her values and deliver genuine value to her audience. The opportunities below are where that alignment is strongest.</p>
+
+  <div class="nil-grid">
+    <div class="nil-card">
+      <div class="nil-card-icon">🤝</div>
+      <div class="nil-card-title">Brand Partnerships</div>
+      <div class="nil-card-body">Lifestyle, apparel, wellness, and community-aligned brands. Every partnership includes a community element. No exceptions. Audience: 18–34 women, athletes, families.</div>
+      <a href="#contact" class="nil-card-cta">Inquire</a>
+    </div>
+    <div class="nil-card">
+      <div class="nil-card-icon">🎤</div>
+      <div class="nil-card-title">Speaking Engagements</div>
+      <div class="nil-card-body">Leadership, faith, resilience, athlete branding, and women in sport. Corporate events, schools, conferences, youth organizations, and community groups welcome.</div>
+      <a href="#contact" class="nil-card-cta">Book a Date</a>
+    </div>
+    <div class="nil-card">
+      <div class="nil-card-icon">🏀</div>
+      <div class="nil-card-title">Camps & Clinics</div>
+      <div class="nil-card-body">Available for co-branded youth basketball camps, private skills training sessions, and team clinics. Limited dates available each calendar year.</div>
+      <a href="#contact" class="nil-card-cta">Check Availability</a>
+    </div>
+    <div class="nil-card">
+      <div class="nil-card-icon">📱</div>
+      <div class="nil-card-title">Social Collaborations</div>
+      <div class="nil-card-body">Organic content-first. Campaigns that fit naturally into her existing content. Sponsored posts, stories, product reviews, and co-created series available.</div>
+      <a href="#contact" class="nil-card-cta">Inquire</a>
+    </div>
+    <div class="nil-card">
+      <div class="nil-card-icon">🏫</div>
+      <div class="nil-card-title">School & Community Visits</div>
+      <div class="nil-card-body">Available for Q&A panels, student athlete day programs, award events, and community organization visits across the Charlotte metro and Westbrook region.</div>
+      <a href="#contact" class="nil-card-cta">Request a Visit</a>
+    </div>
+    <div class="nil-card">
+      <div class="nil-card-icon">📄</div>
+      <div class="nil-card-title">Media Requests</div>
+      <div class="nil-card-body">Interviews, podcast appearances, editorial photography, documentary features, and written profiles. Response within 48 hours for all media inquiries.</div>
+      <a href="#contact" class="nil-card-cta">Submit Request</a>
+    </div>
+  </div>
+</section>
+
+<!-- CAMPS -->
+<section id="camps">
+  <div class="section-label">Camps & Training</div>
+  <h2 class="section-title">Learn The Game. Build The Person.</h2>
+
+  <div class="camps-grid">
+    <div class="camp-card">
+      <div class="camp-card-badge">Annual Program</div>
+      <div class="camp-card-title">Charlotte Summer Elite Camp</div>
+      <div class="camp-card-body">Three days of intensive skills development for girls aged 8–16. All skill levels welcome. Focus: ball-handling, decision-making, defensive mindset, and leadership on and off the court. No player turned away for inability to pay.</div>
+      <div class="camp-details">
+        <div class="camp-detail">When<span>July 2025</span></div>
+        <div class="camp-detail">Where<span>Charlotte, NC</span></div>
+        <div class="camp-detail">Ages<span>8 – 16</span></div>
+        <div class="camp-detail">Cost<span>Free / Donation</span></div>
+      </div>
+      <a href="#contact" class="btn-primary" style="font-size: 0.7rem; padding: 0.75rem 1.75rem;">Join the Waitlist</a>
+    </div>
+    <div class="camp-card">
+      <div class="camp-card-badge">Private · Limited Slots</div>
+      <div class="camp-card-title">1-on-1 Private Training Sessions</div>
+      <div class="camp-card-body">Focused private sessions for serious players looking to develop specific aspects of their game. Guard skills, scoring off the dribble, playmaking, and leadership IQ. Available during select dates through the academic year.</div>
+      <div class="camp-details">
+        <div class="camp-detail">Format<span>1-on-1</span></div>
+        <div class="camp-detail">Duration<span>90 Minutes</span></div>
+        <div class="camp-detail">Level<span>Competitive</span></div>
+        <div class="camp-detail">Slots<span>Limited</span></div>
+      </div>
+      <a href="#contact" class="btn-primary" style="font-size: 0.7rem; padding: 0.75rem 1.75rem;">Request a Session</a>
+    </div>
+    <div class="camp-card">
+      <div class="camp-card-badge">Team Program</div>
+      <div class="camp-card-title">Team & Club Clinics</div>
+      <div class="camp-card-body">Half-day or full-day clinics for AAU programs, high school teams, and youth clubs. Designed around the specific developmental needs of the group. Guard-focused but scalable for full team workouts.</div>
+      <div class="camp-details">
+        <div class="camp-detail">Format<span>Group</span></div>
+        <div class="camp-detail">Team Size<span>Up to 20</span></div>
+        <div class="camp-detail">Duration<span>Half / Full Day</span></div>
+        <div class="camp-detail">Travel<span>Available</span></div>
+      </div>
+      <a href="#contact" class="btn-primary" style="font-size: 0.7rem; padding: 0.75rem 1.75rem;">Book Your Team</a>
+    </div>
+    <div class="camp-card">
+      <div class="camp-card-badge">Corporate & Brand</div>
+      <div class="camp-card-title">Co-Branded Basketball Events</div>
+      <div class="camp-card-body">Partner with Avery to create a branded youth basketball event in your market. She handles programming; you handle co-branding and logistics. A genuine community investment with meaningful media coverage potential.</div>
+      <div class="camp-details">
+        <div class="camp-detail">Format<span>Custom</span></div>
+        <div class="camp-detail">Locations<span>Flexible</span></div>
+        <div class="camp-detail">Audience<span>Youth Athletes</span></div>
+        <div class="camp-detail">Lead Time<span>90 Days</span></div>
+      </div>
+      <a href="#contact" class="btn-primary" style="font-size: 0.7rem; padding: 0.75rem 1.75rem;">Discuss Partnership</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAN / NEWSLETTER -->
+<section id="fan">
+  <div class="fan-inner">
+    <div>
+      <div class="section-label">Stay Connected</div>
+      <h2 class="section-title">Be Part Of<br>The Journey</h2>
+      <div class="fan-features">
+        <div class="fan-feature">
+          <div class="fan-feature-icon">📍</div>
+          <div>
+            <div class="fan-feature-title">Upcoming Appearances</div>
+            <div class="fan-feature-body">First to know about public events, fan meet-and-greets, and appearances near you.</div>
+          </div>
+        </div>
+        <div class="fan-feature">
+          <div class="fan-feature-icon">🏀</div>
+          <div>
+            <div class="fan-feature-title">Behind The Scenes</div>
+            <div class="fan-feature-body">Game day routines, training insights, and the parts of the journey that don't make the highlight reel.</div>
+          </div>
+        </div>
+        <div class="fan-feature">
+          <div class="fan-feature-icon">📣</div>
+          <div>
+            <div class="fan-feature-title">Camp Announcements</div>
+            <div class="fan-feature-body">Early registration access for youth camps and clinics before they're announced publicly.</div>
+          </div>
+        </div>
+        <div class="fan-feature">
+          <div class="fan-feature-icon">✍️</div>
+          <div>
+            <div class="fan-feature-title">Personal Writing</div>
+            <div class="fan-feature-body">Essays on leadership, faith, sport, and what it means to build something bigger than yourself.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.75rem;letter-spacing:0.04em;margin-bottom:0.5rem;">Stay In The Loop</h3>
+      <p style="font-size:0.88rem;color:rgba(255,255,255,0.45);line-height:1.6;margin-bottom:1.5rem;">No noise. Just updates worth reading. Unsubscribe any time.</p>
+      <div class="fan-form">
+        <input type="text" class="form-field" placeholder="First Name">
+        <input type="email" class="form-field" placeholder="Email Address">
+        <select class="form-field">
+          <option value="" disabled selected>I'm a... (optional)</option>
+          <option>Fan / Supporter</option>
+          <option>Parent of Young Athlete</option>
+          <option>Coach or Trainer</option>
+          <option>Brand or Organization</option>
+          <option>Media</option>
+          <option>Other</option>
+        </select>
+        <button class="btn-primary" style="border:none;cursor:pointer;text-align:center;">Subscribe For Updates</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Contact</div>
+  <h2 class="section-title">Let's Build Something</h2>
+  <p style="font-size:0.9rem;line-height:1.75;color:rgba(255,255,255,0.45);max-width:540px;margin-bottom:1rem;">All serious inquiries are reviewed personally. Please include as much detail as possible so responses can be as specific as yours deserves.</p>
+
+  <div class="contact-grid">
+    <div>
+      <p style="font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:1.25rem;">Select Inquiry Type</p>
+      <div class="inquiry-cards">
+        <a class="inquiry-card" href="#contact">
+          <div class="inquiry-icon">🤝</div>
+          <div>
+            <div class="inquiry-title">Brand Partnership</div>
+            <div class="inquiry-sub">NIL deals, campaigns, ambassador programs</div>
+          </div>
+          <div class="inquiry-arrow">→</div>
+        </a>
+        <a class="inquiry-card" href="#contact">
+          <div class="inquiry-icon">🎤</div>
+          <div>
+            <div class="inquiry-title">Speaking Engagement</div>
+            <div class="inquiry-sub">Schools, conferences, corporate events, keynotes</div>
+          </div>
+          <div class="inquiry-arrow">→</div>
+        </a>
+        <a class="inquiry-card" href="#contact">
+          <div class="inquiry-icon">🏀</div>
+          <div>
+            <div class="inquiry-title">Camp or Clinic</div>
+            <div class="inquiry-sub">Youth programs, team clinics, private sessions</div>
+          </div>
+          <div class="inquiry-arrow">→</div>
+        </a>
+        <a class="inquiry-card" href="#contact">
+          <div class="inquiry-icon">📸</div>
+          <div>
+            <div class="inquiry-title">Media Request</div>
+            <div class="inquiry-sub">Interviews, features, editorial, podcasts</div>
+          </div>
+          <div class="inquiry-arrow">→</div>
+        </a>
+        <a class="inquiry-card" href="#contact">
+          <div class="inquiry-icon">🌱</div>
+          <div>
+            <div class="inquiry-title">Community or Foundation</div>
+            <div class="inquiry-sub">School visits, events, philanthropy partnerships</div>
+          </div>
+          <div class="inquiry-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <div class="form-row">
+        <input type="text" class="form-field" placeholder="First Name">
+        <input type="text" class="form-field" placeholder="Last Name">
+      </div>
+      <input type="text" class="form-field" placeholder="Organization / Brand">
+      <input type="email" class="form-field" placeholder="Email Address">
+      <select class="form-field">
+        <option value="" disabled selected>Inquiry Type</option>
+        <option>Brand Partnership / NIL</option>
+        <option>Speaking Engagement</option>
+        <option>Basketball Camp or Clinic</option>
+        <option>Media Request</option>
+        <option>Community or Foundation</option>
+        <option>Event Appearance</option>
+        <option>General Inquiry</option>
+      </select>
+      <input type="text" class="form-field" placeholder="Timeline / Proposed Date">
+      <textarea class="form-field" placeholder="Tell me about the opportunity. The more detail you share, the faster I can respond."></textarea>
+      <button class="btn-primary" style="border:none;cursor:pointer;text-align:center;padding:1rem;">Submit Inquiry</button>
+      <p style="font-size:0.72rem;color:rgba(255,255,255,0.25);line-height:1.5;">All inquiries are reviewed and responded to within 48 hours. For urgent media requests, please indicate in your message.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">Avery <span class="gold-text">Brooks</span></div>
+      <p class="footer-tagline">Guard · Westbrook University · Charlotte, NC<br>Building a legacy through performance, leadership, and impact.</p>
+      <div style="margin-top:1.5rem;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.2);">
+        For media &amp; partnership inquiries:<br>
+        <span style="color:rgba(201,168,76,0.5);">inquiries@averybrooks.com</span>
+      </div>
+    </div>
+    <div style="display:flex;gap:4rem;flex-wrap:wrap;">
+      <div class="footer-nav-group">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#career">Career</a></li>
+          <li><a href="#stats">Stats</a></li>
+          <li><a href="#media">Highlights</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-group">
+        <h4>Opportunities</h4>
+        <ul>
+          <li><a href="#opportunities">Brand Partnerships</a></li>
+          <li><a href="#camps">Camps &amp; Clinics</a></li>
+          <li><a href="#opportunities">Speaking</a></li>
+          <li><a href="#foundation">Foundation</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-group">
+        <h4>Community</h4>
+        <ul>
+          <li><a href="#community">Impact Work</a></li>
+          <li><a href="#community">Youth Programs</a></li>
+          <li><a href="#fan">Newsletter</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Avery Brooks · Fictional Concept · Design by <a href="https://jamalss.github.io/Jamal-Samuel/" style="color:var(--gold);text-decoration:none;">Jamal Samuel</a></div>
+    <div class="social-links">
+      <a href="#" class="social-link">IG</a>
+      <a href="#" class="social-link">TT</a>
+      <a href="#" class="social-link">YT</a>
+      <a href="#" class="social-link">TW</a>
+    </div>
+  </div>
+  <p style="font-size:0.6rem;color:rgba(255,255,255,0.12);margin-top:1.5rem;line-height:1.6;text-align:center;max-width:700px;margin-left:auto;margin-right:auto;">DESIGN CONCEPT DEMO ONLY. "Avery Brooks" is a 100% fictional athlete created for design demonstration purposes. Not affiliated with any real person, institution, team, or league. All statistics, achievements, press mentions, and testimonials are fictional.</p>
+</footer>
+
+<script>
+  // NAV SCROLL
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('mainNav');
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // MOBILE NAV
+  function toggleMobileNav() {
+    document.getElementById('mobileNav').classList.toggle('open');
+  }
+  function closeMobileNav() {
+    document.getElementById('mobileNav').classList.remove('open');
+  }
+
+  // INTERSECTION OBSERVER — fade in + timeline reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in, .timeline-item').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
