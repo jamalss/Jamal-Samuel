@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>KKLL's Healthy Harvests — Fresh. Local. Healthy. Always.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  /* Caribbean palette pulled from logo + flyer */
+  --deep-green:  #0d4a1f;      /* forest canopy */
+  --mid-green:   #1e7a3a;
+  --bright-green:#28a84e;
+  --sun:         #f5a800;      /* citrus/mango sun */
+  --sun-deep:    #d4820a;
+  --sky:         #006ca5;      /* caribbean sea */
+  --sky-light:   #0090d4;
+  --sand:        #fdf4e0;      /* warm sand */
+  --sand-2:      #f5e9c8;
+  --dark:        #0b1e0f;
+  --text:        #162118;
+  --muted:       #4a6450;
+  --white:       #ffffff;
+  --radius:      16px;
+  --shadow:      0 6px 40px rgba(13,74,31,0.14);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--text);overflow-x:hidden}
+
+/* ── CARIBBEAN TEXTURE STRIPE ── */
+.top-stripe{height:5px;position:relative;z-index:0;background:linear-gradient(90deg,var(--deep-green) 0%,var(--bright-green) 30%,var(--sun) 55%,var(--sky) 80%,var(--deep-green) 100%)}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 24px;
+  background:rgba(13,74,31,0.97);
+  backdrop-filter:blur(14px);
+  border-bottom:2px solid var(--sun);
+}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-name{
+  font-family:'Playfair Display',serif;font-weight:900;font-size:1.1rem;
+  color:var(--white);letter-spacing:-0.2px;line-height:1.1
+}
+.nav-name span{display:block;font-family:'DM Sans',sans-serif;font-size:0.65rem;font-weight:400;color:var(--sun);letter-spacing:2px;text-transform:uppercase}
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-cart-btn{
+  display:flex;align-items:center;gap:8px;
+  background:var(--sun);color:var(--dark);border:none;
+  border-radius:50px;padding:9px 18px;
+  font-family:'DM Sans',sans-serif;font-size:0.86rem;font-weight:600;
+  cursor:pointer;transition:background 0.2s,transform 0.15s
+}
+.nav-cart-btn:hover{background:var(--sun-deep);color:white;transform:scale(1.03)}
+.cart-count{
+  background:var(--deep-green);color:white;
+  border-radius:50%;width:20px;height:20px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.7rem;font-weight:700;transition:transform 0.2s
+}
+.cart-count.bump{transform:scale(1.5)}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:110px 24px 70px;
+  position:relative;overflow:hidden;
+  background:linear-gradient(160deg,#0d4a1f 0%,#1a6b32 40%,#0d4a1f 100%)
+}
+/* sun burst */
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 60% at 50% 110%,rgba(245,168,0,0.25),transparent 65%),
+             radial-gradient(ellipse 50% 40% at 80% 20%,rgba(0,108,165,0.18),transparent 60%);
+  pointer-events:none
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(245,168,0,0.18);border:1px solid rgba(245,168,0,0.5);color:var(--sun);
+  border-radius:50px;padding:6px 18px;
+  font-size:0.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:26px;animation:fadeUp 0.6s ease both
+}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.9rem,9vw,6rem);font-weight:900;line-height:0.95;letter-spacing:-2px;
+  color:var(--white);max-width:780px;animation:fadeUp 0.65s 0.08s ease both
+}
+.hero h1 em{font-style:italic;color:var(--sun)}
+.hero-sub{
+  font-size:clamp(0.92rem,2.2vw,1.08rem);color:rgba(255,255,255,0.72);
+  max-width:480px;margin:20px auto 0;line-height:1.7;font-weight:300;
+  animation:fadeUp 0.65s 0.16s ease both
+}
+.hero-cta-row{
+  display:flex;gap:14px;flex-wrap:wrap;justify-content:center;
+  margin-top:34px;animation:fadeUp 0.65s 0.24s ease both
+}
+.btn-sun{
+  background:var(--sun);color:var(--dark);border:none;
+  border-radius:50px;padding:14px 32px;
+  font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;
+  cursor:pointer;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:background 0.2s,transform 0.15s,box-shadow 0.2s
+}
+.btn-sun:hover{background:var(--sun-deep);color:white;transform:translateY(-2px);box-shadow:0 10px 28px rgba(245,168,0,0.35)}
+.btn-ghost{
+  background:transparent;color:white;border:2px solid rgba(255,255,255,0.4);
+  border-radius:50px;padding:12px 28px;
+  font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;
+  cursor:pointer;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;transition:all 0.2s
+}
+.btn-ghost:hover{border-color:white;background:rgba(255,255,255,0.1)}
+.hero-scroll{
+  margin-top:50px;display:flex;flex-direction:column;align-items:center;gap:6px;
+  color:rgba(255,255,255,0.4);font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;
+  animation:fadeUp 0.65s 0.4s ease both
+}
+.scroll-bar{width:2px;height:30px;background:linear-gradient(to bottom,var(--sun),transparent);border-radius:2px;animation:scrollPulse 1.8s ease-in-out infinite}
+@keyframes scrollPulse{0%,100%{opacity:0.3;transform:scaleY(0.7)}50%{opacity:1;transform:scaleY(1)}}
+
+/* ── TRUST BAR ── */
+.trust-bar{
+  background:var(--sun);color:var(--dark);padding:12px 24px;
+  display:flex;justify-content:center;gap:clamp(16px,4vw,50px);flex-wrap:wrap;
+  font-size:0.8rem;font-weight:600;letter-spacing:0.2px
+}
+.trust-item{display:flex;align-items:center;gap:7px}
+
+/* ── CONTACT INFO BAR ── */
+.contact-bar{
+  background:var(--deep-green);color:rgba(255,255,255,0.85);
+  padding:10px 24px;
+  display:flex;justify-content:center;align-items:center;gap:clamp(14px,4vw,40px);
+  flex-wrap:wrap;font-size:0.8rem;font-weight:400
+}
+.contact-bar a{color:var(--sun);text-decoration:none;font-weight:600}
+.contact-bar a:hover{text-decoration:underline}
+.contact-sep{opacity:0.3;display:inline}
+
+/* ── SECTION ── */
+.section{padding:80px 24px;max-width:1120px;margin:0 auto}
+.section-label{
+  display:inline-block;color:var(--sun-deep);
+  font-size:0.7rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:10px
+}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.9rem,5vw,3rem);font-weight:900;letter-spacing:-1px;
+  color:var(--dark);margin-bottom:10px;line-height:1.05
+}
+.section-title em{font-style:italic;color:var(--mid-green)}
+.section-sub{color:var(--muted);font-size:0.95rem;max-width:520px;line-height:1.7;margin-bottom:44px;font-weight:300}
+
+/* ── CATEGORY TABS ── */
+.tab-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+.tab-btn{
+  background:var(--sand-2);color:var(--muted);border:2px solid transparent;
+  border-radius:50px;padding:9px 20px;
+  font-family:'DM Sans',sans-serif;font-size:0.84rem;font-weight:600;
+  cursor:pointer;transition:all 0.2s;white-space:nowrap
+}
+.tab-btn.active,.tab-btn:hover{background:var(--deep-green);color:white;border-color:var(--deep-green)}
+.tab-btn.active{border-color:var(--sun)}
+
+/* ── PRODUCT GRID ── */
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(288px,1fr));
+  gap:20px
+}
+.product-card{
+  background:var(--white);border-radius:var(--radius);padding:24px;
+  box-shadow:var(--shadow);border:2px solid transparent;
+  transition:transform 0.25s,border-color 0.2s,box-shadow 0.25s;
+  position:relative;overflow:hidden
+}
+.product-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:4px;
+  background:var(--card-accent,var(--bright-green));
+  transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease
+}
+.product-card:hover{transform:translateY(-3px);box-shadow:0 18px 50px rgba(13,74,31,0.18)}
+.product-card:hover::before{transform:scaleX(1)}
+.product-card.in-cart{border-color:var(--bright-green);background:linear-gradient(135deg,#f0fdf4,#fff)}
+.product-card.in-cart::before{transform:scaleX(1)}
+
+.product-icon{font-size:2.4rem;margin-bottom:10px;display:block;transition:transform 0.3s}
+.product-card:hover .product-icon{transform:scale(1.1) rotate(-4deg)}
+.product-name{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--dark);margin-bottom:4px}
+.product-desc{color:var(--muted);font-size:0.83rem;line-height:1.55;margin-bottom:12px;font-weight:300}
+.product-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
+.product-tag{
+  background:var(--sand-2);color:var(--deep-green);
+  border-radius:50px;padding:3px 10px;font-size:0.68rem;font-weight:600
+}
+
+/* variant select */
+.variant-select{
+  width:100%;margin-bottom:12px;padding:9px 12px;
+  border:2px solid var(--sand-2);border-radius:10px;
+  font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:500;
+  color:var(--text);background:var(--sand);cursor:pointer;
+  appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231e7a3a' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 12px center;
+  transition:border-color 0.2s
+}
+.variant-select:focus{outline:none;border-color:var(--mid-green)}
+
+.product-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.product-price{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;color:var(--mid-green)}
+.product-price span{font-family:'DM Sans',sans-serif;font-size:0.78rem;color:var(--muted);font-weight:300}
+.qty-controls{display:flex;align-items:center;background:var(--sand-2);border-radius:50px;overflow:hidden}
+.qty-btn{
+  background:none;border:none;width:34px;height:34px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.05rem;font-weight:700;color:var(--deep-green);
+  cursor:pointer;transition:background 0.15s,color 0.15s
+}
+.qty-btn:hover{background:var(--deep-green);color:white}
+.qty-display{min-width:30px;text-align:center;font-size:0.9rem;font-weight:600;color:var(--dark)}
+.add-btn{
+  background:var(--deep-green);color:white;border:none;
+  border-radius:50px;padding:9px 18px;
+  font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:600;
+  cursor:pointer;transition:background 0.2s,transform 0.15s;white-space:nowrap
+}
+.add-btn:hover{background:var(--mid-green);transform:scale(1.04)}
+.add-btn.added{background:var(--sun-deep)}
+
+/* ── WHY CARDS ── */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.why-card{
+  background:var(--white);border-radius:14px;padding:26px 22px;
+  box-shadow:0 4px 20px rgba(13,74,31,0.08);transition:transform 0.25s;
+  border-top:3px solid var(--sun)
+}
+.why-card:hover{transform:translateY(-3px)}
+.why-icon{font-size:1.8rem;margin-bottom:10px;display:block}
+.why-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:6px}
+.why-desc{color:var(--muted);font-size:0.83rem;line-height:1.6;font-weight:300}
+
+/* ── CTA BAND ── */
+.cta-band{
+  background:linear-gradient(135deg,var(--deep-green) 0%,#1a6b32 60%,#0d3d1a 100%);
+  margin:0 20px 70px;border-radius:22px;
+  padding:58px 36px;text-align:center;position:relative;overflow:hidden
+}
+.cta-band::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 25% 60%,rgba(245,168,0,0.2),transparent 55%),
+             radial-gradient(ellipse at 80% 30%,rgba(0,108,165,0.15),transparent 55%);
+  pointer-events:none
+}
+.cta-band h2{
+  font-family:'Playfair Display',serif;font-size:clamp(1.8rem,5vw,2.8rem);
+  font-weight:900;color:white;letter-spacing:-1px;margin-bottom:12px;position:relative
+}
+.cta-band h2 em{font-style:italic;color:var(--sun)}
+.cta-band p{
+  color:rgba(255,255,255,0.7);font-size:0.96rem;margin-bottom:28px;
+  font-weight:300;max-width:440px;margin-inline:auto;position:relative;line-height:1.7
+}
+.cta-pills{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:28px;position:relative}
+.cta-pill{
+  background:rgba(255,255,255,0.1);color:white;
+  border:1px solid rgba(255,255,255,0.2);border-radius:50px;padding:7px 16px;
+  font-size:0.8rem;font-weight:500
+}
+.wa-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:#25D366;color:white;border:none;border-radius:12px;
+  padding:15px 32px;
+  font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;
+  cursor:pointer;text-decoration:none;position:relative;
+  transition:background 0.2s,transform 0.15s,box-shadow 0.2s
+}
+.wa-btn:hover{background:#1dba57;transform:translateY(-2px);box-shadow:0 10px 28px rgba(37,211,102,0.4)}
+
+/* ── CART OVERLAY ── */
+.cart-overlay{position:fixed;inset:0;background:rgba(11,30,15,0.6);z-index:300;opacity:0;pointer-events:none;transition:opacity 0.3s;backdrop-filter:blur(4px)}
+.cart-overlay.open{opacity:1;pointer-events:all}
+
+/* ── CART PANEL ── */
+.cart-panel{
+  position:fixed;right:0;top:0;bottom:0;width:min(440px,100vw);
+  background:var(--white);z-index:301;display:flex;flex-direction:column;
+  transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  box-shadow:-12px 0 60px rgba(0,0,0,0.2)
+}
+.cart-panel.open{transform:translateX(0)}
+.cart-header{
+  background:var(--deep-green);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 22px 18px;
+}
+.cart-header h2{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:white}
+.cart-close{background:rgba(255,255,255,0.15);border:none;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:white;transition:background 0.2s}
+.cart-close:hover{background:rgba(255,255,255,0.3)}
+
+/* pickup/delivery toggle */
+.fulfillment-row{
+  padding:14px 20px;background:var(--sand);border-bottom:1px solid var(--sand-2);
+  display:flex;gap:10px
+}
+.fulfillment-btn{
+  flex:1;padding:10px;border-radius:10px;border:2px solid var(--sand-2);
+  font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:600;
+  cursor:pointer;background:white;color:var(--muted);transition:all 0.2s;text-align:center
+}
+.fulfillment-btn.active{background:var(--deep-green);color:white;border-color:var(--deep-green)}
+.fulfillment-note{
+  padding:8px 20px;font-size:0.75rem;color:var(--muted);
+  border-bottom:1px solid var(--sand-2);background:var(--sand)
+}
+
+.cart-items{flex:1;overflow-y:auto;padding:14px 20px}
+.cart-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:180px;color:var(--muted);gap:10px;font-size:0.93rem}
+.cart-empty .empty-icon{font-size:2.4rem}
+.cart-item{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--sand-2);animation:fadeUp 0.3s ease both}
+.cart-item-emoji{font-size:1.7rem;flex-shrink:0}
+.cart-item-info{flex:1}
+.cart-item-name{font-weight:600;font-size:0.93rem;color:var(--dark);margin-bottom:2px}
+.cart-item-variant{font-size:0.76rem;color:var(--mid-green);font-weight:500;margin-bottom:1px}
+.cart-item-price{font-size:0.78rem;color:var(--muted)}
+.cart-item-total{font-weight:700;font-size:0.93rem;color:var(--deep-green);min-width:50px;text-align:right}
+.cart-footer{padding:18px 20px;border-top:2px solid var(--sand-2);background:var(--sand)}
+.cart-total-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.cart-total-label{font-size:0.86rem;color:var(--muted);font-weight:500}
+.cart-total-amount{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--deep-green)}
+.cart-total-amount sup{font-size:0.95rem;vertical-align:super}
+.delivery-fee-row{font-size:0.76rem;color:var(--muted);margin-bottom:16px}
+.delivery-fee-val{font-weight:600;color:var(--mid-green)}
+.whatsapp-order-btn{
+  width:100%;background:#25D366;color:white;border:none;
+  border-radius:12px;padding:15px;
+  font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;
+  transition:background 0.2s,transform 0.15s,box-shadow 0.2s;margin-bottom:9px
+}
+.whatsapp-order-btn:hover{background:#1dba57;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,0.35)}
+.whatsapp-order-btn:disabled{background:#b2dfbd;cursor:not-allowed;transform:none;box-shadow:none}
+.cart-note{text-align:center;font-size:0.72rem;color:var(--muted)}
+
+/* ── FLOAT WA ── */
+.float-wa{
+  position:fixed;bottom:22px;right:22px;z-index:150;
+  background:#25D366;color:white;width:56px;height:56px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;text-decoration:none;
+  box-shadow:0 4px 22px rgba(37,211,102,0.5);
+  transition:transform 0.2s,box-shadow 0.2s;
+  animation:pulseWA 2.5s ease-in-out infinite
+}
+.float-wa:hover{transform:scale(1.1);box-shadow:0 8px 30px rgba(37,211,102,0.65);animation:none}
+@keyframes pulseWA{0%,100%{box-shadow:0 4px 22px rgba(37,211,102,0.5)}50%{box-shadow:0 4px 34px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.08)}}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--dark);color:rgba(255,255,255,0.55);
+  text-align:center;padding:34px 24px;font-size:0.79rem;line-height:1.8
+}
+footer strong{color:var(--sun)}
+footer a{color:var(--sun);text-decoration:none}
+
+/* ── TOAST ── */
+.toast{
+  position:fixed;bottom:88px;right:22px;
+  background:var(--deep-green);color:white;border-radius:50px;
+  padding:10px 20px;font-size:0.83rem;font-weight:500;
+  z-index:400;opacity:0;transform:translateY(10px);
+  transition:opacity 0.3s,transform 0.3s;pointer-events:none;
+  border:1px solid var(--sun)
+}
+.toast.show{opacity:1;transform:translateY(0)}
+
+/* ── ANIMS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:600px){
+  nav{padding:10px 16px}
+  .nav-name span{display:none}
+  .hero{padding:100px 20px 60px}
+  .hero h1{letter-spacing:-1.5px}
+  .cta-band{margin:0 12px 60px;padding:44px 20px}
+  .product-footer{flex-direction:column;align-items:flex-start;gap:10px}
+  .add-btn{width:100%;text-align:center;justify-content:center}
+  .cart-panel{width:100vw}
+  .contact-bar .contact-sep{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">
+    <div style="font-size:22px;line-height:1">🌿</div>
+    <div class="nav-name">
+      KKLL's Healthy Harvests
+      <span>Fresh · Local · Healthy · Always</span>
+    </div>
+  </a>
+  <div class="nav-right">
+    <button class="nav-cart-btn" onclick="openCart()">
+      🛒 My Order &nbsp;<span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">🌴 Saltibus, Choiseul · Saint Lucia</div>
+  <h1>Real Food.<br/><em>Real Results.</em><br/>Right Here.</h1>
+  <p class="hero-sub">Concentrated juices, seamoss, wellness blends, herbal seasonings, plants, and more — handcrafted in Saint Lucia and delivered island-wide.</p>
+  <div class="hero-cta-row">
+    <a href="#menu" class="btn-sun">🛒 Shop Now</a>
+    <button class="btn-ghost" onclick="openCart()">View My Order</button>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-bar"></div>
+    Browse products
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">✅ 100% Natural</div>
+  <div class="trust-item">🚫 No Preservatives</div>
+  <div class="trust-item">🚚 $5 Delivery Island-Wide</div>
+  <div class="trust-item">💬 Order via WhatsApp</div>
+</div>
+
+<!-- CONTACT BAR -->
+<div class="contact-bar">
+  <span>📞 <a href="tel:+17587173030">+1 758 717-3030</a></span>
+  <span class="contact-sep">|</span>
+  <span>📞 <a href="tel:+17587359901">+1 758 735-9901</a></span>
+  <span class="contact-sep">|</span>
+  <span>✉️ <a href="mailto:kkllhealthyharvest@gmail.com">kkllhealthyharvest@gmail.com</a></span>
+  <span class="contact-sep">|</span>
+  <span>📘 <a href="https://www.facebook.com/kkllhealthyharvest" target="_blank">kkllhealthyharvest</a></span>
+  <span class="contact-sep">|</span>
+  <span>📷 <a href="https://www.instagram.com/kkllshealthyharvests" target="_blank">@kkllshealthyharvests</a></span>
+</div>
+
+<!-- MENU -->
+<section class="section" id="menu">
+  <span class="section-label reveal">Our Products</span>
+  <h2 class="section-title reveal">Made from the Ground Up.<br/><em>Right here in Saint Lucia.</em></h2>
+  <p class="section-sub reveal">Pick your category, add products, set quantities. Send your complete order to WhatsApp in one tap.</p>
+
+  <div class="tab-row reveal" id="tabRow">
+    <button class="tab-btn active" onclick="filterCat('juices',this)">🍊 Juices</button>
+    <button class="tab-btn" onclick="filterCat('wellness',this)">💚 Wellness</button>
+    <button class="tab-btn" onclick="filterCat('sauces',this)">🫙 Sauces & Seasonings</button>
+    <button class="tab-btn" onclick="filterCat('plants',this)">🌱 Plants</button>
+    <button class="tab-btn" onclick="filterCat('treats',this)">🥜 Drinks & Treats</button>
+  </div>
+
+  <div class="product-grid" id="productGrid"></div>
+</section>
+
+<!-- WHY -->
+<section class="section" style="padding-top:0">
+  <span class="section-label reveal">Why KKLL's</span>
+  <h2 class="section-title reveal">Your Health is<br/><em>Our Concern.</em></h2>
+  <p class="section-sub reveal">Everything we make starts with a purpose — better health, real ingredients, real results.</p>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <span class="why-icon">🌾</span>
+      <div class="why-title">Locally Sourced</div>
+      <div class="why-desc">Grown and sourced in Saint Lucia. You're supporting local farming with every order.</div>
+    </div>
+    <div class="why-card reveal">
+      <span class="why-icon">🚫</span>
+      <div class="why-title">No Preservatives</div>
+      <div class="why-desc">No artificial colours. No additives. No shortcuts. Every bottle leaves our hands exactly as nature made it.</div>
+    </div>
+    <div class="why-card reveal">
+      <span class="why-icon">🏡</span>
+      <div class="why-title">Family Made</div>
+      <div class="why-desc">KKLL's started because our family needed real health solutions. That passion is in every product we make.</div>
+    </div>
+    <div class="why-card reveal">
+      <span class="why-icon">🚚</span>
+      <div class="why-title">Island-Wide Delivery</div>
+      <div class="why-desc">North deliveries on Fridays. Vieux-Fort on weekdays. $5 delivery fee. Pickup available in Saltibus.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band reveal">
+  <h2>Order Today.<br/><em>Feel the Difference.</em></h2>
+  <p>Add products above, choose pickup or delivery, and send straight to WhatsApp. We'll confirm from there.</p>
+  <div class="cta-pills">
+    <div class="cta-pill">🚚 $5 Delivery Island-Wide</div>
+    <div class="cta-pill">📍 North — Every Friday</div>
+    <div class="cta-pill">📍 Vieux-Fort — Weekdays</div>
+    <div class="cta-pill">🏠 Pickup — Saltibus, Choiseul</div>
+  </div>
+  <a href="https://wa.me/17587173030" class="wa-btn" target="_blank">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
+    Message Us on WhatsApp
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <strong>KKLL's Healthy Harvests</strong><br/>
+  Saltibus, Choiseul, Saint Lucia<br/>
+  📞 <a href="tel:+17587173030">717-3030</a> &nbsp;|&nbsp; 📞 <a href="tel:+17587359901">735-9901</a> &nbsp;|&nbsp;
+  ✉️ <a href="mailto:kkllhealthyharvest@gmail.com">kkllhealthyharvest@gmail.com</a><br/>
+  <span style="margin-top:6px;display:block;font-size:0.72rem;opacity:0.5">100% Natural · No Preservatives · Locally Made with Love</span>
+  <span style="margin-top:8px;display:block;font-size:0.7rem;opacity:0.4">Powered by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank">JAMALINKS</a></span>
+</footer>
+
+<!-- FLOAT WA -->
+<a href="https://wa.me/17587173030" class="float-wa" target="_blank" title="Order on WhatsApp">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
+</a>
+
+<!-- CART OVERLAY -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+<!-- CART PANEL -->
+<div class="cart-panel" id="cartPanel">
+  <div class="cart-header">
+    <h2>🛒 My Order</h2>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+
+  <!-- PICKUP / DELIVERY TOGGLE -->
+  <div class="fulfillment-row">
+    <button class="fulfillment-btn active" id="btnDelivery" onclick="setFulfillment('delivery')">🚚 Delivery ($5)</button>
+    <button class="fulfillment-btn" id="btnPickup" onclick="setFulfillment('pickup')">🏠 Pickup (Free)</button>
+  </div>
+  <div class="fulfillment-note" id="fulfillmentNote">
+    📍 We deliver North on Fridays · Vieux-Fort on weekdays. Share your location when you send.
+  </div>
+
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <span class="empty-icon">🌿</span>
+      <span>Your order is empty</span>
+      <span style="font-size:0.76rem;color:var(--muted)">Add products from the menu</span>
+    </div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total-row">
+      <span class="cart-total-label">Order Total</span>
+      <span class="cart-total-amount"><sup>$</sup><span id="cartTotal">0.00</span></span>
+    </div>
+    <div class="delivery-fee-row" id="deliveryFeeRow">
+      + Delivery fee: <span class="delivery-fee-val">$5.00</span>
+    </div>
+    <button class="whatsapp-order-btn" id="waBtn" onclick="sendToWhatsApp()" disabled>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
+      Send Order on WhatsApp
+    </button>
+    <p class="cart-note">We'll confirm your order and arrange from there 🌿</p>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const PHONE = '17587173030';
+const SITE_URL = 'https://jamalinks758.github.io/jamalinks/kkll-healthy-harvests.html';
+
+// Products — variants: array means dropdown; single means no dropdown
+const products = [
+  // JUICES
+  { id:1,  cat:'juices',  icon:'🍊', accent:'#f97316', name:'Passion Fruit Juice',
+    desc:'Tropical, tangy, and intensely concentrated. One bottle gives you multiple servings of pure passion fruit.',
+    variants:[{label:'1.5L Bottle',price:35}], unit:'bottle', tags:['Concentrated','Tropical','Natural'] },
+  { id:2,  cat:'juices',  icon:'🍋', accent:'#eab308', name:'Grapefruit Juice',
+    desc:'Sharp and refreshing. Our concentrated grapefruit is perfect for mixing or drinking straight over ice.',
+    variants:[{label:'1.5L Bottle',price:35}], unit:'bottle', tags:['Citrus','Vitamin C'] },
+  { id:3,  cat:'juices',  icon:'🟠', accent:'#ea580c', name:'Sour Orange Juice',
+    desc:'Bold Caribbean flavour with a clean citrus bite. A Saint Lucia classic, concentrated and pure.',
+    variants:[{label:'1.5L Bottle',price:40}], unit:'bottle', tags:['Local Fruit','Bold','Caribbean'] },
+  { id:4,  cat:'juices',  icon:'🌿', accent:'#65a30d', name:'Tamarind Juice',
+    desc:'That unmistakable sweet-sour depth. Made from local tamarind — nothing added, nothing removed.',
+    variants:[{label:'1.5L Bottle',price:35}], unit:'bottle', tags:['Traditional','Sweet-Sour'] },
+  { id:5,  cat:'juices',  icon:'💚', accent:'#16a34a', name:'Sweet Lime Juice',
+    desc:'Delicate, fragrant, and light enough to drink every day.',
+    variants:[{label:'1.5L Bottle',price:35}], unit:'bottle', tags:['Light','Fragrant','Daily'] },
+  { id:6,  cat:'juices',  icon:'🍑', accent:'#fb923c', name:'Guava Juice',
+    desc:'Rich, creamy, and naturally sweet. Real guava flavour, concentrated and ready to pour.',
+    variants:[{label:'1.5L Bottle',price:35}], unit:'bottle', tags:['Rich','Sweet','Fan Favourite'] },
+  { id:7,  cat:'juices',  icon:'❤️', accent:'#dc2626', name:'Sorrel Juice',
+    desc:'Deep ruby colour, floral aroma, and the unmistakable taste of Saint Lucia.',
+    variants:[{label:'1.5L Bottle',price:35}], unit:'bottle', tags:['Seasonal','Antioxidants','Classic'] },
+  { id:8,  cat:'juices',  icon:'🍋', accent:'#ca8a04', name:'Lemon Juice',
+    desc:'Clean, crisp, and versatile. Great for cooking, cocktails, or a daily health boost.',
+    variants:[{label:'1.5L Bottle',price:40}], unit:'bottle', tags:['Versatile','Vitamin C'] },
+
+  // WELLNESS
+  { id:9,  cat:'wellness', icon:'🟢', accent:'#15803d', name:'Green Juice',
+    desc:'A powerhouse blend of local greens. Nutrient-dense, energising, and deeply nourishing.',
+    variants:[{label:'1.5L Bottle',price:100}], unit:'bottle', tags:['Greens','Energy','Nutrient Dense'] },
+  { id:10, cat:'wellness', icon:'🛡️', accent:'#1d4ed8', name:'Immune Booster',
+    desc:'Formulated from local herbs chosen specifically to strengthen your immune system.',
+    variants:[{label:'1.5L Bottle',price:100}], unit:'bottle', tags:['Immunity','Local Herbs','Wellness'] },
+  { id:11, cat:'wellness', icon:'🔥', accent:'#b45309', name:'Fat Burner',
+    desc:'A natural blend supporting metabolism and helping your body work smarter. No stimulants.',
+    variants:[{label:'1.5L Bottle',price:100}], unit:'bottle', tags:['Metabolism','Natural'] },
+  { id:12, cat:'wellness', icon:'✨', accent:'#7c3aed', name:'Detox',
+    desc:'Full-body cleanse using local herbs with centuries of traditional use. Reset and refresh.',
+    variants:[{label:'1.5L Bottle',price:100}], unit:'bottle', tags:['Cleanse','Traditional','Reset'] },
+  { id:13, cat:'wellness', icon:'💉', accent:'#be185d', name:'Blood Cleanse',
+    desc:'A herbal blend targeting blood purification the natural way.',
+    variants:[{label:'1.5L Bottle',price:100}], unit:'bottle', tags:['Herbal','Purify','Traditional'] },
+  { id:14, cat:'wellness', icon:'🌊', accent:'#0891b2', name:'Flavoured Seamoss Gel',
+    desc:'Premium seamoss with dandelion and burdock root. Good for skin, digestion, and energy.',
+    variants:[{label:'700ml Jar',price:40}], unit:'jar', tags:['Seamoss','Minerals','Skin & Gut'] },
+  { id:15, cat:'wellness', icon:'💪', accent:'#92400e', name:'Manwood Juice',
+    desc:'A traditional tonic for energy and vitality. A customer favourite — try it once.',
+    variants:[{label:'Small',price:7},{label:'Large',price:10}], unit:'bottle', tags:['Traditional','Tonic','Energy'] },
+  { id:16, cat:'wellness', icon:'💆', accent:'#6d28d9', name:'Hair Fuel Oil',
+    desc:'Nourishing oil from local botanicals. Promotes growth, adds shine, treats your scalp naturally.',
+    variants:[{label:'Per Bottle',price:50}], unit:'bottle', tags:['Hair Care','Natural Oils'] },
+
+  // SAUCES & SEASONINGS
+  { id:17, cat:'sauces', icon:'🌿', accent:'#166534', name:'Herbal Seasoning',
+    desc:'Over 30 herbs and spices in one bottle. No MSG. The seasoning every Saint Lucia kitchen needs.',
+    variants:[{label:'750ml Bottle',price:35}], unit:'bottle', tags:['30+ Herbs','No MSG','Cooking Essential'] },
+  { id:18, cat:'sauces', icon:'🌶️', accent:'#dc2626', name:'Hot Sauce',
+    desc:'Hand-crafted with local peppers. The right heat, the right flavour.',
+    variants:[{label:'Per Bottle',price:25}], unit:'bottle', tags:['Local Peppers','Handcrafted','Spicy'] },
+  { id:19, cat:'sauces', icon:'🥗', accent:'#84cc16', name:'Vinaigrette',
+    desc:'Fresh and tangy. No artificial preservatives — great for salads, marinades, and more.',
+    variants:[{label:'Per Bottle',price:25}], unit:'bottle', tags:['Fresh','No Preservatives'] },
+  { id:20, cat:'sauces', icon:'🥭', accent:'#f59e0b', name:'Souskai',
+    desc:'A beloved Saint Lucian condiment — tart, garlicky, absolutely addictive.',
+    variants:[{label:'Per Bottle',price:25}], unit:'bottle', tags:['Saint Lucian','Traditional','Bold'] },
+  { id:21, cat:'sauces', icon:'☕', accent:'#78350f', name:'Local Coffee',
+    desc:'Saint Lucia roasted and ground. Rich, smooth, and 100% local.',
+    variants:[{label:'Per Pack',price:30}], unit:'pack', tags:['Locally Roasted','Rich'] },
+  { id:22, cat:'sauces', icon:'🍫', accent:'#92400e', name:'Cocoa Powder',
+    desc:'Local cocoa with added spices. Use for hot cocoa, baking, or smoothies.',
+    variants:[{label:'Per Pack',price:15}], unit:'pack', tags:['Local Cocoa','Spiced','Pure'] },
+
+  // PLANTS
+  { id:23, cat:'plants', icon:'🌵', accent:'#16a34a', name:'Succulent Plants',
+    desc:'Hardy, beautiful, low-maintenance. Perfect for any desk or windowsill.',
+    variants:[{label:'Per Plant',price:15}], unit:'plant', tags:['Indoor','Low Maintenance','Gift Idea'] },
+  { id:24, cat:'plants', icon:'🪴', accent:'#15803d', name:'Succulent Gift Bowl',
+    desc:'A curated succulent arrangement in a decorative bowl. Ready to gift — no wrapping required.',
+    variants:[{label:'Per Bowl',price:100}], unit:'bowl', tags:['Gift Ready','Decorative'] },
+  { id:25, cat:'plants', icon:'🌿', accent:'#22c55e', name:'Mint & Herb Plants',
+    desc:'Grow your own fresh mint and herbs. Great for teas, cooking, and fragrance.',
+    variants:[{label:'Per Plant',price:15}], unit:'plant', tags:['Culinary','Fresh','Grow at Home'] },
+  { id:26, cat:'plants', icon:'🏢', accent:'#4d7c0f', name:'Office Plants',
+    desc:'Air-purifying indoor plants that thrive in low-light environments.',
+    variants:[{label:'From $20',price:20}], unit:'plant', tags:['Air Purifying','Office'] },
+  { id:27, cat:'plants', icon:'🌱', accent:'#16a34a', name:'ZZ Plants',
+    desc:'Near indestructible. Glossy leaves. Thrives on neglect. Perfect for any home or office.',
+    variants:[{label:'From $30',price:30}], unit:'plant', tags:['Hardy','Low Light','Elegant'] },
+  { id:28, cat:'plants', icon:'🍓', accent:'#dc2626', name:'Strawberry Plants',
+    desc:'Grow your own strawberries in pots, gardens, or small spaces. Strong roots, great yield.',
+    variants:[{label:'Per Plant',price:15}], unit:'plant', tags:['Edible','Home Garden'] },
+
+  // DRINKS & TREATS
+  { id:29, cat:'treats', icon:'🥜', accent:'#92400e', name:'Peanut Punch',
+    desc:'Creamy, rich, and satisfying. Made the old-fashioned way — thick and naturally sweet.',
+    variants:[{label:'Small',price:30},{label:'Large',price:100}], unit:'bottle', tags:['Creamy','Traditional','Filling'] },
+  { id:30, cat:'treats', icon:'🍹', accent:'#dc2626', name:'Rum Punch',
+    desc:'A proper Saint Lucian rum punch. Balanced, fruity, and made for sharing.',
+    variants:[{label:'Small',price:50},{label:'Large',price:100}], unit:'bottle', tags:['Saint Lucian','Fruity','Party Size'] },
+  { id:31, cat:'treats', icon:'🧊', accent:'#7dd3fc', name:'Ice Lollies',
+    desc:'Peanut butter, plain, Guinness, and coconut. Homemade favourites — kids and adults love them.',
+    variants:[{label:'Peanut Butter — $3',price:3},{label:'Plain — $3',price:3},{label:'Guinness — $3',price:3},{label:'Coconut — $3',price:3}],
+    unit:'each', tags:['Homemade','4 Flavours','Kids Favourite'] },
+];
+
+let cart = {};         // key: `${id}-${variantLabel}`
+let currentCat = 'juices';
+let fulfillment = 'delivery'; // 'delivery' | 'pickup'
+
+function setFulfillment(mode) {
+  fulfillment = mode;
+  document.getElementById('btnDelivery').classList.toggle('active', mode==='delivery');
+  document.getElementById('btnPickup').classList.toggle('active', mode==='pickup');
+  const note = document.getElementById('fulfillmentNote');
+  const feeRow = document.getElementById('deliveryFeeRow');
+  if (mode === 'delivery') {
+    note.textContent = '📍 We deliver North on Fridays · Vieux-Fort on weekdays. Share your location when you send.';
+    feeRow.style.display = '';
+  } else {
+    note.textContent = '🏠 Pickup available at Saltibus, Choiseul. We\'ll confirm a time via WhatsApp.';
+    feeRow.style.display = 'none';
+  }
+  renderCart();
+}
+
+function getSelectedVariant(productId) {
+  const sel = document.getElementById(`variant-${productId}`);
+  return sel ? parseInt(sel.value) : 0;
+}
+
+function getCartKey(productId, variantLabel) {
+  return `${productId}__${variantLabel}`;
+}
+
+function filterCat(cat, btn) {
+  currentCat = cat;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderGrid();
+}
+
+function renderGrid() {
+  const grid = document.getElementById('productGrid');
+  const filtered = products.filter(p => p.cat === currentCat);
+
+  grid.innerHTML = filtered.map(p => {
+    const hasVariants = p.variants.length > 1;
+    const singlePrice = p.variants[0].price;
+    const inCartAny = Object.keys(cart).some(k => k.startsWith(p.id + '__'));
+
+    const variantHTML = hasVariants
+      ? `<select class="variant-select" id="variant-${p.id}">
+           ${p.variants.map((v,i) => `<option value="${i}">${v.label} — $${v.price}</option>`).join('')}
+         </select>`
+      : `<div style="font-size:0.75rem;color:var(--muted);margin-bottom:12px;font-weight:500">${p.variants[0].label}</div>`;
+
+    const displayPrice = hasVariants ? `from $${singlePrice}` : `$${singlePrice}`;
+    const priceUnit = hasVariants ? '' : `/ ${p.unit}`;
+
+    const cartControls = hasVariants
+      ? `<button class="add-btn" onclick="addVariantToCart(${p.id})">+ Add</button>`
+      : (() => {
+          const key = getCartKey(p.id, p.variants[0].label);
+          const qty = cart[key] ? cart[key].qty : 0;
+          return qty > 0
+            ? `<div class="qty-controls">
+                 <button class="qty-btn" onclick="changeQtyByKey('${key}',-1)">−</button>
+                 <span class="qty-display">${qty}</span>
+                 <button class="qty-btn" onclick="changeQtyByKey('${key}',1)">+</button>
+               </div>
+               <button class="add-btn added" onclick="addVariantToCart(${p.id})">✓ Added</button>`
+            : `<button class="add-btn" onclick="addVariantToCart(${p.id})">+ Add</button>`;
+        })();
+
+    return `
+    <div class="product-card reveal ${inCartAny ? 'in-cart' : ''}" id="card-${p.id}" style="--card-accent:${p.accent}">
+      <span class="product-icon">${p.icon}</span>
+      <div class="product-name">${p.name}</div>
+      <div class="product-desc">${p.desc}</div>
+      <div class="product-tags">${p.tags.map(t=>`<span class="product-tag">${t}</span>`).join('')}</div>
+      ${variantHTML}
+      <div class="product-footer">
+        <div class="product-price">${displayPrice} <span>${priceUnit}</span></div>
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">${cartControls}</div>
+      </div>
+    </div>`;
+  }).join('');
+  observeReveal();
+}
+
+function addVariantToCart(productId) {
+  const p = products.find(x => x.id === productId);
+  const varIdx = getSelectedVariant(productId);
+  const variant = p.variants[varIdx];
+  const key = getCartKey(productId, variant.label);
+  if (!cart[key]) { cart[key] = { product:p, variant, qty:1 }; }
+  else { cart[key].qty++; }
+  renderGrid();
+  renderCart();
+  updateCartCount();
+  showToast(`${p.icon} ${p.name} (${variant.label}) added!`);
+  bumpCount();
+}
+
+function changeQtyByKey(key, delta) {
+  if (!cart[key]) return;
+  cart[key].qty = Math.max(0, cart[key].qty + delta);
+  if (cart[key].qty === 0) delete cart[key];
+  renderGrid();
+  renderCart();
+  updateCartCount();
+}
+
+function updateCartCount() {
+  const total = Object.values(cart).reduce((s,i) => s + i.qty, 0);
+  document.getElementById('cartCount').textContent = total;
+}
+
+function getCartSubtotal() {
+  return Object.values(cart).reduce((s,i) => s + i.variant.price * i.qty, 0);
+}
+
+function renderCart() {
+  const container = document.getElementById('cartItems');
+  const items = Object.values(cart);
+  const subtotal = getCartSubtotal();
+  document.getElementById('cartTotal').textContent = subtotal.toFixed(2);
+  document.getElementById('waBtn').disabled = items.length === 0;
+  document.getElementById('deliveryFeeRow').style.display = fulfillment === 'delivery' ? '' : 'none';
+
+  if (items.length === 0) {
+    container.innerHTML = `<div class="cart-empty"><span class="empty-icon">🌿</span><span>Your order is empty</span><span style="font-size:0.76rem;color:var(--muted)">Add products from the menu</span></div>`;
+    return;
+  }
+  container.innerHTML = items.map((item, i) => {
+    const key = getCartKey(item.product.id, item.variant.label);
+    return `
+    <div class="cart-item">
+      <span class="cart-item-emoji">${item.product.icon}</span>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${item.product.name}</div>
+        <div class="cart-item-variant">${item.variant.label}</div>
+        <div class="cart-item-price">$${item.variant.price} each</div>
+      </div>
+      <div class="qty-controls" style="flex-shrink:0">
+        <button class="qty-btn cart-qty-btn" data-key="${key}" data-delta="-1">−</button>
+        <span class="qty-display">${item.qty}</span>
+        <button class="qty-btn cart-qty-btn" data-key="${key}" data-delta="1">+</button>
+      </div>
+      <div class="cart-item-total">$${(item.variant.price * item.qty).toFixed(2)}</div>
+    </div>`;
+  }).join('');
+}
+
+function sendToWhatsApp() {
+  const items = Object.values(cart);
+  if (items.length === 0) return;
+  const subtotal = getCartSubtotal();
+  const deliveryFee = fulfillment === 'delivery' ? 5 : 0;
+  const grandTotal = subtotal + deliveryFee;
+  const lines = items.map(i => `• ${i.product.icon} ${i.product.name} (${i.variant.label}) x${i.qty} = $${(i.variant.price * i.qty).toFixed(2)}`);
+  const msg = [
+    `🌿 *KKLL's Healthy Harvests — Order*`,
+    `─────────────────────`,
+    ...lines,
+    `─────────────────────`,
+    `Subtotal: $${subtotal.toFixed(2)}`,
+    fulfillment === 'delivery' ? `Delivery fee: $5.00` : `Fulfillment: 🏠 Pickup (Saltibus, Choiseul)`,
+    `*Total: $${grandTotal.toFixed(2)} XCD*`,
+    ``,
+    fulfillment === 'delivery' ? `📍 Please share your delivery location and preferred date.` : `📍 Pickup at Saltibus, Choiseul — please confirm preferred time.`,
+    `🔗 ${SITE_URL}`
+  ].join('\n');
+  window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+function openCart() {
+  document.getElementById('cartOverlay').classList.add('open');
+  document.getElementById('cartPanel').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeCart() {
+  document.getElementById('cartOverlay').classList.remove('open');
+  document.getElementById('cartPanel').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2400);
+}
+function bumpCount() {
+  const el = document.getElementById('cartCount');
+  el.classList.add('bump');
+  setTimeout(() => el.classList.remove('bump'), 300);
+}
+function observeReveal() {
+  const els = document.querySelectorAll('.reveal:not(.visible)');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e,i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 55);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  els.forEach(el => obs.observe(el));
+}
+
+// Delegated listener for cart panel qty buttons (avoids quote-injection in onclick strings)
+document.getElementById('cartItems').addEventListener('click', function(e) {
+  const btn = e.target.closest('.cart-qty-btn');
+  if (!btn) return;
+  const key = btn.dataset.key;
+  const delta = parseInt(btn.dataset.delta);
+  changeQtyByKey(key, delta);
+});
+
+// Init — load juices by default
+filterCat('juices', document.querySelector('.tab-btn.active'));
+renderCart();
+</script>
+</body>
+</html>
