@@ -6,327 +6,158 @@
 <title>KKLL's Healthy Harvests — Fresh. Local. Healthy. Always.</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
-:root {
-  /* Caribbean palette pulled from logo + flyer */
-  --deep-green:  #0d4a1f;      /* forest canopy */
-  --mid-green:   #1e7a3a;
-  --bright-green:#28a84e;
-  --sun:         #f5a800;      /* citrus/mango sun */
-  --sun-deep:    #d4820a;
-  --sky:         #006ca5;      /* caribbean sea */
-  --sky-light:   #0090d4;
-  --sand:        #fdf4e0;      /* warm sand */
-  --sand-2:      #f5e9c8;
-  --dark:        #0b1e0f;
-  --text:        #162118;
-  --muted:       #4a6450;
-  --white:       #ffffff;
-  --radius:      16px;
-  --shadow:      0 6px 40px rgba(13,74,31,0.14);
+:root{
+  --deep-green:#0d4a1f;--mid-green:#1e7a3a;--bright-green:#28a84e;
+  --sun:#f5a800;--sun-deep:#d4820a;--sky:#006ca5;
+  --sand:#fdf4e0;--sand-2:#f5e9c8;--dark:#0b1e0f;
+  --text:#162118;--muted:#4a6450;--white:#ffffff;
+  --radius:16px;--shadow:0 6px 40px rgba(13,74,31,0.14);
 }
-
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--text);overflow-x:hidden}
-
-/* ── CARIBBEAN TEXTURE STRIPE ── */
 .top-stripe{height:5px;position:relative;z-index:0;background:linear-gradient(90deg,var(--deep-green) 0%,var(--bright-green) 30%,var(--sun) 55%,var(--sky) 80%,var(--deep-green) 100%)}
-
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:12px 24px;
-  background:rgba(13,74,31,0.97);
-  backdrop-filter:blur(14px);
-  border-bottom:2px solid var(--sun);
-}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;background:rgba(13,74,31,0.97);backdrop-filter:blur(14px);border-bottom:2px solid var(--sun)}
 .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-.nav-name{
-  font-family:'Playfair Display',serif;font-weight:900;font-size:1.1rem;
-  color:var(--white);letter-spacing:-0.2px;line-height:1.1
-}
-.nav-name span{display:block;font-family:'DM Sans',sans-serif;font-size:0.65rem;font-weight:400;color:var(--sun);letter-spacing:2px;text-transform:uppercase}
-.nav-right{display:flex;align-items:center;gap:10px}
-.nav-cart-btn{
-  display:flex;align-items:center;gap:8px;
-  background:var(--sun);color:var(--dark);border:none;
-  border-radius:50px;padding:9px 18px;
-  font-family:'DM Sans',sans-serif;font-size:0.86rem;font-weight:600;
-  cursor:pointer;transition:background 0.2s,transform 0.15s
-}
+.nav-logo-svg{width:36px;height:36px;flex-shrink:0}
+.nav-name{font-family:'Playfair Display',serif;font-weight:900;font-size:1.08rem;color:var(--white);letter-spacing:-0.2px;line-height:1.1}
+.nav-name span{display:block;font-family:'DM Sans',sans-serif;font-size:0.63rem;font-weight:400;color:var(--sun);letter-spacing:2px;text-transform:uppercase}
+.nav-cart-btn{display:flex;align-items:center;gap:8px;background:var(--sun);color:var(--dark);border:none;border-radius:50px;padding:9px 18px;font-family:'DM Sans',sans-serif;font-size:0.86rem;font-weight:600;cursor:pointer;transition:background 0.2s,transform 0.15s}
 .nav-cart-btn:hover{background:var(--sun-deep);color:white;transform:scale(1.03)}
-.cart-count{
-  background:var(--deep-green);color:white;
-  border-radius:50%;width:20px;height:20px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:0.7rem;font-weight:700;transition:transform 0.2s
-}
+.cart-count{background:var(--deep-green);color:white;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;transition:transform 0.2s}
 .cart-count.bump{transform:scale(1.5)}
-
-/* ── HERO ── */
-.hero{
-  min-height:100vh;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;padding:110px 24px 70px;
-  position:relative;overflow:hidden;
-  background:linear-gradient(160deg,#0d4a1f 0%,#1a6b32 40%,#0d4a1f 100%)
-}
-/* sun burst */
-.hero::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 70% 60% at 50% 110%,rgba(245,168,0,0.25),transparent 65%),
-             radial-gradient(ellipse 50% 40% at 80% 20%,rgba(0,108,165,0.18),transparent 60%);
-  pointer-events:none
-}
-.hero-eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(245,168,0,0.18);border:1px solid rgba(245,168,0,0.5);color:var(--sun);
-  border-radius:50px;padding:6px 18px;
-  font-size:0.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;
-  margin-bottom:26px;animation:fadeUp 0.6s ease both
-}
-.hero h1{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2.9rem,9vw,6rem);font-weight:900;line-height:0.95;letter-spacing:-2px;
-  color:var(--white);max-width:780px;animation:fadeUp 0.65s 0.08s ease both
-}
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:110px 24px 70px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?w=1800&q=80&fm=jpg&fit=crop');background-size:cover;background-position:center 40%;animation:heroZoom 18s ease-in-out infinite alternate}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(8,38,15,0.84) 0%,rgba(13,74,31,0.74) 45%,rgba(8,30,12,0.9) 100%)}
+.hero-overlay::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 110%,rgba(245,168,0,0.22),transparent 65%)}
+@keyframes heroZoom{from{transform:scale(1.06)}to{transform:scale(1.0)}}
+.hero>*:not(.hero-bg):not(.hero-overlay){position:relative;z-index:2}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(245,168,0,0.18);border:1px solid rgba(245,168,0,0.5);color:var(--sun);border-radius:50px;padding:6px 18px;font-size:0.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:26px;animation:fadeUp 0.6s ease both}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,9vw,6.2rem);font-weight:900;line-height:0.95;letter-spacing:-2px;color:var(--white);max-width:780px;animation:fadeUp 0.65s 0.08s ease both}
 .hero h1 em{font-style:italic;color:var(--sun)}
-.hero-sub{
-  font-size:clamp(0.92rem,2.2vw,1.08rem);color:rgba(255,255,255,0.72);
-  max-width:480px;margin:20px auto 0;line-height:1.7;font-weight:300;
-  animation:fadeUp 0.65s 0.16s ease both
-}
-.hero-cta-row{
-  display:flex;gap:14px;flex-wrap:wrap;justify-content:center;
-  margin-top:34px;animation:fadeUp 0.65s 0.24s ease both
-}
-.btn-sun{
-  background:var(--sun);color:var(--dark);border:none;
-  border-radius:50px;padding:14px 32px;
-  font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;
-  cursor:pointer;text-decoration:none;
-  display:inline-flex;align-items:center;gap:8px;
-  transition:background 0.2s,transform 0.15s,box-shadow 0.2s
-}
+.hero-sub{font-size:clamp(0.92rem,2.2vw,1.08rem);color:rgba(255,255,255,0.75);max-width:480px;margin:22px auto 0;line-height:1.7;font-weight:300;animation:fadeUp 0.65s 0.16s ease both}
+.hero-cta-row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:34px;animation:fadeUp 0.65s 0.24s ease both}
+.hero-trust{display:flex;gap:22px;flex-wrap:wrap;justify-content:center;margin-top:38px;animation:fadeUp 0.65s 0.32s ease both}
+.hero-trust-item{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,0.7);font-size:0.78rem;font-weight:500}
+.btn-sun{background:var(--sun);color:var(--dark);border:none;border-radius:50px;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s,transform 0.15s,box-shadow 0.2s}
 .btn-sun:hover{background:var(--sun-deep);color:white;transform:translateY(-2px);box-shadow:0 10px 28px rgba(245,168,0,0.35)}
-.btn-ghost{
-  background:transparent;color:white;border:2px solid rgba(255,255,255,0.4);
-  border-radius:50px;padding:12px 28px;
-  font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;
-  cursor:pointer;text-decoration:none;
-  display:inline-flex;align-items:center;gap:8px;transition:all 0.2s
-}
-.btn-ghost:hover{border-color:white;background:rgba(255,255,255,0.1)}
-.hero-scroll{
-  margin-top:50px;display:flex;flex-direction:column;align-items:center;gap:6px;
-  color:rgba(255,255,255,0.4);font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;
-  animation:fadeUp 0.65s 0.4s ease both
-}
+.btn-ghost{background:transparent;color:white;border:2px solid rgba(255,255,255,0.5);border-radius:50px;padding:12px 28px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s}
+.btn-ghost:hover{border-color:white;background:rgba(255,255,255,0.12)}
+.hero-scroll{margin-top:42px;display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,0.4);font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;animation:fadeUp 0.65s 0.4s ease both}
 .scroll-bar{width:2px;height:30px;background:linear-gradient(to bottom,var(--sun),transparent);border-radius:2px;animation:scrollPulse 1.8s ease-in-out infinite}
 @keyframes scrollPulse{0%,100%{opacity:0.3;transform:scaleY(0.7)}50%{opacity:1;transform:scaleY(1)}}
-
-/* ── TRUST BAR ── */
-.trust-bar{
-  background:var(--sun);color:var(--dark);padding:12px 24px;
-  display:flex;justify-content:center;gap:clamp(16px,4vw,50px);flex-wrap:wrap;
-  font-size:0.8rem;font-weight:600;letter-spacing:0.2px
-}
+/* TRUST / CONTACT */
+.trust-bar{background:var(--sun);color:var(--dark);padding:12px 24px;display:flex;justify-content:center;gap:clamp(16px,4vw,50px);flex-wrap:wrap;font-size:0.8rem;font-weight:600}
 .trust-item{display:flex;align-items:center;gap:7px}
-
-/* ── CONTACT INFO BAR ── */
-.contact-bar{
-  background:var(--deep-green);color:rgba(255,255,255,0.85);
-  padding:10px 24px;
-  display:flex;justify-content:center;align-items:center;gap:clamp(14px,4vw,40px);
-  flex-wrap:wrap;font-size:0.8rem;font-weight:400
-}
+.contact-bar{background:var(--deep-green);color:rgba(255,255,255,0.85);padding:10px 24px;display:flex;justify-content:center;align-items:center;gap:clamp(14px,4vw,40px);flex-wrap:wrap;font-size:0.8rem}
 .contact-bar a{color:var(--sun);text-decoration:none;font-weight:600}
 .contact-bar a:hover{text-decoration:underline}
-.contact-sep{opacity:0.3;display:inline}
-
-/* ── SECTION ── */
+.contact-sep{opacity:0.3}
+/* SECTIONS */
 .section{padding:80px 24px;max-width:1120px;margin:0 auto}
-.section-label{
-  display:inline-block;color:var(--sun-deep);
-  font-size:0.7rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:10px
-}
-.section-title{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(1.9rem,5vw,3rem);font-weight:900;letter-spacing:-1px;
-  color:var(--dark);margin-bottom:10px;line-height:1.05
-}
+.section-label{display:inline-block;color:var(--sun-deep);font-size:0.7rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:10px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,5vw,3rem);font-weight:900;letter-spacing:-1px;color:var(--dark);margin-bottom:10px;line-height:1.05}
 .section-title em{font-style:italic;color:var(--mid-green)}
 .section-sub{color:var(--muted);font-size:0.95rem;max-width:520px;line-height:1.7;margin-bottom:44px;font-weight:300}
-
-/* ── CATEGORY TABS ── */
+/* TABS */
 .tab-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
-.tab-btn{
-  background:var(--sand-2);color:var(--muted);border:2px solid transparent;
-  border-radius:50px;padding:9px 20px;
-  font-family:'DM Sans',sans-serif;font-size:0.84rem;font-weight:600;
-  cursor:pointer;transition:all 0.2s;white-space:nowrap
-}
+.tab-btn{background:var(--sand-2);color:var(--muted);border:2px solid transparent;border-radius:50px;padding:9px 20px;font-family:'DM Sans',sans-serif;font-size:0.84rem;font-weight:600;cursor:pointer;transition:all 0.2s;white-space:nowrap;display:flex;align-items:center;gap:7px}
 .tab-btn.active,.tab-btn:hover{background:var(--deep-green);color:white;border-color:var(--deep-green)}
 .tab-btn.active{border-color:var(--sun)}
-
-/* ── PRODUCT GRID ── */
-.product-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(288px,1fr));
-  gap:20px
-}
-.product-card{
-  background:var(--white);border-radius:var(--radius);padding:24px;
-  box-shadow:var(--shadow);border:2px solid transparent;
-  transition:transform 0.25s,border-color 0.2s,box-shadow 0.25s;
-  position:relative;overflow:hidden
-}
-.product-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:4px;
-  background:var(--card-accent,var(--bright-green));
-  transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease
-}
+/* PRODUCT GRID */
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:20px}
+.product-card{background:var(--white);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);border:2px solid transparent;transition:transform 0.25s,border-color 0.2s,box-shadow 0.25s;position:relative;overflow:hidden}
+.product-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--card-accent,var(--bright-green));transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease}
 .product-card:hover{transform:translateY(-3px);box-shadow:0 18px 50px rgba(13,74,31,0.18)}
-.product-card:hover::before{transform:scaleX(1)}
+.product-card:hover::before,.product-card.in-cart::before{transform:scaleX(1)}
 .product-card.in-cart{border-color:var(--bright-green);background:linear-gradient(135deg,#f0fdf4,#fff)}
-.product-card.in-cart::before{transform:scaleX(1)}
-
-.product-icon{font-size:2.4rem;margin-bottom:10px;display:block;transition:transform 0.3s}
-.product-card:hover .product-icon{transform:scale(1.1) rotate(-4deg)}
+.product-icon-wrap{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.product-icon-wrap svg{width:28px;height:28px}
 .product-name{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--dark);margin-bottom:4px}
 .product-desc{color:var(--muted);font-size:0.83rem;line-height:1.55;margin-bottom:12px;font-weight:300}
 .product-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
-.product-tag{
-  background:var(--sand-2);color:var(--deep-green);
-  border-radius:50px;padding:3px 10px;font-size:0.68rem;font-weight:600
-}
-
-/* variant select */
-.variant-select{
-  width:100%;margin-bottom:12px;padding:9px 12px;
-  border:2px solid var(--sand-2);border-radius:10px;
-  font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:500;
-  color:var(--text);background:var(--sand);cursor:pointer;
-  appearance:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231e7a3a' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right 12px center;
-  transition:border-color 0.2s
-}
+.product-tag{background:var(--sand-2);color:var(--deep-green);border-radius:50px;padding:3px 10px;font-size:0.68rem;font-weight:600}
+.variant-select{width:100%;margin-bottom:12px;padding:9px 12px;border:2px solid var(--sand-2);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:500;color:var(--text);background:var(--sand);cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231e7a3a' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;transition:border-color 0.2s}
 .variant-select:focus{outline:none;border-color:var(--mid-green)}
-
 .product-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
 .product-price{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;color:var(--mid-green)}
 .product-price span{font-family:'DM Sans',sans-serif;font-size:0.78rem;color:var(--muted);font-weight:300}
 .qty-controls{display:flex;align-items:center;background:var(--sand-2);border-radius:50px;overflow:hidden}
-.qty-btn{
-  background:none;border:none;width:34px;height:34px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.05rem;font-weight:700;color:var(--deep-green);
-  cursor:pointer;transition:background 0.15s,color 0.15s
-}
+.qty-btn{background:none;border:none;width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:1.05rem;font-weight:700;color:var(--deep-green);cursor:pointer;transition:background 0.15s,color 0.15s}
 .qty-btn:hover{background:var(--deep-green);color:white}
 .qty-display{min-width:30px;text-align:center;font-size:0.9rem;font-weight:600;color:var(--dark)}
-.add-btn{
-  background:var(--deep-green);color:white;border:none;
-  border-radius:50px;padding:9px 18px;
-  font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:600;
-  cursor:pointer;transition:background 0.2s,transform 0.15s;white-space:nowrap
-}
+.add-btn{background:var(--deep-green);color:white;border:none;border-radius:50px;padding:9px 18px;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:600;cursor:pointer;transition:background 0.2s,transform 0.15s;white-space:nowrap}
 .add-btn:hover{background:var(--mid-green);transform:scale(1.04)}
 .add-btn.added{background:var(--sun-deep)}
-
-/* ── WHY CARDS ── */
+/* GOALS */
+.goals-section{background:var(--dark);padding:90px 24px}
+.goals-inner{max-width:1120px;margin:0 auto}
+.goals-inner .section-label{color:var(--sun)}
+.goals-inner .section-title{color:white}
+.goals-inner .section-title em{color:var(--sun)}
+.goals-inner .section-sub{color:rgba(255,255,255,0.5)}
+.goals-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px;margin-bottom:44px}
+.goal-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:20px 14px;text-align:center;cursor:pointer;transition:all 0.25s;position:relative;overflow:hidden}
+.goal-card::before{content:'';position:absolute;inset:0;background:var(--goal-color,rgba(40,168,78,0.15));opacity:0;transition:opacity 0.25s}
+.goal-card:hover::before,.goal-card.active::before{opacity:1}
+.goal-card.active{border-color:var(--sun);transform:translateY(-2px)}
+.goal-icon-wrap{width:46px;height:46px;border-radius:12px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;transition:background 0.25s;position:relative;z-index:1}
+.goal-card.active .goal-icon-wrap,.goal-card:hover .goal-icon-wrap{background:rgba(245,168,0,0.2)}
+.goal-icon-wrap svg{width:22px;height:22px}
+.goal-name{font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:700;color:white;margin-bottom:3px;position:relative;z-index:1}
+.goal-sub{font-size:0.68rem;color:rgba(255,255,255,0.4);font-weight:300;position:relative;z-index:1}
+.goal-products-panel{display:none}
+.goal-products-panel.active{display:block;animation:fadeUp 0.4s ease both}
+.goal-products-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:white;margin-bottom:18px}
+.goal-products-title em{color:var(--sun);font-style:italic}
+.goal-product-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:13px}
+.goal-product-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:16px;display:flex;align-items:center;gap:13px;transition:all 0.2s}
+.goal-product-card:hover{background:rgba(255,255,255,0.11);border-color:rgba(245,168,0,0.35);transform:translateY(-2px)}
+.goal-product-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.goal-product-icon svg{width:22px;height:22px}
+.goal-product-info{flex:1}
+.goal-product-name{font-weight:600;font-size:0.88rem;color:white;margin-bottom:2px}
+.goal-product-why{font-size:0.74rem;color:rgba(255,255,255,0.45);font-weight:300;line-height:1.4}
+.goal-add-btn{background:var(--sun);color:var(--dark);border:none;border-radius:50px;padding:7px 14px;font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:700;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:background 0.2s,transform 0.15s}
+.goal-add-btn:hover{background:var(--sun-deep);color:white;transform:scale(1.05)}
+/* WHY */
 .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.why-card{
-  background:var(--white);border-radius:14px;padding:26px 22px;
-  box-shadow:0 4px 20px rgba(13,74,31,0.08);transition:transform 0.25s;
-  border-top:3px solid var(--sun)
-}
+.why-card{background:var(--white);border-radius:14px;padding:26px 22px;box-shadow:0 4px 20px rgba(13,74,31,0.08);transition:transform 0.25s;border-top:3px solid var(--sun)}
 .why-card:hover{transform:translateY(-3px)}
-.why-icon{font-size:1.8rem;margin-bottom:10px;display:block}
+.why-icon-wrap{width:44px;height:44px;border-radius:12px;background:var(--sand-2);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.why-icon-wrap svg{width:22px;height:22px}
 .why-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:6px}
 .why-desc{color:var(--muted);font-size:0.83rem;line-height:1.6;font-weight:300}
-
-/* ── CTA BAND ── */
-.cta-band{
-  background:linear-gradient(135deg,var(--deep-green) 0%,#1a6b32 60%,#0d3d1a 100%);
-  margin:0 20px 70px;border-radius:22px;
-  padding:58px 36px;text-align:center;position:relative;overflow:hidden
-}
-.cta-band::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at 25% 60%,rgba(245,168,0,0.2),transparent 55%),
-             radial-gradient(ellipse at 80% 30%,rgba(0,108,165,0.15),transparent 55%);
-  pointer-events:none
-}
-.cta-band h2{
-  font-family:'Playfair Display',serif;font-size:clamp(1.8rem,5vw,2.8rem);
-  font-weight:900;color:white;letter-spacing:-1px;margin-bottom:12px;position:relative
-}
+/* CTA */
+.cta-band{background:linear-gradient(135deg,var(--deep-green) 0%,#1a6b32 60%,#0d3d1a 100%);margin:0 20px 70px;border-radius:22px;padding:58px 36px;text-align:center;position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 25% 60%,rgba(245,168,0,0.2),transparent 55%),radial-gradient(ellipse at 80% 30%,rgba(0,108,165,0.15),transparent 55%);pointer-events:none}
+.cta-band h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,5vw,2.8rem);font-weight:900;color:white;letter-spacing:-1px;margin-bottom:12px;position:relative}
 .cta-band h2 em{font-style:italic;color:var(--sun)}
-.cta-band p{
-  color:rgba(255,255,255,0.7);font-size:0.96rem;margin-bottom:28px;
-  font-weight:300;max-width:440px;margin-inline:auto;position:relative;line-height:1.7
-}
+.cta-band p{color:rgba(255,255,255,0.7);font-size:0.96rem;margin-bottom:28px;font-weight:300;max-width:440px;margin-inline:auto;position:relative;line-height:1.7}
 .cta-pills{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:28px;position:relative}
-.cta-pill{
-  background:rgba(255,255,255,0.1);color:white;
-  border:1px solid rgba(255,255,255,0.2);border-radius:50px;padding:7px 16px;
-  font-size:0.8rem;font-weight:500
-}
-.wa-btn{
-  display:inline-flex;align-items:center;gap:10px;
-  background:#25D366;color:white;border:none;border-radius:12px;
-  padding:15px 32px;
-  font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;
-  cursor:pointer;text-decoration:none;position:relative;
-  transition:background 0.2s,transform 0.15s,box-shadow 0.2s
-}
+.cta-pill{background:rgba(255,255,255,0.1);color:white;border:1px solid rgba(255,255,255,0.2);border-radius:50px;padding:7px 16px;font-size:0.8rem;font-weight:500}
+.wa-btn{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:white;border:none;border-radius:12px;padding:15px 32px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;position:relative;transition:background 0.2s,transform 0.15s,box-shadow 0.2s}
 .wa-btn:hover{background:#1dba57;transform:translateY(-2px);box-shadow:0 10px 28px rgba(37,211,102,0.4)}
-
-/* ── CART OVERLAY ── */
+/* CART */
 .cart-overlay{position:fixed;inset:0;background:rgba(11,30,15,0.6);z-index:300;opacity:0;pointer-events:none;transition:opacity 0.3s;backdrop-filter:blur(4px)}
 .cart-overlay.open{opacity:1;pointer-events:all}
-
-/* ── CART PANEL ── */
-.cart-panel{
-  position:fixed;right:0;top:0;bottom:0;width:min(440px,100vw);
-  background:var(--white);z-index:301;display:flex;flex-direction:column;
-  transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);
-  box-shadow:-12px 0 60px rgba(0,0,0,0.2)
-}
+.cart-panel{position:fixed;right:0;top:0;bottom:0;width:min(440px,100vw);background:var(--white);z-index:301;display:flex;flex-direction:column;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);box-shadow:-12px 0 60px rgba(0,0,0,0.2)}
 .cart-panel.open{transform:translateX(0)}
-.cart-header{
-  background:var(--deep-green);
-  display:flex;align-items:center;justify-content:space-between;
-  padding:20px 22px 18px;
-}
+.cart-header{background:var(--deep-green);display:flex;align-items:center;justify-content:space-between;padding:20px 22px 18px}
 .cart-header h2{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:white}
-.cart-close{background:rgba(255,255,255,0.15);border:none;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:white;transition:background 0.2s}
+.cart-close{background:rgba(255,255,255,0.15);border:none;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;color:white;transition:background 0.2s}
 .cart-close:hover{background:rgba(255,255,255,0.3)}
-
-/* pickup/delivery toggle */
-.fulfillment-row{
-  padding:14px 20px;background:var(--sand);border-bottom:1px solid var(--sand-2);
-  display:flex;gap:10px
-}
-.fulfillment-btn{
-  flex:1;padding:10px;border-radius:10px;border:2px solid var(--sand-2);
-  font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:600;
-  cursor:pointer;background:white;color:var(--muted);transition:all 0.2s;text-align:center
-}
+.fulfillment-row{padding:14px 20px;background:var(--sand);border-bottom:1px solid var(--sand-2);display:flex;gap:10px}
+.fulfillment-btn{flex:1;padding:10px;border-radius:10px;border:2px solid var(--sand-2);font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:600;cursor:pointer;background:white;color:var(--muted);transition:all 0.2s;text-align:center;display:flex;align-items:center;justify-content:center;gap:6px}
 .fulfillment-btn.active{background:var(--deep-green);color:white;border-color:var(--deep-green)}
-.fulfillment-note{
-  padding:8px 20px;font-size:0.75rem;color:var(--muted);
-  border-bottom:1px solid var(--sand-2);background:var(--sand)
-}
-
+.fulfillment-note{padding:8px 20px;font-size:0.75rem;color:var(--muted);border-bottom:1px solid var(--sand-2);background:var(--sand)}
 .cart-items{flex:1;overflow-y:auto;padding:14px 20px}
 .cart-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:180px;color:var(--muted);gap:10px;font-size:0.93rem}
-.cart-empty .empty-icon{font-size:2.4rem}
+.cart-empty svg{width:36px;height:36px;opacity:0.3}
 .cart-item{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--sand-2);animation:fadeUp 0.3s ease both}
-.cart-item-emoji{font-size:1.7rem;flex-shrink:0}
+.cart-item-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cart-item-icon svg{width:20px;height:20px}
 .cart-item-info{flex:1}
 .cart-item-name{font-weight:600;font-size:0.93rem;color:var(--dark);margin-bottom:2px}
 .cart-item-variant{font-size:0.76rem;color:var(--mid-green);font-weight:500;margin-bottom:1px}
@@ -339,573 +170,378 @@ nav{
 .cart-total-amount sup{font-size:0.95rem;vertical-align:super}
 .delivery-fee-row{font-size:0.76rem;color:var(--muted);margin-bottom:16px}
 .delivery-fee-val{font-weight:600;color:var(--mid-green)}
-.whatsapp-order-btn{
-  width:100%;background:#25D366;color:white;border:none;
-  border-radius:12px;padding:15px;
-  font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;
-  cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;
-  transition:background 0.2s,transform 0.15s,box-shadow 0.2s;margin-bottom:9px
-}
+.whatsapp-order-btn{width:100%;background:#25D366;color:white;border:none;border-radius:12px;padding:15px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:background 0.2s,transform 0.15s,box-shadow 0.2s;margin-bottom:9px}
 .whatsapp-order-btn:hover{background:#1dba57;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,0.35)}
 .whatsapp-order-btn:disabled{background:#b2dfbd;cursor:not-allowed;transform:none;box-shadow:none}
 .cart-note{text-align:center;font-size:0.72rem;color:var(--muted)}
-
-/* ── FLOAT WA ── */
-.float-wa{
-  position:fixed;bottom:22px;right:22px;z-index:150;
-  background:#25D366;color:white;width:56px;height:56px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.5rem;text-decoration:none;
-  box-shadow:0 4px 22px rgba(37,211,102,0.5);
-  transition:transform 0.2s,box-shadow 0.2s;
-  animation:pulseWA 2.5s ease-in-out infinite
-}
+.float-wa{position:fixed;bottom:22px;right:22px;z-index:150;background:#25D366;color:white;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 22px rgba(37,211,102,0.5);transition:transform 0.2s,box-shadow 0.2s;animation:pulseWA 2.5s ease-in-out infinite}
 .float-wa:hover{transform:scale(1.1);box-shadow:0 8px 30px rgba(37,211,102,0.65);animation:none}
+.float-wa svg{width:26px;height:26px}
 @keyframes pulseWA{0%,100%{box-shadow:0 4px 22px rgba(37,211,102,0.5)}50%{box-shadow:0 4px 34px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.08)}}
-
-/* ── FOOTER ── */
-footer{
-  background:var(--dark);color:rgba(255,255,255,0.55);
-  text-align:center;padding:34px 24px;font-size:0.79rem;line-height:1.8
-}
+footer{background:var(--dark);color:rgba(255,255,255,0.55);text-align:center;padding:34px 24px;font-size:0.79rem;line-height:1.8}
 footer strong{color:var(--sun)}
 footer a{color:var(--sun);text-decoration:none}
-
-/* ── TOAST ── */
-.toast{
-  position:fixed;bottom:88px;right:22px;
-  background:var(--deep-green);color:white;border-radius:50px;
-  padding:10px 20px;font-size:0.83rem;font-weight:500;
-  z-index:400;opacity:0;transform:translateY(10px);
-  transition:opacity 0.3s,transform 0.3s;pointer-events:none;
-  border:1px solid var(--sun)
-}
+.toast{position:fixed;bottom:88px;right:22px;background:var(--deep-green);color:white;border-radius:50px;padding:10px 20px;font-size:0.83rem;font-weight:500;z-index:400;opacity:0;transform:translateY(10px);transition:opacity 0.3s,transform 0.3s;pointer-events:none;border:1px solid var(--sun)}
 .toast.show{opacity:1;transform:translateY(0)}
-
-/* ── ANIMS ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity 0.6s ease,transform 0.6s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
-
-/* ── RESPONSIVE ── */
 @media(max-width:600px){
-  nav{padding:10px 16px}
-  .nav-name span{display:none}
-  .hero{padding:100px 20px 60px}
-  .hero h1{letter-spacing:-1.5px}
+  nav{padding:10px 16px}.nav-name span{display:none}
+  .hero{padding:100px 20px 60px}.hero h1{letter-spacing:-1.5px}
   .cta-band{margin:0 12px 60px;padding:44px 20px}
   .product-footer{flex-direction:column;align-items:flex-start;gap:10px}
   .add-btn{width:100%;text-align:center;justify-content:center}
-  .cart-panel{width:100vw}
-  .contact-bar .contact-sep{display:none}
+  .cart-panel{width:100vw}.contact-sep{display:none}
+  .goals-grid{grid-template-columns:repeat(2,1fr)}
 }
 </style>
 </head>
 <body>
-
 <div class="top-stripe"></div>
-
-<!-- NAV -->
 <nav>
   <a href="#" class="nav-brand">
-    <div style="font-size:22px;line-height:1">🌿</div>
-    <div class="nav-name">
-      KKLL's Healthy Harvests
-      <span>Fresh · Local · Healthy · Always</span>
-    </div>
+    <svg class="nav-logo-svg" viewBox="0 0 36 36" fill="none">
+      <circle cx="18" cy="18" r="18" fill="#f5a800"/>
+      <path d="M18 8c0 0-8 5-8 12a8 8 0 0016 0c0-7-8-12-8-12z" fill="#0d4a1f"/>
+      <path d="M18 14c0 0-4 3-4 6a4 4 0 008 0c0-3-4-6-4-6z" fill="#28a84e"/>
+    </svg>
+    <div class="nav-name">KKLL's Healthy Harvests<span>Fresh · Local · Healthy · Always</span></div>
   </a>
-  <div class="nav-right">
-    <button class="nav-cart-btn" onclick="openCart()">
-      🛒 My Order &nbsp;<span class="cart-count" id="cartCount">0</span>
-    </button>
-  </div>
+  <button class="nav-cart-btn" onclick="openCart()">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.98 1.61h9.72a2 2 0 001.98-1.68l1.64-9.32H6"/></svg>
+    My Order&nbsp;<span class="cart-count" id="cartCount">0</span>
+  </button>
 </nav>
-
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-eyebrow">🌴 Saltibus, Choiseul · Saint Lucia</div>
-  <h1>Real Food.<br/><em>Real Results.</em><br/>Right Here.</h1>
-  <p class="hero-sub">Concentrated juices, seamoss, wellness blends, herbal seasonings, plants, and more — handcrafted in Saint Lucia and delivered island-wide.</p>
+  <div class="hero-bg"></div><div class="hero-overlay"></div>
+  <div class="hero-eyebrow">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--sun)"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+    Saltibus, Choiseul · Saint Lucia
+  </div>
+  <h1>Pure Nature.<br/><em>Real Results.</em><br/>Right Here.</h1>
+  <p class="hero-sub">Handcrafted organic juices, seamoss, wellness blends, herbal seasonings, and plants — made with love in Choiseul and delivered across Saint Lucia.</p>
   <div class="hero-cta-row">
-    <a href="#menu" class="btn-sun">🛒 Shop Now</a>
-    <button class="btn-ghost" onclick="openCart()">View My Order</button>
+    <a href="#menu" class="btn-sun"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.98 1.61h9.72a2 2 0 001.98-1.68l1.64-9.32H6"/></svg>Shop Now</a>
+    <a href="#goals" class="btn-ghost"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>Shop by Goal</a>
   </div>
-  <div class="hero-scroll">
-    <div class="scroll-bar"></div>
-    Browse products
+  <div class="hero-trust">
+    <div class="hero-trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>100% Natural</div>
+    <div class="hero-trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Family Made</div>
+    <div class="hero-trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>$5 Delivery Island-Wide</div>
+    <div class="hero-trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>Order via WhatsApp</div>
   </div>
+  <div class="hero-scroll"><div class="scroll-bar"></div>Browse products</div>
 </section>
-
-<!-- TRUST BAR -->
 <div class="trust-bar">
-  <div class="trust-item">✅ 100% Natural</div>
-  <div class="trust-item">🚫 No Preservatives</div>
-  <div class="trust-item">🚚 $5 Delivery Island-Wide</div>
-  <div class="trust-item">💬 Order via WhatsApp</div>
+  <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--dark)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>100% Natural</div>
+  <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--dark)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>No Preservatives</div>
+  <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--dark)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>$5 Delivery Island-Wide</div>
+  <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--dark)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Saltibus, Choiseul</div>
 </div>
-
-<!-- CONTACT BAR -->
 <div class="contact-bar">
-  <span>📞 <a href="tel:+17587173030">+1 758 717-3030</a></span>
-  <span class="contact-sep">|</span>
-  <span>📞 <a href="tel:+17587359901">+1 758 735-9901</a></span>
-  <span class="contact-sep">|</span>
-  <span>✉️ <a href="mailto:kkllhealthyharvest@gmail.com">kkllhealthyharvest@gmail.com</a></span>
-  <span class="contact-sep">|</span>
-  <span>📘 <a href="https://www.facebook.com/kkllhealthyharvest" target="_blank">kkllhealthyharvest</a></span>
-  <span class="contact-sep">|</span>
-  <span>📷 <a href="https://www.instagram.com/kkllshealthyharvests" target="_blank">@kkllshealthyharvests</a></span>
+  <span>&#128222; <a href="tel:+17587173030">+1 758 717-3030</a></span><span class="contact-sep">|</span>
+  <span>&#128222; <a href="tel:+17587359901">+1 758 735-9901</a></span><span class="contact-sep">|</span>
+  <span>&#9993;&#65039; <a href="mailto:kkllhealthyharvest@gmail.com">kkllhealthyharvest@gmail.com</a></span><span class="contact-sep">|</span>
+  <span>&#128248; <a href="https://www.facebook.com/kkllhealthyharvest" target="_blank">Facebook</a></span><span class="contact-sep">|</span>
+  <span>&#128247; <a href="https://www.instagram.com/kkllshealthyharvests" target="_blank">@kkllshealthyharvests</a></span>
 </div>
-
-<!-- MENU -->
 <section class="section" id="menu">
   <span class="section-label reveal">Our Products</span>
   <h2 class="section-title reveal">Made from the Ground Up.<br/><em>Right here in Saint Lucia.</em></h2>
-  <p class="section-sub reveal">Pick your category, add products, set quantities. Send your complete order to WhatsApp in one tap.</p>
-
-  <div class="tab-row reveal" id="tabRow">
-    <button class="tab-btn active" onclick="filterCat('juices',this)">🍊 Juices</button>
-    <button class="tab-btn" onclick="filterCat('wellness',this)">💚 Wellness</button>
-    <button class="tab-btn" onclick="filterCat('sauces',this)">🫙 Sauces & Seasonings</button>
-    <button class="tab-btn" onclick="filterCat('plants',this)">🌱 Plants</button>
-    <button class="tab-btn" onclick="filterCat('treats',this)">🥜 Drinks & Treats</button>
-  </div>
-
+  <p class="section-sub reveal">Pick a category, add what you want, set quantities — then send your full order to WhatsApp in one tap.</p>
+  <div class="tab-row reveal" id="tabRow"></div>
   <div class="product-grid" id="productGrid"></div>
 </section>
-
-<!-- WHY -->
-<section class="section" style="padding-top:0">
+<section class="goals-section" id="goals">
+  <div class="goals-inner">
+    <span class="section-label reveal">Shop Smarter</span>
+    <h2 class="section-title reveal">What's Your <em>Goal Today?</em></h2>
+    <p class="section-sub reveal">Not sure where to start? Pick what your body needs right now — we'll show you exactly what to order.</p>
+    <div class="goals-grid" id="goalsGrid"></div>
+    <div id="goalProductPanel"></div>
+  </div>
+</section>
+<section class="section">
   <span class="section-label reveal">Why KKLL's</span>
   <h2 class="section-title reveal">Your Health is<br/><em>Our Concern.</em></h2>
   <p class="section-sub reveal">Everything we make starts with a purpose — better health, real ingredients, real results.</p>
   <div class="why-grid">
-    <div class="why-card reveal">
-      <span class="why-icon">🌾</span>
-      <div class="why-title">Locally Sourced</div>
-      <div class="why-desc">Grown and sourced in Saint Lucia. You're supporting local farming with every order.</div>
-    </div>
-    <div class="why-card reveal">
-      <span class="why-icon">🚫</span>
-      <div class="why-title">No Preservatives</div>
-      <div class="why-desc">No artificial colours. No additives. No shortcuts. Every bottle leaves our hands exactly as nature made it.</div>
-    </div>
-    <div class="why-card reveal">
-      <span class="why-icon">🏡</span>
-      <div class="why-title">Family Made</div>
-      <div class="why-desc">KKLL's started because our family needed real health solutions. That passion is in every product we make.</div>
-    </div>
-    <div class="why-card reveal">
-      <span class="why-icon">🚚</span>
-      <div class="why-title">Island-Wide Delivery</div>
-      <div class="why-desc">North deliveries on Fridays. Vieux-Fort on weekdays. $5 delivery fee. Pickup available in Saltibus.</div>
-    </div>
+    <div class="why-card reveal"><div class="why-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="var(--deep-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12M12 12c0 0-6-2-6-8 4 0 6 2 6 8z"/><path d="M12 12c0 0 6-2 6-8-4 0-6 2-6 8z"/></svg></div><div class="why-title">Locally Sourced</div><div class="why-desc">Grown and sourced in Saint Lucia. You're supporting local farming with every order.</div></div>
+    <div class="why-card reveal"><div class="why-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="var(--deep-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div><div class="why-title">No Preservatives</div><div class="why-desc">No artificial colours. No additives. No shortcuts. Every bottle leaves our hands exactly as nature made it.</div></div>
+    <div class="why-card reveal"><div class="why-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="var(--deep-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="why-title">Family Made</div><div class="why-desc">KKLL's started because our family needed real health solutions. That passion is in every product we make.</div></div>
+    <div class="why-card reveal"><div class="why-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="var(--deep-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div class="why-title">Island-Wide Delivery</div><div class="why-desc">North deliveries on Fridays. Vieux-Fort on weekdays. $5 delivery fee. Pickup available in Saltibus.</div></div>
   </div>
 </section>
-
-<!-- CTA BAND -->
 <div class="cta-band reveal">
   <h2>Order Today.<br/><em>Feel the Difference.</em></h2>
   <p>Add products above, choose pickup or delivery, and send straight to WhatsApp. We'll confirm from there.</p>
   <div class="cta-pills">
-    <div class="cta-pill">🚚 $5 Delivery Island-Wide</div>
-    <div class="cta-pill">📍 North — Every Friday</div>
-    <div class="cta-pill">📍 Vieux-Fort — Weekdays</div>
-    <div class="cta-pill">🏠 Pickup — Saltibus, Choiseul</div>
+    <div class="cta-pill">&#128666; $5 Delivery Island-Wide</div>
+    <div class="cta-pill">&#128205; North — Every Friday</div>
+    <div class="cta-pill">&#128205; Vieux-Fort — Weekdays</div>
+    <div class="cta-pill">&#127968; Pickup — Saltibus, Choiseul</div>
   </div>
   <a href="https://wa.me/17587173030" class="wa-btn" target="_blank">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
     Message Us on WhatsApp
   </a>
 </div>
-
-<!-- FOOTER -->
 <footer>
-  <strong>KKLL's Healthy Harvests</strong><br/>
-  Saltibus, Choiseul, Saint Lucia<br/>
-  📞 <a href="tel:+17587173030">717-3030</a> &nbsp;|&nbsp; 📞 <a href="tel:+17587359901">735-9901</a> &nbsp;|&nbsp;
-  ✉️ <a href="mailto:kkllhealthyharvest@gmail.com">kkllhealthyharvest@gmail.com</a><br/>
-  <span style="margin-top:6px;display:block;font-size:0.72rem;opacity:0.5">100% Natural · No Preservatives · Locally Made with Love</span>
+  <strong>KKLL's Healthy Harvests</strong><br/>Saltibus, Choiseul, Saint Lucia<br/>
+  &#128222; <a href="tel:+17587173030">717-3030</a> &nbsp;|&nbsp; &#128222; <a href="tel:+17587359901">735-9901</a> &nbsp;|&nbsp; &#9993;&#65039; <a href="mailto:kkllhealthyharvest@gmail.com">kkllhealthyharvest@gmail.com</a><br/>
+  <span style="margin-top:6px;display:block;font-size:0.72rem;opacity:0.5">100% Natural &middot; No Preservatives &middot; Locally Made with Love</span>
   <span style="margin-top:8px;display:block;font-size:0.7rem;opacity:0.4">Powered by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank">JAMALINKS</a></span>
 </footer>
-
-<!-- FLOAT WA -->
-<a href="https://wa.me/17587173030" class="float-wa" target="_blank" title="Order on WhatsApp">
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
+<a href="https://wa.me/17587173030" class="float-wa" target="_blank">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
 </a>
-
-<!-- CART OVERLAY -->
 <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
-
-<!-- CART PANEL -->
 <div class="cart-panel" id="cartPanel">
   <div class="cart-header">
-    <h2>🛒 My Order</h2>
-    <button class="cart-close" onclick="closeCart()">✕</button>
+    <h2>My Order</h2>
+    <button class="cart-close" onclick="closeCart()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
   </div>
-
-  <!-- PICKUP / DELIVERY TOGGLE -->
   <div class="fulfillment-row">
-    <button class="fulfillment-btn active" id="btnDelivery" onclick="setFulfillment('delivery')">🚚 Delivery ($5)</button>
-    <button class="fulfillment-btn" id="btnPickup" onclick="setFulfillment('pickup')">🏠 Pickup (Free)</button>
+    <button class="fulfillment-btn active" id="btnDelivery" onclick="setFulfillment('delivery')">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      Delivery ($5)
+    </button>
+    <button class="fulfillment-btn" id="btnPickup" onclick="setFulfillment('pickup')">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Pickup (Free)
+    </button>
   </div>
-  <div class="fulfillment-note" id="fulfillmentNote">
-    📍 We deliver North on Fridays · Vieux-Fort on weekdays. Share your location when you send.
-  </div>
-
+  <div class="fulfillment-note" id="fulfillmentNote">&#128205; We deliver North on Fridays &middot; Vieux-Fort on weekdays. Share your location when you send.</div>
   <div class="cart-items" id="cartItems">
     <div class="cart-empty">
-      <span class="empty-icon">🌿</span>
-      <span>Your order is empty</span>
-      <span style="font-size:0.76rem;color:var(--muted)">Add products from the menu</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span>Your order is empty</span><span style="font-size:0.76rem">Add products from the menu above</span>
     </div>
   </div>
   <div class="cart-footer">
-    <div class="cart-total-row">
-      <span class="cart-total-label">Order Total</span>
-      <span class="cart-total-amount"><sup>$</sup><span id="cartTotal">0.00</span></span>
-    </div>
-    <div class="delivery-fee-row" id="deliveryFeeRow">
-      + Delivery fee: <span class="delivery-fee-val">$5.00</span>
-    </div>
+    <div class="cart-total-row"><span class="cart-total-label">Order Total</span><span class="cart-total-amount"><sup>$</sup><span id="cartTotal">0.00</span></span></div>
+    <div class="delivery-fee-row" id="deliveryFeeRow">+ Delivery fee: <span class="delivery-fee-val">$5.00</span></div>
     <button class="whatsapp-order-btn" id="waBtn" onclick="sendToWhatsApp()" disabled>
       <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
       Send Order on WhatsApp
     </button>
-    <p class="cart-note">We'll confirm your order and arrange from there 🌿</p>
+    <p class="cart-note">We'll confirm your order and arrange from there &#127807;</p>
   </div>
 </div>
-
 <div class="toast" id="toast"></div>
 
 <script>
-const PHONE = '17587173030';
-const SITE_URL = 'https://jamalinks758.github.io/jamalinks/kkll-healthy-harvests.html';
+const PHONE='17587173030';
+const SITE_URL='https://jamalinks758.github.io/jamalinks/kkll-healthy-harvests.html';
 
-// Products — variants: array means dropdown; single means no dropdown
-const products = [
-  // JUICES
-  { id:1,  cat:'juices',  icon:'🍊', accent:'#f97316', name:'Passion Fruit Juice',
-    desc:'Tropical, tangy, and intensely concentrated. One bottle gives you multiple servings of pure passion fruit.',
-    variants:[{label:'1.5L Bottle',price:35}], unit:'bottle', tags:['Concentrated','Tropical','Natural'] },
-  { id:2,  cat:'juices',  icon:'🍋', accent:'#eab308', name:'Grapefruit Juice',
-    desc:'Sharp and refreshing. Our concentrated grapefruit is perfect for mixing or drinking straight over ice.',
-    variants:[{label:'1.5L Bottle',price:35}], unit:'bottle', tags:['Citrus','Vitamin C'] },
-  { id:3,  cat:'juices',  icon:'🟠', accent:'#ea580c', name:'Sour Orange Juice',
-    desc:'Bold Caribbean flavour with a clean citrus bite. A Saint Lucia classic, concentrated and pure.',
-    variants:[{label:'1.5L Bottle',price:40}], unit:'bottle', tags:['Local Fruit','Bold','Caribbean'] },
-  { id:4,  cat:'juices',  icon:'🌿', accent:'#65a30d', name:'Tamarind Juice',
-    desc:'That unmistakable sweet-sour depth. Made from local tamarind — nothing added, nothing removed.',
-    variants:[{label:'1.5L Bottle',price:35}], unit:'bottle', tags:['Traditional','Sweet-Sour'] },
-  { id:5,  cat:'juices',  icon:'💚', accent:'#16a34a', name:'Sweet Lime Juice',
-    desc:'Delicate, fragrant, and light enough to drink every day.',
-    variants:[{label:'1.5L Bottle',price:35}], unit:'bottle', tags:['Light','Fragrant','Daily'] },
-  { id:6,  cat:'juices',  icon:'🍑', accent:'#fb923c', name:'Guava Juice',
-    desc:'Rich, creamy, and naturally sweet. Real guava flavour, concentrated and ready to pour.',
-    variants:[{label:'1.5L Bottle',price:35}], unit:'bottle', tags:['Rich','Sweet','Fan Favourite'] },
-  { id:7,  cat:'juices',  icon:'❤️', accent:'#dc2626', name:'Sorrel Juice',
-    desc:'Deep ruby colour, floral aroma, and the unmistakable taste of Saint Lucia.',
-    variants:[{label:'1.5L Bottle',price:35}], unit:'bottle', tags:['Seasonal','Antioxidants','Classic'] },
-  { id:8,  cat:'juices',  icon:'🍋', accent:'#ca8a04', name:'Lemon Juice',
-    desc:'Clean, crisp, and versatile. Great for cooking, cocktails, or a daily health boost.',
-    variants:[{label:'1.5L Bottle',price:40}], unit:'bottle', tags:['Versatile','Vitamin C'] },
+const ICONS={
+  1:`<svg viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 2 5 6 5 10c0 5 4 10 7 12 3-2 7-7 7-12 0-4-3-8-7-8z"/><circle cx="12" cy="9" r="2" fill="#f97316" opacity=".3"/></svg>`,
+  2:`<svg viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 4v2M12 18v2M4 12h2M18 12h2"/><circle cx="12" cy="12" r="3" fill="#eab308" opacity=".3"/></svg>`,
+  3:`<svg viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4"/></svg>`,
+  4:`<svg viewBox="0 0 24 24" fill="none" stroke="#92400e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6 2 3 7 3 12s3 10 9 10 9-5 9-10S18 2 12 2z"/><path d="M8 14s1-2 4-2 4 2 4 2"/><line x1="9" y1="9" x2="9.01" y2="9" stroke-width="3"/><line x1="15" y1="9" x2="15.01" y2="9" stroke-width="3"/></svg>`,
+  5:`<svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M8 12h8M12 8v8"/></svg>`,
+  6:`<svg viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-3 0-6 3-6 7 0 5 6 13 6 13s6-8 6-13c0-4-3-7-6-7z"/><circle cx="12" cy="9" r="2" fill="#fb923c" opacity=".4"/></svg>`,
+  7:`<svg viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L9 8H3l5 4-2 6 6-4 6 4-2-6 5-4h-6z"/></svg>`,
+  8:`<svg viewBox="0 0 24 24" fill="none" stroke="#ca8a04" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l2 2"/><path d="M8 4c0 0 2 1 4 1s4-1 4-1"/></svg>`,
+  9:`<svg viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2-4 6-7 10-7s8 3 10 7c-2 4-6 7-10 7S4 16 2 12z"/><circle cx="12" cy="12" r="3" fill="#15803d" opacity=".3"/></svg>`,
+  10:`<svg viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>`,
+  11:`<svg viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
+  12:`<svg viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l9-4 9 4v6c0 5-4 9-9 11C7 21 3 17 3 12V6z"/><path d="M8 12l3 3 5-5"/></svg>`,
+  13:`<svg viewBox="0 0 24 24" fill="none" stroke="#be185d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>`,
+  14:`<svg viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18c0-3 2-5 5-5h8c3 0 5 2 5 5"/><path d="M12 3C8 3 5 6 5 10h14c0-4-3-7-7-7z"/><line x1="12" y1="10" x2="12" y2="13"/></svg>`,
+  15:`<svg viewBox="0 0 24 24" fill="none" stroke="#92400e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
+  16:`<svg viewBox="0 0 24 24" fill="none" stroke="#6d28d9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7A5 5 0 007 7"/><path d="M7 7v10a5 5 0 0010 0V7"/><line x1="12" y1="2" x2="12" y2="7"/></svg>`,
+  17:`<svg viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2 5h5l-4 3 1.5 5L12 12l-4.5 3L9 10 5 7h5z"/></svg>`,
+  18:`<svg viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z"/></svg>`,
+  19:`<svg viewBox="0 0 24 24" fill="none" stroke="#84cc16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12M12 12C12 12 7 8 7 4a5 5 0 0110 0c0 4-5 8-5 8z"/><path d="M8 12c0 0-5 1-5 5h18c0-4-5-5-5-5"/></svg>`,
+  20:`<svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>`,
+  21:`<svg viewBox="0 0 24 24" fill="none" stroke="#78350f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 010 8h-1"/><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>`,
+  22:`<svg viewBox="0 0 24 24" fill="none" stroke="#92400e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M8 8V5a4 4 0 018 0v3"/></svg>`,
+  23:`<svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12M5 12C5 8.134 8.134 5 12 5s7 3.134 7 7"/><path d="M12 12c0-4-3-7-3-7s3 3 3 7z"/></svg>`,
+  24:`<svg viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="17" width="18" height="4" rx="1"/><path d="M8 17V9a4 4 0 018 0v8"/><path d="M12 9c0 0-3-3-3-6h6c0 3-3 6-3 6z"/></svg>`,
+  25:`<svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12M12 12c0 0-6-2-6-8 4 0 6 2 6 8z"/><path d="M12 12c0 0 6-2 6-8-4 0-6 2-6 8z"/></svg>`,
+  26:`<svg viewBox="0 0 24 24" fill="none" stroke="#4d7c0f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="14" width="16" height="6" rx="1"/><path d="M12 14V6"/><path d="M8 10c0-2 2-4 4-4s4 2 4 4"/></svg>`,
+  27:`<svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12M12 12c-2-3-6-4-8-2 2 3 5 5 8 2z"/><path d="M12 12c2-3 6-4 8-2-2 3-5 5-8 2z"/><path d="M12 7c0-3 1-5 1-5s1 2 1 5"/></svg>`,
+  28:`<svg viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C9 2 7 4 7 7c0 4 5 10 5 10s5-6 5-10c0-3-2-5-5-5z"/><circle cx="12" cy="7" r="1.5" fill="#dc2626"/></svg>`,
+  29:`<svg viewBox="0 0 24 24" fill="none" stroke="#92400e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l4-8h10l4 8"/><path d="M3 11h18v2a8 8 0 01-16 0v-2z"/><line x1="12" y1="11" x2="12" y2="21"/></svg>`,
+  30:`<svg viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v2M12 2v2M16 2v2"/><rect x="5" y="4" width="14" height="16" rx="2"/><path d="M9 12c1 2 5 2 6 0"/></svg>`,
+  31:`<svg viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="12" rx="4"/><line x1="12" y1="14" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></svg>`,
+};
 
-  // WELLNESS
-  { id:9,  cat:'wellness', icon:'🟢', accent:'#15803d', name:'Green Juice',
-    desc:'A powerhouse blend of local greens. Nutrient-dense, energising, and deeply nourishing.',
-    variants:[{label:'1.5L Bottle',price:100}], unit:'bottle', tags:['Greens','Energy','Nutrient Dense'] },
-  { id:10, cat:'wellness', icon:'🛡️', accent:'#1d4ed8', name:'Immune Booster',
-    desc:'Formulated from local herbs chosen specifically to strengthen your immune system.',
-    variants:[{label:'1.5L Bottle',price:100}], unit:'bottle', tags:['Immunity','Local Herbs','Wellness'] },
-  { id:11, cat:'wellness', icon:'🔥', accent:'#b45309', name:'Fat Burner',
-    desc:'A natural blend supporting metabolism and helping your body work smarter. No stimulants.',
-    variants:[{label:'1.5L Bottle',price:100}], unit:'bottle', tags:['Metabolism','Natural'] },
-  { id:12, cat:'wellness', icon:'✨', accent:'#7c3aed', name:'Detox',
-    desc:'Full-body cleanse using local herbs with centuries of traditional use. Reset and refresh.',
-    variants:[{label:'1.5L Bottle',price:100}], unit:'bottle', tags:['Cleanse','Traditional','Reset'] },
-  { id:13, cat:'wellness', icon:'💉', accent:'#be185d', name:'Blood Cleanse',
-    desc:'A herbal blend targeting blood purification the natural way.',
-    variants:[{label:'1.5L Bottle',price:100}], unit:'bottle', tags:['Herbal','Purify','Traditional'] },
-  { id:14, cat:'wellness', icon:'🌊', accent:'#0891b2', name:'Flavoured Seamoss Gel',
-    desc:'Premium seamoss with dandelion and burdock root. Good for skin, digestion, and energy.',
-    variants:[{label:'700ml Jar',price:40}], unit:'jar', tags:['Seamoss','Minerals','Skin & Gut'] },
-  { id:15, cat:'wellness', icon:'💪', accent:'#92400e', name:'Manwood Juice',
-    desc:'A traditional tonic for energy and vitality. A customer favourite — try it once.',
-    variants:[{label:'Small',price:7},{label:'Large',price:10}], unit:'bottle', tags:['Traditional','Tonic','Energy'] },
-  { id:16, cat:'wellness', icon:'💆', accent:'#6d28d9', name:'Hair Fuel Oil',
-    desc:'Nourishing oil from local botanicals. Promotes growth, adds shine, treats your scalp naturally.',
-    variants:[{label:'Per Bottle',price:50}], unit:'bottle', tags:['Hair Care','Natural Oils'] },
+const BG={1:'#fff7ed',2:'#fefce8',3:'#fff4ed',4:'#fef3c7',5:'#f0fdf4',6:'#fff7ed',7:'#fef2f2',8:'#fefce8',9:'#f0fdf4',10:'#eff6ff',11:'#fffbeb',12:'#f5f3ff',13:'#fdf2f8',14:'#ecfeff',15:'#fffbeb',16:'#f5f3ff',17:'#f0fdf4',18:'#fef2f2',19:'#f7fee7',20:'#fffbeb',21:'#fdf6f0',22:'#fdf6f0',23:'#f0fdf4',24:'#f0fdf4',25:'#f0fdf4',26:'#f7fee7',27:'#f0fdf4',28:'#fef2f2',29:'#fdf6f0',30:'#fef2f2',31:'#f0f9ff'};
 
-  // SAUCES & SEASONINGS
-  { id:17, cat:'sauces', icon:'🌿', accent:'#166534', name:'Herbal Seasoning',
-    desc:'Over 30 herbs and spices in one bottle. No MSG. The seasoning every Saint Lucia kitchen needs.',
-    variants:[{label:'750ml Bottle',price:35}], unit:'bottle', tags:['30+ Herbs','No MSG','Cooking Essential'] },
-  { id:18, cat:'sauces', icon:'🌶️', accent:'#dc2626', name:'Hot Sauce',
-    desc:'Hand-crafted with local peppers. The right heat, the right flavour.',
-    variants:[{label:'Per Bottle',price:25}], unit:'bottle', tags:['Local Peppers','Handcrafted','Spicy'] },
-  { id:19, cat:'sauces', icon:'🥗', accent:'#84cc16', name:'Vinaigrette',
-    desc:'Fresh and tangy. No artificial preservatives — great for salads, marinades, and more.',
-    variants:[{label:'Per Bottle',price:25}], unit:'bottle', tags:['Fresh','No Preservatives'] },
-  { id:20, cat:'sauces', icon:'🥭', accent:'#f59e0b', name:'Souskai',
-    desc:'A beloved Saint Lucian condiment — tart, garlicky, absolutely addictive.',
-    variants:[{label:'Per Bottle',price:25}], unit:'bottle', tags:['Saint Lucian','Traditional','Bold'] },
-  { id:21, cat:'sauces', icon:'☕', accent:'#78350f', name:'Local Coffee',
-    desc:'Saint Lucia roasted and ground. Rich, smooth, and 100% local.',
-    variants:[{label:'Per Pack',price:30}], unit:'pack', tags:['Locally Roasted','Rich'] },
-  { id:22, cat:'sauces', icon:'🍫', accent:'#92400e', name:'Cocoa Powder',
-    desc:'Local cocoa with added spices. Use for hot cocoa, baking, or smoothies.',
-    variants:[{label:'Per Pack',price:15}], unit:'pack', tags:['Local Cocoa','Spiced','Pure'] },
-
-  // PLANTS
-  { id:23, cat:'plants', icon:'🌵', accent:'#16a34a', name:'Succulent Plants',
-    desc:'Hardy, beautiful, low-maintenance. Perfect for any desk or windowsill.',
-    variants:[{label:'Per Plant',price:15}], unit:'plant', tags:['Indoor','Low Maintenance','Gift Idea'] },
-  { id:24, cat:'plants', icon:'🪴', accent:'#15803d', name:'Succulent Gift Bowl',
-    desc:'A curated succulent arrangement in a decorative bowl. Ready to gift — no wrapping required.',
-    variants:[{label:'Per Bowl',price:100}], unit:'bowl', tags:['Gift Ready','Decorative'] },
-  { id:25, cat:'plants', icon:'🌿', accent:'#22c55e', name:'Mint & Herb Plants',
-    desc:'Grow your own fresh mint and herbs. Great for teas, cooking, and fragrance.',
-    variants:[{label:'Per Plant',price:15}], unit:'plant', tags:['Culinary','Fresh','Grow at Home'] },
-  { id:26, cat:'plants', icon:'🏢', accent:'#4d7c0f', name:'Office Plants',
-    desc:'Air-purifying indoor plants that thrive in low-light environments.',
-    variants:[{label:'From $20',price:20}], unit:'plant', tags:['Air Purifying','Office'] },
-  { id:27, cat:'plants', icon:'🌱', accent:'#16a34a', name:'ZZ Plants',
-    desc:'Near indestructible. Glossy leaves. Thrives on neglect. Perfect for any home or office.',
-    variants:[{label:'From $30',price:30}], unit:'plant', tags:['Hardy','Low Light','Elegant'] },
-  { id:28, cat:'plants', icon:'🍓', accent:'#dc2626', name:'Strawberry Plants',
-    desc:'Grow your own strawberries in pots, gardens, or small spaces. Strong roots, great yield.',
-    variants:[{label:'Per Plant',price:15}], unit:'plant', tags:['Edible','Home Garden'] },
-
-  // DRINKS & TREATS
-  { id:29, cat:'treats', icon:'🥜', accent:'#92400e', name:'Peanut Punch',
-    desc:'Creamy, rich, and satisfying. Made the old-fashioned way — thick and naturally sweet.',
-    variants:[{label:'Small',price:30},{label:'Large',price:100}], unit:'bottle', tags:['Creamy','Traditional','Filling'] },
-  { id:30, cat:'treats', icon:'🍹', accent:'#dc2626', name:'Rum Punch',
-    desc:'A proper Saint Lucian rum punch. Balanced, fruity, and made for sharing.',
-    variants:[{label:'Small',price:50},{label:'Large',price:100}], unit:'bottle', tags:['Saint Lucian','Fruity','Party Size'] },
-  { id:31, cat:'treats', icon:'🧊', accent:'#7dd3fc', name:'Ice Lollies',
-    desc:'Peanut butter, plain, Guinness, and coconut. Homemade favourites — kids and adults love them.',
-    variants:[{label:'Peanut Butter — $3',price:3},{label:'Plain — $3',price:3},{label:'Guinness — $3',price:3},{label:'Coconut — $3',price:3}],
-    unit:'each', tags:['Homemade','4 Flavours','Kids Favourite'] },
+const products=[
+  {id:1,cat:'juices',accent:'#f97316',name:'Passion Fruit Juice',desc:'Tropical, tangy, and intensely concentrated. Multiple servings of pure passion fruit per bottle.',variants:[{label:'1.5L Bottle',price:35}],unit:'bottle',tags:['Concentrated','Tropical','Natural']},
+  {id:2,cat:'juices',accent:'#eab308',name:'Grapefruit Juice',desc:'Sharp and refreshing. Perfect for mixing or drinking straight over ice.',variants:[{label:'1.5L Bottle',price:35}],unit:'bottle',tags:['Citrus','Vitamin C']},
+  {id:3,cat:'juices',accent:'#ea580c',name:'Sour Orange Juice',desc:'Bold Caribbean flavour with a clean citrus bite. A Saint Lucia classic.',variants:[{label:'1.5L Bottle',price:40}],unit:'bottle',tags:['Local Fruit','Bold','Caribbean']},
+  {id:4,cat:'juices',accent:'#92400e',name:'Tamarind Juice',desc:'That unmistakable sweet-sour depth. Made from local tamarind — nothing added.',variants:[{label:'1.5L Bottle',price:35}],unit:'bottle',tags:['Traditional','Sweet-Sour']},
+  {id:5,cat:'juices',accent:'#16a34a',name:'Sweet Lime Juice',desc:'Delicate, fragrant, and light enough to drink every day.',variants:[{label:'1.5L Bottle',price:35}],unit:'bottle',tags:['Light','Fragrant','Daily']},
+  {id:6,cat:'juices',accent:'#fb923c',name:'Guava Juice',desc:'Rich, creamy, and naturally sweet. Real guava flavour, concentrated and ready to pour.',variants:[{label:'1.5L Bottle',price:35}],unit:'bottle',tags:['Rich','Sweet','Fan Favourite']},
+  {id:7,cat:'juices',accent:'#dc2626',name:'Sorrel Juice',desc:'Deep ruby colour, floral aroma, and the unmistakable taste of Saint Lucia.',variants:[{label:'1.5L Bottle',price:35}],unit:'bottle',tags:['Seasonal','Antioxidants','Classic']},
+  {id:8,cat:'juices',accent:'#ca8a04',name:'Lemon Juice',desc:'Clean, crisp, and versatile. Great for cooking, cocktails, or a daily health boost.',variants:[{label:'1.5L Bottle',price:40}],unit:'bottle',tags:['Versatile','Vitamin C']},
+  {id:9,cat:'wellness',accent:'#15803d',name:'Green Juice',desc:'A powerhouse blend of local greens. Nutrient-dense, energising, deeply nourishing.',variants:[{label:'1.5L Bottle',price:100}],unit:'bottle',tags:['Greens','Energy','Nutrient Dense']},
+  {id:10,cat:'wellness',accent:'#1d4ed8',name:'Immune Booster',desc:'Local herbs chosen specifically to strengthen your immune system. Feel the difference.',variants:[{label:'1.5L Bottle',price:100}],unit:'bottle',tags:['Immunity','Local Herbs','Wellness']},
+  {id:11,cat:'wellness',accent:'#b45309',name:'Fat Burner',desc:'Natural blend supporting metabolism and helping your body work smarter. No stimulants.',variants:[{label:'1.5L Bottle',price:100}],unit:'bottle',tags:['Metabolism','Natural']},
+  {id:12,cat:'wellness',accent:'#7c3aed',name:'Detox',desc:'Full-body cleanse using local herbs with centuries of traditional use. Reset and refresh.',variants:[{label:'1.5L Bottle',price:100}],unit:'bottle',tags:['Cleanse','Traditional','Reset']},
+  {id:13,cat:'wellness',accent:'#be185d',name:'Blood Cleanse',desc:'A herbal blend targeting blood purification the natural way.',variants:[{label:'1.5L Bottle',price:100}],unit:'bottle',tags:['Herbal','Purify','Traditional']},
+  {id:14,cat:'wellness',accent:'#0891b2',name:'Flavoured Seamoss Gel',desc:'Premium seamoss with dandelion and burdock root. Good for skin, digestion, and energy.',variants:[{label:'700ml Jar',price:40}],unit:'jar',tags:['Seamoss','Minerals','Skin & Gut']},
+  {id:15,cat:'wellness',accent:'#92400e',name:'Manwood Juice',desc:'A traditional tonic for energy and vitality. A customer favourite — try it once.',variants:[{label:'Small',price:7},{label:'Large',price:10}],unit:'bottle',tags:['Traditional','Tonic','Energy']},
+  {id:16,cat:'wellness',accent:'#6d28d9',name:'Hair Fuel Oil',desc:'Nourishing oil from local botanicals. Promotes growth, adds shine, treats your scalp naturally.',variants:[{label:'Per Bottle',price:50}],unit:'bottle',tags:['Hair Care','Natural Oils']},
+  {id:17,cat:'sauces',accent:'#166534',name:'Herbal Seasoning',desc:'Over 30 herbs and spices in one bottle. No MSG. The seasoning every Saint Lucia kitchen needs.',variants:[{label:'750ml Bottle',price:35}],unit:'bottle',tags:['30+ Herbs','No MSG','Cooking Essential']},
+  {id:18,cat:'sauces',accent:'#dc2626',name:'Hot Sauce',desc:'Hand-crafted with local peppers. The right heat, the right flavour.',variants:[{label:'Per Bottle',price:25}],unit:'bottle',tags:['Local Peppers','Handcrafted','Spicy']},
+  {id:19,cat:'sauces',accent:'#84cc16',name:'Vinaigrette',desc:'Fresh and tangy. No artificial preservatives — great for salads, marinades, and more.',variants:[{label:'Per Bottle',price:25}],unit:'bottle',tags:['Fresh','No Preservatives']},
+  {id:20,cat:'sauces',accent:'#f59e0b',name:'Souskai',desc:'A beloved Saint Lucian condiment — tart, garlicky, absolutely addictive.',variants:[{label:'Per Bottle',price:25}],unit:'bottle',tags:['Saint Lucian','Traditional','Bold']},
+  {id:21,cat:'sauces',accent:'#78350f',name:'Local Coffee',desc:'Saint Lucia roasted and ground. Rich, smooth, and 100% local.',variants:[{label:'Per Pack',price:30}],unit:'pack',tags:['Locally Roasted','Rich']},
+  {id:22,cat:'sauces',accent:'#92400e',name:'Cocoa Powder',desc:'Local cocoa with added spices. Use for hot cocoa, baking, or smoothies.',variants:[{label:'Per Pack',price:15}],unit:'pack',tags:['Local Cocoa','Spiced','Pure']},
+  {id:23,cat:'plants',accent:'#16a34a',name:'Succulent Plants',desc:'Hardy, beautiful, low-maintenance. Perfect for any desk or windowsill.',variants:[{label:'Per Plant',price:15}],unit:'plant',tags:['Indoor','Low Maintenance','Gift Idea']},
+  {id:24,cat:'plants',accent:'#15803d',name:'Succulent Gift Bowl',desc:'A curated succulent arrangement in a decorative bowl. Ready to gift.',variants:[{label:'Per Bowl',price:100}],unit:'bowl',tags:['Gift Ready','Decorative']},
+  {id:25,cat:'plants',accent:'#22c55e',name:'Mint & Herb Plants',desc:'Grow your own fresh mint and herbs. Great for teas, cooking, and fragrance.',variants:[{label:'Per Plant',price:15}],unit:'plant',tags:['Culinary','Fresh','Grow at Home']},
+  {id:26,cat:'plants',accent:'#4d7c0f',name:'Office Plants',desc:'Air-purifying indoor plants that thrive in low-light environments.',variants:[{label:'From $20',price:20}],unit:'plant',tags:['Air Purifying','Office']},
+  {id:27,cat:'plants',accent:'#16a34a',name:'ZZ Plants',desc:'Near indestructible. Glossy leaves. Thrives on neglect. Perfect for any home or office.',variants:[{label:'From $30',price:30}],unit:'plant',tags:['Hardy','Low Light','Elegant']},
+  {id:28,cat:'plants',accent:'#dc2626',name:'Strawberry Plants',desc:'Grow your own strawberries in pots, gardens, or small spaces.',variants:[{label:'Per Plant',price:15}],unit:'plant',tags:['Edible','Home Garden']},
+  {id:29,cat:'treats',accent:'#92400e',name:'Peanut Punch',desc:'Creamy, rich, and satisfying. Made the old-fashioned way — thick and naturally sweet.',variants:[{label:'Small',price:30},{label:'Large',price:100}],unit:'bottle',tags:['Creamy','Traditional','Filling']},
+  {id:30,cat:'treats',accent:'#dc2626',name:'Rum Punch',desc:'A proper Saint Lucian rum punch. Balanced, fruity, and made for sharing.',variants:[{label:'Small',price:50},{label:'Large',price:100}],unit:'bottle',tags:['Saint Lucian','Fruity','Party Size']},
+  {id:31,cat:'treats',accent:'#0ea5e9',name:'Ice Lollies',desc:'Peanut butter, plain, Guinness, and coconut. Homemade favourites. $3 each.',variants:[{label:'Peanut Butter',price:3},{label:'Plain',price:3},{label:'Guinness',price:3},{label:'Coconut',price:3}],unit:'each',tags:['Homemade','4 Flavours','Kids Favourite']},
 ];
 
-let cart = {};         // key: `${id}-${variantLabel}`
-let currentCat = 'juices';
-let fulfillment = 'delivery'; // 'delivery' | 'pickup'
+const TABS=[
+  {cat:'juices',label:'Juices',icon:`<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2h8l1 8H7L8 2z"/><path d="M7 10c0 5 2 9 5 9s5-4 5-9"/></svg>`},
+  {cat:'wellness',label:'Wellness',icon:`<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`},
+  {cat:'sauces',label:'Sauces & Seasonings',icon:`<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l-2 7H4l6 4-2 7 4-3 4 3-2-7 6-4h-6z"/></svg>`},
+  {cat:'plants',label:'Plants',icon:`<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12M12 12c0 0-6-2-6-8 4 0 6 2 6 8z"/><path d="M12 12c0 0 6-2 6-8-4 0-6 2-6 8z"/></svg>`},
+  {cat:'treats',label:'Drinks & Treats',icon:`<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v2M12 2v2M16 2v2"/><rect x="5" y="4" width="14" height="16" rx="2"/><path d="M9 12c1 2 5 2 6 0"/></svg>`},
+];
 
-function setFulfillment(mode) {
-  fulfillment = mode;
-  document.getElementById('btnDelivery').classList.toggle('active', mode==='delivery');
-  document.getElementById('btnPickup').classList.toggle('active', mode==='pickup');
-  const note = document.getElementById('fulfillmentNote');
-  const feeRow = document.getElementById('deliveryFeeRow');
-  if (mode === 'delivery') {
-    note.textContent = '📍 We deliver North on Fridays · Vieux-Fort on weekdays. Share your location when you send.';
-    feeRow.style.display = '';
-  } else {
-    note.textContent = '🏠 Pickup available at Saltibus, Choiseul. We\'ll confirm a time via WhatsApp.';
-    feeRow.style.display = 'none';
-  }
-  renderCart();
+const GOALS=[
+  {id:'energy',name:'Energy',sub:'Feel alive again',color:'rgba(245,168,0,0.18)',icon:`<svg viewBox="0 0 24 24" fill="none" stroke="#f5a800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,products:[{id:15,why:'Traditional tonic prized for natural energy and vitality'},{id:9,why:'Local greens packed with iron and B vitamins for sustained energy'},{id:21,why:'Local coffee — clean morning energy, rich Caribbean flavour'},{id:1,why:'Vitamin C from passion fruit supports iron absorption and energy levels'}]},
+  {id:'immunity',name:'Immunity',sub:'Strengthen your defences',color:'rgba(29,78,216,0.18)',icon:`<svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>`,products:[{id:10,why:'Formulated from local herbs specifically to strengthen immune function'},{id:7,why:'Sorrel is rich in antioxidants and Vitamin C to fight infection'},{id:14,why:'Seamoss contains 92 of 102 minerals the body needs — immunity minerals included'},{id:2,why:'Grapefruit provides immune-supporting Vitamin C and flavonoids'}]},
+  {id:'detox',name:'Cleanse & Detox',sub:'Reset from the inside out',color:'rgba(124,58,237,0.18)',icon:`<svg viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l9-4 9 4v6c0 5-4 9-9 11C7 21 3 17 3 12V6z"/><path d="M8 12l3 3 5-5"/></svg>`,products:[{id:12,why:'Full-body cleanse using local herbs — reset your system naturally'},{id:13,why:'Blood purification blend trusted by our customers for real results'},{id:9,why:'Green juice flushes toxins and replenishes with live plant nutrients'},{id:14,why:'Seamoss supports kidney and liver health to aid detoxification'}]},
+  {id:'digestion',name:'Gut Health',sub:'Happy gut, happy life',color:'rgba(22,163,74,0.18)',icon:`<svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 9c1-2 5-2 6 0"/><path d="M9 15c1 2 5 2 6 0"/></svg>`,products:[{id:14,why:'Seamoss gel is rich in fibre and prebiotics that support gut health'},{id:12,why:'Detox blend includes local herbs known to ease digestive discomfort'},{id:4,why:'Tamarind has natural digestive enzymes and fibre for gut motility'},{id:25,why:'Brew fresh mint tea to settle the stomach naturally'}]},
+  {id:'hydration',name:'Hydration',sub:'Replenish. Refresh.',color:'rgba(8,145,178,0.18)',icon:`<svg viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>`,products:[{id:5,why:'Sweet lime is light and electrolyte-rich — perfect for rehydration'},{id:8,why:'Lemon juice mixed with water is a classic natural rehydration drink'},{id:14,why:'Seamoss is a natural hydrocolloid that helps the body retain moisture'},{id:2,why:'Grapefruit is over 90% water — refreshing and naturally hydrating'}]},
+  {id:'morning',name:'Morning Routine',sub:'Start your day right',color:'rgba(245,168,0,0.12)',icon:`<svg viewBox="0 0 24 24" fill="none" stroke="#f5a800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>`,products:[{id:21,why:'Start with local Saint Lucia coffee — clean energy, rich flavour'},{id:22,why:'Cocoa powder with spices — a warming, antioxidant-rich morning drink'},{id:9,why:'Green juice floods your body with nutrients the moment you wake up'},{id:14,why:'One tablespoon of seamoss gel covers your daily minerals in one go'}]},
+  {id:'postworkout',name:'Post Workout',sub:'Recover and rebuild',color:'rgba(180,83,9,0.18)',icon:`<svg viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5h11M6.5 17.5h11M4 12h16"/><circle cx="4" cy="12" r="2"/><circle cx="20" cy="12" r="2"/></svg>`,products:[{id:29,why:'Peanut punch delivers protein and calories fast after a hard session'},{id:15,why:'Manwood juice is a traditional recovery and vitality tonic'},{id:10,why:'Immune booster counters the immune dip that follows intense exercise'},{id:5,why:'Sweet lime replenishes electrolytes naturally after sweat loss'}]},
+  {id:'skin',name:'Skin & Hair',sub:'Glow from within',color:'rgba(190,24,93,0.18)',icon:`<svg viewBox="0 0 24 24" fill="none" stroke="#be185d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>`,products:[{id:16,why:'Hair Fuel Oil nourishes the scalp and promotes growth with local botanicals'},{id:14,why:'Seamoss is rich in collagen precursors, zinc, and sulphur for skin and hair'},{id:13,why:'Blood cleanse removes the toxins that often show up as skin issues'},{id:7,why:'Sorrel anthocyanins are powerful antioxidants that protect skin cells'}]},
+];
+
+let cart={},currentCat='juices',fulfillment='delivery';
+
+function renderTabs(){
+  document.getElementById('tabRow').innerHTML=TABS.map((t,i)=>`<button class="tab-btn${i===0?' active':''}" onclick="filterCat('${t.cat}',this)">${t.icon}${t.label}</button>`).join('');
 }
 
-function getSelectedVariant(productId) {
-  const sel = document.getElementById(`variant-${productId}`);
-  return sel ? parseInt(sel.value) : 0;
+function renderGoals(){
+  document.getElementById('goalsGrid').innerHTML=GOALS.map(g=>`<div class="goal-card reveal" id="gc-${g.id}" style="--goal-color:${g.color}" onclick="selectGoal('${g.id}')"><div class="goal-icon-wrap">${g.icon}</div><div class="goal-name">${g.name}</div><div class="goal-sub">${g.sub}</div></div>`).join('');
 }
 
-function getCartKey(productId, variantLabel) {
-  return `${productId}__${variantLabel}`;
-}
-
-function filterCat(cat, btn) {
-  currentCat = cat;
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  renderGrid();
-}
-
-function renderGrid() {
-  const grid = document.getElementById('productGrid');
-  const filtered = products.filter(p => p.cat === currentCat);
-
-  grid.innerHTML = filtered.map(p => {
-    const hasVariants = p.variants.length > 1;
-    const singlePrice = p.variants[0].price;
-    const inCartAny = Object.keys(cart).some(k => k.startsWith(p.id + '__'));
-
-    const variantHTML = hasVariants
-      ? `<select class="variant-select" id="variant-${p.id}">
-           ${p.variants.map((v,i) => `<option value="${i}">${v.label} — $${v.price}</option>`).join('')}
-         </select>`
-      : `<div style="font-size:0.75rem;color:var(--muted);margin-bottom:12px;font-weight:500">${p.variants[0].label}</div>`;
-
-    const displayPrice = hasVariants ? `from $${singlePrice}` : `$${singlePrice}`;
-    const priceUnit = hasVariants ? '' : `/ ${p.unit}`;
-
-    const cartControls = hasVariants
-      ? `<button class="add-btn" onclick="addVariantToCart(${p.id})">+ Add</button>`
-      : (() => {
-          const key = getCartKey(p.id, p.variants[0].label);
-          const qty = cart[key] ? cart[key].qty : 0;
-          return qty > 0
-            ? `<div class="qty-controls">
-                 <button class="qty-btn" onclick="changeQtyByKey('${key}',-1)">−</button>
-                 <span class="qty-display">${qty}</span>
-                 <button class="qty-btn" onclick="changeQtyByKey('${key}',1)">+</button>
-               </div>
-               <button class="add-btn added" onclick="addVariantToCart(${p.id})">✓ Added</button>`
-            : `<button class="add-btn" onclick="addVariantToCart(${p.id})">+ Add</button>`;
-        })();
-
-    return `
-    <div class="product-card reveal ${inCartAny ? 'in-cart' : ''}" id="card-${p.id}" style="--card-accent:${p.accent}">
-      <span class="product-icon">${p.icon}</span>
-      <div class="product-name">${p.name}</div>
-      <div class="product-desc">${p.desc}</div>
-      <div class="product-tags">${p.tags.map(t=>`<span class="product-tag">${t}</span>`).join('')}</div>
-      ${variantHTML}
-      <div class="product-footer">
-        <div class="product-price">${displayPrice} <span>${priceUnit}</span></div>
-        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">${cartControls}</div>
-      </div>
-    </div>`;
+function selectGoal(id){
+  document.querySelectorAll('.goal-card').forEach(c=>c.classList.remove('active'));
+  document.getElementById('gc-'+id).classList.add('active');
+  const goal=GOALS.find(g=>g.id===id);
+  const items=goal.products.map(gp=>{
+    const p=products.find(x=>x.id===gp.id);
+    if(!p)return'';
+    return`<div class="goal-product-card reveal"><div class="goal-product-icon" style="background:${BG[p.id]||'#f0fdf4'}">${ICONS[p.id]||''}</div><div class="goal-product-info"><div class="goal-product-name">${p.name}</div><div class="goal-product-why">${gp.why}</div></div><div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0"><div style="font-family:Playfair Display,serif;font-size:1.05rem;font-weight:700;color:var(--sun)">$${p.variants[0].price}</div><button class="goal-add-btn" onclick="addFromGoal(${p.id})">+ Add</button></div></div>`;
   }).join('');
+  document.getElementById('goalProductPanel').innerHTML=`<div class="goal-products-panel active"><div class="goal-products-title">Best for <em>${goal.name}</em></div><div class="goal-product-list">${items}</div></div>`;
+  document.getElementById('goalProductPanel').scrollIntoView({behavior:'smooth',block:'nearest'});
   observeReveal();
 }
 
-function addVariantToCart(productId) {
-  const p = products.find(x => x.id === productId);
-  const varIdx = getSelectedVariant(productId);
-  const variant = p.variants[varIdx];
-  const key = getCartKey(productId, variant.label);
-  if (!cart[key]) { cart[key] = { product:p, variant, qty:1 }; }
-  else { cart[key].qty++; }
-  renderGrid();
-  renderCart();
-  updateCartCount();
-  showToast(`${p.icon} ${p.name} (${variant.label}) added!`);
-  bumpCount();
+function addFromGoal(pid){
+  const p=products.find(x=>x.id===pid);if(!p)return;
+  const v=p.variants[0],k=getCartKey(pid,v.label);
+  if(!cart[k])cart[k]={product:p,variant:v,qty:1};else cart[k].qty++;
+  renderCart();updateCartCount();showToast(p.name+' added!');bumpCount();
 }
 
-function changeQtyByKey(key, delta) {
-  if (!cart[key]) return;
-  cart[key].qty = Math.max(0, cart[key].qty + delta);
-  if (cart[key].qty === 0) delete cart[key];
-  renderGrid();
-  renderCart();
-  updateCartCount();
+function filterCat(cat,btn){
+  currentCat=cat;
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');renderGrid();
 }
 
-function updateCartCount() {
-  const total = Object.values(cart).reduce((s,i) => s + i.qty, 0);
-  document.getElementById('cartCount').textContent = total;
+function getSelectedVariant(pid){const s=document.getElementById('variant-'+pid);return s?parseInt(s.value):0}
+function getCartKey(pid,label){return pid+'__'+label}
+
+function renderGrid(){
+  const grid=document.getElementById('productGrid');
+  const filtered=products.filter(p=>p.cat===currentCat);
+  grid.innerHTML=filtered.map(p=>{
+    const hv=p.variants.length>1,sp=p.variants[0].price;
+    const inCart=Object.keys(cart).some(k=>k.startsWith(p.id+'__'));
+    const icon=ICONS[p.id]||'',bg=BG[p.id]||'#f0fdf4';
+    const vHTML=hv?`<select class="variant-select" id="variant-${p.id}">${p.variants.map((v,i)=>`<option value="${i}">${v.label} — $${v.price}</option>`).join('')}</select>`:`<div style="font-size:0.75rem;color:var(--muted);margin-bottom:12px;font-weight:500">${p.variants[0].label}</div>`;
+    const dPrice=hv?`from $${sp}`:`$${sp}`,pUnit=hv?'':` / ${p.unit}`;
+    const ctrl=hv?`<button class="add-btn" onclick="addVariantToCart(${p.id})">+ Add</button>`:(()=>{
+      const k=getCartKey(p.id,p.variants[0].label),q=cart[k]?cart[k].qty:0;
+      return q>0?`<div class="qty-controls"><button class="qty-btn" onclick="changeQtyByKey('${k}',-1)">−</button><span class="qty-display">${q}</span><button class="qty-btn" onclick="changeQtyByKey('${k}',1)">+</button></div><button class="add-btn added" onclick="addVariantToCart(${p.id})">✓ Added</button>`:`<button class="add-btn" onclick="addVariantToCart(${p.id})">+ Add</button>`;
+    })();
+    return`<div class="product-card reveal${inCart?' in-cart':''}" id="card-${p.id}" style="--card-accent:${p.accent}"><div class="product-icon-wrap" style="background:${bg}">${icon}</div><div class="product-name">${p.name}</div><div class="product-desc">${p.desc}</div><div class="product-tags">${p.tags.map(t=>`<span class="product-tag">${t}</span>`).join('')}</div>${vHTML}<div class="product-footer"><div class="product-price">${dPrice}<span>${pUnit}</span></div><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">${ctrl}</div></div></div>`;
+  }).join('');observeReveal();
 }
 
-function getCartSubtotal() {
-  return Object.values(cart).reduce((s,i) => s + i.variant.price * i.qty, 0);
+function addVariantToCart(pid){
+  const p=products.find(x=>x.id===pid);
+  const vi=getSelectedVariant(pid),v=p.variants[vi],k=getCartKey(pid,v.label);
+  if(!cart[k])cart[k]={product:p,variant:v,qty:1};else cart[k].qty++;
+  renderGrid();renderCart();updateCartCount();
+  showToast(p.name+(p.variants.length>1?' ('+v.label+')':'')+' added!');bumpCount();
 }
 
-function renderCart() {
-  const container = document.getElementById('cartItems');
-  const items = Object.values(cart);
-  const subtotal = getCartSubtotal();
-  document.getElementById('cartTotal').textContent = subtotal.toFixed(2);
-  document.getElementById('waBtn').disabled = items.length === 0;
-  document.getElementById('deliveryFeeRow').style.display = fulfillment === 'delivery' ? '' : 'none';
+function changeQtyByKey(k,d){
+  if(!cart[k])return;
+  cart[k].qty=Math.max(0,cart[k].qty+d);
+  if(cart[k].qty===0)delete cart[k];
+  renderGrid();renderCart();updateCartCount();
+}
 
-  if (items.length === 0) {
-    container.innerHTML = `<div class="cart-empty"><span class="empty-icon">🌿</span><span>Your order is empty</span><span style="font-size:0.76rem;color:var(--muted)">Add products from the menu</span></div>`;
-    return;
-  }
-  container.innerHTML = items.map((item, i) => {
-    const key = getCartKey(item.product.id, item.variant.label);
-    return `
-    <div class="cart-item">
-      <span class="cart-item-emoji">${item.product.icon}</span>
-      <div class="cart-item-info">
-        <div class="cart-item-name">${item.product.name}</div>
-        <div class="cart-item-variant">${item.variant.label}</div>
-        <div class="cart-item-price">$${item.variant.price} each</div>
-      </div>
-      <div class="qty-controls" style="flex-shrink:0">
-        <button class="qty-btn cart-qty-btn" data-key="${key}" data-delta="-1">−</button>
-        <span class="qty-display">${item.qty}</span>
-        <button class="qty-btn cart-qty-btn" data-key="${key}" data-delta="1">+</button>
-      </div>
-      <div class="cart-item-total">$${(item.variant.price * item.qty).toFixed(2)}</div>
-    </div>`;
+function updateCartCount(){document.getElementById('cartCount').textContent=Object.values(cart).reduce((s,i)=>s+i.qty,0)}
+function getCartSubtotal(){return Object.values(cart).reduce((s,i)=>s+i.variant.price*i.qty,0)}
+
+function renderCart(){
+  const c=document.getElementById('cartItems'),items=Object.values(cart),sub=getCartSubtotal();
+  document.getElementById('cartTotal').textContent=sub.toFixed(2);
+  document.getElementById('waBtn').disabled=!items.length;
+  document.getElementById('deliveryFeeRow').style.display=fulfillment==='delivery'?'':'none';
+  if(!items.length){c.innerHTML=`<div class="cart-empty"><svg viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><span>Your order is empty</span><span style="font-size:0.76rem">Add products from the menu above</span></div>`;return;}
+  c.innerHTML=items.map(it=>{
+    const k=getCartKey(it.product.id,it.variant.label),bg=BG[it.product.id]||'#f0fdf4';
+    return`<div class="cart-item"><div class="cart-item-icon" style="background:${bg}">${ICONS[it.product.id]||''}</div><div class="cart-item-info"><div class="cart-item-name">${it.product.name}</div><div class="cart-item-variant">${it.variant.label}</div><div class="cart-item-price">$${it.variant.price} each</div></div><div class="qty-controls" style="flex-shrink:0"><button class="qty-btn cart-qty-btn" data-key="${k}" data-delta="-1">−</button><span class="qty-display">${it.qty}</span><button class="qty-btn cart-qty-btn" data-key="${k}" data-delta="1">+</button></div><div class="cart-item-total">$${(it.variant.price*it.qty).toFixed(2)}</div></div>`;
   }).join('');
 }
 
-function sendToWhatsApp() {
-  const items = Object.values(cart);
-  if (items.length === 0) return;
-  const subtotal = getCartSubtotal();
-  const deliveryFee = fulfillment === 'delivery' ? 5 : 0;
-  const grandTotal = subtotal + deliveryFee;
-  const lines = items.map(i => `• ${i.product.icon} ${i.product.name} (${i.variant.label}) x${i.qty} = $${(i.variant.price * i.qty).toFixed(2)}`);
-  const msg = [
-    `🌿 *KKLL's Healthy Harvests — Order*`,
-    `─────────────────────`,
-    ...lines,
-    `─────────────────────`,
-    `Subtotal: $${subtotal.toFixed(2)}`,
-    fulfillment === 'delivery' ? `Delivery fee: $5.00` : `Fulfillment: 🏠 Pickup (Saltibus, Choiseul)`,
-    `*Total: $${grandTotal.toFixed(2)} XCD*`,
-    ``,
-    fulfillment === 'delivery' ? `📍 Please share your delivery location and preferred date.` : `📍 Pickup at Saltibus, Choiseul — please confirm preferred time.`,
-    `🔗 ${SITE_URL}`
-  ].join('\n');
-  window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
+function setFulfillment(m){
+  fulfillment=m;
+  document.getElementById('btnDelivery').classList.toggle('active',m==='delivery');
+  document.getElementById('btnPickup').classList.toggle('active',m==='pickup');
+  document.getElementById('fulfillmentNote').textContent=m==='delivery'?'\u{1F4CD} We deliver North on Fridays \u00B7 Vieux-Fort on weekdays. Share your location when you send.':'\u{1F3E0} Pickup at Saltibus, Choiseul \u2014 confirm preferred time via WhatsApp.';
+  renderCart();
 }
 
-function openCart() {
-  document.getElementById('cartOverlay').classList.add('open');
-  document.getElementById('cartPanel').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeCart() {
-  document.getElementById('cartOverlay').classList.remove('open');
-  document.getElementById('cartPanel').classList.remove('open');
-  document.body.style.overflow = '';
-}
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2400);
-}
-function bumpCount() {
-  const el = document.getElementById('cartCount');
-  el.classList.add('bump');
-  setTimeout(() => el.classList.remove('bump'), 300);
-}
-function observeReveal() {
-  const els = document.querySelectorAll('.reveal:not(.visible)');
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach((e,i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 55);
-        obs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.08 });
-  els.forEach(el => obs.observe(el));
+function sendToWhatsApp(){
+  const items=Object.values(cart);if(!items.length)return;
+  const sub=getCartSubtotal(),fee=fulfillment==='delivery'?5:0,grand=sub+fee;
+  const lines=items.map(i=>`\u2022 ${i.product.name} (${i.variant.label}) x${i.qty} = $${(i.variant.price*i.qty).toFixed(2)}`);
+  const msg=[`\u{1F33F} *KKLL\'s Healthy Harvests \u2014 Order*`,`\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500`,...lines,`\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500`,`Subtotal: $${sub.toFixed(2)}`,fulfillment==='delivery'?`Delivery fee: $5.00`:`Fulfillment: Pickup (Saltibus, Choiseul)`,`*Total: $${grand.toFixed(2)} XCD*`,``,fulfillment==='delivery'?`\u{1F4CD} Please share your delivery location and preferred date.`:`\u{1F4CD} Pickup at Saltibus \u2014 please confirm a time.`,`\u{1F517} ${SITE_URL}`].join('\n');
+  window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`,'_blank');
 }
 
-// Delegated listener for cart panel qty buttons (avoids quote-injection in onclick strings)
-document.getElementById('cartItems').addEventListener('click', function(e) {
-  const btn = e.target.closest('.cart-qty-btn');
-  if (!btn) return;
-  const key = btn.dataset.key;
-  const delta = parseInt(btn.dataset.delta);
-  changeQtyByKey(key, delta);
+function openCart(){document.getElementById('cartOverlay').classList.add('open');document.getElementById('cartPanel').classList.add('open');document.body.style.overflow='hidden'}
+function closeCart(){document.getElementById('cartOverlay').classList.remove('open');document.getElementById('cartPanel').classList.remove('open');document.body.style.overflow=''}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2400)}
+function bumpCount(){const el=document.getElementById('cartCount');el.classList.add('bump');setTimeout(()=>el.classList.remove('bump'),300)}
+function observeReveal(){
+  const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*55);obs.unobserve(e.target)}});},{threshold:0.08});
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el=>obs.observe(el));
+}
+document.getElementById('cartItems').addEventListener('click',function(e){
+  const btn=e.target.closest('.cart-qty-btn');if(!btn)return;
+  changeQtyByKey(btn.dataset.key,parseInt(btn.dataset.delta));
 });
-
-// Init — load juices by default
-filterCat('juices', document.querySelector('.tab-btn.active'));
-renderCart();
+renderTabs();renderGoals();
+filterCat('juices',document.querySelector('.tab-btn'));
+renderCart();observeReveal();
 </script>
 </body>
 </html>
