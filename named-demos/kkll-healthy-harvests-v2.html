@@ -51,8 +51,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .trust-bar{background:var(--sun);color:var(--dark);padding:12px 24px;display:flex;justify-content:center;gap:clamp(16px,4vw,50px);flex-wrap:wrap;font-size:0.8rem;font-weight:600}
 .trust-item{display:flex;align-items:center;gap:7px}
 .contact-bar{background:var(--deep-green);color:rgba(255,255,255,0.85);padding:10px 24px;display:flex;justify-content:center;align-items:center;gap:clamp(14px,4vw,40px);flex-wrap:wrap;font-size:0.8rem}
-.contact-bar a{color:var(--sun);text-decoration:none;font-weight:600}
-.contact-bar a:hover{text-decoration:underline}
+.contact-bar a{color:rgba(255,255,255,0.85);text-decoration:none;font-weight:500}
+.contact-bar a:hover{color:var(--sun)}
+.contact-item{display:flex;align-items:center;gap:6px;transition:color 0.2s}
 .contact-sep{opacity:0.3}
 /* SECTIONS */
 .section{padding:80px 24px;max-width:1120px;margin:0 auto}
@@ -129,6 +130,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .why-icon-wrap svg{width:22px;height:22px}
 .why-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:6px}
 .why-desc{color:var(--muted);font-size:0.83rem;line-height:1.6;font-weight:300}
+/* FAQ */
+.faq-section{background:var(--white);padding:80px 24px}
+.faq-inner{max-width:760px;margin:0 auto}
+.faq-inner .section-label{color:var(--sun-deep)}
+.faq-inner .section-title{color:var(--dark)}
+.faq-list{display:flex;flex-direction:column;gap:0}
+.faq-item{border-bottom:1px solid var(--sand-2)}
+.faq-item:first-of-type{border-top:1px solid var(--sand-2)}
+.faq-btn{width:100%;background:none;border:none;padding:20px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;text-align:left;font-family:'DM Sans',sans-serif;font-size:0.97rem;font-weight:600;color:var(--dark);transition:color 0.2s}
+.faq-btn:hover{color:var(--mid-green)}
+.faq-btn.open{color:var(--mid-green)}
+.faq-chevron{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--sand-2);display:flex;align-items:center;justify-content:center;transition:background 0.2s,transform 0.3s}
+.faq-btn.open .faq-chevron{background:var(--mid-green);transform:rotate(180deg)}
+.faq-chevron svg{width:11px;height:11px}
+.faq-btn.open .faq-chevron svg{stroke:white}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.3s ease}
+.faq-answer.open{max-height:300px}
+.faq-answer-inner{padding-bottom:18px;color:var(--muted);font-size:0.9rem;line-height:1.7;font-weight:300}
 /* CTA */
 .cta-band{background:linear-gradient(135deg,var(--deep-green) 0%,#1a6b32 60%,#0d3d1a 100%);margin:0 20px 70px;border-radius:22px;padding:58px 36px;text-align:center;position:relative;overflow:hidden}
 .cta-band::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 25% 60%,rgba(245,168,0,0.2),transparent 55%),radial-gradient(ellipse at 80% 30%,rgba(0,108,165,0.15),transparent 55%);pointer-events:none}
@@ -240,11 +259,30 @@ footer a{color:var(--sun);text-decoration:none}
   <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--dark)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Saltibus, Choiseul</div>
 </div>
 <div class="contact-bar">
-  <span>&#128222; <a href="tel:+17587173030">+1 758 717-3030</a></span><span class="contact-sep">|</span>
-  <span>&#128222; <a href="tel:+17587359901">+1 758 735-9901</a></span><span class="contact-sep">|</span>
-  <span>&#9993;&#65039; <a href="mailto:kkllhealthyharvest@gmail.com">kkllhealthyharvest@gmail.com</a></span><span class="contact-sep">|</span>
-  <span>&#128248; <a href="https://www.facebook.com/kkllhealthyharvest" target="_blank">Facebook</a></span><span class="contact-sep">|</span>
-  <span>&#128247; <a href="https://www.instagram.com/kkllshealthyharvests" target="_blank">@kkllshealthyharvests</a></span>
+  <a href="tel:+17587173030" class="contact-item">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--sun)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.63 19.79 19.79 0 01.14 1.05 2 2 0 012.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.56-.45a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+    +1 758 717-3030
+  </a>
+  <span class="contact-sep">|</span>
+  <a href="tel:+17587359901" class="contact-item">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--sun)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.63 19.79 19.79 0 01.14 1.05 2 2 0 012.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.56-.45a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+    +1 758 735-9901
+  </a>
+  <span class="contact-sep">|</span>
+  <a href="mailto:kkllhealthyharvest@gmail.com" class="contact-item">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--sun)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    kkllhealthyharvest@gmail.com
+  </a>
+  <span class="contact-sep">|</span>
+  <a href="https://www.facebook.com/kkllhealthyharvest" target="_blank" class="contact-item">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--sun)"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+    Facebook
+  </a>
+  <span class="contact-sep">|</span>
+  <a href="https://www.instagram.com/kkllshealthyharvests" target="_blank" class="contact-item">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--sun)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="3"/></svg>
+    @kkllshealthyharvests
+  </a>
 </div>
 <section class="section" id="menu">
   <span class="section-label reveal">Our Products</span>
@@ -273,6 +311,95 @@ footer a{color:var(--sun);text-decoration:none}
     <div class="why-card reveal"><div class="why-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="var(--deep-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div class="why-title">Island-Wide Delivery</div><div class="why-desc">North deliveries on Fridays. Vieux-Fort on weekdays. $5 delivery fee. Pickup available in Saltibus.</div></div>
   </div>
 </section>
+<section class="faq-section">
+  <div class="faq-inner">
+    <span class="section-label reveal">Got Questions?</span>
+    <h2 class="section-title reveal" style="margin-bottom:36px">Everything You Need<br/><em>to Know.</em></h2>
+    <div class="faq-list">
+
+      <div class="faq-item reveal">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          How do I place an order?
+          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Browse the menu above, add the products and quantities you want, then tap "Send Order on WhatsApp." Your order arrives pre-formatted — we'll confirm it and arrange delivery or pickup from there. No app needed.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          Do you deliver island-wide?
+          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes. We deliver across Saint Lucia. The North gets deliveries every Friday, and Vieux-Fort receives deliveries on weekdays. Delivery fee is $5. If you're in a different area, message us and we'll work something out.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          Can I pick up my order instead?
+          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Absolutely. Pickup is free and available at our location in Saltibus, Choiseul. Select "Pickup (Free)" in your cart before sending your order, and we'll confirm a time via WhatsApp.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          Are your products really 100% natural?
+          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes. Everything we make uses locally sourced fruits, vegetables, and herbs — no artificial colours, no preservatives, no additives. What goes in the bottle is exactly what nature made.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          How long do the products last?
+          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Because we use no preservatives, shelf life varies by product. Generally, refrigerate everything on arrival and consume within the timeframe we'll tell you when you order. Concentrated juices last longer when sealed. Seamoss gel keeps well in the fridge. When in doubt, ask us.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          How do I use the concentrated juices?
+          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Mix with water to your preferred strength — typically one part juice to four parts water, but it's your taste. They're also great in cocktails, smoothies, and cooking. One 1.5L bottle typically makes 6–8 litres of juice.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          Do you do bulk or business orders?
+          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes. Our juices are popular with restaurants, hotels, bars, and catering businesses. Message us on WhatsApp with your requirements and we'll quote you directly. Bulk pricing is available.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          How do I pay?
+          <div class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We accept bank transfers via BOSL (Acct: KKLL's Healthy Harvests · Acct #412187600 · Peer ID: LGC286454) and cash on delivery or pickup. We'll confirm payment details when we confirm your order on WhatsApp.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 <div class="cta-band reveal">
   <h2>Order Today.<br/><em>Feel the Difference.</em></h2>
   <p>Add products above, choose pickup or delivery, and send straight to WhatsApp. We'll confirm from there.</p>
@@ -288,10 +415,45 @@ footer a{color:var(--sun);text-decoration:none}
   </a>
 </div>
 <footer>
-  <strong>KKLL's Healthy Harvests</strong><br/>Saltibus, Choiseul, Saint Lucia<br/>
-  &#128222; <a href="tel:+17587173030">717-3030</a> &nbsp;|&nbsp; &#128222; <a href="tel:+17587359901">735-9901</a> &nbsp;|&nbsp; &#9993;&#65039; <a href="mailto:kkllhealthyharvest@gmail.com">kkllhealthyharvest@gmail.com</a><br/>
-  <span style="margin-top:6px;display:block;font-size:0.72rem;opacity:0.5">100% Natural &middot; No Preservatives &middot; Locally Made with Love</span>
-  <span style="margin-top:8px;display:block;font-size:0.7rem;opacity:0.4">Powered by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank">JAMALINKS</a></span>
+  <div style="margin-bottom:14px">
+    <svg width="38" height="38" viewBox="0 0 36 36" fill="none" style="margin-bottom:8px">
+      <circle cx="18" cy="18" r="18" fill="#f5a800"/>
+      <path d="M18 8c0 0-8 5-8 12a8 8 0 0016 0c0-7-8-12-8-12z" fill="#0d4a1f"/>
+      <path d="M18 14c0 0-4 3-4 6a4 4 0 008 0c0-3-4-6-4-6z" fill="#28a84e"/>
+    </svg><br/>
+    <strong>KKLL's Healthy Harvests</strong>
+  </div>
+  <div style="margin-bottom:10px;opacity:0.6;font-size:0.78rem">Saltibus, Choiseul, Saint Lucia</div>
+  <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:14px">
+    <a href="tel:+17587173030" style="display:flex;align-items:center;gap:6px;color:var(--sun);text-decoration:none;font-size:0.82rem">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--sun)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.63 19.79 19.79 0 01.14 1.05 2 2 0 012.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.56-.45a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+      717-3030
+    </a>
+    <a href="tel:+17587359901" style="display:flex;align-items:center;gap:6px;color:var(--sun);text-decoration:none;font-size:0.82rem">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--sun)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.63 19.79 19.79 0 01.14 1.05 2 2 0 012.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.56-.45a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+      735-9901
+    </a>
+    <a href="mailto:kkllhealthyharvest@gmail.com" style="display:flex;align-items:center;gap:6px;color:var(--sun);text-decoration:none;font-size:0.82rem">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--sun)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      kkllhealthyharvest@gmail.com
+    </a>
+  </div>
+  <div style="display:flex;justify-content:center;gap:16px;margin-bottom:18px">
+    <a href="https://www.facebook.com/kkllhealthyharvest" target="_blank" style="display:flex;align-items:center;gap:6px;color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.8rem;transition:color 0.2s" onmouseover="this.style.color='var(--sun)'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      kkllhealthyharvest
+    </a>
+    <a href="https://www.instagram.com/kkllshealthyharvests" target="_blank" style="display:flex;align-items:center;gap:6px;color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.8rem;transition:color 0.2s" onmouseover="this.style.color='var(--sun)'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="3"/></svg>
+      @kkllshealthyharvests
+    </a>
+    <a href="https://wa.me/17587173030" target="_blank" style="display:flex;align-items:center;gap:6px;color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.8rem;transition:color 0.2s" onmouseover="this.style.color='#25D366'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+  <div style="font-size:0.72rem;opacity:0.4;margin-bottom:6px">100% Natural &middot; No Preservatives &middot; Locally Made with Love</div>
+  <div style="font-size:0.7rem;opacity:0.35">Powered by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank" style="color:var(--sun);text-decoration:none">JAMALINKS</a></div>
 </footer>
 <a href="https://wa.me/17587173030" class="float-wa" target="_blank">
   <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
@@ -539,6 +701,16 @@ document.getElementById('cartItems').addEventListener('click',function(e){
   const btn=e.target.closest('.cart-qty-btn');if(!btn)return;
   changeQtyByKey(btn.dataset.key,parseInt(btn.dataset.delta));
 });
+function toggleFaq(btn){
+  const answer=btn.nextElementSibling;
+  const isOpen=btn.classList.contains('open');
+  // close all
+  document.querySelectorAll('.faq-btn.open').forEach(b=>{
+    b.classList.remove('open');
+    b.nextElementSibling.classList.remove('open');
+  });
+  if(!isOpen){btn.classList.add('open');answer.classList.add('open');}
+}
 renderTabs();renderGoals();
 filterCat('juices',document.querySelector('.tab-btn'));
 renderCart();observeReveal();
