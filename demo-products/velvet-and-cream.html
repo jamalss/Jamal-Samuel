@@ -1,0 +1,3483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velvet & Cream | Artisan Dessert Cups · Premium Cheesecake Studio</title>
+<meta name="description" content="Artisan no-bake cheesecake cups handcrafted to order. Stunning flavours, beautiful packaging, perfect for gifts and events. Order online today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&family=Italiana&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root {
+  --cream:        #FAF7F4;
+  --cream-dark:   #F0EAE2;
+  --blush:        #E8D5C8;
+  --blush-soft:   #F5EDE8;
+  --chocolate:    #1C1410;
+  --chocolate-mid:#3D2B1F;
+  --caramel:      #A0673A;
+  --caramel-light:#C8895A;
+  --berry:        #5C2340;
+  --berry-soft:   #A05070;
+  --lavender:     #B8AACB;
+  --lavender-soft:#EAE6F2;
+  --white:        #FFFFFF;
+  --text-dark:    #2C1A0E;
+  --text-mid:     #6B4C3B;
+  --text-light:   #A08070;
+
+  --shadow-soft:  0 4px 24px rgba(59,31,15,0.08);
+  --shadow-card:  0 8px 40px rgba(59,31,15,0.12);
+  --shadow-float: 0 20px 60px rgba(59,31,15,0.18);
+
+  --radius-sm:    12px;
+  --radius-md:    20px;
+  --radius-lg:    32px;
+  --radius-xl:    48px;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-accent:  'Playfair Display', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+
+  --transition:   0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; background: none; font-family: var(--font-body); }
+ul { list-style: none; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section { position: relative; overflow: hidden; }
+
+/* ============================================================
+   TYPOGRAPHY SCALE
+   ============================================================ */
+.display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 500;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+}
+
+.display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.display-md {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--caramel);
+}
+
+.body-lg { font-size: 1.05rem; line-height: 1.7; color: var(--text-mid); }
+.body-md { font-size: 0.95rem; line-height: 1.65; color: var(--text-mid); }
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 100px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--chocolate);
+  color: var(--white);
+  box-shadow: 0 4px 20px rgba(59,31,15,0.3);
+}
+.btn-primary:hover {
+  background: var(--chocolate-mid);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(59,31,15,0.35);
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  color: var(--white);
+  box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+}
+.btn-whatsapp:hover {
+  background: #1EBE59;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(37,211,102,0.45);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--chocolate);
+  border: 1.5px solid rgba(59,31,15,0.25);
+}
+.btn-outline:hover {
+  background: var(--chocolate);
+  color: var(--white);
+  border-color: var(--chocolate);
+}
+
+.btn-ghost {
+  background: rgba(255,255,255,0.15);
+  color: var(--white);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.25);
+}
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 16px 0;
+  transition: var(--transition);
+}
+
+.navbar.scrolled {
+  background: rgba(253,248,242,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(59,31,15,0.08);
+  padding: 12px 0;
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.logo-name {
+  font-family: 'Italiana', var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--chocolate);
+  letter-spacing: 0.04em;
+}
+
+.logo-tag {
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--caramel);
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-mid);
+  transition: color var(--transition);
+}
+
+.nav-links a:hover { color: var(--chocolate); }
+
+.nav-cta { display: flex; gap: 10px; align-items: center; }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 22px; height: 2px;
+  background: var(--chocolate);
+  border-radius: 2px;
+  transition: var(--transition);
+  display: block;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0F0B08 0%, #1C1410 30%, #2E1B12 60%, #3D2224 100%);
+  display: flex;
+  align-items: center;
+  padding: 120px 0 80px;
+  position: relative;
+}
+
+.hero-bg-orbs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.25;
+}
+
+.orb-1 {
+  width: 500px; height: 500px;
+  background: var(--caramel);
+  top: -100px; right: -100px;
+  animation: float-orb 8s ease-in-out infinite;
+}
+
+.orb-2 {
+  width: 350px; height: 350px;
+  background: var(--blush);
+  bottom: 50px; left: -80px;
+  animation: float-orb 10s ease-in-out infinite reverse;
+}
+
+.orb-3 {
+  width: 250px; height: 250px;
+  background: var(--lavender);
+  top: 50%; left: 40%;
+  animation: float-orb 12s ease-in-out infinite 2s;
+}
+
+@keyframes float-orb {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-30px) scale(1.05); }
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content { color: var(--white); }
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(12px);
+  padding: 8px 16px;
+  border-radius: 100px;
+  margin-bottom: 28px;
+}
+
+.hero-badge-dot {
+  width: 8px; height: 8px;
+  background: #4ade80;
+  border-radius: 50%;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.8); }
+}
+
+.hero-badge span {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.9);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 7vw, 6.5rem);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--caramel-light);
+}
+
+.hero-sub {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.65;
+  max-width: 420px;
+  margin-bottom: 36px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 32px;
+}
+
+.hero-stat { display: flex; flex-direction: column; gap: 2px; }
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.stat-label {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Hero visual */
+.hero-visual {
+  position: relative;
+  height: 580px;
+}
+
+.hero-main-cup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  height: 320px;
+  animation: float-main 4s ease-in-out infinite;
+}
+
+@keyframes float-main {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(-18px); }
+}
+
+/* Floating cup cards */
+.float-card {
+  position: absolute;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: float-card 5s ease-in-out infinite;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+
+.float-card:nth-child(2) { animation-delay: 1s; top: 60px; right: -20px; }
+.float-card:nth-child(3) { animation-delay: 2.5s; bottom: 130px; left: -30px; }
+.float-card:nth-child(4) { animation-delay: 1.5s; top: 200px; left: -60px; }
+.float-card:nth-child(5) { animation-delay: 3s; bottom: 40px; right: 10px; }
+
+@keyframes float-card {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-card-emoji { font-size: 1.8rem; }
+
+.float-card-info { display: flex; flex-direction: column; gap: 2px; }
+
+.float-card-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.float-card-sub {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.65);
+}
+
+/* Dessert visual placeholder */
+.cup-visual {
+  width: 240px;
+  height: 300px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #C07B3A 0%, #8B1A4A 50%, #3B1F0F 100%);
+  border-radius: 20px 20px 60px 60px;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+}
+
+.cup-visual::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 40%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, transparent 100%);
+  border-radius: 20px 20px 0 0;
+}
+
+.cup-visual-inner {
+  padding-top: 24px;
+  font-size: 5rem;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+  animation: float-main 3s ease-in-out infinite;
+}
+
+/* Rating bar */
+.hero-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  padding: 10px 18px;
+  border-radius: 100px;
+  position: absolute;
+  top: 30px;
+  left: 10px;
+}
+
+.stars { color: #FCD34D; font-size: 0.85rem; letter-spacing: 1px; }
+.rating-text { font-size: 0.78rem; color: rgba(255,255,255,0.85); font-weight: 500; }
+
+/* ============================================================
+   MARQUEE / TICKER
+   ============================================================ */
+.ticker {
+  background: var(--caramel);
+  padding: 14px 0;
+  overflow: hidden;
+}
+
+.ticker-track {
+  display: flex;
+  gap: 48px;
+  animation: ticker 20s linear infinite;
+  width: max-content;
+}
+
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--white);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ticker-dot { width: 5px; height: 5px; background: rgba(255,255,255,0.5); border-radius: 50%; }
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ============================================================
+   SECTION LAYOUTS
+   ============================================================ */
+.section-pad { padding: 100px 0; }
+.section-pad-sm { padding: 70px 0; }
+
+.section-header {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 60px;
+}
+
+.section-header .eyebrow { margin-bottom: 14px; display: block; }
+
+/* ============================================================
+   STORY SECTION
+   ============================================================ */
+.story { background: var(--white); }
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.story-visual {
+  position: relative;
+  height: 520px;
+}
+
+.story-photo-main {
+  width: 75%;
+  height: 380px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--chocolate-mid), var(--berry));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  box-shadow: var(--shadow-float);
+  position: absolute;
+  bottom: 0; left: 0;
+}
+
+.story-photo-accent {
+  width: 55%;
+  height: 240px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--caramel), var(--caramel-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  box-shadow: var(--shadow-card);
+  position: absolute;
+  top: 0; right: 0;
+}
+
+.story-badge-float {
+  position: absolute;
+  bottom: 40px; right: 10px;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.story-badge-icon { font-size: 2rem; }
+
+.story-badge-text { display: flex; flex-direction: column; gap: 2px; }
+.story-badge-number {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--chocolate);
+}
+.story-badge-label { font-size: 0.72rem; color: var(--text-light); font-weight: 500; }
+
+.story-content { display: flex; flex-direction: column; gap: 24px; }
+
+.story-content h2 { color: var(--chocolate); }
+
+.story-quote {
+  background: var(--cream);
+  border-left: 3px solid var(--caramel);
+  padding: 20px 24px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--chocolate-mid);
+  line-height: 1.6;
+}
+
+.story-pillars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.story-pillar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-mid);
+}
+
+.pillar-icon {
+  width: 32px; height: 32px;
+  background: var(--cream-dark);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   MENU / FLAVOURS
+   ============================================================ */
+.menu { background: var(--cream); }
+
+.menu-filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+.filter-btn {
+  padding: 8px 20px;
+  border-radius: 100px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  border: 1.5px solid rgba(59,31,15,0.15);
+  color: var(--text-mid);
+  background: var(--white);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.filter-btn.active, .filter-btn:hover {
+  background: var(--chocolate);
+  color: var(--white);
+  border-color: var(--chocolate);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.product-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-float);
+}
+
+.product-img {
+  height: 220px;
+  background: linear-gradient(135deg, var(--chocolate-mid), var(--berry-soft));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  position: relative;
+}
+
+.product-img-2 { background: linear-gradient(135deg, var(--caramel), var(--caramel-light)); }
+.product-img-3 { background: linear-gradient(135deg, var(--berry), var(--blush)); }
+.product-img-4 { background: linear-gradient(135deg, #4A2C0A, var(--chocolate-mid)); }
+.product-img-5 { background: linear-gradient(135deg, var(--lavender), var(--blush-soft)); }
+.product-img-6 { background: linear-gradient(135deg, #8B4513, var(--caramel)); }
+
+.product-badge {
+  position: absolute;
+  top: 14px; left: 14px;
+  background: var(--berry);
+  color: var(--white);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+.product-badge-gold { background: var(--caramel); }
+.product-badge-new { background: #059669; }
+
+.product-fav {
+  position: absolute;
+  top: 14px; right: 14px;
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.product-fav:hover { transform: scale(1.15); background: white; }
+
+.product-body { padding: 22px; }
+
+.product-name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--chocolate);
+  margin-bottom: 6px;
+}
+
+.product-desc {
+  font-size: 0.83rem;
+  color: var(--text-light);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.product-meters { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+
+.meter-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.meter-label {
+  font-size: 0.7rem;
+  color: var(--text-light);
+  width: 60px;
+  flex-shrink: 0;
+}
+
+.meter-bar {
+  flex: 1;
+  height: 5px;
+  background: var(--cream-dark);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.meter-fill {
+  height: 100%;
+  border-radius: 100px;
+  background: linear-gradient(90deg, var(--caramel), var(--caramel-light));
+  transition: width 1s ease;
+}
+
+.product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--cream-dark);
+}
+
+.product-price {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.price-label { font-size: 0.65rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.08em; }
+
+.price-value {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--chocolate);
+}
+
+.product-order-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--chocolate);
+  color: var(--white);
+  padding: 10px 18px;
+  border-radius: 100px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.product-order-btn:hover {
+  background: var(--caramel);
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   OCCASIONS SECTION
+   ============================================================ */
+.occasions {
+  background: linear-gradient(180deg, var(--white) 0%, var(--cream) 100%);
+}
+
+.occasions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.occasion-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 32px 24px;
+  text-align: center;
+  border: 1.5px solid transparent;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.occasion-card:hover {
+  border-color: var(--caramel);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+.occasion-emoji { font-size: 2.5rem; margin-bottom: 14px; display: block; }
+
+.occasion-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--chocolate);
+  margin-bottom: 6px;
+}
+
+.occasion-desc { font-size: 0.8rem; color: var(--text-light); line-height: 1.5; }
+
+/* ============================================================
+   BUILD YOUR BOX
+   ============================================================ */
+.box-builder {
+  background: var(--chocolate);
+  color: var(--white);
+}
+
+.box-builder .eyebrow { color: var(--caramel-light); }
+.box-builder .display-lg { color: var(--white); }
+
+.builder-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+  margin-top: 50px;
+}
+
+.builder-steps { display: flex; flex-direction: column; gap: 28px; }
+
+.builder-step { display: flex; gap: 20px; align-items: flex-start; }
+
+.step-num {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--caramel-light);
+  flex-shrink: 0;
+}
+
+.step-content { display: flex; flex-direction: column; gap: 10px; }
+
+.step-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.95);
+}
+
+.step-options {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.step-option {
+  padding: 7px 14px;
+  border-radius: 100px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.75);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.step-option:hover, .step-option.selected {
+  background: var(--caramel);
+  border-color: var(--caramel);
+  color: var(--white);
+}
+
+/* Builder preview */
+.builder-preview {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  position: sticky;
+  top: 100px;
+}
+
+.preview-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.preview-box {
+  height: 200px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, rgba(192,123,58,0.3), rgba(139,26,74,0.3));
+  border: 2px dashed rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.preview-selections { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
+
+.preview-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.preview-key { color: rgba(255,255,255,0.55); }
+.preview-val { color: rgba(255,255,255,0.9); font-weight: 500; }
+
+.preview-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  margin-bottom: 20px;
+}
+
+.preview-total-label {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.6);
+}
+
+.preview-total-price {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--caramel-light);
+}
+
+/* ============================================================
+   SOCIAL PROOF / TESTIMONIALS
+   ============================================================ */
+.testimonials { background: var(--cream-dark); }
+
+.testimonials-track {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.testimonial-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+}
+
+.testimonial-quote-mark {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  line-height: 0.6;
+  color: var(--caramel-light);
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.testimonial-text {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--text-mid);
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.author-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.avatar-1 { background: linear-gradient(135deg, var(--blush), var(--berry-soft)); }
+.avatar-2 { background: linear-gradient(135deg, var(--caramel-light), var(--caramel)); }
+.avatar-3 { background: linear-gradient(135deg, var(--lavender), var(--blush)); }
+
+.author-info { display: flex; flex-direction: column; gap: 2px; }
+.author-name { font-size: 0.88rem; font-weight: 600; color: var(--chocolate); }
+.author-detail { font-size: 0.75rem; color: var(--text-light); }
+
+.testimonial-stars { color: #FCD34D; font-size: 0.85rem; margin-bottom: 10px; }
+
+/* Stats row */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-top: 60px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.stat-block {
+  background: var(--chocolate);
+  padding: 40px 32px;
+  text-align: center;
+  color: var(--white);
+}
+
+.stat-block:nth-child(even) { background: var(--chocolate-mid); }
+
+.stat-block-number {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--caramel-light);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.stat-block-label {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ============================================================
+   COLLECTIONS
+   ============================================================ */
+.collections { background: var(--white); }
+
+.collections-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.collection-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  height: 280px;
+  display: flex;
+  align-items: flex-end;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.collection-card:hover { transform: scale(1.02); }
+.collection-card:hover .collection-overlay { opacity: 0.85; }
+
+.collection-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6rem;
+}
+
+.col-bg-1 { background: linear-gradient(135deg, #2C0F0F, #6B1A1A); }
+.col-bg-2 { background: linear-gradient(135deg, #3B220A, #8B5A2B); }
+.col-bg-3 { background: linear-gradient(135deg, #1A0A2E, #4A1A5E); }
+.col-bg-4 { background: linear-gradient(135deg, #0A2A1A, #1A5E3A); }
+
+.collection-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 60%);
+  opacity: 0.7;
+  transition: var(--transition);
+}
+
+.collection-content {
+  position: relative;
+  z-index: 2;
+  padding: 28px;
+  color: var(--white);
+  width: 100%;
+}
+
+.collection-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--caramel-light);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.collection-name {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.collection-desc { font-size: 0.8rem; color: rgba(255,255,255,0.7); }
+
+.collection-card.large { grid-column: span 2; height: 340px; }
+
+/* ============================================================
+   CATERING / EVENTS
+   ============================================================ */
+.catering {
+  background: linear-gradient(135deg, var(--cream) 0%, var(--blush-soft) 100%);
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.event-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: var(--transition);
+  border: 1.5px solid transparent;
+}
+
+.event-card:hover {
+  border-color: var(--caramel);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+.event-icon {
+  font-size: 2.2rem;
+  width: 60px; height: 60px;
+  background: var(--cream-dark);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-name {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--chocolate);
+}
+
+.event-desc { font-size: 0.82rem; color: var(--text-light); line-height: 1.55; }
+
+.event-link {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--caramel);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+}
+
+/* ============================================================
+   HOLIDAY PROMO
+   ============================================================ */
+.promo {
+  background: linear-gradient(135deg, var(--berry) 0%, var(--chocolate) 100%);
+  color: var(--white);
+}
+
+.promo-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.promo-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.promo-tag-pulse {
+  width: 8px; height: 8px;
+  background: #FCD34D;
+  border-radius: 50%;
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+.promo-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 500;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.promo-sub {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.65;
+  margin-bottom: 32px;
+}
+
+/* Countdown */
+.countdown {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.countdown-num {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: var(--caramel-light);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  width: 72px; height: 72px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.countdown-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.45);
+}
+
+.promo-flavours {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.promo-flavour {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.promo-flavour:hover {
+  background: rgba(255,255,255,0.13);
+  border-color: rgba(255,255,255,0.25);
+}
+
+.promo-flavour-left { display: flex; align-items: center; gap: 14px; }
+.promo-flavour-emoji { font-size: 1.8rem; }
+
+.promo-flavour-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--white);
+}
+
+.promo-flavour-tag {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.55);
+  font-weight: 500;
+}
+
+.promo-flavour-price {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--caramel-light);
+}
+
+/* ============================================================
+   GALLERY
+   ============================================================ */
+.gallery { background: var(--cream); }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 200px);
+  gap: 14px;
+}
+
+.gallery-item {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  transition: var(--transition);
+}
+
+.gallery-item:hover { transform: scale(1.02); }
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+
+.gallery-item.span-2 { grid-column: span 2; grid-row: span 2; font-size: 5rem; }
+
+.gal-1 { background: linear-gradient(135deg, #3B1F0F, #6B3728); }
+.gal-2 { background: linear-gradient(135deg, #C07B3A, #E8A85A); }
+.gal-3 { background: linear-gradient(135deg, #8B1A4A, #D4567A); }
+.gal-4 { background: linear-gradient(135deg, #2C1A0E, #6B4C3B); }
+.gal-5 { background: linear-gradient(135deg, #4A1A5E, #8B5AB0); }
+.gal-6 { background: linear-gradient(135deg, #1A3A1A, #4A8A4A); }
+.gal-7 { background: linear-gradient(135deg, #3A1A00, #7A4A20); }
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(59,31,15,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.gallery-overlay-icon { font-size: 1.8rem; }
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq { background: var(--white); }
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.faq-list { display: flex; flex-direction: column; gap: 0; }
+
+.faq-item {
+  border-bottom: 1px solid var(--cream-dark);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--chocolate);
+  cursor: pointer;
+  background: none;
+  text-align: left;
+  gap: 16px;
+}
+
+.faq-icon {
+  width: 28px; height: 28px;
+  background: var(--cream-dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.faq-item.open .faq-icon { background: var(--chocolate); color: var(--white); transform: rotate(45deg); }
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.faq-answer-inner {
+  padding-bottom: 20px;
+  font-size: 0.88rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+
+.faq-item.open .faq-answer { max-height: 200px; }
+
+.faq-cta-card {
+  background: linear-gradient(135deg, var(--chocolate), var(--berry));
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
+  color: var(--white);
+  position: sticky;
+  top: 100px;
+}
+
+.faq-cta-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.faq-cta-card p {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+
+.faq-cta-items { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+
+.faq-cta-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.85);
+}
+
+.faq-cta-check { font-size: 1rem; }
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact { background: var(--cream); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.contact-info { display: flex; flex-direction: column; gap: 32px; }
+
+.contact-block { display: flex; flex-direction: column; gap: 16px; }
+
+.contact-block h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--chocolate);
+}
+
+.contact-channels { display: flex; flex-direction: column; gap: 12px; }
+
+.contact-channel {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.contact-channel:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-soft);
+}
+
+.channel-icon {
+  width: 44px; height: 44px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.ch-wa { background: #E8FFF1; }
+.ch-call { background: var(--cream-dark); }
+.ch-ig { background: #FFF0F5; }
+.ch-fb { background: #F0F4FF; }
+
+.channel-info { display: flex; flex-direction: column; gap: 1px; }
+.channel-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-light); font-weight: 600; }
+.channel-value { font-size: 0.9rem; font-weight: 600; color: var(--chocolate); }
+
+.hours-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.hours-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 16px;
+  background: var(--white);
+  border-radius: var(--radius-sm);
+}
+
+.hours-day { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-light); font-weight: 600; }
+.hours-time { font-size: 0.88rem; font-weight: 600; color: var(--chocolate); }
+
+/* Map placeholder */
+.map-placeholder {
+  background: linear-gradient(135deg, var(--cream-dark), var(--blush-soft));
+  border-radius: var(--radius-lg);
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+  padding: 40px;
+  border: 2px dashed rgba(59,31,15,0.15);
+}
+
+.map-pin { font-size: 3rem; }
+
+.map-label {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--chocolate);
+}
+
+.map-sub { font-size: 0.85rem; color: var(--text-light); }
+
+/* ============================================================
+   VIP CLUB
+   ============================================================ */
+.vip {
+  background: linear-gradient(135deg, #1A0A2E, #3B1F0F);
+  color: var(--white);
+  text-align: center;
+}
+
+.vip .eyebrow { color: var(--caramel-light); }
+.vip .display-lg { color: var(--white); }
+
+.vip-perks {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin: 48px 0;
+}
+
+.vip-perk {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-md);
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.vip-perk-icon { font-size: 2rem; }
+.vip-perk-name { font-size: 0.88rem; font-weight: 600; color: rgba(255,255,255,0.9); }
+.vip-perk-desc { font-size: 0.75rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+.vip-form {
+  display: flex;
+  gap: 12px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.vip-input {
+  flex: 1;
+  padding: 14px 20px;
+  border-radius: 100px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.08);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  outline: none;
+  transition: var(--transition);
+}
+
+.vip-input::placeholder { color: rgba(255,255,255,0.4); }
+.vip-input:focus { border-color: var(--caramel-light); background: rgba(255,255,255,0.12); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background: var(--chocolate);
+  color: rgba(255,255,255,0.75);
+  padding: 70px 0 32px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 56px;
+}
+
+.footer-brand { display: flex; flex-direction: column; gap: 16px; }
+
+.footer-logo-name {
+  font-family: 'Italiana', var(--font-display);
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--white);
+}
+
+.footer-brand-desc {
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.55);
+}
+
+.footer-social {
+  display: flex;
+  gap: 10px;
+}
+
+.social-btn {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.social-btn:hover { background: var(--caramel); border-color: var(--caramel); }
+
+.footer-col h4 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 20px;
+}
+
+.footer-links { display: flex; flex-direction: column; gap: 10px; }
+
+.footer-links a {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.6);
+  transition: color var(--transition);
+}
+
+.footer-links a:hover { color: var(--caramel-light); }
+
+.footer-bottom {
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.35);
+}
+
+/* ============================================================
+   FLOATING ELEMENTS
+   ============================================================ */
+
+/* Sticky WhatsApp */
+.sticky-wa {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.wa-bubble {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 8px 32px rgba(37,211,102,0.45);
+  cursor: pointer;
+  transition: var(--transition);
+  animation: pulse-wa 3s ease-in-out infinite;
+  text-decoration: none;
+}
+
+.wa-bubble:hover { transform: scale(1.1); }
+
+@keyframes pulse-wa {
+  0%, 100% { box-shadow: 0 8px 32px rgba(37,211,102,0.45); }
+  50% { box-shadow: 0 8px 50px rgba(37,211,102,0.7); }
+}
+
+.wa-tooltip {
+  background: var(--white);
+  color: var(--chocolate);
+  padding: 8px 14px;
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-card);
+  opacity: 0;
+  transform: translateX(10px);
+  transition: var(--transition);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.sticky-wa:hover .wa-tooltip { opacity: 1; transform: translateX(0); }
+
+/* Sticky order bar (mobile) */
+.mobile-order-bar {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 998;
+  background: var(--white);
+  border-top: 1px solid var(--cream-dark);
+  padding: 12px 20px;
+  gap: 10px;
+  box-shadow: 0 -8px 30px rgba(59,31,15,0.12);
+}
+
+/* Recently ordered notification */
+.recent-notif {
+  position: fixed;
+  bottom: 100px;
+  left: 20px;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--shadow-float);
+  z-index: 997;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+  max-width: 260px;
+  pointer-events: none;
+}
+
+.recent-notif.show { opacity: 1; transform: translateY(0); }
+
+.notif-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blush), var(--berry-soft));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.notif-text { display: flex; flex-direction: column; gap: 1px; }
+.notif-name { font-size: 0.78rem; font-weight: 600; color: var(--chocolate); }
+.notif-action { font-size: 0.7rem; color: var(--text-light); }
+
+/* ============================================================
+   SCROLL ANIMATIONS
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   MOBILE MENU
+   ============================================================ */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--chocolate);
+  z-index: 2000;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.mobile-menu.open { display: flex; }
+
+.mobile-menu a {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  transition: color var(--transition);
+}
+
+.mobile-menu a:hover { color: var(--caramel-light); }
+
+.mobile-menu-close {
+  position: absolute;
+  top: 24px; right: 24px;
+  font-size: 1.5rem;
+  color: rgba(255,255,255,0.7);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 8px;
+}
+
+/* ============================================================
+   RESPONSIVE — TABLET
+   ============================================================ */
+@media (max-width: 1024px) {
+  .menu-grid { grid-template-columns: repeat(2, 1fr); }
+  .occasions-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .vip-perks { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE
+   ============================================================ */
+@media (max-width: 768px) {
+  .nav-links, .nav-cta { display: none; }
+  .hamburger { display: flex; }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .hero-visual { height: 360px; }
+  .hero-stats { justify-content: center; }
+  .hero-actions { justify-content: center; }
+  .hero-sub { margin: 0 auto 36px; }
+
+  .story-grid,
+  .builder-grid,
+  .promo-inner,
+  .contact-grid,
+  .faq-grid { grid-template-columns: 1fr; gap: 40px; }
+
+  .story-visual { height: 300px; }
+
+  .menu-grid { grid-template-columns: 1fr; }
+  .occasions-grid { grid-template-columns: repeat(2, 1fr); }
+  .events-grid { grid-template-columns: 1fr; }
+  .testimonials-track { grid-template-columns: 1fr; }
+  .collections-grid { grid-template-columns: 1fr; }
+  .collection-card.large { grid-column: span 1; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+  .gallery-item.span-2 { grid-column: span 2; font-size: 4rem; }
+
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .vip-perks { grid-template-columns: repeat(2, 1fr); }
+  .vip-form { flex-direction: column; }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+
+  .countdown { gap: 10px; }
+  .countdown-num { width: 60px; height: 60px; font-size: 2rem; }
+
+  .mobile-order-bar { display: flex; }
+  .sticky-wa { bottom: 80px; }
+
+  .section-pad { padding: 64px 0; }
+  .section-pad-sm { padding: 48px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVBAR
+     ============================================================ -->
+<nav class="navbar" id="navbar">
+  <div class="container navbar-inner">
+    <div class="logo">
+      <span class="logo-name">Velvet & Cream</span>
+      <span class="logo-tag">Artisan Dessert Studio · Est. 2020</span>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="#menu">Our Cups</a></li>
+      <li><a href="#collections">Collections</a></li>
+      <li><a href="#occasions">Occasions</a></li>
+      <li><a href="#catering">Events</a></li>
+      <li><a href="#contact">Order</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a href="https://wa.me/17585841764" target="_blank" class="btn btn-whatsapp" style="padding:10px 20px; font-size:0.82rem;">
+        🛒 Place Your Order
+      </a>
+    </div>
+
+    <div class="hamburger" id="hamburger" onclick="openMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="closeMenu()">✕</button>
+  <a href="#menu" onclick="closeMenu()">Our Cups</a>
+  <a href="#collections" onclick="closeMenu()">Collections</a>
+  <a href="#occasions" onclick="closeMenu()">Occasions</a>
+  <a href="#catering" onclick="closeMenu()">Events</a>
+  <a href="#contact" onclick="closeMenu()">Order</a>
+  <a href="https://wa.me/17585841764" target="_blank" class="btn btn-whatsapp" style="margin-top:16px;">🛒 Order on WhatsApp</a>
+</div>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="home">
+  <div class="hero-bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <div class="hero-badge-dot"></div>
+          <span>Now taking orders · Pickup &amp; Delivery</span>
+        </div>
+
+        <h1 class="hero-title">
+          Dessert Worth<br>
+          <em>Remembering.</em>
+        </h1>
+
+        <p class="hero-sub">
+          Handcrafted no-bake cheesecake cups made fresh to order. Real ingredients, beautiful presentation — designed for celebrations, gifting, and every moment worth savouring.
+        </p>
+
+        <div class="hero-actions">
+          <a href="https://wa.me/17585841764" target="_blank" class="btn btn-whatsapp">
+            🛒 Order on WhatsApp
+          </a>
+          <a href="#menu" class="btn btn-ghost">
+            See the Menu ↓
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="stat-number">500+</span>
+            <span class="stat-label">Happy Clients</span>
+          </div>
+          <div class="hero-stat">
+            <span class="stat-number">12+</span>
+            <span class="stat-label">Flavours</span>
+          </div>
+          <div class="hero-stat">
+            <span class="stat-number">4.9★</span>
+            <span class="stat-label">Rated</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual -->
+      <div class="hero-visual">
+        <div class="hero-rating">
+          <span class="stars">★★★★★</span>
+          <span class="rating-text">4.9 · 500+ orders fulfilled</span>
+        </div>
+
+        <!-- Main cup -->
+        <div class="hero-main-cup" style="display:flex;align-items:center;justify-content:center;">
+          <div class="cup-visual">
+            <div class="cup-visual-inner">🍮</div>
+          </div>
+        </div>
+
+        <!-- Floating info cards -->
+        <div class="float-card" style="top:60px;right:-10px;">
+          <div class="float-card-emoji">🍪</div>
+          <div class="float-card-info">
+            <div class="float-card-title">Cookies & Cream</div>
+            <div class="float-card-sub">Best Seller 🔥</div>
+          </div>
+        </div>
+
+        <div class="float-card" style="bottom:120px;left:-20px;">
+          <div class="float-card-emoji">✨</div>
+          <div class="float-card-info">
+            <div class="float-card-title">Made Fresh Daily</div>
+            <div class="float-card-sub">No preservatives</div>
+          </div>
+        </div>
+
+        <div class="float-card" style="top:200px;left:-50px;">
+          <div class="float-card-emoji">🎁</div>
+          <div class="float-card-info">
+            <div class="float-card-title">Perfect Gift</div>
+            <div class="float-card-sub">Beautifully packaged</div>
+          </div>
+        </div>
+
+        <div class="float-card" style="bottom:30px;right:0px;">
+          <div class="float-card-emoji">🚀</div>
+          <div class="float-card-info">
+            <div class="float-card-title">Fast Delivery</div>
+            <div class="float-card-sub">Pickup &amp; Delivery</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TICKER
+     ============================================================ -->
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-item"><span>🍪</span> Cookies & Cream</div>
+    <div class="ticker-dot"></div>
+    <div class="ticker-item"><span>🍫</span> Chocolate Chip</div>
+    <div class="ticker-dot"></div>
+    <div class="ticker-item"><span>🥜</span> Peanut Butter</div>
+    <div class="ticker-dot"></div>
+    <div class="ticker-item"><span>🍮</span> Caramel</div>
+    <div class="ticker-dot"></div>
+    <div class="ticker-item"><span>❤️</span> Red Velvet</div>
+    <div class="ticker-dot"></div>
+    <div class="ticker-item"><span>🟤</span> Nutella</div>
+    <div class="ticker-dot"></div>
+    <div class="ticker-item"><span>⬛</span> Oreo</div>
+    <div class="ticker-dot"></div>
+    <div class="ticker-item"><span>🌟</span> Biscoff</div>
+    <div class="ticker-dot"></div>
+    <!-- Duplicate for seamless loop -->
+    <div class="ticker-item"><span>🍪</span> Cookies & Cream</div>
+    <div class="ticker-dot"></div>
+    <div class="ticker-item"><span>🍫</span> Chocolate Chip</div>
+    <div class="ticker-dot"></div>
+    <div class="ticker-item"><span>🥜</span> Peanut Butter</div>
+    <div class="ticker-dot"></div>
+    <div class="ticker-item"><span>🍮</span> Caramel</div>
+    <div class="ticker-dot"></div>
+    <div class="ticker-item"><span>❤️</span> Red Velvet</div>
+    <div class="ticker-dot"></div>
+    <div class="ticker-item"><span>🟤</span> Nutella</div>
+    <div class="ticker-dot"></div>
+    <div class="ticker-item"><span>⬛</span> Oreo</div>
+    <div class="ticker-dot"></div>
+    <div class="ticker-item"><span>🌟</span> Biscoff</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     STORY
+     ============================================================ -->
+<section class="story section-pad" id="story">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-visual reveal">
+        <div class="story-photo-main">🧁</div>
+        <div class="story-photo-accent">🍮</div>
+        <div class="story-badge-float">
+          <div class="story-badge-icon">🏆</div>
+          <div class="story-badge-text">
+            <span class="story-badge-number">100%</span>
+            <span class="story-badge-label">Customer Satisfaction</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-content reveal">
+        <span class="eyebrow">Our Story</span>
+        <h2 class="display-lg" style="color:var(--chocolate);">Made with love,<br><em style="font-style:italic;color:var(--berry);">made for you.</em></h2>
+
+        <div class="story-quote">
+          "We started Velvet &amp; Cream with one simple belief — that a beautifully made dessert can turn any moment into a memory."
+        </div>
+
+        <p class="body-md">
+          Every cup is handcrafted with quality ingredients. No shortcuts. No artificial flavours. Just honest, handmade cheesecake — made to order, packaged beautifully, and delivered with care.
+        </p>
+
+        <div class="story-pillars">
+          <div class="story-pillar">
+            <div class="pillar-icon">🥛</div>
+            <span>Real Ingredients</span>
+          </div>
+          <div class="story-pillar">
+            <div class="pillar-icon">🌿</div>
+            <span>No Artificial Taste</span>
+          </div>
+          <div class="story-pillar">
+            <div class="pillar-icon">✋</div>
+            <span>Handcrafted Daily</span>
+          </div>
+          <div class="story-pillar">
+            <div class="pillar-icon">📦</div>
+            <span>Gift-Ready Packaging</span>
+          </div>
+          <div class="story-pillar">
+            <div class="pillar-icon">💬</div>
+            <span>WhatsApp Ordering</span>
+          </div>
+          <div class="story-pillar">
+            <div class="pillar-icon">🚚</div>
+            <span>Island-wide Delivery</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MENU
+     ============================================================ -->
+<section class="menu section-pad" id="menu">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">The Flavours</span>
+      <h2 class="display-lg" style="color:var(--chocolate);">Our Signature Cheesecake Cups</h2>
+      <p class="body-md" style="margin-top:14px;">Every cup made to order. Every bite worth it.</p>
+    </div>
+
+    <div class="menu-filters reveal">
+      <button class="filter-btn active">All Flavours</button>
+      <button class="filter-btn">Best Sellers</button>
+      <button class="filter-btn">Chocolate</button>
+      <button class="filter-btn">Caramel</button>
+      <button class="filter-btn">Seasonal</button>
+      <button class="filter-btn">Gifts</button>
+    </div>
+
+    <div class="menu-grid">
+
+      <!-- Card 1 -->
+      <div class="product-card reveal">
+        <div class="product-img">
+          🍪
+          <div class="product-badge">🔥 Best Seller</div>
+          <div class="product-fav">🤍</div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">Cookies & Cream</div>
+          <div class="product-desc">Velvety cream cheese base loaded with crushed Oreo cookies, finished with a creamy topping that disappears too fast.</div>
+          <div class="product-meters">
+            <div class="meter-row">
+              <span class="meter-label">Richness</span>
+              <div class="meter-bar"><div class="meter-fill" style="width:90%"></div></div>
+            </div>
+            <div class="meter-row">
+              <span class="meter-label">Sweetness</span>
+              <div class="meter-bar"><div class="meter-fill" style="width:75%"></div></div>
+            </div>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">
+              <span class="price-label">from</span>
+              <span class="price-value">EC $15</span>
+            </div>
+            <a href="https://wa.me/17585841764?text=Hi! I'd like to order a Cookies & Cream cheesecake cup 🍪" target="_blank" class="product-order-btn">Order 🛒</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="product-card reveal">
+        <div class="product-img product-img-2">
+          🍮
+          <div class="product-badge product-badge-gold">⭐ Customer Fave</div>
+          <div class="product-fav">🤍</div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">Salted Caramel</div>
+          <div class="product-desc">Rich caramel swirled through smooth cheesecake, finished with a hint of sea salt that takes it over the top.</div>
+          <div class="product-meters">
+            <div class="meter-row">
+              <span class="meter-label">Richness</span>
+              <div class="meter-bar"><div class="meter-fill" style="width:85%"></div></div>
+            </div>
+            <div class="meter-row">
+              <span class="meter-label">Sweetness</span>
+              <div class="meter-bar"><div class="meter-fill" style="width:80%"></div></div>
+            </div>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">
+              <span class="price-label">from</span>
+              <span class="price-value">EC $15</span>
+            </div>
+            <a href="https://wa.me/17585841764?text=Hi! I'd like to order a Salted Caramel cheesecake cup 🍮" target="_blank" class="product-order-btn">Order 🛒</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="product-card reveal">
+        <div class="product-img product-img-3">
+          🍓
+          <div class="product-badge">❤️ Red Velvet</div>
+          <div class="product-fav">🤍</div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">Red Velvet Dream</div>
+          <div class="product-desc">Bold, beautiful, and deeply satisfying. Our red velvet cheesecake cup is as stunning to look at as it is to eat.</div>
+          <div class="product-meters">
+            <div class="meter-row">
+              <span class="meter-label">Richness</span>
+              <div class="meter-bar"><div class="meter-fill" style="width:80%"></div></div>
+            </div>
+            <div class="meter-row">
+              <span class="meter-label">Sweetness</span>
+              <div class="meter-bar"><div class="meter-fill" style="width:70%"></div></div>
+            </div>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">
+              <span class="price-label">from</span>
+              <span class="price-value">EC $15</span>
+            </div>
+            <a href="https://wa.me/17585841764?text=Hi! I'd like to order a Red Velvet cheesecake cup ❤️" target="_blank" class="product-order-btn">Order 🛒</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="product-card reveal">
+        <div class="product-img product-img-4">
+          🍫
+          <div class="product-badge product-badge-new">🆕 New</div>
+          <div class="product-fav">🤍</div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">Nutella Swirl</div>
+          <div class="product-desc">Creamy cheesecake base with generous ribbons of Nutella throughout. Every spoonful is a chocolate-hazelnut revelation.</div>
+          <div class="product-meters">
+            <div class="meter-row">
+              <span class="meter-label">Richness</span>
+              <div class="meter-bar"><div class="meter-fill" style="width:95%"></div></div>
+            </div>
+            <div class="meter-row">
+              <span class="meter-label">Sweetness</span>
+              <div class="meter-bar"><div class="meter-fill" style="width:85%"></div></div>
+            </div>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">
+              <span class="price-label">from</span>
+              <span class="price-value">EC $15</span>
+            </div>
+            <a href="https://wa.me/17585841764?text=Hi! I'd like to order a Nutella Swirl cheesecake cup 🍫" target="_blank" class="product-order-btn">Order 🛒</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="product-card reveal">
+        <div class="product-img product-img-5">
+          🥜
+          <div class="product-badge">🥜 Peanut Butter</div>
+          <div class="product-fav">🤍</div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">Peanut Butter Cup</div>
+          <div class="product-desc">For the peanut butter lovers. Dense, nutty, deeply satisfying. Pairs perfectly with a cold glass of milk.</div>
+          <div class="product-meters">
+            <div class="meter-row">
+              <span class="meter-label">Richness</span>
+              <div class="meter-bar"><div class="meter-fill" style="width:88%"></div></div>
+            </div>
+            <div class="meter-row">
+              <span class="meter-label">Sweetness</span>
+              <div class="meter-bar"><div class="meter-fill" style="width:65%"></div></div>
+            </div>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">
+              <span class="price-label">from</span>
+              <span class="price-value">EC $15</span>
+            </div>
+            <a href="https://wa.me/17585841764?text=Hi! I'd like to order a Peanut Butter cheesecake cup 🥜" target="_blank" class="product-order-btn">Order 🛒</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="product-card reveal">
+        <div class="product-img product-img-6">
+          🌟
+          <div class="product-badge product-badge-gold">✨ Premium</div>
+          <div class="product-fav">🤍</div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">Biscoff Bliss</div>
+          <div class="product-desc">Lotus Biscoff cookie butter folded into silky cream cheese. Warm, spiced, and utterly addictive. A true standout.</div>
+          <div class="product-meters">
+            <div class="meter-row">
+              <span class="meter-label">Richness</span>
+              <div class="meter-bar"><div class="meter-fill" style="width:92%"></div></div>
+            </div>
+            <div class="meter-row">
+              <span class="meter-label">Sweetness</span>
+              <div class="meter-bar"><div class="meter-fill" style="width:72%"></div></div>
+            </div>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">
+              <span class="price-label">from</span>
+              <span class="price-value">EC $18</span>
+            </div>
+            <a href="https://wa.me/17585841764?text=Hi! I'd like to order a Biscoff Bliss cheesecake cup ✨" target="_blank" class="product-order-btn">Order 🛒</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end menu-grid -->
+
+    <div style="text-align:center;margin-top:48px;" class="reveal">
+      <a href="https://wa.me/17585841764?text=Hi! Can I see your full flavour menu please?" target="_blank" class="btn btn-outline">
+        See All Flavours & Sizes →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PERFECT FOR EVERY OCCASION
+     ============================================================ -->
+<section class="occasions section-pad" id="occasions">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Perfect for Every Occasion</span>
+      <h2 class="display-lg" style="color:var(--chocolate);">Not just dessert — it's the experience.</h2>
+      <p class="body-md" style="margin-top:14px;">A Kreamy Delights cup turns any gathering into a memory. Here's where our cups shine.</p>
+    </div>
+
+    <div class="occasions-grid">
+      <div class="occasion-card reveal">
+        <span class="occasion-emoji">🎂</span>
+        <div class="occasion-name">Birthday Parties</div>
+        <div class="occasion-desc">Individual cups for every guest — no slicing, no mess, all magic.</div>
+      </div>
+      <div class="occasion-card reveal">
+        <span class="occasion-emoji">🎓</span>
+        <div class="occasion-name">Graduations</div>
+        <div class="occasion-desc">Celebrate the achievement with something as sweet as the moment.</div>
+      </div>
+      <div class="occasion-card reveal">
+        <span class="occasion-emoji">💼</span>
+        <div class="occasion-name">Office Treats</div>
+        <div class="occasion-desc">Corporate orders for team celebrations, client gifts, and staff appreciation.</div>
+      </div>
+      <div class="occasion-card reveal">
+        <span class="occasion-emoji">👶</span>
+        <div class="occasion-name">Baby Showers</div>
+        <div class="occasion-desc">Beautifully presented dessert tables that guests will talk about for weeks.</div>
+      </div>
+      <div class="occasion-card reveal">
+        <span class="occasion-emoji">💕</span>
+        <div class="occasion-name">Date Nights</div>
+        <div class="occasion-desc">Because the best evenings always end with something sweet.</div>
+      </div>
+      <div class="occasion-card reveal">
+        <span class="occasion-emoji">🎄</span>
+        <div class="occasion-name">Holiday Gifting</div>
+        <div class="occasion-desc">Christmas, Valentine's, Mother's Day — the gift they actually want.</div>
+      </div>
+      <div class="occasion-card reveal">
+        <span class="occasion-emoji">💒</span>
+        <div class="occasion-name">Weddings</div>
+        <div class="occasion-desc">Elegant dessert tables that complement your big day perfectly.</div>
+      </div>
+      <div class="occasion-card reveal">
+        <span class="occasion-emoji">🍎</span>
+        <div class="occasion-name">Teacher Gifts</div>
+        <div class="occasion-desc">Show appreciation with something handmade and genuinely thoughtful.</div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:48px;" class="reveal">
+      <a href="https://wa.me/17585841764?text=Hi! I'd like to enquire about a custom order for an event 🎉" target="_blank" class="btn btn-primary">
+        📅 Book a Custom Order
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     COLLECTIONS
+     ============================================================ -->
+<section class="collections section-pad" id="collections">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Signature Collections</span>
+      <h2 class="display-lg" style="color:var(--chocolate);">Curated for every craving.</h2>
+    </div>
+
+    <div class="collections-grid">
+      <div class="collection-card large reveal">
+        <div class="collection-bg col-bg-1" style="font-size:7rem;">🍫</div>
+        <div class="collection-overlay"></div>
+        <div class="collection-content">
+          <div class="collection-tag">Signature Collection</div>
+          <div class="collection-name">Chocolate Lovers Box</div>
+          <div class="collection-desc">6 cups · Nutella, Chocolate Chip, Oreo, Biscoff & more</div>
+        </div>
+      </div>
+
+      <div class="collection-card reveal">
+        <div class="collection-bg col-bg-2" style="font-size:5rem;">🍮</div>
+        <div class="collection-overlay"></div>
+        <div class="collection-content">
+          <div class="collection-tag">Limited Edition</div>
+          <div class="collection-name">Caramel Collection</div>
+          <div class="collection-desc">Pure caramel indulgence</div>
+        </div>
+      </div>
+
+      <div class="collection-card reveal">
+        <div class="collection-bg col-bg-3" style="font-size:5rem;">🎁</div>
+        <div class="collection-overlay"></div>
+        <div class="collection-content">
+          <div class="collection-tag">Gift Ready</div>
+          <div class="collection-name">Premium Gift Box</div>
+          <div class="collection-desc">Mixed flavours, beautifully wrapped</div>
+        </div>
+      </div>
+
+      <div class="collection-card reveal">
+        <div class="collection-bg col-bg-4" style="font-size:5rem;">🎉</div>
+        <div class="collection-overlay"></div>
+        <div class="collection-content">
+          <div class="collection-tag">Best For Events</div>
+          <div class="collection-name">Party Collection</div>
+          <div class="collection-desc">Mix & match trays for 10–50 guests</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:40px;" class="reveal">
+      <a href="https://wa.me/17585841764?text=Hi! Tell me about your gift box collections 🎁" target="_blank" class="btn btn-outline">
+        Enquire About Collections →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BUILD YOUR BOX
+     ============================================================ -->
+<section class="box-builder section-pad" id="builder">
+  <div class="container">
+    <div style="text-align:center;max-width:580px;margin:0 auto 0;" class="reveal">
+      <span class="eyebrow" style="color:var(--caramel-light);">Custom Orders</span>
+      <h2 class="display-lg">Build Your Own Box</h2>
+      <p style="color:rgba(255,255,255,0.6);margin-top:12px;font-size:0.95rem;line-height:1.65;">
+        Create the perfect box for your occasion. Choose your flavours, size, and extras — we handle the rest.
+      </p>
+    </div>
+
+    <div class="builder-grid">
+      <div class="builder-steps">
+
+        <div class="builder-step reveal">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Choose your cup size</div>
+            <div class="step-options">
+              <div class="step-option selected" onclick="selectOption(this,'size','Small (8oz)')">Small · 8oz</div>
+              <div class="step-option" onclick="selectOption(this,'size','Medium (12oz)')">Medium · 12oz</div>
+              <div class="step-option" onclick="selectOption(this,'size','Large (16oz)')">Large · 16oz</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="builder-step reveal">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Pick your flavours</div>
+            <div class="step-options">
+              <div class="step-option selected" onclick="selectOption(this,'flavour','Cookies & Cream')">🍪 C&C</div>
+              <div class="step-option" onclick="selectOption(this,'flavour','Caramel')">🍮 Caramel</div>
+              <div class="step-option" onclick="selectOption(this,'flavour','Nutella')">🟤 Nutella</div>
+              <div class="step-option" onclick="selectOption(this,'flavour','Red Velvet')">❤️ Red Velvet</div>
+              <div class="step-option" onclick="selectOption(this,'flavour','Biscoff')">🌟 Biscoff</div>
+              <div class="step-option" onclick="selectOption(this,'flavour','Peanut Butter')">🥜 PB</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="builder-step reveal">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">How many cups?</div>
+            <div class="step-options">
+              <div class="step-option" onclick="selectOption(this,'qty','1 cup')">1 Cup</div>
+              <div class="step-option selected" onclick="selectOption(this,'qty','4 cups')">4 Cups</div>
+              <div class="step-option" onclick="selectOption(this,'qty','8 cups')">8 Cups</div>
+              <div class="step-option" onclick="selectOption(this,'qty','12 cups')">12+ Cups</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="builder-step reveal">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-title">Add extras</div>
+            <div class="step-options">
+              <div class="step-option" onclick="toggleExtra(this)">🎀 Gift Wrap</div>
+              <div class="step-option" onclick="toggleExtra(this)">💌 Greeting Card</div>
+              <div class="step-option" onclick="toggleExtra(this)">🚚 Delivery</div>
+              <div class="step-option" onclick="toggleExtra(this)">🕐 Rush Order</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="builder-step reveal">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <div class="step-title">Pickup or delivery?</div>
+            <div class="step-options">
+              <div class="step-option selected" onclick="selectOption(this,'delivery','Pickup')">🏠 Pickup</div>
+              <div class="step-option" onclick="selectOption(this,'delivery','Delivery')">🚚 Delivery</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preview panel -->
+      <div class="builder-preview reveal">
+        <div class="preview-title">🛒 Your Box Preview</div>
+
+        <div class="preview-box" id="previewBox">
+          <span style="font-size:5rem;">🎁</span>
+        </div>
+
+        <div class="preview-selections">
+          <div class="preview-row">
+            <span class="preview-key">Size</span>
+            <span class="preview-val" id="prev-size">Small (8oz)</span>
+          </div>
+          <div class="preview-row">
+            <span class="preview-key">Flavour</span>
+            <span class="preview-val" id="prev-flavour">Cookies & Cream</span>
+          </div>
+          <div class="preview-row">
+            <span class="preview-key">Quantity</span>
+            <span class="preview-val" id="prev-qty">4 cups</span>
+          </div>
+          <div class="preview-row">
+            <span class="preview-key">Delivery</span>
+            <span class="preview-val" id="prev-delivery">Pickup</span>
+          </div>
+          <div class="preview-row">
+            <span class="preview-key">Extras</span>
+            <span class="preview-val" id="prev-extras">None</span>
+          </div>
+        </div>
+
+        <div class="preview-total">
+          <span class="preview-total-label">Estimated Total</span>
+          <span class="preview-total-price" id="prev-price">EC $60</span>
+        </div>
+
+        <a href="https://wa.me/17585841764?text=Hi! I'd like to build a custom box order 🎁" target="_blank" class="btn btn-whatsapp" style="width:100%;justify-content:center;">
+          Send My Order on WhatsApp 🚀
+        </a>
+        <p style="text-align:center;font-size:0.72rem;color:rgba(255,255,255,0.4);margin-top:12px;">Final price confirmed on WhatsApp</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TESTIMONIALS
+     ============================================================ -->
+<section class="testimonials section-pad" id="reviews">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">What Customers Say</span>
+      <h2 class="display-lg" style="color:var(--chocolate);">Happy cups, happier people.</h2>
+    </div>
+
+    <div class="testimonials-track">
+
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-quote-mark">"</div>
+        <div class="testimonial-text">
+          I ordered 12 cups for my daughter's birthday and every single one was finished before the cake. The Cookies & Cream is absolutely divine. Will definitely order again!
+        </div>
+        <div class="testimonial-author">
+          <div class="author-avatar avatar-1">👩</div>
+          <div class="author-info">
+            <span class="author-name">Marcia J.</span>
+            <span class="author-detail">London, UK</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-quote-mark">"</div>
+        <div class="testimonial-text">
+          The Biscoff flavour is something else. I brought a tray to the office and my colleagues were fighting over the last cups. Already planning my next order.
+        </div>
+        <div class="testimonial-author">
+          <div class="author-avatar avatar-2">👨</div>
+          <div class="author-info">
+            <span class="author-name">Darnell F.</span>
+            <span class="author-detail">Miami, FL</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-quote-mark">"</div>
+        <div class="testimonial-text">
+          Ordered a custom box as a gift. The packaging was gorgeous, the flavours were incredible, and it arrived exactly on time. This is now my go-to gift for everything.
+        </div>
+        <div class="testimonial-author">
+          <div class="author-avatar avatar-3">👩</div>
+          <div class="author-info">
+            <span class="author-name">Kezia T.</span>
+            <span class="author-detail">Toronto, Canada</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row reveal">
+      <div class="stat-block">
+        <span class="stat-block-number">200+</span>
+        <span class="stat-block-label">Happy Customers</span>
+      </div>
+      <div class="stat-block">
+        <span class="stat-block-number">1,300+</span>
+        <span class="stat-block-label">Instagram Followers</span>
+      </div>
+      <div class="stat-block">
+        <span class="stat-block-number">12+</span>
+        <span class="stat-block-label">Flavours Available</span>
+      </div>
+      <div class="stat-block">
+        <span class="stat-block-number">4.9★</span>
+        <span class="stat-block-label">Customer Rating</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CATERING & EVENTS
+     ============================================================ -->
+<section class="catering section-pad" id="catering">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Event Catering</span>
+      <h2 class="display-lg" style="color:var(--chocolate);">We come to your celebration.</h2>
+      <p class="body-md" style="margin-top:14px;">Large orders, custom dessert tables, and corporate catering across Saint Lucia.</p>
+    </div>
+
+    <div class="events-grid">
+      <div class="event-card reveal">
+        <div class="event-icon">🎂</div>
+        <div class="event-name">Birthday Parties</div>
+        <div class="event-desc">Individual cups for every guest. Choose a signature flavour or mix it up — no cutting, no fuss, all celebration.</div>
+        <div class="event-link">Get a quote →</div>
+      </div>
+      <div class="event-card reveal">
+        <div class="event-icon">👶</div>
+        <div class="event-name">Baby Showers</div>
+        <div class="event-desc">Themed dessert tables beautifully arranged for your special reveal. Blue, pink, or neutral — we make it gorgeous.</div>
+        <div class="event-link">Get a quote →</div>
+      </div>
+      <div class="event-card reveal">
+        <div class="event-icon">💼</div>
+        <div class="event-name">Corporate Events</div>
+        <div class="event-desc">Impress clients and reward staff with premium branded dessert gifts. Bulk orders with reliable, on-time delivery.</div>
+        <div class="event-link">Get a quote →</div>
+      </div>
+      <div class="event-card reveal">
+        <div class="event-icon">🎓</div>
+        <div class="event-name">Graduations</div>
+        <div class="event-desc">Celebrate the hard work with something extra sweet. Large trays, personalised flavours, city-wide delivery.</div>
+        <div class="event-link">Get a quote →</div>
+      </div>
+      <div class="event-card reveal">
+        <div class="event-icon">💒</div>
+        <div class="event-name">Weddings</div>
+        <div class="event-desc">Elegant dessert stations that complement your wedding theme. A premium alternative to the traditional cake table.</div>
+        <div class="event-link">Get a quote →</div>
+      </div>
+      <div class="event-card reveal">
+        <div class="event-icon">🎄</div>
+        <div class="event-name">Holiday & Seasonal</div>
+        <div class="event-desc">Christmas, Valentine's, Mother's Day — limited edition flavours and gift packages that sell out fast. Pre-order early.</div>
+        <div class="event-link">Pre-order →</div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:48px;" class="reveal">
+      <a href="https://wa.me/17585841764?text=Hi! I'd like to enquire about catering for an event 🎉" target="_blank" class="btn btn-primary">
+        Request a Catering Quote
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     HOLIDAY PROMO
+     ============================================================ -->
+<section class="promo section-pad" id="holiday">
+  <div class="container">
+    <div class="promo-inner">
+      <div class="reveal">
+        <div class="promo-tag">
+          <div class="promo-tag-pulse"></div>
+          Limited Edition — Pre-Order Now
+        </div>
+
+        <h2 class="promo-title">Holiday Specials<br>are here.</h2>
+
+        <p class="promo-sub">
+          Our seasonal flavours are available for a limited time. Order early — these always sell out. Delivery and pickup available island-wide.
+        </p>
+
+        <div class="countdown">
+          <div class="countdown-unit">
+            <div class="countdown-num" id="cd-days">14</div>
+            <div class="countdown-label">Days</div>
+          </div>
+          <div class="countdown-unit">
+            <div class="countdown-num" id="cd-hours">08</div>
+            <div class="countdown-label">Hours</div>
+          </div>
+          <div class="countdown-unit">
+            <div class="countdown-num" id="cd-mins">42</div>
+            <div class="countdown-label">Mins</div>
+          </div>
+          <div class="countdown-unit">
+            <div class="countdown-num" id="cd-secs">00</div>
+            <div class="countdown-label">Secs</div>
+          </div>
+        </div>
+
+        <a href="https://wa.me/17585841764?text=Hi! I'd like to pre-order a holiday special 🎄" target="_blank" class="btn btn-whatsapp">
+          Pre-Order My Holiday Box
+        </a>
+      </div>
+
+      <div class="promo-flavours reveal">
+        <div class="promo-flavour">
+          <div class="promo-flavour-left">
+            <div class="promo-flavour-emoji">🎄</div>
+            <div>
+              <div class="promo-flavour-name">Christmas Spice</div>
+              <div class="promo-flavour-tag">Seasonal · Limited Qty</div>
+            </div>
+          </div>
+          <div class="promo-flavour-price">EC $18</div>
+        </div>
+        <div class="promo-flavour">
+          <div class="promo-flavour-left">
+            <div class="promo-flavour-emoji">💕</div>
+            <div>
+              <div class="promo-flavour-name">Valentine's Strawberry</div>
+              <div class="promo-flavour-tag">Feb Collection</div>
+            </div>
+          </div>
+          <div class="promo-flavour-price">EC $18</div>
+        </div>
+        <div class="promo-flavour">
+          <div class="promo-flavour-left">
+            <div class="promo-flavour-emoji">🎁</div>
+            <div>
+              <div class="promo-flavour-name">Holiday Gift Box (6pk)</div>
+              <div class="promo-flavour-tag">Mixed · Gift Wrapped</div>
+            </div>
+          </div>
+          <div class="promo-flavour-price">EC $95</div>
+        </div>
+        <div class="promo-flavour">
+          <div class="promo-flavour-left">
+            <div class="promo-flavour-emoji">🍊</div>
+            <div>
+              <div class="promo-flavour-name">Blueberry Cheesecake</div>
+              <div class="promo-flavour-tag">Easter Special</div>
+            </div>
+          </div>
+          <div class="promo-flavour-price">EC $18</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     GALLERY
+     ============================================================ -->
+<section class="gallery section-pad" id="gallery">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">The Gallery</span>
+      <h2 class="display-lg" style="color:var(--chocolate);">Made to be seen. Made to be tasted.</h2>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item gal-1 span-2">
+        🍮
+        <div class="gallery-overlay"><div class="gallery-overlay-icon">🔍</div></div>
+      </div>
+      <div class="gallery-item gal-2">
+        🍪
+        <div class="gallery-overlay"><div class="gallery-overlay-icon">🔍</div></div>
+      </div>
+      <div class="gallery-item gal-3">
+        🍓
+        <div class="gallery-overlay"><div class="gallery-overlay-icon">🔍</div></div>
+      </div>
+      <div class="gallery-item gal-4">
+        🎁
+        <div class="gallery-overlay"><div class="gallery-overlay-icon">🔍</div></div>
+      </div>
+      <div class="gallery-item gal-5">
+        🍫
+        <div class="gallery-overlay"><div class="gallery-overlay-icon">🔍</div></div>
+      </div>
+      <div class="gallery-item gal-6">
+        🥜
+        <div class="gallery-overlay"><div class="gallery-overlay-icon">🔍</div></div>
+      </div>
+      <div class="gallery-item gal-7">
+        🌟
+        <div class="gallery-overlay"><div class="gallery-overlay-icon">🔍</div></div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:32px;" class="reveal">
+      <a href="https://www.instagram.com/velvetandcream" target="_blank" class="btn btn-outline">
+        📸 Follow @velvetandcream
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section class="faq section-pad" id="faq">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="display-lg" style="color:var(--chocolate);">Got questions?<br>We've got answers.</h2>
+    </div>
+
+    <div class="faq-grid">
+      <div class="faq-list reveal">
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How long do the cheesecake cups last?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Our cheesecake cups stay fresh for up to 5 days when refrigerated. We recommend consuming within 3 days for the best flavour and texture. They should be stored covered in the fridge at all times.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Do you deliver island-wide in Saint Lucia?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Yes! We offer delivery across Saint Lucia. Delivery fees vary by location. Message us with your postcode or area and we'll confirm availability and the delivery fee.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How do I place an order?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Simply message us on WhatsApp at (758) 584-1764. Tell us your flavour, size, quantity, and pickup or delivery preference. We'll confirm your order and provide payment details.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Can I order custom or bulk for events?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Absolutely. We cater for birthdays, baby showers, corporate events, weddings, and more. For large orders we require at least 48–72 hours notice. Contact us for a custom quote.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What payment methods do you accept?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              We accept cash on pickup/delivery, local bank transfers, and mobile payment options. Payment details will be confirmed when you place your order via WhatsApp.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Do you accommodate dietary needs or allergies?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Our cups contain dairy and may contain traces of nuts, gluten, and other allergens. Please message us about specific requirements and we'll do our best to accommodate you. We always recommend informing your guests of potential allergens.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="faq-cta-card reveal">
+        <h3>Still have a question?</h3>
+        <p>We're always happy to help. Message us on WhatsApp and we'll get back to you quickly.</p>
+        <div class="faq-cta-items">
+          <div class="faq-cta-item"><span class="faq-cta-check">✅</span> Fast WhatsApp replies</div>
+          <div class="faq-cta-item"><span class="faq-cta-check">✅</span> Custom orders welcome</div>
+          <div class="faq-cta-item"><span class="faq-cta-check">✅</span> Island-wide delivery</div>
+          <div class="faq-cta-item"><span class="faq-cta-check">✅</span> Fresh made to order</div>
+          <div class="faq-cta-item"><span class="faq-cta-check">✅</span> Registered business</div>
+        </div>
+        <a href="https://wa.me/17585841764?text=Hi! I have a question about an order 💬" target="_blank" class="btn btn-whatsapp" style="width:100%;justify-content:center;">
+          Chat With Us on WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+<section class="contact section-pad" id="contact">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Order & Contact</span>
+      <h2 class="display-lg" style="color:var(--chocolate);">Ready to order?<br>We're ready for you.</h2>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="contact-block">
+          <h3>Reach us directly</h3>
+          <div class="contact-channels">
+            <a href="https://wa.me/17585841764" target="_blank" class="contact-channel">
+              <div class="channel-icon ch-wa">📱</div>
+              <div class="channel-info">
+                <span class="channel-label">WhatsApp · Fastest Response</span>
+                <span class="channel-value">(758) 584-1764</span>
+              </div>
+            </a>
+            <a href="tel:+17585841764" class="contact-channel">
+              <div class="channel-icon ch-call">📞</div>
+              <div class="channel-info">
+                <span class="channel-label">Call Us</span>
+                <span class="channel-value">(758) 584-1764</span>
+              </div>
+            </a>
+            <a href="https://www.instagram.com/velvetandcream" target="_blank" class="contact-channel">
+              <div class="channel-icon ch-ig">📸</div>
+              <div class="channel-info">
+                <span class="channel-label">Instagram</span>
+                <span class="channel-value">@velvetandcream</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-block">
+          <h3>Order hours</h3>
+          <div class="hours-grid">
+            <div class="hours-row">
+              <span class="hours-day">Mon – Fri</span>
+              <span class="hours-time">8am – 7pm</span>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Saturday</span>
+              <span class="hours-time">9am – 6pm</span>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Sunday</span>
+              <span class="hours-time">10am – 4pm</span>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Holiday Orders</span>
+              <span class="hours-time">Pre-order req.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="map-placeholder">
+          <div class="map-pin">📍</div>
+          <div class="map-label">Saint Lucia</div>
+          <div class="map-sub">Pickup & island-wide delivery available.<br>Message us for exact pickup address.</div>
+          <a href="https://wa.me/17585841764?text=Hi! Where can I pick up my order?" target="_blank" class="btn btn-primary" style="margin-top:8px;">
+            Get Pickup Details
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     HOW TO ORDER
+     ============================================================ -->
+<section style="background:var(--cream-dark);padding:80px 0;">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">How It Works</span>
+      <h2 class="display-lg" style="color:var(--chocolate);">Ordering is beautifully simple.</h2>
+      <p class="body-md" style="margin-top:14px;">Three steps between you and the best dessert you've ever tasted.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:20px;" class="reveal">
+      <div style="background:var(--white);border-radius:var(--radius-lg);padding:40px 32px;text-align:center;box-shadow:var(--shadow-soft);">
+        <div style="width:52px;height:52px;background:var(--chocolate);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:var(--white);margin:0 auto 24px;">1</div>
+        <div style="font-size:2.5rem;margin-bottom:16px;">📋</div>
+        <div style="font-family:var(--font-display);font-size:1.3rem;font-weight:600;color:var(--chocolate);margin-bottom:10px;">Choose Your Order</div>
+        <p style="font-size:0.85rem;color:var(--text-light);line-height:1.65;">Pick your flavours, size, and quantity. Mix and match — every order is crafted exactly how you want it.</p>
+      </div>
+      <div style="background:var(--white);border-radius:var(--radius-lg);padding:40px 32px;text-align:center;box-shadow:var(--shadow-soft);">
+        <div style="width:52px;height:52px;background:var(--chocolate);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:var(--white);margin:0 auto 24px;">2</div>
+        <div style="font-size:2.5rem;margin-bottom:16px;">💬</div>
+        <div style="font-family:var(--font-display);font-size:1.3rem;font-weight:600;color:var(--chocolate);margin-bottom:10px;">Send Us a Message</div>
+        <p style="font-size:0.85rem;color:var(--text-light);line-height:1.65;">Reach us via WhatsApp, phone, or email. We confirm your order, delivery details, and payment — quickly.</p>
+      </div>
+      <div style="background:var(--white);border-radius:var(--radius-lg);padding:40px 32px;text-align:center;box-shadow:var(--shadow-soft);">
+        <div style="width:52px;height:52px;background:var(--chocolate);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:var(--white);margin:0 auto 24px;">3</div>
+        <div style="font-size:2.5rem;margin-bottom:16px;">🎁</div>
+        <div style="font-family:var(--font-display);font-size:1.3rem;font-weight:600;color:var(--chocolate);margin-bottom:10px;">Receive &amp; Enjoy</div>
+        <p style="font-size:0.85rem;color:var(--text-light);line-height:1.65;">Your order arrives fresh, beautifully packaged, and ready to impress. Pickup or delivery — your choice.</p>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:48px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;" class="reveal">
+      <a href="https://wa.me/17585841764?text=Hi! I'd like to place an order with Velvet %26 Cream 🍮" target="_blank" class="btn btn-primary">Place Your Order →</a>
+      <a href="#menu" class="btn btn-outline">Browse the Menu</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     VIP CLUB
+     ============================================================ -->
+<section class="vip section-pad" id="vip">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">VIP Dessert Club</span>
+      <h2 class="display-lg">Be the first to know.</h2>
+      <p style="color:rgba(255,255,255,0.55);margin-top:12px;font-size:0.95rem;line-height:1.65;">
+        Join our VIP list for early access to new flavours, holiday pre-orders, member-only deals, and dessert surprises.
+      </p>
+    </div>
+
+    <div class="vip-perks reveal">
+      <div class="vip-perk">
+        <div class="vip-perk-icon">🚀</div>
+        <div class="vip-perk-name">Early Access</div>
+        <div class="vip-perk-desc">New flavours before everyone else</div>
+      </div>
+      <div class="vip-perk">
+        <div class="vip-perk-icon">🎁</div>
+        <div class="vip-perk-name">Member Deals</div>
+        <div class="vip-perk-desc">Exclusive discounts just for VIPs</div>
+      </div>
+      <div class="vip-perk">
+        <div class="vip-perk-icon">📅</div>
+        <div class="vip-perk-name">Pre-Order Priority</div>
+        <div class="vip-perk-desc">Holiday boxes reserved for you first</div>
+      </div>
+      <div class="vip-perk">
+        <div class="vip-perk-icon">🍮</div>
+        <div class="vip-perk-name">Surprise Drops</div>
+        <div class="vip-perk-desc">Random free cup surprises for members</div>
+      </div>
+    </div>
+
+    <div class="vip-form reveal">
+      <input type="text" class="vip-input" placeholder="Your WhatsApp number...">
+      <a href="https://wa.me/17585841764?text=Hi! I'd like to join the Kreamy Delights VIP Club 🌟" target="_blank" class="btn btn-whatsapp">Join VIP →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-name">Velvet &amp; Cream</div>
+        <div class="footer-brand-desc">
+          Artisan no-bake cheesecake cups made fresh to order. Beautiful flavours, stunning presentation — crafted for every moment worth celebrating.
+        </div>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/velvetandcream" target="_blank" class="social-btn" title="Instagram">📸</a>
+          <a href="https://wa.me/17585841764" target="_blank" class="social-btn" title="WhatsApp">💬</a>
+          <a href="tel:+17585841764" class="social-btn" title="Call">📞</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Menu</h4>
+        <div class="footer-links">
+          <a href="#menu">All Flavours</a>
+          <a href="#collections">Collections</a>
+          <a href="#builder">Build Your Box</a>
+          <a href="#holiday">Holiday Specials</a>
+          <a href="#gallery">Gallery</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <div class="footer-links">
+          <a href="#catering">Event Catering</a>
+          <a href="#catering">Corporate Orders</a>
+          <a href="#catering">Wedding Desserts</a>
+          <a href="#catering">Baby Showers</a>
+          <a href="#vip">VIP Club</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Order</h4>
+        <div class="footer-links">
+          <a href="https://wa.me/17585841764" target="_blank">WhatsApp Order</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact Us</a>
+          <a href="tel:+17585841764">Call (758) 584-1764</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 Velvet &amp; Cream</span>
+      <span>Made Fresh Daily 🍮</span>
+      <span style="color:rgba(255,255,255,0.2);font-size:0.72rem;">Demo by <a href="https://jamalinks758.github.io" target="_blank" style="color:rgba(255,255,255,0.3);text-decoration:none;">Jamalinks</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     FLOATING ELEMENTS
+     ============================================================ -->
+
+<!-- Sticky WhatsApp -->
+<div class="sticky-wa">
+  <div class="wa-tooltip">Order on WhatsApp</div>
+  <a href="https://wa.me/17585841764" target="_blank" class="wa-bubble" title="Order on WhatsApp">💬</a>
+</div>
+
+<!-- Recently ordered notification -->
+<div class="recent-notif" id="recentNotif">
+  <div class="notif-avatar">👩</div>
+  <div class="notif-text">
+    <span class="notif-name" id="notifName">Marcia from Castries</span>
+    <span class="notif-action" id="notifAction">just ordered Cookies & Cream 🍪</span>
+  </div>
+</div>
+
+<!-- Mobile sticky order bar -->
+<div class="mobile-order-bar">
+  <a href="https://wa.me/17585841764" target="_blank" class="btn btn-whatsapp" style="flex:1;justify-content:center;">
+    🛒 Place Your Order
+  </a>
+  <a href="tel:+17585841764" class="btn btn-outline" style="padding:14px 16px;">📞</a>
+</div>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+/* ---- Navbar scroll ---- */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+/* ---- Mobile menu ---- */
+function openMenu() { document.getElementById('mobileMenu').classList.add('open'); }
+function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+/* ---- Scroll reveal ---- */
+const revealEls = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+    }
+  });
+}, { threshold: 0.08 });
+revealEls.forEach(el => revealObserver.observe(el));
+
+/* ---- FAQ accordion ---- */
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+/* ---- Menu filters ---- */
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+/* ---- Favorite buttons ---- */
+document.querySelectorAll('.product-fav').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    btn.textContent = btn.textContent === '🤍' ? '❤️' : '🤍';
+  });
+});
+
+/* ---- Box builder ---- */
+const builderState = { size: 'Small (8oz)', flavour: 'Cookies & Cream', qty: '4 cups', delivery: 'Pickup', extras: [] };
+
+function selectOption(el, key, val) {
+  const siblings = el.parentElement.querySelectorAll('.step-option');
+  siblings.forEach(s => s.classList.remove('selected'));
+  el.classList.add('selected');
+  builderState[key] = val;
+  updatePreview();
+}
+
+function toggleExtra(el) {
+  el.classList.toggle('selected');
+  const extras = [...document.querySelectorAll('#builder .step-option.selected')]
+    .filter(o => !o.closest('.step-content')?.querySelector('.step-title')?.textContent.includes('?') === false ||
+      o.closest('.builder-step:nth-child(4)'));
+  // simpler: collect from the extras step
+  const extraStep = [...document.querySelectorAll('.builder-step')][3];
+  const selectedExtras = [...extraStep.querySelectorAll('.step-option.selected')].map(o => o.textContent.trim());
+  builderState.extras = selectedExtras;
+  updatePreview();
+}
+
+const priceMap = { '1 cup': 15, '4 cups': 60, '8 cups': 110, '12+ Cups': 155 };
+const sizeAdd = { 'Small (8oz)': 0, 'Medium (12oz)': 3, 'Large (16oz)': 6 };
+const extraAdd = { '🎀 Gift Wrap': 5, '💌 Greeting Card': 3, '🚚 Delivery': 10, '🕐 Rush Order': 15 };
+
+function updatePreview() {
+  document.getElementById('prev-size').textContent = builderState.size;
+  document.getElementById('prev-flavour').textContent = builderState.flavour;
+  document.getElementById('prev-qty').textContent = builderState.qty;
+  document.getElementById('prev-delivery').textContent = builderState.delivery;
+  document.getElementById('prev-extras').textContent = builderState.extras.length ? builderState.extras.join(', ') : 'None';
+
+  let base = priceMap[builderState.qty] || 60;
+  let size = sizeAdd[builderState.size] || 0;
+  let extras = builderState.extras.reduce((acc, e) => acc + (extraAdd[e] || 0), 0);
+  let delivery = builderState.delivery === 'Delivery' ? 10 : 0;
+  let total = base + (size * (parseInt(builderState.qty) || 4)) + extras + delivery;
+  document.getElementById('prev-price').textContent = `EC $${total}`;
+}
+
+/* ---- Countdown timer ---- */
+function updateCountdown() {
+  // Count to a fixed future date for demo purposes
+  const end = new Date();
+  end.setDate(end.getDate() + 14);
+  end.setHours(8, 42, 0, 0);
+  
+  const diff = end - new Date();
+  if (diff <= 0) return;
+  
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor((diff % 86400000) / 3600000);
+  const mins = Math.floor((diff % 3600000) / 60000);
+  const secs = Math.floor((diff % 60000) / 1000);
+  
+  document.getElementById('cd-days').textContent = String(days).padStart(2,'0');
+  document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+  document.getElementById('cd-mins').textContent = String(mins).padStart(2,'0');
+  document.getElementById('cd-secs').textContent = String(secs).padStart(2,'0');
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+/* ---- Recently ordered notifications ---- */
+const notifications = [
+  { name: 'Sophie from London', action: 'just ordered Cookies & Cream 🍪' },
+  { name: 'Marcus from Miami', action: 'just pre-ordered a Holiday Box 🎁' },
+  { name: 'Priya from Toronto', action: 'just ordered 8 Caramel cups 🍮' },
+  { name: 'Claire from New York', action: 'just ordered a Biscoff Bliss ✨' },
+  { name: 'James from Manchester', action: 'just ordered a Party Tray 🎉' },
+];
+
+let notifIndex = 0;
+const notif = document.getElementById('recentNotif');
+
+function showNotif() {
+  const n = notifications[notifIndex % notifications.length];
+  document.getElementById('notifName').textContent = n.name;
+  document.getElementById('notifAction').textContent = n.action;
+  notif.classList.add('show');
+  setTimeout(() => notif.classList.remove('show'), 4000);
+  notifIndex++;
+}
+
+setTimeout(() => {
+  showNotif();
+  setInterval(showNotif, 9000);
+}, 5000);
+
+/* ---- Smooth reveal on load ---- */
+window.addEventListener('load', () => {
+  document.querySelector('.hero-content')?.classList.add('visible');
+});
+</script>
+
+</body>
+</html>
