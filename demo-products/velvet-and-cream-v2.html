@@ -720,6 +720,7 @@ section { position: relative; }
   justify-content: center;
   font-size: 5rem;
   position: relative;
+  overflow: hidden;
 }
 
 .product-img-2 { background: linear-gradient(135deg, var(--caramel), var(--caramel-light)); }
@@ -2058,6 +2059,29 @@ section { position: relative; }
 .stats-row .stat-block:nth-child(3) { transition-delay: 160ms; }
 .stats-row .stat-block:nth-child(4) { transition-delay: 240ms; }
 
+
+/* ============================================================
+   IMAGE LAYERS — cover backgrounds with graceful fallback
+   ============================================================ */
+.img-cover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.img-cover[src=""], .img-cover:not([src]) { display: none; }
+
+/* Ensure SVG/emoji fallback sits above broken images, content sits above all */
+.cup-visual-inner, .story-photo-main > span, .story-photo-accent > span,
+.product-img > span, .collection-bg > span { position: relative; z-index: 2; }
+
+.product-badge, .product-fav { z-index: 3; }
+.collection-overlay, .collection-content { z-index: 2; }
+.gallery-overlay { z-index: 2; }
+
 </style>
 </head>
 <body>
@@ -2169,6 +2193,7 @@ section { position: relative; }
         <!-- Main cup -->
         <div class="hero-main-cup" style="display:flex;align-items:center;justify-content:center;">
           <div class="cup-visual">
+            <img class="img-cover" src="images/hero-cup.webp" alt="Velvet & Cream signature cheesecake cup" loading="lazy" style="border-radius:20px 20px 60px 60px;">
             <div class="cup-visual-inner" style="font-size:0;display:flex;width:8rem;height:8rem;color:rgba(255,255,255,0.7);padding-top:1.5rem;"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <path d="M12 10h24l-3 26a3 3 0 01-3 3H18a3 3 0 01-3-3L12 10z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" fill="none"/>
   <path d="M10 10h28" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
@@ -2350,13 +2375,15 @@ section { position: relative; }
   <div class="container">
     <div class="story-grid">
       <div class="story-visual reveal">
-        <div class="story-photo-main" style="font-size:0;"><span style="display:flex;width:6rem;height:6rem;color:rgba(255,255,255,0.85);"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
+        <div class="story-photo-main" style="font-size:0;">
+          <img class="img-cover" src="images/story-main.webp" alt="Handcrafted cheesecake cups being gift-boxed" loading="lazy" style="border-radius:var(--radius-lg);"><span style="display:flex;width:6rem;height:6rem;color:rgba(255,255,255,0.85);"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <path d="M12 10h24l-3 26a3 3 0 01-3 3H18a3 3 0 01-3-3L12 10z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" fill="none"/>
   <path d="M10 10h28" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
   <path d="M18 10 C18 6 30 6 30 10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none"/>
   <path d="M16 20 Q24 16 32 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.5"/>
 </svg></span></div>
-        <div class="story-photo-accent" style="font-size:0;"><span style="display:flex;width:4.5rem;height:4.5rem;color:rgba(255,255,255,0.85);"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
+        <div class="story-photo-accent" style="font-size:0;">
+          <img class="img-cover" src="images/story-accent.webp" alt="Cheesecake cup layers close-up" loading="lazy" style="border-radius:var(--radius-md);"><span style="display:flex;width:4.5rem;height:4.5rem;color:rgba(255,255,255,0.85);"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <path d="M14 14 C14 10 34 10 34 14 L32 34 C32 37 16 37 16 34 Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" fill="none"/>
   <path d="M14 20 Q24 24 34 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.6"/>
   <path d="M20 8 C20 5 28 5 28 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.7"/>
@@ -2467,6 +2494,7 @@ section { position: relative; }
       <!-- Card 1 -->
       <div class="product-card reveal">
         <div class="product-img">
+          <img class="img-cover" src="images/menu-cookies-cream.webp" alt="Cookies and Cream cheesecake cup" loading="lazy">
           <span style="display:flex;width:6rem;height:6rem;color:rgba(255,255,255,0.7);margin:auto;"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="2.2"/>
   <circle cx="19" cy="20" r="1.8" fill="currentColor"/>
@@ -2509,6 +2537,7 @@ section { position: relative; }
       <!-- Card 2 -->
       <div class="product-card reveal">
         <div class="product-img product-img-2">
+          <img class="img-cover" src="images/menu-caramel.webp" alt="Salted Caramel cheesecake cup" loading="lazy">
           <span style="display:flex;width:6rem;height:6rem;color:rgba(255,255,255,0.7);margin:auto;"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <path d="M14 14 C14 10 34 10 34 14 L32 34 C32 37 16 37 16 34 Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" fill="none"/>
   <path d="M14 20 Q24 24 34 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.6"/>
@@ -2551,6 +2580,7 @@ section { position: relative; }
       <!-- Card 3 -->
       <div class="product-card reveal">
         <div class="product-img product-img-3">
+          <img class="img-cover" src="images/menu-red-velvet.webp" alt="Red Velvet Dream cheesecake cup" loading="lazy">
           <span style="display:flex;width:6rem;height:6rem;color:rgba(255,255,255,0.7);margin:auto;"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <path d="M24 38 C24 38 10 28 10 18 a14 14 0 0 1 28 0 C38 28 24 38 24 38z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" fill="none"/>
   <path d="M24 38 L24 22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.5"/>
@@ -2590,6 +2620,7 @@ section { position: relative; }
       <!-- Card 4 -->
       <div class="product-card reveal">
         <div class="product-img product-img-4">
+          <img class="img-cover" src="images/menu-nutella.webp" alt="Nutella Swirl cheesecake cup" loading="lazy">
           <span style="display:flex;width:6rem;height:6rem;color:rgba(255,255,255,0.7);margin:auto;"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <rect x="10" y="12" width="28" height="24" rx="3" stroke="currentColor" stroke-width="2.2" fill="none"/>
   <line x1="10" y1="20" x2="38" y2="20" stroke="currentColor" stroke-width="1.8" opacity="0.6"/>
@@ -2627,6 +2658,7 @@ section { position: relative; }
 
       <!-- Card 5 --> <div class="product-card reveal">
         <div class="product-img product-img-5">
+          <img class="img-cover" src="images/menu-peanut-butter.webp" alt="Peanut Butter Cup cheesecake" loading="lazy">
           <span style="display:flex;width:6rem;height:6rem;color:rgba(255,255,255,0.7);margin:auto;"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <ellipse cx="17" cy="20" rx="7" ry="10" stroke="currentColor" stroke-width="2.2" fill="none"/>
   <ellipse cx="31" cy="28" rx="7" ry="10" stroke="currentColor" stroke-width="2.2" fill="none"/>
@@ -2663,6 +2695,7 @@ section { position: relative; }
       <!--Card 6 -->
       <div class="product-card reveal">
         <div class="product-img product-img-6">
+          <img class="img-cover" src="images/menu-biscoff.webp" alt="Biscoff Bliss cheesecake cup" loading="lazy">
           <span style="display:flex;width:6rem;height:6rem;color:rgba(255,255,255,0.7);margin:auto;"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <rect x="10" y="16" width="28" height="18" rx="4" stroke="currentColor" stroke-width="2.2" fill="none"/>
   <path d="M10 24 Q24 20 38 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.6"/>
@@ -2820,7 +2853,7 @@ section { position: relative; }
 
     <div class="collections-grid">
       <div class="collection-card large reveal">
-        <div class="collection-bg col-bg-1" style="font-size:0;display:flex;align-items:center;justify-content:center;"><span style="display:flex;width:7rem;height:7rem;color:rgba(255,255,255,0.2);"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
+        <div class="collection-bg col-bg-1" style="font-size:0;display:flex;align-items:center;justify-content:center;"><img class="img-cover" src="images/collection-chocolate.webp" alt="Chocolate Lovers gift box collection" loading="lazy"><span style="display:flex;width:7rem;height:7rem;color:rgba(255,255,255,0.2);"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <rect x="10" y="12" width="28" height="24" rx="3" stroke="currentColor" stroke-width="2.2" fill="none"/>
   <line x1="10" y1="20" x2="38" y2="20" stroke="currentColor" stroke-width="1.8" opacity="0.6"/>
   <line x1="10" y1="28" x2="38" y2="28" stroke="currentColor" stroke-width="1.8" opacity="0.6"/>
@@ -2836,7 +2869,7 @@ section { position: relative; }
       </div>
 
       <div class="collection-card reveal">
-        <div class="collection-bg col-bg-2" style="font-size:0;display:flex;align-items:center;justify-content:center;"><span style="display:flex;width:7rem;height:7rem;color:rgba(255,255,255,0.2);"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
+        <div class="collection-bg col-bg-2" style="font-size:0;display:flex;align-items:center;justify-content:center;"><img class="img-cover" src="images/collection-caramel.webp" alt="Caramel Collection cheesecake cups" loading="lazy"><span style="display:flex;width:7rem;height:7rem;color:rgba(255,255,255,0.2);"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <path d="M14 14 C14 10 34 10 34 14 L32 34 C32 37 16 37 16 34 Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" fill="none"/>
   <path d="M14 20 Q24 24 34 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.6"/>
   <path d="M20 8 C20 5 28 5 28 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.7"/>
@@ -2850,7 +2883,7 @@ section { position: relative; }
       </div>
 
       <div class="collection-card reveal">
-        <div class="collection-bg col-bg-3" style="font-size:0;display:flex;align-items:center;justify-content:center;"><span style="display:flex;width:7rem;height:7rem;color:rgba(255,255,255,0.2);"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
+        <div class="collection-bg col-bg-3" style="font-size:0;display:flex;align-items:center;justify-content:center;"><img class="img-cover" src="images/collection-gift.webp" alt="Premium gift box" loading="lazy"><span style="display:flex;width:7rem;height:7rem;color:rgba(255,255,255,0.2);"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <rect x="8" y="22" width="32" height="18" rx="3" stroke="currentColor" stroke-width="2.2" fill="none"/>
   <rect x="8" y="16" width="32" height="6" rx="2" stroke="currentColor" stroke-width="2.2" fill="none"/>
   <path d="M24 16 V40" stroke="currentColor" stroke-width="1.8" opacity="0.5"/>
@@ -2866,7 +2899,7 @@ section { position: relative; }
       </div>
 
       <div class="collection-card reveal">
-        <div class="collection-bg col-bg-4" style="font-size:0;display:flex;align-items:center;justify-content:center;"><span style="display:flex;width:7rem;height:7rem;color:rgba(255,255,255,0.2);"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
+        <div class="collection-bg col-bg-4" style="font-size:0;display:flex;align-items:center;justify-content:center;"><img class="img-cover" src="images/collection-party.webp" alt="Party Collection dessert trays" loading="lazy"><span style="display:flex;width:7rem;height:7rem;color:rgba(255,255,255,0.2);"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <ellipse cx="24" cy="30" rx="16" ry="6" stroke="currentColor" stroke-width="2.2" fill="none"/>
   <path d="M8 30 V26 a16 6 0 0 1 32 0 V30" stroke="currentColor" stroke-width="2.2" fill="none"/>
   <path d="M16 26 V18 a8 4 0 0 1 16 0 V26" stroke="currentColor" stroke-width="2" fill="none" opacity="0.6"/>
@@ -3329,7 +3362,7 @@ section { position: relative; }
 
     <div class="gallery-grid">
       <div class="gallery-item gal-1 span-2">
-        🍮
+        <img class="img-cover" src="images/gallery-1.webp" alt="Dessert table with assorted cheesecake cups" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-icon" style="font-size:0;display:flex;width:2rem;height:2rem;color:white;"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <circle cx="22" cy="22" r="12" stroke="currentColor" stroke-width="2.5" fill="none"/>
   <path d="M31 31 l9 9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
@@ -3337,7 +3370,7 @@ section { position: relative; }
 </svg></div></div>
       </div>
       <div class="gallery-item gal-2">
-        🍪
+        <img class="img-cover" src="images/gallery-2.webp" alt="Spoon breaking into caramel cheesecake cup" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-icon" style="font-size:0;display:flex;width:2rem;height:2rem;color:white;"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <circle cx="22" cy="22" r="12" stroke="currentColor" stroke-width="2.5" fill="none"/>
   <path d="M31 31 l9 9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
@@ -3345,7 +3378,7 @@ section { position: relative; }
 </svg></div></div>
       </div>
       <div class="gallery-item gal-3">
-        🍓
+        <img class="img-cover" src="images/gallery-3.webp" alt="Gift wrapping a cheesecake cup box" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-icon" style="font-size:0;display:flex;width:2rem;height:2rem;color:white;"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <circle cx="22" cy="22" r="12" stroke="currentColor" stroke-width="2.5" fill="none"/>
   <path d="M31 31 l9 9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
@@ -3353,7 +3386,7 @@ section { position: relative; }
 </svg></div></div>
       </div>
       <div class="gallery-item gal-4">
-        🎁
+        <img class="img-cover" src="images/gallery-4.webp" alt="Red Velvet cheesecake cup held up" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-icon" style="font-size:0;display:flex;width:2rem;height:2rem;color:white;"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <circle cx="22" cy="22" r="12" stroke="currentColor" stroke-width="2.5" fill="none"/>
   <path d="M31 31 l9 9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
@@ -3361,7 +3394,7 @@ section { position: relative; }
 </svg></div></div>
       </div>
       <div class="gallery-item gal-5">
-        🍫
+        <img class="img-cover" src="images/gallery-5.webp" alt="Birthday dessert table styled with cheesecake cups" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-icon" style="font-size:0;display:flex;width:2rem;height:2rem;color:white;"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <circle cx="22" cy="22" r="12" stroke="currentColor" stroke-width="2.5" fill="none"/>
   <path d="M31 31 l9 9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
@@ -3369,7 +3402,7 @@ section { position: relative; }
 </svg></div></div>
       </div>
       <div class="gallery-item gal-6">
-        🥜
+        <img class="img-cover" src="images/gallery-6.webp" alt="Two cheesecake cups on marble with candlelight" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-icon" style="font-size:0;display:flex;width:2rem;height:2rem;color:white;"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <circle cx="22" cy="22" r="12" stroke="currentColor" stroke-width="2.5" fill="none"/>
   <path d="M31 31 l9 9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
@@ -3377,7 +3410,7 @@ section { position: relative; }
 </svg></div></div>
       </div>
       <div class="gallery-item gal-7">
-        🌟
+        <img class="img-cover" src="images/gallery-7.webp" alt="Unboxing a Velvet and Cream cheesecake cup gift" loading="lazy">
         <div class="gallery-overlay"><div class="gallery-overlay-icon" style="font-size:0;display:flex;width:2rem;height:2rem;color:white;"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <circle cx="22" cy="22" r="12" stroke="currentColor" stroke-width="2.5" fill="none"/>
   <path d="M31 31 l9 9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
