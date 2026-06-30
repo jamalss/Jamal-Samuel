@@ -1,0 +1,1661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SunRide St. Lucia — Licensed Airport Transfers & Taxi Services</title>
+  <meta name="description" content="Saint Lucia's most trusted airport transfer and taxi service. Licensed, insured, 24/7 — serving Hewanorra, George F.L. Charles Airport, and all resorts island-wide." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy:   { DEFAULT: '#0D1B2A', 800: '#162236', 700: '#1E3048' },
+            gold:   { DEFAULT: '#F5A623', light: '#FBBF44', dark: '#D4891A' },
+            sand:   { DEFAULT: '#F8F4EE', dark: '#EDE7DC' },
+            coral:  { DEFAULT: '#E8563A', dark: '#C8402A' },
+            slate:  { light: '#94A3B8', DEFAULT: '#64748B' },
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            body:    ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #fff; color: #0D1B2A; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #F8F4EE; }
+    ::-webkit-scrollbar-thumb { background: #F5A623; border-radius: 3px; }
+
+    /* Reveal animations */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+    /* Gold slash signature element */
+    .slash-divider { position: relative; display: inline-block; }
+    .slash-divider::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 60px; height: 4px;
+      background: linear-gradient(90deg, #F5A623, #FBBF44);
+      border-radius: 2px;
+    }
+
+    /* Navbar glass */
+    .nav-scrolled {
+      background: rgba(13,27,42,0.97) !important;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+
+    /* Hero gradient overlay */
+    .hero-overlay {
+      background: linear-gradient(
+        135deg,
+        rgba(13,27,42,0.88) 0%,
+        rgba(13,27,42,0.70) 50%,
+        rgba(13,27,42,0.45) 100%
+      );
+    }
+
+    /* Photo placeholder */
+    .photo-hero {
+      background: linear-gradient(160deg, #0D1B2A 0%, #1E3048 40%, #2C4A6E 70%, #3A6090 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .photo-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(ellipse at 70% 40%, rgba(245,166,35,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(232,86,58,0.10) 0%, transparent 50%);
+    }
+    /* Silhouette elements for hero */
+    .hero-scene { position: absolute; bottom: 0; left: 0; right: 0; height: 55%; pointer-events: none; }
+
+    /* Service cards */
+    .service-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(13,27,42,0.12); }
+
+    /* Vehicle card */
+    .vehicle-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .vehicle-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(13,27,42,0.10); }
+
+    /* Gold button pulse */
+    .btn-gold { position: relative; overflow: hidden; }
+    .btn-gold::after {
+      content: '';
+      position: absolute; top: 50%; left: 50%;
+      width: 0; height: 0;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.4s ease, height 0.4s ease;
+    }
+    .btn-gold:hover::after { width: 300px; height: 300px; }
+
+    /* Step line connector */
+    .step-connector { position: relative; }
+    .step-connector::after {
+      content: '';
+      position: absolute;
+      top: 28px; left: calc(50% + 28px);
+      width: calc(100% - 56px); height: 2px;
+      background: linear-gradient(90deg, #F5A623, #FBBF44);
+      opacity: 0.4;
+    }
+
+    /* Testimonial card */
+    .testimonial-card { transition: transform 0.3s ease; }
+    .testimonial-card:hover { transform: translateY(-4px); }
+
+    /* WhatsApp float */
+    .whatsapp-float {
+      position: fixed; bottom: 24px; right: 24px; z-index: 999;
+      width: 56px; height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.5); }
+
+    /* Mobile nav */
+    #mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    #mobile-menu.open { max-height: 500px; }
+
+    /* Stars */
+    .stars { color: #F5A623; letter-spacing: 2px; }
+
+    /* Map placeholder */
+    .map-placeholder {
+      background: linear-gradient(135deg, #EDE7DC 0%, #D8CFBF 100%);
+      position: relative; overflow: hidden;
+    }
+    .map-placeholder::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(13,27,42,0.06) 39px, rgba(13,27,42,0.06) 40px),
+        repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(13,27,42,0.06) 39px, rgba(13,27,42,0.06) 40px);
+    }
+
+    /* Vehicle photo placeholders */
+    .vehicle-photo-sedan {
+      background: linear-gradient(145deg, #1a2a3a 0%, #2c4060 50%, #1a2a3a 100%);
+    }
+    .vehicle-photo-suv {
+      background: linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    }
+    .vehicle-photo-van {
+      background: linear-gradient(145deg, #2d1b00 0%, #4a3000 50%, #2d1b00 100%);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
+      .service-card:hover, .vehicle-card:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     FLOATING WHATSAPP BUTTON
+============================================================ -->
+<a href="https://wa.me/17584001234" target="_blank" rel="noopener"
+   class="whatsapp-float" aria-label="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- ============================================================
+     NAVIGATION
+============================================================ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent"
+     role="navigation" aria-label="Main navigation">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
+
+      <!-- Logo -->
+      <a href="#home" class="flex items-center gap-3 group" aria-label="SunRide St. Lucia - Home">
+        <!-- SVG Logo Mark -->
+        <div class="relative w-10 h-10 flex-shrink-0">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-10 h-10">
+            <circle cx="20" cy="20" r="20" fill="#F5A623"/>
+            <!-- Road slash -->
+            <path d="M8 30 L32 10" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+            <!-- Sun ray dots -->
+            <circle cx="20" cy="8" r="2" fill="white" opacity="0.7"/>
+            <circle cx="32" cy="20" r="2" fill="white" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="leading-none">
+          <span class="block text-white font-display font-bold text-xl tracking-tight">SunRide</span>
+          <span class="block text-gold text-xs font-body font-600 tracking-widest uppercase">St. Lucia</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="#services" class="text-white/80 hover:text-gold font-body text-sm font-500 transition-colors duration-200">Services</a>
+        <a href="#fleet"    class="text-white/80 hover:text-gold font-body text-sm font-500 transition-colors duration-200">Fleet</a>
+        <a href="#about"    class="text-white/80 hover:text-gold font-body text-sm font-500 transition-colors duration-200">About</a>
+        <a href="#reviews"  class="text-white/80 hover:text-gold font-body text-sm font-500 transition-colors duration-200">Reviews</a>
+        <a href="#contact"  class="text-white/80 hover:text-gold font-body text-sm font-500 transition-colors duration-200">Contact</a>
+        <a href="#book"
+           class="btn-gold bg-gold hover:bg-gold-dark text-navy font-body font-700 text-sm px-6 py-3 rounded-full transition-colors duration-200 ml-4">
+          Book Now
+        </a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button id="hamburger" class="lg:hidden text-white p-2 rounded-md" aria-label="Open menu" aria-expanded="false">
+        <svg id="ham-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        <svg id="close-icon" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Nav Menu -->
+    <div id="mobile-menu" class="lg:hidden bg-navy-800 rounded-2xl mb-4 overflow-hidden">
+      <div class="px-4 py-4 flex flex-col gap-2">
+        <a href="#services" class="mobile-link text-white/80 hover:text-gold py-3 px-4 rounded-xl hover:bg-white/5 font-body font-500 transition-all">Services</a>
+        <a href="#fleet"    class="mobile-link text-white/80 hover:text-gold py-3 px-4 rounded-xl hover:bg-white/5 font-body font-500 transition-all">Fleet</a>
+        <a href="#about"    class="mobile-link text-white/80 hover:text-gold py-3 px-4 rounded-xl hover:bg-white/5 font-body font-500 transition-all">About</a>
+        <a href="#reviews"  class="mobile-link text-white/80 hover:text-gold py-3 px-4 rounded-xl hover:bg-white/5 font-body font-500 transition-all">Reviews</a>
+        <a href="#contact"  class="mobile-link text-white/80 hover:text-gold py-3 px-4 rounded-xl hover:bg-white/5 font-body font-500 transition-all">Contact</a>
+        <a href="#book"     class="mobile-link mt-2 bg-gold text-navy font-700 py-3 px-4 rounded-xl text-center font-body transition-all">Book Now</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO SECTION
+============================================================ -->
+<section id="home" class="photo-hero min-h-screen flex flex-col justify-center relative overflow-hidden">
+
+  <!-- Hero visual elements — stylised Caribbean scene -->
+  <div class="absolute inset-0 pointer-events-none select-none">
+    <!-- Sky gradient -->
+    <div class="absolute inset-0" style="background: linear-gradient(175deg, #0a1628 0%, #0d2040 35%, #1a3a6a 65%, #2a5a8a 100%);"></div>
+    <!-- Stars -->
+    <div class="absolute top-0 left-0 right-0 h-1/2" style="background-image: radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px); background-size: 80px 60px; background-position: 0 0, 40px 30px; opacity: 0.3;"></div>
+    <!-- Gold horizon glow -->
+    <div class="absolute bottom-0 left-0 right-0 h-2/5" style="background: linear-gradient(0deg, rgba(245,166,35,0.18) 0%, transparent 100%);"></div>
+    <!-- Road perspective -->
+    <svg class="absolute bottom-0 left-0 right-0 w-full" viewBox="0 0 1440 320" preserveAspectRatio="none" style="height: 220px; opacity: 0.5;">
+      <polygon points="520,320 920,320 800,120 640,120" fill="rgba(20,35,55,0.9)"/>
+      <!-- Road lines -->
+      <rect x="718" y="140" width="4" height="40" fill="rgba(245,166,35,0.6)" rx="2"/>
+      <rect x="718" y="200" width="4" height="40" fill="rgba(245,166,35,0.6)" rx="2"/>
+      <rect x="718" y="260" width="4" height="40" fill="rgba(245,166,35,0.6)" rx="2"/>
+      <!-- Car silhouette -->
+      <g transform="translate(630, 175)">
+        <rect x="0" y="20" width="180" height="50" rx="8" fill="#0D1B2A" stroke="rgba(245,166,35,0.3)" stroke-width="1"/>
+        <rect x="20" y="5" width="130" height="35" rx="6" fill="#162236" stroke="rgba(245,166,35,0.2)" stroke-width="1"/>
+        <!-- Windows -->
+        <rect x="30" y="10" width="45" height="25" rx="3" fill="rgba(245,166,35,0.15)"/>
+        <rect x="85" y="10" width="55" height="25" rx="3" fill="rgba(245,166,35,0.15)"/>
+        <!-- Wheels -->
+        <circle cx="35" cy="70" r="16" fill="#0a0f1a" stroke="#F5A623" stroke-width="2"/>
+        <circle cx="35" cy="70" r="7" fill="#F5A623" opacity="0.8"/>
+        <circle cx="145" cy="70" r="16" fill="#0a0f1a" stroke="#F5A623" stroke-width="2"/>
+        <circle cx="145" cy="70" r="7" fill="#F5A623" opacity="0.8"/>
+        <!-- Headlights -->
+        <ellipse cx="175" cy="42" rx="6" ry="4" fill="#FBBF44" opacity="0.9"/>
+        <line x1="175" y1="42" x2="220" y2="38" stroke="rgba(251,191,68,0.4)" stroke-width="4"/>
+        <!-- Tail lights -->
+        <rect x="-2" y="35" width="6" height="8" rx="2" fill="#E8563A" opacity="0.9"/>
+      </g>
+      <!-- Palm trees silhouette left -->
+      <g transform="translate(200, 60)" opacity="0.7">
+        <rect x="38" y="80" width="8" height="130" rx="4" fill="#0a1520"/>
+        <ellipse cx="42" cy="80" rx="55" ry="40" fill="#0a1520" transform="rotate(-15, 42, 80)"/>
+        <ellipse cx="42" cy="80" rx="50" ry="35" fill="#0d1e30" transform="rotate(10, 42, 80)"/>
+        <ellipse cx="42" cy="80" rx="45" ry="30" fill="#0a1520" transform="rotate(30, 42, 80)"/>
+      </g>
+      <!-- Palm trees silhouette right -->
+      <g transform="translate(1170, 30)" opacity="0.7">
+        <rect x="38" y="80" width="8" height="150" rx="4" fill="#0a1520"/>
+        <ellipse cx="42" cy="80" rx="55" ry="40" fill="#0a1520" transform="rotate(15, 42, 80)"/>
+        <ellipse cx="42" cy="80" rx="50" ry="35" fill="#0d1e30" transform="rotate(-10, 42, 80)"/>
+        <ellipse cx="42" cy="80" rx="45" ry="30" fill="#0a1520" transform="rotate(-30, 42, 80)"/>
+      </g>
+      <!-- Mountain silhouette (Piton-inspired) -->
+      <polygon points="0,320 160,100 320,320" fill="#060d18" opacity="0.8"/>
+      <polygon points="1440,320 1280,140 1120,320" fill="#060d18" opacity="0.8"/>
+      <!-- Airport tower right side -->
+      <g transform="translate(1050, 80)" opacity="0.5">
+        <rect x="20" y="0" width="20" height="160" fill="#0a1520"/>
+        <rect x="0" y="0" width="60" height="30" rx="4" fill="#0d1e30"/>
+        <rect x="25" y="-10" width="10" height="15" fill="#0a1520"/>
+      </g>
+    </svg>
+    <!-- Gold accent diagonal slash -->
+    <div class="absolute top-0 right-0 w-1/3 h-full opacity-10"
+         style="background: linear-gradient(135deg, transparent 40%, rgba(245,166,35,0.6) 100%);"></div>
+  </div>
+
+  <!-- Hero Content -->
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20 md:pt-36 md:pb-28">
+    <div class="max-w-3xl">
+
+      <!-- Eyebrow -->
+      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8">
+        <span class="w-2 h-2 bg-gold rounded-full animate-pulse"></span>
+        <span class="text-white/90 font-body text-sm font-500 tracking-wide">Now Serving All Saint Lucia Airports & Resorts</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="font-display font-900 text-white leading-tight mb-6"
+          style="font-size: clamp(2.4rem, 6vw, 4.5rem); text-shadow: 0 2px 30px rgba(0,0,0,0.4);">
+        Reliable Airport Transfers<br/>
+        <span style="color: #F5A623;">Across Saint Lucia.</span>
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="font-body text-white/80 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl">
+        From Hewanorra International to Rodney Bay, Soufrière, and everywhere in between —
+        SunRide gets you there safely, on time, every time. No hidden fees. No waiting around.
+      </p>
+
+      <!-- CTA Group -->
+      <div class="flex flex-wrap gap-4 mb-12">
+        <a href="#book"
+           class="btn-gold inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-navy font-body font-700 text-base px-8 py-4 rounded-full transition-colors duration-200 shadow-lg shadow-gold/30">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <rect x="3" y="4" width="18" height="18" rx="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          Book Your Ride
+        </a>
+        <a href="https://wa.me/17584001234" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebb58] text-white font-body font-600 text-base px-8 py-4 rounded-full transition-colors duration-200">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          WhatsApp Us
+        </a>
+        <a href="tel:+17584001234"
+           class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-body font-600 text-base px-8 py-4 rounded-full backdrop-blur-sm border border-white/20 transition-all duration-200">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.14 13.5 19.79 19.79 0 011.07 4.92 2 2 0 013.05 2.73h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0121.28 17z"/>
+          </svg>
+          Call Now
+        </a>
+      </div>
+
+      <!-- Trust Badges -->
+      <div class="flex flex-wrap gap-3">
+        <div class="trust-badge inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#F5A623">
+            <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z"/>
+          </svg>
+          <span class="text-white/90 font-body text-sm font-500">Licensed</span>
+        </div>
+        <div class="trust-badge inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          <span class="text-white/90 font-body text-sm font-500">Insured</span>
+        </div>
+        <div class="trust-badge inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          <span class="text-white/90 font-body text-sm font-500">24/7 Available</span>
+        </div>
+        <div class="trust-badge inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+          </svg>
+          <span class="text-white/90 font-body text-sm font-500">Airport Certified</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
+    <span class="text-white/60 font-body text-xs tracking-widest uppercase">Scroll</span>
+    <div class="w-px h-8 bg-gradient-to-b from-white/60 to-transparent animate-bounce"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     QUICK STATS BAR
+============================================================ -->
+<section class="bg-navy py-6">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 divide-y md:divide-y-0 md:divide-x divide-white/10">
+      <div class="flex flex-col items-center py-2 md:py-0 reveal">
+        <span class="font-display font-700 text-gold text-3xl md:text-4xl">12+</span>
+        <span class="font-body text-white/60 text-sm mt-1">Years on the Road</span>
+      </div>
+      <div class="flex flex-col items-center py-2 md:py-0 reveal" style="transition-delay:0.1s">
+        <span class="font-display font-700 text-gold text-3xl md:text-4xl">8,400+</span>
+        <span class="font-body text-white/60 text-sm mt-1">Trips Completed</span>
+      </div>
+      <div class="flex flex-col items-center py-2 md:py-0 reveal" style="transition-delay:0.2s">
+        <span class="font-display font-700 text-gold text-3xl md:text-4xl">4.9★</span>
+        <span class="font-body text-white/60 text-sm mt-1">Average Rating</span>
+      </div>
+      <div class="flex flex-col items-center py-2 md:py-0 reveal" style="transition-delay:0.3s">
+        <span class="font-display font-700 text-gold text-3xl md:text-4xl">100%</span>
+        <span class="font-body text-white/60 text-sm mt-1">On-Time Promise</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICES SECTION
+============================================================ -->
+<section id="services" class="bg-sand py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Section Header -->
+    <div class="text-center mb-16 reveal">
+      <span class="font-body text-gold font-600 text-sm tracking-widest uppercase block mb-4">What We Offer</span>
+      <h2 class="font-display font-700 text-navy text-4xl md:text-5xl leading-tight mb-6 slash-divider inline-block">
+        Every Journey, Covered
+      </h2>
+      <p class="font-body text-slate text-lg max-w-2xl mx-auto mt-4">
+        Whether you need a quick airport pickup or a full-day island tour,
+        SunRide handles it — professionally, punctually, and at a price that makes sense.
+      </p>
+    </div>
+
+    <!-- Service Cards Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+      <!-- Airport Transfers -->
+      <div class="service-card bg-white rounded-2xl p-6 shadow-sm border border-sand-dark hover:border-gold/30 cursor-pointer reveal" style="transition-delay:0.05s">
+        <div class="w-14 h-14 bg-navy/5 rounded-2xl flex items-center justify-center mb-5">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0D1B2A" stroke-width="1.8">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.14 13.5 19.79 19.79 0 011.07 4.92 2 2 0 013.05 2.73h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0121.28 17z"/>
+          </svg>
+        </div>
+        <h3 class="font-body font-700 text-navy text-lg mb-2">Airport Transfers</h3>
+        <p class="font-body text-slate text-sm leading-relaxed">
+          Meet-and-greet service at Hewanorra International and George F.L. Charles Airport. We track your flight — no surprises.
+        </p>
+        <div class="mt-5 flex items-center gap-1 text-gold font-body text-sm font-600">
+          <span>From EC$60</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+
+      <!-- Hotel Transfers -->
+      <div class="service-card bg-white rounded-2xl p-6 shadow-sm border border-sand-dark hover:border-gold/30 cursor-pointer reveal" style="transition-delay:0.1s">
+        <div class="w-14 h-14 bg-gold/10 rounded-2xl flex items-center justify-center mb-5">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D4891A" stroke-width="1.8">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <h3 class="font-body font-700 text-navy text-lg mb-2">Hotel Transfers</h3>
+        <p class="font-body text-slate text-sm leading-relaxed">
+          Direct transfers to Sandals, Jade Mountain, Anse Chastanet, Cap Maison, and all resorts. Comfort guaranteed.
+        </p>
+        <div class="mt-5 flex items-center gap-1 text-gold font-body text-sm font-600">
+          <span>From EC$50</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+
+      <!-- Cruise Port -->
+      <div class="service-card bg-white rounded-2xl p-6 shadow-sm border border-sand-dark hover:border-gold/30 cursor-pointer reveal" style="transition-delay:0.15s">
+        <div class="w-14 h-14 bg-navy/5 rounded-2xl flex items-center justify-center mb-5">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0D1B2A" stroke-width="1.8">
+            <path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8zM6 1v3M10 1v3M14 1v3"/>
+          </svg>
+        </div>
+        <h3 class="font-body font-700 text-navy text-lg mb-2">Cruise Port Transfers</h3>
+        <p class="font-body text-slate text-sm leading-relaxed">
+          Flexible pickup at La Place Carenage and Point Seraphine. We work around your ship's schedule, not ours.
+        </p>
+        <div class="mt-5 flex items-center gap-1 text-gold font-body text-sm font-600">
+          <span>From EC$55</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+
+      <!-- Corporate Travel -->
+      <div class="service-card bg-navy rounded-2xl p-6 shadow-sm border border-navy cursor-pointer reveal" style="transition-delay:0.2s">
+        <div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-5">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="1.8">
+            <rect x="2" y="7" width="20" height="14" rx="2"/>
+            <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
+            <line x1="12" y1="12" x2="12" y2="12.01" stroke-width="3"/>
+          </svg>
+        </div>
+        <h3 class="font-body font-700 text-white text-lg mb-2">Corporate Travel</h3>
+        <p class="font-body text-white/60 text-sm leading-relaxed">
+          Executive transport for business clients and delegations. Discreet, reliable, and always immaculate.
+        </p>
+        <div class="mt-5 flex items-center gap-1 text-gold font-body text-sm font-600">
+          <span>Tailored Rates</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+
+      <!-- Island Tours -->
+      <div class="service-card bg-white rounded-2xl p-6 shadow-sm border border-sand-dark hover:border-gold/30 cursor-pointer reveal" style="transition-delay:0.25s">
+        <div class="w-14 h-14 bg-gold/10 rounded-2xl flex items-center justify-center mb-5">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D4891A" stroke-width="1.8">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+          </svg>
+        </div>
+        <h3 class="font-body font-700 text-navy text-lg mb-2">Island Tours</h3>
+        <p class="font-body text-slate text-sm leading-relaxed">
+          The Pitons, Sulphur Springs, Diamond Falls, Marigot Bay — custom-paced tours with a driver who actually knows the island.
+        </p>
+        <div class="mt-5 flex items-center gap-1 text-gold font-body text-sm font-600">
+          <span>From EC$200/day</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+
+      <!-- Private Taxi -->
+      <div class="service-card bg-white rounded-2xl p-6 shadow-sm border border-sand-dark hover:border-gold/30 cursor-pointer reveal" style="transition-delay:0.3s">
+        <div class="w-14 h-14 bg-navy/5 rounded-2xl flex items-center justify-center mb-5">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0D1B2A" stroke-width="1.8">
+            <rect x="1" y="3" width="15" height="13" rx="2"/>
+            <path d="M16 8h3l4 4v4h-7V8zM5.5 20a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM18.5 20a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/>
+          </svg>
+        </div>
+        <h3 class="font-body font-700 text-navy text-lg mb-2">Private Taxi</h3>
+        <p class="font-body text-slate text-sm leading-relaxed">
+          On-demand private rides anywhere on the island. Available on short notice. No shared vehicles, no detours.
+        </p>
+        <div class="mt-5 flex items-center gap-1 text-gold font-body text-sm font-600">
+          <span>From EC$40</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+
+      <!-- Group Transportation -->
+      <div class="service-card bg-white rounded-2xl p-6 shadow-sm border border-sand-dark hover:border-gold/30 cursor-pointer reveal" style="transition-delay:0.35s">
+        <div class="w-14 h-14 bg-gold/10 rounded-2xl flex items-center justify-center mb-5">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D4891A" stroke-width="1.8">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+        </div>
+        <h3 class="font-body font-700 text-navy text-lg mb-2">Group Transportation</h3>
+        <p class="font-body text-slate text-sm leading-relaxed">
+          Wedding parties, tour groups, family reunions, and corporate events. We have the capacity and the vehicles.
+        </p>
+        <div class="mt-5 flex items-center gap-1 text-gold font-body text-sm font-600">
+          <span>From EC$180</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+
+      <!-- CTA Card -->
+      <div class="service-card bg-gradient-to-br from-gold to-gold-dark rounded-2xl p-6 flex flex-col justify-between cursor-pointer reveal" style="transition-delay:0.4s">
+        <div>
+          <h3 class="font-display font-700 text-navy text-2xl mb-3 leading-tight">Not sure what you need?</h3>
+          <p class="font-body text-navy/70 text-sm leading-relaxed">
+            Send us a WhatsApp message and we'll sort it out for you in minutes.
+          </p>
+        </div>
+        <a href="https://wa.me/17584001234" target="_blank" rel="noopener"
+           class="mt-6 inline-flex items-center gap-2 bg-navy text-white font-body font-600 text-sm px-5 py-3 rounded-xl hover:bg-navy-800 transition-colors">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Message Us Now
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FLEET SECTION
+============================================================ -->
+<section id="fleet" class="bg-white py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-16 reveal">
+      <span class="font-body text-gold font-600 text-sm tracking-widest uppercase block mb-4">Our Vehicles</span>
+      <h2 class="font-display font-700 text-navy text-4xl md:text-5xl leading-tight">
+        Clean. Comfortable. Ready.
+      </h2>
+      <p class="font-body text-slate text-lg max-w-2xl mx-auto mt-4">
+        Every SunRide vehicle is serviced regularly, properly insured, and kept to a standard you can feel the moment you get in.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Sedan -->
+      <div class="vehicle-card bg-white rounded-2xl overflow-hidden border border-sand-dark shadow-sm reveal" style="transition-delay:0.1s">
+        <!-- Photo area -->
+        <div class="vehicle-photo-sedan h-52 flex items-center justify-center relative overflow-hidden">
+          <!-- Sedan SVG illustration -->
+          <svg viewBox="0 0 280 140" class="w-72 h-36 drop-shadow-xl" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="140" cy="125" rx="130" ry="10" fill="rgba(0,0,0,0.3)"/>
+            <!-- Body -->
+            <rect x="20" y="70" width="240" height="50" rx="10" fill="#1a2a3a"/>
+            <!-- Roof -->
+            <path d="M55 70 Q70 35 105 30 H175 Q210 35 225 70 Z" fill="#1e3248"/>
+            <!-- Windows -->
+            <path d="M62 68 Q72 42 105 38 H148 V68 Z" fill="rgba(245,166,35,0.2)" rx="3"/>
+            <path d="M155 38 H175 Q202 42 215 68 H155 Z" fill="rgba(245,166,35,0.2)" rx="3"/>
+            <!-- Window divider -->
+            <rect x="150" y="38" width="4" height="30" fill="#1a2a3a"/>
+            <!-- Grille accent -->
+            <rect x="230" y="80" width="25" height="18" rx="5" fill="#2c4060"/>
+            <rect x="232" y="84" width="21" height="3" rx="1" fill="rgba(245,166,35,0.4)"/>
+            <rect x="232" y="90" width="21" height="3" rx="1" fill="rgba(245,166,35,0.4)"/>
+            <!-- Headlight -->
+            <ellipse cx="252" cy="85" rx="8" ry="5" fill="rgba(251,191,68,0.9)"/>
+            <!-- Tail light -->
+            <rect x="19" y="78" width="8" height="12" rx="3" fill="#E8563A" opacity="0.9"/>
+            <!-- Wheels -->
+            <circle cx="65" cy="120" r="20" fill="#0a0f1a"/>
+            <circle cx="65" cy="120" r="12" fill="#162236"/>
+            <circle cx="65" cy="120" r="5" fill="#F5A623"/>
+            <circle cx="215" cy="120" r="20" fill="#0a0f1a"/>
+            <circle cx="215" cy="120" r="12" fill="#162236"/>
+            <circle cx="215" cy="120" r="5" fill="#F5A623"/>
+            <!-- Door handle -->
+            <rect x="100" y="85" width="18" height="4" rx="2" fill="rgba(245,166,35,0.5)"/>
+            <rect x="165" y="85" width="18" height="4" rx="2" fill="rgba(245,166,35,0.5)"/>
+            <!-- License plate -->
+            <rect x="108" y="105" width="44" height="12" rx="2" fill="white" opacity="0.8"/>
+            <text x="130" y="115" font-size="7" fill="#0D1B2A" text-anchor="middle" font-family="monospace">SUN·001</text>
+          </svg>
+          <div class="absolute top-4 left-4 bg-navy/80 backdrop-blur-sm rounded-full px-3 py-1">
+            <span class="font-body text-gold text-xs font-600 uppercase tracking-wide">Sedan</span>
+          </div>
+        </div>
+        <!-- Details -->
+        <div class="p-6">
+          <h3 class="font-body font-700 text-navy text-xl mb-1">Executive Sedan</h3>
+          <p class="font-body text-slate text-sm mb-5">Perfect for couples and solo travellers who want comfort without compromise.</p>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 bg-sand rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D1B2A" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                </svg>
+              </div>
+              <span class="font-body text-sm text-navy font-500">Up to 4 pax</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 bg-sand rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D1B2A" stroke-width="2">
+                  <rect x="2" y="7" width="20" height="14" rx="2"/>
+                  <path d="M6 7V5a2 2 0 012-2h8a2 2 0 012 2v2"/>
+                </svg>
+              </div>
+              <span class="font-body text-sm text-navy font-500">2 large bags</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 bg-sand rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D1B2A" stroke-width="2">
+                  <path d="M12 2a10 10 0 110 20A10 10 0 0112 2zm5 10H7m5-5v10"/>
+                </svg>
+              </div>
+              <span class="font-body text-sm text-navy font-500">Air-Con</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 bg-sand rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D1B2A" stroke-width="2">
+                  <path d="M3 18v-6a9 9 0 0118 0v6"/>
+                  <path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/>
+                </svg>
+              </div>
+              <span class="font-body text-sm text-navy font-500">USB Charging</span>
+            </div>
+          </div>
+          <a href="#book" class="mt-6 block text-center bg-navy hover:bg-navy-800 text-white font-body font-600 text-sm py-3 rounded-xl transition-colors">Book This Vehicle</a>
+        </div>
+      </div>
+
+      <!-- SUV -->
+      <div class="vehicle-card bg-white rounded-2xl overflow-hidden border border-gold/30 shadow-md reveal" style="transition-delay:0.2s">
+        <!-- Popular badge -->
+        <div class="bg-gold text-navy font-body font-700 text-xs uppercase tracking-widest text-center py-2">
+          ★ Most Popular
+        </div>
+        <!-- Photo area -->
+        <div class="vehicle-photo-suv h-52 flex items-center justify-center relative overflow-hidden">
+          <svg viewBox="0 0 290 145" class="w-72 h-36 drop-shadow-xl" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="145" cy="130" rx="135" ry="10" fill="rgba(0,0,0,0.3)"/>
+            <!-- Body (taller, boxier) -->
+            <rect x="15" y="60" width="255" height="65" rx="12" fill="#0f2035"/>
+            <!-- Roof (squarer) -->
+            <path d="M40 60 Q48 25 80 20 H200 Q232 25 248 60 Z" fill="#162240"/>
+            <!-- Windows front -->
+            <path d="M48 58 Q55 28 80 24 H135 V58 Z" fill="rgba(245,166,35,0.15)" rx="4"/>
+            <!-- Windows rear -->
+            <path d="M142 24 H200 Q225 28 240 58 H142 Z" fill="rgba(245,166,35,0.15)" rx="4"/>
+            <!-- B pillar -->
+            <rect x="137" y="22" width="4" height="36" fill="#0f2035"/>
+            <!-- Roof rails -->
+            <rect x="50" y="19" width="190" height="3" rx="1.5" fill="rgba(245,166,35,0.4)"/>
+            <!-- Grille -->
+            <rect x="253" y="72" width="14" height="28" rx="4" fill="#1a3050"/>
+            <rect x="255" y="76" width="10" height="3" rx="1" fill="rgba(245,166,35,0.5)"/>
+            <rect x="255" y="82" width="10" height="3" rx="1" fill="rgba(245,166,35,0.5)"/>
+            <rect x="255" y="88" width="10" height="3" rx="1" fill="rgba(245,166,35,0.5)"/>
+            <!-- Headlight -->
+            <ellipse cx="263" cy="78" rx="7" ry="5" fill="rgba(251,191,68,0.95)"/>
+            <!-- Tail light -->
+            <rect x="15" y="72" width="6" height="18" rx="3" fill="#E8563A"/>
+            <!-- Wheels -->
+            <circle cx="62" cy="125" r="22" fill="#0a0f1a"/>
+            <circle cx="62" cy="125" r="14" fill="#0f1e30"/>
+            <circle cx="62" cy="125" r="6" fill="#F5A623"/>
+            <circle cx="222" cy="125" r="22" fill="#0a0f1a"/>
+            <circle cx="222" cy="125" r="14" fill="#0f1e30"/>
+            <circle cx="222" cy="125" r="6" fill="#F5A623"/>
+            <!-- Side step -->
+            <rect x="30" y="120" width="220" height="5" rx="2" fill="#0a1520"/>
+            <!-- Door handles -->
+            <rect x="92" y="85" width="18" height="5" rx="2" fill="rgba(245,166,35,0.6)"/>
+            <rect x="165" y="85" width="18" height="5" rx="2" fill="rgba(245,166,35,0.6)"/>
+            <!-- License -->
+            <rect x="108" y="108" width="54" height="13" rx="2" fill="white" opacity="0.85"/>
+            <text x="135" y="119" font-size="7" fill="#0D1B2A" text-anchor="middle" font-family="monospace">SUN·002</text>
+          </svg>
+          <div class="absolute top-4 left-4 bg-navy/80 backdrop-blur-sm rounded-full px-3 py-1">
+            <span class="font-body text-gold text-xs font-600 uppercase tracking-wide">SUV</span>
+          </div>
+        </div>
+        <!-- Details -->
+        <div class="p-6">
+          <h3 class="font-body font-700 text-navy text-xl mb-1">Premium SUV</h3>
+          <p class="font-body text-slate text-sm mb-5">The go-to choice for families, groups, and anyone with heavy luggage from a long-haul flight.</p>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 bg-sand rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D1B2A" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+              </div>
+              <span class="font-body text-sm text-navy font-500">Up to 6 pax</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 bg-sand rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D1B2A" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V5a2 2 0 012-2h8a2 2 0 012 2v2"/></svg>
+              </div>
+              <span class="font-body text-sm text-navy font-500">4 large bags</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 bg-sand rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D1B2A" stroke-width="2"><path d="M12 2a10 10 0 110 20A10 10 0 0112 2zm5 10H7m5-5v10"/></svg>
+              </div>
+              <span class="font-body text-sm text-navy font-500">Dual Air-Con</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 bg-sand rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D1B2A" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18" stroke-width="3"/></svg>
+              </div>
+              <span class="font-body text-sm text-navy font-500">Child Seat Avail.</span>
+            </div>
+          </div>
+          <a href="#book" class="mt-6 block text-center bg-gold hover:bg-gold-dark text-navy font-body font-700 text-sm py-3 rounded-xl transition-colors">Book This Vehicle</a>
+        </div>
+      </div>
+
+      <!-- Van / Minibus -->
+      <div class="vehicle-card bg-white rounded-2xl overflow-hidden border border-sand-dark shadow-sm reveal" style="transition-delay:0.3s">
+        <!-- Photo area -->
+        <div class="vehicle-photo-van h-52 flex items-center justify-center relative overflow-hidden">
+          <svg viewBox="0 0 300 150" class="w-80 h-40 drop-shadow-xl" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="150" cy="135" rx="140" ry="10" fill="rgba(0,0,0,0.3)"/>
+            <!-- Van body (long, tall) -->
+            <rect x="10" y="50" width="268" height="80" rx="10" fill="#2d1e00"/>
+            <!-- Cab section -->
+            <path d="M210 50 Q218 20 235 15 H268 Q278 15 278 28 V50 Z" fill="#3a2800"/>
+            <!-- Cab windows -->
+            <path d="M215 48 Q220 24 235 20 H268 V48 Z" fill="rgba(245,166,35,0.15)"/>
+            <!-- Passenger windows (5) -->
+            <rect x="25" y="58" width="30" height="24" rx="3" fill="rgba(245,166,35,0.12)"/>
+            <rect x="63" y="58" width="30" height="24" rx="3" fill="rgba(245,166,35,0.12)"/>
+            <rect x="101" y="58" width="30" height="24" rx="3" fill="rgba(245,166,35,0.12)"/>
+            <rect x="139" y="58" width="30" height="24" rx="3" fill="rgba(245,166,35,0.12)"/>
+            <rect x="177" y="58" width="28" height="24" rx="3" fill="rgba(245,166,35,0.12)"/>
+            <!-- Stripe accent -->
+            <rect x="10" y="90" width="268" height="6" rx="0" fill="rgba(245,166,35,0.25)"/>
+            <!-- Grille -->
+            <rect x="270" y="65" width="12" height="30" rx="3" fill="#4a3800"/>
+            <rect x="272" y="70" width="8" height="3" rx="1" fill="rgba(245,166,35,0.5)"/>
+            <rect x="272" y="77" width="8" height="3" rx="1" fill="rgba(245,166,35,0.5)"/>
+            <rect x="272" y="84" width="8" height="3" rx="1" fill="rgba(245,166,35,0.5)"/>
+            <!-- Headlight -->
+            <ellipse cx="279" cy="72" rx="6" ry="4" fill="rgba(251,191,68,0.95)"/>
+            <!-- Tail light -->
+            <rect x="10" y="65" width="5" height="20" rx="2" fill="#E8563A"/>
+            <!-- Wheels -->
+            <circle cx="58" cy="130" r="20" fill="#0a0f1a"/>
+            <circle cx="58" cy="130" r="12" fill="#1a1200"/>
+            <circle cx="58" cy="130" r="5" fill="#F5A623"/>
+            <circle cx="230" cy="130" r="20" fill="#0a0f1a"/>
+            <circle cx="230" cy="130" r="12" fill="#1a1200"/>
+            <circle cx="230" cy="130" r="5" fill="#F5A623"/>
+            <!-- Sliding door handle -->
+            <rect x="140" y="98" width="24" height="5" rx="2" fill="rgba(245,166,35,0.5)"/>
+            <!-- License -->
+            <rect x="112" y="110" width="56" height="13" rx="2" fill="white" opacity="0.85"/>
+            <text x="140" y="121" font-size="7" fill="#0D1B2A" text-anchor="middle" font-family="monospace">SUN·003</text>
+          </svg>
+          <div class="absolute top-4 left-4 bg-navy/80 backdrop-blur-sm rounded-full px-3 py-1">
+            <span class="font-body text-gold text-xs font-600 uppercase tracking-wide">Minibus</span>
+          </div>
+        </div>
+        <!-- Details -->
+        <div class="p-6">
+          <h3 class="font-body font-700 text-navy text-xl mb-1">12-Seater Minibus</h3>
+          <p class="font-body text-slate text-sm mb-5">Built for wedding parties, tour groups, and large resort transfers. Everyone rides together.</p>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 bg-sand rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D1B2A" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+              </div>
+              <span class="font-body text-sm text-navy font-500">Up to 12 pax</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 bg-sand rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D1B2A" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V5a2 2 0 012-2h8a2 2 0 012 2v2"/></svg>
+              </div>
+              <span class="font-body text-sm text-navy font-500">Large cargo hold</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 bg-sand rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D1B2A" stroke-width="2"><path d="M12 2a10 10 0 110 20A10 10 0 0112 2zm5 10H7m5-5v10"/></svg>
+              </div>
+              <span class="font-body text-sm text-navy font-500">Full Air-Con</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 bg-sand rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D1B2A" stroke-width="2"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>
+              </div>
+              <span class="font-body text-sm text-navy font-500">Speaker System</span>
+            </div>
+          </div>
+          <a href="#book" class="mt-6 block text-center bg-navy hover:bg-navy-800 text-white font-body font-600 text-sm py-3 rounded-xl transition-colors">Book This Vehicle</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHY CHOOSE US (ABOUT)
+============================================================ -->
+<section id="about" class="bg-navy py-20 md:py-28 relative overflow-hidden">
+  <!-- Background texture -->
+  <div class="absolute inset-0 opacity-5"
+       style="background-image: radial-gradient(circle, rgba(245,166,35,0.8) 1px, transparent 1px); background-size: 50px 50px;"></div>
+  <!-- Gold accent -->
+  <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-gold via-gold/50 to-transparent"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-16 reveal">
+      <span class="font-body text-gold font-600 text-sm tracking-widest uppercase block mb-4">Why SunRide</span>
+      <h2 class="font-display font-700 text-white text-4xl md:text-5xl leading-tight">
+        You Deserve Better Than<br/><span class="text-gold">an Uncertain Ride.</span>
+      </h2>
+      <p class="font-body text-white/60 text-lg max-w-2xl mx-auto mt-4">
+        We've been on these roads for over a decade. We know what travellers actually need —
+        and we've built SunRide around those needs.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/8 hover:border-gold/30 transition-all duration-300 reveal" style="transition-delay:0.05s">
+        <div class="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center mb-4">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </div>
+        <h3 class="font-body font-700 text-white text-lg mb-2">Professional Drivers</h3>
+        <p class="font-body text-white/55 text-sm leading-relaxed">Every driver is vetted, licensed, uniformed, and trained in customer hospitality. No strangers — trusted professionals.</p>
+      </div>
+
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/8 hover:border-gold/30 transition-all duration-300 reveal" style="transition-delay:0.1s">
+        <div class="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center mb-4">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <h3 class="font-body font-700 text-white text-lg mb-2">Always On Time</h3>
+        <p class="font-body text-white/55 text-sm leading-relaxed">We track your flight in real time. If it lands early, we're already there. If it's delayed, we adjust — at no extra charge.</p>
+      </div>
+
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/8 hover:border-gold/30 transition-all duration-300 reveal" style="transition-delay:0.15s">
+        <div class="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center mb-4">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+            <polyline points="17 6 23 6 23 12"/>
+          </svg>
+        </div>
+        <h3 class="font-body font-700 text-white text-lg mb-2">Transparent Pricing</h3>
+        <p class="font-body text-white/55 text-sm leading-relaxed">The price you see is the price you pay. No surge charges, no night rates, no "it depends." Clean quotes, upfront.</p>
+      </div>
+
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/8 hover:border-gold/30 transition-all duration-300 reveal" style="transition-delay:0.2s">
+        <div class="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center mb-4">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3 class="font-body font-700 text-white text-lg mb-2">Clean Vehicles</h3>
+        <p class="font-body text-white/55 text-sm leading-relaxed">Every vehicle is cleaned before and after each trip. You'll step in to a fresh, cool, comfortable space every single time.</p>
+      </div>
+
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/8 hover:border-gold/30 transition-all duration-300 reveal" style="transition-delay:0.25s">
+        <div class="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center mb-4">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+          </svg>
+        </div>
+        <h3 class="font-body font-700 text-white text-lg mb-2">Island Experts</h3>
+        <p class="font-body text-white/55 text-sm leading-relaxed">Our drivers are Saint Lucian-born and know every road, shortcut, and scenic route. We make every ride feel like a private tour.</p>
+      </div>
+
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/8 hover:border-gold/30 transition-all duration-300 reveal" style="transition-delay:0.3s">
+        <div class="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center mb-4">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2">
+            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+          </svg>
+        </div>
+        <h3 class="font-body font-700 text-white text-lg mb-2">Friendly Service</h3>
+        <p class="font-body text-white/55 text-sm leading-relaxed">We're not just moving you from A to B. We're your first and last impression of Saint Lucia — and we take that seriously.</p>
+      </div>
+
+    </div>
+
+    <!-- CTA Strip -->
+    <div class="mt-14 bg-gold/10 border border-gold/20 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 reveal">
+      <div>
+        <h3 class="font-display font-700 text-white text-2xl md:text-3xl mb-2">Ready to book your transfer?</h3>
+        <p class="font-body text-white/60">Takes less than 2 minutes. We'll confirm within the hour.</p>
+      </div>
+      <div class="flex flex-wrap gap-3 flex-shrink-0">
+        <a href="#book" class="btn-gold bg-gold hover:bg-gold-dark text-navy font-body font-700 px-8 py-4 rounded-full transition-colors whitespace-nowrap">Book Now</a>
+        <a href="https://wa.me/17584001234" target="_blank" rel="noopener" class="bg-white/10 hover:bg-white/20 text-white font-body font-600 px-8 py-4 rounded-full border border-white/20 transition-all whitespace-nowrap">WhatsApp</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     BOOKING PROCESS
+============================================================ -->
+<section class="bg-sand py-20 md:py-28">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-16 reveal">
+      <span class="font-body text-gold font-600 text-sm tracking-widest uppercase block mb-4">How It Works</span>
+      <h2 class="font-display font-700 text-navy text-4xl md:text-5xl">
+        Three Steps to Your Ride
+      </h2>
+      <p class="font-body text-slate text-lg max-w-xl mx-auto mt-4">
+        No apps to download. No accounts to create. Just fast, simple booking.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+      <!-- Connector lines (desktop only) -->
+      <div class="hidden md:block absolute top-10 left-1/3 right-1/3 h-0.5 bg-gradient-to-r from-gold/40 to-gold/40 z-0"></div>
+
+      <!-- Step 1 -->
+      <div class="flex flex-col items-center text-center relative z-10 reveal" style="transition-delay:0.1s">
+        <div class="w-20 h-20 bg-navy rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-navy/20">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="1.8">
+            <rect x="3" y="4" width="18" height="18" rx="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+        </div>
+        <div class="w-8 h-8 bg-gold rounded-full flex items-center justify-center mb-4 -mt-2">
+          <span class="font-body font-700 text-navy text-sm">1</span>
+        </div>
+        <h3 class="font-body font-700 text-navy text-xl mb-3">Book</h3>
+        <p class="font-body text-slate text-sm leading-relaxed">Fill out our simple form below or send us a WhatsApp message with your pickup date, time, location, and number of passengers.</p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="flex flex-col items-center text-center relative z-10 reveal" style="transition-delay:0.2s">
+        <div class="w-20 h-20 bg-navy rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-navy/20">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="1.8">
+            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+        </div>
+        <div class="w-8 h-8 bg-gold rounded-full flex items-center justify-center mb-4 -mt-2">
+          <span class="font-body font-700 text-navy text-sm">2</span>
+        </div>
+        <h3 class="font-body font-700 text-navy text-xl mb-3">Confirm</h3>
+        <p class="font-body text-slate text-sm leading-relaxed">We'll confirm your booking within the hour with your driver's name, vehicle details, and contact number — so you know exactly who to expect.</p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="flex flex-col items-center text-center relative z-10 reveal" style="transition-delay:0.3s">
+        <div class="w-20 h-20 bg-navy rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-navy/20">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="1.8">
+            <rect x="1" y="3" width="15" height="13" rx="2"/>
+            <path d="M16 8h3l4 4v4h-7V8z"/>
+            <circle cx="5.5" cy="18.5" r="2.5"/>
+            <circle cx="18.5" cy="18.5" r="2.5"/>
+          </svg>
+        </div>
+        <div class="w-8 h-8 bg-gold rounded-full flex items-center justify-center mb-4 -mt-2">
+          <span class="font-body font-700 text-navy text-sm">3</span>
+        </div>
+        <h3 class="font-body font-700 text-navy text-xl mb-3">Ride</h3>
+        <p class="font-body text-slate text-sm leading-relaxed">Your driver arrives on time, greets you by name, handles your luggage, and gets you to your destination safely and comfortably.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     REVIEWS
+============================================================ -->
+<section id="reviews" class="bg-white py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-16 reveal">
+      <span class="font-body text-gold font-600 text-sm tracking-widest uppercase block mb-4">What Our Passengers Say</span>
+      <h2 class="font-display font-700 text-navy text-4xl md:text-5xl">
+        Real People. Real Trips.
+      </h2>
+      <div class="flex items-center justify-center gap-1 mt-4">
+        <span class="stars text-2xl">★★★★★</span>
+        <span class="font-body text-slate ml-2">4.9 out of 5 — based on 340+ reviews</span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <div class="testimonial-card bg-sand rounded-2xl p-6 border border-sand-dark reveal" style="transition-delay:0.05s">
+        <div class="stars text-lg mb-4">★★★★★</div>
+        <p class="font-body text-navy text-sm leading-relaxed mb-5">
+          "We landed at Hewanorra at 11pm, exhausted after a 14-hour trip from London. Our SunRide driver was already waiting with a sign and a smile. The SUV was spotless, and we were at Jade Mountain within the hour. Could not have asked for more."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-navy rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="font-body font-700 text-gold text-sm">SR</span>
+          </div>
+          <div>
+            <p class="font-body font-600 text-navy text-sm">Sarah R.</p>
+            <p class="font-body text-slate text-xs">London, UK · Jade Mountain</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card bg-navy rounded-2xl p-6 reveal" style="transition-delay:0.1s">
+        <div class="stars text-lg mb-4">★★★★★</div>
+        <p class="font-body text-white/80 text-sm leading-relaxed mb-5">
+          "I've used SunRide four times across two trips to St. Lucia. Every single booking was seamless. The pricing is honest, the drivers are friendly and knowledgeable, and the vehicles are always clean. This is now my go-to for every visit."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-gold rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="font-body font-700 text-navy text-sm">MT</span>
+          </div>
+          <div>
+            <p class="font-body font-600 text-white text-sm">Marcus T.</p>
+            <p class="font-body text-white/50 text-xs">Toronto, Canada · Sandals Regency</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card bg-sand rounded-2xl p-6 border border-sand-dark reveal" style="transition-delay:0.15s">
+        <div class="stars text-lg mb-4">★★★★★</div>
+        <p class="font-body text-navy text-sm leading-relaxed mb-5">
+          "We booked a full-day island tour and our driver, Carlton, was absolutely fantastic. He took us to spots we never would have found on our own, shared stories about the island's history, and had us laughing the whole day. Worth every cent."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-navy rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="font-body font-700 text-gold text-sm">JA</span>
+          </div>
+          <div>
+            <p class="font-body font-600 text-navy text-sm">Jennifer A.</p>
+            <p class="font-body text-slate text-xs">Atlanta, USA · Island Tour</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card bg-sand rounded-2xl p-6 border border-sand-dark reveal" style="transition-delay:0.2s">
+        <div class="stars text-lg mb-4">★★★★★</div>
+        <p class="font-body text-navy text-sm leading-relaxed mb-5">
+          "Our cruise docked at 7am and we needed to be back by 4pm. SunRide arranged everything perfectly — airport-style pickup, a full scenic drive to the Pitons, lunch at a local restaurant, and back on time. Stress-free from start to finish."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-navy rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="font-body font-700 text-gold text-sm">DL</span>
+          </div>
+          <div>
+            <p class="font-body font-600 text-navy text-sm">David & Lisa M.</p>
+            <p class="font-body text-slate text-xs">New York, USA · Cruise Excursion</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card bg-sand rounded-2xl p-6 border border-sand-dark reveal" style="transition-delay:0.25s">
+        <div class="stars text-lg mb-4">★★★★★</div>
+        <p class="font-body text-navy text-sm leading-relaxed mb-5">
+          "I was travelling alone as a woman and felt completely safe. My driver called ahead to confirm, greeted me professionally, and made the journey comfortable. The WhatsApp booking was quick and easy. Highly recommend to solo female travellers."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-navy rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="font-body font-700 text-gold text-sm">NB</span>
+          </div>
+          <div>
+            <p class="font-body font-600 text-navy text-sm">Nadine B.</p>
+            <p class="font-body text-slate text-xs">Paris, France · Solo Travel</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card bg-gold rounded-2xl p-6 reveal" style="transition-delay:0.3s">
+        <div class="text-navy text-lg mb-4">★★★★★</div>
+        <p class="font-body text-navy text-sm leading-relaxed mb-5">
+          "Our entire company delegation — 9 people — landed at different times. SunRide coordinated everything without a single hitch. Professional, discreet, and the vehicles were excellent. We'll be using them for every future trip to St. Lucia."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-navy rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="font-body font-700 text-gold text-sm">GH</span>
+          </div>
+          <div>
+            <p class="font-body font-700 text-navy text-sm">Gerald H.</p>
+            <p class="font-body text-navy/60 text-xs">Corporate Group · 9 Passengers</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT & BOOKING SECTION
+============================================================ -->
+<section id="contact" class="bg-sand py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-16 reveal">
+      <span class="font-body text-gold font-600 text-sm tracking-widest uppercase block mb-4">Contact & Booking</span>
+      <h2 class="font-display font-700 text-navy text-4xl md:text-5xl">
+        Let's Get You Moving
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+
+      <!-- Booking Form -->
+      <div id="book" class="lg:col-span-3 bg-white rounded-2xl p-8 shadow-sm border border-sand-dark reveal-left">
+        <h3 class="font-display font-700 text-navy text-2xl mb-6">Book Your Transfer</h3>
+
+        <div class="space-y-5" id="booking-form">
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block font-body font-600 text-navy text-sm mb-2" for="fname">First Name</label>
+              <input type="text" id="fname" placeholder="Marcus"
+                     class="w-full bg-sand border border-sand-dark rounded-xl px-4 py-3 font-body text-sm text-navy placeholder-slate/50 focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold transition-all"/>
+            </div>
+            <div>
+              <label class="block font-body font-600 text-navy text-sm mb-2" for="lname">Last Name</label>
+              <input type="text" id="lname" placeholder="Thompson"
+                     class="w-full bg-sand border border-sand-dark rounded-xl px-4 py-3 font-body text-sm text-navy placeholder-slate/50 focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold transition-all"/>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block font-body font-600 text-navy text-sm mb-2" for="email">Email Address</label>
+              <input type="email" id="email" placeholder="marcus@email.com"
+                     class="w-full bg-sand border border-sand-dark rounded-xl px-4 py-3 font-body text-sm text-navy placeholder-slate/50 focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold transition-all"/>
+            </div>
+            <div>
+              <label class="block font-body font-600 text-navy text-sm mb-2" for="phone">WhatsApp / Phone</label>
+              <input type="tel" id="phone" placeholder="+1 (758) 400-0000"
+                     class="w-full bg-sand border border-sand-dark rounded-xl px-4 py-3 font-body text-sm text-navy placeholder-slate/50 focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold transition-all"/>
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-body font-600 text-navy text-sm mb-2" for="service">Service Type</label>
+            <select id="service" class="w-full bg-sand border border-sand-dark rounded-xl px-4 py-3 font-body text-sm text-navy focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold transition-all appearance-none cursor-pointer">
+              <option value="" disabled selected>Select a service...</option>
+              <option>Airport Transfer (Hewanorra UVF)</option>
+              <option>Airport Transfer (GFL Charles SLU)</option>
+              <option>Hotel Transfer</option>
+              <option>Cruise Port Transfer</option>
+              <option>Island Tour</option>
+              <option>Corporate Travel</option>
+              <option>Group Transportation</option>
+              <option>Private Taxi</option>
+            </select>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block font-body font-600 text-navy text-sm mb-2" for="pickup-date">Pickup Date</label>
+              <input type="date" id="pickup-date"
+                     class="w-full bg-sand border border-sand-dark rounded-xl px-4 py-3 font-body text-sm text-navy focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold transition-all"/>
+            </div>
+            <div>
+              <label class="block font-body font-600 text-navy text-sm mb-2" for="pickup-time">Pickup Time</label>
+              <input type="time" id="pickup-time"
+                     class="w-full bg-sand border border-sand-dark rounded-xl px-4 py-3 font-body text-sm text-navy focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold transition-all"/>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block font-body font-600 text-navy text-sm mb-2" for="passengers">Passengers</label>
+              <select id="passengers" class="w-full bg-sand border border-sand-dark rounded-xl px-4 py-3 font-body text-sm text-navy focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold transition-all appearance-none cursor-pointer">
+                <option>1 passenger</option>
+                <option>2 passengers</option>
+                <option>3 passengers</option>
+                <option>4 passengers</option>
+                <option>5 passengers</option>
+                <option>6 passengers</option>
+                <option>7–12 passengers</option>
+              </select>
+            </div>
+            <div>
+              <label class="block font-body font-600 text-navy text-sm mb-2" for="vehicle">Vehicle Preference</label>
+              <select id="vehicle" class="w-full bg-sand border border-sand-dark rounded-xl px-4 py-3 font-body text-sm text-navy focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold transition-all appearance-none cursor-pointer">
+                <option>No preference</option>
+                <option>Executive Sedan</option>
+                <option>Premium SUV</option>
+                <option>12-Seater Minibus</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-body font-600 text-navy text-sm mb-2" for="pickup-loc">Pickup Location</label>
+            <input type="text" id="pickup-loc" placeholder="e.g. Hewanorra Airport, Flight BA2154"
+                   class="w-full bg-sand border border-sand-dark rounded-xl px-4 py-3 font-body text-sm text-navy placeholder-slate/50 focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold transition-all"/>
+          </div>
+
+          <div>
+            <label class="block font-body font-600 text-navy text-sm mb-2" for="dropoff-loc">Drop-Off Location</label>
+            <input type="text" id="dropoff-loc" placeholder="e.g. Sandals Grande St. Lucian, Rodney Bay"
+                   class="w-full bg-sand border border-sand-dark rounded-xl px-4 py-3 font-body text-sm text-navy placeholder-slate/50 focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold transition-all"/>
+          </div>
+
+          <div>
+            <label class="block font-body font-600 text-navy text-sm mb-2" for="notes">Additional Notes</label>
+            <textarea id="notes" rows="3" placeholder="Child seats needed? Special requirements? Flight number?"
+                      class="w-full bg-sand border border-sand-dark rounded-xl px-4 py-3 font-body text-sm text-navy placeholder-slate/50 focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold transition-all resize-none"></textarea>
+          </div>
+
+          <button type="button" id="submit-btn" onclick="handleBooking()"
+                  class="btn-gold w-full bg-gold hover:bg-gold-dark text-navy font-body font-700 text-base py-4 rounded-xl transition-colors duration-200 flex items-center justify-center gap-2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/>
+            </svg>
+            Send Booking Request
+          </button>
+
+          <p class="font-body text-slate text-xs text-center">
+            We'll confirm via WhatsApp or email within 1 hour during business hours.
+          </p>
+        </div>
+
+        <!-- Success message (hidden by default) -->
+        <div id="success-msg" class="hidden text-center py-10">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-700 text-navy text-2xl mb-2">Booking Request Sent!</h3>
+          <p class="font-body text-slate text-sm">We'll confirm your transfer via WhatsApp or email within the hour. Thank you for choosing SunRide.</p>
+          <a href="https://wa.me/17584001234" target="_blank" rel="noopener"
+             class="mt-6 inline-flex items-center gap-2 bg-[#25D366] text-white font-body font-600 px-6 py-3 rounded-xl transition-all">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Follow Up on WhatsApp
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Contact Info & Map -->
+      <div class="lg:col-span-2 flex flex-col gap-6 reveal-right">
+
+        <!-- Contact card -->
+        <div class="bg-navy rounded-2xl p-6 text-white">
+          <h3 class="font-display font-700 text-xl mb-5">Reach Us Directly</h3>
+
+          <div class="space-y-4">
+            <a href="https://wa.me/17584001234" target="_blank" rel="noopener"
+               class="flex items-center gap-4 p-4 bg-white/5 hover:bg-white/10 rounded-xl transition-all group">
+              <div class="w-10 h-10 bg-[#25D366] rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </div>
+              <div>
+                <p class="font-body font-600 text-sm text-white">WhatsApp</p>
+                <p class="font-body text-white/50 text-xs">+1 (758) 400-1234</p>
+              </div>
+            </a>
+
+            <a href="tel:+17584001234"
+               class="flex items-center gap-4 p-4 bg-white/5 hover:bg-white/10 rounded-xl transition-all group">
+              <div class="w-10 h-10 bg-gold rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D1B2A" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.14 13.5 19.79 19.79 0 011.07 4.92 2 2 0 013.05 2.73h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0121.28 17z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="font-body font-600 text-sm text-white">Call Direct</p>
+                <p class="font-body text-white/50 text-xs">+1 (758) 400-1234</p>
+              </div>
+            </a>
+
+            <a href="mailto:bookings@sunride.lc"
+               class="flex items-center gap-4 p-4 bg-white/5 hover:bg-white/10 rounded-xl transition-all group">
+              <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div>
+                <p class="font-body font-600 text-sm text-white">Email</p>
+                <p class="font-body text-white/50 text-xs">bookings@sunride.lc</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- Hours -->
+          <div class="mt-5 pt-5 border-t border-white/10">
+            <p class="font-body font-600 text-gold text-sm mb-3">Business Hours</p>
+            <div class="space-y-2 font-body text-sm">
+              <div class="flex justify-between">
+                <span class="text-white/60">Monday – Friday</span>
+                <span class="text-white font-500">5:00 AM – 11:00 PM</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-white/60">Saturday – Sunday</span>
+                <span class="text-white font-500">5:00 AM – 11:00 PM</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-white/60">Public Holidays</span>
+                <span class="text-gold font-600">24/7 Available</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map Placeholder -->
+        <div class="map-placeholder rounded-2xl h-52 flex items-center justify-center relative overflow-hidden">
+          <div class="absolute inset-0 pointer-events-none">
+            <!-- Roads -->
+            <div class="absolute top-1/2 left-0 right-0 h-0.5 bg-white/60"></div>
+            <div class="absolute top-0 bottom-0 left-1/2 w-0.5 bg-white/60"></div>
+            <div class="absolute top-1/3 left-0 right-0 h-px bg-white/30"></div>
+            <div class="absolute top-2/3 left-0 right-0 h-px bg-white/30"></div>
+            <div class="absolute top-0 bottom-0 left-1/3 w-px bg-white/30"></div>
+            <div class="absolute top-0 bottom-0 left-2/3 w-px bg-white/30"></div>
+          </div>
+          <!-- Pin -->
+          <div class="relative z-10 flex flex-col items-center">
+            <div class="w-12 h-12 bg-coral rounded-full flex items-center justify-center shadow-lg mb-2">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                <circle cx="12" cy="10" r="3" fill="rgba(255,255,255,0.4)"/>
+              </svg>
+            </div>
+            <div class="bg-white rounded-xl px-4 py-2 shadow-md">
+              <p class="font-body font-600 text-navy text-sm">SunRide HQ</p>
+              <p class="font-body text-slate text-xs">Castries, Saint Lucia</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="bg-navy pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+
+      <!-- Brand -->
+      <div class="lg:col-span-1">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="20" fill="#F5A623"/>
+              <path d="M8 30 L32 10" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+              <circle cx="20" cy="8" r="2" fill="white" opacity="0.7"/>
+              <circle cx="32" cy="20" r="2" fill="white" opacity="0.7"/>
+            </svg>
+          </div>
+          <div>
+            <span class="block text-white font-display font-bold text-xl">SunRide</span>
+            <span class="block text-gold text-xs font-body font-600 tracking-widest uppercase">St. Lucia</span>
+          </div>
+        </div>
+        <p class="font-body text-white/50 text-sm leading-relaxed mb-5">
+          Saint Lucia's most trusted airport transfer and taxi service. Licensed, insured, and always on time.
+        </p>
+        <!-- Social -->
+        <div class="flex gap-3">
+          <a href="#" aria-label="Facebook" class="w-9 h-9 bg-white/10 hover:bg-gold hover:text-navy rounded-lg flex items-center justify-center text-white/60 hover:text-navy transition-all">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="w-9 h-9 bg-white/10 hover:bg-gold rounded-lg flex items-center justify-center text-white/60 hover:text-navy transition-all">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="3"/></svg>
+          </a>
+          <a href="https://wa.me/17584001234" aria-label="WhatsApp" class="w-9 h-9 bg-white/10 hover:bg-[#25D366] rounded-lg flex items-center justify-center text-white/60 hover:text-white transition-all">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h4 class="font-body font-700 text-white text-sm uppercase tracking-widest mb-5">Services</h4>
+        <ul class="space-y-3 font-body text-sm text-white/50">
+          <li><a href="#services" class="hover:text-gold transition-colors">Airport Transfers</a></li>
+          <li><a href="#services" class="hover:text-gold transition-colors">Hotel Transfers</a></li>
+          <li><a href="#services" class="hover:text-gold transition-colors">Cruise Port Pickups</a></li>
+          <li><a href="#services" class="hover:text-gold transition-colors">Corporate Travel</a></li>
+          <li><a href="#services" class="hover:text-gold transition-colors">Island Tours</a></li>
+          <li><a href="#services" class="hover:text-gold transition-colors">Group Transportation</a></li>
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <h4 class="font-body font-700 text-white text-sm uppercase tracking-widest mb-5">Company</h4>
+        <ul class="space-y-3 font-body text-sm text-white/50">
+          <li><a href="#about" class="hover:text-gold transition-colors">About SunRide</a></li>
+          <li><a href="#fleet" class="hover:text-gold transition-colors">Our Fleet</a></li>
+          <li><a href="#reviews" class="hover:text-gold transition-colors">Passenger Reviews</a></li>
+          <li><a href="#book" class="hover:text-gold transition-colors">Book a Transfer</a></li>
+          <li><a href="#contact" class="hover:text-gold transition-colors">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="font-body font-700 text-white text-sm uppercase tracking-widest mb-5">Contact</h4>
+        <ul class="space-y-3 font-body text-sm text-white/50">
+          <li class="flex items-start gap-2">
+            <svg class="flex-shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Castries, Saint Lucia, W.I.</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="flex-shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.14 13.5 19.79 19.79 0 011.07 4.92 2 2 0 013.05 2.73h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0121.28 17z"/></svg>
+            <a href="tel:+17584001234" class="hover:text-gold transition-colors">+1 (758) 400-1234</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="flex-shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:bookings@sunride.lc" class="hover:text-gold transition-colors">bookings@sunride.lc</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="flex-shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <a href="https://wa.me/17584001234" class="hover:text-gold transition-colors">WhatsApp Us</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="font-body text-white/30 text-sm">
+        © 2026 SunRide St. Lucia. All rights reserved. Licensed & Registered in Saint Lucia.
+      </p>
+      <div class="flex gap-6 font-body text-white/30 text-sm">
+        <a href="#" class="hover:text-white/60 transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-white/60 transition-colors">Terms of Service</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+  // ---- Navbar scroll effect ----
+  const navbar = document.getElementById('navbar');
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const s = window.scrollY;
+    if (s > 60) {
+      navbar.classList.add('nav-scrolled');
+    } else {
+      navbar.classList.remove('nav-scrolled');
+    }
+    lastScroll = s;
+  }, { passive: true });
+
+  // ---- Mobile menu ----
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const hamIcon    = document.getElementById('ham-icon');
+  const closeIcon  = document.getElementById('close-icon');
+  let menuOpen = false;
+
+  hamburger.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    mobileMenu.classList.toggle('open', menuOpen);
+    hamIcon.classList.toggle('hidden', menuOpen);
+    closeIcon.classList.toggle('hidden', !menuOpen);
+    hamburger.setAttribute('aria-expanded', menuOpen);
+  });
+
+  // Close mobile menu on nav link click
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      menuOpen = false;
+      mobileMenu.classList.remove('open');
+      hamIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // ---- Scroll reveal ----
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const observer  = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  revealEls.forEach(el => observer.observe(el));
+
+  // ---- Booking form ----
+  function handleBooking() {
+    const fname = document.getElementById('fname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const service = document.getElementById('service').value;
+    const pickupDate = document.getElementById('pickup-date').value;
+    const pickupLoc = document.getElementById('pickup-loc').value.trim();
+
+    // Simple validation
+    if (!fname || !email || !service || !pickupDate || !pickupLoc) {
+      // Highlight empty required fields briefly
+      [
+        {id: 'fname', val: fname},
+        {id: 'email', val: email},
+        {id: 'service', val: service},
+        {id: 'pickup-date', val: pickupDate},
+        {id: 'pickup-loc', val: pickupLoc},
+      ].forEach(f => {
+        if (!f.val) {
+          const el = document.getElementById(f.id);
+          el.style.borderColor = '#E8563A';
+          el.addEventListener('input', () => { el.style.borderColor = ''; }, { once: true });
+        }
+      });
+      return;
+    }
+
+    // Show success state
+    document.getElementById('booking-form').classList.add('hidden');
+    document.getElementById('success-msg').classList.remove('hidden');
+
+    // Scroll to success message
+    document.getElementById('book').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  // Set min date to today for date input
+  const today = new Date().toISOString().split('T')[0];
+  const dateInput = document.getElementById('pickup-date');
+  if (dateInput) dateInput.setAttribute('min', today);
+</script>
+
+<!-- JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TaxiService",
+  "name": "SunRide St. Lucia",
+  "description": "Licensed airport transfers, hotel transfers, island tours, and private taxi services across Saint Lucia.",
+  "url": "https://sunride.lc",
+  "telephone": "+17584001234",
+  "email": "bookings@sunride.lc",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Castries",
+    "addressCountry": "LC"
+  },
+  "areaServed": {
+    "@type": "Place",
+    "name": "Saint Lucia"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "05:00",
+    "closes": "23:00"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "340"
+  }
+}
+</script>
+</body>
+</html>
