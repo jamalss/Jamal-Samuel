@@ -72,7 +72,7 @@ ul { list-style: none; }
   padding: 0 24px;
 }
 
-section { position: relative; overflow: hidden; }
+section { position: relative; }
 
 /* ============================================================
    TYPOGRAPHY SCALE
@@ -1889,12 +1889,17 @@ section { position: relative; overflow: hidden; }
    SCROLL ANIMATIONS
    ============================================================ */
 .reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal.animate {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-.reveal.visible {
+.reveal.animate.visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -1999,6 +2004,60 @@ section { position: relative; overflow: hidden; }
   .section-pad { padding: 64px 0; }
   .section-pad-sm { padding: 48px 0; }
 }
+
+/* ============================================================
+   STAGGER DELAYS — CSS only, no JS injection
+   ============================================================ */
+
+/* Product cards */
+.menu-grid .product-card:nth-child(1) { transition-delay: 0ms; }
+.menu-grid .product-card:nth-child(2) { transition-delay: 80ms; }
+.menu-grid .product-card:nth-child(3) { transition-delay: 160ms; }
+.menu-grid .product-card:nth-child(4) { transition-delay: 0ms; }
+.menu-grid .product-card:nth-child(5) { transition-delay: 80ms; }
+.menu-grid .product-card:nth-child(6) { transition-delay: 160ms; }
+
+/* Occasion cards */
+.occasions-grid .occasion-card:nth-child(1) { transition-delay: 0ms; }
+.occasions-grid .occasion-card:nth-child(2) { transition-delay: 70ms; }
+.occasions-grid .occasion-card:nth-child(3) { transition-delay: 140ms; }
+.occasions-grid .occasion-card:nth-child(4) { transition-delay: 210ms; }
+.occasions-grid .occasion-card:nth-child(5) { transition-delay: 0ms; }
+.occasions-grid .occasion-card:nth-child(6) { transition-delay: 70ms; }
+.occasions-grid .occasion-card:nth-child(7) { transition-delay: 140ms; }
+.occasions-grid .occasion-card:nth-child(8) { transition-delay: 210ms; }
+
+/* Testimonials */
+.testimonials-track .testimonial-card:nth-child(1) { transition-delay: 0ms; }
+.testimonials-track .testimonial-card:nth-child(2) { transition-delay: 100ms; }
+.testimonials-track .testimonial-card:nth-child(3) { transition-delay: 200ms; }
+
+/* Events */
+.events-grid .event-card:nth-child(1) { transition-delay: 0ms; }
+.events-grid .event-card:nth-child(2) { transition-delay: 80ms; }
+.events-grid .event-card:nth-child(3) { transition-delay: 160ms; }
+.events-grid .event-card:nth-child(4) { transition-delay: 0ms; }
+.events-grid .event-card:nth-child(5) { transition-delay: 80ms; }
+.events-grid .event-card:nth-child(6) { transition-delay: 160ms; }
+
+/* VIP perks */
+.vip-perks .vip-perk:nth-child(1) { transition-delay: 0ms; }
+.vip-perks .vip-perk:nth-child(2) { transition-delay: 80ms; }
+.vip-perks .vip-perk:nth-child(3) { transition-delay: 160ms; }
+.vip-perks .vip-perk:nth-child(4) { transition-delay: 240ms; }
+
+/* Collections */
+.collections-grid .collection-card:nth-child(1) { transition-delay: 0ms; }
+.collections-grid .collection-card:nth-child(2) { transition-delay: 90ms; }
+.collections-grid .collection-card:nth-child(3) { transition-delay: 90ms; }
+.collections-grid .collection-card:nth-child(4) { transition-delay: 180ms; }
+
+/* Stats row */
+.stats-row .stat-block:nth-child(1) { transition-delay: 0ms; }
+.stats-row .stat-block:nth-child(2) { transition-delay: 80ms; }
+.stats-row .stat-block:nth-child(3) { transition-delay: 160ms; }
+.stats-row .stat-block:nth-child(4) { transition-delay: 240ms; }
+
 </style>
 </head>
 <body>
@@ -2023,7 +2082,7 @@ section { position: relative; overflow: hidden; }
 
     <div class="nav-cta">
       <a href="https://wa.me/17585841764" target="_blank" class="btn btn-whatsapp" style="padding:10px 20px; font-size:0.82rem;">
-        🛒 Place Your Order
+        Place Your Order
       </a>
     </div>
 
@@ -2077,10 +2136,10 @@ section { position: relative; overflow: hidden; }
 
         <div class="hero-actions">
           <a href="https://wa.me/17585841764" target="_blank" class="btn btn-whatsapp">
-            🛒 Order on WhatsApp
+            Place Your Order
           </a>
           <a href="#menu" class="btn btn-ghost">
-            See the Menu ↓
+            See the Menu →
           </a>
         </div>
 
@@ -2094,7 +2153,7 @@ section { position: relative; overflow: hidden; }
             <span class="stat-label">Flavours</span>
           </div>
           <div class="hero-stat">
-            <span class="stat-number">4.9★</span>
+            <span class="stat-number">4.9<span style="font-size:0.7em;opacity:0.8;">★</span></span>
             <span class="stat-label">Rated</span>
           </div>
         </div>
@@ -2132,7 +2191,7 @@ section { position: relative; overflow: hidden; }
 </svg></div>
           <div class="float-card-info">
             <div class="float-card-title">Cookies & Cream</div>
-            <div class="float-card-sub">Best Seller 🔥</div>
+            <div class="float-card-sub">Best Seller</div>
           </div>
         </div>
 
@@ -2185,7 +2244,7 @@ section { position: relative; overflow: hidden; }
      ============================================================ -->
 <div class="ticker">
   <div class="ticker-track">
-    <div class="ticker-item"><span>🍪</span> Cookies & Cream</div>
+    <div class="ticker-item"><span style="display:inline-flex;width:1.1rem;height:1.1rem;color:rgba(255,255,255,0.9);flex-shrink:0;"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="2.5"/><circle cx="19" cy="20" r="1.8" fill="currentColor"/><circle cx="27" cy="18" r="1.4" fill="currentColor"/><circle cx="22" cy="28" r="1.6" fill="currentColor"/><circle cx="30" cy="26" r="1.8" fill="currentColor"/><circle cx="17" cy="28" r="1.2" fill="currentColor"/></svg></span> Cookies &amp; Cream</div>
     <div class="ticker-dot"></div>
     <div class="ticker-item"><span style="display:inline-flex;width:1.2rem;height:1.2rem;color:rgba(255,255,255,0.9);"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <rect x="10" y="12" width="28" height="24" rx="3" stroke="currentColor" stroke-width="2.2" fill="none"/>
@@ -2234,7 +2293,7 @@ section { position: relative; overflow: hidden; }
 </svg></span> Biscoff</div>
     <div class="ticker-dot"></div>
     <!-- Duplicate for seamless loop -->
-    <div class="ticker-item"><span>🍪</span> Cookies & Cream</div>
+    <div class="ticker-item"><span style="display:inline-flex;width:1.1rem;height:1.1rem;color:rgba(255,255,255,0.9);flex-shrink:0;"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="2.5"/><circle cx="19" cy="20" r="1.8" fill="currentColor"/><circle cx="27" cy="18" r="1.4" fill="currentColor"/><circle cx="22" cy="28" r="1.6" fill="currentColor"/><circle cx="30" cy="26" r="1.8" fill="currentColor"/><circle cx="17" cy="28" r="1.2" fill="currentColor"/></svg></span> Cookies &amp; Cream</div>
     <div class="ticker-dot"></div>
     <div class="ticker-item"><span style="display:inline-flex;width:1.2rem;height:1.2rem;color:rgba(255,255,255,0.9);"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <rect x="10" y="12" width="28" height="24" rx="3" stroke="currentColor" stroke-width="2.2" fill="none"/>
@@ -2566,8 +2625,7 @@ section { position: relative; overflow: hidden; }
         </div>
       </div>
 
-      <!-- Card 5 -->
-      <div class="product-card reveal">
+      <!-- Card 5 --> <div class="product-card reveal">
         <div class="product-img product-img-5">
           <span style="display:flex;width:6rem;height:6rem;color:rgba(255,255,255,0.7);margin:auto;"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <ellipse cx="17" cy="20" rx="7" ry="10" stroke="currentColor" stroke-width="2.2" fill="none"/>
@@ -2602,7 +2660,7 @@ section { position: relative; overflow: hidden; }
         </div>
       </div>
 
-      <!-- Card 6 -->
+      <!--Card 6 -->
       <div class="product-card reveal">
         <div class="product-img product-img-6">
           <span style="display:flex;width:6rem;height:6rem;color:rgba(255,255,255,0.7);margin:auto;"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
@@ -2694,8 +2752,7 @@ section { position: relative; overflow: hidden; }
 </svg></span>
         <div class="occasion-name">Office Treats</div>
         <div class="occasion-desc">Corporate orders for team celebrations, client gifts, and staff appreciation.</div>
-      </div>
-      <div class="occasion-card reveal">
+      </div><div class="occasion-card reveal">
         <span class="occasion-emoji" style="font-size:0;display:flex;align-items:center;justify-content:center;width:2.8rem;height:2.8rem;margin:0 auto 14px;color:var(--caramel);"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <circle cx="24" cy="20" r="8" stroke="currentColor" stroke-width="2.2" fill="none"/>
   <path d="M12 40 C12 32 36 32 36 40" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none"/>
@@ -2713,8 +2770,7 @@ section { position: relative; overflow: hidden; }
   <path d="M24 24 C24 21 19 18 19 22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.5"/>
 </svg></span>
         <div class="occasion-name">Date Nights</div>
-        <div class="occasion-desc">Because the best evenings always end with something sweet.</div>
-      </div>
+        <div class="occasion-desc">Because the best evenings always end with something sweet.</div>    </div>
       <div class="occasion-card reveal">
         <span class="occasion-emoji" style="font-size:0;display:flex;align-items:center;justify-content:center;width:2.8rem;height:2.8rem;margin:0 auto 14px;color:var(--caramel);"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <path d="M24 8 L28 18 H38 L30 24 L33 34 L24 28 L15 34 L18 24 L10 18 H20 Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" fill="none"/>
@@ -3131,8 +3187,7 @@ section { position: relative; overflow: hidden; }
         <div class="event-name">Graduations</div>
         <div class="event-desc">Celebrate the hard work with something extra sweet. Large trays, personalised flavours, city-wide delivery.</div>
         <div class="event-link">Get a quote →</div>
-      </div>
-      <div class="event-card reveal">
+      </div>   <div class="event-card reveal">
         <div class="event-icon" style="font-size:0;display:flex;align-items:center;justify-content:center;color:var(--caramel);"><span style="display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <path d="M14 20 a6 6 0 0 1 12 0 a6 6 0 0 1 12 0 C38 30 24 38 24 38 C24 38 10 30 14 20z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" fill="none"/>
   <path d="M24 10 v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -3140,8 +3195,7 @@ section { position: relative; overflow: hidden; }
 </svg></span></div>
         <div class="event-name">Weddings</div>
         <div class="event-desc">Elegant dessert stations that complement your wedding theme. A premium alternative to the traditional cake table.</div>
-        <div class="event-link">Get a quote →</div>
-      </div>
+        <div class="event-link">Get a quote →</div>      </div>
       <div class="event-card reveal">
         <div class="event-icon" style="font-size:0;display:flex;align-items:center;justify-content:center;color:var(--caramel);"><span style="display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <path d="M24 8 L28 18 H38 L30 24 L33 34 L24 28 L15 34 L18 24 L10 18 H20 Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" fill="none"/>
@@ -3748,7 +3802,7 @@ section { position: relative; overflow: hidden; }
 <!-- Mobile sticky order bar -->
 <div class="mobile-order-bar">
   <a href="https://wa.me/17585841764" target="_blank" class="btn btn-whatsapp" style="flex:1;justify-content:center;">
-    🛒 Place Your Order
+    Place Your Order
   </a>
   <a href="tel:+17585841764" class="btn btn-outline" style="padding:14px 16px;font-size:0;display:flex;align-items:center;justify-content:center;color:var(--chocolate);"><span style="display:inline-flex;align-items:center;justify-content:center;width:1.3rem;height:1.3rem;"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
   <path d="M14 8 h6 l3 8 -4 3 c2 4 6 8 10 10 l3-4 8 3 v6 C40 38 10 38 14 8z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" fill="none"/>
@@ -3770,15 +3824,30 @@ function openMenu() { document.getElementById('mobileMenu').classList.add('open'
 function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
 
 /* ---- Scroll reveal ---- */
-const revealEls = document.querySelectorAll('.reveal');
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+(function() {
+  if (!('IntersectionObserver' in window)) return;
+
+  const revealEls = document.querySelectorAll('.reveal');
+
+  // Only animate elements that start below the fold
+  revealEls.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top > window.innerHeight) {
+      el.classList.add('animate');
     }
   });
-}, { threshold: 0.08 });
-revealEls.forEach(el => revealObserver.observe(el));
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.reveal.animate').forEach(el => revealObserver.observe(el));
+})();
 
 /* ---- FAQ accordion ---- */
 function toggleFaq(btn) {
@@ -3908,10 +3977,7 @@ setTimeout(() => {
   setInterval(showNotif, 9000);
 }, 5000);
 
-/* ---- Smooth reveal on load ---- */
-window.addEventListener('load', () => {
-  document.querySelector('.hero-content')?.classList.add('visible');
-});
+/* Reveal handled by scroll observer */
 </script>
 
 </body>
