@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+
+<!-- ══ META ═══════════════════════════════════════════ -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hair by Shaki — Braid Studio &amp; Braid Educator Training | Port of Spain, Trinidad</title>
+<meta name="description" content="Hair by Shaki — braiding studio at Rhea's Mall, Port of Spain, and Braid Educator training across Trinidad, Tobago, Barbados and Grenada. Book a style or start learning the trade.">
+<meta name="robots" content="index, follow">
+
+<!-- ══ OPEN GRAPH ══════════════════════════════════════ -->
+<meta property="og:type"        content="website">
+<meta property="og:title"       content="Hair by Shaki — Braid Studio &amp; Braid Educator">
+<meta property="og:description" content="One chair for your hair. One classroom for your craft. Port of Spain braiding studio and Caribbean-wide braid training.">
+<meta name="twitter:card"       content="summary_large_image">
+
+<!-- ══ BOOTSTRAP + ICONS ══════════════════════════════ -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<!-- ══ GOOGLE FONTS ═══════════════════════════════════ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ══════════════════════════════════════════════════════
+   TOKENS — HAIR BY SHAKI
+   Grounded in the real brand mark: magenta / coral / gold ring
+   Dark canvas as primary mode — premium, precise, disciplined
+   ══════════════════════════════════════════════════════ */
+:root {
+  --magenta:     #C41E6E;
+  --coral:       #E8622F;
+  --gold:        #F0B429;
+  --font-display: 'Unbounded', sans-serif;
+  --font-body:    'Inter', sans-serif;
+  --font-mono:    'IBM Plex Mono', monospace;
+  --radius: 1.1rem;
+}
+
+[data-theme="dark"] {
+  --ink:      #120D14;
+  --ink-2:    #1D1620;
+  --ink-3:    #241B29;
+  --ivory:    #F7F1E8;
+  --muted:    #B3A2B4;
+  --border:   rgba(247,241,232,.1);
+  --card:     #1D1620;
+  --shadow-soft: 0 6px 28px rgba(0,0,0,.35);
+  --shadow-deep: 0 20px 60px rgba(0,0,0,.5);
+}
+[data-theme="light"] {
+  --ink:      #F7F1E8;
+  --ink-2:    #FFFFFF;
+  --ink-3:    #F1E8DC;
+  --ivory:    #1B1420;
+  --muted:    #6B5A6E;
+  --border:   rgba(27,20,32,.1);
+  --card:     #FFFFFF;
+  --shadow-soft: 0 6px 28px rgba(27,20,32,.08);
+  --shadow-deep: 0 20px 60px rgba(27,20,32,.16);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body {
+  font-family: var(--font-body);
+  background: var(--ink);
+  color: var(--ivory);
+  overflow-x: hidden;
+  transition: background .3s, color .3s;
+}
+img { max-width: 100%; display: block; }
+picture { display: block; width: 100%; height: 100%; }
+a { text-decoration: none; color: inherit; }
+section { padding: 5.5rem 0; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+h1, h2, h3, h4, h5 { font-family: var(--font-display); line-height: 1.08; font-weight: 700; }
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: .72rem; font-weight: 600;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--gold);
+  display: block; margin-bottom: .9rem;
+}
+.grad-text {
+  background: linear-gradient(90deg, var(--gold), var(--coral), var(--magenta));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.muted { color: var(--muted); }
+
+/* ══════════════════════════════════════════════════════
+   NAVBAR
+   ══════════════════════════════════════════════════════ */
+.hs-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+  background: color-mix(in srgb, var(--ink) 92%, transparent);
+  backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+  padding: .8rem 0;
+  transition: box-shadow .3s, background .3s;
+}
+.hs-nav.scrolled { box-shadow: var(--shadow-soft); }
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: 1.15rem; font-weight: 800;
+  color: var(--ivory);
+  display: flex; align-items: center; gap: .6rem;
+}
+.brand-mark {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: conic-gradient(from 200deg, var(--gold), var(--coral), var(--magenta), var(--gold));
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.brand-mark span {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--ink); display: flex; align-items: center; justify-content: center;
+  font-size: .7rem; color: var(--gold);
+}
+.nav-links { display: flex; align-items: center; gap: 1.8rem; list-style: none; }
+.nav-links a.simple {
+  font-size: .78rem; font-weight: 600; letter-spacing: .04em;
+  color: var(--muted); transition: color .2s;
+}
+.nav-links a.simple:hover { color: var(--ivory); }
+.nav-cta-group { display: flex; gap: .6rem; }
+.btn-nav-pill {
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .5rem 1.05rem; border-radius: 2rem;
+  font-size: .74rem; font-weight: 700; letter-spacing: .02em;
+  white-space: nowrap; transition: transform .15s, opacity .2s;
+}
+.btn-nav-pill.solid { background: #25D366; color: #fff; }
+.btn-nav-pill.outline { border: 1px solid var(--border); color: var(--ivory); }
+.btn-nav-pill:hover { transform: translateY(-1px); opacity: .92; color: inherit; }
+.theme-toggle {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid var(--border); background: transparent; color: var(--ivory);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .95rem; cursor: pointer; transition: border-color .2s;
+}
+.theme-toggle:hover { border-color: var(--gold); }
+
+/* ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ */
+.hero-hs {
+  min-height: 100vh; padding-top: 6rem;
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+}
+.hero-hs::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 55% 45% at 85% 20%, color-mix(in srgb, var(--magenta) 22%, transparent) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-hs .container { position: relative; z-index: 2; }
+.hero-pill {
+  display: inline-flex; align-items: center; gap: .5rem;
+  border: 1px solid var(--border); border-radius: 2rem;
+  padding: .4rem 1.05rem; margin-bottom: 1.6rem;
+  font-family: var(--font-mono); font-size: .68rem; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+}
+.hero-pill i { color: var(--gold); }
+.hero-title { font-size: clamp(2.4rem, 5.4vw, 4rem); color: var(--ivory); margin-bottom: 1.2rem; }
+.hero-sub {
+  font-size: 1.02rem; color: var(--muted); line-height: 1.75;
+  max-width: 460px; margin-bottom: 2rem;
+}
+.hero-cta-row { display: flex; flex-wrap: wrap; gap: .9rem; margin-bottom: 2.75rem; }
+.btn-solid {
+  display: inline-flex; align-items: center; gap: .55rem;
+  background: #25D366; color: #fff;
+  padding: .85rem 1.7rem; border-radius: 3rem;
+  font-size: .9rem; font-weight: 700;
+  box-shadow: 0 6px 22px rgba(37,211,102,.35);
+  transition: transform .2s, box-shadow .2s;
+}
+.btn-solid:hover { color: #fff; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(37,211,102,.45); }
+.btn-outline-hs {
+  display: inline-flex; align-items: center; gap: .55rem;
+  border: 1.5px solid var(--border); color: var(--ivory);
+  padding: .85rem 1.7rem; border-radius: 3rem;
+  font-size: .9rem; font-weight: 700; transition: all .2s;
+}
+.btn-outline-hs:hover { border-color: var(--gold); color: var(--gold); }
+.hero-stat-row { display: flex; flex-wrap: wrap; gap: 2rem; padding-top: 1.75rem; border-top: 1px solid var(--border); }
+.hero-stat .num { font-family: var(--font-mono); font-size: 1.55rem; font-weight: 600; color: var(--gold); line-height: 1; }
+.hero-stat .label { font-size: .72rem; color: var(--muted); margin-top: .3rem; letter-spacing: .03em; }
+
+/* signature braid interlace — animated SVG */
+.braid-wrap { display: flex; justify-content: center; align-items: center; height: 100%; min-height: 460px; }
+.braid-wrap svg { width: 100%; max-width: 380px; height: auto; }
+.braid-strand { fill: none; stroke-width: 7; stroke-linecap: round; stroke-dasharray: 1400; stroke-dashoffset: 1400; animation: drawBraid 2.6s ease forwards; }
+.braid-strand.s2 { animation-delay: .15s; }
+.braid-strand.s3 { animation-delay: .3s; }
+@keyframes drawBraid { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .braid-strand { animation: none; stroke-dashoffset: 0; }
+}
+
+/* ══════════════════════════════════════════════════════
+   TRUST STRIP
+   ══════════════════════════════════════════════════════ */
+.trust-strip { background: var(--ink-2); padding: 1rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.trust-items { display: flex; align-items: center; gap: 2.6rem; justify-content: center; flex-wrap: wrap; }
+.trust-item { display: flex; align-items: center; gap: .55rem; font-size: .78rem; font-weight: 600; color: var(--muted); white-space: nowrap; }
+.trust-item i { font-size: 1rem; color: var(--gold); }
+
+/* ══════════════════════════════════════════════════════
+   POLICY / GOOD TO KNOW
+   ══════════════════════════════════════════════════════ */
+.policy-section { background: var(--ink); }
+.policy-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 1.6rem; height: 100%;
+}
+.policy-card i { font-size: 1.3rem; color: var(--gold); margin-bottom: .8rem; display: block; }
+.policy-card h4 { font-size: 1rem; color: var(--ivory); margin-bottom: .5rem; }
+.policy-card p { font-size: .87rem; color: var(--muted); line-height: 1.65; margin: 0; }
+
+/* ══════════════════════════════════════════════════════
+   SECTION DIVIDER — braid strip (signature motif reused)
+   ══════════════════════════════════════════════════════ */
+.braid-divider { padding: 2.6rem 0; background: var(--ink); overflow: hidden; }
+.braid-divider svg { width: 100%; height: 46px; display: block; }
+.divider-label {
+  text-align: center; font-family: var(--font-mono); font-size: .7rem;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--muted);
+  margin-top: 1rem;
+}
+
+/* ══════════════════════════════════════════════════════
+   SECTION HEADERS (generic)
+   ══════════════════════════════════════════════════════ */
+.sec-head { max-width: 620px; margin-bottom: 2.75rem; }
+.sec-head h2 { font-size: clamp(1.9rem, 3.6vw, 2.7rem); color: var(--ivory); }
+.sec-head p { font-size: .95rem; color: var(--muted); line-height: 1.75; margin-top: .9rem; }
+.sec-head.centered { margin-left: auto; margin-right: auto; text-align: center; }
+
+/* ══════════════════════════════════════════════════════
+   GALLERY
+   ══════════════════════════════════════════════════════ */
+.gallery-section { background: var(--ink-2); }
+.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.gcard { position: relative; border-radius: 1rem; overflow: hidden; cursor: pointer; min-height: 200px; }
+.gcard.tall { grid-row: span 2; min-height: 420px; }
+.gcard.wide { grid-column: span 2; }
+.gcard img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+.gcard:hover img { transform: scale(1.06); }
+.gcard-overlay {
+  position: absolute; inset: 0; display: flex; align-items: flex-end; padding: 1.1rem;
+  background: linear-gradient(to top, rgba(0,0,0,.82) 0%, transparent 55%);
+  opacity: 0; transition: opacity .3s;
+}
+.gcard:hover .gcard-overlay { opacity: 1; }
+.gcard-tag { font-family: var(--font-mono); font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: .2rem; }
+.gcard-name { font-family: var(--font-display); font-size: .92rem; font-weight: 700; color: #fff; }
+@media (max-width: 767px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gcard.tall { grid-row: span 1; min-height: 200px; }
+  .gcard.wide { grid-column: span 1; }
+}
+
+/* ══════════════════════════════════════════════════════
+   SERVICE CARDS
+   ══════════════════════════════════════════════════════ */
+.services-section { background: var(--ink); }
+.svc-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 1.75rem; height: 100%; display: flex; flex-direction: column;
+  transition: border-color .25s, transform .25s;
+}
+.svc-card:hover { border-color: color-mix(in srgb, var(--gold) 40%, var(--border)); transform: translateY(-4px); }
+.svc-icon {
+  width: 46px; height: 46px; border-radius: .8rem;
+  background: linear-gradient(135deg, var(--magenta), var(--coral));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.25rem; color: #fff; margin-bottom: 1rem; flex-shrink: 0;
+}
+.svc-name { font-size: 1.08rem; color: var(--ivory); margin-bottom: .3rem; }
+.svc-tag { font-family: var(--font-mono); font-size: .72rem; color: var(--gold); margin-bottom: .75rem; letter-spacing: .02em; }
+.svc-desc { font-size: .85rem; line-height: 1.7; color: var(--muted); flex: 1; margin-bottom: 1rem; }
+.svc-feat { font-size: .78rem; color: var(--muted); display: flex; align-items: center; gap: .4rem; margin-bottom: .3rem; }
+.svc-feat i { color: var(--gold); font-size: .72rem; }
+.svc-cta {
+  display: flex; align-items: center; justify-content: center; gap: .5rem;
+  background: transparent; border: 1.5px solid var(--border); color: var(--ivory);
+  border-radius: 2rem; padding: .6rem 1rem; font-size: .8rem; font-weight: 700;
+  margin-top: 1.25rem; transition: all .2s;
+}
+.svc-cta:hover { border-color: #25D366; background: rgba(37,211,102,.1); color: var(--ivory); }
+.price-note { font-size: .78rem; color: var(--muted); text-align: center; margin-top: 2rem; }
+
+/* ══════════════════════════════════════════════════════
+   CLASSES / EDUCATOR SECTION
+   ══════════════════════════════════════════════════════ */
+.classes-section { background: linear-gradient(160deg, var(--ink-2) 0%, var(--ink) 60%); position: relative; }
+.territory-row { display: flex; flex-wrap: wrap; gap: .75rem; margin-bottom: 2.5rem; }
+.territory-chip {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: var(--ink-3); border: 1px solid var(--border);
+  border-radius: 2rem; padding: .5rem 1.1rem;
+  font-size: .82rem; font-weight: 600; color: var(--ivory);
+}
+.learn-list { list-style: none; padding: 0; margin: 0; }
+.learn-list li {
+  display: flex; align-items: flex-start; gap: .8rem;
+  font-size: .92rem; color: var(--muted); line-height: 1.6;
+  padding: .7rem 0; border-bottom: 1px solid var(--border);
+}
+.learn-list li:last-child { border-bottom: none; }
+.learn-list .num { font-family: var(--font-mono); color: var(--gold); font-weight: 600; flex-shrink: 0; }
+.class-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 2rem; position: relative; overflow: hidden;
+}
+.class-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--coral), var(--magenta));
+}
+.class-card h3 { font-size: 1.35rem; color: var(--ivory); margin-bottom: .6rem; }
+.class-card p { font-size: .9rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
+.who-tag { display: inline-flex; align-items: center; gap: .4rem; background: var(--ink-3); border-radius: 1.5rem; padding: .35rem .85rem; font-size: .76rem; color: var(--muted); margin: 0 .4rem .4rem 0; }
+.who-tag i { color: var(--gold); }
+
+/* ══════════════════════════════════════════════════════
+   HOW IT WORKS (two paths)
+   ══════════════════════════════════════════════════════ */
+.process-hs { background: var(--ink); }
+.process-col h4 { font-size: 1rem; color: var(--gold); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 1.5rem; }
+.step-row { display: flex; gap: 1rem; margin-bottom: 1.4rem; }
+.step-circle {
+  width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+  background: var(--ink-3); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-weight: 600; color: var(--ivory); font-size: .95rem;
+}
+.step-row h5 { font-size: .95rem; color: var(--ivory); margin-bottom: .25rem; }
+.step-row p { font-size: .83rem; color: var(--muted); line-height: 1.6; margin: 0; }
+
+/* ══════════════════════════════════════════════════════
+   ABOUT
+   ══════════════════════════════════════════════════════ */
+.about-section { background: var(--ink-2); }
+.about-badge-row { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.5rem; }
+.about-badge { display: inline-flex; align-items: center; gap: .4rem; background: var(--ink-3); border: 1px solid var(--border); border-radius: 1.5rem; padding: .4rem .9rem; font-size: .78rem; color: var(--muted); }
+.about-badge i { color: var(--gold); }
+
+/* ══════════════════════════════════════════════════════
+   TESTIMONIALS
+   ══════════════════════════════════════════════════════ */
+.testi-section { background: var(--ink); }
+.tcard { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; height: 100%; }
+.tcard .stars { color: var(--gold); font-size: .8rem; margin-bottom: .75rem; }
+.tcard p.quote { font-size: .88rem; line-height: 1.75; color: var(--muted); font-style: italic; margin-bottom: 1.1rem; }
+.tcard .who { font-size: .82rem; font-weight: 700; color: var(--ivory); }
+.tcard .what { font-size: .74rem; color: var(--muted); }
+.sample-flag {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-family: var(--font-mono); font-size: .68rem; color: var(--muted);
+  letter-spacing: .04em; margin-top: 1rem;
+}
+
+/* ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ */
+.faq-hs { background: var(--ink-2); }
+.accordion-item { background: transparent !important; border: 1px solid var(--border) !important; border-radius: .8rem !important; margin-bottom: .7rem; overflow: hidden; }
+.accordion-button { background: var(--card) !important; color: var(--ivory) !important; font-weight: 600; font-size: .92rem; box-shadow: none !important; }
+.accordion-button::after { filter: invert(1) grayscale(1) brightness(1.6); }
+[data-theme="light"] .accordion-button::after { filter: none; }
+.accordion-button:not(.collapsed) { color: var(--gold) !important; }
+.accordion-body { background: var(--card); color: var(--muted); font-size: .87rem; line-height: 1.75; }
+
+/* ══════════════════════════════════════════════════════
+   FINAL CTA
+   ══════════════════════════════════════════════════════ */
+.cta-final { background: var(--ink-3); text-align: center; position: relative; overflow: hidden; }
+.cta-final h2 { font-size: clamp(1.9rem, 4vw, 3rem); color: var(--ivory); margin-bottom: 1rem; }
+.cta-final p { color: var(--muted); max-width: 480px; margin: 0 auto 2rem; font-size: .95rem; line-height: 1.7; }
+.cta-btn-row { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+
+/* ══════════════════════════════════════════════════════
+   FOOTER
+   ══════════════════════════════════════════════════════ */
+.hs-footer { background: var(--ink-2); border-top: 1px solid var(--border); padding: 3.5rem 0 1.5rem; }
+.footer-brand { font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; color: var(--ivory); }
+.footer-about { font-size: .84rem; color: var(--muted); max-width: 300px; margin-top: .6rem; line-height: 1.7; }
+.footer-head { font-family: var(--font-mono); font-size: .68rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.footer-lnk { display: flex; align-items: center; gap: .5rem; font-size: .84rem; color: var(--muted); margin-bottom: .65rem; transition: color .2s; }
+.footer-lnk:hover { color: var(--ivory); }
+.footer-lnk i { color: var(--gold); width: 16px; }
+.soc-btn { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--muted); transition: all .2s; }
+.soc-btn:hover { border-color: var(--gold); color: var(--gold); }
+.footer-bottom { border-top: 1px solid var(--border); margin-top: 2.5rem; padding-top: 1.2rem; font-size: .76rem; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; }
+
+/* ══════════════════════════════════════════════════════
+   WA FLOAT
+   ══════════════════════════════════════════════════════ */
+.wa-float {
+  position: fixed; bottom: 1.4rem; right: 1.4rem; z-index: 9999;
+  width: 54px; height: 54px; background: #25D366; color: #fff;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; box-shadow: 0 4px 20px rgba(37,211,102,.45);
+  transition: transform .2s;
+}
+.wa-float:hover { color: #fff; transform: scale(1.08); }
+
+/* ══════════════════════════════════════════════════════
+   REVEAL
+   ══════════════════════════════════════════════════════ */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+@media (max-width: 991px) {
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══════════════════════════════════════════ -->
+<nav class="hs-nav" id="mainNav">
+  <div class="container d-flex align-items-center justify-content-between">
+    <a href="#top" class="nav-brand">
+      <div class="brand-mark"><span><i class="bi bi-scissors"></i></span></div>
+      Hair by Shaki
+    </a>
+    <ul class="nav-links mb-0">
+      <li><a href="#braiding" class="simple">Braiding</a></li>
+      <li><a href="#classes" class="simple">Classes</a></li>
+      <li><a href="#gallery" class="simple">Gallery</a></li>
+      <li><a href="#faq" class="simple">FAQ</a></li>
+    </ul>
+    <div class="d-flex align-items-center gap-2">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode"><i class="bi bi-moon-stars" id="themeIcon"></i></button>
+      <div class="nav-cta-group d-none d-md-flex">
+        <a href="https://wa.me/18683395748?text=Hi%20Ashaki%2C%20I%27d%20like%20to%20book%20a%20style." class="btn-nav-pill solid"><i class="bi bi-whatsapp"></i>Book</a>
+        <a href="https://wa.me/18683395748?text=Hi%20Ashaki%2C%20I%27m%20interested%20in%20your%20Braid%20Educator%20training." class="btn-nav-pill outline"><i class="bi bi-mortarboard"></i>Classes</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HERO ════════════════════════════════════════════ -->
+<section class="hero-hs" id="top">
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-6 reveal">
+        <div class="hero-pill"><i class="bi bi-geo-alt-fill"></i> Rhea's Mall, Port of Spain · Trinidad &amp; Tobago</div>
+        <h1 class="hero-title">
+          One chair for<br>your hair.<br>
+          <span class="grad-text">One classroom<br>for your craft.</span>
+        </h1>
+        <p class="hero-sub">
+          Ashaki DeRevenaux braids at her Port of Spain studio and trains braiders across the Caribbean as a Braid Educator. Book a style, or start learning the trade.
+        </p>
+        <div class="hero-cta-row">
+          <a href="https://wa.me/18683395748?text=Hi%20Ashaki%2C%20I%27d%20like%20to%20book%20a%20style." class="btn-solid"><i class="bi bi-whatsapp"></i> Book a Style</a>
+          <a href="#classes" class="btn-outline-hs"><i class="bi bi-mortarboard"></i> Explore Braid Classes</a>
+        </div>
+        <div class="hero-stat-row">
+          <div class="hero-stat"><div class="num">28.8K+</div><div class="label">Instagram Family</div></div>
+          <div class="hero-stat"><div class="num">4</div><div class="label">Territories Trained In</div></div>
+          <div class="hero-stat"><div class="num">1,800+</div><div class="label">Styles Documented</div></div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 reveal d2">
+        <div class="braid-wrap" aria-hidden="true">
+          <svg viewBox="0 0 300 500" role="img" aria-label="Illustration of three interlacing braid strands in gold, coral and magenta">
+            <path class="braid-strand s1" stroke="#F0B429" d="M60,10 C160,60 40,110 140,160 C240,210 60,260 160,310 C260,360 80,410 140,490"/>
+            <path class="braid-strand s2" stroke="#E8622F" d="M150,10 C50,60 170,110 70,160 C-30,210 150,260 50,310 C-50,360 130,410 150,490"/>
+            <path class="braid-strand s3" stroke="#C41E6E" d="M240,10 C140,60 260,110 160,160 C60,210 240,260 140,310 C40,360 220,410 240,490"/>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRUST STRIP ══════════════════════════════════════ -->
+<div class="trust-strip">
+  <div class="container">
+    <div class="trust-items">
+      <div class="trust-item"><i class="bi bi-award-fill"></i> Braid Educator</div>
+      <div class="trust-item"><i class="bi bi-geo-alt-fill"></i> Trinidad · Tobago · Barbados · Grenada</div>
+      <div class="trust-item"><i class="bi bi-shop"></i> Booth #12, Rhea's Mall</div>
+      <div class="trust-item"><i class="bi bi-whatsapp"></i> Book in Minutes on WhatsApp</div>
+      <div class="trust-item"><i class="bi bi-instagram"></i> 28.8K+ Following the Work</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ GOOD TO KNOW / POLICIES ═══════════════════════════ -->
+<section class="policy-section" id="policy">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Before You Book</span>
+      <h2>Good to Know</h2>
+      <p>A few things upfront so your visit runs smoothly — no surprises, no wasted trips.</p>
+    </div>
+    <div class="row g-3">
+      <div class="col-md-6 col-lg-3 reveal d1">
+        <div class="policy-card">
+          <i class="bi bi-bag-check"></i>
+          <h4>Bring your own hair</h4>
+          <p>Hair and extensions are not included. Arrive with your own — this keeps your price lower and lets you pick exactly what you want.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal d2">
+        <div class="policy-card">
+          <i class="bi bi-people"></i>
+          <h4>Women &amp; girls, 12+</h4>
+          <p>Services are for women and girls ages 12 and up. Male clients and children under 12 are not served at this time.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal d3">
+        <div class="policy-card">
+          <i class="bi bi-person-check"></i>
+          <h4>Just you at the chair</h4>
+          <p>To keep each session focused and on schedule, please come without extra guests.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal d4">
+        <div class="policy-card">
+          <i class="bi bi-whatsapp"></i>
+          <h4>Booking is by WhatsApp</h4>
+          <p>Call or WhatsApp +1 (868) 339-5748 to check availability and confirm your appointment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BRAID DIVIDER 1 ══════════════════════════════════ -->
+<div class="braid-divider">
+  <svg viewBox="0 0 800 46" preserveAspectRatio="none">
+    <path d="M0,23 C50,5 100,41 150,23 C200,5 250,41 300,23 C350,5 400,41 450,23 C500,5 550,41 600,23 C650,5 700,41 750,23 C775,14 800,32 800,23" fill="none" stroke="#F0B429" stroke-width="2" opacity=".6"/>
+    <path d="M0,23 C50,41 100,5 150,23 C200,41 250,5 300,23 C350,41 400,5 450,23 C500,41 550,5 600,23 C650,41 700,5 750,23 C775,32 800,14 800,23" fill="none" stroke="#E8622F" stroke-width="2" opacity=".6"/>
+  </svg>
+  <div class="divider-label">The Studio — Braiding Services</div>
+</div>
+
+<!-- ══ GALLERY ══════════════════════════════════════════ -->
+<section class="gallery-section" id="gallery">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Style Gallery</span>
+      <h2>The work speaks<br>for itself.</h2>
+      <p>Sample layout below — swap in real portfolio shots from @hair_by_shaki before this goes live.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gcard tall">
+        <picture><source srcset="images/braids.webp" type="image/webp"><img src="images/braids.webp" alt="Knotless braids style"></picture>
+        <div class="gcard-overlay"><div><span class="gcard-tag">Most Requested</span><div class="gcard-name">Knotless Braids</div></div></div>
+      </div>
+      <div class="gcard">
+        <picture><source srcset="images/braids.webp" type="image/webp"><img src="images/braids.webp" alt="Cornrow style"></picture>
+        <div class="gcard-overlay"><div><span class="gcard-tag">Protective Style</span><div class="gcard-name">Feed-In Cornrows</div></div></div>
+      </div>
+      <div class="gcard">
+        <picture><source srcset="images/braids.webp" type="image/webp"><img src="images/braids.webp" alt="Braided updo style"></picture>
+        <div class="gcard-overlay"><div><span class="gcard-tag">Trending</span><div class="gcard-name">Braided Updo</div></div></div>
+      </div>
+      <div class="gcard wide">
+        <picture><source srcset="images/braids.webp" type="image/webp"><img src="images/braids.webp" alt="Long braided style"></picture>
+        <div class="gcard-overlay"><div><span class="gcard-tag">Signature</span><div class="gcard-name">Waist-Length Install</div></div></div>
+      </div>
+      <div class="gcard">
+        <picture><source srcset="images/braids.webp" type="image/webp"><img src="images/braids.webp" alt="Twist style"></picture>
+        <div class="gcard-overlay"><div><span class="gcard-tag">Soft &amp; Romantic</span><div class="gcard-name">Twist Style</div></div></div>
+      </div>
+      <div class="gcard">
+        <picture><source srcset="images/braids.webp" type="image/webp"><img src="images/braids.webp" alt="Kids-friendly protective style"></picture>
+        <div class="gcard-overlay"><div><span class="gcard-tag">Bold Statement</span><div class="gcard-name">Jumbo Braids</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICES ═════════════════════════════════════════ -->
+<section class="services-section" id="braiding">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What Ashaki Installs</span>
+      <h2>Braiding, done<br>with precision.</h2>
+      <p>Every style below is installed at Booth #12, Rhea's Mall. Pricing depends on hair length, thickness, and style — message on WhatsApp for a quote before you come in.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="svc-card">
+          <div class="svc-icon"><i class="bi bi-grid-3x3"></i></div>
+          <div class="svc-name">Knotless Braids</div>
+          <div class="svc-tag">Gentlest on the scalp</div>
+          <p class="svc-desc">No tension at the root, no knots — a clean, natural-looking install in small, medium, or jumbo sizes.</p>
+          <div class="svc-feat"><i class="bi bi-check2"></i> Bring your own hair</div>
+          <div class="svc-feat"><i class="bi bi-check2"></i> Small / medium / jumbo</div>
+          <a href="https://wa.me/18683395748?text=Hi%20Ashaki%2C%20I%27d%20like%20to%20book%20Knotless%20Braids." class="svc-cta"><i class="bi bi-whatsapp"></i> Ask &amp; Book</a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="svc-card">
+          <div class="svc-icon"><i class="bi bi-distribute-horizontal"></i></div>
+          <div class="svc-name">Feed-In Cornrows</div>
+          <div class="svc-tag">Neat &amp; close to the scalp</div>
+          <p class="svc-desc">Straight, curved, or freestyle patterns — a strong base for wigs or a standalone statement look.</p>
+          <div class="svc-feat"><i class="bi bi-check2"></i> With or without extensions</div>
+          <div class="svc-feat"><i class="bi bi-check2"></i> Custom parting patterns</div>
+          <a href="https://wa.me/18683395748?text=Hi%20Ashaki%2C%20I%27d%20like%20to%20book%20Cornrows." class="svc-cta"><i class="bi bi-whatsapp"></i> Ask &amp; Book</a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d3">
+        <div class="svc-card">
+          <div class="svc-icon"><i class="bi bi-infinity"></i></div>
+          <div class="svc-name">Twist Styles</div>
+          <div class="svc-tag">Sleek &amp; versatile</div>
+          <p class="svc-desc">Two-strand twisted extensions for length and shine, lightweight and comfortable to wear.</p>
+          <div class="svc-feat"><i class="bi bi-check2"></i> Small / medium twist sizes</div>
+          <div class="svc-feat"><i class="bi bi-check2"></i> Bring your own hair</div>
+          <a href="https://wa.me/18683395748?text=Hi%20Ashaki%2C%20I%27d%20like%20to%20book%20a%20Twist%20Style." class="svc-cta"><i class="bi bi-whatsapp"></i> Ask &amp; Book</a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="svc-card">
+          <div class="svc-icon"><i class="bi bi-stars"></i></div>
+          <div class="svc-name">Jumbo &amp; Statement Braids</div>
+          <div class="svc-tag">Bold, low-maintenance</div>
+          <p class="svc-desc">Fewer, thicker braids for a bold look that installs faster and holds well between refreshes.</p>
+          <div class="svc-feat"><i class="bi bi-check2"></i> Fast install time</div>
+          <div class="svc-feat"><i class="bi bi-check2"></i> Low upkeep</div>
+          <a href="https://wa.me/18683395748?text=Hi%20Ashaki%2C%20I%27d%20like%20to%20book%20Jumbo%20Braids." class="svc-cta"><i class="bi bi-whatsapp"></i> Ask &amp; Book</a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="svc-card">
+          <div class="svc-icon"><i class="bi bi-heart"></i></div>
+          <div class="svc-name">Braided Updos</div>
+          <div class="svc-tag">Event-ready</div>
+          <p class="svc-desc">Structured, elegant updos for weddings, graduations, or any occasion that calls for polish.</p>
+          <div class="svc-feat"><i class="bi bi-check2"></i> Reference photo welcome</div>
+          <div class="svc-feat"><i class="bi bi-check2"></i> Book ahead for events</div>
+          <a href="https://wa.me/18683395748?text=Hi%20Ashaki%2C%20I%27d%20like%20to%20book%20a%20Braided%20Updo." class="svc-cta"><i class="bi bi-whatsapp"></i> Ask &amp; Book</a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d3">
+        <div class="svc-card">
+          <div class="svc-icon"><i class="bi bi-chat-dots"></i></div>
+          <div class="svc-name">Don't See Your Style?</div>
+          <div class="svc-tag">Ask directly</div>
+          <p class="svc-desc">Send a reference photo on WhatsApp — if it can be braided, Ashaki will tell you honestly what's possible.</p>
+          <div class="svc-feat"><i class="bi bi-check2"></i> Straight answers, no upsell</div>
+          <a href="https://wa.me/18683395748?text=Hi%20Ashaki%2C%20I%27d%20like%20to%20ask%20about%20a%20specific%20style." class="svc-cta"><i class="bi bi-whatsapp"></i> Ask on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <p class="price-note">Prices vary by length, thickness, and style complexity — always confirmed before your appointment, never a surprise at the chair.</p>
+  </div>
+</section>
+
+<!-- ══ BRAID DIVIDER 2 ══════════════════════════════════ -->
+<div class="braid-divider">
+  <svg viewBox="0 0 800 46" preserveAspectRatio="none">
+    <path d="M0,23 C50,5 100,41 150,23 C200,5 250,41 300,23 C350,5 400,41 450,23 C500,5 550,41 600,23 C650,5 700,41 750,23 C775,14 800,32 800,23" fill="none" stroke="#C41E6E" stroke-width="2" opacity=".6"/>
+    <path d="M0,23 C50,41 100,5 150,23 C200,41 250,5 300,23 C350,41 400,5 450,23 C500,41 550,5 600,23 C650,41 700,5 750,23 C775,32 800,14 800,23" fill="none" stroke="#F0B429" stroke-width="2" opacity=".6"/>
+  </svg>
+  <div class="divider-label">The Classroom — Braid Educator Training</div>
+</div>
+
+<!-- ══ CLASSES / EDUCATOR ═══════════════════════════════ -->
+<section class="classes-section" id="classes">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Braid Educator Program</span>
+      <h2>Learn the craft from<br>someone teaching it<br><span class="grad-text">across the Caribbean.</span></h2>
+      <p>Ashaki trains braiders in person, territory by territory. If you want to braid professionally — or add it to services you already offer — this is hands-on, not a video course.</p>
+    </div>
+
+    <div class="territory-row reveal d1">
+      <span class="territory-chip">🇹🇹 Trinidad</span>
+      <span class="territory-chip">Tobago</span>
+      <span class="territory-chip">🇧🇧 Barbados</span>
+      <span class="territory-chip">🇬🇩 Grenada</span>
+    </div>
+
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-7 reveal d2">
+        <ul class="learn-list">
+          <li><span class="num">01</span><span>Sectioning and tension control — the foundation that determines whether a style holds for weeks or fails in days.</span></li>
+          <li><span class="num">02</span><span>Working with different hair textures and extension types, and adjusting technique accordingly.</span></li>
+          <li><span class="num">03</span><span>Finishing technique — clean partings, even sizing, and a scalp-safe approach clients notice immediately.</span></li>
+          <li><span class="num">04</span><span>Running a braiding business: pricing, booking flow, and managing client expectations.</span></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-5 reveal d3">
+        <div class="class-card">
+          <h3>Ready to train?</h3>
+          <p>Class dates are announced by territory. Message Ashaki directly for the next confirmed date near you and what's included.</p>
+          <div class="mb-3">
+            <span class="who-tag"><i class="bi bi-person-plus"></i> New to braiding</span>
+            <span class="who-tag"><i class="bi bi-scissors"></i> Working stylists</span>
+            <span class="who-tag"><i class="bi bi-car-front"></i> Mobile braiders</span>
+          </div>
+          <a href="https://wa.me/18683395748?text=Hi%20Ashaki%2C%20I%27m%20interested%20in%20your%20Braid%20Educator%20training.%20Could%20you%20share%20the%20next%20available%20class%20date%3F" class="btn-solid w-100 justify-content-center">
+            <i class="bi bi-whatsapp"></i> Ask About the Next Class
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HOW IT WORKS — TWO PATHS ═════════════════════════ -->
+<section class="process-hs">
+  <div class="container">
+    <div class="sec-head centered reveal" style="margin-left:auto;margin-right:auto;">
+      <span class="eyebrow" style="text-align:center;display:block;">How It Works</span>
+      <h2>Two paths. Same<br>first step: WhatsApp.</h2>
+    </div>
+    <div class="row g-5">
+      <div class="col-md-6 reveal d1">
+        <div class="process-col">
+          <h4><i class="bi bi-scissors me-2"></i>Book a Style</h4>
+          <div class="step-row"><div class="step-circle">1</div><div><h5>Pick your style</h5><p>Browse the gallery above, or send a reference photo.</p></div></div>
+          <div class="step-row"><div class="step-circle">2</div><div><h5>WhatsApp Ashaki</h5><p>Send your style, hair type, and preferred date.</p></div></div>
+          <div class="step-row"><div class="step-circle">3</div><div><h5>Confirm &amp; arrive</h5><p>Bring your own hair. Come alone — no extra guests.</p></div></div>
+        </div>
+      </div>
+      <div class="col-md-6 reveal d2">
+        <div class="process-col">
+          <h4><i class="bi bi-mortarboard me-2"></i>Join a Class</h4>
+          <div class="step-row"><div class="step-circle">1</div><div><h5>Message Ashaki</h5><p>Ask which territory and date is next.</p></div></div>
+          <div class="step-row"><div class="step-circle">2</div><div><h5>Confirm your spot</h5><p>Get details on what's included and what to bring.</p></div></div>
+          <div class="step-row"><div class="step-circle">3</div><div><h5>Train hands-on</h5><p>Leave with real technique, not just theory.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT ════════════════════════════════════════════ -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 reveal">
+        <span class="eyebrow">About Ashaki</span>
+        <h2 style="font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--ivory)">Two chairs.<br>One standard.</h2>
+        <p class="muted mt-3" style="line-height:1.75;font-size:.95rem;">
+          Ashaki DeRevenaux runs Hair by Shaki from Booth #12 at Rhea's Mall in Port of Spain, and travels across the Caribbean as a Braid Educator — training the next generation of braiders in Trinidad, Tobago, Barbados, and Grenada.
+        </p>
+        <p class="muted mt-3" style="line-height:1.75;font-size:.95rem;">
+          Every client and every student gets the same thing: direct communication, clear expectations, and technique that holds up in the real world — not just in photos.
+        </p>
+        <div class="about-badge-row">
+          <span class="about-badge"><i class="bi bi-award"></i> Braid Educator</span>
+          <span class="about-badge"><i class="bi bi-instagram"></i> 28.8K+ Following</span>
+          <span class="about-badge"><i class="bi bi-geo-alt"></i> Taught in 4 Territories</span>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal d2">
+        <picture>
+          <source srcset="images/braids.webp" type="image/webp">
+          <img src="images/braids.webp" alt="Ashaki at work" style="border-radius:var(--radius);width:100%;height:420px;object-fit:cover;">
+        </picture>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ═════════════════════════════════════ -->
+<section class="testi-section" id="testimonials">
+  <div class="container">
+    <div class="sec-head centered reveal" style="margin-left:auto;margin-right:auto;">
+      <span class="eyebrow" style="text-align:center;display:block;">Feedback</span>
+      <h2>What clients &amp;<br>students say.</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="tcard">
+          <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <p class="quote">Clean parting, no tension on my scalp, and the style held up for weeks. Booking on WhatsApp was quick and easy.</p>
+          <div class="who">Client Review</div><div class="what">Knotless Braids</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="tcard">
+          <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <p class="quote">The class was hands-on from the start — real technique, real feedback, not just watching someone else braid.</p>
+          <div class="who">Class Participant</div><div class="what">Braid Educator Training</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d3">
+        <div class="tcard">
+          <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <p class="quote">Straight to the point about what would work with my hair type. No pressure, no upsell — just an honest, solid install.</p>
+          <div class="who">Client Review</div><div class="what">Feed-In Cornrows</div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <span class="sample-flag"><i class="bi bi-info-circle"></i> Sample reviews shown for demonstration — replaced with real feedback before launch</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══════════════════════════════════════════════ -->
+<section class="faq-hs" id="faq">
+  <div class="container">
+    <div class="sec-head centered reveal" style="margin-left:auto;margin-right:auto;">
+      <span class="eyebrow" style="text-align:center;display:block;">FAQ</span>
+      <h2>Questions people<br>actually ask.</h2>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8 reveal d1">
+        <div class="accordion" id="faqAcc">
+          <div class="accordion-item">
+            <h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#f1">Do I need to bring my own hair?</button></h3>
+            <div id="f1" class="accordion-collapse collapse show" data-bs-parent="#faqAcc"><div class="accordion-body">Yes — hair and extensions are not included in the service. Bring your own so you get exactly the color, texture, and length you want, and so your price stays lower.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f2">Do you take male clients or children under 12?</button></h3>
+            <div id="f2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Not at this time. Services are for women and girls ages 12 and up.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f3">How do I book an appointment?</button></h3>
+            <div id="f3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Message +1 (868) 339-5748 on WhatsApp with your desired style, hair type, and preferred date. Ashaki will confirm availability and pricing before you come in.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f4">Where do Braid Educator classes take place?</button></h3>
+            <div id="f4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Classes are held across the Caribbean, territory by territory — Trinidad, Tobago, Barbados, and Grenada. Message Ashaki to find out the next confirmed date and location.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f5">Do I need experience to join a class?</button></h3>
+            <div id="f5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">No — classes welcome complete beginners as well as working stylists who want to add braiding to their services. Ask on WhatsApp what's covered for your experience level.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f6">Can I bring someone with me to my appointment?</button></h3>
+            <div id="f6" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">To keep each session focused, please come without extra guests.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FINAL CTA ════════════════════════════════════════ -->
+<section class="cta-final">
+  <div class="container">
+    <div class="reveal">
+      <h2>Book a style, or<br><span class="grad-text">start your training.</span></h2>
+      <p>Whichever chair you're sitting in, it starts with one message on WhatsApp.</p>
+      <div class="cta-btn-row">
+        <a href="https://wa.me/18683395748?text=Hi%20Ashaki%2C%20I%27d%20like%20to%20book%20a%20style." class="btn-solid"><i class="bi bi-whatsapp"></i> Book a Style</a>
+        <a href="https://wa.me/18683395748?text=Hi%20Ashaki%2C%20I%27m%20interested%20in%20your%20Braid%20Educator%20training." class="btn-outline-hs"><i class="bi bi-mortarboard"></i> Ask About Classes</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ═══════════════════════════════════════════ -->
+<footer class="hs-footer">
+  <div class="container">
+    <div class="row g-5 mb-3">
+      <div class="col-lg-4">
+        <div class="footer-brand">Hair by Shaki</div>
+        <p class="footer-about">Braiding studio and Braid Educator training, based in Port of Spain, Trinidad and Tobago.</p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="https://wa.me/18683395748" class="soc-btn" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          <a href="https://www.instagram.com/hair_by_shaki" class="soc-btn" title="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://youtube.com/@iam.ashaki" class="soc-btn" title="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-4">
+        <p class="footer-head">Visit</p>
+        <div class="footer-lnk"><i class="bi bi-shop"></i> Booth #12, Rhea's Mall</div>
+        <div class="footer-lnk"><i class="bi bi-geo-alt"></i> Charlotte St, Port of Spain</div>
+        <div class="footer-lnk"><i class="bi bi-signpost"></i> Beside Pennywise, upstairs</div>
+      </div>
+      <div class="col-6 col-lg-4">
+        <p class="footer-head">Contact</p>
+        <a href="https://wa.me/18683395748" class="footer-lnk"><i class="bi bi-whatsapp"></i> +1 (868) 339-5748</a>
+        <a href="mailto:hairbyshaki@yahoo.com" class="footer-lnk"><i class="bi bi-envelope"></i> hairbyshaki@yahoo.com</a>
+        <a href="https://wa.me/18683395748?text=Hi%20Ashaki%2C%20I%27d%20like%20to%20book%20a%20style." class="btn-solid mt-2" style="font-size:.78rem;padding:.55rem 1.2rem;"><i class="bi bi-whatsapp"></i> Book Now</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="yr"></span> Hair by Shaki. All rights reserved.</span>
+      <span style="opacity:.6">A JAMALINKS Conversion System · Demo</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ WA FLOAT ═════════════════════════════════════════ -->
+<a href="https://wa.me/18683395748?text=Hi%20Ashaki%2C%20I%27d%20like%20to%20book%20a%20style." class="wa-float" title="Message on WhatsApp" aria-label="Message on WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<!-- ══ BOOTSTRAP JS ═════════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/* ── Theme: auto time-based default + manual toggle + localStorage persistence ── */
+const root = document.documentElement;
+const themeIcon = document.getElementById('themeIcon');
+function applyTheme(t) {
+  root.setAttribute('data-theme', t);
+  themeIcon.className = t === 'dark' ? 'bi bi-moon-stars' : 'bi bi-sun';
+}
+(function initTheme() {
+  const saved = localStorage.getItem('hs-theme');
+  if (saved) { applyTheme(saved); return; }
+  const hour = new Date().getHours();
+  const isDaytime = hour >= 7 && hour < 19;
+  applyTheme(isDaytime ? 'light' : 'dark');
+})();
+document.getElementById('themeToggle').addEventListener('click', () => {
+  const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  applyTheme(next);
+  localStorage.setItem('hs-theme', next);
+});
+
+/* ── Navbar scroll ── */
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60), { passive: true });
+
+/* ── Scroll reveal ── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+/* ── Smooth scroll ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (!t) return;
+    e.preventDefault();
+    t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+/* ── Footer year ── */
+document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

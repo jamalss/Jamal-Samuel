@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+
+<!-- ══ META ═══════════════════════════════════════════ -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roots &amp; Braids — Caribbean Braiding &amp; Locs Studio</title>
+<meta name="description" content="St. Lucia's premium braiding studio. Knotless braids, box braids, faux locs, cornrows, Senegalese twists, and more. Book instantly via WhatsApp.">
+<meta name="robots" content="index, follow">
+
+<!-- ══ OPEN GRAPH ══════════════════════════════════════ -->
+<meta property="og:type"        content="website">
+<meta property="og:title"       content="Roots &amp; Braids — Your Hair. Your Crown. Your Culture.">
+<meta property="og:description" content="Premium braiding &amp; locs studio in St. Lucia. Real styles. Real results. Book on WhatsApp.">
+<meta property="og:image"       content="roots-and-braids.webp">
+<meta name="twitter:card"       content="summary_large_image">
+
+<!-- ══ BOOTSTRAP + ICONS ══════════════════════════════ -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<!-- ══ GOOGLE FONTS ═══════════════════════════════════ -->
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ══════════════════════════════════════════════════════
+   TOKENS — ROOTS & BRAIDS
+   Palette: deep earth / warm terracotta / gold / cream
+   Vibe: cultural pride, warm, artisan, bold, Caribbean
+   ══════════════════════════════════════════════════════ */
+:root {
+  --earth:       #1e1208;
+  --earth-mid:   #2f1c0e;
+  --terracotta:  #c4612a;
+  --terra-light: #e8845a;
+  --gold:        #d4a843;
+  --gold-light:  #f0c96a;
+  --cream:       #faf4eb;
+  --cream-warm:  #f3e8d4;
+  --sage:        #6b7c5c;
+  --text:        #1e1208;
+  --muted:       #7a6040;
+  --card:        #ffffff;
+  --border:      rgba(30,18,8,.1);
+
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'Nunito', sans-serif;
+
+  --radius: 1.25rem;
+  --shadow-soft: 0 6px 28px rgba(30,18,8,.1);
+  --shadow-deep: 0 20px 60px rgba(30,18,8,.18);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+picture { display: block; width: 100%; height: 100%; }
+a { text-decoration: none; color: inherit; }
+section { padding: 5rem 0; }
+
+/* ── TYPOGRAPHY ───────────────────────────────────── */
+h1, h2, h3, h4, h5 { font-family: var(--font-display); line-height: 1.1; }
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  display: block;
+  margin-bottom: .75rem;
+}
+.divider-terra {
+  width: 52px; height: 3px;
+  background: linear-gradient(90deg, var(--terracotta), var(--gold));
+  border-radius: 3px;
+  margin: 1rem auto 0;
+}
+.divider-terra.left { margin-left: 0; }
+
+/* ══════════════════════════════════════════════════════
+   NAVBAR
+   ══════════════════════════════════════════════════════ */
+.rb-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+  background: rgba(250,244,235,.95);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(196,97,42,.15);
+  padding: .85rem 0;
+  transition: box-shadow .3s;
+}
+.rb-nav.scrolled { box-shadow: 0 4px 24px rgba(30,18,8,.12); }
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--earth);
+  display: flex; align-items: center; gap: .5rem;
+}
+.brand-icon {
+  width: 34px; height: 34px;
+  background: linear-gradient(135deg, var(--terracotta), var(--gold));
+  border-radius: .5rem;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; color: #fff;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 2rem; list-style: none;
+}
+.nav-links a {
+  font-size: .82rem; font-weight: 600;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--muted); transition: color .2s;
+}
+.nav-links a:hover { color: var(--terracotta); }
+.btn-book-nav {
+  background: var(--terracotta); color: #fff !important;
+  padding: .55rem 1.3rem; border-radius: 2rem;
+  font-size: .78rem !important; font-weight: 700 !important;
+  letter-spacing: .06em !important;
+  transition: background .2s, transform .15s;
+  white-space: nowrap;
+}
+.btn-book-nav:hover { background: var(--earth); transform: translateY(-1px); }
+
+/* ══════════════════════════════════════════════════════
+   HERO — FULL BLEED with image grid
+   ══════════════════════════════════════════════════════ */
+.hero-rb {
+  min-height: 100vh;
+  padding-top: 5.5rem;
+  background: var(--earth);
+  position: relative;
+  overflow: hidden;
+  display: flex; align-items: center;
+}
+/* warm texture overlay */
+.hero-rb::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 50%, rgba(196,97,42,.3) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(212,168,67,.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-rb .container { position: relative; z-index: 2; }
+
+.hero-eyebrow-pill {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: rgba(212,168,67,.15);
+  border: 1px solid rgba(212,168,67,.3);
+  border-radius: 2rem; padding: .4rem 1.1rem;
+  font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold-light); margin-bottom: 1.5rem;
+}
+.hero-title {
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 800;
+  color: var(--cream);
+  line-height: 1.03;
+  margin-bottom: 1.25rem;
+}
+.hero-title .accent {
+  background: linear-gradient(90deg, var(--gold-light), var(--terra-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+}
+.hero-sub {
+  font-size: 1rem; font-weight: 400;
+  color: rgba(250,244,235,.65);
+  line-height: 1.75; max-width: 460px;
+  margin-bottom: 2rem;
+}
+.btn-wa-rb {
+  display: inline-flex; align-items: center; gap: .6rem;
+  background: #25D366; color: #fff;
+  padding: .9rem 2rem; border-radius: 3rem;
+  font-size: .92rem; font-weight: 700;
+  box-shadow: 0 6px 24px rgba(37,211,102,.4);
+  transition: transform .2s, box-shadow .2s;
+}
+.btn-wa-rb:hover {
+  color: #fff; transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(37,211,102,.5);
+}
+.btn-ghost-rb {
+  display: inline-flex; align-items: center; gap: .5rem;
+  border: 1.5px solid rgba(250,244,235,.3);
+  color: rgba(250,244,235,.8);
+  padding: .85rem 1.75rem; border-radius: 3rem;
+  font-size: .9rem; font-weight: 600;
+  transition: all .2s;
+}
+.btn-ghost-rb:hover { border-color: var(--gold); color: var(--gold-light); }
+
+/* hero image mosaic */
+.hero-mosaic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 220px 180px 200px;
+  gap: .75rem;
+  height: 620px;
+}
+.mosaic-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+  transition: transform .4s;
+}
+.mosaic-img:hover { transform: scale(1.02); }
+.mosaic-span-2 { grid-column: span 2; }
+.mosaic-tall { grid-row: span 2; }
+
+.hero-stat-row {
+  display: flex; flex-wrap: wrap; gap: 2rem;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(250,244,235,.1);
+}
+.hero-stat .num {
+  font-family: var(--font-display);
+  font-size: 2rem; font-weight: 800;
+  color: var(--gold-light); line-height: 1;
+}
+.hero-stat .label {
+  font-size: .75rem; color: rgba(250,244,235,.5);
+  font-weight: 500; letter-spacing: .05em;
+  margin-top: .2rem;
+}
+
+/* ══════════════════════════════════════════════════════
+   TRUST STRIP
+   ══════════════════════════════════════════════════════ */
+.trust-strip {
+  background: var(--terracotta);
+  padding: 1rem 0; overflow: hidden;
+}
+.trust-items {
+  display: flex; align-items: center; gap: 3rem;
+  justify-content: center; flex-wrap: wrap;
+}
+.trust-item {
+  display: flex; align-items: center; gap: .55rem;
+  font-size: .8rem; font-weight: 600; letter-spacing: .05em;
+  color: rgba(255,255,255,.9);
+  white-space: nowrap;
+}
+.trust-item i { font-size: 1rem; color: var(--gold-light); }
+
+/* ══════════════════════════════════════════════════════
+   STYLES GALLERY — masonry-feel grid
+   ══════════════════════════════════════════════════════ */
+.gallery-section { background: var(--cream-warm); }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+.gcard {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+}
+.gcard img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .4s ease;
+  display: block;
+}
+.gcard:hover img { transform: scale(1.06); }
+.gcard-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(30,18,8,.85) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity .3s;
+  display: flex; align-items: flex-end; padding: 1.1rem;
+}
+.gcard:hover .gcard-overlay { opacity: 1; }
+.gcard-name {
+  font-family: var(--font-display);
+  font-size: .95rem; font-weight: 700;
+  color: #fff;
+}
+.gcard-tag {
+  font-size: .68rem; letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold-light); display: block;
+  margin-bottom: .2rem;
+}
+
+/* grid layout — tall / wide spots */
+.gcard-h-tall { grid-row: span 2; }
+.gcard-h-wide { grid-column: span 2; }
+
+/* set explicit heights so spans work */
+.gallery-grid > .gcard { min-height: 200px; }
+.gallery-grid > .gcard.gcard-h-tall { min-height: 420px; }
+.gallery-grid > .gcard.gcard-h-wide { min-height: 200px; }
+
+@media (max-width: 767px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gcard-h-tall { grid-row: span 1; min-height: 200px !important; }
+  .gcard-h-wide { grid-column: span 1; }
+}
+@media (max-width: 480px) {
+  .gallery-grid { grid-template-columns: 1fr 1fr; gap: .6rem; }
+}
+
+.gallery-cta {
+  text-align: center; margin-top: 2.5rem;
+  display: flex; flex-wrap: wrap; gap: 1rem;
+  justify-content: center; align-items: center;
+}
+
+/* ══════════════════════════════════════════════════════
+   SERVICES MENU
+   ══════════════════════════════════════════════════════ */
+.services-section { background: var(--earth); }
+.services-section .eyebrow { color: var(--gold-light); }
+.services-section h2 { color: var(--cream); }
+.services-section .divider-terra { background: linear-gradient(90deg, var(--gold-light), var(--terra-light)); }
+.services-section p.intro { color: rgba(250,244,235,.6); }
+
+.svc-card {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius);
+  padding: 1.75rem 1.5rem;
+  height: 100%;
+  display: flex; flex-direction: column;
+  transition: background .25s, border-color .25s, transform .25s;
+}
+.svc-card:hover {
+  background: rgba(196,97,42,.12);
+  border-color: rgba(196,97,42,.4);
+  transform: translateY(-4px);
+}
+.svc-icon-wrap {
+  width: 52px; height: 52px;
+  border-radius: .85rem;
+  background: linear-gradient(135deg, var(--terracotta), var(--gold));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; color: #fff;
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+}
+.svc-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem; font-weight: 700;
+  color: var(--cream); margin-bottom: .3rem;
+}
+.svc-price {
+  font-size: .82rem; color: var(--gold-light);
+  font-weight: 700; margin-bottom: .75rem;
+  letter-spacing: .04em;
+}
+.svc-desc {
+  font-size: .83rem; line-height: 1.7;
+  color: rgba(250,244,235,.55);
+  flex: 1; margin-bottom: 1rem;
+}
+.svc-includes {
+  font-size: .78rem; color: rgba(250,244,235,.45);
+  display: flex; align-items: center; gap: .4rem; margin-bottom: .3rem;
+}
+.svc-includes i { color: var(--terracotta); font-size: .75rem; }
+.svc-book-btn {
+  display: flex; align-items: center; justify-content: center; gap: .5rem;
+  background: #25D366; color: #fff;
+  border-radius: 2rem; padding: .6rem 1.1rem;
+  font-size: .8rem; font-weight: 700; margin-top: 1.25rem;
+  box-shadow: 0 4px 14px rgba(37,211,102,.3);
+  transition: transform .2s, box-shadow .2s;
+}
+.svc-book-btn:hover {
+  color: #fff; transform: translateY(-2px);
+  box-shadow: 0 7px 20px rgba(37,211,102,.45);
+}
+
+/* ══════════════════════════════════════════════════════
+   HOW IT WORKS
+   ══════════════════════════════════════════════════════ */
+.process-rb { background: var(--cream); }
+.step-card {
+  text-align: center; padding: 1rem;
+}
+.step-num-circle {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--terracotta) 0%, var(--gold) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.5rem; font-weight: 800;
+  color: #fff;
+  margin: 0 auto 1rem;
+  box-shadow: 0 6px 20px rgba(196,97,42,.35);
+}
+.step-card h5 { font-size: 1.05rem; color: var(--earth); margin-bottom: .4rem; }
+.step-card p { font-size: .84rem; color: var(--muted); line-height: 1.65; }
+
+/* ══════════════════════════════════════════════════════
+   STYLIST SECTION
+   ══════════════════════════════════════════════════════ */
+.stylist-section { background: var(--cream-warm); }
+.stylist-img-wrap { position: relative; }
+.stylist-img {
+  width: 100%; height: 480px;
+  object-fit: cover; border-radius: 1.5rem;
+  box-shadow: var(--shadow-deep);
+}
+.stylist-badge {
+  position: absolute; bottom: -1.5rem; left: 1.5rem;
+  background: var(--earth);
+  border-radius: var(--radius); padding: 1.2rem 1.5rem;
+  min-width: 160px;
+}
+.stylist-badge .years {
+  font-family: var(--font-display);
+  font-size: 2.4rem; font-weight: 800;
+  color: var(--gold-light); line-height: 1;
+}
+.stylist-badge .years-label {
+  font-size: .7rem; letter-spacing: .1em;
+  text-transform: uppercase; color: rgba(250,244,235,.55);
+  margin-top: .2rem; display: block;
+}
+.stylist-title { font-size: clamp(1.8rem, 3.5vw, 2.5rem); color: var(--earth); margin-bottom: 1rem; }
+.stylist-body { font-size: .92rem; line-height: 1.8; color: var(--muted); margin-bottom: 1.25rem; }
+.cred-pill {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: rgba(196,97,42,.1);
+  border: 1px solid rgba(196,97,42,.2);
+  border-radius: 2rem; padding: .4rem .9rem;
+  font-size: .77rem; font-weight: 600;
+  color: var(--earth); margin: .25rem;
+}
+.cred-pill i { color: var(--terracotta); }
+
+/* ══════════════════════════════════════════════════════
+   TESTIMONIALS
+   ══════════════════════════════════════════════════════ */
+.testi-rb { background: var(--earth); }
+.testi-rb .eyebrow { color: var(--gold-light); }
+.testi-rb h2 { color: var(--cream); }
+
+.tcard {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: var(--radius);
+  padding: 2rem 1.75rem 1.75rem;
+  height: 100%;
+  position: relative;
+  transition: background .25s, transform .25s;
+}
+.tcard:hover {
+  background: rgba(196,97,42,.1);
+  transform: translateY(-4px);
+}
+.tcard-quote {
+  font-family: var(--font-display);
+  font-size: 3.5rem; line-height: 1;
+  color: var(--terracotta); opacity: .3;
+  position: absolute; top: 1rem; left: 1.5rem;
+}
+.tcard-stars { color: #f59e0b; font-size: .85rem; margin-bottom: .75rem; }
+.tcard-text {
+  font-size: .9rem; line-height: 1.75;
+  color: rgba(250,244,235,.75);
+  margin-bottom: 1.25rem; padding-top: .75rem;
+  font-style: italic;
+}
+.tcard-av {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--terracotta), var(--gold));
+  color: #fff; font-weight: 800; font-size: 1.1rem;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); flex-shrink: 0;
+}
+.tcard-name { font-weight: 700; font-size: .9rem; color: var(--cream); }
+.tcard-tag { font-size: .75rem; color: rgba(250,244,235,.4); }
+
+/* ══════════════════════════════════════════════════════
+   PRICING PACKAGES
+   ══════════════════════════════════════════════════════ */
+.pricing-rb { background: var(--cream); }
+.pkg-rb {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem 1.75rem;
+  height: 100%; display: flex; flex-direction: column;
+  transition: transform .3s, box-shadow .3s;
+}
+.pkg-rb:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-deep);
+}
+.pkg-rb.featured {
+  border-color: var(--terracotta);
+  box-shadow: 0 8px 32px rgba(196,97,42,.2);
+  position: relative;
+}
+.pkg-feat-badge {
+  position: absolute; top: -14px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--terracotta); color: #fff;
+  font-size: .68rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: .3rem 1rem; border-radius: 2rem; white-space: nowrap;
+}
+.pkg-rb-name {
+  font-size: .7rem; font-weight: 700;
+  letter-spacing: .15em; text-transform: uppercase;
+  color: var(--terracotta); margin-bottom: .5rem;
+}
+.pkg-rb-price {
+  font-family: var(--font-display);
+  font-size: 2.8rem; font-weight: 800;
+  color: var(--earth); line-height: 1; margin-bottom: .2rem;
+}
+.pkg-rb-price sup { font-size: 1.1rem; vertical-align: super; }
+.pkg-rb-period { font-size: .78rem; color: var(--muted); margin-bottom: .75rem; }
+.pkg-rb-desc { font-size: .83rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.25rem; }
+.pkg-rb-feat {
+  display: flex; align-items: flex-start; gap: .6rem;
+  font-size: .83rem; color: var(--text); margin-bottom: .5rem;
+}
+.pkg-rb-feat i { color: var(--terracotta); margin-top: .1rem; flex-shrink: 0; }
+.pkg-rb-footer { margin-top: auto; padding-top: 1.25rem; }
+
+/* ══════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════ */
+.faq-rb { background: var(--cream-warm); }
+.accordion-item {
+  border: 1px solid var(--border) !important;
+  border-radius: .75rem !important; margin-bottom: .75rem;
+  overflow: hidden;
+}
+.accordion-button {
+  font-family: var(--font-body);
+  font-weight: 600; font-size: .92rem;
+  color: var(--earth) !important;
+  background: var(--card) !important;
+}
+.accordion-button:not(.collapsed) {
+  background: rgba(196,97,42,.06) !important;
+  color: var(--terracotta) !important;
+  box-shadow: none !important;
+}
+.accordion-button::after { filter: none !important; }
+.accordion-body {
+  font-size: .87rem; line-height: 1.75;
+  color: var(--muted); background: var(--card);
+}
+
+/* ══════════════════════════════════════════════════════
+   FINAL CTA
+   ══════════════════════════════════════════════════════ */
+.cta-rb {
+  background: linear-gradient(135deg, var(--earth) 0%, var(--earth-mid) 50%, #3d1f0a 100%);
+  padding: 6rem 0; position: relative; overflow: hidden;
+}
+.cta-rb::before {
+  content: '';
+  position: absolute; top: -20%; right: -10%;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(196,97,42,.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-rb::after {
+  content: '';
+  position: absolute; bottom: -15%; left: -5%;
+  width: 350px; height: 350px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,168,67,.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-rb .container { position: relative; z-index: 2; }
+.cta-rb h2 { font-size: clamp(2rem, 5vw, 3.5rem); color: var(--cream); margin-bottom: 1rem; }
+.cta-rb p { color: rgba(250,244,235,.6); font-size: 1rem; line-height: 1.7; margin-bottom: 2rem; }
+.urgency-pill {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: rgba(196,97,42,.2);
+  border: 1px solid rgba(196,97,42,.4);
+  border-radius: 2rem; padding: .5rem 1.2rem;
+  font-size: .78rem; font-weight: 700;
+  color: var(--terra-light); letter-spacing: .06em;
+  margin-bottom: 1.75rem;
+}
+
+/* ══════════════════════════════════════════════════════
+   FOOTER
+   ══════════════════════════════════════════════════════ */
+.rb-footer { background: var(--earth); padding: 3.5rem 0 1.5rem; color: rgba(250,244,235,.55); }
+.footer-brand-name { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: var(--cream); }
+.footer-about { font-size: .84rem; line-height: 1.7; max-width: 300px; margin-top: .5rem; }
+.footer-head { font-size: .7rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1rem; }
+.footer-lnk { display: block; font-size: .83rem; margin-bottom: .5rem; color: rgba(250,244,235,.5); transition: color .2s; }
+.footer-lnk:hover { color: var(--terra-light); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,.06); margin-top: 2.5rem; padding-top: 1.25rem; font-size: .78rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; }
+.soc-btn {
+  width: 38px; height: 38px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .95rem; border: 1px solid rgba(255,255,255,.12);
+  color: rgba(255,255,255,.55); transition: all .2s;
+}
+.soc-btn:hover { background: var(--terracotta); border-color: var(--terracotta); color: #fff; }
+
+/* ══════════════════════════════════════════════════════
+   WA FLOAT
+   ══════════════════════════════════════════════════════ */
+.wa-float-rb {
+  position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 9999;
+  width: 56px; height: 56px; background: #25D366; color: #fff;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 4px 20px rgba(37,211,102,.45);
+  transition: transform .2s, box-shadow .2s;
+}
+.wa-float-rb:hover { color: #fff; transform: scale(1.08); box-shadow: 0 6px 28px rgba(37,211,102,.6); }
+
+/* ══════════════════════════════════════════════════════
+   SCROLL REVEAL
+   ══════════════════════════════════════════════════════ */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.from-left  { transform: translateX(-30px); }
+.reveal.from-right { transform: translateX(30px); }
+.reveal.visible    { opacity: 1; transform: none; }
+.d1 { transition-delay: .1s; }
+.d2 { transition-delay: .2s; }
+.d3 { transition-delay: .3s; }
+.d4 { transition-delay: .4s; }
+.d5 { transition-delay: .5s; }
+
+/* ── RESPONSIVE ───────────────────────────────────── */
+@media (max-width: 991px) {
+  .hero-mosaic { height: auto; grid-template-columns: 1fr 1fr; grid-template-rows: 200px 180px; }
+  .mosaic-span-2 { grid-column: span 2; }
+  .mosaic-tall { grid-row: span 1; }
+  .nav-links { display: none; }
+  .stylist-img { height: 360px; }
+  .stylist-badge { left: 1rem; bottom: -1rem; }
+}
+@media (max-width: 576px) {
+  .hero-mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: 150px 130px; }
+  .trust-items { gap: 1.25rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══════════════════════════════════════════ -->
+<nav class="rb-nav" id="mainNav">
+  <div class="container d-flex align-items-center justify-content-between">
+    <a href="#" class="nav-brand">
+      <div class="brand-icon"><i class="bi bi-scissors"></i></div>
+      Roots &amp; Braids
+    </a>
+    <ul class="nav-links mb-0">
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20book%20a%20style%20at%20Roots%20%26%20Braids" class="btn-book-nav"><i class="bi bi-whatsapp me-1"></i>Book Now</a></li>
+    </ul>
+    <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20book%20at%20Roots%20%26%20Braids" class="btn-book-nav d-lg-none"><i class="bi bi-whatsapp"></i> Book</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ════════════════════════════════════════════ -->
+<section class="hero-rb" id="home">
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <!-- Copy -->
+      <div class="col-lg-5 reveal">
+        <div class="hero-eyebrow-pill">
+          <i class="bi bi-stars"></i> St. Lucia's Premier Braiding Studio
+        </div>
+        <h1 class="hero-title">
+          Your Hair.<br>
+          Your Crown.<br>
+          <span class="accent">Your Culture.</span>
+        </h1>
+        <p class="hero-sub">
+          Knotless braids, box braids, faux locs, cornrows, Senegalese twists, and more — installed with precision, care, and cultural pride. Every style a work of art.
+        </p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20book%20a%20style%20at%20Roots%20%26%20Braids" class="btn-wa-rb">
+            <i class="bi bi-whatsapp"></i> Book My Style
+          </a>
+          <a href="#gallery" class="btn-ghost-rb">
+            <i class="bi bi-images"></i> See the Work
+          </a>
+        </div>
+        <!-- COMPLIANCE NOTE (dev-only): 500+/8yr/4.9★ below are placeholder demo
+             numbers, not verified claims. Replace with real, confirmed figures
+             before this is delivered to any client — never present invented
+             stats as fact. -->
+        <div class="hero-stat-row">
+          <div class="hero-stat">
+            <div class="num">500+</div>
+            <div class="label">Clients Served</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">10+</div>
+            <div class="label">Braid Styles</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">8 yr</div>
+            <div class="label">Experience</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">4.9★</div>
+            <div class="label">Client Rating</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image Mosaic -->
+      <div class="col-lg-7 reveal from-right d2">
+        <div class="hero-mosaic">
+
+          <!-- Large left image — tall -->
+          <div class="mosaic-tall" style="grid-row: span 2;">
+            <picture>
+              <source srcset="images/braids.webp" type="image/webp">
+              <img
+                src="images/braids.webp"
+                alt="Knotless braids style — Roots and Braids Studio"
+                class="mosaic-img"
+                style="height:100%;border-radius:1rem;"
+                loading="eager"
+              >
+            </picture>
+          </div>
+
+          <!-- Top right -->
+          <picture>
+            <source srcset="images/braids.webp" type="image/webp">
+            <img
+              src="images/braids.webp"
+              alt="Faux locs hairstyle — Caribbean braiding"
+              class="mosaic-img"
+              style="height:220px;border-radius:1rem;"
+              loading="eager"
+            >
+          </picture>
+
+          <!-- Bottom right -->
+          <picture>
+            <source srcset="images/braids.webp" type="image/webp">
+            <img
+              src="images/braids.webp"
+              alt="Box braids — protective style at Roots and Braids"
+              class="mosaic-img"
+              style="height:180px;border-radius:1rem;"
+              loading="eager"
+            >
+          </picture>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRUST STRIP ══════════════════════════════════════ -->
+<div class="trust-strip">
+  <div class="container">
+    <div class="trust-items">
+      <div class="trust-item"><i class="bi bi-patch-check-fill"></i> Certified Braider</div>
+      <div class="trust-item"><i class="bi bi-heart-fill"></i> 500+ Satisfied Clients</div>
+      <div class="trust-item"><i class="bi bi-shield-fill"></i> Scalp-Safe Techniques</div>
+      <div class="trust-item"><i class="bi bi-clock-fill"></i> Appointments Mon–Sat</div>
+      <div class="trust-item"><i class="bi bi-whatsapp"></i> Book in 60 Seconds on WhatsApp</div>
+      <div class="trust-item"><i class="bi bi-droplet-fill"></i> Premium Hair Extensions Included</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ STYLES GALLERY ═══════════════════════════════════ -->
+<section class="gallery-section" id="gallery">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="eyebrow">Style Gallery</span>
+      <h2 style="font-size:clamp(2rem,4vw,3rem);color:var(--earth)">10+ Styles.<br>Endless Possibilities.</h2>
+      <div class="divider-terra"></div>
+      <p class="mt-3" style="max-width:500px;margin:1rem auto 0;color:var(--muted);font-size:.92rem;line-height:1.7">
+        Every style below is installed right here at Roots &amp; Braids. Hover each photo to see the style name. Don't see your style? Message us — if we can braid it, we do it.
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+
+      <!-- 1 — Tall left -->
+      <div class="gcard gcard-h-tall">
+        <picture>
+          <source srcset="images/braids.webp" type="image/webp">
+          <img src="images/braids.webp" alt="Knotless box braids — waist length">
+        </picture>
+        <div class="gcard-overlay">
+          <div>
+            <span class="gcard-tag">Most Requested</span>
+            <div class="gcard-name">Knotless Box Braids</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="gcard">
+        <picture>
+          <source srcset="images/braids.webp" type="image/webp">
+          <img src="images/braids.webp" alt="Cornrows close to scalp">
+        </picture>
+        <div class="gcard-overlay">
+          <div>
+            <span class="gcard-tag">Protective Style</span>
+            <div class="gcard-name">Feed-In Cornrows</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="gcard">
+        <picture>
+          <source srcset="images/braids.webp" type="image/webp">
+          <img src="images/braids.webp" alt="Faux locs dreads style">
+        </picture>
+        <div class="gcard-overlay">
+          <div>
+            <span class="gcard-tag">Trending</span>
+            <div class="gcard-name">Faux Locs</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 — Wide bottom -->
+      <div class="gcard gcard-h-wide">
+        <picture>
+          <source srcset="images/braids.webp" type="image/webp">
+          <img src="images/braids.webp" alt="Senegalese twist style long" style="height:200px;object-fit:cover;">
+        </picture>
+        <div class="gcard-overlay">
+          <div>
+            <span class="gcard-tag">Elegant & Long-Lasting</span>
+            <div class="gcard-name">Senegalese Twists</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="gcard">
+        <picture>
+          <source srcset="images/braids.webp" type="image/webp">
+          <img src="images/braids.webp" alt="Passion twists hairstyle">
+        </picture>
+        <div class="gcard-overlay">
+          <div>
+            <span class="gcard-tag">Soft & Romantic</span>
+            <div class="gcard-name">Passion Twists</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="gcard">
+        <picture>
+          <source srcset="images/braids.webp" type="image/webp">
+          <img src="images/braids.webp" alt="Goddess braids updo">
+        </picture>
+        <div class="gcard-overlay">
+          <div>
+            <span class="gcard-tag">Stunning Updo</span>
+            <div class="gcard-name">Goddess Braids</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="gcard">
+        <picture>
+          <source srcset="images/braids.webp" type="image/webp">
+          <img src="images/braids.webp" alt="Jumbo box braids bold style">
+        </picture>
+        <div class="gcard-overlay">
+          <div>
+            <span class="gcard-tag">Bold Statement</span>
+            <div class="gcard-name">Jumbo Box Braids</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="gcard">
+        <picture>
+          <source srcset="images/braids.webp" type="image/webp">
+          <img src="images/braids.webp" alt="Fulani braids with beads">
+        </picture>
+        <div class="gcard-overlay">
+          <div>
+            <span class="gcard-tag">Cultural Beauty</span>
+            <div class="gcard-name">Fulani Braids</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="gallery-cta reveal d2">
+      <p style="color:var(--muted);font-size:.9rem;">Want to see a style not shown here?</p>
+      <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20ask%20about%20a%20style%20at%20Roots%20%26%20Braids" class="btn-wa-rb" style="font-size:.85rem;padding:.75rem 1.75rem;">
+        <i class="bi bi-whatsapp"></i> Send Us a Style Reference
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICES MENU ════════════════════════════════════ -->
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="eyebrow">Full Service Menu</span>
+      <h2 style="font-size:clamp(2rem,4vw,3rem)">What We Install</h2>
+      <div class="divider-terra"></div>
+      <p class="intro mt-3" style="max-width:520px;margin:1rem auto 0;font-size:.92rem;line-height:1.7">
+        All styles are installed with premium kanekalon or human hair extensions. Prices vary by length, thickness, and complexity. WhatsApp us for an exact quote.
+      </p>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Knotless Box Braids -->
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="svc-card">
+          <div class="svc-icon-wrap"><i class="bi bi-grid-3x3"></i></div>
+          <div class="svc-name">Knotless Box Braids</div>
+          <div class="svc-price">From $150 · Waist-length from $200</div>
+          <p class="svc-desc">The gentlest install on your scalp. No tension at the root. No knots. Just clean, natural-looking braids that last up to 8 weeks. Our most requested style — and for good reason.</p>
+          <div class="svc-includes"><i class="bi bi-check2"></i> Hair extensions included</div>
+          <div class="svc-includes"><i class="bi bi-check2"></i> Scalp-safe technique</div>
+          <div class="svc-includes"><i class="bi bi-check2"></i> Small / medium / jumbo sizes</div>
+          <div class="svc-includes"><i class="bi bi-check2"></i> Lasts 6–8 weeks</div>
+          <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20book%20Knotless%20Box%20Braids%20at%20Roots%20%26%20Braids" class="svc-book-btn">
+            <i class="bi bi-whatsapp"></i> Book This Style
+          </a>
+        </div>
+      </div>
+
+      <!-- Traditional Box Braids -->
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="svc-card">
+          <div class="svc-icon-wrap"><i class="bi bi-layout-three-columns"></i></div>
+          <div class="svc-name">Box Braids</div>
+          <div class="svc-price">From $120 · Jumbo from $90</div>
+          <p class="svc-desc">The classic. Box-sectioned, bold, and versatile. Wear them down, in a bun, or half-up. A timeless protective style loved across the Caribbean and the world. Ready to wear and last.</p>
+          <div class="svc-includes"><i class="bi bi-check2"></i> Small / medium / jumbo options</div>
+          <div class="svc-includes"><i class="bi bi-check2"></i> Various lengths available</div>
+          <div class="svc-includes"><i class="bi bi-check2"></i> Colour options available</div>
+          <div class="svc-includes"><i class="bi bi-check2"></i> Lasts 4–6 weeks</div>
+          <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20book%20Box%20Braids%20at%20Roots%20%26%20Braids" class="svc-book-btn">
+            <i class="bi bi-whatsapp"></i> Book This Style
+          </a>
+        </div>
+      </div>
+
+      <!-- Faux Locs -->
+      <div class="col-md-6 col-lg-4 reveal d3">
+        <div class="svc-card">
+          <div class="svc-icon-wrap"><i class="bi bi-stars"></i></div>
+          <div class="svc-name">Faux Locs</div>
+          <div class="svc-price">From $180 · Goddess locs from $210</div>
+          <p class="svc-desc">The look of dreadlocks without the permanent commitment. Soft, mesmerizing, and uniquely textured. Available in goddess locs (wavy ends) and classic faux locs. Turns every head you pass.</p>
+          <div class="svc-includes"><i class="bi bi-check2"></i> Soft / distressed / goddess options</div>
+          <div class="svc-includes"><i class="bi bi-check2"></i> Various thicknesses</div>
+          <div class="svc-includes"><i class="bi bi-check2"></i> Colour streaks available</div>
+          <div class="svc-includes"><i class="bi bi-check2"></i> Lasts 6–8 weeks</div>
+          <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20book%20Faux%20Locs%20at%20Roots%20%26%20Braids" class="svc-book-btn">
+            <i class="bi bi-whatsapp"></i> Book This Style
+          </a>
+        </div>
+      </div>
+
+      <!-- Cornrows -->
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="svc-card">
+          <div class="svc-icon-wrap"><i class="bi bi-distribute-horizontal"></i></div>
+          <div class="svc-name">Feed-In Cornrows</div>
+          <div class="svc-price">From $60 · With extensions from $90</div>
+          <p class="svc-desc">Neat, flat, and close to the scalp. Feed-in cornrows add length and volume naturally. Perfect under wigs, as a base for crochet, or as a standalone statement look with geometric patterns.</p>
+          <div class="svc-includes"><i class="bi bi-check2"></i> Straight / curved / freestyle patterns</div>
+          <div class="svc-includes"><i class="bi bi-check2"></i> With or without extensions</div>
+          <div class="svc-includes"><i class="bi bi-check2"></i> Lasts 2–4 weeks</div>
+          <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20book%20Cornrows%20at%20Roots%20%26%20Braids" class="svc-book-btn">
+            <i class="bi bi-whatsapp"></i> Book This Style
+          </a>
+        </div>
+      </div>
+
+      <!-- Senegalese Twists -->
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="svc-card">
+          <div class="svc-icon-wrap"><i class="bi bi-infinity"></i></div>
+          <div class="svc-name">Senegalese Twists</div>
+          <div class="svc-price">From $140 · Long from $180</div>
+          <p class="svc-desc">Silky, sleek, and sophisticated. Two-strand twisted extensions that give you length, shine, and effortless elegance. Lightweight, versatile, and deeply protective. Gorgeous worn any way.</p>
+          <div class="svc-includes"><i class="bi bi-check2"></i> Small / medium twist sizes</div>
+          <div class="svc-includes"><i class="bi bi-check2"></i> Multiple colour options</div>
+          <div class="svc-includes"><i class="bi bi-check2"></i> Lasts 6–8 weeks</div>
+          <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20book%20Senegalese%20Twists%20at%20Roots%20%26%20Braids" class="svc-book-btn">
+            <i class="bi bi-whatsapp"></i> Book This Style
+          </a>
+        </div>
+      </div>
+
+      <!-- Passion Twists -->
+      <div class="col-md-6 col-lg-4 reveal d3">
+        <div class="svc-card">
+          <div class="svc-icon-wrap"><i class="bi bi-heart-fill"></i></div>
+          <div class="svc-name">Passion Twists</div>
+          <div class="svc-price">From $160 · Waist from $200</div>
+          <p class="svc-desc">The softest, most romantic protective style on the menu. Bohemian, textured, and flowing. Passion twists blend the clean structure of box braids with the gentle bounce of natural coils. Pure beauty.</p>
+          <div class="svc-includes"><i class="bi bi-check2"></i> Water wave texture included</div>
+          <div class="svc-includes"><i class="bi bi-check2"></i> Shoulder / mid-back / waist lengths</div>
+          <div class="svc-includes"><i class="bi bi-check2"></i> Lasts 4–6 weeks</div>
+          <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20book%20Passion%20Twists%20at%20Roots%20%26%20Braids" class="svc-book-btn">
+            <i class="bi bi-whatsapp"></i> Book This Style
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- More styles nudge -->
+    <div class="text-center mt-5 reveal d3">
+      <p style="color:rgba(250,244,235,.5);font-size:.9rem;margin-bottom:1rem">Also available: Fulani braids · Goddess braids · Micro braids · Crochet braids · Lemonade braids · Tribal braids</p>
+      <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20ask%20about%20a%20specific%20style%20at%20Roots%20%26%20Braids" class="btn-wa-rb" style="font-size:.85rem;padding:.75rem 1.75rem;">
+        <i class="bi bi-whatsapp"></i> Ask About Any Style
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HOW IT WORKS ═════════════════════════════════════ -->
+<section class="process-rb" id="process">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="eyebrow">The Process</span>
+      <h2 style="font-size:clamp(1.8rem,3.5vw,2.5rem);color:var(--earth)">Booking Is Simple</h2>
+      <div class="divider-terra"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-6 col-md-3 reveal d1">
+        <div class="step-card">
+          <div class="step-num-circle">1</div>
+          <h5>Pick Your Style</h5>
+          <p>Browse the gallery and menu above. Save a reference photo if you have one.</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 reveal d2">
+        <div class="step-card">
+          <div class="step-num-circle">2</div>
+          <h5>WhatsApp Us</h5>
+          <p>Send us your chosen style and preferred date. We respond same day, every time.</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 reveal d3">
+        <div class="step-card">
+          <div class="step-num-circle">3</div>
+          <h5>Confirm &amp; Prep</h5>
+          <p>We confirm your slot and send a prep guide so your hair is ready on the day.</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 reveal d4">
+        <div class="step-card">
+          <div class="step-num-circle">4</div>
+          <h5>Leave Looking Royal</h5>
+          <p>Come in. Relax. Leave with a style that stops traffic and lasts for weeks.</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-5 reveal d3">
+      <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20book%20at%20Roots%20%26%20Braids" class="btn-wa-rb">
+        <i class="bi bi-whatsapp"></i> Book My Appointment Now
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STYLIST / ABOUT ══════════════════════════════════ -->
+<section class="stylist-section" id="about">
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-5 reveal from-left">
+        <div class="stylist-img-wrap">
+          <picture>
+            <source srcset="images/braids.webp" type="image/webp">
+            <img
+              src="images/braids.webp"
+              alt="Head stylist at Roots and Braids Studio"
+              class="stylist-img"
+              loading="lazy"
+            >
+          </picture>
+          <div class="stylist-badge">
+            <div class="years">8+</div>
+            <span class="years-label">Years of<br>Mastery</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-7 reveal from-right d2" style="padding-top:2rem;">
+        <span class="eyebrow">About the Studio</span>
+        <h2 class="stylist-title">Braiding Is Not<br>Just a Service.<br><em style="font-style:italic">It's an Inheritance.</em></h2>
+        <div class="divider-terra left" style="margin-bottom:1.5rem;"></div>
+        <p class="stylist-body">
+          Roots &amp; Braids was born from a deep love of Caribbean hair culture and the art of protective styling passed down through generations. Our lead braider brings over 8 years of professional training and hands-on mastery in African and Caribbean braiding traditions — from knotless and cornrows to intricate Fulani patterns and goddess locs.
+        </p>
+        <p class="stylist-body">
+          Every client who sits in our chair receives the same thing: precision technique, healthy hair practices, and a style that reflects who they are. We take the time to understand your hair type, your lifestyle, and your vision before we ever pick up a comb.
+        </p>
+        <!-- COMPLIANCE NOTE (dev-only): credential/experience claims below (8+ yrs,
+             500+ clients, "Certified") are demo placeholders — confirm real
+             credentials with the client before delivery. Never invent credentials. -->
+        <div class="mt-2">
+          <span class="cred-pill"><i class="bi bi-patch-check-fill"></i> Certified Braider</span>
+          <span class="cred-pill"><i class="bi bi-heart-fill"></i> 500+ Satisfied Clients</span>
+          <span class="cred-pill"><i class="bi bi-shield-check"></i> Scalp-Safe First</span>
+          <span class="cred-pill"><i class="bi bi-award-fill"></i> Premium Hair Extensions Only</span>
+          <span class="cred-pill"><i class="bi bi-clock-fill"></i> Same-Week Appointments</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ═════════════════════════════════════ -->
+<section class="testi-rb" id="testimonials">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="eyebrow">Client Love</span>
+      <h2 style="font-size:clamp(1.8rem,3.5vw,2.8rem)">They Came In.<br><em style="font-style:italic">They Left Like Royalty.</em></h2>
+      <div class="divider-terra"></div>
+      <!-- COMPLIANCE NOTE (dev-only, not client-facing): These are sample/placeholder
+           reviews for demo purposes only — no real client names, no fabricated
+           locations. Swap in real client feedback (with permission) before this
+           goes live for any prospect. Do not leave placeholder text in a delivered site. -->
+      <p class="mt-2" style="font-size:.75rem;letter-spacing:.04em;color:var(--muted);opacity:.7">Sample reviews shown for demonstration — replaced with real client feedback at launch</p>
+    </div>
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="tcard">
+          <div class="tcard-quote">"</div>
+          <div class="tcard-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <p class="tcard-text">Best knotless install I've had. Zero tension, perfectly parted, and the length is everything. Booked through WhatsApp and was confirmed within minutes.</p>
+          <div class="d-flex align-items-center gap-3">
+            <div class="tcard-av">C</div>
+            <div>
+              <div class="tcard-name">Client Review</div>
+              <div class="tcard-tag">Knotless Box Braids</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="tcard">
+          <div class="tcard-quote">"</div>
+          <div class="tcard-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <p class="tcard-text">My goddess faux locs turned out exactly like the reference photo I sent. Took her time, didn't rush, and my scalp didn't hurt after. Weeks in and they still look fresh.</p>
+          <div class="d-flex align-items-center gap-3">
+            <div class="tcard-av">C</div>
+            <div>
+              <div class="tcard-name">Client Review</div>
+              <div class="tcard-tag">Goddess Faux Locs</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d3">
+        <div class="tcard">
+          <div class="tcard-quote">"</div>
+          <div class="tcard-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <p class="tcard-text">Came in for Senegalese twists and the booking process was effortless — sent a WhatsApp message with a reference photo and she handled everything. Still getting compliments weeks later.</p>
+          <div class="d-flex align-items-center gap-3">
+            <div class="tcard-av">C</div>
+            <div>
+              <div class="tcard-name">Client Review</div>
+              <div class="tcard-tag">Senegalese Twists</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRICING ══════════════════════════════════════════ -->
+<section class="pricing-rb" id="pricing">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="eyebrow">Packages</span>
+      <h2 style="font-size:clamp(1.8rem,3.5vw,2.8rem);color:var(--earth)">Invest in Your Crown</h2>
+      <div class="divider-terra"></div>
+      <p class="mt-3" style="max-width:500px;margin:1rem auto 0;color:var(--muted);font-size:.92rem;line-height:1.7">
+        All packages include premium extensions, scalp prep, and aftercare guidance. Final pricing confirmed at booking based on length and thickness.
+      </p>
+    </div>
+    <div class="row g-4 justify-content-center">
+
+      <div class="col-md-4 reveal d1">
+        <div class="pkg-rb">
+          <div class="pkg-rb-name">Single Style</div>
+          <div class="pkg-rb-price"><sup>$</sup>60<span style="font-size:1rem;font-weight:400;color:var(--muted)">+</span></div>
+          <div class="pkg-rb-period">One-time install · USD</div>
+          <p class="pkg-rb-desc">One style, done right. Perfect for a first visit or a one-off style for an event or occasion.</p>
+          <hr style="border-color:var(--border);margin:1rem 0">
+          <div class="pkg-rb-feat"><i class="bi bi-check-circle-fill"></i> Your choice of style</div>
+          <div class="pkg-rb-feat"><i class="bi bi-check-circle-fill"></i> Extensions included</div>
+          <div class="pkg-rb-feat"><i class="bi bi-check-circle-fill"></i> Scalp prep included</div>
+          <div class="pkg-rb-feat"><i class="bi bi-check-circle-fill"></i> Aftercare guide provided</div>
+          <div class="pkg-rb-footer">
+            <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20book%20a%20single%20style%20at%20Roots%20%26%20Braids" class="btn-wa-rb w-100 justify-content-center" style="font-size:.83rem;padding:.7rem;">
+              <i class="bi bi-whatsapp"></i> Book a Style
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 reveal d2">
+        <div class="pkg-rb featured">
+          <div class="pkg-feat-badge">Best Value</div>
+          <div class="pkg-rb-name">3-Style Bundle</div>
+          <div class="pkg-rb-price"><sup>$</sup>320</div>
+          <div class="pkg-rb-period">3 installs · Save $40+ · USD</div>
+          <p class="pkg-rb-desc">Your hair stays protected all season. Book 3 installs, save money, and never have a bad hair month again.</p>
+          <hr style="border-color:rgba(196,97,42,.2);margin:1rem 0">
+          <div class="pkg-rb-feat"><i class="bi bi-check-circle-fill"></i> 3 installs of your choice</div>
+          <div class="pkg-rb-feat"><i class="bi bi-check-circle-fill"></i> Mix styles each visit</div>
+          <div class="pkg-rb-feat"><i class="bi bi-check-circle-fill"></i> Priority WhatsApp booking</div>
+          <div class="pkg-rb-feat"><i class="bi bi-check-circle-fill"></i> Free takedown on visit 2 &amp; 3</div>
+          <div class="pkg-rb-feat"><i class="bi bi-check-circle-fill"></i> Personalised hair care plan</div>
+          <div class="pkg-rb-footer">
+            <a href="https://wa.me/17587235872?text=I%27d%20like%20the%203-Style%20Bundle%20at%20Roots%20%26%20Braids" class="btn-wa-rb w-100 justify-content-center" style="font-size:.83rem;padding:.7rem;">
+              <i class="bi bi-whatsapp"></i> Get the Bundle
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 reveal d3">
+        <div class="pkg-rb">
+          <div class="pkg-rb-name">Monthly Member</div>
+          <div class="pkg-rb-price"><sup>$</sup>130<span style="font-size:1rem;font-weight:400;color:var(--muted)">/mo</span></div>
+          <div class="pkg-rb-period">Monthly refresh · USD</div>
+          <p class="pkg-rb-desc">For clients who keep their hair in protective styles year-round. One fresh install every month, guaranteed slot, priority access.</p>
+          <hr style="border-color:var(--border);margin:1rem 0">
+          <div class="pkg-rb-feat"><i class="bi bi-check-circle-fill"></i> 1 style installed monthly</div>
+          <div class="pkg-rb-feat"><i class="bi bi-check-circle-fill"></i> Priority booking — no waitlist</div>
+          <div class="pkg-rb-feat"><i class="bi bi-check-circle-fill"></i> 10% off additional installs</div>
+          <div class="pkg-rb-feat"><i class="bi bi-check-circle-fill"></i> Free takedown each month</div>
+          <div class="pkg-rb-feat"><i class="bi bi-check-circle-fill"></i> Seasonal hair health review</div>
+          <div class="pkg-rb-footer">
+            <a href="https://wa.me/17587235872?text=I%27d%20like%20the%20Monthly%20Membership%20at%20Roots%20%26%20Braids" class="btn-wa-rb w-100 justify-content-center" style="font-size:.83rem;padding:.7rem;">
+              <i class="bi bi-whatsapp"></i> Join the Membership
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="text-center mt-4 reveal">
+      <small style="color:var(--muted);font-size:.78rem">All prices in USD. 50% deposit required to confirm booking. Prices vary by length, thickness, and style complexity. Final price confirmed via WhatsApp before your appointment.</small>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══════════════════════════════════════════════ -->
+<section class="faq-rb" id="faq">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2 style="font-size:clamp(1.8rem,3.5vw,2.5rem);color:var(--earth)">Questions We Get Every Day</h2>
+      <div class="divider-terra"></div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8 reveal d2">
+        <div class="accordion" id="faqAccordion">
+
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                How do I book an appointment?
+              </button>
+            </h3>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Simple — tap any "Book Now" button on this page and it opens WhatsApp directly. Tell us your desired style, preferred date, and send a reference photo if you have one. We confirm your slot the same day.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                Do I need to bring my own hair extensions?
+              </button>
+            </h3>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                No. All hair extensions are included in your service price. We use premium kanekalon and human hair extensions depending on the style. If you have a preferred brand or colour you'd like us to use, just let us know when booking.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                How should I prepare my hair before my appointment?
+              </button>
+            </h3>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Come with clean, thoroughly detangled, and stretched hair. Wash and condition 1–2 days before, not the morning of. We will send you a full prep guide via WhatsApp when you confirm your booking.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                How long does braiding take?
+              </button>
+            </h3>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                It depends entirely on the style and size. Cornrows take 1–2 hours. Box braids and knotless braids typically take 4–8 hours depending on length and size. Faux locs and Senegalese twists can take 5–8 hours. We always give you an accurate time estimate at booking so you can plan your day.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                How long do braids last?
+              </button>
+            </h3>
+            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Most braided styles last 4–8 weeks with proper care. Cornrows 2–4 weeks. Knotless and box braids 6–8 weeks. Faux locs 6–8 weeks. Senegalese twists 6–8 weeks. We send every client an aftercare guide to maximise the life of their style.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                Do you offer takedown services?
+              </button>
+            </h3>
+            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Yes. Takedown is available as an add-on service. Clients on our 3-Style Bundle and Monthly Membership get free takedown included on every return visit.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FINAL CTA ════════════════════════════════════════ -->
+<section class="cta-rb">
+  <div class="container text-center">
+    <div class="reveal">
+      <div class="urgency-pill">
+        <i class="bi bi-calendar-check-fill"></i> Limited slots available this week
+      </div>
+      <h2>
+        Your Hair Deserves<br>
+        <em style="font-style:italic">the Best Hands in the Caribbean.</em>
+      </h2>
+      <p style="max-width:460px;margin:0 auto 2rem;">
+        Stop settling for rushed installs and sore scalps. Book with a braider who treats your hair like the crown it is — and delivers a style that lasts.
+      </p>
+      <a href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20ready%20to%20book%20my%20style%20at%20Roots%20%26%20Braids%21" class="btn-wa-rb" style="font-size:1rem;padding:1rem 2.5rem;">
+        <i class="bi bi-whatsapp"></i> Book My Style Now
+      </a>
+      <p class="mt-3" style="font-size:.78rem;color:rgba(250,244,235,.35);">
+        Extensions included · Prep guide sent on booking · 50% deposit confirms your slot
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ═══════════════════════════════════════════ -->
+<footer class="rb-footer">
+  <div class="container">
+    <div class="row g-5 mb-3">
+      <div class="col-lg-5">
+        <div class="footer-brand-name">Roots &amp; Braids</div>
+        <p class="footer-about">St. Lucia's premier Caribbean braiding and locs studio. Certified. Trusted. Precision installs every time.</p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="https://wa.me/17587235872" class="soc-btn" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          <a href="#" class="soc-btn" title="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="soc-btn" title="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="soc-btn" title="TikTok"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <p class="footer-head">Styles</p>
+        <a href="#services" class="footer-lnk">Knotless Box Braids</a>
+        <a href="#services" class="footer-lnk">Box Braids</a>
+        <a href="#services" class="footer-lnk">Faux Locs</a>
+        <a href="#services" class="footer-lnk">Cornrows</a>
+        <a href="#services" class="footer-lnk">Senegalese Twists</a>
+        <a href="#services" class="footer-lnk">Passion Twists</a>
+      </div>
+      <div class="col-6 col-lg-3">
+        <p class="footer-head">Book Now</p>
+        <a href="https://wa.me/17587235872" class="footer-lnk d-flex align-items-center gap-2">
+          <i class="bi bi-whatsapp text-success"></i> +1 (758) 723-5872
+        </a>
+        <p class="footer-lnk" style="cursor:default">
+          <i class="bi bi-clock me-2" style="color:var(--terracotta)"></i> Mon–Sat, 8 AM – 7 PM
+        </p>
+        <p class="footer-lnk" style="cursor:default">
+          <i class="bi bi-geo-alt me-2" style="color:var(--terracotta)"></i> St. Lucia, Caribbean
+        </p>
+        <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20book%20a%20style%20at%20Roots%20%26%20Braids" class="btn-wa-rb mt-2 d-inline-flex" style="font-size:.78rem;padding:.55rem 1.2rem;">
+          <i class="bi bi-whatsapp"></i> Book Now
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="rb-year"></span> Roots &amp; Braids. All rights reserved.</span>
+      <span style="opacity:.35">A jamaLinks Conversion System · Demo</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ WA FLOAT ═════════════════════════════════════════ -->
+<a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20book%20a%20style%20at%20Roots%20%26%20Braids" class="wa-float-rb" title="Book on WhatsApp" aria-label="Book on WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<!-- ══ BOOTSTRAP JS ═════════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/* ── Navbar scroll ── */
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60), { passive: true });
+
+/* ── Scroll reveal ── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+/* ── Smooth scroll ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (!t) return;
+    e.preventDefault();
+    t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+/* ── Footer year ── */
+document.getElementById('rb-year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
