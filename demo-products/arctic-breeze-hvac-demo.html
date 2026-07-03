@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arctic Breeze HVAC | Fast, Honest AC Repair &amp; Installation</title>
+<meta name="description" content="Emergency AC repair, installation and maintenance. Same-day service, licensed technicians, honest pricing. Residential and commercial.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-950:#060e1c;
+    --navy-900:#0a1628;
+    --navy-800:#0f2038;
+    --navy-700:#152b4a;
+    --navy-600:#1c3a5e;
+    --ice:#cfe8f7;
+    --ice-dim:#8fb3c9;
+    --cyan:#22d3ee;
+    --cyan-bright:#5eead4;
+    --white:#f7fafc;
+    --green:#34d399;
+    --amber:#fbbf24;
+    --red:#fb7185;
+    --font-display:'Sora', sans-serif;
+    --font-body:'Inter', sans-serif;
+    --font-mono:'IBM Plex Mono', monospace;
+    --radius-lg:20px;
+    --radius-md:14px;
+    --radius-sm:10px;
+    --shadow-soft: 0 20px 60px -20px rgba(0,0,0,0.6);
+    --container: 1160px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--navy-900);
+    color:var(--white);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  button{font-family:inherit; cursor:pointer;}
+  h1,h2,h3,h4{font-family:var(--font-display); line-height:1.15; letter-spacing:-0.02em;}
+  .wrap{max-width:var(--container); margin:0 auto; padding:0 24px;}
+  .eyebrow{
+    font-family:var(--font-mono); font-size:12px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--cyan); display:inline-flex; align-items:center; gap:8px; margin-bottom:14px; font-weight:600;
+  }
+  .eyebrow::before{content:''; width:18px; height:1.5px; background:var(--cyan); display:inline-block;}
+  .section{padding:96px 0;}
+  @media (max-width:760px){ .section{padding:64px 0;} }
+  .section-head{max-width:640px; margin-bottom:48px;}
+  .section-head h2{font-size:clamp(28px,4vw,42px); margin-bottom:16px; color:var(--white);}
+  .section-head p{color:var(--ice-dim); font-size:17px;}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    padding:16px 30px; border-radius:100px; font-weight:600; font-size:15px;
+    border:none; cursor:pointer; position:relative; overflow:hidden; white-space:nowrap;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .btn-primary{background:linear-gradient(135deg, var(--cyan), var(--cyan-bright)); color:var(--navy-950); box-shadow:0 10px 30px -8px rgba(34,211,238,0.5);}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 14px 36px -8px rgba(34,211,238,0.65);}
+  .btn-ghost{background:rgba(255,255,255,0.06); color:var(--white); border:1px solid rgba(255,255,255,0.16); backdrop-filter:blur(8px);}
+  .btn-ghost:hover{background:rgba(255,255,255,0.1); transform:translateY(-2px);}
+  .btn-block{width:100%;}
+  .ripple{position:absolute; border-radius:50%; background:rgba(255,255,255,0.5); transform:scale(0); animation:ripple .6s linear; pointer-events:none;}
+  @keyframes ripple{to{transform:scale(4); opacity:0;}}
+
+  /* Scroll progress */
+  #scroll-progress{position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg,var(--cyan),var(--cyan-bright)); z-index:9999; width:0%; transition:width .1s linear;}
+
+  /* NAV */
+  header{
+    position:sticky; top:0; z-index:900; background:rgba(6,14,28,0.82); backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:16px 24px; max-width:var(--container); margin:0 auto;}
+  .logo{display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:700; font-size:19px; color:var(--white);}
+  .logo-mark{width:34px; height:34px; border-radius:9px; background:linear-gradient(135deg,var(--cyan),var(--navy-600)); display:flex; align-items:center; justify-content:center;}
+  .logo-mark svg{width:19px; height:19px;}
+  .nav-links{display:flex; gap:32px; align-items:center;}
+  .nav-links a{font-size:14.5px; color:var(--ice-dim); font-weight:500; transition:color .2s;}
+  .nav-links a:hover{color:var(--white);}
+  .nav-cta{display:flex; align-items:center; gap:10px;}
+  .icon-btn{
+    display:flex; align-items:center; gap:8px; padding:10px 16px; border-radius:100px; font-size:13.5px; font-weight:600;
+  }
+  .icon-btn svg{width:15px; height:15px;}
+  .call-btn{background:rgba(255,255,255,0.08); color:var(--white); border:1px solid rgba(255,255,255,0.14);}
+  .wa-btn{background:linear-gradient(135deg,#25d366,#1fb855); color:#04150a;}
+  .menu-toggle{display:none; background:none; border:none; color:var(--white);}
+  @media (max-width:900px){
+    .nav-links{display:none;}
+    .menu-toggle{display:block;}
+    .nav-cta .call-btn span{display:none;}
+  }
+
+  /* Floating buttons */
+  .floating-stack{position:fixed; right:18px; bottom:18px; z-index:850; display:flex; flex-direction:column; gap:12px; align-items:flex-end;}
+  .fab{
+    width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 26px -6px rgba(0,0,0,0.55); border:none;
+  }
+  .fab svg{width:24px; height:24px;}
+  .fab-wa{background:linear-gradient(135deg,#25d366,#1fb855); color:#04150a;}
+  .fab-call{background:linear-gradient(135deg,var(--cyan),var(--cyan-bright)); color:var(--navy-950);}
+  .fab-pulse{position:absolute; inset:0; border-radius:50%; background:inherit; opacity:0.55; animation:pulse 2.2s ease-out infinite;}
+  @keyframes pulse{0%{transform:scale(1); opacity:0.5;} 100%{transform:scale(1.7); opacity:0;}}
+
+  /* HERO */
+  .hero{position:relative; padding:76px 0 80px; overflow:hidden;}
+  .hero-bg-shape{position:absolute; border-radius:50%; filter:blur(70px); opacity:0.35; pointer-events:none;}
+  .shape-1{width:420px; height:420px; background:var(--cyan); top:-160px; right:-120px; animation:float 9s ease-in-out infinite;}
+  .shape-2{width:320px; height:320px; background:#4c6ef5; bottom:-140px; left:-100px; animation:float 11s ease-in-out infinite reverse;}
+  @keyframes float{0%,100%{transform:translateY(0px);} 50%{transform:translateY(30px);}}
+  .hero-grid{display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center; position:relative; z-index:2;}
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr; gap:40px;} }
+  .hero h1{font-size:clamp(34px,5.2vw,58px); color:var(--white); margin-bottom:20px;}
+  .hero h1 em{font-style:normal; background:linear-gradient(135deg,var(--cyan),var(--cyan-bright)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .hero p.lead{font-size:18px; color:var(--ice-dim); max-width:520px; margin-bottom:30px;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:34px;}
+  .hero-badges{display:flex; flex-wrap:wrap; gap:10px 22px;}
+  .hero-badge{display:flex; align-items:center; gap:8px; font-size:13.5px; color:var(--ice); font-weight:500;}
+  .hero-badge svg{width:16px; height:16px; color:var(--green); flex-shrink:0;}
+  .hero-visual{position:relative; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-soft); border:1px solid rgba(255,255,255,0.08);}
+  .hero-visual img{width:100%; height:100%; object-fit:cover; aspect-ratio:4/5;}
+  .hero-visual-glass{
+    position:absolute; bottom:16px; left:16px; right:16px; background:rgba(10,22,40,0.72); backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,0.12); border-radius:var(--radius-md); padding:16px 18px; display:flex; align-items:center; gap:14px;
+  }
+  .glass-dot{width:10px; height:10px; border-radius:50%; background:var(--green); box-shadow:0 0 0 4px rgba(52,211,153,0.2); flex-shrink:0; animation:blink 1.8s infinite;}
+  @keyframes blink{0%,100%{opacity:1;} 50%{opacity:0.4;}}
+  .hero-visual-glass strong{display:block; font-size:14px; color:var(--white);}
+  .hero-visual-glass span{font-size:12.5px; color:var(--ice-dim);}
+
+  /* TRUST BAR */
+  .trust-bar{background:var(--navy-800); border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06); padding:34px 0;}
+  .trust-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:20px; text-align:center;}
+  @media (max-width:900px){ .trust-grid{grid-template-columns:repeat(3,1fr);} }
+  @media (max-width:520px){ .trust-grid{grid-template-columns:repeat(2,1fr);} }
+  .trust-item svg{width:22px; height:22px; color:var(--cyan); margin:0 auto 10px;}
+  .trust-item strong{display:block; font-family:var(--font-mono); font-size:20px; color:var(--white); margin-bottom:2px;}
+  .trust-item span{font-size:12px; color:var(--ice-dim);}
+
+  /* SERVICES */
+  .services-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  @media (max-width:980px){ .services-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .services-grid{grid-template-columns:1fr;} }
+  .service-card{
+    background:var(--navy-800); border:1px solid rgba(255,255,255,0.07); border-radius:var(--radius-md);
+    padding:26px 22px; transition:transform .25s ease, border-color .25s ease, background .25s ease;
+  }
+  .service-card:hover{transform:translateY(-6px); border-color:rgba(34,211,238,0.4); background:var(--navy-700);}
+  .service-icon{width:44px; height:44px; border-radius:12px; background:rgba(34,211,238,0.12); display:flex; align-items:center; justify-content:center; margin-bottom:16px;}
+  .service-icon svg{width:22px; height:22px; color:var(--cyan);}
+  .service-card h3{font-size:17px; margin-bottom:8px; color:var(--white);}
+  .service-card p{font-size:13.5px; color:var(--ice-dim); margin-bottom:14px;}
+  .service-link{font-size:13px; font-weight:600; color:var(--cyan); display:inline-flex; align-items:center; gap:6px;}
+  .service-link svg{width:13px; height:13px; transition:transform .2s;}
+  .service-card:hover .service-link svg{transform:translateX(3px);}
+
+  /* WIZARD - signature feature */
+  .wizard-section{background:radial-gradient(circle at 20% 20%, rgba(34,211,238,0.08), transparent 55%), var(--navy-950); border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06);}
+  .wizard-shell{
+    display:grid; grid-template-columns:0.85fr 1.15fr; gap:0; background:var(--navy-800); border-radius:24px;
+    border:1px solid rgba(255,255,255,0.08); overflow:hidden; box-shadow:var(--shadow-soft);
+  }
+  @media (max-width:880px){ .wizard-shell{grid-template-columns:1fr;} }
+  .wizard-intro{padding:44px 38px; background:linear-gradient(160deg, var(--navy-700), var(--navy-800));}
+  .wizard-intro h2{font-size:clamp(24px,3vw,32px); margin-bottom:14px;}
+  .wizard-intro p{color:var(--ice-dim); font-size:15px; margin-bottom:22px;}
+  .wizard-meta{display:flex; flex-direction:column; gap:14px;}
+  .wizard-meta-item{display:flex; gap:12px; align-items:flex-start; font-size:13.5px; color:var(--ice);}
+  .wizard-meta-item svg{width:17px; height:17px; color:var(--cyan); flex-shrink:0; margin-top:1px;}
+  .wizard-panel{padding:40px 38px; display:flex; flex-direction:column; min-height:420px;}
+  .wizard-progress{display:flex; gap:6px; margin-bottom:26px;}
+  .wizard-dot{height:4px; flex:1; border-radius:4px; background:rgba(255,255,255,0.12); transition:background .25s;}
+  .wizard-dot.done{background:var(--cyan);}
+  .wizard-step{display:none;}
+  .wizard-step.active{display:flex; flex-direction:column; flex:1; animation:fadein .35s ease;}
+  @keyframes fadein{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);}}
+  .wizard-q-label{font-family:var(--font-mono); font-size:12px; color:var(--cyan); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:10px;}
+  .wizard-question{font-size:22px; font-weight:600; color:var(--white); margin-bottom:24px; font-family:var(--font-display);}
+  .wizard-options{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:auto;}
+  .wizard-options.stack{grid-template-columns:1fr;}
+  .wizard-opt{
+    padding:18px; border-radius:var(--radius-sm); background:rgba(255,255,255,0.04); border:1.5px solid rgba(255,255,255,0.1);
+    text-align:left; font-size:15px; font-weight:600; color:var(--white); transition:all .18s ease;
+  }
+  .wizard-opt:hover{border-color:var(--cyan); background:rgba(34,211,238,0.08);}
+  .wizard-back{margin-top:18px; font-size:13px; color:var(--ice-dim); font-weight:600; align-self:flex-start; background:none; border:none;}
+  .wizard-back:hover{color:var(--white);}
+  .wizard-result{display:none; flex-direction:column; flex:1;}
+  .wizard-result.active{display:flex; animation:fadein .4s ease;}
+  .result-badge{display:inline-flex; align-items:center; gap:10px; padding:9px 16px; border-radius:100px; font-family:var(--font-mono); font-size:12.5px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:18px; width:fit-content;}
+  .result-dot{width:9px; height:9px; border-radius:50%;}
+  .result-green{background:rgba(52,211,153,0.12); color:var(--green);} .result-green .result-dot{background:var(--green); box-shadow:0 0 0 4px rgba(52,211,153,0.2);}
+  .result-amber{background:rgba(251,191,36,0.12); color:var(--amber);} .result-amber .result-dot{background:var(--amber); box-shadow:0 0 0 4px rgba(251,191,36,0.2);}
+  .result-red{background:rgba(251,113,133,0.12); color:var(--red);} .result-red .result-dot{background:var(--red); box-shadow:0 0 0 4px rgba(251,113,133,0.2);}
+  .wizard-result h3{font-size:24px; margin-bottom:12px;}
+  .wizard-result p{color:var(--ice-dim); font-size:15px; margin-bottom:10px;}
+  .wizard-tip{background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius-sm); padding:14px 16px; font-size:13.5px; color:var(--ice); margin:14px 0 22px;}
+  .wizard-result-cta{margin-top:auto; display:flex; gap:12px; flex-wrap:wrap;}
+  .wizard-restart{font-size:12.5px; color:var(--ice-dim); margin-top:14px; background:none; border:none; text-align:left;}
+  .wizard-restart:hover{color:var(--white);}
+  .wizard-disclaimer{font-size:11.5px; color:#5c7690; margin-top:16px;}
+
+  /* WHY CHOOSE US */
+  .why-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px;}
+  @media (max-width:760px){ .why-grid{grid-template-columns:1fr;} }
+  .why-card{display:flex; gap:16px; padding:22px; background:var(--navy-800); border:1px solid rgba(255,255,255,0.07); border-radius:var(--radius-md);}
+  .why-num{font-family:var(--font-mono); font-size:13px; color:var(--cyan); flex-shrink:0; padding-top:2px;}
+  .why-card h3{font-size:16.5px; margin-bottom:6px; color:var(--white);}
+  .why-card p{font-size:13.5px; color:var(--ice-dim);}
+
+  /* PROCESS */
+  .process-line{position:relative; display:flex; justify-content:space-between; gap:12px; margin-top:20px;}
+  .process-line::before{content:''; position:absolute; top:24px; left:5%; right:5%; height:1.5px; background:linear-gradient(90deg, transparent, var(--navy-600) 10%, var(--navy-600) 90%, transparent);}
+  @media (max-width:820px){ .process-line{flex-direction:column;} .process-line::before{display:none;} }
+  .process-step{flex:1; text-align:center; position:relative;}
+  @media (max-width:820px){ .process-step{display:flex; align-items:flex-start; gap:16px; text-align:left; padding-bottom:28px;} }
+  .process-circle{width:48px; height:48px; border-radius:50%; background:var(--navy-800); border:1.5px solid var(--cyan); display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-weight:600; color:var(--cyan); margin:0 auto 16px; position:relative; z-index:2;}
+  @media (max-width:820px){ .process-circle{margin:0; flex-shrink:0;} }
+  .process-step h4{font-size:15px; margin-bottom:6px; color:var(--white);}
+  .process-step p{font-size:12.5px; color:var(--ice-dim); max-width:150px; margin:0 auto;}
+  @media (max-width:820px){ .process-step p{max-width:none;} }
+
+  /* REVIEWS */
+  .reviews-track{display:flex; gap:18px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:14px; margin:0 -24px; padding-left:24px; padding-right:24px;}
+  .reviews-track::-webkit-scrollbar{height:6px;}
+  .reviews-track::-webkit-scrollbar-thumb{background:var(--navy-600); border-radius:10px;}
+  .review-card{scroll-snap-align:start; min-width:320px; max-width:320px; background:var(--navy-800); border:1px solid rgba(255,255,255,0.07); border-radius:var(--radius-md); padding:24px;}
+  .review-stars{display:flex; gap:3px; margin-bottom:14px;}
+  .review-stars svg{width:15px; height:15px; color:var(--amber);}
+  .review-card p.quote{font-size:14px; color:var(--ice); margin-bottom:18px; min-height:95px;}
+  .review-author{display:flex; align-items:center; gap:12px;}
+  .review-avatar{width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-weight:600; font-size:13px; color:var(--navy-950); flex-shrink:0;}
+  .review-author strong{display:block; font-size:13.5px; color:var(--white);}
+  .review-author span{font-size:12px; color:var(--ice-dim);}
+
+  /* SERVICE AREA */
+  .area-shell{display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:center;}
+  @media (max-width:820px){ .area-shell{grid-template-columns:1fr;} }
+  .map-frame{border-radius:var(--radius-lg); overflow:hidden; border:1px solid rgba(255,255,255,0.08); position:relative; aspect-ratio:4/3; background:var(--navy-800);}
+  .map-frame img{width:100%; height:100%; object-fit:cover; opacity:0.75;}
+  .map-pin{position:absolute; width:14px; height:14px; border-radius:50%; background:var(--cyan); box-shadow:0 0 0 6px rgba(34,211,238,0.25);}
+  .area-list{display:grid; grid-template-columns:1fr 1fr; gap:10px 20px;}
+  .area-list li{font-size:14px; color:var(--ice); display:flex; align-items:center; gap:8px;}
+  .area-list li svg{width:14px; height:14px; color:var(--cyan); flex-shrink:0;}
+
+  /* FAQ */
+  .faq-item{border-bottom:1px solid rgba(255,255,255,0.08);}
+  .faq-q{width:100%; display:flex; justify-content:space-between; align-items:center; padding:22px 4px; background:none; border:none; color:var(--white); font-size:16px; font-weight:600; text-align:left; font-family:var(--font-display);}
+  .faq-q svg{width:18px; height:18px; color:var(--cyan); flex-shrink:0; transition:transform .25s;}
+  .faq-item.open .faq-q svg{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .3s ease;}
+  .faq-a p{padding:0 4px 22px; font-size:14.5px; color:var(--ice-dim); max-width:640px;}
+
+  /* FINAL CTA */
+  .final-cta{position:relative; text-align:center; background:linear-gradient(160deg, var(--navy-800), var(--navy-950)); border-top:1px solid rgba(255,255,255,0.06);}
+  .final-cta h2{font-size:clamp(28px,4.5vw,46px); margin-bottom:16px; max-width:700px; margin-left:auto; margin-right:auto;}
+  .final-cta p{color:var(--ice-dim); font-size:17px; max-width:520px; margin:0 auto 34px;}
+  .final-ctas{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+
+  /* FOOTER */
+  footer{background:var(--navy-950); border-top:1px solid rgba(255,255,255,0.06); padding:60px 0 30px;}
+  .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:36px; margin-bottom:44px;}
+  @media (max-width:760px){ .footer-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:480px){ .footer-grid{grid-template-columns:1fr;} }
+  .footer-col h4{font-size:13px; color:var(--white); margin-bottom:16px; letter-spacing:0.04em;}
+  .footer-col p, .footer-col li{font-size:13.5px; color:var(--ice-dim); margin-bottom:10px;}
+  .footer-col a:hover{color:var(--cyan);}
+  .footer-brand p{max-width:280px; margin-top:12px; margin-bottom:20px;}
+  .footer-social{display:flex; gap:10px;}
+  .footer-social a{width:34px; height:34px; border-radius:9px; background:var(--navy-800); display:flex; align-items:center; justify-content:center;}
+  .footer-social svg{width:15px; height:15px;}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.06); padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:12.5px; color:#4b6480;}
+  .emergency-strip{background:rgba(251,113,133,0.1); border:1px solid rgba(251,113,133,0.25); border-radius:var(--radius-sm); padding:12px 16px; font-size:13px; color:var(--red); display:flex; align-items:center; gap:10px; margin-bottom:20px;}
+  .emergency-strip svg{width:16px; height:16px; flex-shrink:0;}
+
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+
+<header>
+  <div class="nav">
+    <a href="#top" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#04121f" stroke-width="2.2"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg>
+      </span>
+      Arctic Breeze
+    </a>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#selfcheck">Self-Check</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:+17585550142" class="icon-btn call-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg>
+        <span>Call Now</span>
+      </a>
+      <a href="https://wa.me/17585550142" class="icon-btn wa-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5C10 9 9.5 7.6 9.3 7c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.2L2 22l4.9-1.3c1.5.8 3.2 1.3 5.1 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+        <span>WhatsApp</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="floating-stack">
+  <a href="https://wa.me/17585550142" class="fab fab-wa" aria-label="WhatsApp us">
+    <span class="fab-pulse"></span>
+    <svg viewBox="0 0 24 24" fill="currentColor" style="position:relative;"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5C10 9 9.5 7.6 9.3 7c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.2L2 22l4.9-1.3c1.5.8 3.2 1.3 5.1 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+  </a>
+  <a href="tel:+17585550142" class="fab fab-call" aria-label="Call us">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg>
+  </a>
+</div>
+
+<main id="top">
+
+<section class="hero">
+  <div class="hero-bg-shape shape-1"></div>
+  <div class="hero-bg-shape shape-2"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">24/7 Emergency AC Repair</div>
+      <h1>Fast, Reliable Air Conditioning Repairs <em>When You Need Them Most.</em></h1>
+      <p class="lead">Same-day technicians, transparent pricing, and workmanship you can trust — for homes, restaurants, hotels and offices. No guesswork, no upsells, just cool air again.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary">Book Your Repair</a>
+        <a href="#selfcheck" class="btn btn-ghost">Run a Free Self-Check</a>
+      </div>
+      <div class="hero-badges">
+        <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Same-Day Service</span>
+        <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Licensed Technicians</span>
+        <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Emergency Repairs</span>
+        <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Residential &amp; Commercial</span>
+        <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Honest Pricing</span>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=900&auto=format&fit=crop" alt="Technician servicing an air conditioning unit">
+      <div class="hero-visual-glass">
+        <span class="glass-dot"></span>
+        <div>
+          <strong>Technician en route</strong>
+          <span>Average arrival: under 90 minutes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust-bar">
+  <div class="wrap trust-grid">
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l2.5 6.5L21 9l-5 4.5L17.5 21 12 17l-5.5 4L8 13.5 3 9l6.5-.5z"/></svg><strong data-count="10">0</strong><span>Years Experience</span></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/></svg><strong data-count="5000">0</strong><span>Repairs Completed</span></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l7 4v6c0 5-3 8-7 10-4-2-7-5-7-10V6z"/></svg><strong>Licensed</strong><span>&amp; Insured</span></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><strong>24/7</strong><span>Emergency Service</span></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l2.5 6.5L21 9l-5 4.5L17.5 21 12 17l-5.5 4L8 13.5 3 9l6.5-.5z"/></svg><strong>5.0</strong><span>Star Rated</span></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l7 4v6c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg><strong>Warranty</strong><span>Included</span></div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">What We Do</div>
+      <h2>Every AC problem, one call away.</h2>
+      <p>From a quick refrigerant top-up to a full commercial installation — our technicians handle it all, backed by parts warranties and upfront pricing.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9L4.9 19.1"/></svg></div>
+        <h3>AC Repairs</h3>
+        <p>Diagnosed and fixed fast — most repairs completed same visit.</p>
+        <a href="#contact" class="service-link">Get a quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 4v16"/></svg></div>
+        <h3>New Installations</h3>
+        <p>Right-sized systems for your space — no over-selling, no waste.</p>
+        <a href="#contact" class="service-link">Get a quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Preventative Maintenance</h3>
+        <p>Scheduled tune-ups that catch problems before they cost you.</p>
+        <a href="#contact" class="service-link">Get a quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></div>
+        <h3>Commercial HVAC</h3>
+        <p>Restaurants, hotels, offices and retail — service that fits your hours.</p>
+        <a href="#contact" class="service-link">Get a quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v6M12 16v6M4.2 4.2l4.2 4.2M15.5 15.5l4.3 4.3M2 12h6M16 12h6M4.2 19.8l4.2-4.2M15.5 8.5l4.3-4.3"/></svg></div>
+        <h3>Refrigerant Recharge</h3>
+        <p>Leak-checked and topped up to spec, so your system runs efficiently.</p>
+        <a href="#contact" class="service-link">Get a quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3v18M18 3v18M3 8h18M3 16h18"/></svg></div>
+        <h3>Indoor Air Quality</h3>
+        <p>Filtration and purification upgrades for cleaner, healthier air.</p>
+        <a href="#contact" class="service-link">Get a quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
+        <h3>Duct Cleaning</h3>
+        <p>Better airflow, lower energy bills, fewer allergens in circulation.</p>
+        <a href="#contact" class="service-link">Get a quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h7l-1 8 11-14h-8l1-6z"/></svg></div>
+        <h3>Emergency Repairs</h3>
+        <p>System down in the heat? We prioritize urgent calls, day or night.</p>
+        <a href="#contact" class="service-link">Get a quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section wizard-section" id="selfcheck">
+  <div class="wrap">
+    <div class="wizard-shell reveal">
+      <div class="wizard-intro">
+        <div class="eyebrow">Free Tool · 60 Seconds</div>
+        <h2>Emergency Self-Check</h2>
+        <p>Answer 5 quick questions and get an instant read on how urgent your AC issue really is — before you pick up the phone.</p>
+        <div class="wizard-meta">
+          <div class="wizard-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Takes under a minute</div>
+          <div class="wizard-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/></svg>Built from real technician call-outs</div>
+          <div class="wizard-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l7 4v6c0 5-3 8-7 10-4-2-7-5-7-10V6z"/></svg>No contact info required to see your result</div>
+        </div>
+      </div>
+
+      <div class="wizard-panel">
+        <div class="wizard-progress" id="wizProgress">
+          <div class="wizard-dot" data-i="0"></div>
+          <div class="wizard-dot" data-i="1"></div>
+          <div class="wizard-dot" data-i="2"></div>
+          <div class="wizard-dot" data-i="3"></div>
+          <div class="wizard-dot" data-i="4"></div>
+        </div>
+
+        <div class="wizard-step active" data-step="0">
+          <div class="wizard-q-label">Question 1 of 5</div>
+          <div class="wizard-question">Is your AC blowing warm air instead of cool?</div>
+          <div class="wizard-options">
+            <button class="wizard-opt" data-q="warmAir" data-val="yes">Yes</button>
+            <button class="wizard-opt" data-q="warmAir" data-val="no">No</button>
+          </div>
+        </div>
+
+        <div class="wizard-step" data-step="1">
+          <div class="wizard-q-label">Question 2 of 5</div>
+          <div class="wizard-question">Is the outdoor unit running (you can hear or see the fan spinning)?</div>
+          <div class="wizard-options">
+            <button class="wizard-opt" data-q="outdoorRunning" data-val="yes">Yes, it's running</button>
+            <button class="wizard-opt" data-q="outdoorRunning" data-val="no">No, it's silent</button>
+          </div>
+          <button class="wizard-back">← Back</button>
+        </div>
+
+        <div class="wizard-step" data-step="2">
+          <div class="wizard-q-label">Question 3 of 5</div>
+          <div class="wizard-question">Do you hear any grinding, hissing or clicking noises?</div>
+          <div class="wizard-options">
+            <button class="wizard-opt" data-q="noises" data-val="yes">Yes</button>
+            <button class="wizard-opt" data-q="noises" data-val="no">No</button>
+          </div>
+          <button class="wizard-back">← Back</button>
+        </div>
+
+        <div class="wizard-step" data-step="3">
+          <div class="wizard-q-label">Question 4 of 5</div>
+          <div class="wizard-question">Has the air filter been changed in the last 3 months?</div>
+          <div class="wizard-options">
+            <button class="wizard-opt" data-q="filter" data-val="yes">Yes, recently</button>
+            <button class="wizard-opt" data-q="filter" data-val="no">Not sure / No</button>
+          </div>
+          <button class="wizard-back">← Back</button>
+        </div>
+
+        <div class="wizard-step" data-step="4">
+          <div class="wizard-q-label">Question 5 of 5</div>
+          <div class="wizard-question">Is the thermostat set to "Cool" with a target temperature below the room temperature?</div>
+          <div class="wizard-options">
+            <button class="wizard-opt" data-q="thermostat" data-val="yes">Yes, that's set correctly</button>
+            <button class="wizard-opt" data-q="thermostat" data-val="no">Not sure / No</button>
+          </div>
+          <button class="wizard-back">← Back</button>
+        </div>
+
+        <div class="wizard-result" id="resultGreen">
+          <span class="result-badge result-green"><span class="result-dot"></span>Likely a Simple Issue</span>
+          <h3>Good news — this might be a quick fix.</h3>
+          <p>Your answers suggest a minor issue rather than a system fault. Try a couple of basic checks first.</p>
+          <div class="wizard-tip" id="greenTip"></div>
+          <div class="wizard-result-cta">
+            <a href="#contact" class="btn btn-primary">Book a Free Follow-Up Check</a>
+            <a href="tel:+17585550142" class="btn btn-ghost">Call If It's Not Fixed in 24h</a>
+          </div>
+          <button class="wizard-restart">Start over</button>
+        </div>
+
+        <div class="wizard-result" id="resultAmber">
+          <span class="result-badge result-amber"><span class="result-dot"></span>Service Recommended</span>
+          <h3>Your system may need professional attention.</h3>
+          <p>Nothing points to an emergency, but left unchecked this can turn into a bigger — more expensive — repair.</p>
+          <div class="wizard-tip">Systems showing these signs are often 1–2 weeks from a breakdown if not inspected.</div>
+          <div class="wizard-result-cta">
+            <a href="#contact" class="btn btn-primary">Book an Inspection</a>
+            <a href="https://wa.me/17585550142" class="btn btn-ghost">Message Us on WhatsApp</a>
+          </div>
+          <button class="wizard-restart">Start over</button>
+        </div>
+
+        <div class="wizard-result" id="resultRed">
+          <span class="result-badge result-red"><span class="result-dot"></span>Urgent Repair Advised</span>
+          <h3>Contact a technician today to prevent further damage.</h3>
+          <p>Your answers point to a fault that can get worse fast — and in some cases damage the compressor entirely.</p>
+          <div class="wizard-tip">Running a faulty unit continuously can turn a $150 fix into a $1,500 replacement.</div>
+          <div class="wizard-result-cta">
+            <a href="tel:+17585550142" class="btn btn-primary">Call Now</a>
+            <a href="https://wa.me/17585550142" class="btn btn-ghost">WhatsApp Us</a>
+          </div>
+          <button class="wizard-restart">Start over</button>
+        </div>
+
+        <div class="wizard-disclaimer">This tool gives a general guide based on common fault patterns — it is not a substitute for a professional inspection.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="why">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Why Homeowners Choose Us</div>
+      <h2>Trust isn't a tagline here. It's how we operate.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal"><span class="why-num">01</span><div><h3>Fast Response</h3><p>Most calls are answered within minutes, with same-day appointments for urgent cases.</p></div></div>
+      <div class="why-card reveal"><span class="why-num">02</span><div><h3>Certified Technicians</h3><p>Every technician is licensed, background-checked and factory-trained on major brands.</p></div></div>
+      <div class="why-card reveal"><span class="why-num">03</span><div><h3>Quality Parts</h3><p>We use manufacturer-approved parts only — never generic substitutes that fail early.</p></div></div>
+      <div class="why-card reveal"><span class="why-num">04</span><div><h3>Transparent Pricing</h3><p>You get a written quote before any work starts. No surprise line items, ever.</p></div></div>
+      <div class="why-card reveal"><span class="why-num">05</span><div><h3>Workmanship Guarantee</h3><p>Every repair is backed by a written guarantee — if it's not right, we come back free.</p></div></div>
+      <div class="why-card reveal"><span class="why-num">06</span><div><h3>Clean, Professional Service</h3><p>Shoe covers, drop cloths, and a tidy job site — we treat your property like our own.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--navy-800); border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">How It Works</div>
+      <h2>From first call to cool comfort.</h2>
+    </div>
+    <div class="process-line">
+      <div class="process-step reveal"><div class="process-circle">01</div><div><h4>Book Service</h4><p>Call, WhatsApp or fill the form — takes under 2 minutes.</p></div></div>
+      <div class="process-step reveal"><div class="process-circle">02</div><div><h4>Technician Visits</h4><p>Arrive on time, in uniform, fully equipped.</p></div></div>
+      <div class="process-step reveal"><div class="process-circle">03</div><div><h4>Diagnosis</h4><p>Clear explanation of the issue and a written quote.</p></div></div>
+      <div class="process-step reveal"><div class="process-circle">04</div><div><h4>Repair or Install</h4><p>Work completed to manufacturer spec, tested twice.</p></div></div>
+      <div class="process-step reveal"><div class="process-circle">05</div><div><h4>Enjoy Cool Comfort</h4><p>Backed by our written workmanship guarantee.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Customer Reviews</div>
+      <h2>What our customers say.</h2>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="reviews-track">
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="quote">"Called on a Sunday afternoon in the middle of a heatwave. Technician was at our restaurant within the hour and had the unit running before dinner service."</p>
+        <div class="review-author"><div class="review-avatar" style="background:#22d3ee;">MR</div><div><strong>Marcus R.</strong><span>Restaurant Owner</span></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="quote">"First company that gave me a price before touching anything. No upsell, no pressure — just fixed the capacitor and left."</p>
+        <div class="review-author"><div class="review-avatar" style="background:#5eead4;">TA</div><div><strong>Tanya A.</strong><span>Homeowner</span></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="quote">"We manage 40 units across two properties. They handle scheduled maintenance for all of them without us having to chase anyone down."</p>
+        <div class="review-author"><div class="review-avatar" style="background:#4c6ef5;">DP</div><div><strong>Devon P.</strong><span>Property Manager</span></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="quote">"Installed a new commercial system over a weekend so we wouldn't lose business days. Clean install, zero downtime."</p>
+        <div class="review-author"><div class="review-avatar" style="background:#fbbf24; color:#1a1400;">SK</div><div><strong>Sana K.</strong><span>Hotel Facilities Manager</span></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="quote">"Used the self-check tool on their site before calling — it correctly flagged it as urgent. Compressor issue caught before it got worse."</p>
+        <div class="review-author"><div class="review-avatar" style="background:#fb7185;">JL</div><div><strong>Jonas L.</strong><span>Homeowner</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="areas" style="background:var(--navy-800); border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Service Area</div>
+      <h2>Proudly serving your community.</h2>
+    </div>
+    <div class="area-shell">
+      <div class="map-frame reveal">
+        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=900&auto=format&fit=crop" alt="Service area map">
+        <div class="map-pin" style="top:38%; left:44%;"></div>
+        <div class="map-pin" style="top:58%; left:62%;"></div>
+        <div class="map-pin" style="top:28%; left:66%;"></div>
+      </div>
+      <div class="reveal">
+        <p style="color:var(--ice-dim); margin-bottom:18px; font-size:15px;">We dispatch technicians across the metro area and surrounding towns. Not sure if you're in range? Message us — most requests are covered.</p>
+        <ul class="area-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Castries</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Vieux-Fort</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Gros Islet</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Soufrière</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Micoud</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Dennery</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Common Questions</div>
+      <h2>Frequently asked questions.</h2>
+    </div>
+    <div style="max-width:760px;">
+      <div class="faq-item reveal">
+        <button class="faq-q">How fast can a technician get to me? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><p>For emergency calls, our average response time is under 90 minutes. Standard appointments are typically available same-day or next-day.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Do you offer free quotes? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><p>Yes. Diagnostic visits include a written, itemized quote before any repair work begins — no surprises.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Do you service commercial properties like restaurants and hotels? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><p>Absolutely. We work around your operating hours, including after-hours and weekend installs, to avoid business disruption.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">What brands do you work on? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><p>Our technicians are trained across all major residential and commercial brands, including Daikin, Carrier, Trane, LG, Samsung, York, Panasonic, Mitsubishi, Gree and Midea.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Is there a warranty on repairs? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><p>Every repair is backed by a written workmanship guarantee. If the same issue recurs within the warranty period, we return at no charge.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">How often should I service my AC? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><p>We recommend a preventative maintenance visit every 6–12 months to catch small issues before they become costly breakdowns.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section final-cta" id="contact">
+  <div class="wrap">
+    <h2 class="reveal">Don't Wait Until the Heat Gets Worse.</h2>
+    <p class="reveal">Get your air conditioning repaired by experienced professionals today — same-day appointments available.</p>
+    <div class="final-ctas reveal">
+      <a href="tel:+17585550142" class="btn btn-primary">📞 Call Now</a>
+      <a href="https://wa.me/17585550142" class="btn btn-ghost">💬 WhatsApp</a>
+      <a href="#contact" class="btn btn-ghost">📅 Schedule Service</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="emergency-strip">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7l-1 8 11-14h-8l1-6z"/></svg>
+      System down right now? Emergency line answered 24/7 — call (758) 555-0142.
+    </div>
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <div class="logo" style="margin-bottom:0;">
+          <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#04121f" stroke-width="2.2"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg></span>
+          Arctic Breeze
+        </div>
+        <p>Licensed AC repair, installation and maintenance for homes and businesses. Fast, honest, guaranteed.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ice-dim)" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ice-dim)" stroke-width="1.8"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ice-dim)" stroke-width="1.8"><path d="M21 11.5a8.5 8.5 0 01-12.4 7.5L3 20l1.1-5.4A8.5 8.5 0 1121 11.5z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>📞 (758) 555-0142</p>
+        <p>✉️ hello@arcticbreezehvac.com</p>
+        <p>📍 Vieux-Fort, Saint Lucia</p>
+      </div>
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <p>Mon–Sat: 7am – 8pm</p>
+        <p>Sunday: Emergency only</p>
+        <p>24/7 emergency line</p>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <p><a href="#services">Services</a></p>
+        <p><a href="#selfcheck">Self-Check Tool</a></p>
+        <p><a href="#reviews">Reviews</a></p>
+        <p><a href="#faq">FAQ</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Arctic Breeze HVAC. Demo site for illustration purposes.</span>
+      <span>Built by AkraLink</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll progress
+const progressBar = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+  progressBar.style.width = scrolled + '%';
+});
+
+// Reveal on scroll
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.15 });
+revealEls.forEach(el => io.observe(el));
+
+// Animated counters
+const counters = document.querySelectorAll('[data-count]');
+const counterIO = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = +el.getAttribute('data-count');
+      let cur = 0;
+      const step = Math.max(1, Math.ceil(target / 60));
+      const tick = () => {
+        cur += step;
+        if (cur >= target) { el.textContent = target.toLocaleString() + '+'; return; }
+        el.textContent = cur.toLocaleString();
+        requestAnimationFrame(tick);
+      };
+      tick();
+      counterIO.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+counters.forEach(c => counterIO.observe(c));
+
+// Button ripple
+document.querySelectorAll('.btn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    const rect = this.getBoundingClientRect();
+    const ripple = document.createElement('span');
+    ripple.className = 'ripple';
+    ripple.style.left = (e.clientX - rect.left) + 'px';
+    ripple.style.top = (e.clientY - rect.top) + 'px';
+    this.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 600);
+  });
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-q');
+  const a = item.querySelector('.faq-a');
+  q.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight = null; });
+    if (!isOpen) { item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
+  });
+});
+
+// ===== Emergency Self-Check Wizard =====
+(function(){
+  const steps = Array.from(document.querySelectorAll('.wizard-step'));
+  const dots = Array.from(document.querySelectorAll('.wizard-dot'));
+  const results = { green: document.getElementById('resultGreen'), amber: document.getElementById('resultAmber'), red: document.getElementById('resultRed') };
+  const greenTip = document.getElementById('greenTip');
+  let current = 0;
+  const answers = {};
+
+  function showStep(i){
+    steps.forEach(s => s.classList.remove('active'));
+    Object.values(results).forEach(r => r.classList.remove('active'));
+    steps[i].classList.add('active');
+    dots.forEach((d, idx) => d.classList.toggle('done', idx < i));
+  }
+
+  document.querySelectorAll('.wizard-opt').forEach(opt => {
+    opt.addEventListener('click', () => {
+      answers[opt.dataset.q] = opt.dataset.val;
+      if (current < steps.length - 1) {
+        current++;
+        showStep(current);
+      } else {
+        finish();
+      }
+    });
+  });
+
+  document.querySelectorAll('.wizard-back').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (current > 0) { current--; showStep(current); }
+    });
+  });
+
+  document.querySelectorAll('.wizard-restart').forEach(btn => {
+    btn.addEventListener('click', () => {
+      current = 0;
+      for (const k in answers) delete answers[k];
+      showStep(0);
+    });
+  });
+
+  function finish(){
+    let score = 0;
+    if (answers.warmAir === 'yes') score += 2;
+    if (answers.outdoorRunning === 'no') score += 3;
+    if (answers.noises === 'yes') score += 2;
+    if (answers.filter === 'no') score += 1;
+
+    dots.forEach(d => d.classList.add('done'));
+    steps.forEach(s => s.classList.remove('active'));
+
+    if (score >= 5) {
+      results.red.classList.add('active');
+    } else if (score >= 2) {
+      results.amber.classList.add('active');
+    } else {
+      if (answers.thermostat === 'no') {
+        greenTip.textContent = 'Double-check your thermostat is set to "Cool" mode with a target temperature at least 3-4°F below the current room temperature.';
+      } else if (answers.filter === 'no') {
+        greenTip.textContent = 'A clogged filter is one of the most common causes of reduced cooling. Try replacing it and see if performance improves within a few hours.';
+      } else {
+        greenTip.textContent = 'Everything checks out on the basics — if the issue persists, it may be worth a professional look.';
+      }
+      results.green.classList.add('active');
+    }
+  }
+})();
+</script>
+
+</body>
+</html>
