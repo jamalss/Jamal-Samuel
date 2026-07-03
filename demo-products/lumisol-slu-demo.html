@@ -1,0 +1,2275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LumiSol — St. Lucia's trusted solar energy company. Solar water heaters, PV systems, solar AC, LED lights, and servicing island-wide.">
+  <meta property="og:title" content="LumiSol | St. Lucia Solar Solutions">
+  <meta property="og:description" content="Stop paying LUCELEC. Solar water heaters, PV systems, solar AC units, LED lights, fridges, and generators — supplied and installed in St. Lucia.">
+  <meta property="og:type" content="website">
+  <title>LumiSol | St. Lucia Solar Solutions</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+  <style>
+    /* =============================================
+       TOKENS
+    ============================================= */
+    :root {
+      --midnight:   #06090F;
+      --deep:       #0A1020;
+      --navy:       #0D1830;
+      --navy-2:     #112240;
+      --navy-3:     #1A3055;
+      --amber:      #F5A623;
+      --amber-dim:  rgba(245,166,35,0.15);
+      --amber-glow: rgba(245,166,35,0.25);
+      --yellow:     #FFD60A;
+      --yellow-dim: rgba(255,214,10,0.12);
+      --green:      #22C55E;
+      --green-dim:  rgba(34,197,94,0.12);
+      --green-glow: rgba(34,197,94,0.2);
+      --slate:      #C8D8F0;
+      --muted:      #6B80A0;
+      --muted-2:    #8A9DC0;
+      --border:     rgba(255,255,255,0.06);
+      --border-a:   rgba(245,166,35,0.2);
+      --border-g:   rgba(34,197,94,0.2);
+      --white:      #FFFFFF;
+      --wa:         #25D366;
+      --wa-dark:    #128C7E;
+
+      /* Light mode */
+      --bg:         #F8FAFF;
+      --bg-2:       #EEF3FF;
+      --text:       #06090F;
+      --text-m:     #445570;
+      --card-l:     #FFFFFF;
+      --bdr-l:      rgba(6,9,15,0.08);
+
+      --font-d: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-b: 'Inter', system-ui, sans-serif;
+      --r-sm: 8px; --r-md: 14px; --r-lg: 22px; --r-xl: 32px;
+    }
+
+    [data-theme="dark"] {
+      --bg:    var(--midnight);
+      --bg-2:  var(--deep);
+      --text:  var(--slate);
+      --text-m:var(--muted-2);
+      --card-l:var(--navy);
+      --bdr-l: var(--border);
+    }
+
+    /* =============================================
+       BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-b); font-weight: 400;
+      background: var(--bg); color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden; transition: background .3s, color .3s;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* =============================================
+       FLOATING WA
+    ============================================= */
+    .wa-float {
+      position: fixed; bottom: 26px; right: 20px; z-index: 9999;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .wa-pill {
+      background: var(--deep); color: var(--slate);
+      font-family: var(--font-b); font-size: .72rem; font-weight: 500;
+      padding: .38rem .9rem; border-radius: 30px; white-space: nowrap;
+      opacity: 0; transform: translateX(6px);
+      transition: opacity .3s, transform .3s; pointer-events: none;
+      border: 1px solid var(--border-a);
+    }
+    .wa-float:hover .wa-pill { opacity: 1; transform: translateX(0); }
+    .wa-btn {
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--wa); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,.4);
+      animation: waPulse 2.8s ease-in-out infinite; transition: transform .2s;
+    }
+    .wa-btn:hover { transform: scale(1.07); }
+    .wa-btn i { font-size: 1.55rem; color: #fff; }
+    @keyframes waPulse {
+      0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,.4); }
+      50%      { box-shadow: 0 4px 32px rgba(37,211,102,.65), 0 0 0 8px rgba(37,211,102,.1); }
+    }
+
+    /* Demo badge */
+    .demo-badge {
+      position: fixed; bottom: 26px; left: 16px; z-index: 9997;
+      background: var(--navy); color: var(--muted-2);
+      font-family: var(--font-b); font-size: .62rem; font-weight: 500;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: .3rem .78rem; border-radius: 30px;
+      border: 1px solid var(--border-a);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .demo-dot {
+      width: 5px; height: 5px; background: var(--amber); border-radius: 50%;
+      animation: solarPulse 2s ease-in-out infinite;
+    }
+    @keyframes solarPulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: .4; transform: scale(.7); }
+    }
+
+    /* =============================================
+       NAVBAR
+    ============================================= */
+    .navbar-se {
+      position: sticky; top: 0; z-index: 900;
+      background: rgba(6,9,15,0.96);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      padding: .85rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .nav-brand-icon {
+      width: 38px; height: 38px;
+      background: linear-gradient(135deg, var(--amber), var(--yellow));
+      border-radius: 9px; display: flex; align-items: center;
+      justify-content: center; font-size: 1.1rem; color: var(--midnight);
+      flex-shrink: 0; font-weight: 700;
+    }
+    .nav-brand-name {
+      font-family: var(--font-d); font-size: 1.3rem; font-weight: 800;
+      color: #fff; letter-spacing: -.01em; line-height: 1;
+    }
+    .nav-brand-name span { color: var(--amber); }
+    .nav-brand-sub {
+      font-family: var(--font-b); font-size: .55rem; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--muted); margin-top: 1px;
+    }
+    .nav-right {
+      display: flex; align-items: center; gap: 1.6rem;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 1.6rem;
+      list-style: none; margin: 0; padding: 0;
+    }
+    .nav-links a {
+      font-family: var(--font-b); font-size: .75rem; font-weight: 500;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--muted-2); transition: color .2s; white-space: nowrap;
+    }
+    .nav-links a:hover { color: var(--amber); }
+    .nav-divider { width: 1px; height: 18px; background: var(--border); flex-shrink: 0; }
+    .theme-toggle {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--amber-dim); border: 1px solid var(--border-a);
+      border-radius: 30px; padding: .3rem .72rem; cursor: pointer;
+      font-size: .7rem; font-family: var(--font-b); font-weight: 400;
+      color: var(--muted-2); transition: border-color .2s, color .2s;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .theme-toggle:hover { border-color: var(--amber); color: var(--amber); }
+    .theme-toggle i { font-size: .76rem; }
+    .nav-cta {
+      font-family: var(--font-d); font-size: .72rem; font-weight: 700;
+      letter-spacing: .04em; text-transform: uppercase;
+      padding: .5rem 1.3rem; border-radius: var(--r-sm);
+      background: linear-gradient(135deg, var(--amber), var(--yellow));
+      color: var(--midnight) !important;
+      transition: opacity .2s, box-shadow .2s !important;
+      white-space: nowrap; flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 6px;
+      box-shadow: 0 4px 18px var(--amber-glow);
+    }
+    .nav-cta:hover { opacity: .9; box-shadow: 0 6px 26px var(--amber-glow) !important; }
+    @media (max-width: 768px) {
+      .nav-links, .nav-divider { display: none; }
+      .navbar-se { padding: .8rem 1.1rem; }
+    }
+
+    /* =============================================
+       HERO — golden hour sky
+    ============================================= */
+    .hero-se {
+      background: var(--midnight);
+      position: relative; overflow: hidden;
+      padding: 5.5rem 0 4.5rem; min-height: 96vh;
+      display: flex; align-items: center;
+    }
+    /* Sky gradient layers */
+    .hero-sky {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 65% 0%, rgba(245,166,35,.22) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 20%, rgba(255,214,10,.12) 0%, transparent 45%),
+        radial-gradient(ellipse at 30% 80%, rgba(34,197,94,.07) 0%, transparent 50%),
+        linear-gradient(180deg, #06090F 0%, #0A1020 100%);
+      pointer-events: none;
+    }
+    /* Sun rays */
+    .hero-rays {
+      position: absolute; top: -20%; right: 5%;
+      width: 700px; height: 700px;
+      background: conic-gradient(
+        from 0deg,
+        transparent 0deg, rgba(245,166,35,.04) 5deg,
+        transparent 10deg, rgba(245,166,35,.06) 15deg,
+        transparent 20deg, rgba(245,166,35,.04) 25deg,
+        transparent 30deg, rgba(255,214,10,.05) 35deg,
+        transparent 40deg, rgba(245,166,35,.04) 45deg,
+        transparent 50deg, rgba(255,214,10,.03) 55deg,
+        transparent 60deg, rgba(245,166,35,.05) 65deg,
+        transparent 70deg, rgba(245,166,35,.04) 75deg,
+        transparent 80deg, rgba(255,214,10,.03) 85deg,
+        transparent 90deg, rgba(245,166,35,.04) 95deg,
+        transparent 100deg, rgba(255,214,10,.05) 105deg,
+        transparent 120deg, rgba(245,166,35,.04) 125deg,
+        transparent 140deg
+      );
+      border-radius: 50%;
+      animation: raysSpin 60s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes raysSpin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--amber-dim); border: 1px solid var(--border-a);
+      color: var(--amber); font-family: var(--font-b);
+      font-size: .68rem; font-weight: 600; letter-spacing: .18em;
+      text-transform: uppercase; padding: .32rem 1rem; border-radius: 30px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow i { font-size: .8rem; }
+
+    .hero-h1 {
+      font-family: var(--font-d);
+      font-size: clamp(2.8rem, 6.5vw, 5.8rem);
+      font-weight: 800; line-height: .97;
+      letter-spacing: -.025em; color: #fff; margin-bottom: 1.5rem;
+    }
+    .hero-h1 .amber { color: var(--amber); }
+    .hero-h1 .dim { color: rgba(255,255,255,.4); font-weight: 400; }
+
+    .hero-para {
+      font-family: var(--font-b); font-size: .97rem; font-weight: 300;
+      color: var(--muted-2); line-height: 1.8; max-width: 440px;
+      margin-bottom: 2.2rem;
+    }
+
+    .hero-cta-row {
+      display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+    }
+    .btn-amber-main {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: linear-gradient(135deg, var(--amber), var(--yellow));
+      color: var(--midnight);
+      font-family: var(--font-d); font-size: .88rem; font-weight: 800;
+      letter-spacing: .02em; padding: .9rem 1.8rem;
+      border-radius: var(--r-sm); border: none; cursor: pointer;
+      box-shadow: 0 6px 24px var(--amber-glow);
+      transition: opacity .2s, transform .15s;
+    }
+    .btn-amber-main:hover {
+      color: var(--midnight); opacity: .92; transform: translateY(-2px);
+    }
+    .btn-wa-hero {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: var(--wa); color: #fff;
+      font-family: var(--font-d); font-size: .85rem; font-weight: 700;
+      padding: .9rem 1.6rem; border-radius: var(--r-sm);
+      border: none; cursor: pointer;
+      box-shadow: 0 6px 24px rgba(37,211,102,.28);
+      transition: background .2s, transform .15s;
+    }
+    .btn-wa-hero:hover { background: var(--wa-dark); color: #fff; transform: translateY(-2px); }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--border-a); color: var(--muted-2);
+      font-family: var(--font-b); font-size: .85rem; font-weight: 400;
+      padding: .9rem 1.6rem; border-radius: var(--r-sm);
+      transition: all .2s; background: transparent; cursor: pointer;
+    }
+    .btn-ghost:hover { border-color: var(--amber); color: var(--amber); }
+
+    /* Hero trust row */
+    .hero-trust {
+      display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 2rem;
+    }
+    .h-trust {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,.04); border: 1px solid var(--border);
+      color: var(--muted-2); font-family: var(--font-b);
+      font-size: .72rem; font-weight: 500;
+      padding: .3rem .85rem; border-radius: 30px;
+    }
+    .h-trust i { color: var(--amber); font-size: .75rem; }
+
+    /* =============================================
+       ★ UNIQUE FEATURE: SOLAR SAVINGS CALCULATOR
+    ============================================= */
+    .calc-widget {
+      background: var(--navy);
+      border: 1px solid var(--border-a);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(245,166,35,.12), 0 0 0 1px rgba(245,166,35,.06);
+    }
+
+    .calc-header {
+      background: linear-gradient(135deg, rgba(245,166,35,.14) 0%, rgba(255,214,10,.06) 100%);
+      border-bottom: 1px solid var(--border-a);
+      padding: 1.3rem 1.6rem;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .calc-header-icon {
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg, var(--amber), var(--yellow));
+      border-radius: 10px; display: flex; align-items: center;
+      justify-content: center; font-size: 1.2rem; color: var(--midnight); flex-shrink: 0;
+    }
+    .calc-header-title {
+      font-family: var(--font-d); font-size: 1rem; font-weight: 800; color: #fff;
+    }
+    .calc-header-sub {
+      font-family: var(--font-b); font-size: .65rem; color: var(--muted); margin-top: 1px;
+    }
+    .calc-live-tag {
+      margin-left: auto; display: inline-flex; align-items: center; gap: 5px;
+      background: var(--amber-dim); border: 1px solid var(--border-a);
+      color: var(--amber); font-family: var(--font-b); font-size: .6rem;
+      font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      padding: .2rem .65rem; border-radius: 20px; flex-shrink: 0;
+    }
+
+    .calc-body { padding: 1.6rem; }
+
+    /* Input group */
+    .calc-input-group { margin-bottom: 1.4rem; }
+    .calc-label {
+      font-family: var(--font-b); font-size: .72rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+      margin-bottom: .6rem; display: block;
+    }
+
+    .calc-input-wrap {
+      position: relative; display: flex; align-items: center;
+    }
+    .calc-currency {
+      position: absolute; left: 14px;
+      font-family: var(--font-d); font-size: 1.1rem; font-weight: 700;
+      color: var(--amber); z-index: 1; pointer-events: none;
+      letter-spacing: .01em;
+    }
+    .calc-input {
+      width: 100%; background: rgba(255,255,255,.06);
+      border: 1.5px solid var(--border-a); border-radius: var(--r-md);
+      padding: .85rem .85rem .85rem 4rem;
+      font-family: var(--font-d); font-size: 1.4rem; font-weight: 700;
+      color: #fff; transition: border-color .2s;
+      -moz-appearance: textfield;
+    }
+    .calc-input:focus {
+      outline: none; border-color: var(--amber);
+      box-shadow: 0 0 0 3px var(--amber-dim);
+    }
+    .calc-input::placeholder { color: var(--muted); font-size: 1.2rem; font-weight: 400; }
+    .calc-input::-webkit-outer-spin-button,
+    .calc-input::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+    .calc-slider-wrap { margin-top: .8rem; }
+    input[type="range"].calc-slider {
+      -webkit-appearance: none; width: 100%; height: 4px;
+      background: rgba(255,255,255,.1); border-radius: 2px; cursor: pointer;
+      outline: none;
+    }
+    input[type="range"].calc-slider::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--amber), var(--yellow));
+      border: 3px solid #fff; cursor: pointer;
+      box-shadow: 0 2px 8px var(--amber-glow);
+    }
+    .calc-range-labels {
+      display: flex; justify-content: space-between;
+      font-family: var(--font-b); font-size: .65rem; color: var(--muted);
+      margin-top: .4rem;
+    }
+
+    /* Results grid */
+    .calc-results {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: .7rem; margin-bottom: 1.2rem;
+    }
+
+    .calc-result-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 1rem; transition: border-color .2s;
+    }
+    .calc-result-card.highlight {
+      background: var(--amber-dim); border-color: var(--border-a);
+    }
+    .calc-result-card.highlight-green {
+      background: var(--green-dim); border-color: var(--border-g);
+    }
+    .crc-icon {
+      font-size: 1.3rem; margin-bottom: .4rem; display: block;
+    }
+    .crc-label {
+      font-family: var(--font-b); font-size: .62rem; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+      margin-bottom: .3rem;
+    }
+    .crc-value {
+      font-family: var(--font-d); font-size: 1.4rem; font-weight: 800;
+      color: #fff; line-height: 1;
+    }
+    .calc-result-card.highlight .crc-value { color: var(--amber); }
+    .calc-result-card.highlight-green .crc-value { color: var(--green); }
+    .crc-sub {
+      font-family: var(--font-b); font-size: .65rem; color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* 25-year bar */
+    .calc-lifetime {
+      background: rgba(34,197,94,.06); border: 1px solid var(--border-g);
+      border-radius: var(--r-md); padding: .9rem 1rem; margin-bottom: 1.2rem;
+    }
+    .cl-label {
+      font-family: var(--font-b); font-size: .65rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase; color: var(--green);
+      margin-bottom: .4rem;
+    }
+    .cl-value {
+      font-family: var(--font-d); font-size: 1.8rem; font-weight: 800;
+      color: var(--green); line-height: 1;
+    }
+    .cl-sub { font-family: var(--font-b); font-size: .72rem; color: var(--muted); margin-top: 2px; }
+
+    .calc-disclaimer {
+      font-family: var(--font-b); font-size: .63rem; color: var(--muted);
+      line-height: 1.5; margin-bottom: 1.2rem; font-style: italic;
+    }
+
+    .calc-wa-btn {
+      display: flex; align-items: center; justify-content: center; gap: 9px;
+      width: 100%; background: var(--wa); color: #fff;
+      font-family: var(--font-d); font-size: .88rem; font-weight: 800;
+      padding: .9rem; border-radius: var(--r-sm); border: none;
+      cursor: pointer; box-shadow: 0 6px 20px rgba(37,211,102,.25);
+      transition: background .2s; letter-spacing: .02em;
+    }
+    .calc-wa-btn:hover { background: var(--wa-dark); }
+
+    /* =============================================
+       ELECTRICITY SAVINGS MARQUEE
+    ============================================= */
+    .savings-bar {
+      background: linear-gradient(135deg, var(--amber) 0%, var(--yellow) 100%);
+      padding: .6rem 0; overflow: hidden;
+    }
+    .savings-track {
+      display: flex; gap: 4rem;
+      animation: savingsRun 20s linear infinite;
+      white-space: nowrap;
+    }
+    .savings-item {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-d); font-size: .78rem; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--midnight); flex-shrink: 0;
+    }
+    .savings-item i { font-size: .85rem; }
+    @keyframes savingsRun {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* =============================================
+       SECTION UTILITY
+    ============================================= */
+    .sec { padding: 5.5rem 0; }
+    .sec-sm { padding: 3.5rem 0; }
+    .sec-tag {
+      font-family: var(--font-b); font-size: .63rem; font-weight: 600;
+      letter-spacing: .22em; text-transform: uppercase; color: var(--amber);
+      margin-bottom: .7rem; display: flex; align-items: center; gap: 9px;
+    }
+    .sec-tag::before { content: ''; width: 18px; height: 2px; background: var(--amber); display: block; }
+    .sec-h2 {
+      font-family: var(--font-d); font-size: clamp(1.75rem, 3.5vw, 2.7rem);
+      font-weight: 800; line-height: 1.1; letter-spacing: -.02em;
+      color: var(--text); margin-bottom: .75rem;
+    }
+    .sec-h2 em { font-style: normal; color: var(--amber); }
+    .sec-para {
+      font-family: var(--font-b); font-size: .92rem; font-weight: 300;
+      color: var(--text-m); line-height: 1.8; max-width: 500px;
+    }
+    .dash {
+      width: 32px; height: 3px;
+      background: linear-gradient(90deg, var(--amber), rgba(255,214,10,.3));
+      border-radius: 2px; margin: 1rem 0 1.5rem;
+    }
+
+    /* =============================================
+       SAVINGS STATS STRIP
+    ============================================= */
+    .stats-strip {
+      background: var(--navy);
+      border-radius: var(--r-lg);
+      padding: 2.5rem 3rem;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+      border: 1px solid var(--border-a);
+    }
+    @media (max-width: 768px) { .stats-strip { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .stats-strip { grid-template-columns: 1fr; padding: 1.8rem 1.5rem; } }
+
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: var(--font-d); font-size: 2.4rem; font-weight: 800;
+      color: var(--amber); line-height: 1; margin-bottom: .3rem;
+    }
+    .stat-label {
+      font-family: var(--font-b); font-size: .72rem; font-weight: 400;
+      color: var(--muted-2); letter-spacing: .06em; line-height: 1.4;
+    }
+
+    /* =============================================
+       SOLAR PACKAGES
+    ============================================= */
+    .sol-card {
+      background: var(--card-l); border-radius: var(--r-md);
+      border: 1px solid var(--bdr-l);
+      transition: box-shadow .3s, transform .2s, border-color .2s;
+      height: 100%; position: relative; overflow: hidden;
+    }
+    [data-theme="dark"] .sol-card { border-color: var(--border); }
+    .sol-card::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--amber), var(--yellow));
+      opacity: 0; transition: opacity .2s;
+    }
+    .sol-card:hover {
+      box-shadow: 0 14px 45px var(--amber-glow);
+      transform: translateY(-4px); border-color: var(--border-a);
+    }
+    .sol-card:hover::after { opacity: 1; }
+    .sol-card.featured { border-color: var(--amber); }
+    .sol-card.featured::after { opacity: 1; }
+
+    .sol-top { height: 190px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .sol-v1 { background: linear-gradient(145deg, #0D1830, #1A2A50); }
+    .sol-v2 { background: linear-gradient(145deg, #1A1A08, #2A2A10); }
+    .sol-v3 { background: linear-gradient(145deg, #081A14, #102A20); }
+    .sol-v4 { background: linear-gradient(145deg, #1A0A08, #2A1510); }
+    .sol-icon { font-size: 4.5rem; opacity: .65; transition: transform .5s; }
+    .sol-card:hover .sol-icon { transform: scale(1.06); }
+    .sol-featured-tag {
+      position: absolute; top: 12px; right: 12px;
+      background: linear-gradient(135deg, var(--amber), var(--yellow));
+      color: var(--midnight); font-family: var(--font-d); font-size: .6rem;
+      font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+      padding: .24rem .75rem; border-radius: 20px;
+    }
+    .sol-body { padding: 1.5rem 1.6rem 1.8rem; }
+    .sol-category {
+      font-family: var(--font-b); font-size: .62rem; font-weight: 600;
+      letter-spacing: .18em; text-transform: uppercase; color: var(--amber);
+      margin-bottom: 4px;
+    }
+    .sol-name {
+      font-family: var(--font-d); font-size: 1.15rem; font-weight: 800;
+      color: var(--text); line-height: 1.2; margin-bottom: .4rem;
+    }
+    .sol-desc {
+      font-family: var(--font-b); font-size: .82rem; font-weight: 300;
+      color: var(--text-m); line-height: 1.65; margin-bottom: .9rem;
+    }
+    .sol-spec-row {
+      display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: .9rem;
+    }
+    .sol-spec {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--amber-dim); border: 1px solid var(--border-a);
+      color: var(--amber); font-family: var(--font-b);
+      font-size: .62rem; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; padding: .2rem .6rem; border-radius: 20px;
+    }
+    [data-theme="light"] .sol-spec { color: #B87A0A; background: rgba(245,166,35,.12); }
+    .sol-includes {
+      list-style: none; display: flex; flex-direction: column;
+      gap: 5px; margin-bottom: 1.2rem;
+    }
+    .sol-includes li {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-family: var(--font-b); font-size: .8rem; font-weight: 300;
+      color: var(--text-m); line-height: 1.45;
+    }
+    .sol-includes li i { color: var(--amber); font-size: .72rem; flex-shrink: 0; margin-top: 3px; }
+    .sol-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 10px; padding-top: 1rem; border-top: 1px solid var(--bdr-l);
+    }
+    [data-theme="dark"] .sol-footer { border-color: var(--border); }
+    .sol-price {
+      font-family: var(--font-d); font-size: 1.25rem; font-weight: 800; color: var(--text);
+    }
+    .sol-price-note {
+      font-family: var(--font-b); font-size: .62rem; color: var(--text-m); display: block;
+    }
+    .btn-quote-sm {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--wa); color: #fff;
+      font-family: var(--font-b); font-size: .72rem; font-weight: 600;
+      padding: .48rem 1rem; border-radius: var(--r-sm);
+      border: none; cursor: pointer;
+      transition: background .2s, transform .15s; white-space: nowrap;
+    }
+    .btn-quote-sm:hover { background: var(--wa-dark); color: #fff; transform: scale(1.03); }
+
+    /* =============================================
+       ROI COMPARISON BANNER
+    ============================================= */
+    .roi-banner {
+      background: linear-gradient(135deg, var(--midnight) 0%, var(--navy-3) 100%);
+      border: 1px solid var(--border-a); border-radius: var(--r-lg);
+      padding: 3rem; position: relative; overflow: hidden;
+    }
+    .roi-banner::before {
+      content: ''; position: absolute;
+      top: -40%; right: -5%; width: 450px; height: 450px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,166,35,.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .roi-left { position: relative; z-index: 1; }
+    .roi-title {
+      font-family: var(--font-d); font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: .7rem;
+    }
+    .roi-title span { color: var(--amber); }
+    .roi-desc {
+      font-family: var(--font-b); font-size: .88rem; font-weight: 300;
+      color: var(--muted-2); line-height: 1.75; max-width: 440px;
+    }
+    .roi-table { position: relative; z-index: 1; }
+    .roi-row {
+      display: flex; align-items: center; gap: 1rem;
+      padding: .8rem 0; border-bottom: 1px solid var(--border);
+    }
+    .roi-row:last-child { border-bottom: none; }
+    .roi-row-label {
+      font-family: var(--font-b); font-size: .82rem; font-weight: 500;
+      color: var(--muted-2); flex: 1;
+    }
+    .roi-row-before {
+      font-family: var(--font-d); font-size: .85rem; font-weight: 700;
+      color: rgba(255,80,80,.8); min-width: 60px; text-align: center;
+    }
+    .roi-row-after {
+      font-family: var(--font-d); font-size: .85rem; font-weight: 700;
+      color: var(--green); min-width: 60px; text-align: center;
+    }
+    .roi-col-header {
+      font-family: var(--font-b); font-size: .62rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted); text-align: center;
+    }
+    @media (max-width: 768px) { .roi-banner { padding: 2rem 1.5rem; } }
+
+    /* =============================================
+       HOW IT WORKS
+    ============================================= */
+    .how-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+    }
+    @media (max-width: 768px) { .how-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .how-grid { grid-template-columns: 1fr; } }
+    .how-step {
+      background: var(--card-l); border-radius: var(--r-md);
+      border: 1px solid var(--bdr-l); padding: 1.6rem 1.4rem;
+      text-align: center; transition: border-color .2s, box-shadow .2s;
+    }
+    [data-theme="dark"] .how-step { border-color: var(--border); }
+    .how-step:hover {
+      border-color: var(--border-a); box-shadow: 0 8px 28px var(--amber-dim);
+    }
+    .how-num {
+      font-family: var(--font-d); font-size: 2.5rem; font-weight: 800;
+      color: var(--amber); opacity: .2; line-height: 1; margin-bottom: .7rem;
+    }
+    .how-icon-wrap {
+      width: 52px; height: 52px; border-radius: 12px;
+      background: var(--amber-dim); border: 1px solid var(--border-a);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1rem; font-size: 1.3rem; color: var(--amber);
+    }
+    .how-title {
+      font-family: var(--font-d); font-size: .98rem; font-weight: 700;
+      color: var(--text); margin-bottom: .4rem;
+    }
+    .how-desc {
+      font-family: var(--font-b); font-size: .8rem; font-weight: 300;
+      color: var(--text-m); line-height: 1.65;
+    }
+
+    /* =============================================
+       PROJECT GALLERY
+    ============================================= */
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    @media (max-width: 768px) { .proj-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .proj-grid { grid-template-columns: 1fr; } }
+    .proj-tall { grid-row: span 2; }
+
+    .proj-card {
+      border-radius: var(--r-md); overflow: hidden;
+      position: relative; cursor: pointer;
+    }
+    .pc-img {
+      height: 210px; display: flex; align-items: center;
+      justify-content: center; position: relative; overflow: hidden;
+      transition: transform .5s;
+    }
+    .proj-tall .pc-img { height: 440px; }
+    @media (max-width: 768px) {
+      .proj-tall .pc-img { height: 260px; }
+      .proj-tall { grid-row: span 1; }
+    }
+    .proj-card:hover .pc-img { transform: scale(1.03); }
+
+    .pc-v1 { background: linear-gradient(145deg, #0D1420, #182230); }
+    .pc-v2 { background: linear-gradient(145deg, #1A1408, #2A2010); }
+    .pc-v3 { background: linear-gradient(145deg, #081814, #102820); }
+    .pc-v4 { background: linear-gradient(145deg, #1A1208, #2A1E10); }
+    .pc-v5 { background: linear-gradient(145deg, #0A1620, #152430); }
+    .pc-v6 { background: linear-gradient(145deg, #181408, #281E0C); }
+
+    .pc-illus { font-size: 4rem; opacity: .6; }
+
+    .pc-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 30%, rgba(6,9,15,.85) 100%);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 1rem; opacity: 0; transition: opacity .3s;
+    }
+    .proj-card:hover .pc-overlay { opacity: 1; }
+    .pc-name {
+      font-family: var(--font-d); font-size: .95rem; font-weight: 700; color: #fff; margin-bottom: 2px;
+    }
+    .pc-type { font-family: var(--font-b); font-size: .68rem; color: var(--muted-2); }
+    .pc-wa {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--wa); color: #fff;
+      font-family: var(--font-b); font-size: .68rem; font-weight: 600;
+      padding: .35rem .8rem; border-radius: var(--r-sm); margin-top: .5rem;
+      border: none; cursor: pointer; width: fit-content; transition: background .2s;
+    }
+    .pc-wa:hover { background: var(--wa-dark); color: #fff; }
+    .pc-info {
+      background: var(--card-l); border: 1px solid var(--bdr-l);
+      border-top: none; border-radius: 0 0 var(--r-md) var(--r-md);
+      padding: .7rem .9rem;
+    }
+    [data-theme="dark"] .pc-info { border-color: var(--border); }
+    .pc-info-name { font-family: var(--font-d); font-size: .9rem; font-weight: 700; color: var(--text); }
+    .pc-info-tag { font-family: var(--font-b); font-size: .65rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--amber); }
+
+    /* =============================================
+       PREMIUM BLUR
+    ============================================= */
+    .premium-wrap { position: relative; border-radius: var(--r-lg); overflow: hidden; }
+    .blur-layer { filter: blur(6px); user-select: none; pointer-events: none; opacity: .5; }
+    .unlock-overlay {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(248,250,255,.82); backdrop-filter: blur(2px); z-index: 10;
+    }
+    [data-theme="dark"] .unlock-overlay { background: rgba(6,9,15,.82); }
+    .unlock-box {
+      background: var(--card-l); border-radius: var(--r-md);
+      border: 1px solid var(--bdr-l);
+      box-shadow: 0 20px 60px var(--amber-glow);
+      padding: 2rem 2.5rem; text-align: center; max-width: 340px; width: 90%;
+    }
+    [data-theme="dark"] .unlock-box { border-color: var(--border-a); }
+    .unlock-icon-wrap {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--amber-dim); border: 1px solid var(--border-a);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1rem; font-size: 1.1rem; color: var(--amber);
+    }
+    .unlock-plan-pill {
+      display: inline-block; border: 1px solid var(--border-a); color: var(--amber);
+      font-family: var(--font-b); font-size: .6rem; font-weight: 600;
+      letter-spacing: .15em; text-transform: uppercase;
+      padding: .22rem .75rem; border-radius: 20px; margin-bottom: 1rem;
+    }
+    .unlock-box h5 {
+      font-family: var(--font-d); font-size: 1.15rem; font-weight: 700;
+      color: var(--text); margin-bottom: .45rem;
+    }
+    .unlock-box p {
+      font-family: var(--font-b); font-size: .82rem; font-weight: 300;
+      color: var(--text-m); line-height: 1.65; margin-bottom: 1.3rem;
+    }
+
+    /* Testimonials (blur) */
+    .rv-card {
+      background: var(--card-l); border-radius: var(--r-md);
+      border: 1px solid var(--bdr-l); padding: 1.6rem; height: 100%;
+    }
+    [data-theme="dark"] .rv-card { border-color: var(--border); }
+    .rv-tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--amber-dim); border: 1px solid var(--border-a);
+      color: var(--amber); font-family: var(--font-b); font-size: .6rem;
+      font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+      padding: .2rem .6rem; border-radius: 20px; margin-bottom: .6rem;
+    }
+    [data-theme="light"] .rv-tag { color: #B87A0A; }
+    .rv-stars { color: #F59E0B; font-size: .8rem; margin-bottom: .6rem; letter-spacing: 1px; }
+    .rv-text {
+      font-family: var(--font-b); font-size: .87rem; font-weight: 400;
+      color: var(--text); line-height: 1.7; margin-bottom: 1rem;
+    }
+    .rv-name { font-family: var(--font-d); font-size: .88rem; font-weight: 700; color: var(--text); }
+    .rv-loc { font-family: var(--font-b); font-size: .7rem; color: var(--text-m); }
+
+    /* =============================================
+       ABOUT PILLARS
+    ============================================= */
+    .pillar-card {
+      background: var(--navy); border-radius: var(--r-md);
+      border: 1px solid var(--border); padding: 2rem 1.8rem;
+      transition: border-color .2s;
+    }
+    .pillar-card:hover { border-color: var(--border-a); }
+    .pillar-icon { font-size: 2.2rem; margin-bottom: 1rem; display: block; }
+    .pillar-title {
+      font-family: var(--font-d); font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: .4rem;
+    }
+    .pillar-desc {
+      font-family: var(--font-b); font-size: .82rem; font-weight: 300;
+      color: var(--muted-2); line-height: 1.7;
+    }
+
+    /* =============================================
+       COVERAGE STRIP
+    ============================================= */
+    .coverage-strip {
+      background: linear-gradient(135deg, var(--midnight) 0%, var(--navy-2) 100%);
+      border: 1px solid var(--border-a); border-radius: var(--r-lg);
+      padding: 2.5rem 3rem; display: flex; align-items: center;
+      flex-wrap: wrap; gap: 2rem; justify-content: space-between;
+    }
+    @media (max-width: 768px) { .coverage-strip { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; } }
+    .coverage-left h3 {
+      font-family: var(--font-d); font-size: 1.4rem; font-weight: 800; color: #fff; margin-bottom: .3rem;
+    }
+    .coverage-left p { font-family: var(--font-b); font-size: .83rem; font-weight: 300; color: var(--muted-2); }
+    .area-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .area-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--amber-dim); border: 1px solid var(--border-a);
+      color: rgba(255,255,255,.7); font-family: var(--font-b);
+      font-size: .72rem; font-weight: 500; padding: .3rem .8rem; border-radius: 20px;
+    }
+    .area-chip i { font-size: .7rem; color: var(--amber); }
+
+    /* =============================================
+       FINAL CTA
+    ============================================= */
+    .cta-se {
+      background: linear-gradient(135deg, var(--midnight) 0%, var(--navy-3) 60%, var(--midnight) 100%);
+      border: 1px solid var(--border-a); border-radius: var(--r-lg);
+      padding: 5.5rem 3rem; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-se::before {
+      content: ''; position: absolute;
+      top: -30%; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,166,35,.14) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .cta-inner { position: relative; z-index: 1; }
+    .cta-tag {
+      font-family: var(--font-b); font-size: .63rem; font-weight: 600;
+      letter-spacing: .22em; text-transform: uppercase; color: var(--amber); margin-bottom: 1rem;
+    }
+    .cta-h2 {
+      font-family: var(--font-d); font-size: clamp(2.2rem, 6vw, 5rem);
+      font-weight: 800; line-height: .97; letter-spacing: -.025em; color: #fff; margin-bottom: 1rem;
+    }
+    .cta-h2 .amber { color: var(--amber); }
+    .cta-para {
+      font-family: var(--font-b); font-size: .92rem; font-weight: 300;
+      color: var(--muted-2); max-width: 440px; margin: 0 auto 2.5rem; line-height: 1.8;
+    }
+    .cta-btn-group {
+      display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; align-items: center;
+    }
+    .cta-note {
+      font-family: var(--font-b); font-size: .72rem; font-weight: 300;
+      color: rgba(255,255,255,.25); margin-top: 1.2rem; letter-spacing: .06em;
+    }
+
+    /* =============================================
+       FOOTER — always dark
+    ============================================= */
+    .footer-se {
+      background: #06090F; padding: 4rem 0 2rem;
+      border-top: 1px solid rgba(245,166,35,.12);
+    }
+    .footer-se .fl-name {
+      font-family: var(--font-d); font-size: 1.5rem; font-weight: 800;
+      color: #fff; letter-spacing: -.01em; line-height: 1;
+    }
+    .footer-se .fl-name span { color: var(--amber); }
+    .footer-se .fl-sub {
+      font-family: var(--font-b); font-size: .56rem; letter-spacing: .2em;
+      text-transform: uppercase; color: rgba(255,255,255,.28); margin-top: 3px;
+    }
+    .footer-se .fl-about {
+      font-family: var(--font-b); font-size: .83rem; font-weight: 300;
+      color: rgba(255,255,255,.42); line-height: 1.8; max-width: 280px; margin-top: 1rem;
+    }
+    .footer-se .fl-h {
+      font-family: var(--font-b); font-size: .6rem; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase; color: var(--amber); margin-bottom: 1.2rem;
+    }
+    .footer-se .fl-links { list-style: none; display: flex; flex-direction: column; gap: .7rem; }
+    .footer-se .fl-links a {
+      font-family: var(--font-b); font-size: .83rem; font-weight: 300;
+      color: rgba(255,255,255,.42); transition: color .2s;
+    }
+    .footer-se .fl-links a:hover { color: var(--amber); }
+    .footer-se .fl-wa-box {
+      background: rgba(37,211,102,.06); border: 1px solid rgba(37,211,102,.18);
+      border-radius: var(--r-md); padding: 1.3rem;
+    }
+    .footer-se .fl-wa-box p {
+      font-family: var(--font-b); font-size: .8rem; font-weight: 300;
+      color: rgba(255,255,255,.42); margin-bottom: .9rem; line-height: 1.6;
+    }
+    .footer-se .fl-wa-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--wa); color: #fff;
+      font-family: var(--font-b); font-size: .78rem; font-weight: 600;
+      padding: .52rem 1.1rem; border-radius: var(--r-sm); transition: background .2s;
+    }
+    .footer-se .fl-wa-btn:hover { background: #128C7E; color: #fff; }
+    .footer-se .fl-bottom {
+      border-top: 1px solid rgba(255,255,255,.06); margin-top: 2.8rem;
+      padding-top: 1.5rem; display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: .75rem;
+    }
+    .footer-se .fl-bottom p { font-family: var(--font-b); font-size: .72rem; font-weight: 300; color: rgba(255,255,255,.22); }
+    .footer-se .fl-bottom a { font-family: var(--font-b); font-size: .72rem; font-weight: 600; color: var(--amber); transition: color .2s; }
+    .footer-se .fl-bottom a:hover { color: var(--yellow); }
+
+    /* =============================================
+       ANIMATIONS
+    ============================================= */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .rv-d1 { transition-delay: .1s; } .rv-d2 { transition-delay: .2s; } .rv-d3 { transition-delay: .3s; }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 576px) {
+      .sec { padding: 4rem 0; }
+      .cta-se { padding: 3.5rem 1.5rem; }
+      .roi-banner { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- WA FLOAT -->
+  <a href="https://wa.me/17587235872?text=Hi%20LumiSol%20Caribbean%21%20I%27d%20like%20a%20free%20solar%20assessment%20and%20quote%20for%20my%20property."
+     class="wa-float" aria-label="Get a free solar quote on WhatsApp"
+     target="_blank" rel="noopener noreferrer">
+    <span class="wa-pill">Free Solar Quote</span>
+    <button class="wa-btn" aria-label="Open WhatsApp">
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </button>
+  </a>
+
+  <!-- DEMO BADGE -->
+  <div class="demo-badge" role="note" aria-label="JAMALINKS demo">
+    <span class="demo-dot" aria-hidden="true"></span>JAMALINKS Demo
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar-se" role="navigation" aria-label="Main navigation">
+    <div class="nav-brand">
+      <div class="nav-brand-icon" aria-hidden="true">☀️</div>
+      <div>
+        <div class="nav-brand-name">Lumi<span>Sol</span></div>
+        <div class="nav-brand-sub">St. Lucia Solar Solutions</div>
+      </div>
+    </div>
+    <div class="nav-right">
+      <ul class="nav-links" role="list">
+        <li><a href="#packages">PV Systems</a></li>
+        <li><a href="#servicing">Servicing</a></li>
+        <li><a href="#gallery">Installations</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light or dark mode">
+        <i class="bi bi-moon-fill" id="themeIcon" aria-hidden="true"></i>
+        <span id="themeLabel">Dark</span>
+      </button>
+      <div class="nav-divider" aria-hidden="true"></div>
+      <a href="https://wa.me/17587235872?text=Hi%20LumiSol%20Caribbean%21%20I%27d%20like%20a%20free%20solar%20quote."
+         class="nav-cta" aria-label="Get a free solar quote"
+         target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-sun-fill" aria-hidden="true"></i> Free Quote
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-se" role="banner" aria-label="LumiSol hero">
+    <div class="hero-sky" aria-hidden="true"></div>
+    <div class="hero-rays" aria-hidden="true"></div>
+
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="row align-items-center g-5">
+
+        <!-- LEFT -->
+        <div class="col-lg-6">
+          <div class="hero-eyebrow">
+            <i class="bi bi-sun-fill" aria-hidden="true"></i>
+            St. Lucia's Solar Specialists
+          </div>
+          <h1 class="hero-h1">
+            Stop Overpaying<br>
+            <span class="amber">LUCELEC.</span><br>
+            <span class="dim">Own Your Energy, St. Lucia.</span>
+          </h1>
+          <p class="hero-para">
+            Solar water heaters, PV systems, solar AC units, LED lights, fridges, and generators — supplied, installed, and serviced across St. Lucia. Stop overpaying LUCELEC. Calculate your savings below.
+          </p>
+          <div class="hero-cta-row">
+            <a href="#calculator"
+               class="btn-amber-main" aria-label="Calculate your solar savings">
+              <i class="bi bi-calculator-fill" aria-hidden="true"></i>
+              Calculate My Savings
+            </a>
+            <a href="https://wa.me/17587235872?text=Hi%20LumiSol%20Caribbean%21%20I%27d%20like%20a%20free%20solar%20assessment%20and%20quote."
+               class="btn-wa-hero" aria-label="Get a free quote on WhatsApp"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+              Free Quote
+            </a>
+          </div>
+          <div class="hero-trust" role="list" aria-label="Key guarantees">
+            <span class="h-trust" role="listitem">
+              <i class="bi bi-shield-fill-check" aria-hidden="true"></i> 25-Year Panel Warranty
+            </span>
+            <span class="h-trust" role="listitem">
+              <i class="bi bi-tools" aria-hidden="true"></i> Certified Installers
+            </span>
+            <span class="h-trust" role="listitem">
+              <i class="bi bi-phone-fill" aria-hidden="true"></i> Remote Monitoring
+            </span>
+            <span class="h-trust" role="listitem">
+              <i class="bi bi-graph-down-arrow" aria-hidden="true"></i> Up to 90% Bill Reduction
+            </span>
+          </div>
+        </div>
+
+        <!-- RIGHT — SAVINGS CALCULATOR -->
+        <div class="col-lg-6" id="calculator">
+          <div class="calc-widget" role="region" aria-label="Solar savings calculator">
+
+            <div class="calc-header">
+              <div class="calc-header-icon" aria-hidden="true">⚡</div>
+              <div>
+                <div class="calc-header-title">Solar Savings Calculator</div>
+                <div class="calc-header-sub">Based on LUCELEC rates · Caribbean homes &amp; businesses</div>
+              </div>
+              <div class="calc-live-tag" aria-label="Live calculator">
+                <span aria-hidden="true">☀</span> Live
+              </div>
+            </div>
+
+            <div class="calc-body">
+
+              <!-- Bill input -->
+              <div class="calc-input-group">
+                <label class="calc-label" for="monthlyBill">Your average monthly electricity bill</label>
+                <div class="calc-input-wrap">
+                  <span class="calc-currency" aria-hidden="true">EC$</span>
+                  <input
+                    type="number"
+                    id="monthlyBill"
+                    class="calc-input"
+                    placeholder="350"
+                    min="50" max="5000"
+                    value="350"
+                    aria-label="Monthly electricity bill in Eastern Caribbean dollars"
+                    oninput="updateCalc()">
+                </div>
+                <div class="calc-slider-wrap">
+                  <input type="range" class="calc-slider" id="billSlider"
+                    min="50" max="5000" step="50" value="350"
+                    aria-label="Adjust monthly bill with slider"
+                    oninput="syncSlider(this.value)">
+                  <div class="calc-range-labels">
+                    <span>EC$50</span>
+                    <span>EC$5,000+</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Results grid -->
+              <div class="calc-results" role="region" aria-label="Savings estimates" aria-live="polite">
+
+                <div class="calc-result-card highlight">
+                  <span class="crc-icon" aria-hidden="true">💰</span>
+                  <div class="crc-label">Annual Savings</div>
+                  <div class="crc-value" id="annualSavings">EC$3,780</div>
+                  <div class="crc-sub">per year after solar</div>
+                </div>
+
+                <div class="calc-result-card">
+                  <span class="crc-icon" aria-hidden="true">📅</span>
+                  <div class="crc-label">Payback Period</div>
+                  <div class="crc-value" id="paybackPeriod">4.2 yrs</div>
+                  <div class="crc-sub">typical for this bill size</div>
+                </div>
+
+                <div class="calc-result-card">
+                  <span class="crc-icon" aria-hidden="true">⚡</span>
+                  <div class="crc-label">Bill Reduction</div>
+                  <div class="crc-value" id="billReduction">~80%</div>
+                  <div class="crc-sub">estimated reduction</div>
+                </div>
+
+                <div class="calc-result-card highlight-green">
+                  <span class="crc-icon" aria-hidden="true">🔋</span>
+                  <div class="crc-label">Recommended System</div>
+                  <div class="crc-value" id="systemSize">5 kW</div>
+                  <div class="crc-sub">estimated system size</div>
+                </div>
+
+              </div>
+
+              <!-- 25-year return -->
+              <div class="calc-lifetime" role="region" aria-live="polite" aria-label="25 year return estimate">
+                <div class="cl-label">☀ 25-Year Solar Return</div>
+                <div class="cl-value" id="lifetimeReturn">EC$94,500</div>
+                <div class="cl-sub" id="lifetimeSub">Total estimated savings over the life of your system</div>
+              </div>
+
+              <p class="calc-disclaimer">
+                * Estimates based on average LUCELEC residential rates and typical Caribbean solar irradiance. 
+                Actual savings vary by property, shading, and system configuration. 
+                Get a precise assessment — free — on WhatsApp.
+              </p>
+
+              <a id="calcWaBtn"
+                 href="https://wa.me/17587235872?text=Hi%20LumiSol%20Caribbean%21%20My%20monthly%20bill%20is%20EC%24350%20and%20the%20calculator%20shows%20I%20could%20save%20EC%243%2C780%2Fyear.%20I%27d%20like%20a%20free%20quote."
+                 class="calc-wa-btn"
+                 aria-label="Get my exact savings quote on WhatsApp"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                Get My Exact Quote on WhatsApp
+              </a>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SAVINGS BAR MARQUEE -->
+  <div class="savings-bar" aria-hidden="true">
+    <div class="savings-track">
+      <span class="savings-item"><i class="bi bi-sun-fill"></i> St. Lucia sunshine · 2,600+ solar hours/year</span>
+      <span class="savings-item"><i class="bi bi-graph-down-arrow"></i> Cut your bill by up to 90%</span>
+      <span class="savings-item"><i class="bi bi-battery-full"></i> Battery storage · power through outages</span>
+      <span class="savings-item"><i class="bi bi-shield-fill-check"></i> 25-year panel warranty</span>
+      <span class="savings-item"><i class="bi bi-phone-fill"></i> Monitor your system from anywhere</span>
+      <span class="savings-item"><i class="bi bi-sun-fill"></i> St. Lucia sunshine · 2,600+ solar hours/year</span>
+      <span class="savings-item"><i class="bi bi-graph-down-arrow"></i> Cut your bill by up to 90%</span>
+      <span class="savings-item"><i class="bi bi-battery-full"></i> Battery storage · power through outages</span>
+      <span class="savings-item"><i class="bi bi-shield-fill-check"></i> 25-year panel warranty</span>
+      <span class="savings-item"><i class="bi bi-phone-fill"></i> Monitor your system from anywhere</span>
+    </div>
+  </div>
+
+  <!-- STATS STRIP -->
+  <section class="sec-sm" style="background:var(--bg);" aria-label="Key figures">
+    <div class="container">
+      <div class="stats-strip reveal">
+        <div class="stat-item">
+          <div class="stat-num">90%</div>
+          <div class="stat-label">Average bill<br>reduction</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">2,600+</div>
+          <div class="stat-label">Peak solar hours<br>per year in St. Lucia</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">25yr</div>
+          <div class="stat-label">Panel warranty<br>on all systems</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">4–6yr</div>
+          <div class="stat-label">Typical system<br>payback period</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI COMPARISON -->
+  <section class="sec-sm" style="background:var(--bg-2);" aria-label="Before and after solar cost comparison">
+    <div class="container">
+      <div class="roi-banner reveal">
+        <div class="roi-left col-lg-6">
+          <h3 class="roi-title">
+            What Your Electricity Bill<br>
+            Looks Like <span>Before vs After Solar.</span>
+          </h3>
+          <p class="roi-desc">
+            The Caribbean has some of the highest electricity rates in the world. 
+            Every month you don't go solar, you're funding the utility company's profits 
+            instead of building your own energy independence.
+          </p>
+          <a href="https://wa.me/17587235872?text=Hi%20LumiSol%21%20I%27d%20like%20to%20see%20what%20my%20bills%20could%20look%20like%20after%20solar."
+             class="btn-amber-main" style="margin-top:1.5rem;display:inline-flex;"
+             aria-label="See your savings on WhatsApp" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i> See My Numbers
+          </a>
+        </div>
+        <div class="roi-table col-lg-5" role="table" aria-label="Cost comparison before and after solar">
+          <div class="roi-row" role="row">
+            <span class="roi-col-header" style="flex:1" role="columnheader">Item</span>
+            <span class="roi-col-header" style="min-width:70px" role="columnheader">Before</span>
+            <span class="roi-col-header" style="min-width:70px" role="columnheader">After Solar</span>
+          </div>
+          <div class="roi-row" role="row">
+            <span class="roi-row-label" role="cell">Monthly electricity bill</span>
+            <span class="roi-row-before" role="cell">EC$400</span>
+            <span class="roi-row-after" role="cell">EC$40–80</span>
+          </div>
+          <div class="roi-row" role="row">
+            <span class="roi-row-label" role="cell">Annual electricity cost</span>
+            <span class="roi-row-before" role="cell">EC$4,800</span>
+            <span class="roi-row-after" role="cell">EC$480–960</span>
+          </div>
+          <div class="roi-row" role="row">
+            <span class="roi-row-label" role="cell">Power during outages</span>
+            <span class="roi-row-before" role="cell">❌ None</span>
+            <span class="roi-row-after" role="cell">✅ Battery</span>
+          </div>
+          <div class="roi-row" role="row">
+            <span class="roi-row-label" role="cell">10-year electricity spend</span>
+            <span class="roi-row-before" role="cell">EC$48,000</span>
+            <span class="roi-row-after" role="cell">EC$6,000–9,000</span>
+          </div>
+          <div class="roi-row" role="row">
+            <span class="roi-row-label" role="cell">25-year energy ownership</span>
+            <span class="roi-row-before" role="cell">❌ Zero</span>
+            <span class="roi-row-after" role="cell">✅ Full</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SOLAR PRODUCTS -->
+  <section class="sec" style="background:var(--bg-2);" aria-label="Solar products available in St. Lucia">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-6">
+          <div class="sec-tag">What We Do</div>
+          <h2 class="sec-h2">Everything Solar.<br><em>One Company. St. Lucia.</em></h2>
+          <div class="dash" aria-hidden="true"></div>
+          <p class="sec-para">
+            From hot water to cool air to clean electricity — LumiSol supplies, installs, and services 
+            the full range of solar technology for homes and businesses across the island. 
+            Whatever your energy problem, solar is the answer. We know which solution fits yours.
+          </p>
+        </div>
+      </div>
+      <div class="row g-4">
+
+        <!-- Water Heater -->
+        <div class="col-sm-6 col-lg-4 reveal">
+          <div class="pillar-card" style="height:100%;">
+            <span class="pillar-icon" aria-hidden="true">🚿</span>
+            <div class="pillar-title">Solar Water Heaters</div>
+            <p class="pillar-desc">Stop paying to heat your water every day. A solar water heater uses free sunlight to deliver consistent hot water — cutting your water heating bill to near zero. Ideal for homes, apartments, hotels, and offices.</p>
+            <div style="margin-top:1.2rem;">
+              <a href="https://wa.me/17587235872?text=Hi%20LumiSol%21%20I%27m%20interested%20in%20a%20solar%20water%20heater.%20Can%20you%20advise%20me%3F"
+                 style="font-family:var(--font-b);font-size:.75rem;font-weight:600;color:var(--amber);display:inline-flex;align-items:center;gap:6px;"
+                 target="_blank" rel="noopener noreferrer" aria-label="Enquire about solar water heaters">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Enquire on WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PV Systems -->
+        <div class="col-sm-6 col-lg-4 reveal rv-d1">
+          <div class="pillar-card" style="height:100%;border-color:var(--border-a);">
+            <span class="pillar-icon" aria-hidden="true">⚡</span>
+            <div class="pillar-title">Photovoltaic (PV) Systems</div>
+            <p class="pillar-desc">Generate your own electricity from sunlight. PV systems reduce or eliminate your LUCELEC bill entirely. Sized for your property — from starter home systems to large commercial arrays with battery storage.</p>
+            <div style="margin-top:1.2rem;">
+              <a href="https://wa.me/17587235872?text=Hi%20LumiSol%21%20I%27d%20like%20to%20learn%20more%20about%20PV%20solar%20systems%20and%20get%20a%20free%20quote."
+                 style="font-family:var(--font-b);font-size:.75rem;font-weight:600;color:var(--amber);display:inline-flex;align-items:center;gap:6px;"
+                 target="_blank" rel="noopener noreferrer" aria-label="Enquire about PV systems">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Get a Free Quote
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solar AC -->
+        <div class="col-sm-6 col-lg-4 reveal rv-d2">
+          <div class="pillar-card" style="height:100%;">
+            <span class="pillar-icon" aria-hidden="true">❄️</span>
+            <div class="pillar-title">Solar Air Condition Units</div>
+            <p class="pillar-desc">Cool your home or business without the shocking electricity bill. Solar AC units draw power from the sun rather than the grid — delivering the same cool comfort at a fraction of the monthly cost.</p>
+            <div style="margin-top:1.2rem;">
+              <a href="https://wa.me/17587235872?text=Hi%20LumiSol%21%20I%27m%20interested%20in%20solar%20air%20conditioning%20units.%20Can%20you%20help%3F"
+                 style="font-family:var(--font-b);font-size:.75rem;font-weight:600;color:var(--amber);display:inline-flex;align-items:center;gap:6px;"
+                 target="_blank" rel="noopener noreferrer" aria-label="Enquire about solar AC">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Enquire on WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solar Fridges -->
+        <div class="col-sm-6 col-lg-4 reveal">
+          <div class="pillar-card" style="height:100%;">
+            <span class="pillar-icon" aria-hidden="true">🧊</span>
+            <div class="pillar-title">Solar Fridges</div>
+            <p class="pillar-desc">Energy-efficient refrigeration designed for St. Lucia's climate. Solar fridges deliver consistent, powerful cooling for homes, shops, and offices — using significantly less electricity than conventional models.</p>
+            <div style="margin-top:1.2rem;">
+              <a href="https://wa.me/17587235872?text=Hi%20LumiSol%21%20I%27d%20like%20information%20on%20energy-efficient%20solar%20fridges."
+                 style="font-family:var(--font-b);font-size:.75rem;font-weight:600;color:var(--amber);display:inline-flex;align-items:center;gap:6px;"
+                 target="_blank" rel="noopener noreferrer" aria-label="Enquire about solar fridges">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Enquire on WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solar LED Lights -->
+        <div class="col-sm-6 col-lg-4 reveal rv-d1">
+          <div class="pillar-card" style="height:100%;">
+            <span class="pillar-icon" aria-hidden="true">💡</span>
+            <div class="pillar-title">Solar LED Lights</div>
+            <p class="pillar-desc">100% solar-powered LED lighting for indoor, outdoor, pool, and commercial use. No wiring required. No electricity bill. Reliable lighting powered entirely by the St. Lucia sun — even through outages.</p>
+            <div style="margin-top:1.2rem;">
+              <a href="https://wa.me/17587235872?text=Hi%20LumiSol%21%20I%27m%20interested%20in%20solar%20LED%20lighting%20solutions."
+                 style="font-family:var(--font-b);font-size:.75rem;font-weight:600;color:var(--amber);display:inline-flex;align-items:center;gap:6px;"
+                 target="_blank" rel="noopener noreferrer" aria-label="Enquire about solar LED lights">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Enquire on WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solar Generators -->
+        <div class="col-sm-6 col-lg-4 reveal rv-d2">
+          <div class="pillar-card" style="height:100%;">
+            <span class="pillar-icon" aria-hidden="true">🔋</span>
+            <div class="pillar-title">Solar Generators</div>
+            <p class="pillar-desc">Power through every LUCELEC outage without diesel or noise. Solar generators provide clean backup power for your home or business — charged by the sun, ready when the grid goes down.</p>
+            <div style="margin-top:1.2rem;">
+              <a href="https://wa.me/17587235872?text=Hi%20LumiSol%21%20I%27d%20like%20to%20know%20more%20about%20solar%20generators%20for%20backup%20power."
+                 style="font-family:var(--font-b);font-size:.75rem;font-weight:600;color:var(--amber);display:inline-flex;align-items:center;gap:6px;"
+                 target="_blank" rel="noopener noreferrer" aria-label="Enquire about solar generators">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Enquire on WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section class="sec" id="packages" style="background:var(--bg);" aria-label="Solar system packages">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-6">
+          <div class="sec-tag">PV Systems</div>
+          <h2 class="sec-h2">Electricity <em>From the Sun.</em><br>Built for Every Property.</h2>
+          <div class="dash" aria-hidden="true"></div>
+          <p class="sec-para">
+            From a starter home system to a full commercial installation — 
+            every package is designed, installed, and commissioned by our certified solar engineers. 
+            All include 25-year panel warranties, mobile monitoring, and full after-sales support.
+          </p>
+        </div>
+      </div>
+      <div class="row g-4">
+
+        <!-- Package 1 -->
+        <div class="col-sm-6 col-lg-3 reveal">
+          <div class="sol-card">
+            <div class="sol-top sol-v1"><span class="sol-icon" aria-hidden="true">🏠</span></div>
+            <div class="sol-body">
+              <div class="sol-category">Residential</div>
+              <h3 class="sol-name">Home Starter</h3>
+              <p class="sol-desc">Perfect for smaller homes or getting started on the solar journey without a large upfront investment.</p>
+              <div class="sol-spec-row" aria-label="System specifications">
+                <span class="sol-spec">3 kW System</span>
+                <span class="sol-spec">12 Panels</span>
+              </div>
+              <ul class="sol-includes" aria-label="Package includes">
+                <li><i class="bi bi-check2" aria-hidden="true"></i> 12 x 250W monocrystalline panels</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Grid-tie inverter</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Mobile monitoring app</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Professional installation</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> 25-year panel warranty</li>
+              </ul>
+              <div class="sol-footer">
+                <div>
+                  <span class="sol-price">From EC$18,000</span>
+                  <span class="sol-price-note">fully installed</span>
+                </div>
+                <a href="https://wa.me/17587235872?text=Hi%20LumiSol%21%20I%27m%20interested%20in%20the%20Home%20Starter%203kW%20package.%20Please%20send%20me%20a%20quote."
+                   class="btn-quote-sm" aria-label="Quote for Home Starter package"
+                   target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 2 — Featured -->
+        <div class="col-sm-6 col-lg-3 reveal rv-d1">
+          <div class="sol-card featured">
+            <div class="sol-top sol-v2">
+              <span class="sol-icon" aria-hidden="true">☀️</span>
+              <span class="sol-featured-tag">Most Popular</span>
+            </div>
+            <div class="sol-body">
+              <div class="sol-category">Residential+</div>
+              <h3 class="sol-name">Home Power Pro</h3>
+              <p class="sol-desc">The most popular choice for Caribbean homes — full coverage with battery backup for power outages.</p>
+              <div class="sol-spec-row" aria-label="System specifications">
+                <span class="sol-spec">5 kW System</span>
+                <span class="sol-spec">20 Panels</span>
+                <span class="sol-spec">Battery</span>
+              </div>
+              <ul class="sol-includes" aria-label="Package includes">
+                <li><i class="bi bi-check2" aria-hidden="true"></i> 20 x 250W monocrystalline panels</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Hybrid inverter</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> 5 kWh battery storage</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Power during outages</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Mobile monitoring &amp; alerts</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> 25-year panel warranty</li>
+              </ul>
+              <div class="sol-footer">
+                <div>
+                  <span class="sol-price">From EC$32,000</span>
+                  <span class="sol-price-note">fully installed</span>
+                </div>
+                <a href="https://wa.me/17587235872?text=Hi%20LumiSol%21%20I%27m%20interested%20in%20the%20Home%20Power%20Pro%205kW%20package.%20Please%20send%20me%20a%20quote."
+                   class="btn-quote-sm" aria-label="Quote for Home Power Pro package"
+                   target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 3 -->
+        <div class="col-sm-6 col-lg-3 reveal rv-d2">
+          <div class="sol-card">
+            <div class="sol-top sol-v3"><span class="sol-icon" aria-hidden="true">🏢</span></div>
+            <div class="sol-body">
+              <div class="sol-category">Commercial</div>
+              <h3 class="sol-name">Business Solar</h3>
+              <p class="sol-desc">Designed for shops, restaurants, offices, and guesthouses with high daytime energy usage.</p>
+              <div class="sol-spec-row" aria-label="System specifications">
+                <span class="sol-spec">10–20 kW</span>
+                <span class="sol-spec">Commercial</span>
+              </div>
+              <ul class="sol-includes" aria-label="Package includes">
+                <li><i class="bi bi-check2" aria-hidden="true"></i> 40–80 panel commercial array</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Commercial-grade inverter</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Optional battery storage</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Energy audit included</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Monitoring dashboard</li>
+              </ul>
+              <div class="sol-footer">
+                <div>
+                  <span class="sol-price">From EC$65,000</span>
+                  <span class="sol-price-note">fully installed</span>
+                </div>
+                <a href="https://wa.me/17587235872?text=Hi%20LumiSol%21%20I%27m%20interested%20in%20a%20commercial%20solar%20system.%20Please%20send%20me%20a%20quote."
+                   class="btn-quote-sm" aria-label="Quote for Business Solar package"
+                   target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 4 -->
+        <div class="col-sm-6 col-lg-3 reveal rv-d3">
+          <div class="sol-card">
+            <div class="sol-top sol-v4"><span class="sol-icon" aria-hidden="true">🏭</span></div>
+            <div class="sol-body">
+              <div class="sol-category">Enterprise</div>
+              <h3 class="sol-name">Full Energy Independence</h3>
+              <p class="sol-desc">Large-scale systems for hotels, resorts, schools, and industrial facilities seeking total energy autonomy.</p>
+              <div class="sol-spec-row" aria-label="System specifications">
+                <span class="sol-spec">50+ kW</span>
+                <span class="sol-spec">Custom</span>
+              </div>
+              <ul class="sol-includes" aria-label="Package includes">
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Custom panel array design</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Large-format battery bank</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Full energy independence</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Ongoing maintenance plan</li>
+                <li><i class="bi bi-check2" aria-hidden="true"></i> Dedicated project manager</li>
+              </ul>
+              <div class="sol-footer">
+                <div>
+                  <span class="sol-price">Custom</span>
+                  <span class="sol-price-note">scoped per site</span>
+                </div>
+                <a href="https://wa.me/17587235872?text=Hi%20LumiSol%21%20I%27m%20interested%20in%20a%20large-scale%20solar%20system.%20Let%27s%20discuss."
+                   class="btn-quote-sm" aria-label="Quote for Enterprise solar"
+                   target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="sec" id="how" style="background:var(--bg-2);" aria-label="How the solar process works">
+    <div class="container">
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-lg-6">
+          <div class="sec-tag" style="justify-content:center;">The Process</div>
+          <h2 class="sec-h2" style="text-align:center;">
+            From WhatsApp<br>to <em>Powered by the Sun</em>
+          </h2>
+          <div class="dash" style="margin:1rem auto 1.5rem;" aria-hidden="true"></div>
+          <p class="sec-para" style="margin:0 auto;text-align:center;">
+            No complicated forms, no waiting weeks. 
+            Four steps from first message to generating your own clean energy.
+          </p>
+        </div>
+      </div>
+      <div class="how-grid reveal">
+        <div class="how-step">
+          <div class="how-num" aria-hidden="true">01</div>
+          <div class="how-icon-wrap" aria-hidden="true"><i class="fab fa-whatsapp" aria-hidden="true"></i></div>
+          <h3 class="how-title">Calculate &amp; Message</h3>
+          <p class="how-desc">Use the savings calculator above. Then message us on WhatsApp with your bill amount — we respond same day with a preliminary estimate.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-num" aria-hidden="true">02</div>
+          <div class="how-icon-wrap" aria-hidden="true"><i class="bi bi-house-check" aria-hidden="true"></i></div>
+          <h3 class="how-title">Free Site Survey</h3>
+          <p class="how-desc">Our solar engineer visits your property, assesses your roof, shading, and energy usage. Free, no commitment required.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-num" aria-hidden="true">03</div>
+          <div class="how-icon-wrap" aria-hidden="true"><i class="bi bi-file-earmark-text" aria-hidden="true"></i></div>
+          <h3 class="how-title">Receive Your Proposal</h3>
+          <p class="how-desc">A detailed proposal with system size, savings projections, costs, and payback timeline. Everything in writing before you commit.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-num" aria-hidden="true">04</div>
+          <div class="how-icon-wrap" aria-hidden="true"><i class="bi bi-sun-fill" aria-hidden="true"></i></div>
+          <h3 class="how-title">Installation Day</h3>
+          <p class="how-desc">Our certified team installs, commissions, and tests your entire system. We set up your mobile app before we leave. You start saving that day.</p>
+        </div>
+      </div>
+      <div class="text-center mt-5 pt-2 reveal">
+        <a href="https://wa.me/17587235872?text=Hi%20LumiSol%21%20I%27d%20like%20to%20start%20with%20a%20free%20site%20survey."
+           class="btn-wa-hero" style="font-size:.9rem;padding:.95rem 2rem;"
+           aria-label="Book a free site survey on WhatsApp"
+           target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+          Book Your Free Site Survey
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- WATER HEATER SERVICING -->
+  <section class="sec" id="servicing" style="background:var(--bg);" aria-label="Solar water heater servicing in St. Lucia">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6 reveal">
+          <div class="sec-tag">Maintenance & Servicing</div>
+          <h2 class="sec-h2">Your Solar Water Heater<br><em>Not Performing Like It Used To?</em></h2>
+          <div class="dash" aria-hidden="true"></div>
+          <p style="font-family:var(--font-b);font-size:.92rem;font-weight:300;color:var(--text-m);line-height:1.85;margin-bottom:1.2rem;">
+            A solar water heater works every day to deliver reliable hot water — but without regular servicing, 
+            efficiency drops, costs creep back up, and breakdowns become expensive. 
+            Most systems need a service every 12–18 months to stay at peak performance.
+          </p>
+          <p style="font-family:var(--font-b);font-size:.92rem;font-weight:300;color:var(--text-m);line-height:1.85;margin-bottom:2rem;">
+            LumiSol's certified technicians service all major solar water heater brands 
+            island-wide — keeping your system running efficiently and extending its lifespan.
+          </p>
+          <div class="row g-3 mb-4">
+            <div class="col-6">
+              <div style="display:flex;align-items:flex-start;gap:9px;">
+                <i class="bi bi-check-circle-fill" style="color:var(--amber);font-size:.85rem;margin-top:3px;flex-shrink:0;" aria-hidden="true"></i>
+                <span style="font-family:var(--font-b);font-size:.83rem;color:var(--text);">Full system inspection</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div style="display:flex;align-items:flex-start;gap:9px;">
+                <i class="bi bi-check-circle-fill" style="color:var(--amber);font-size:.85rem;margin-top:3px;flex-shrink:0;" aria-hidden="true"></i>
+                <span style="font-family:var(--font-b);font-size:.83rem;color:var(--text);">Panel cleaning & efficiency check</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div style="display:flex;align-items:flex-start;gap:9px;">
+                <i class="bi bi-check-circle-fill" style="color:var(--amber);font-size:.85rem;margin-top:3px;flex-shrink:0;" aria-hidden="true"></i>
+                <span style="font-family:var(--font-b);font-size:.83rem;color:var(--text);">Leak detection & repairs</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div style="display:flex;align-items:flex-start;gap:9px;">
+                <i class="bi bi-check-circle-fill" style="color:var(--amber);font-size:.85rem;margin-top:3px;flex-shrink:0;" aria-hidden="true"></i>
+                <span style="font-family:var(--font-b);font-size:.83rem;color:var(--text);">Tank flushing & maintenance</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div style="display:flex;align-items:flex-start;gap:9px;">
+                <i class="bi bi-check-circle-fill" style="color:var(--amber);font-size:.85rem;margin-top:3px;flex-shrink:0;" aria-hidden="true"></i>
+                <span style="font-family:var(--font-b);font-size:.83rem;color:var(--text);">Pipe & valve inspection</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div style="display:flex;align-items:flex-start;gap:9px;">
+                <i class="bi bi-check-circle-fill" style="color:var(--amber);font-size:.85rem;margin-top:3px;flex-shrink:0;" aria-hidden="true"></i>
+                <span style="font-family:var(--font-b);font-size:.83rem;color:var(--text);">Performance optimisation</span>
+              </div>
+            </div>
+          </div>
+          <a href="https://wa.me/17587235872?text=Hi%20LumiSol%21%20I%27d%20like%20to%20book%20a%20solar%20water%20heater%20service.%20Can%20you%20help%3F"
+             class="btn-wa-hero" style="font-size:.9rem;padding:.95rem 2rem;"
+             aria-label="Book a water heater service on WhatsApp"
+             target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            Book Your Service Today
+          </a>
+        </div>
+        <div class="col-lg-6 reveal">
+          <!-- Why Service Card -->
+          <div style="background:linear-gradient(145deg,var(--navy-2),var(--navy-3));border-radius:var(--r-xl);padding:2.5rem;border:1px solid var(--border-a);" aria-label="Reasons to service your solar water heater">
+            <div style="font-family:var(--font-d);font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:1.5rem;">
+              Why Service Your System?
+            </div>
+            <div style="display:flex;flex-direction:column;gap:1.2rem;">
+              <div style="display:flex;align-items:flex-start;gap:14px;padding:1rem 1.2rem;background:var(--amber-dim);border-radius:var(--r-md);border:1px solid var(--border-a);">
+                <span style="font-size:1.4rem;" aria-hidden="true">💰</span>
+                <div>
+                  <div style="font-family:var(--font-d);font-size:.88rem;font-weight:700;color:var(--white);margin-bottom:.3rem;">Save money on energy bills</div>
+                  <div style="font-family:var(--font-b);font-size:.78rem;font-weight:300;color:var(--muted-2);line-height:1.6;">A clean, well-maintained system runs at peak efficiency — keeping your hot water bill as low as possible.</div>
+                </div>
+              </div>
+              <div style="display:flex;align-items:flex-start;gap:14px;padding:1rem 1.2rem;background:var(--amber-dim);border-radius:var(--r-md);border:1px solid var(--border-a);">
+                <span style="font-size:1.4rem;" aria-hidden="true">🛡️</span>
+                <div>
+                  <div style="font-family:var(--font-d);font-size:.88rem;font-weight:700;color:var(--white);margin-bottom:.3rem;">Prevent costly breakdowns</div>
+                  <div style="font-family:var(--font-b);font-size:.78rem;font-weight:300;color:var(--muted-2);line-height:1.6;">Catching small issues early costs far less than emergency repairs or full system replacement.</div>
+                </div>
+              </div>
+              <div style="display:flex;align-items:flex-start;gap:14px;padding:1rem 1.2rem;background:var(--amber-dim);border-radius:var(--r-md);border:1px solid var(--border-a);">
+                <span style="font-size:1.4rem;" aria-hidden="true">📅</span>
+                <div>
+                  <div style="font-family:var(--font-d);font-size:.88rem;font-weight:700;color:var(--white);margin-bottom:.3rem;">Extend system lifespan</div>
+                  <div style="font-family:var(--font-b);font-size:.78rem;font-weight:300;color:var(--muted-2);line-height:1.6;">Regular servicing can add years of additional life to your water heater — maximising your original investment.</div>
+                </div>
+              </div>
+              <div style="display:flex;align-items:flex-start;gap:14px;padding:1rem 1.2rem;background:var(--amber-dim);border-radius:var(--r-md);border:1px solid var(--border-a);">
+                <span style="font-size:1.4rem;" aria-hidden="true">🚿</span>
+                <div>
+                  <div style="font-family:var(--font-d);font-size:.88rem;font-weight:700;color:var(--white);margin-bottom:.3rem;">Ensure consistent hot water</div>
+                  <div style="font-family:var(--font-b);font-size:.78rem;font-weight:300;color:var(--muted-2);line-height:1.6;">A serviced system delivers reliable, consistent hot water every day — no cold surprises.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTALLATIONS GALLERY -->
+  <section class="sec" id="gallery" style="background:var(--bg);" aria-label="Completed solar installations">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-6">
+          <div class="sec-tag">Our Installations</div>
+          <h2 class="sec-h2">Projects That <em>Pay for Themselves</em></h2>
+          <div class="dash" aria-hidden="true"></div>
+          <p class="sec-para">
+            Every installation photographed and signed off at completion. 
+            See a property type that matches yours? Tap to get a similar quote on WhatsApp.
+          </p>
+        </div>
+      </div>
+      <div class="proj-grid reveal">
+
+        <!-- Tall -->
+        <div class="proj-card proj-tall" role="article" aria-label="Residential rooftop installation">
+          <div class="pc-img pc-v1">
+            <span class="pc-illus" aria-hidden="true">🏠</span>
+            <div class="pc-overlay">
+              <div class="pc-name">Hillcrest Residence</div>
+              <div class="pc-type">5kW Home Power Pro · Battery Included</div>
+              <a href="https://wa.me/17587235872?text=I%20saw%20the%20Hillcrest%20Residence%20solar%20installation%20and%20I%27d%20like%20a%20similar%20quote."
+                 class="pc-wa" aria-label="Quote like Hillcrest installation"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote Like This
+              </a>
+            </div>
+          </div>
+          <div class="pc-info">
+            <div class="pc-info-name">Hillcrest Residence</div>
+            <div class="pc-info-tag">5kW Home Pro · 20 Panels · Battery</div>
+          </div>
+        </div>
+
+        <div class="proj-card" role="article" aria-label="Restaurant solar installation">
+          <div class="pc-img pc-v2">
+            <span class="pc-illus" aria-hidden="true">🍽️</span>
+            <div class="pc-overlay">
+              <div class="pc-name">Bay Garden Restaurant</div>
+              <div class="pc-type">15kW Commercial · Air Con & Fridge Load</div>
+              <a href="https://wa.me/17587235872?text=I%27d%20like%20a%20commercial%20solar%20quote%20for%20a%20restaurant."
+                 class="pc-wa" aria-label="Quote for restaurant solar"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote Like This
+              </a>
+            </div>
+          </div>
+          <div class="pc-info">
+            <div class="pc-info-name">Bay Garden Restaurant</div>
+            <div class="pc-info-tag">15kW Commercial · Full Kitchen Load</div>
+          </div>
+        </div>
+
+        <div class="proj-card" role="article" aria-label="Guesthouse solar installation">
+          <div class="pc-img pc-v3">
+            <span class="pc-illus" aria-hidden="true">🏡</span>
+            <div class="pc-overlay">
+              <div class="pc-name">Soufrière Guesthouse</div>
+              <div class="pc-type">8kW System · Zero Grid Dependency</div>
+              <a href="https://wa.me/17587235872?text=I%27d%20like%20a%20solar%20quote%20for%20a%20guesthouse."
+                 class="pc-wa" aria-label="Quote for guesthouse solar"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote Like This
+              </a>
+            </div>
+          </div>
+          <div class="pc-info">
+            <div class="pc-info-name">Soufrière Guesthouse</div>
+            <div class="pc-info-tag">8kW System · Battery + Grid-Tie</div>
+          </div>
+        </div>
+
+        <div class="proj-card" role="article" aria-label="Office block solar installation">
+          <div class="pc-img pc-v4">
+            <span class="pc-illus" aria-hidden="true">🏢</span>
+            <div class="pc-overlay">
+              <div class="pc-name">Castries Office Block</div>
+              <div class="pc-type">20kW Commercial Rooftop</div>
+              <a href="https://wa.me/17587235872?text=I%27d%20like%20a%20commercial%20rooftop%20solar%20quote."
+                 class="pc-wa" aria-label="Quote for office solar"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote Like This
+              </a>
+            </div>
+          </div>
+          <div class="pc-info">
+            <div class="pc-info-name">Castries Office Block</div>
+            <div class="pc-info-tag">20kW Commercial · Rooftop Array</div>
+          </div>
+        </div>
+
+        <div class="proj-card" role="article" aria-label="Villa solar installation">
+          <div class="pc-img pc-v5">
+            <span class="pc-illus" aria-hidden="true">🌴</span>
+            <div class="pc-overlay">
+              <div class="pc-name">Cap Estate Villa</div>
+              <div class="pc-type">10kW + 10kWh Battery Bank</div>
+              <a href="https://wa.me/17587235872?text=I%27d%20like%20a%20solar%20quote%20for%20a%20villa%20with%20battery%20storage."
+                 class="pc-wa" aria-label="Quote for villa solar"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote Like This
+              </a>
+            </div>
+          </div>
+          <div class="pc-info">
+            <div class="pc-info-name">Cap Estate Villa</div>
+            <div class="pc-info-tag">10kW + Large Battery · Full Independence</div>
+          </div>
+        </div>
+
+        <div class="proj-card" role="article" aria-label="School solar installation">
+          <div class="pc-img pc-v6">
+            <span class="pc-illus" aria-hidden="true">🏫</span>
+            <div class="pc-overlay">
+              <div class="pc-name">Vieux-Fort Primary School</div>
+              <div class="pc-type">30kW Enterprise Installation</div>
+              <a href="https://wa.me/17587235872?text=I%27d%20like%20a%20large-scale%20solar%20quote%20for%20a%20school%20or%20institution."
+                 class="pc-wa" aria-label="Quote for institutional solar"
+                 target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Quote Like This
+              </a>
+            </div>
+          </div>
+          <div class="pc-info">
+            <div class="pc-info-name">Vieux-Fort Primary School</div>
+            <div class="pc-info-tag">30kW Enterprise · Institutional</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS — BLURRED (MANAGED) -->
+  <section class="sec" style="background:var(--bg-2);" aria-label="Client testimonials">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-5">
+          <div class="sec-tag">Results</div>
+          <h2 class="sec-h2">Clients Who Went Solar.<br><em>Never Looked Back.</em></h2>
+          <div class="dash" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div class="premium-wrap" aria-label="Client testimonials - requires Managed plan">
+        <div class="blur-layer">
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="rv-card">
+                <div class="rv-tag"><i class="bi bi-house-fill" aria-hidden="true"></i> Home Power Pro</div>
+                <div class="rv-stars" aria-hidden="true">★★★★★</div>
+                <p class="rv-text">"My electricity bill went from EC$480 per month to EC$40. I couldn't believe the first bill after installation. The system paid for itself faster than I expected."</p>
+                <div class="rv-name">Homeowner</div>
+                <div class="rv-loc">Castries, St. Lucia ✓ Verified</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="rv-card">
+                <div class="rv-tag"><i class="bi bi-building" aria-hidden="true"></i> Commercial</div>
+                <div class="rv-stars" aria-hidden="true">★★★★★</div>
+                <p class="rv-text">"We were spending EC$3,500 a month on electricity at the restaurant. LumiSol installed a 15kW system and we're now spending under EC$300. That's an extra EC$38K a year."</p>
+                <div class="rv-name">Restaurant Owner</div>
+                <div class="rv-loc">Rodney Bay, St. Lucia ✓ Verified</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="rv-card">
+                <div class="rv-tag"><i class="bi bi-battery-full" aria-hidden="true"></i> Battery + Solar</div>
+                <div class="rv-stars" aria-hidden="true">★★★★★</div>
+                <p class="rv-text">"When LUCELEC has an outage, my whole house stays on. Air conditioning, fridge, everything. I didn't realise how much the power cuts were affecting me until they stopped mattering."</p>
+                <div class="rv-name">Homeowner</div>
+                <div class="rv-loc">Gros Islet, St. Lucia ✓ Verified</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="unlock-overlay">
+          <div class="unlock-box">
+            <div class="unlock-icon-wrap" aria-hidden="true"><i class="bi bi-star-fill" aria-hidden="true"></i></div>
+            <span class="unlock-plan-pill">Managed Plan · $89.99/mo</span>
+            <h5>Client Testimonials</h5>
+            <p>Real savings stories close hesitant prospects faster than any stat. Verified reviews with bill amounts are the most powerful trust signal in solar. Included in the Managed plan.</p>
+            <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20upgrade%20to%20the%20Managed%20plan%20for%20testimonials."
+               class="btn-quote-sm" style="margin:0 auto;display:inline-flex;"
+               aria-label="Upgrade to Managed plan" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Upgrade to Managed
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="sec" id="about" style="background:var(--bg);" aria-label="About LumiSol">
+    <div class="container">
+      <div class="row align-items-center g-5 mb-5">
+        <div class="col-lg-5 reveal">
+          <div style="background:linear-gradient(145deg,var(--navy-2),var(--navy-3));border-radius:var(--r-xl);height:400px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border-a);position:relative;overflow:hidden;" aria-label="LumiSol St. Lucia solar installation illustration">
+            <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 60% 30%,rgba(245,166,35,.15) 0%,transparent 65%);" aria-hidden="true"></div>
+            <span style="font-size:10rem;opacity:.5;position:relative;z-index:1;" aria-hidden="true">☀️</span>
+          </div>
+        </div>
+        <div class="col-lg-7 reveal">
+          <div class="sec-tag">Who We Are</div>
+          <h2 class="sec-h2">St. Lucia Energy.<br><em>St. Lucia Independence.</em></h2>
+          <div class="dash" aria-hidden="true"></div>
+          <p style="font-family:var(--font-b);font-size:.92rem;font-weight:300;color:var(--text-m);line-height:1.85;margin-bottom:1rem;">
+            The Caribbean receives more sunlight than almost anywhere on earth — 
+            yet Caribbean families and businesses pay some of the highest electricity rates in the world. 
+            LumiSol exists to close that gap.
+          </p>
+          <p style="font-family:var(--font-b);font-size:.92rem;font-weight:300;color:var(--text-m);line-height:1.85;margin-bottom:2rem;">
+            Every system we supply and install is designed around your specific property, energy usage, and budget. Our certified engineers build systems that last 25+ years and pay for themselves many times over.
+          </p>
+          <div class="row g-3">
+            <div class="col-6">
+              <div style="display:flex;align-items:center;gap:9px;">
+                <i class="bi bi-check-circle-fill" style="color:var(--amber);font-size:.85rem;" aria-hidden="true"></i>
+                <span style="font-family:var(--font-b);font-size:.83rem;color:var(--text);">Certified solar engineers</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div style="display:flex;align-items:center;gap:9px;">
+                <i class="bi bi-check-circle-fill" style="color:var(--amber);font-size:.85rem;" aria-hidden="true"></i>
+                <span style="font-family:var(--font-b);font-size:.83rem;color:var(--text);">Tier-1 panel brands only</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div style="display:flex;align-items:center;gap:9px;">
+                <i class="bi bi-check-circle-fill" style="color:var(--amber);font-size:.85rem;" aria-hidden="true"></i>
+                <span style="font-family:var(--font-b);font-size:.83rem;color:var(--text);">25-year panel warranty</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div style="display:flex;align-items:center;gap:9px;">
+                <i class="bi bi-check-circle-fill" style="color:var(--amber);font-size:.85rem;" aria-hidden="true"></i>
+                <span style="font-family:var(--font-b);font-size:.83rem;color:var(--text);">Free site surveys</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4 reveal">
+        <div class="col-md-4">
+          <div class="pillar-card">
+            <span class="pillar-icon" aria-hidden="true">🌞</span>
+            <div class="pillar-title">Built for St. Lucia's Climate</div>
+            <p class="pillar-desc">Our systems are rated for tropical heat, humidity, and hurricane-force winds. What works in Europe won't always work in St. Lucia. We build for our island's climate.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="pillar-card">
+            <span class="pillar-icon" aria-hidden="true">📊</span>
+            <div class="pillar-title">Transparent Proposals — Always</div>
+            <p class="pillar-desc">Every proposal includes exact savings projections, system specs, payback period, and 25-year return. You know exactly what you're buying before you commit.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="pillar-card">
+            <span class="pillar-icon" aria-hidden="true">🔧</span>
+            <div class="pillar-title">After-Sales Support for Life</div>
+            <p class="pillar-desc">We don't disappear after installation. WhatsApp support, annual inspections, and warranty service — available for the lifetime of your system.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COVERAGE + GBP (BLURRED — MANAGED) -->
+  <section class="sec" style="background:var(--bg-2);" aria-label="Service areas and Google visibility">
+    <div class="container">
+      <div class="row g-5 mb-5 align-items-start">
+        <div class="col-lg-6">
+          <div class="coverage-strip reveal">
+            <div class="coverage-left">
+              <h3>We Install Across St. Lucia</h3>
+              <p>Residential &amp; commercial installations island-wide</p>
+            </div>
+            <div class="area-chips" role="list" aria-label="Service areas">
+              <span class="area-chip" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Castries</span>
+              <span class="area-chip" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Gros Islet</span>
+              <span class="area-chip" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Rodney Bay</span>
+              <span class="area-chip" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Vieux-Fort</span>
+              <span class="area-chip" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Soufrière</span>
+              <span class="area-chip" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Micoud</span>
+              <span class="area-chip" role="listitem"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Dennery</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="sec-tag">Online Visibility</div>
+          <h2 class="sec-h2" style="font-size:1.75rem;">Show Up When Customers Search <em>"Solar Installer Near Me"</em></h2>
+          <div class="dash" aria-hidden="true"></div>
+          <div class="premium-wrap" aria-label="Google visibility - requires Managed plan">
+            <div class="blur-layer">
+              <div class="row g-3">
+                <div class="col-6">
+                  <div style="background:var(--card-l);border-radius:var(--r-md);padding:1.4rem;border:1px solid var(--bdr-l);">
+                    <div style="width:40px;height:40px;border-radius:9px;background:#4285F4;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.85rem;font-family:var(--font-b);margin-bottom:.9rem;" aria-hidden="true">G</div>
+                    <div style="font-family:var(--font-d);font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:.5rem;">Google Business Profile</div>
+                    <ul style="list-style:none;display:flex;flex-direction:column;gap:5px;">
+                      <li style="font-family:var(--font-b);font-size:.75rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:7px;"><span style="width:4px;height:4px;background:var(--amber);border-radius:50%;flex-shrink:0;display:inline-block;" aria-hidden="true"></span>Appear in "solar installer near me"</li>
+                      <li style="font-family:var(--font-b);font-size:.75rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:7px;"><span style="width:4px;height:4px;background:var(--amber);border-radius:50%;flex-shrink:0;display:inline-block;" aria-hidden="true"></span>Show on Google Maps</li>
+                      <li style="font-family:var(--font-b);font-size:.75rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:7px;"><span style="width:4px;height:4px;background:var(--amber);border-radius:50%;flex-shrink:0;display:inline-block;" aria-hidden="true"></span>Collect Google reviews</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div style="background:var(--card-l);border-radius:var(--r-md);padding:1.4rem;border:1px solid var(--bdr-l);">
+                    <div style="width:40px;height:40px;border-radius:9px;background:var(--amber);display:flex;align-items:center;justify-content:center;color:var(--midnight);font-size:1rem;margin-bottom:.9rem;" aria-hidden="true"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i></div>
+                    <div style="font-family:var(--font-d);font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:.5rem;">Local SEO Setup</div>
+                    <ul style="list-style:none;display:flex;flex-direction:column;gap:5px;">
+                      <li style="font-family:var(--font-b);font-size:.75rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:7px;"><span style="width:4px;height:4px;background:var(--amber);border-radius:50%;flex-shrink:0;display:inline-block;" aria-hidden="true"></span>Rank for solar keywords</li>
+                      <li style="font-family:var(--font-b);font-size:.75rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:7px;"><span style="width:4px;height:4px;background:var(--amber);border-radius:50%;flex-shrink:0;display:inline-block;" aria-hidden="true"></span>Meta &amp; schema optimisation</li>
+                      <li style="font-family:var(--font-b);font-size:.75rem;font-weight:300;color:var(--text-m);display:flex;align-items:center;gap:7px;"><span style="width:4px;height:4px;background:var(--amber);border-radius:50%;flex-shrink:0;display:inline-block;" aria-hidden="true"></span>Monthly performance report</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="unlock-overlay">
+              <div class="unlock-box">
+                <div class="unlock-icon-wrap" aria-hidden="true"><i class="bi bi-search" aria-hidden="true"></i></div>
+                <span class="unlock-plan-pill">Managed Plan · $89.99/mo</span>
+                <h5>Google Visibility</h5>
+                <p>When a homeowner searches "solar panels St. Lucia," they're ready to buy. Be the first result they find. Google Business Profile + SEO included in the Managed plan.</p>
+                <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20upgrade%20to%20the%20Managed%20plan%20for%20Google%20SEO."
+                   class="btn-quote-sm" style="margin:0 auto;display:inline-flex;"
+                   aria-label="Upgrade to Managed plan" target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Upgrade to Managed
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="sec" style="background:var(--bg);" aria-label="Get your free solar quote">
+    <div class="container">
+      <div class="cta-se reveal">
+        <div class="cta-inner">
+          <div class="cta-tag">The Sun Is Free. Your Electricity Shouldn't Cost a Fortune.</div>
+          <h2 class="cta-h2">
+            Start Saving<br>
+            <span class="amber">This Month.</span>
+          </h2>
+          <p class="cta-para">
+            Calculate your savings with the tool above, then message us on WhatsApp. 
+            We visit your property for free, give you a detailed proposal, 
+            and get you generating your own clean energy.
+          </p>
+          <div class="cta-btn-group">
+            <a href="#calculator" class="btn-amber-main"
+               aria-label="Calculate your solar savings">
+              <i class="bi bi-calculator-fill" aria-hidden="true"></i>
+              Calculate My Savings
+            </a>
+            <a href="https://wa.me/17587235872?text=Hi%20LumiSol%20Caribbean%21%20I%27d%20like%20a%20free%20solar%20assessment%20and%20quote%20for%20my%20property."
+               class="btn-wa-hero" style="font-size:.9rem;padding:.95rem 1.8rem;"
+               aria-label="Get a free quote on WhatsApp" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Get Free Quote on WhatsApp
+            </a>
+          </div>
+          <p class="cta-note">
+            <i class="bi bi-shield-check me-1" aria-hidden="true"></i>
+            Free site survey &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; Same-day response &nbsp;·&nbsp; 25-year panel warranty
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-se" role="contentinfo">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <div class="fl-name">Solar<span>Edge</span></div>
+          <div class="fl-sub">St. Lucia Solar Solutions · St. Lucia</div>
+          <p class="fl-about">
+            Professional solar panel installation and battery storage for 
+            Caribbean homes and businesses. Cut your bill, own your energy, 
+            and protect against power outages.
+          </p>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <div class="fl-h">Systems</div>
+          <ul class="fl-links" role="list">
+            <li><a href="#packages">Home Starter</a></li>
+            <li><a href="#packages">Home Power Pro</a></li>
+            <li><a href="#packages">Business Solar</a></li>
+            <li><a href="#packages">Enterprise</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <div class="fl-h">Company</div>
+          <ul class="fl-links" role="list">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#gallery">Installations</a></li>
+            <li><a href="#how">How It Works</a></li>
+            <li><a href="#calculator">Savings Calculator</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <div class="fl-h">Free Solar Assessment</div>
+          <div class="fl-wa-box">
+            <p>Tell us your monthly LUCELEC bill on WhatsApp. We'll estimate your savings and arrange a free site survey at your convenience — island-wide.</p>
+            <a href="https://wa.me/17587235872?text=Hi%20LumiSol%21%20I%27d%20like%20a%20free%20solar%20assessment."
+               class="fl-wa-btn" aria-label="Get a free solar assessment on WhatsApp"
+               target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Free Solar Assessment
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="fl-bottom">
+        <p>© 2025 LumiSol | St. Lucia Solar Solutions. All rights reserved.</p>
+        <p>Built by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank" rel="noopener noreferrer">JAMALINKS</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // ===== THEME =====
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon   = document.getElementById('themeIcon');
+    const themeLabel  = document.getElementById('themeLabel');
+    const html        = document.documentElement;
+
+    function applyTheme(dark) {
+      html.setAttribute('data-theme', dark ? 'dark' : 'light');
+      themeIcon.className = dark ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+      themeLabel.textContent = dark ? 'Light' : 'Dark';
+    }
+
+    const hour = new Date().getHours();
+    let isDark = hour >= 18 || hour < 6;
+    applyTheme(isDark);
+    themeToggle.addEventListener('click', () => { isDark = !isDark; applyTheme(isDark); });
+
+    // ===== SAVINGS CALCULATOR =====
+    // Based on LUCELEC residential rates (~EC$0.65/kWh average)
+    // Average Caribbean home: 1 kWh per EC$0.65 billed
+    const RATE_PER_KWH = 0.65;        // EC$ per kWh
+    const SOLAR_COVERAGE = 0.80;      // 80% of bill offset by solar
+    const SYSTEM_COST_PER_KW = 6400;  // EC$ per installed kW (approx)
+    const KWH_PER_KW_PER_DAY = 5;     // Caribbean irradiance: ~5 peak sun hours
+
+    function calcSavings(monthlyBill) {
+      const annualBill      = monthlyBill * 12;
+      const annualKWh       = annualBill / RATE_PER_KWH;
+      const dailyKWh        = annualKWh / 365;
+      const systemKW        = Math.max(1.5, Math.ceil(dailyKWh / KWH_PER_KW_PER_DAY * 10) / 10);
+      const annualSavings   = Math.round(annualBill * SOLAR_COVERAGE);
+      const systemCost      = Math.round(systemKW * SYSTEM_COST_PER_KW);
+      const paybackYears    = (systemCost / annualSavings).toFixed(1);
+      const lifetimeSavings = annualSavings * 25 - systemCost;
+      const reduction       = SOLAR_COVERAGE * 100;
+
+      return { annualSavings, systemKW: Math.ceil(systemKW), paybackYears, lifetimeSavings, reduction, systemCost };
+    }
+
+    function fmtEC(num) {
+      if (num >= 1000000) return 'EC$' + (num/1000000).toFixed(1) + 'M';
+      if (num >= 10000) return 'EC$' + Math.round(num/1000) + 'K';
+      return 'EC$' + num.toLocaleString();
+    }
+
+    function updateCalc() {
+      const bill = parseFloat(document.getElementById('monthlyBill').value) || 350;
+      const slider = document.getElementById('billSlider');
+      if (slider) slider.value = Math.min(bill, 5000);
+
+      const r = calcSavings(bill);
+
+      document.getElementById('annualSavings').textContent = fmtEC(r.annualSavings);
+      document.getElementById('paybackPeriod').textContent = r.paybackYears + ' yrs';
+      document.getElementById('billReduction').textContent = '~' + r.reduction + '%';
+      document.getElementById('systemSize').textContent = r.systemKW + ' kW';
+      document.getElementById('lifetimeReturn').textContent =
+        r.lifetimeSavings > 0 ? fmtEC(r.lifetimeSavings) : 'EC$0';
+      document.getElementById('lifetimeSub').textContent =
+        'Approx. net return after system cost of ' + fmtEC(r.systemCost);
+
+      // Update WA link
+      const msg = encodeURIComponent(
+        `Hi LumiSol! My monthly electricity bill is EC$${bill}. ` +
+        `The calculator shows I could save ~${fmtEC(r.annualSavings)}/year with a ${r.systemKW}kW system. ` +
+        `I'd like a free site survey and exact quote.`
+      );
+      const waBtn = document.getElementById('calcWaBtn');
+      if (waBtn) waBtn.href = `https://wa.me/17587235872?text=${msg}`;
+    }
+
+    function syncSlider(val) {
+      document.getElementById('monthlyBill').value = val;
+      updateCalc();
+    }
+
+    // Run on load
+    updateCalc();
+
+    // ===== SCROLL REVEAL =====
+    const revealEls = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    revealEls.forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
