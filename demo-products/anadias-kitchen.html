@@ -354,6 +354,75 @@
   }
   .dark-section .section-head p{color:rgba(246,239,227,0.68);}
 
+  /* ===== Menu gate ===== */
+  .gate-card{
+    background:var(--ink);
+    color:var(--cream);
+    border-radius:var(--radius);
+    padding:36px 26px;
+    text-align:center;
+    max-width:560px;
+    margin:0 auto;
+  }
+  .gate-card h3{
+    color:var(--cream);
+    font-size:22px;
+    margin-bottom:10px;
+  }
+  .gate-card p{
+    font-size:14.5px;
+    color:rgba(246,239,227,0.72);
+    max-width:44ch;
+    margin:0 auto 24px;
+  }
+  .gate-form{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    text-align:left;
+  }
+  .gate-form label{
+    font-size:12px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    font-weight:600;
+    color:rgba(246,239,227,0.6);
+    margin-bottom:6px;
+    display:block;
+  }
+  .gate-form input{
+    width:100%;
+    padding:13px 14px;
+    background:rgba(246,239,227,0.06);
+    border:1px solid rgba(246,239,227,0.25);
+    border-radius:var(--radius);
+    color:var(--cream);
+    font-family:inherit;
+    font-size:14.5px;
+  }
+  .gate-form input::placeholder{color:rgba(246,239,227,0.35);}
+  .gate-form input:focus-visible{
+    outline:2px solid var(--copper);
+    outline-offset:2px;
+  }
+  .gate-form .btn{margin-top:6px; border:none;}
+  .gate-fine{
+    margin-top:16px;
+    font-size:12px;
+    color:rgba(246,239,227,0.45);
+  }
+  .menu-unlocked{display:none;}
+  .menu-unlocked.show{display:block;}
+  .unlock-note{
+    margin-top:26px;
+    padding:16px 18px;
+    background:var(--parchment-dim);
+    border-left:3px solid var(--copper);
+    font-size:13.5px;
+    color:rgba(43,35,32,0.72);
+    max-width:60ch;
+  }
+
   /* ===== Menu spotlight ===== */
   .menu-grid{
     display:grid;
@@ -714,7 +783,7 @@
         <h1>You handle life.<br><em>I'll handle dinner.</em></h1>
         <p class="hero-sub">Chef-prepared meals, portioned and ready for pickup every Sunday. No grocery runs, no meal planning, no wondering what's for dinner.</p>
         <div class="hero-ctas">
-          <a href="#menu" class="btn btn-primary">See This Week's Menu</a>
+          <a href="#menu" class="btn btn-primary">Join the List for This Week's Menu</a>
           <a href="#pricing" class="btn btn-outline">View Pricing</a>
         </div>
       </div>
@@ -760,41 +829,65 @@
     </div>
   </section>
 
-  <!-- MENU SPOTLIGHT -->
+  <!-- MENU GATE -->
   <section id="menu">
     <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">This Week's Menu</span>
-        <h2>Chef-crafted, never the same week twice.</h2>
-        <p>Every plate is built around a protein, a starch, and a vegetable — balanced, flavorful, and made to make a busy week easier.</p>
+      <div class="section-head" style="margin:0 auto 38px; text-align:center;">
+        <span class="eyebrow">Weekly Menu</span>
+        <h2>The menu goes to the list first.</h2>
+        <p style="margin-left:auto; margin-right:auto;">Every Thursday, subscribers get the new weekly menu by email and text — three days before it goes anywhere else. Join the list to see a sample of what's cooking.</p>
       </div>
-      <div class="menu-grid">
-        <div class="dish-card">
-          <div class="dish-photo"><span>Photo: Blackened Pesto Salmon</span></div>
-          <div class="dish-body">
-            <h3>Blackened Pesto Salmon</h3>
-            <p>Blackened salmon over butter garlic cauliflower rice with a roasted vegetable medley, finished with basil pesto and fresh lemon.</p>
-            <span class="dish-tag">Chef Favorite</span>
+
+      <div id="gateBlock" class="gate-card">
+        <h3>Unlock This Week's Menu</h3>
+        <p>Enter your name and email — you'll see a sample menu instantly, and you'll be added to the list for future weekly menus.</p>
+        <form class="gate-form" id="menuGateForm">
+          <div>
+            <label for="gateName">Name</label>
+            <input id="gateName" type="text" placeholder="Your name" required>
           </div>
-        </div>
-        <div class="dish-card">
-          <div class="dish-photo"><span>Photo: Maple Bourbon Glazed Chicken</span></div>
-          <div class="dish-body">
-            <h3>Maple Bourbon Glazed Chicken</h3>
-            <p>Maple bourbon glazed chicken served with vegetable fried rice and garlic cabbage. Comforting, flavorful, ready when you are.</p>
-            <span class="dish-tag">Weekly Regular</span>
+          <div>
+            <label for="gateEmail">Email</label>
+            <input id="gateEmail" type="email" placeholder="you@email.com" required>
           </div>
-        </div>
-        <div class="dish-card">
-          <div class="dish-photo"><span>Photo: 2-Hour Oven-Baked Wings</span></div>
-          <div class="dish-body">
-            <h3>2-Hour Oven-Baked Wings</h3>
-            <p>Slow oven-baked wings with homemade hot sauce, yellow rice, and garlic string beans. The one that gets requested most.</p>
-            <span class="dish-tag">Most Requested</span>
+          <div>
+            <label for="gatePhone">Phone (optional — for text updates)</label>
+            <input id="gatePhone" type="tel" placeholder="(704) 000-0000">
           </div>
-        </div>
+          <button type="submit" class="btn btn-primary">Unlock This Week's Menu</button>
+        </form>
+        <p class="gate-fine">No spam — just weekly menus, ordering windows, and the occasional custom offer.</p>
       </div>
-      <p class="menu-note">Menu changes weekly and is released every Monday. Have a request outside the weekly offering? Custom Meal Prep is available below.</p>
+
+      <div id="menuUnlocked" class="menu-unlocked">
+        <div class="menu-grid" style="margin-top:38px;">
+          <div class="dish-card">
+            <div class="dish-photo"><span>Photo: Blackened Pesto Salmon</span></div>
+            <div class="dish-body">
+              <h3>Blackened Pesto Salmon</h3>
+              <p>Blackened salmon over butter garlic cauliflower rice with a roasted vegetable medley, finished with basil pesto and fresh lemon.</p>
+              <span class="dish-tag">Chef Favorite</span>
+            </div>
+          </div>
+          <div class="dish-card">
+            <div class="dish-photo"><span>Photo: Maple Bourbon Glazed Chicken</span></div>
+            <div class="dish-body">
+              <h3>Maple Bourbon Glazed Chicken</h3>
+              <p>Maple bourbon glazed chicken served with vegetable fried rice and garlic cabbage. Comforting, flavorful, ready when you are.</p>
+              <span class="dish-tag">Weekly Regular</span>
+            </div>
+          </div>
+          <div class="dish-card">
+            <div class="dish-photo"><span>Photo: 2-Hour Oven-Baked Wings</span></div>
+            <div class="dish-body">
+              <h3>2-Hour Oven-Baked Wings</h3>
+              <p>Slow oven-baked wings with homemade hot sauce, yellow rice, and garlic string beans. The one that gets requested most.</p>
+              <span class="dish-tag">Most Requested</span>
+            </div>
+          </div>
+        </div>
+        <div class="unlock-note">You're on the list. This sample reflects the kind of menu sent weekly — full menus, ordering windows, and pickup details go out every Thursday by email and text.</div>
+      </div>
     </div>
   </section>
 
@@ -997,6 +1090,19 @@
 </footer>
 
 <script>
+  const gateForm = document.getElementById('menuGateForm');
+  const gateBlock = document.getElementById('gateBlock');
+  const menuUnlocked = document.getElementById('menuUnlocked');
+  gateForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // DEMO ONLY: this reveals the sample menu client-side so the flow can be reviewed.
+    // Production build should send this submission to a real list tool (e.g. Flodesk, Mailchimp, Klaviyo)
+    // or at minimum a Google Sheet via a form backend, so contacts are actually captured.
+    gateBlock.style.display = 'none';
+    menuUnlocked.classList.add('show');
+    menuUnlocked.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
   const toggle = document.getElementById('menuToggle');
   const mobileMenu = document.getElementById('mobileMenu');
   toggle.addEventListener('click', () => {
