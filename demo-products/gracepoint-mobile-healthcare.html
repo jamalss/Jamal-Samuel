@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GracePoint Mobile Healthcare | Home Nursing, Blood Collection &amp; Care Across Trinidad</title>
+<meta name="description" content="Registered nurses and healthcare professionals bring blood collection, IV therapy, wound care, and geriatric support directly to your home in Trinidad. Book a visit today.">
+
+<!-- SEO -->
+<meta name="keywords" content="Home Healthcare Trinidad, Mobile Blood Collection Trinidad, Home Nursing Trinidad, IV Therapy Trinidad, Post Surgery Home Care, Elderly Care Trinidad">
+
+<!-- Fonts: Fraunces (display, warm editorial serif) + Inter (body) + IBM Plex Mono (clinical data/labels) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<!-- Font Awesome (icons only, deferred) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+
+<style>
+  /* ============ DESIGN TOKENS ============ */
+  :root{
+    --cream: #F7F3EA;
+    --cream-deep: #EFE9DB;
+    --white: #FFFFFF;
+    --forest: #1F3D33;
+    --forest-deep: #142822;
+    --sage: #6B9080;
+    --sage-light: #D9E6DF;
+    --sage-lighter: #EDF3EF;
+    --red: #AE4132;
+    --red-light: #F3E1DC;
+    --ink: #223028;
+    --ink-soft: #5B6B62;
+    --border: rgba(31,61,51,0.12);
+    --shadow: 0 20px 50px -20px rgba(20,40,34,0.25);
+    --shadow-sm: 0 8px 20px -10px rgba(20,40,34,0.18);
+    --radius: 20px;
+    --radius-sm: 12px;
+    --max: 1180px;
+  }
+
+  [data-theme="dark"]{
+    --cream: #12211C;
+    --cream-deep: #0C1815;
+    --white: #182D26;
+    --forest: #EAF3EE;
+    --forest-deep: #FFFFFF;
+    --sage: #8FB8A5;
+    --sage-light: #223B32;
+    --sage-lighter: #1B322A;
+    --red: #E08267;
+    --red-light: #3A2420;
+    --ink: #E7EFEA;
+    --ink-soft: #A9BFB5;
+    --border: rgba(234,243,238,0.12);
+    --shadow: 0 20px 50px -20px rgba(0,0,0,0.6);
+    --shadow-sm: 0 8px 20px -10px rgba(0,0,0,0.5);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    transition:background .3s ease, color .3s ease;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{font-family:'Fraunces',serif;color:var(--forest);line-height:1.15;font-weight:600;}
+  em{font-style:italic;color:var(--sage);font-family:'Fraunces',serif;}
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  img{max-width:100%;display:block;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
+  .container{max-width:var(--max);margin:0 auto;padding:0 24px;}
+  section{padding:100px 0;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--sage);
+    font-weight:600;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{content:'';width:20px;height:1px;background:var(--sage);}
+  .section-head{max-width:640px;margin-bottom:56px;}
+  .section-head h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-bottom:16px;}
+  .section-head p{color:var(--ink-soft);font-size:1.05rem;}
+  .center{text-align:center;margin-left:auto;margin-right:auto;}
+
+  :focus-visible{outline:3px solid var(--sage);outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important;scroll-behavior:auto !important;}
+  }
+
+  /* ============ BUTTONS ============ */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    padding:16px 28px;border-radius:100px;font-weight:600;font-size:.98rem;
+    transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--forest);color:var(--cream);box-shadow:var(--shadow-sm);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
+  .btn-whatsapp{background:#25D366;color:#fff;}
+  .btn-whatsapp:hover{transform:translateY(-2px);box-shadow:0 12px 24px -10px rgba(37,211,102,.5);}
+  .btn-outline{border:1.5px solid var(--forest);color:var(--forest);}
+  .btn-outline:hover{background:var(--forest);color:var(--cream);}
+  .btn-sm{padding:10px 20px;font-size:.85rem;}
+  .btn-block{width:100%;}
+
+  /* ============ NAV ============ */
+  header{
+    position:sticky;top:0;z-index:1000;
+    background:color-mix(in srgb, var(--cream) 88%, transparent);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:var(--max);margin:0 auto;}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:700;font-size:1.25rem;color:var(--forest);}
+  .logo .pulse-dot{width:10px;height:10px;border-radius:50%;background:var(--red);position:relative;flex-shrink:0;}
+  .logo .pulse-dot::after{
+    content:'';position:absolute;inset:-4px;border-radius:50%;border:1.5px solid var(--red);
+    animation:pulseRing 2.2s ease-out infinite;
+  }
+  @keyframes pulseRing{0%{transform:scale(.6);opacity:1;}100%{transform:scale(1.8);opacity:0;}}
+  .nav-links{display:flex;gap:32px;align-items:center;}
+  .nav-links a{font-size:.94rem;font-weight:500;color:var(--ink);transition:color .2s;}
+  .nav-links a:hover{color:var(--sage);}
+  .nav-cta{display:flex;align-items:center;gap:12px;}
+  .theme-toggle{
+    width:40px;height:40px;border-radius:50%;background:var(--sage-lighter);
+    display:flex;align-items:center;justify-content:center;color:var(--forest);
+    border:1px solid var(--border);transition:background .2s;
+  }
+  .theme-toggle:hover{background:var(--sage-light);}
+  .mobile-toggle{display:none;font-size:1.4rem;color:var(--forest);background:none;}
+
+  @media (max-width:960px){
+    .nav-links{
+      position:fixed;top:73px;left:0;right:0;background:var(--white);
+      flex-direction:column;padding:24px;gap:20px;
+      transform:translateY(-150%);transition:transform .3s ease;
+      border-bottom:1px solid var(--border);box-shadow:var(--shadow-sm);
+    }
+    .nav-links.open{transform:translateY(0);}
+    .nav-cta .btn-outline{display:none;}
+    .mobile-toggle{display:block;}
+  }
+
+  /* ============ HERO ============ */
+  .hero{padding:72px 0 100px;position:relative;overflow:hidden;}
+  .hero .container{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;}
+  .hero h1{font-size:clamp(2.4rem,5vw,3.6rem);margin-bottom:22px;letter-spacing:-.01em;}
+  .hero p.lede{font-size:1.15rem;color:var(--ink-soft);max-width:520px;margin-bottom:32px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px;}
+  .badge-row{display:flex;flex-wrap:wrap;gap:10px 22px;}
+  .badge-row li{display:flex;align-items:center;gap:8px;font-size:.88rem;font-weight:500;color:var(--ink-soft);}
+  .badge-row i{color:var(--sage);}
+  .edit-flag{
+    font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--red);
+    background:var(--red-light);padding:3px 8px;border-radius:6px;display:inline-block;margin-top:14px;
+  }
+
+  /* Vitals card — the signature element */
+  .vitals-card{
+    background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);
+    padding:32px;position:relative;border:1px solid var(--border);
+  }
+  .vitals-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;}
+  .vitals-top .label{font-family:'IBM Plex Mono',monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);}
+  .live-dot{display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--sage);font-weight:600;}
+  .live-dot::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--sage);animation:blink 1.6s infinite;}
+  @keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+  .ecg-wrap{background:var(--forest);border-radius:var(--radius-sm);padding:22px 8px;margin-bottom:22px;overflow:hidden;}
+  .ecg-wrap svg{width:100%;height:70px;display:block;}
+  .ecg-line{fill:none;stroke:var(--sage);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;
+    stroke-dasharray:1000;stroke-dashoffset:1000;animation:drawEcg 3.4s linear infinite;}
+  @keyframes drawEcg{
+    0%{stroke-dashoffset:1000;}
+    70%{stroke-dashoffset:0;}
+    100%{stroke-dashoffset:-40;}
+  }
+  .vitals-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+  .vitals-stat .num{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:1.4rem;color:var(--forest);}
+  .vitals-stat .cap{font-size:.78rem;color:var(--ink-soft);}
+  .vitals-note{
+    display:flex;gap:10px;align-items:flex-start;background:var(--sage-lighter);
+    padding:14px 16px;border-radius:var(--radius-sm);font-size:.85rem;color:var(--ink-soft);
+  }
+  .vitals-note i{color:var(--sage);margin-top:2px;}
+
+  @media (max-width:960px){
+    .hero .container{grid-template-columns:1fr;}
+  }
+
+  /* ============ TRUST STATS BAND ============ */
+  .stats-band{background:var(--forest);padding:56px 0;}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center;}
+  .stat-item .num{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:2.4rem;color:var(--cream);}
+  .stat-item .cap{color:var(--sage-light);font-size:.9rem;margin-top:4px;}
+  .stats-footnote{color:var(--sage-light);font-size:.75rem;text-align:center;margin-top:28px;opacity:.75;}
+  @media (max-width:760px){.stats-grid{grid-template-columns:repeat(2,1fr);row-gap:36px;}}
+
+  /* ============ SERVICES ============ */
+  .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .service-card{
+    background:var(--white);border:1px solid var(--border);border-radius:var(--radius);
+    padding:28px 24px;transition:transform .25s ease, box-shadow .25s ease;
+    display:flex;flex-direction:column;
+  }
+  .service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-sm);}
+  .service-icon{
+    width:52px;height:52px;border-radius:14px;background:var(--sage-lighter);
+    display:flex;align-items:center;justify-content:center;color:var(--sage);font-size:1.3rem;margin-bottom:18px;
+  }
+  .service-card h3{font-size:1.15rem;margin-bottom:10px;}
+  .service-card .for{font-family:'IBM Plex Mono',monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);margin-bottom:8px;}
+  .service-card p{font-size:.92rem;color:var(--ink-soft);margin-bottom:18px;flex-grow:1;}
+  .service-card .book-link{font-size:.88rem;font-weight:600;color:var(--forest);display:inline-flex;align-items:center;gap:6px;}
+  .service-card .book-link i{transition:transform .2s;font-size:.8rem;}
+  .service-card .book-link:hover i{transform:translateX(4px);}
+  @media (max-width:960px){.services-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:600px){.services-grid{grid-template-columns:1fr;}}
+
+  /* ============ WHY US ============ */
+  .why-us{background:var(--white);}
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+  .compare{display:flex;flex-direction:column;gap:18px;}
+  .compare-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--border);}
+  .compare-row:last-child{border:none;}
+  .compare-col{font-size:.92rem;}
+  .compare-col.bad{color:var(--ink-soft);}
+  .compare-col.bad i{color:var(--red);margin-right:8px;}
+  .compare-col.good{color:var(--ink);font-weight:500;}
+  .compare-col.good i{color:var(--sage);margin-right:8px;}
+  .compare-head{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:6px;}
+  .compare-head span{font-family:'IBM Plex Mono',monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);}
+  @media (max-width:900px){.why-grid{grid-template-columns:1fr;gap:40px;}}
+
+  /* ============ HOW IT WORKS ============ */
+  .timeline{position:relative;max-width:760px;margin:0 auto;}
+  .timeline::before{
+    content:'';position:absolute;left:27px;top:12px;bottom:12px;width:2px;
+    background:repeating-linear-gradient(to bottom, var(--sage) 0 6px, transparent 6px 12px);
+  }
+  .t-step{display:grid;grid-template-columns:56px 1fr;gap:24px;padding-bottom:40px;position:relative;}
+  .t-step:last-child{padding-bottom:0;}
+  .t-num{
+    width:56px;height:56px;border-radius:50%;background:var(--forest);color:var(--cream);
+    display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;
+    font-weight:600;font-size:1.1rem;z-index:1;
+  }
+  .t-content h4{font-size:1.1rem;margin-bottom:6px;}
+  .t-content p{color:var(--ink-soft);font-size:.94rem;}
+
+  /* ============ TEAM ============ */
+  .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .team-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:28px;text-align:center;}
+  .team-avatar{
+    width:84px;height:84px;border-radius:50%;background:var(--sage-lighter);color:var(--sage);
+    display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 18px;
+  }
+  .team-card h4{font-size:1.05rem;margin-bottom:4px;}
+  .team-card .role{font-family:'IBM Plex Mono',monospace;font-size:.72rem;text-transform:uppercase;color:var(--sage);letter-spacing:.05em;margin-bottom:14px;}
+  .team-card p{font-size:.85rem;color:var(--ink-soft);}
+  @media (max-width:800px){.team-grid{grid-template-columns:1fr;}}
+
+  /* ============ TESTIMONIALS ============ */
+  .testimonials{background:var(--white);}
+  .sample-flag{
+    display:inline-flex;align-items:center;gap:8px;background:var(--red-light);color:var(--red);
+    font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:600;padding:8px 16px;
+    border-radius:100px;margin-bottom:32px;
+  }
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .testi-card{background:var(--cream);border-radius:var(--radius);padding:28px;border:1px solid var(--border);}
+  .testi-card .stars{color:var(--red);margin-bottom:14px;font-size:.85rem;}
+  .testi-card p{font-size:.94rem;color:var(--ink);margin-bottom:18px;font-style:italic;}
+  .testi-card .who{font-size:.85rem;font-weight:600;color:var(--forest);}
+  .testi-card .tag{font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--ink-soft);text-transform:uppercase;margin-top:12px;display:block;}
+  @media (max-width:900px){.testi-grid{grid-template-columns:1fr;}}
+
+  /* ============ EMERGENCY BANNER ============ */
+  .emergency{
+    background:var(--red-light);border-top:2px solid var(--red);border-bottom:2px solid var(--red);
+    padding:32px 0;
+  }
+  .emergency .container{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+  .emergency .icon{
+    width:52px;height:52px;border-radius:50%;background:var(--red);color:#fff;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-size:1.3rem;
+  }
+  .emergency h4{color:var(--red);font-size:1.15rem;margin-bottom:4px;font-family:'Inter',sans-serif;font-weight:700;}
+  .emergency p{font-size:.9rem;color:var(--ink);}
+  .emergency strong{color:var(--red);}
+
+  /* ============ FAQ ============ */
+  .faq-list{max-width:800px;margin:0 auto;}
+  .faq-item{border-bottom:1px solid var(--border);}
+  .faq-q{
+    display:flex;justify-content:space-between;align-items:center;gap:16px;
+    padding:22px 4px;font-weight:600;color:var(--forest);font-size:1rem;width:100%;text-align:left;
+  }
+  .faq-q i{transition:transform .25s ease;color:var(--sage);flex-shrink:0;}
+  .faq-item.open .faq-q i{transform:rotate(45deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .faq-a p{padding:0 4px 22px;color:var(--ink-soft);font-size:.92rem;max-width:680px;}
+
+  /* ============ CONTACT ============ */
+  .contact{background:var(--forest);color:var(--cream);}
+  .contact .section-head h2{color:var(--cream);}
+  .contact .section-head p{color:var(--sage-light);}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
+  .contact-form{background:var(--white);border-radius:var(--radius);padding:36px;box-shadow:var(--shadow);}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+  .form-group{margin-bottom:16px;display:flex;flex-direction:column;gap:6px;}
+  label{font-size:.82rem;font-weight:600;color:var(--forest);}
+  input,select,textarea{
+    padding:13px 16px;border-radius:10px;border:1.5px solid var(--border);
+    font-family:'Inter',sans-serif;font-size:.94rem;background:var(--cream);color:var(--ink);
+  }
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--sage);}
+  textarea{resize:vertical;min-height:90px;}
+  .contact-direct{display:flex;flex-direction:column;gap:20px;}
+  .direct-card{
+    background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);
+    border-radius:var(--radius-sm);padding:22px;display:flex;gap:16px;align-items:flex-start;
+  }
+  .direct-card .icon{width:42px;height:42px;border-radius:10px;background:var(--sage);color:var(--forest-deep);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .direct-card h4{color:var(--cream);font-size:1rem;margin-bottom:4px;font-family:'Inter',sans-serif;font-weight:600;}
+  .direct-card p{color:var(--sage-light);font-size:.88rem;}
+  .service-area-note{font-size:.85rem;color:var(--sage-light);margin-top:8px;}
+  @media (max-width:900px){.contact-grid{grid-template-columns:1fr;}.form-row{grid-template-columns:1fr;}}
+
+  /* ============ FOOTER ============ */
+  footer{background:var(--forest-deep);color:var(--sage-light);padding:64px 0 28px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px;}
+  .footer-grid h5{color:var(--cream);font-family:'Inter',sans-serif;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:18px;}
+  .footer-grid ul{display:flex;flex-direction:column;gap:12px;}
+  .footer-grid a{font-size:.9rem;transition:color .2s;}
+  .footer-grid a:hover{color:var(--cream);}
+  .footer-logo{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:700;font-size:1.3rem;color:var(--cream);margin-bottom:14px;}
+  .footer-social{display:flex;gap:12px;margin-top:18px;}
+  .footer-social a{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;}
+  .footer-social a:hover{background:var(--sage);color:var(--forest-deep);}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.82rem;}
+  .footer-credit{opacity:.7;}
+  .footer-credit a{text-decoration:underline;}
+  @media (max-width:800px){.footer-grid{grid-template-columns:1fr 1fr;}}
+
+  /* ============ FLOATING BUTTONS ============ */
+  .float-stack{position:fixed;bottom:24px;right:24px;display:flex;flex-direction:column;gap:12px;z-index:900;}
+  .float-btn{
+    width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-size:1.3rem;box-shadow:var(--shadow-sm);transition:transform .2s ease;
+  }
+  .float-btn:hover{transform:scale(1.08);}
+  .float-whatsapp{background:#25D366;color:#fff;}
+  .float-call{background:var(--forest);color:var(--cream);}
+  .float-top{background:var(--white);color:var(--forest);border:1px solid var(--border);opacity:0;pointer-events:none;transition:opacity .3s ease, transform .2s ease;}
+  .float-top.show{opacity:1;pointer-events:auto;}
+
+  /* ============ REVEAL ANIMATION ============ */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  @media (max-width:960px){
+    .stats-grid{grid-template-columns:repeat(2,1fr);}
+    section{padding:70px 0;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER / NAV ============ -->
+<header>
+  <nav>
+    <a href="#" class="logo"><span class="pulse-dot"></span> GracePoint</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why-us">Why Us</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#faq">FAQs</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" class="btn btn-primary btn-sm" style="display:none" id="mobileBookBtn">Book a Home Visit</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+      <a href="#contact" class="btn btn-outline btn-sm">Book a Home Visit</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="reveal in">
+      <p class="eyebrow">Home Healthcare — Trinidad &amp; Tobago</p>
+      <h1>Professional care, <em>without</em> the waiting room.</h1>
+      <p class="lede">Registered nurses and healthcare professionals bring blood collection, IV therapy, wound care, and geriatric support directly to your home — so your family isn't managing hospital logistics on top of everything else.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book a Home Visit</a>
+        <a href="https://wa.me/18683167956?text=Hi%2C%20I%27d%20like%20to%20book%20a%20home%20visit" class="btn btn-whatsapp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Message us on WhatsApp</a>
+      </div>
+      <ul class="badge-row">
+        <li><i class="fa-solid fa-house-medical"></i> Home visits across Trinidad</li>
+        <li><i class="fa-solid fa-heart"></i> Compassionate, professional care</li>
+        <li><i class="fa-solid fa-clock"></i> Flexible scheduling</li>
+        <li><i class="fa-solid fa-bolt"></i> Same-day requests considered</li>
+      </ul>
+      <span class="edit-flag">✏️ EDIT: Replace badges with verified credentials &amp; NCTT registration status once confirmed.</span>
+    </div>
+
+    <div class="vitals-card reveal in">
+      <div class="vitals-top">
+        <span class="label">Care Status Monitor</span>
+        <span class="live-dot">Coordinator online</span>
+      </div>
+      <div class="ecg-wrap">
+        <svg viewBox="0 0 400 70" preserveAspectRatio="none">
+          <path class="ecg-line" d="M0,35 L60,35 L75,35 L85,10 L95,60 L105,35 L120,35 L400,35" />
+        </svg>
+      </div>
+      <div class="vitals-stats">
+        <div class="vitals-stat">
+          <div class="num">Today</div>
+          <div class="cap">Next available visit*</div>
+        </div>
+        <div class="vitals-stat">
+          <div class="num">8</div>
+          <div class="cap">Service areas covered</div>
+        </div>
+      </div>
+      <div class="vitals-note">
+        <i class="fa-solid fa-circle-info"></i>
+        <span>*Illustrative example for this demo. Replace with real appointment availability before launch.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST STATS ============ -->
+<section class="stats-band">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal in"><div class="num">500+</div><div class="cap">Home Visits Completed</div></div>
+      <div class="stat-item reveal in"><div class="num">98%</div><div class="cap">Family Satisfaction</div></div>
+      <div class="stat-item reveal in"><div class="num">8</div><div class="cap">Healthcare Services</div></div>
+      <div class="stat-item reveal in"><div class="num">Same-Day</div><div class="cap">Appointments Considered</div></div>
+    </div>
+    <p class="stats-footnote">✏️ EDIT: These figures are illustrative placeholders for demo purposes only — replace with verified, real numbers before this site goes live.</p>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow" style="justify-content:center;">What We Offer</p>
+      <h2>Care built around what your family actually needs</h2>
+      <p>Every service is delivered in your home, on a schedule that works around you — not a hospital's calendar.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fa-solid fa-vial"></i></div>
+        <p class="for">For routine &amp; urgent testing</p>
+        <h3>Mobile Blood Collection</h3>
+        <p>A phlebotomist visits your home to draw samples for lab testing, so you skip the clinic queue entirely.</p>
+        <a href="#contact" class="book-link" data-service="Mobile Blood Collection">Book this service <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+        <p class="for">For cardiac monitoring</p>
+        <h3>ECG Testing</h3>
+        <p>Heart activity monitoring performed at home using portable equipment, with results shared promptly.</p>
+        <a href="#contact" class="book-link" data-service="ECG Testing">Book this service <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fa-solid fa-droplet"></i></div>
+        <p class="for">For hydration &amp; treatment</p>
+        <h3>Intravenous Therapy</h3>
+        <p>IV fluids, medication, or vitamin therapy administered safely by a qualified professional at home.</p>
+        <a href="#contact" class="book-link" data-service="IV Therapy">Book this service <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fa-solid fa-house-chimney-medical"></i></div>
+        <p class="for">For aging parents &amp; grandparents</p>
+        <h3>Geriatric Home Care</h3>
+        <p>Day-to-day support for elderly family members — mobility, hygiene, medication reminders, and companionship.</p>
+        <a href="#contact" class="book-link" data-service="Geriatric Home Care">Book this service <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+        <p class="for">For those who need company &amp; care</p>
+        <h3>Companion Care</h3>
+        <p>Trained companions provide supervision, conversation, and light assistance for peace of mind.</p>
+        <a href="#contact" class="book-link" data-service="Companion Care">Book this service <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fa-solid fa-bandage"></i></div>
+        <p class="for">For recovery after a procedure</p>
+        <h3>Post-Surgical Care</h3>
+        <p>Recovery support at home following surgery — monitoring, mobility assistance, and comfort care.</p>
+        <a href="#contact" class="book-link" data-service="Post-Surgical Care">Book this service <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fa-solid fa-kit-medical"></i></div>
+        <p class="for">For wounds needing attention</p>
+        <h3>Wound Care</h3>
+        <p>Professional cleaning, dressing, and monitoring of wounds to support proper healing and prevent infection.</p>
+        <a href="#contact" class="book-link" data-service="Wound Care">Book this service <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fa-solid fa-dove"></i></div>
+        <p class="for">For comfort-focused, dignified care</p>
+        <h3>Palliative Care</h3>
+        <p>Compassionate comfort care focused on quality of life and dignity, provided with sensitivity to your family.</p>
+        <a href="#contact" class="book-link" data-service="Palliative Care">Book this service <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY CHOOSE US ============ -->
+<section class="why-us" id="why-us">
+  <div class="container">
+    <div class="why-grid">
+      <div class="reveal">
+        <p class="eyebrow">Why Families Choose Us</p>
+        <h2 style="margin-bottom:20px;">A hospital visit means transport and waiting rooms. A home visit means care starts the moment we knock.</h2>
+        <p style="color:var(--ink-soft);">For families managing a sick parent, a recovering spouse, or a child who needs blood work — every extra step (parking, waiting rooms, exposure to other illness) adds stress. We remove those steps.</p>
+      </div>
+      <div class="compare reveal">
+        <div class="compare-head">
+          <span>Typical Clinic Visit</span>
+          <span>GracePoint Home Visit</span>
+        </div>
+        <div class="compare-row">
+          <div class="compare-col bad"><i class="fa-solid fa-xmark"></i>Travel &amp; parking</div>
+          <div class="compare-col good"><i class="fa-solid fa-check"></i>We come to you</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-col bad"><i class="fa-solid fa-xmark"></i>Waiting room exposure</div>
+          <div class="compare-col good"><i class="fa-solid fa-check"></i>Care in a familiar space</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-col bad"><i class="fa-solid fa-xmark"></i>Rushed appointments</div>
+          <div class="compare-col good"><i class="fa-solid fa-check"></i>Unhurried, one-on-one attention</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-col bad"><i class="fa-solid fa-xmark"></i>Fixed clinic hours</div>
+          <div class="compare-col good"><i class="fa-solid fa-check"></i>Scheduling around your day</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-col bad"><i class="fa-solid fa-xmark"></i>Generic care plans</div>
+          <div class="compare-col good"><i class="fa-solid fa-check"></i>Personalized to your situation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section id="how-it-works">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow" style="justify-content:center;">The Process</p>
+      <h2>Booking a home visit, start to finish</h2>
+      <p>Five steps, from your first message to follow-up care.</p>
+    </div>
+    <div class="timeline">
+      <div class="t-step reveal">
+        <div class="t-num">1</div>
+        <div class="t-content"><h4>Book online or by WhatsApp</h4><p>Tell us what you need and when — through the form below or a direct message.</p></div>
+      </div>
+      <div class="t-step reveal">
+        <div class="t-num">2</div>
+        <div class="t-content"><h4>We confirm your appointment</h4><p>Our care coordinator confirms the time, service, and any details we need in advance.</p></div>
+      </div>
+      <div class="t-step reveal">
+        <div class="t-num">3</div>
+        <div class="t-content"><h4>A healthcare professional visits your home</h4><p>They arrive prepared, on time, and ready to deliver the service you booked.</p></div>
+      </div>
+      <div class="t-step reveal">
+        <div class="t-num">4</div>
+        <div class="t-content"><h4>You receive expert, unhurried care</h4><p>No rushed appointments — just focused, professional attention in your own space.</p></div>
+      </div>
+      <div class="t-step reveal">
+        <div class="t-num">5</div>
+        <div class="t-content"><h4>We follow up</h4><p>We check in to make sure you're doing well and to plan any next steps.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEAM ============ -->
+<section style="background:var(--sage-lighter);">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow" style="justify-content:center;">Meet the Team</p>
+      <h2>The people who show up at your door</h2>
+      <p>✏️ EDIT: Insert real names, qualifications, and Nursing Council of T&amp;T registration numbers here once verified. Never publish credentials that haven't been confirmed.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar"><i class="fa-solid fa-user-nurse"></i></div>
+        <h4>Registered Nurse</h4>
+        <p class="role">Home Visits &amp; Wound Care</p>
+        <p>Profile and NCTT registration number to be added after verification.</p>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar"><i class="fa-solid fa-user-doctor"></i></div>
+        <h4>Lead Phlebotomist</h4>
+        <p class="role">Mobile Blood Collection</p>
+        <p>Profile and certification details to be added after verification.</p>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar"><i class="fa-solid fa-headset"></i></div>
+        <h4>Care Coordinator</h4>
+        <p class="role">Scheduling &amp; Support</p>
+        <p>Your first point of contact for bookings and questions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="testimonials">
+  <div class="container">
+    <div class="section-head center">
+      <span class="sample-flag"><i class="fa-solid fa-triangle-exclamation"></i> Sample testimonials — for demonstration purposes only</span>
+      <h2>What families are saying</h2>
+      <p>These are illustrative examples of the kind of feedback this layout is designed to showcase. Replace with real, verified reviews before publishing.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p>"Having someone come to the house for my father's blood work saved us an entire day of travel and waiting. It made a hard week easier."</p>
+        <div class="who">— Sample Family, Chaguanas</div>
+        <span class="tag">Placeholder — not a real review</span>
+      </div>
+      <div class="testi-card reveal">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p>"The nurse who visited my mother was patient and thorough. It felt like proper care, not a rushed appointment."</p>
+        <div class="who">— Sample Family, Couva</div>
+        <span class="tag">Placeholder — not a real review</span>
+      </div>
+      <div class="testi-card reveal">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p>"Booking was simple over WhatsApp and the visit was on time. Exactly what we needed after my surgery."</p>
+        <div class="who">— Sample Family, Port of Spain</div>
+        <span class="tag">Placeholder — not a real review</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EMERGENCY BANNER ============ -->
+<section class="emergency">
+  <div class="container">
+    <div class="icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+    <div>
+      <h4>This website is not for medical emergencies</h4>
+      <p>If this is a medical emergency, call <strong>999</strong> (Police), <strong>990</strong> (Fire), or <strong>811</strong> (Ambulance / Medical Emergency) immediately, or go to your nearest emergency room. Do not rely on this website, WhatsApp, or email for urgent or emergency care.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow" style="justify-content:center;">Common Questions</p>
+      <h2>Frequently asked questions</h2>
+      <p>Everything families usually ask before booking their first visit.</p>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q">How do I book a visit? <i class="fa-solid fa-plus"></i></button>
+        <div class="faq-a"><p>Use the booking form below, message us on WhatsApp, or call our office directly. We'll confirm your appointment time within the same day.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do you visit my area? <i class="fa-solid fa-plus"></i></button>
+        <div class="faq-a"><p>We currently serve multiple areas across Trinidad. ✏️ EDIT: Confirm exact service regions before publishing. Message us to confirm coverage for your specific address.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can you collect blood samples at home? <i class="fa-solid fa-plus"></i></button>
+        <div class="faq-a"><p>Yes. A phlebotomist visits your home to draw samples, which are then processed through our lab partners.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do you provide elderly care? <i class="fa-solid fa-plus"></i></button>
+        <div class="faq-a"><p>Yes. Our geriatric home care and companion care services support aging family members with daily needs, mobility, and companionship.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How long do visits typically take? <i class="fa-solid fa-plus"></i></button>
+        <div class="faq-a"><p>Visit length depends on the service. Blood collection is typically brief, while care and therapy visits take longer. We'll confirm expected duration when you book.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do I need a doctor's referral? <i class="fa-solid fa-plus"></i></button>
+        <div class="faq-a"><p>✏️ EDIT: Confirm which services require a referral or prescription (e.g. IV therapy) and state this clearly before publishing.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What payment methods are accepted? <i class="fa-solid fa-plus"></i></button>
+        <div class="faq-a"><p>✏️ EDIT: List accepted payment methods (cash, bank transfer, card, insurance) once confirmed.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How quickly can appointments be scheduled? <i class="fa-solid fa-plus"></i></button>
+        <div class="faq-a"><p>We consider same-day requests where possible, depending on availability and service type. Message us to check current availability.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is this an emergency service? <i class="fa-solid fa-plus"></i></button>
+        <div class="faq-a"><p>No. For medical emergencies, call 999, 990, or 811, or go to your nearest emergency room. This service is for scheduled, non-emergency home healthcare.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Are your staff licensed and qualified? <i class="fa-solid fa-plus"></i></button>
+        <div class="faq-a"><p>✏️ EDIT: Confirm and list any relevant Nursing Council of Trinidad and Tobago (NCTT) registration details before publishing. Do not publish unverified claims.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow" style="justify-content:center;">Get In Touch</p>
+      <h2>Book your home visit</h2>
+      <p>Fill out the form, or reach us directly by phone or WhatsApp — whichever is easiest for you.</p>
+    </div>
+    <div class="contact-grid">
+      <form class="contact-form" onsubmit="return false;">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="868-000-0000" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="you@email.com">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="service">Preferred Service</label>
+            <select id="serviceSelect">
+              <option>Mobile Blood Collection</option>
+              <option>ECG Testing</option>
+              <option>IV Therapy</option>
+              <option>Geriatric Home Care</option>
+              <option>Companion Care</option>
+              <option>Post-Surgical Care</option>
+              <option>Wound Care</option>
+              <option>Palliative Care</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="date">Preferred Date</label>
+            <input type="date" id="date">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Tell us a bit about what you need"></textarea>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit"><i class="fa-solid fa-calendar-check"></i> Book Appointment</button>
+        <p style="font-size:.75rem;color:var(--ink-soft);margin-top:12px;font-family:'IBM Plex Mono',monospace;">✏️ EDIT: Connect this form to a real backend (Formspree / Google Sheets) before launch — it does not currently send data anywhere.</p>
+      </form>
+
+      <div class="contact-direct">
+        <div class="direct-card">
+          <div class="icon"><i class="fa-brands fa-whatsapp"></i></div>
+          <div>
+            <h4>WhatsApp</h4>
+            <p>Fastest way to reach us — message anytime.</p>
+            <a href="https://wa.me/18683167956" class="btn btn-whatsapp btn-sm" style="margin-top:10px;" target="_blank" rel="noopener">WhatsApp Now</a>
+          </div>
+        </div>
+        <div class="direct-card">
+          <div class="icon"><i class="fa-solid fa-phone"></i></div>
+          <div>
+            <h4>Call Us</h4>
+            <p>Speak directly with our care coordinator.</p>
+            <a href="tel:+18683167956" class="btn btn-outline btn-sm" style="margin-top:10px;border-color:var(--sage);color:var(--cream);">Call Now</a>
+          </div>
+        </div>
+        <div class="direct-card">
+          <div class="icon"><i class="fa-solid fa-map-location-dot"></i></div>
+          <div>
+            <h4>Service Area</h4>
+            <p>Home visits available across multiple regions in Trinidad.</p>
+            <p class="service-area-note">✏️ EDIT: Confirm exact service regions before publishing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><span class="pulse-dot"></span> GracePoint</div>
+        <p style="font-size:.88rem;max-width:280px;">Mobile healthcare across Trinidad — professional care delivered to your door.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://wa.me/18683167956" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#why-us">Why Us</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#faq">FAQs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">Mobile Blood Collection</a></li>
+          <li><a href="#services">IV Therapy</a></li>
+          <li><a href="#services">Geriatric Home Care</a></li>
+          <li><a href="#services">Wound Care</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Emergency Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 GracePoint Mobile Healthcare (Demo Concept). Not a real registered business.</span>
+      <span class="footer-credit">Website design by <a href="#">JAMALINKS</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING BUTTONS ============ -->
+<div class="float-stack">
+  <a href="https://wa.me/18683167956" class="float-btn float-whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp us"><i class="fa-brands fa-whatsapp"></i></a>
+  <a href="tel:+18683167956" class="float-btn float-call" aria-label="Call us"><i class="fa-solid fa-phone"></i></a>
+  <button class="float-btn float-top" id="toTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+</div>
+
+<script>
+  // ===== Mobile nav toggle =====
+  const mobileToggle = document.getElementById('mobileToggle');
+  const navLinks = document.getElementById('navLinks');
+  mobileToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // ===== Theme toggle =====
+  // NOTE: Using in-memory state (not localStorage) because this file previews as a
+  // Claude.ai artifact, where browser storage APIs are blocked. On real GitHub Pages
+  // hosting this restriction does not apply — you can safely add:
+  //   localStorage.setItem('gp-theme', theme) / localStorage.getItem('gp-theme')
+  // to persist the choice across visits once deployed.
+  let currentTheme = 'light';
+  const themeToggle = document.getElementById('themeToggle');
+  const hour = new Date().getHours();
+  if (hour >= 19 || hour < 6) {
+    currentTheme = 'dark';
+    document.documentElement.setAttribute('data-theme', 'dark');
+    themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+  }
+  themeToggle.addEventListener('click', () => {
+    currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+    if (currentTheme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+    }
+  });
+
+  // ===== FAQ accordion =====
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(open => {
+        open.classList.remove('open');
+        open.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // ===== Service card -> contact form prefill =====
+  document.querySelectorAll('.book-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const service = link.getAttribute('data-service');
+      const select = document.getElementById('serviceSelect');
+      if (service && select) {
+        [...select.options].forEach(opt => { if (opt.text === service) select.value = service; });
+      }
+    });
+  });
+
+  // ===== Scroll reveal =====
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // ===== Back to top =====
+  const toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', () => {
+    toTop.classList.toggle('show', window.scrollY > 500);
+  });
+  toTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  // ===== Contact form (demo only — no backend connected) =====
+  document.querySelector('.contact-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('This is a demo form. Connect it to Formspree or a Google Sheets backend before going live.');
+  });
+</script>
+
+</body>
+</html>
