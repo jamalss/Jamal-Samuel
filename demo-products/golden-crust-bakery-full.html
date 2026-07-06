@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Golden Crust Artisan Bakery — Fresh Baked, Island Delivered</title>
+<meta name="description" content="Golden Crust Artisan Bakery bakes fresh bread, pastries and custom cakes every morning and delivers island-wide. Order online today.">
+<meta property="og:title" content="Golden Crust Artisan Bakery">
+<meta property="og:description" content="Freshly baked. Made with love. Delivered across the island.">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Bakery","name":"Golden Crust Artisan Bakery","priceRange":"$$","telephone":"+1-758-000-0000"}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Karla:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --crust-50:#FBF3E7; --crust-100:#F5E6D0; --crust-white:#FFFDF8;
+  --espresso:#3B2416; --espresso-70:#5A4230; --muted:#6B5744;
+  --gold:#C98A2C; --gold-dark:#A8701E; --cinnamon:#B5482B; --cinnamon-dark:#8F3620;
+  --line:#E4D3B8; --shadow-soft:0 8px 30px -12px rgba(59,36,22,0.25); --shadow-lift:0 20px 45px -18px rgba(59,36,22,0.35);
+  --radius-sm:10px; --radius-md:16px; --radius-lg:28px;
+  --font-display:"Fraunces",serif; --font-body:"Karla",sans-serif; --font-mono:"IBM Plex Mono",monospace;
+}
+html[data-theme="dark"]{
+  --crust-50:#1B140D; --crust-100:#251C13; --crust-white:#2A2016;
+  --espresso:#F3E4CC; --espresso-70:#D9C4A4; --muted:#B29A7D;
+  --gold:#E3A94C; --gold-dark:#C98A2C; --cinnamon:#DD6B45; --cinnamon-dark:#C1502F;
+  --line:#42341F; --shadow-soft:0 8px 30px -12px rgba(0,0,0,0.55); --shadow-lift:0 20px 45px -18px rgba(0,0,0,0.6);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}}
+body{margin:0; font-family:var(--font-body); color:var(--espresso); background:var(--crust-50); line-height:1.6; -webkit-font-smoothing:antialiased; transition:background 0.3s ease, color 0.3s ease;}
+img{max-width:100%; display:block;}
+a{color:inherit;}
+h1,h2,h3,h4{font-family:var(--font-display); margin:0; line-height:1.1; color:var(--espresso);}
+p{margin:0;}
+button{font-family:inherit; cursor:pointer;}
+:focus-visible{outline:3px solid var(--gold-dark); outline-offset:2px;}
+.container{max-width:1180px; margin:0 auto; padding:0 24px;}
+.eyebrow{font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.12em; font-size:0.72rem; color:var(--cinnamon-dark); font-weight:500;}
+.section{padding:88px 0;}
+.section-head{max-width:640px; margin-bottom:44px;}
+.section-head h2{font-size:clamp(1.7rem,4vw,2.5rem); font-weight:600; margin-top:10px;}
+.section-head p{margin-top:14px; color:var(--muted); font-size:1.03rem;}
+.btn{display:inline-flex; align-items:center; gap:8px; padding:13px 26px; border-radius:100px; font-weight:600; font-size:0.92rem; border:1px solid transparent; text-decoration:none; transition:transform 0.2s ease, box-shadow 0.2s ease; background:none;}
+.btn:hover{transform:translateY(-2px);}
+.btn-primary{background:var(--cinnamon); color:#fff; box-shadow:var(--shadow-soft);}
+.btn-primary:hover{background:var(--cinnamon-dark);}
+.btn-outline{background:transparent; border-color:var(--espresso); color:var(--espresso);}
+.btn-outline:hover{background:var(--espresso); color:var(--crust-50);}
+.btn-gold{background:var(--gold); color:#241505;}
+.btn-gold:hover{background:var(--gold-dark);}
+.btn-sm{padding:8px 16px; font-size:0.8rem;}
+.btn-block{width:100%; justify-content:center;}
+.card{background:var(--crust-white); border:1px solid var(--line); border-radius:var(--radius-md); box-shadow:var(--shadow-soft);}
+
+/* Banner */
+.demo-banner{background:#2B1B0F; color:#E8D4B4; text-align:center; font-family:var(--font-mono); font-size:0.76rem; padding:8px 16px;}
+.demo-banner strong{color:var(--gold);}
+.holiday-banner{background:linear-gradient(90deg,#8F3620,#B5482B); color:#fff; text-align:center; padding:9px 16px; font-size:0.82rem; font-weight:600;}
+.holiday-banner code{background:rgba(255,255,255,0.18); padding:2px 8px; border-radius:6px; font-family:var(--font-mono);}
+
+/* Nav */
+header{position:sticky; top:0; z-index:100;}
+.navbar{padding:16px 24px; transition:background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;}
+.navbar.solid{background:rgba(251,243,231,0.96); backdrop-filter:blur(8px); box-shadow:0 2px 20px rgba(0,0,0,0.1); padding:10px 24px;}
+html[data-theme="dark"] .navbar.solid{background:rgba(27,20,13,0.94);}
+.nav-inner{max-width:1220px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:14px;}
+.logo{font-family:var(--font-display); font-weight:700; font-size:1.3rem; display:flex; align-items:center; gap:8px; text-decoration:none; white-space:nowrap;}
+.logo span{color:var(--cinnamon);}
+.nav-links{display:flex; gap:18px; list-style:none; margin:0; padding:0; flex-wrap:wrap;}
+.nav-links a{text-decoration:none; font-weight:500; font-size:0.86rem; color:var(--espresso-70); position:relative;}
+.nav-links a:hover{color:var(--cinnamon-dark);}
+.nav-cta{display:flex; align-items:center; gap:10px;}
+.icon-btn{position:relative; background:var(--crust-white); border:1px solid var(--line); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.05rem;}
+.cart-count{position:absolute; top:-6px; right:-6px; background:var(--cinnamon); color:#fff; font-size:0.62rem; font-family:var(--font-mono); border-radius:50%; width:18px; height:18px; display:flex; align-items:center; justify-content:center;}
+.nav-toggle{display:none; background:none; border:none; font-size:1.5rem; color:var(--espresso);}
+@media (max-width:1080px){.nav-links{display:none;} .nav-toggle{display:block;}}
+
+/* Flash sale bar */
+.flash-bar{background:var(--espresso); color:#F3E4CC; padding:11px 16px; text-align:center; font-size:0.85rem; font-family:var(--font-mono); display:flex; justify-content:center; gap:10px; flex-wrap:wrap;}
+.flash-bar b{color:var(--gold); font-size:0.95rem;}
+
+/* Hero */
+.hero{position:relative; padding:64px 24px 56px; overflow:hidden; background:linear-gradient(180deg,var(--crust-50) 0%, var(--crust-100) 100%);}
+.hero-inner{max-width:1180px; margin:0 auto; display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;}
+@media (max-width:900px){.hero-inner{grid-template-columns:1fr;}}
+.hero h1{font-size:clamp(2.2rem,5vw,3.4rem); font-weight:600; margin-top:14px; opacity:0; animation:riseIn 0.8s ease forwards; animation-delay:0.15s;}
+.hero-sub{margin-top:18px; font-size:1.06rem; color:var(--muted); max-width:520px; opacity:0; animation:riseIn 0.8s ease forwards; animation-delay:0.3s;}
+.hero-ctas{margin-top:28px; display:flex; gap:14px; flex-wrap:wrap; opacity:0; animation:riseIn 0.8s ease forwards; animation-delay:0.45s;}
+@keyframes riseIn{from{opacity:0; transform:translateY(18px);} to{opacity:1; transform:translateY(0);}}
+.hero-art{position:relative; opacity:0; animation:riseIn 0.9s ease forwards; animation-delay:0.2s;}
+.hero-art-frame{border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-lift); aspect-ratio:4/5; background:linear-gradient(160deg,#E9C68B,#C98A2C 60%,#8F5E1F); display:flex; align-items:center; justify-content:center;}
+.hero-art-frame::before{content:"🥐"; font-size:6rem;}
+.hero-badge{position:absolute; bottom:-20px; left:-20px; background:var(--crust-white); border-radius:var(--radius-md); box-shadow:var(--shadow-lift); padding:14px 18px; font-family:var(--font-mono); font-size:0.78rem;}
+.hero-badge b{display:block; font-family:var(--font-display); font-size:1.25rem; color:var(--cinnamon-dark);}
+.stats-row{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:56px;}
+@media (max-width:750px){.stats-row{grid-template-columns:repeat(2,1fr);}}
+.stat-card{background:var(--crust-white); border:1px solid var(--line); border-radius:var(--radius-md); padding:20px 16px; text-align:center; opacity:0; transform:translateY(16px);}
+.stat-card.in{animation:riseIn 0.6s ease forwards;}
+.stat-num{font-family:var(--font-display); font-size:1.9rem; font-weight:600; color:var(--cinnamon);}
+.stat-label{font-size:0.78rem; color:var(--muted); margin-top:4px;}
+
+/* Trust strip */
+.trust-strip{background:#2B1B0F; padding:24px 0;}
+.trust-row{display:flex; flex-wrap:wrap; gap:12px 30px; justify-content:center;}
+.trust-item{display:flex; align-items:center; gap:8px; color:#E8D4B4; font-size:0.83rem; font-weight:500;}
+.trust-item .dot{width:6px; height:6px; border-radius:50%; background:var(--gold);}
+
+/* About */
+.about-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px; align-items:center;}
+@media (max-width:900px){.about-grid{grid-template-columns:1fr;}}
+.about-img{border-radius:var(--radius-lg); aspect-ratio:1/1.05; box-shadow:var(--shadow-soft); background:linear-gradient(155deg,#F5E6D0,#C98A2C 75%); display:flex; align-items:center; justify-content:center;}
+.about-img::before{content:"🍞"; font-size:5rem;}
+.about-copy p{color:var(--muted); margin-bottom:14px; font-size:1rem;}
+.baker-row{display:flex; gap:16px; margin-top:22px; flex-wrap:wrap;}
+.baker-chip{display:flex; align-items:center; gap:10px; background:var(--crust-white); border:1px solid var(--line); border-radius:100px; padding:8px 16px 8px 8px;}
+.baker-avatar{width:34px; height:34px; border-radius:50%; background:var(--gold); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.85rem;}
+.timeline{margin-top:28px; border-left:2px solid var(--line); padding-left:22px; display:flex; flex-direction:column; gap:20px;}
+.tl-item{position:relative;}
+.tl-item::before{content:""; position:absolute; left:-28px; top:4px; width:10px; height:10px; border-radius:50%; background:var(--cinnamon);}
+.tl-year{font-family:var(--font-mono); font-size:0.76rem; color:var(--cinnamon-dark); font-weight:500;}
+.tl-item h4{font-size:1.02rem; margin-top:3px;}
+.tl-item p{color:var(--muted); font-size:0.9rem; margin-top:3px;}
+
+/* Oven board */
+.oven-board{background:#2B1B0F; border-radius:var(--radius-lg); padding:38px; color:#F3E4CC; position:relative; overflow:hidden;}
+.oven-board::after{content:""; position:absolute; inset:0; background:radial-gradient(circle at 85% 0%, rgba(201,138,44,0.18), transparent 55%); pointer-events:none;}
+.oven-head{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:16px; position:relative;}
+.oven-head h2{color:#FFFDF8;}
+.oven-clock{font-family:var(--font-mono); font-size:0.82rem; color:var(--gold); text-align:right;}
+.oven-clock b{display:block; font-size:1.08rem;}
+.oven-list{margin-top:26px; display:grid; grid-template-columns:repeat(auto-fill,minmax(225px,1fr)); gap:14px; position:relative;}
+.oven-item{background:rgba(255,253,248,0.06); border:1px solid rgba(255,253,248,0.14); border-radius:var(--radius-sm); padding:14px; display:flex; justify-content:space-between; align-items:center; gap:10px;}
+.oven-item-name{font-weight:600; font-size:0.92rem;}
+.oven-item-time{font-family:var(--font-mono); font-size:0.7rem; color:#C9B79C; margin-top:3px;}
+.oven-pill{font-family:var(--font-mono); font-size:0.66rem; padding:5px 9px; border-radius:100px; white-space:nowrap;}
+.oven-pill.hot{background:var(--gold); color:#241505;}
+.oven-pill.low{background:var(--cinnamon); color:#fff;}
+.oven-pill.soldout{background:rgba(255,253,248,0.12); color:#C9B79C;}
+
+/* Menu controls */
+.menu-controls{display:flex; flex-wrap:wrap; gap:14px; margin-bottom:24px; align-items:flex-start; justify-content:space-between;}
+.filter-tabs{display:flex; gap:8px; flex-wrap:wrap;}
+.filter-tab{padding:8px 15px; border-radius:100px; border:1px solid var(--line); background:var(--crust-white); font-size:0.82rem; font-weight:600; color:var(--espresso-70);}
+.filter-tab.active{background:var(--espresso); color:var(--crust-50); border-color:var(--espresso);}
+.menu-search{display:flex; align-items:center; gap:8px; background:var(--crust-white); border:1px solid var(--line); border-radius:100px; padding:8px 15px; min-width:210px;}
+.menu-search input{border:none; background:transparent; outline:none; font-family:inherit; font-size:0.88rem; width:100%; color:var(--espresso);}
+.menu-sort{padding:9px 13px; border-radius:100px; border:1px solid var(--line); background:var(--crust-white); font-family:inherit; font-size:0.83rem; color:var(--espresso);}
+.adv-filters{display:flex; flex-wrap:wrap; gap:18px; align-items:center; background:var(--crust-white); border:1px solid var(--line); border-radius:var(--radius-md); padding:16px 20px; margin-bottom:24px;}
+.adv-filters .grp{display:flex; align-items:center; gap:10px; font-size:0.82rem;}
+.adv-filters label{display:flex; align-items:center; gap:6px; font-size:0.82rem; color:var(--espresso-70);}
+.price-range-val{font-family:var(--font-mono); font-weight:600; color:var(--cinnamon-dark);}
+
+.product-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(252px,1fr)); gap:22px;}
+.product-card{background:var(--crust-white); border:1px solid var(--line); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-soft); transition:transform 0.25s ease, box-shadow 0.25s ease;}
+.product-card:hover{transform:translateY(-6px); box-shadow:var(--shadow-lift);}
+.product-thumb{aspect-ratio:4/3; background:linear-gradient(150deg,#F5E6D0,#DDAE5E); display:flex; align-items:center; justify-content:center; font-size:2.5rem; position:relative;}
+.fav-btn{position:absolute; top:9px; right:9px; background:rgba(255,253,248,0.85); border:none; border-radius:50%; width:32px; height:32px; font-size:0.95rem;}
+.avail-badge{position:absolute; top:9px; left:9px; font-family:var(--font-mono); font-size:0.62rem; padding:4px 8px; border-radius:100px; background:var(--gold); color:#241505; font-weight:600;}
+.product-body{padding:16px;}
+.product-body h4{font-size:1.02rem;}
+.product-desc{color:var(--muted); font-size:0.82rem; margin-top:5px; min-height:32px;}
+.product-tags{display:flex; gap:5px; flex-wrap:wrap; margin-top:8px;}
+.tag-pill{font-size:0.62rem; font-family:var(--font-mono); background:var(--crust-100); border:1px solid var(--line); border-radius:100px; padding:3px 8px; color:var(--espresso-70);}
+.product-meta{display:flex; justify-content:space-between; align-items:center; margin-top:12px;}
+.product-price{font-family:var(--font-mono); font-weight:600; color:var(--cinnamon-dark); font-size:1.02rem;}
+.stock-note{font-size:0.68rem; font-family:var(--font-mono);}
+.stock-note.low{color:var(--cinnamon);}
+.stock-note.ok{color:#5B8A5B;}
+.product-actions{display:flex; gap:7px; margin-top:12px;}
+
+/* Recently viewed strip */
+.rv-strip{display:flex; gap:14px; overflow-x:auto; padding-bottom:6px;}
+.rv-card{min-width:140px; background:var(--crust-white); border:1px solid var(--line); border-radius:var(--radius-sm); padding:12px; text-align:center; font-size:0.8rem;}
+.rv-card .ic{font-size:1.6rem;}
+
+/* Cakes */
+.cake-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(275px,1fr)); gap:24px;}
+.cake-card{background:var(--crust-white); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-soft); border:1px solid var(--line);}
+.cake-img{aspect-ratio:16/10; background:linear-gradient(150deg,#F0DCB0,#C98A2C); display:flex; align-items:center; justify-content:center; font-size:2.5rem;}
+.cake-body{padding:18px;}
+.cake-body h4{font-size:1.1rem;}
+.cake-facts{display:flex; gap:12px; margin-top:9px; font-size:0.76rem; color:var(--muted); font-family:var(--font-mono);}
+.cake-price{margin-top:10px; font-family:var(--font-mono); font-weight:600; color:var(--cinnamon-dark);}
+
+/* Estimator */
+.estimator{display:grid; grid-template-columns:1fr 0.85fr; gap:42px; align-items:start;}
+@media (max-width:940px){.estimator{grid-template-columns:1fr;}}
+.est-form{background:var(--crust-white); border-radius:var(--radius-lg); padding:30px; border:1px solid var(--line); box-shadow:var(--shadow-soft);}
+.est-field{margin-bottom:20px;}
+.est-field label{display:block; font-weight:600; font-size:0.88rem; margin-bottom:9px;}
+.chip-row{display:flex; flex-wrap:wrap; gap:8px;}
+.chip{padding:8px 14px; border-radius:100px; border:1px solid var(--line); background:var(--crust-50); font-size:0.81rem; font-weight:600; color:var(--espresso);}
+.chip.active{background:var(--gold); border-color:var(--gold-dark); color:#241505;}
+.est-field select,.est-field input[type="date"],.est-field input[type="text"]{width:100%; padding:10px 13px; border-radius:var(--radius-sm); border:1px solid var(--line); font-family:inherit; font-size:0.88rem; background:var(--crust-50); color:var(--espresso);}
+.est-toggle{display:flex; gap:8px;}
+.est-toggle button{flex:1; padding:9px; border-radius:var(--radius-sm); border:1px solid var(--line); background:var(--crust-50); font-weight:600; font-size:0.83rem; color:var(--espresso);}
+.est-toggle button.active{background:var(--espresso); color:var(--crust-50); border-color:var(--espresso);}
+.est-preview{position:sticky; top:100px; background:linear-gradient(160deg,var(--crust-100),var(--crust-50)); border-radius:var(--radius-lg); padding:32px; text-align:center; border:1px solid var(--line);}
+.cake-svg-wrap{height:200px; display:flex; align-items:flex-end; justify-content:center; margin-bottom:16px;}
+.est-price-label{font-family:var(--font-mono); font-size:0.73rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em;}
+.est-price{font-family:var(--font-display); font-size:2.5rem; font-weight:700; color:var(--cinnamon-dark); margin-top:5px;}
+.est-note{font-size:0.78rem; color:var(--muted); margin-top:7px;}
+.est-summary{text-align:left; margin-top:20px; border-top:1px solid var(--line); padding-top:16px; font-size:0.83rem; color:var(--espresso-70);}
+.est-summary div{display:flex; justify-content:space-between; padding:4px 0;}
+
+/* Wholesale */
+.wholesale{background:var(--crust-100); border-radius:var(--radius-lg); padding:48px; display:grid; grid-template-columns:1fr 1fr; gap:38px; align-items:center;}
+@media (max-width:900px){.wholesale{grid-template-columns:1fr; padding:30px;}}
+.wholesale-list{list-style:none; margin:20px 0 0; padding:0; display:flex; flex-direction:column; gap:11px;}
+.wholesale-list li{display:flex; gap:10px; font-size:0.93rem; color:var(--espresso-70);}
+.wholesale-list li::before{content:"✓"; color:var(--gold-dark); font-weight:700;}
+.wholesale-card{background:var(--crust-white); border-radius:var(--radius-md); padding:26px; box-shadow:var(--shadow-soft);}
+.wholesale-tiers{margin-top:14px; display:flex; flex-direction:column; gap:9px;}
+.wtier{display:flex; justify-content:space-between; font-size:0.83rem; padding:9px 0; border-bottom:1px dashed var(--line);}
+
+/* Subscriptions */
+.sub-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+@media (max-width:900px){.sub-grid{grid-template-columns:1fr;}}
+.sub-card{background:var(--crust-white); border:1px solid var(--line); border-radius:var(--radius-lg); padding:28px; text-align:center; position:relative;}
+.sub-card.featured{border-color:var(--gold-dark); box-shadow:var(--shadow-lift);}
+.sub-badge{position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--gold); color:#241505; font-size:0.68rem; font-family:var(--font-mono); font-weight:700; padding:5px 14px; border-radius:100px;}
+.sub-price{font-family:var(--font-display); font-size:2.1rem; font-weight:700; color:var(--cinnamon-dark); margin:14px 0;}
+.sub-price span{font-size:0.9rem; font-family:var(--font-body); color:var(--muted); font-weight:400;}
+.sub-card ul{list-style:none; padding:0; margin:18px 0; text-align:left; display:flex; flex-direction:column; gap:9px; font-size:0.86rem; color:var(--espresso-70);}
+.sub-card ul li::before{content:"— ";}
+
+/* Loyalty */
+.loyalty-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+@media (max-width:900px){.loyalty-grid{grid-template-columns:1fr;}}
+.loyalty-tier{background:var(--crust-white); border:1px solid var(--line); border-radius:var(--radius-md); padding:24px;}
+.loyalty-tier h4{font-size:1.05rem; display:flex; align-items:center; gap:8px;}
+.loyalty-tier p{color:var(--muted); font-size:0.85rem; margin-top:8px;}
+
+/* Gift cards */
+.giftcard-wrap{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;}
+@media (max-width:900px){.giftcard-wrap{grid-template-columns:1fr;}}
+.giftcard-visual{aspect-ratio:16/10; border-radius:var(--radius-lg); background:linear-gradient(135deg,#3B2416,#8F5E1F 60%,#C98A2C); color:#F3E4CC; padding:28px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:var(--shadow-lift);}
+.giftcard-amounts{display:flex; gap:10px; flex-wrap:wrap; margin:18px 0;}
+.gc-amt{padding:10px 18px; border-radius:100px; border:1px solid var(--line); background:var(--crust-white); font-weight:700;}
+.gc-amt.active{background:var(--gold); border-color:var(--gold-dark); color:#241505;}
+
+/* Reviews */
+.review-track{display:flex; gap:20px; overflow-x:auto; padding-bottom:12px; scroll-snap-type:x mandatory;}
+.review-card{min-width:290px; scroll-snap-align:start; background:var(--crust-white); border:1px solid var(--line); border-radius:var(--radius-md); padding:22px; box-shadow:var(--shadow-soft);}
+.stars{color:var(--gold-dark); letter-spacing:2px;}
+.review-card p{margin-top:10px; color:var(--espresso-70); font-size:0.9rem;}
+.reviewer{display:flex; align-items:center; gap:10px; margin-top:14px;}
+.reviewer-avatar{width:34px; height:34px; border-radius:50%; background:var(--gold); display:flex; align-items:center; justify-content:center; font-weight:700; color:#241505; font-size:0.86rem;}
+.reviewer-name{font-weight:600; font-size:0.86rem;}
+.reviewer-sub{font-size:0.73rem; color:var(--muted);}
+.video-review{aspect-ratio:16/10; background:linear-gradient(150deg,#3B2416,#8F5E1F); border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:center; font-size:2rem; color:#F3E4CC; margin-bottom:10px;}
+
+/* Gallery */
+.gallery-filters{display:flex; gap:8px; margin-bottom:20px; flex-wrap:wrap;}
+.masonry{column-count:3; column-gap:16px;}
+@media (max-width:900px){.masonry{column-count:2;}}
+@media (max-width:560px){.masonry{column-count:1;}}
+.masonry-item{break-inside:avoid; margin-bottom:16px; border-radius:var(--radius-md); overflow:hidden; cursor:zoom-in; position:relative;}
+.masonry-item .ph{width:100%; display:flex; align-items:center; justify-content:center; font-size:2.3rem; background:linear-gradient(150deg,#F0DCB0,#C98A2C);}
+.masonry-item:hover .ph{filter:brightness(0.85);}
+
+/* Seasonal slider */
+.seasonal-track{display:flex; gap:16px; overflow-x:auto; scroll-behavior:smooth; padding-bottom:8px;}
+.seasonal-card{min-width:180px; background:var(--crust-white); border:1px solid var(--line); border-radius:var(--radius-md); padding:16px; text-align:center;}
+.seasonal-card .ic{font-size:2.2rem;}
+.slider-nav{display:flex; gap:8px; margin-top:14px;}
+.slider-nav button{width:34px; height:34px; border-radius:50%; border:1px solid var(--line); background:var(--crust-white);}
+
+/* Kitchen (blog + tips) */
+.kitchen-grid{display:grid; grid-template-columns:2fr 1fr; gap:26px;}
+@media (max-width:900px){.kitchen-grid{grid-template-columns:1fr;}}
+.blog-cards{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+@media (max-width:700px){.blog-cards{grid-template-columns:1fr;}}
+.blog-card{background:var(--crust-white); border:1px solid var(--line); border-radius:var(--radius-md); overflow:hidden;}
+.blog-thumb{aspect-ratio:16/10; background:linear-gradient(150deg,#F0DCB0,#DDAE5E); display:flex; align-items:center; justify-content:center; font-size:2rem;}
+.blog-body{padding:14px;}
+.blog-body h4{font-size:0.95rem;}
+.blog-body p{color:var(--muted); font-size:0.8rem; margin-top:6px;}
+.tips-list{display:flex; flex-direction:column; gap:14px;}
+.tip-card{background:var(--crust-white); border:1px solid var(--line); border-radius:var(--radius-md); padding:16px; display:flex; gap:12px;}
+.tip-card .ic{font-size:1.4rem;}
+.tip-card p{font-size:0.85rem; color:var(--espresso-70);}
+
+/* Birthday club */
+.bday-wrap{background:linear-gradient(135deg,var(--crust-100),var(--crust-50)); border:1px solid var(--line); border-radius:var(--radius-lg); padding:36px; display:grid; grid-template-columns:1fr 1fr; gap:30px; align-items:center;}
+@media (max-width:800px){.bday-wrap{grid-template-columns:1fr;}}
+.bday-form{display:flex; flex-direction:column; gap:12px;}
+.bday-form input{padding:11px 14px; border-radius:var(--radius-sm); border:1px solid var(--line); font-family:inherit; background:var(--crust-white); color:var(--espresso);}
+
+/* Store locator */
+.locator-grid{display:grid; grid-template-columns:1fr 1fr; gap:26px;}
+@media (max-width:900px){.locator-grid{grid-template-columns:1fr;}}
+.locations-list{display:flex; flex-direction:column; gap:14px;}
+.location-card{background:var(--crust-white); border:1px solid var(--line); border-radius:var(--radius-md); padding:18px;}
+.location-card h4{font-size:0.98rem;}
+.location-card p{font-size:0.83rem; color:var(--muted); margin-top:5px;}
+.map-ph{border-radius:var(--radius-md); background:linear-gradient(150deg,var(--crust-100),var(--line)); display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:0.88rem; font-family:var(--font-mono); min-height:280px;}
+
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--line);}
+.faq-q{width:100%; text-align:left; background:none; border:none; padding:18px 0; display:flex; justify-content:space-between; align-items:center; font-weight:600; font-size:0.98rem; color:var(--espresso);}
+.faq-q .icon{transition:transform 0.25s ease; color:var(--cinnamon);}
+.faq-item.open .icon{transform:rotate(45deg);}
+.faq-a{max-height:0; overflow:hidden; transition:max-height 0.3s ease;}
+.faq-a p{padding-bottom:16px; color:var(--muted); font-size:0.9rem; max-width:640px;}
+
+/* Contact */
+.contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px;}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr;}}
+.contact-info{display:flex; flex-direction:column; gap:16px;}
+.contact-row{display:flex; gap:14px; align-items:flex-start;}
+.contact-row .ic{font-size:1.25rem;}
+
+/* Floating buttons */
+.floating-stack{position:fixed; right:20px; bottom:20px; display:flex; flex-direction:column; gap:11px; z-index:150;}
+.fab{width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.3rem; box-shadow:var(--shadow-lift); border:none;}
+.fab-whatsapp{background:#25D366; color:#fff;}
+.fab-messenger{background:#0084FF; color:#fff;}
+.fab-call{background:#2B1B0F; color:#fff;}
+.fab-order{background:var(--gold); color:#241505; font-family:var(--font-mono); font-size:0.65rem; font-weight:700; width:auto; height:auto; padding:14px 16px; border-radius:100px;}
+.fab-top{background:var(--crust-white); border:1px solid var(--line); opacity:0; pointer-events:none; transition:opacity 0.2s ease; color:var(--espresso);}
+.fab-top.show{opacity:1; pointer-events:auto;}
+
+/* Footer */
+footer{background:#2B1B0F; color:#E8D4B4; padding:60px 0 22px;}
+.footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:34px;}
+@media (max-width:800px){.footer-grid{grid-template-columns:1fr 1fr;}}
+footer h4{color:#FFFDF8; font-size:0.93rem; margin-bottom:13px;}
+footer ul{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;}
+footer a{text-decoration:none; color:#C9B79C; font-size:0.86rem;}
+footer a:hover{color:var(--gold);}
+.newsletter-form{display:flex; gap:8px; margin-top:12px;}
+.newsletter-form input{flex:1; padding:10px 14px; border-radius:100px; border:none; font-family:inherit;}
+.newsletter-form button{padding:10px 16px; border-radius:100px; border:none; background:var(--gold); font-weight:700; color:#241505;}
+.footer-bottom{margin-top:44px; padding-top:22px; border-top:1px solid rgba(255,253,248,0.12); text-align:center; font-size:0.76rem; color:#A8927A;}
+
+/* Cart drawer */
+.cart-overlay{position:fixed; inset:0; background:rgba(43,27,15,0.5); z-index:250; display:none;}
+.cart-overlay.open{display:block;}
+.cart-drawer{position:fixed; top:0; right:-420px; width:400px; max-width:92vw; height:100%; background:var(--crust-white); z-index:260; box-shadow:-10px 0 40px rgba(0,0,0,0.25); transition:right 0.3s ease; display:flex; flex-direction:column;}
+.cart-drawer.open{right:0;}
+.cart-head{padding:20px; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center;}
+.cart-body{padding:20px; overflow-y:auto; flex:1;}
+.cart-line{display:flex; gap:12px; align-items:center; margin-bottom:16px; padding-bottom:16px; border-bottom:1px solid var(--line);}
+.cart-line .ic{font-size:1.6rem;}
+.qty-ctrl{display:flex; align-items:center; gap:8px; margin-top:6px;}
+.qty-ctrl button{width:24px; height:24px; border-radius:50%; border:1px solid var(--line); background:var(--crust-50); font-size:0.9rem; line-height:1;}
+.cart-foot{padding:20px; border-top:1px solid var(--line);}
+.coupon-row{display:flex; gap:8px; margin-bottom:14px;}
+.coupon-row input{flex:1; padding:10px 12px; border-radius:var(--radius-sm); border:1px solid var(--line); font-family:inherit; background:var(--crust-50); color:var(--espresso);}
+.summary-line{display:flex; justify-content:space-between; font-size:0.86rem; padding:4px 0; color:var(--espresso-70);}
+.summary-line.total{font-weight:700; font-size:1.05rem; color:var(--espresso); border-top:1px solid var(--line); margin-top:8px; padding-top:10px;}
+.fulfill-toggle{display:flex; gap:8px; margin:14px 0;}
+.fulfill-toggle button{flex:1; padding:8px; border-radius:var(--radius-sm); border:1px solid var(--line); background:var(--crust-50); font-size:0.8rem; font-weight:600; color:var(--espresso);}
+.fulfill-toggle button.active{background:var(--espresso); color:var(--crust-50);}
+.gift-msg{width:100%; padding:10px 12px; border-radius:var(--radius-sm); border:1px solid var(--line); font-family:inherit; background:var(--crust-50); resize:vertical; min-height:60px; color:var(--espresso);}
+
+/* Modal (nutrition / tracker / checkout confirm) */
+.modal-overlay{position:fixed; inset:0; background:rgba(43,27,15,0.6); z-index:300; display:none; align-items:center; justify-content:center; padding:20px;}
+.modal-overlay.open{display:flex;}
+.modal-box{background:var(--crust-white); border-radius:var(--radius-lg); padding:30px; max-width:460px; width:100%; max-height:85vh; overflow-y:auto; position:relative;}
+.modal-close{position:absolute; top:16px; right:16px; background:none; border:none; font-size:1.4rem; color:var(--espresso);}
+.tracker-steps{display:flex; flex-direction:column; gap:0; margin-top:20px;}
+.tstep{display:flex; gap:14px; align-items:flex-start; padding-bottom:22px; position:relative;}
+.tstep::before{content:""; position:absolute; left:11px; top:26px; bottom:0; width:2px; background:var(--line);}
+.tstep:last-child::before{display:none;}
+.tstep .dot{width:24px; height:24px; border-radius:50%; background:var(--crust-100); border:2px solid var(--line); display:flex; align-items:center; justify-content:center; font-size:0.7rem; flex-shrink:0; z-index:1;}
+.tstep.done .dot{background:var(--gold); border-color:var(--gold-dark); color:#241505;}
+.tstep.active .dot{background:var(--cinnamon); border-color:var(--cinnamon-dark); color:#fff;}
+.tstep h5{margin:0; font-size:0.92rem; font-family:var(--font-body); font-weight:700;}
+.tstep p{font-size:0.78rem; color:var(--muted); margin-top:2px;}
+
+.reveal{opacity:0; transform:translateY(24px); transition:opacity 0.7s ease, transform 0.7s ease;}
+.reveal.in{opacity:1; transform:translateY(0);}
+.sr-only{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0);}
+</style>
+</head>
+<body>
+
+<div class="demo-banner"><strong>Demo Website</strong> — Created to showcase what's possible for Caribbean bakeries. Your bakery would receive a fully customized version.</div>
+<div class="holiday-banner">🎄 Holiday Promotion: 15% off all cake orders through the season — use code <code>HOLIDAY15</code> at checkout</div>
+
+<header>
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="logo">🌾 Golden <span>Crust</span></a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#cakes">Cakes</a></li>
+        <li><a href="#estimator">Custom Orders</a></li>
+        <li><a href="#subscriptions">Subscriptions</a></li>
+        <li><a href="#wholesale">Wholesale</a></li>
+        <li><a href="#loyalty">Rewards</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+        <button class="icon-btn" id="cartToggle" aria-label="Open cart">🛒<span class="cart-count" id="cartCount">0</span></button>
+        <button class="nav-toggle" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="flash-bar">⚡ Flash Sale — 20% off all cookies today only, ends in <b id="flashCountdown">00:45:00</b></div>
+
+<main id="home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">GOLDEN CRUST ARTISAN BAKERY</p>
+        <h1>Fresh Bread. Beautiful Cakes.<br>Made Fresh Every Morning.</h1>
+        <p class="hero-sub">Every loaf and cake starts before sunrise — real butter, real flour, no shortcuts. Order online for pickup or island-wide delivery.</p>
+        <div class="hero-ctas">
+          <a href="#menu" class="btn btn-primary">Order Now</a>
+          <a href="#menu" class="btn btn-outline">View Today's Menu</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-art-frame"></div>
+        <div class="hero-badge">Baked fresh at<b id="heroTime">5:30 AM</b></div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="stats-row" id="statsRow">
+        <div class="stat-card"><div class="stat-num" data-count="15">0</div><div class="stat-label">Years Experience</div></div>
+        <div class="stat-card"><div class="stat-num" data-count="10000">0</div><div class="stat-label">Happy Customers</div></div>
+        <div class="stat-card"><div class="stat-num-text" style="font-family:var(--font-display); font-size:1.9rem; font-weight:600; color:var(--cinnamon);">Daily</div><div class="stat-label">Fresh Baking</div></div>
+        <div class="stat-card"><div class="stat-num-text" style="font-family:var(--font-display); font-size:1.9rem; font-weight:600; color:var(--cinnamon);">Island</div><div class="stat-label">Wide Delivery</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-strip"><div class="container trust-row">
+    <span class="trust-item"><span class="dot"></span>Fresh Daily</span>
+    <span class="trust-item"><span class="dot"></span>Locally Made</span>
+    <span class="trust-item"><span class="dot"></span>Premium Ingredients</span>
+    <span class="trust-item"><span class="dot"></span>Custom Cakes</span>
+    <span class="trust-item"><span class="dot"></span>Same-Day Pickup</span>
+    <span class="trust-item"><span class="dot"></span>Island Delivery</span>
+    <span class="trust-item"><span class="dot"></span>Food Safety Certified</span>
+  </div></div>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img reveal"></div>
+        <div class="about-copy reveal">
+          <p class="eyebrow">OUR STORY</p>
+          <h2>Made From Scratch. Never Mass Produced.</h2>
+          <p>Golden Crust started with one oven, one family, and a promise: nothing leaves this kitchen unless we'd serve it to our own. Fifteen years later that promise hasn't changed.</p>
+          <p>Customers keep coming back because they can taste the difference: real butter instead of margarine, real fruit instead of flavoring, and bakers who've spent over a decade perfecting these recipes.</p>
+          <div class="baker-row">
+            <div class="baker-chip"><div class="baker-avatar">E</div><span>Elaine — Head Baker</span></div>
+            <div class="baker-chip"><div class="baker-avatar">M</div><span>Marcus — Cake Design</span></div>
+            <div class="baker-chip"><div class="baker-avatar">T</div><span>Tanya — Pastry Chef</span></div>
+          </div>
+          <div class="timeline">
+            <div class="tl-item"><span class="tl-year">2011</span><h4>One oven, one neighborhood</h4><p>Golden Crust opens as a two-person kitchen serving fresh bread to the block.</p></div>
+            <div class="tl-item"><span class="tl-year">2016</span><h4>Custom cakes launch</h4><p>Word spreads after a wedding cake order — custom celebration cakes become a core offering.</p></div>
+            <div class="tl-item"><span class="tl-year">2021</span><h4>Island-wide delivery</h4><p>Golden Crust begins delivering fresh orders across the island, same-day where possible.</p></div>
+            <div class="tl-item"><span class="tl-year">Today</span><h4>10,000+ customers served</h4><p>Still family-run, still baking every order fresh, every morning.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FRESH OUT OF THE OVEN -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="oven-board reveal">
+        <div class="oven-head">
+          <div><p class="eyebrow" style="color:#C9B79C;">LIVE FROM THE KITCHEN</p><h2>Fresh Out of the Oven</h2></div>
+          <div class="oven-clock">Next batch in<b id="ovenCountdown">18:42</b></div>
+        </div>
+        <div class="oven-list" id="ovenList"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="section" id="menu">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">TODAY'S SPECIALS</p>
+        <h2>Your Celebration Deserves Something Special</h2>
+        <p>Filter by category, diet, or price — everything can be added to your cart for pickup or delivery.</p>
+      </div>
+      <div class="menu-controls">
+        <div class="filter-tabs" id="filterTabs">
+          <button class="filter-tab active" data-cat="all">All</button>
+          <button class="filter-tab" data-cat="bread">Bread</button>
+          <button class="filter-tab" data-cat="pastry">Pastries</button>
+          <button class="filter-tab" data-cat="cake">Cakes</button>
+          <button class="filter-tab" data-cat="cookie">Cookies</button>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <div class="menu-search"><span aria-hidden="true">🔍</span><input type="text" id="menuSearch" placeholder="Search the menu..." aria-label="Search menu"></div>
+          <select class="menu-sort" id="menuSort" aria-label="Sort products">
+            <option value="default">Sort: Featured</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+          </select>
+          <button class="filter-tab" id="favToggle">♡ Favorites</button>
+        </div>
+      </div>
+      <div class="adv-filters">
+        <div class="grp"><label><input type="checkbox" data-tag="vegan"> Vegan</label></div>
+        <div class="grp"><label><input type="checkbox" data-tag="gluten-free"> Gluten-Free</label></div>
+        <div class="grp"><label><input type="checkbox" data-tag="nut-free"> Nut-Free</label></div>
+        <div class="grp"><label><input type="checkbox" data-tag="dairy-free"> Dairy-Free</label></div>
+        <div class="grp"><label for="priceRange">Max Price</label><input type="range" id="priceRange" min="2" max="10" step="0.5" value="10"><span class="price-range-val" id="priceRangeVal">$10.00</span></div>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+
+      <div style="margin-top:40px;">
+        <p class="eyebrow">RECENTLY VIEWED</p>
+        <div class="rv-strip" id="rvStrip" style="margin-top:14px;"><p style="color:var(--muted); font-size:0.85rem;">Click "Quick View" on any item to see it here.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED CAKES -->
+  <section class="section" id="cakes" style="background:var(--crust-100);">
+    <div class="container">
+      <div class="section-head"><p class="eyebrow">FEATURED CAKES</p><h2>Every Bite Tells a Story</h2><p>From first birthdays to fiftieth anniversaries, every cake is designed around your occasion.</p></div>
+      <div class="cake-grid">
+        <div class="cake-card reveal"><div class="cake-img">🎂</div><div class="cake-body"><h4>Birthday Cakes</h4><div class="cake-facts"><span>Serves 10–40</span><span>48hr lead time</span></div><p class="cake-price">From $85</p><button class="btn btn-primary btn-sm btn-block add-to-cart" data-name="Birthday Cake" data-price="85" data-icon="🎂">Add to Cart</button></div></div>
+        <div class="cake-card reveal"><div class="cake-img">💍</div><div class="cake-body"><h4>Wedding Cakes</h4><div class="cake-facts"><span>Serves 50–200</span><span>4 week lead time</span></div><p class="cake-price">From $350</p><button class="btn btn-primary btn-sm btn-block add-to-cart" data-name="Wedding Cake" data-price="350" data-icon="💍">Add to Cart</button></div></div>
+        <div class="cake-card reveal"><div class="cake-img">🏢</div><div class="cake-body"><h4>Corporate Cakes</h4><div class="cake-facts"><span>Serves 20–100</span><span>72hr lead time</span></div><p class="cake-price">From $150</p><button class="btn btn-primary btn-sm btn-block add-to-cart" data-name="Corporate Cake" data-price="150" data-icon="🏢">Add to Cart</button></div></div>
+        <div class="cake-card reveal"><div class="cake-img">🧁</div><div class="cake-body"><h4>Cupcakes (dozen)</h4><div class="cake-facts"><span>12 pcs</span><span>24hr lead time</span></div><p class="cake-price">From $32</p><button class="btn btn-primary btn-sm btn-block add-to-cart" data-name="Cupcakes (dozen)" data-price="32" data-icon="🧁">Add to Cart</button></div></div>
+        <div class="cake-card reveal"><div class="cake-img">🎈</div><div class="cake-body"><h4>Kids Cakes</h4><div class="cake-facts"><span>Serves 10–30</span><span>48hr lead time</span></div><p class="cake-price">From $75</p><button class="btn btn-primary btn-sm btn-block add-to-cart" data-name="Kids Cake" data-price="75" data-icon="🎈">Add to Cart</button></div></div>
+        <div class="cake-card reveal"><div class="cake-img">🌹</div><div class="cake-body"><h4>Anniversary Cakes</h4><div class="cake-facts"><span>Serves 10–40</span><span>48hr lead time</span></div><p class="cake-price">From $90</p><button class="btn btn-primary btn-sm btn-block add-to-cart" data-name="Anniversary Cake" data-price="90" data-icon="🌹">Add to Cart</button></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAKE ESTIMATOR -->
+  <section class="section" id="estimator">
+    <div class="container">
+      <div class="section-head"><p class="eyebrow">CUSTOM ORDERS · BUILD YOUR CAKE</p><h2>Build &amp; Estimate Your Cake</h2><p>Choose size, flavor and finish — the preview and price update live. Add straight to your cart when you're ready.</p></div>
+      <div class="estimator">
+        <div class="est-form">
+          <div class="est-field"><label>Cake Size</label><div class="chip-row" data-group="size">
+            <button class="chip active" data-value="6&quot; — serves 10" data-price="45">6" — serves 10</button>
+            <button class="chip" data-value="8&quot; — serves 20" data-price="70">8" — serves 20</button>
+            <button class="chip" data-value="10&quot; — serves 35" data-price="105">10" — serves 35</button>
+            <button class="chip" data-value="12&quot; — serves 55" data-price="150">12" — serves 55</button>
+          </div></div>
+          <div class="est-field"><label>Flavor</label><div class="chip-row" data-group="flavor">
+            <button class="chip active" data-value="Vanilla Bean" data-price="0">Vanilla Bean</button>
+            <button class="chip" data-value="Rum &amp; Raisin" data-price="8">Rum &amp; Raisin</button>
+            <button class="chip" data-value="Chocolate Fudge" data-price="6">Chocolate Fudge</button>
+            <button class="chip" data-value="Passionfruit" data-price="10">Passionfruit</button>
+            <button class="chip" data-value="Red Velvet" data-price="8">Red Velvet</button>
+          </div></div>
+          <div class="est-field"><label>Filling</label><div class="chip-row" data-group="filling">
+            <button class="chip active" data-value="Buttercream" data-price="0">Buttercream</button>
+            <button class="chip" data-value="Guava" data-price="7">Guava</button>
+            <button class="chip" data-value="Salted Caramel" data-price="9">Salted Caramel</button>
+            <button class="chip" data-value="Fresh Fruit" data-price="11">Fresh Fruit</button>
+          </div></div>
+          <div class="est-field"><label>Icing &amp; Decoration</label><div class="chip-row" data-group="icing">
+            <button class="chip active" data-value="Smooth Buttercream" data-price="0">Smooth Buttercream</button>
+            <button class="chip" data-value="Fondant" data-price="18">Fondant</button>
+            <button class="chip" data-value="Fresh Flowers" data-price="22">Fresh Flowers</button>
+            <button class="chip" data-value="Gold Leaf" data-price="28">Gold Leaf</button>
+          </div></div>
+          <div class="est-field"><label for="cakeMessage">Message on Cake</label><input type="text" id="cakeMessage" placeholder="e.g. Happy Birthday Aaliyah"></div>
+          <div class="est-field"><label>Pickup or Delivery</label><div class="est-toggle">
+            <button class="active" data-mode="Pickup" data-price="0">Pickup — Free</button>
+            <button data-mode="Delivery" data-price="15">Delivery — +$15</button>
+          </div></div>
+          <div class="est-field"><label for="cakeDate">Needed By</label><input type="date" id="cakeDate"></div>
+        </div>
+        <div class="est-preview">
+          <div class="cake-svg-wrap">
+            <svg id="cakeSvg" width="180" height="180" viewBox="0 0 180 180" aria-label="Live cake preview">
+              <ellipse cx="90" cy="160" rx="70" ry="10" fill="#3B2416" opacity="0.12"/>
+              <rect id="tier1" x="30" y="105" width="120" height="45" rx="6" fill="#E9C68B"/>
+              <rect id="tier2" x="45" y="70" width="90" height="40" rx="6" fill="#DDAE5E"/>
+              <rect id="tier3" x="60" y="40" width="60" height="35" rx="6" fill="#C98A2C"/>
+              <circle cx="90" cy="36" r="6" fill="#B5482B"/>
+            </svg>
+          </div>
+          <p class="est-price-label">Estimated Price</p>
+          <p class="est-price" id="estPrice">$45</p>
+          <p class="est-note">Final quote confirmed at checkout — prices vary with design complexity.</p>
+          <div class="est-summary" id="estSummary"></div>
+          <button class="btn btn-primary btn-block" id="estAddCart" style="margin-top:18px;">Add Custom Cake to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBSCRIPTIONS -->
+  <section class="section" id="subscriptions" style="background:var(--crust-100);">
+    <div class="container">
+      <div class="section-head"><p class="eyebrow">BAKERY SUBSCRIPTION</p><h2>Subscribe &amp; Save</h2><p>Never run out of your favorites — recurring bakes delivered on your schedule, at a lower price than one-off orders.</p></div>
+      <div class="sub-grid">
+        <div class="sub-card"><h4>Weekly Bread Box</h4><div class="sub-price">$22<span>/week</span></div><ul><li>2 artisan loaves weekly</li><li>Rotating flavors</li><li>Free pickup</li><li>Pause or cancel anytime</li></ul><button class="btn btn-outline btn-block add-to-cart" data-name="Weekly Bread Subscription" data-price="22" data-icon="🍞">Subscribe &amp; Save</button></div>
+        <div class="sub-card featured"><span class="sub-badge">MOST POPULAR</span><h4>Monthly Pastry Box</h4><div class="sub-price">$65<span>/month</span></div><ul><li>12 assorted pastries monthly</li><li>Chef's seasonal picks</li><li>Free island delivery</li><li>10% off custom cakes</li></ul><button class="btn btn-primary btn-block add-to-cart" data-name="Monthly Pastry Box Subscription" data-price="65" data-icon="🥐">Subscribe &amp; Save</button></div>
+        <div class="sub-card"><h4>Coffee &amp; Pastry Plan</h4><div class="sub-price">$40<span>/week</span></div><ul><li>Daily coffee + pastry, Mon–Fri</li><li>Pickup or office delivery</li><li>Swap flavors anytime</li><li>Loyalty points 2x</li></ul><button class="btn btn-outline btn-block add-to-cart" data-name="Coffee & Pastry Plan Subscription" data-price="40" data-icon="☕">Subscribe &amp; Save</button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHOLESALE -->
+  <section class="section" id="wholesale">
+    <div class="container">
+      <div class="wholesale">
+        <div>
+          <p class="eyebrow">WHOLESALE PROGRAM</p>
+          <h2>Wholesale for Hotels &amp; Restaurants</h2>
+          <p style="margin-top:14px; color:var(--muted);">Consistent, restaurant-grade bread and pastry supply for hotels, resorts, cafés and restaurants — with the standing orders and delivery windows your kitchen depends on.</p>
+          <ul class="wholesale-list">
+            <li>Standing daily or weekly delivery schedules</li>
+            <li>Volume pricing for recurring orders</li>
+            <li>Custom private-label packaging available</li>
+            <li>Dedicated account manager for kitchen teams</li>
+          </ul>
+          <a href="#contact" class="btn btn-gold" style="margin-top:24px;">Request Wholesale Pricing</a>
+        </div>
+        <div class="wholesale-card">
+          <h4>Indicative Wholesale Tiers</h4>
+          <div class="wholesale-tiers">
+            <div class="wtier"><span>Small café / guesthouse</span><span>10–30 units/day</span></div>
+            <div class="wtier"><span>Restaurant kitchen</span><span>30–80 units/day</span></div>
+            <div class="wtier"><span>Hotel / resort</span><span>80–250+ units/day</span></div>
+            <div class="wtier"><span>Custom private label</span><span>By quote</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOYALTY -->
+  <section class="section" id="loyalty" style="background:var(--crust-100);">
+    <div class="container">
+      <div class="section-head"><p class="eyebrow">LOYALTY REWARDS</p><h2>Earn Points on Every Order</h2><p>1 point per $1 spent. Redeem points for free items, discounts, and early access to seasonal cakes.</p></div>
+      <div class="loyalty-grid">
+        <div class="loyalty-tier"><h4>🥉 Bronze — 0 pts</h4><p>Starting tier. Earn 1 point per $1. Birthday treat every year.</p></div>
+        <div class="loyalty-tier"><h4>🥈 Silver — 250 pts</h4><p>1.25x points, free delivery on orders over $50, early sale access.</p></div>
+        <div class="loyalty-tier"><h4>🥇 Gold — 750 pts</h4><p>1.5x points, free custom cake tasting, priority holiday booking.</p></div>
+      </div>
+      <button class="btn btn-primary" id="joinLoyalty" style="margin-top:24px;">Join Loyalty Program</button>
+      <p id="loyaltyMsg" style="margin-top:10px; font-size:0.85rem; color:var(--muted);"></p>
+    </div>
+  </section>
+
+  <!-- GIFT CARDS -->
+  <section class="section" id="giftcards">
+    <div class="container">
+      <div class="giftcard-wrap">
+        <div class="giftcard-visual"><div><p class="eyebrow" style="color:#E8D4B4;">GIFT CARD</p><h2 style="color:#FFFDF8; margin-top:8px;">Golden Crust</h2></div><p style="font-family:var(--font-mono); font-size:0.85rem;">Freshly Baked. Made With Love.</p></div>
+        <div>
+          <p class="eyebrow">GIVE THE GIFT OF FRESH</p>
+          <h2 style="margin-top:10px;">Bakery Gift Cards</h2>
+          <p style="margin-top:12px; color:var(--muted);">Never expires. Redeemable on any bread, pastry or custom cake order.</p>
+          <div class="giftcard-amounts" id="gcAmounts">
+            <button class="gc-amt active" data-amt="25">$25</button>
+            <button class="gc-amt" data-amt="50">$50</button>
+            <button class="gc-amt" data-amt="100">$100</button>
+            <button class="gc-amt" data-amt="200">$200</button>
+          </div>
+          <button class="btn btn-primary" id="buyGiftCard">Buy Gift Card</button>
+          <p id="giftMsg" style="margin-top:10px; font-size:0.85rem; color:var(--muted);"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section" id="reviews" style="background:var(--crust-100);">
+    <div class="container">
+      <div class="section-head"><p class="eyebrow">REVIEWS</p><h2>Why Customers Keep Coming Back</h2></div>
+      <div class="review-track" id="reviewTrack">
+        <div class="review-card"><div class="video-review">▶</div><span class="stars">★★★★★</span><p>"Ordered a wedding cake with three weeks notice and it looked better than the reference photo I sent."</p><div class="reviewer"><div class="reviewer-avatar">M</div><div><div class="reviewer-name">Marisol T.</div><div class="reviewer-sub">Vieux-Fort</div></div></div></div>
+        <div class="review-card"><span class="stars">★★★★★</span><p>"We switched our café's bread supply to Golden Crust and haven't had a single late delivery in eight months."</p><div class="reviewer"><div class="reviewer-avatar">D</div><div><div class="reviewer-name">Devon R.</div><div class="reviewer-sub">Café Owner, Castries</div></div></div></div>
+        <div class="review-card"><div class="video-review">▶</div><span class="stars">★★★★★</span><p>"The cake builder let me see exactly what I was ordering before I paid a cent. Zero surprises on pickup day."</p><div class="reviewer"><div class="reviewer-avatar">A</div><div><div class="reviewer-name">Aisha P.</div><div class="reviewer-sub">Gros Islet</div></div></div></div>
+        <div class="review-card"><span class="stars">★★★★★</span><p>"Fifteen years and the quality hasn't dropped once. Still my go-to for every birthday in the family."</p><div class="reviewer"><div class="reviewer-avatar">K</div><div><div class="reviewer-name">Kenroy S.</div><div class="reviewer-sub">Vieux-Fort</div></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <div class="section-head"><p class="eyebrow">GALLERY</p><h2>See What's Fresh</h2></div>
+      <div class="gallery-filters" id="galleryFilters">
+        <button class="filter-tab active" data-gcat="all">All</button>
+        <button class="filter-tab" data-gcat="cakes">Cakes</button>
+        <button class="filter-tab" data-gcat="bread">Bread</button>
+        <button class="filter-tab" data-gcat="events">Events</button>
+      </div>
+      <div class="masonry" id="masonryGrid"></div>
+    </div>
+  </section>
+
+  <!-- SEASONAL SLIDER -->
+  <section class="section" style="background:var(--crust-100);">
+    <div class="container">
+      <div class="section-head"><p class="eyebrow">SEASONAL FAVORITES</p><h2>Limited-Time Specials</h2></div>
+      <div class="seasonal-track" id="seasonalTrack">
+        <div class="seasonal-card"><div class="ic">🎄</div><h4 style="font-size:0.95rem; margin-top:8px;">Christmas Fruit Cake</h4><p style="font-size:0.8rem; color:var(--muted);">$28 · Nov–Dec only</p></div>
+        <div class="seasonal-card"><div class="ic">🥭</div><h4 style="font-size:0.95rem; margin-top:8px;">Mango Tart</h4><p style="font-size:0.8rem; color:var(--muted);">$6 · Summer only</p></div>
+        <div class="seasonal-card"><div class="ic">🎃</div><h4 style="font-size:0.95rem; margin-top:8px;">Pumpkin Spice Loaf</h4><p style="font-size:0.8rem; color:var(--muted);">$9 · Fall only</p></div>
+        <div class="seasonal-card"><div class="ic">🐰</div><h4 style="font-size:0.95rem; margin-top:8px;">Easter Hot Cross Buns</h4><p style="font-size:0.8rem; color:var(--muted);">$5 · Spring only</p></div>
+        <div class="seasonal-card"><div class="ic">🍓</div><h4 style="font-size:0.95rem; margin-top:8px;">Strawberry Shortcake</h4><p style="font-size:0.8rem; color:var(--muted);">$7 · Summer only</p></div>
+      </div>
+      <div class="slider-nav"><button id="seasonalPrev">←</button><button id="seasonalNext">→</button></div>
+    </div>
+  </section>
+
+  <!-- FROM OUR KITCHEN (blog + tips) -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><p class="eyebrow">FROM OUR KITCHEN</p><h2>Recipes &amp; Baker's Tips</h2></div>
+      <div class="kitchen-grid">
+        <div class="blog-cards">
+          <div class="blog-card"><div class="blog-thumb">📖</div><div class="blog-body"><h4>How We Proof Sourdough for 24 Hours</h4><p>A look inside our overnight fermentation process.</p></div></div>
+          <div class="blog-card"><div class="blog-thumb">📖</div><div class="blog-body"><h4>Choosing the Right Cake Filling</h4><p>Guava vs. salted caramel vs. fresh fruit — how to pick.</p></div></div>
+          <div class="blog-card"><div class="blog-thumb">📖</div><div class="blog-body"><h4>Storing Cake Before a Big Event</h4><p>How to keep your cake fresh until the big moment.</p></div></div>
+        </div>
+        <div class="tips-list">
+          <div class="tip-card"><span class="ic">💡</span><p>Order custom cakes at least 48 hours ahead for the best flavor options.</p></div>
+          <div class="tip-card"><span class="ic">💡</span><p>Bread freezes well for up to a month — slice before freezing.</p></div>
+          <div class="tip-card"><span class="ic">💡</span><p>Let cake sit at room temperature 20 minutes before serving.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIRTHDAY CLUB -->
+  <section class="section" style="background:var(--crust-100);">
+    <div class="container">
+      <div class="bday-wrap">
+        <div><p class="eyebrow">BIRTHDAY CLUB</p><h2 style="margin-top:10px;">A Free Treat On Your Birthday</h2><p style="margin-top:12px; color:var(--muted);">Join the Birthday Club and we'll send you a free pastry voucher during your birthday month — no purchase required.</p></div>
+        <form class="bday-form" id="bdayForm">
+          <input type="text" placeholder="Full name" required>
+          <input type="date" placeholder="Birthday" required>
+          <input type="email" placeholder="Email address" required>
+          <button type="submit" class="btn btn-primary btn-block">Join Birthday Club</button>
+          <p id="bdayMsg" style="font-size:0.85rem; color:var(--muted);"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORE LOCATOR -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><p class="eyebrow">FIND US</p><h2>Store Locator</h2></div>
+      <div class="locator-grid">
+        <div class="locations-list">
+          <div class="location-card"><h4>Golden Crust — Main Bakery</h4><p>Bridge Street, Vieux-Fort · Mon–Sat 6am–7pm, Sun 7am–1pm</p></div>
+          <div class="location-card"><h4>Golden Crust — Castries Kiosk</h4><p>Jeremie Street, Castries · Mon–Sat 7am–5pm</p></div>
+          <div class="location-card"><h4>Golden Crust — Rodney Bay Pop-Up</h4><p>Weekends only, Rodney Bay Marina · Sat–Sun 8am–2pm</p></div>
+        </div>
+        <div class="map-ph">Google Maps placeholder</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq" style="background:var(--crust-100);">
+    <div class="container" style="max-width:760px;">
+      <div class="section-head"><p class="eyebrow">FAQ</p><h2>Common Questions</h2></div>
+      <div id="faqList">
+        <div class="faq-item"><button class="faq-q">How far in advance should I order a custom cake?<span class="icon">+</span></button><div class="faq-a"><p>Standard cakes need 48–72 hours notice. Wedding cakes need at least 3–4 weeks.</p></div></div>
+        <div class="faq-item"><button class="faq-q">Do you deliver island-wide?<span class="icon">+</span></button><div class="faq-a"><p>Yes — with same-day delivery available in most areas for orders placed before 10am.</p></div></div>
+        <div class="faq-item"><button class="faq-q">Can you accommodate allergies or dietary needs?<span class="icon">+</span></button><div class="faq-a"><p>We offer nut-free, gluten-free and vegan options — filter the menu above or let us know at checkout.</p></div></div>
+        <div class="faq-item"><button class="faq-q">How do I pay?<span class="icon">+</span></button><div class="faq-a"><p>We accept bank transfer, cash on pickup/delivery, and card payment in-store. A deposit is required for custom cakes over $100.</p></div></div>
+        <div class="faq-item"><button class="faq-q">Do you supply restaurants and hotels?<span class="icon">+</span></button><div class="faq-a"><p>Yes — see our Wholesale section above, or contact us directly to set up a standing order.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-head"><p class="eyebrow">CONTACT</p><h2>Place Your Order</h2><p>Reach out directly, or add items to your cart above and check out online.</p></div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-row"><span class="ic">📍</span><div><strong>Location</strong><br><span style="color:var(--muted);">Bridge Street, Vieux-Fort, Saint Lucia</span></div></div>
+          <div class="contact-row"><span class="ic">🕐</span><div><strong>Hours</strong><br><span style="color:var(--muted);">Mon–Sat 6:00am – 7:00pm · Sun 7:00am – 1:00pm</span></div></div>
+          <div class="contact-row"><span class="ic">📞</span><div><strong>Phone</strong><br><span style="color:var(--muted);">+1 (758) 000-0000</span></div></div>
+          <div class="contact-row"><span class="ic">✉️</span><div><strong>Email</strong><br><span style="color:var(--muted);">hello@goldencrustbakery.demo</span></div></div>
+          <div class="contact-row"><span class="ic">📱</span><div><strong>Social</strong><br><span style="color:var(--muted);">@goldencrustbakery</span></div></div>
+        </div>
+        <div class="map-ph">Google Maps placeholder</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="floating-stack">
+  <button class="fab fab-order" id="fabOrder">Order</button>
+  <a href="#" class="fab fab-whatsapp" aria-label="WhatsApp (contact only)">💬</a>
+  <a href="#" class="fab fab-messenger" aria-label="Messenger (contact only)">✉</a>
+  <a href="tel:+17580000000" class="fab fab-call" aria-label="Call the bakery">📞</a>
+  <button class="fab fab-top" id="fabTop" aria-label="Scroll to top">↑</button>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo" style="color:#FFFDF8;">🌾 Golden <span style="color:var(--gold);">Crust</span></div>
+        <p style="color:#C9B79C; font-size:0.86rem; margin-top:14px; max-width:280px;">Freshly baked. Made with love. Delivered across the island.</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" placeholder="Your email" aria-label="Email for newsletter" required>
+          <button type="submit">Join</button>
+        </form>
+      </div>
+      <div><h4>Quick Links</h4><ul><li><a href="#menu">Menu</a></li><li><a href="#cakes">Cakes</a></li><li><a href="#estimator">Custom Orders</a></li><li><a href="#subscriptions">Subscriptions</a></li><li><a href="#wholesale">Wholesale</a></li></ul></div>
+      <div><h4>Policies</h4><ul><li><a href="#">Refund Policy</a></li><li><a href="#">Delivery Policy</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+      <div>
+        <h4>Business Hours</h4>
+        <ul><li>Mon–Sat: 6:00am – 7:00pm</li><li>Sunday: 7:00am – 1:00pm</li></ul>
+        <h4 style="margin-top:20px;">Instagram</h4>
+        <div style="display:flex; gap:6px;"><div style="width:40px; height:40px; border-radius:8px; background:#5A4230;"></div><div style="width:40px; height:40px; border-radius:8px; background:#C98A2C;"></div><div style="width:40px; height:40px; border-radius:8px; background:#8F5E1F;"></div></div>
+      </div>
+    </div>
+    <div class="footer-bottom">© <span id="year"></span> Golden Crust Artisan Bakery — Demo site built by AkraLink. All rights reserved.</div>
+  </div>
+</footer>
+
+<!-- Cart drawer -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-head"><h3 style="font-size:1.1rem;">Your Cart</h3><button class="modal-close" style="position:static;" id="cartClose">×</button></div>
+  <div class="cart-body" id="cartBody"></div>
+  <div class="cart-foot">
+    <div class="fulfill-toggle" id="cartFulfill"><button class="active" data-mode="Pickup">Pickup</button><button data-mode="Delivery">Delivery</button></div>
+    <p style="font-size:0.78rem; color:var(--muted); margin-bottom:10px;">Estimated ready: <span id="estReadyDate"></span></p>
+    <textarea class="gift-msg" id="giftMessage" placeholder="Add a gift message (optional)"></textarea>
+    <div class="coupon-row" style="margin-top:12px;"><input type="text" id="couponInput" placeholder="Coupon code (try FRESH10)"><button class="btn btn-outline btn-sm" id="applyCoupon">Apply</button></div>
+    <div id="couponMsg" style="font-size:0.78rem; margin-bottom:8px;"></div>
+    <div class="summary-line"><span>Subtotal</span><span id="sumSubtotal">$0.00</span></div>
+    <div class="summary-line"><span>Discount</span><span id="sumDiscount">-$0.00</span></div>
+    <div class="summary-line"><span>Delivery Fee</span><span id="sumDelivery">$0.00</span></div>
+    <div class="summary-line total"><span>Total</span><span id="sumTotal">$0.00</span></div>
+    <button class="btn btn-primary btn-block" id="checkoutBtn" style="margin-top:14px;">Place Order</button>
+  </div>
+</div>
+
+<!-- Nutrition modal -->
+<div class="modal-overlay" id="nutritionModal">
+  <div class="modal-box">
+    <button class="modal-close" id="nutritionClose">×</button>
+    <h3 id="nutritionTitle" style="font-size:1.2rem;">Product</h3>
+    <div id="nutritionBody" style="margin-top:14px; font-size:0.9rem; color:var(--espresso-70);"></div>
+  </div>
+</div>
+
+<!-- Order tracker modal -->
+<div class="modal-overlay" id="trackerModal">
+  <div class="modal-box">
+    <button class="modal-close" id="trackerClose">×</button>
+    <p class="eyebrow">ORDER TRACKING DEMO</p>
+    <h3 style="font-size:1.2rem; margin-top:8px;">Order #<span id="orderNum">GC-1042</span></h3>
+    <div class="tracker-steps" id="trackerSteps"></div>
+    <button class="btn btn-outline btn-block" id="trackerReset" style="margin-top:10px;">Start a New Order</button>
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="modal-overlay" id="lightbox">
+  <div class="modal-box" style="max-width:520px; text-align:center;">
+    <button class="modal-close" id="lightboxClose">×</button>
+    <div id="lightboxContent" style="width:100%; aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; font-size:4rem; background:linear-gradient(150deg,#F0DCB0,#C98A2C); border-radius:12px;">🍰</div>
+  </div>
+</div>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ---------- Dark mode ---------- */
+const themeToggle = document.getElementById('themeToggle');
+function applyTheme(t){ document.documentElement.setAttribute('data-theme', t); themeToggle.textContent = t==='dark' ? '☀️' : '🌙'; localStorage.setItem('gc-theme', t); }
+applyTheme(localStorage.getItem('gc-theme') || 'light');
+themeToggle.addEventListener('click', () => applyTheme(document.documentElement.getAttribute('data-theme')==='dark' ? 'light' : 'dark'));
+
+/* ---------- Sticky nav + scroll-to-top ---------- */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('solid', window.scrollY > 40);
+  document.getElementById('fabTop').classList.toggle('show', window.scrollY > 500);
+});
+document.getElementById('fabTop').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+/* ---------- Reveal on scroll + counters ---------- */
+const io = new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }); }, {threshold:0.15});
+document.querySelectorAll('.reveal, .stat-card').forEach(el => io.observe(el));
+document.querySelectorAll('.stat-num').forEach(el => {
+  const target = parseInt(el.dataset.count,10); let started=false;
+  new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting && !started){ started=true; let cur=0; const step=Math.max(1,Math.floor(target/60));
+    const t=setInterval(()=>{ cur+=step; if(cur>=target){cur=target; clearInterval(t);} el.textContent=cur.toLocaleString()+'+'; },20); } }); },{threshold:0.3}).observe(el);
+});
+
+/* ---------- Hero baked-at time ---------- */
+(function(){ const now=new Date(); const mins= now.getMinutes()<30?0:30; const h= now.getHours()%12||12; const ampm= now.getHours()>=12?'PM':'AM';
+  document.getElementById('heroTime').textContent = h+':'+(mins===0?'00':'30')+' '+ampm; })();
+
+/* ---------- Flash sale countdown ---------- */
+let flashSeconds = 45*60;
+setInterval(()=>{ flashSeconds = flashSeconds>0 ? flashSeconds-1 : 45*60; const h=Math.floor(flashSeconds/3600), m=Math.floor((flashSeconds%3600)/60), s=flashSeconds%60;
+  document.getElementById('flashCountdown').textContent = String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0'); },1000);
+
+/* ---------- Oven board ---------- */
+const ovenItems = [
+  {name:'Sourdough Loaf', time:'6:10 AM', status:'hot'}, {name:'Butter Croissants', time:'6:45 AM', status:'hot'},
+  {name:'Coconut Bread', time:'7:00 AM', status:'low'}, {name:'Guava Danish', time:'7:20 AM', status:'hot'},
+  {name:'Banana Muffins', time:'7:30 AM', status:'soldout'}, {name:'Cheese Rolls', time:'8:00 AM', status:'low'},
+];
+const pillLabel = {hot:'Fresh Now', low:'Selling Fast', soldout:'Sold Out'};
+document.getElementById('ovenList').innerHTML = ovenItems.map(i=>`<div class="oven-item"><div><div class="oven-item-name">${i.name}</div><div class="oven-item-time">Baked ${i.time}</div></div><span class="oven-pill ${i.status}">${pillLabel[i.status]}</span></div>`).join('');
+let ovenSeconds = 18*60+42;
+setInterval(()=>{ ovenSeconds = ovenSeconds>0 ? ovenSeconds-1 : 25*60; const m=Math.floor(ovenSeconds/60), s=ovenSeconds%60;
+  document.getElementById('ovenCountdown').textContent = String(m).padStart(2,'0')+':'+String(s).padStart(2,'0'); },1000);
+
+/* ---------- Product data ---------- */
+const products = [
+  {id:'sourdough', name:'Artisan Sourdough', cat:'bread', price:8, cal:210, desc:'Naturally leavened, 24hr proof, crisp crust.', icon:'🍞', avail:'In Stock', stock:22, tags:['vegan','nut-free'], allergens:'Contains gluten. Dairy-free, nut-free.'},
+  {id:'croissant', name:'Butter Croissant', cat:'pastry', price:4.5, cal:280, desc:'Laminated 27 times for maximum flake.', icon:'🥐', avail:'In Stock', stock:16, tags:['nut-free'], allergens:'Contains gluten, dairy. Nut-free.'},
+  {id:'danish', name:'Almond Danish', cat:'pastry', price:5, cal:320, desc:'Frangipane center, toasted almond top.', icon:'🥮', avail:'Limited', stock:4, tags:[], allergens:'Contains gluten, dairy, tree nuts.'},
+  {id:'muffin', name:'Blueberry Muffin', cat:'pastry', price:4, cal:290, desc:'Loaded with real blueberries, not flavoring.', icon:'🧁', avail:'In Stock', stock:19, tags:['nut-free'], allergens:'Contains gluten, dairy, egg. Nut-free.'},
+  {id:'cookie1', name:'Chocolate Chip Cookie', cat:'cookie', price:2.5, cal:180, desc:'Crisp edge, gooey center, sea salt finish.', icon:'🍪', avail:'In Stock', stock:30, tags:['nut-free'], allergens:'Contains gluten, dairy. Nut-free.'},
+  {id:'cheesecake', name:'Classic Cheesecake Slice', cat:'cake', price:6.5, cal:410, desc:'Baked New York style, graham crust.', icon:'🍰', avail:'In Stock', stock:11, tags:['nut-free'], allergens:'Contains gluten, dairy, egg. Nut-free.'},
+  {id:'bdayslice', name:'Signature Birthday Slice', cat:'cake', price:5.5, cal:380, desc:'Vanilla sponge, buttercream, sprinkles.', icon:'🎂', avail:'In Stock', stock:14, tags:['nut-free'], allergens:'Contains gluten, dairy, egg. Nut-free.'},
+  {id:'coconutbread', name:'Coconut Bread Loaf', cat:'bread', price:7, cal:260, desc:'Island classic, sweet and dense.', icon:'🍞', avail:'Limited', stock:5, tags:['vegan','nut-free'], allergens:'Contains gluten. Dairy-free, nut-free.'},
+  {id:'cookie2', name:'Oatmeal Raisin Cookie', cat:'cookie', price:2.5, cal:170, desc:'Chewy, spiced, made with rolled oats.', icon:'🍪', avail:'In Stock', stock:26, tags:['nut-free'], allergens:'Contains gluten, dairy. Nut-free.'},
+  {id:'guavapuff', name:'Guava Pastry Puff', cat:'pastry', price:4.5, cal:300, desc:'Flaky pastry, real guava filling.', icon:'🥮', avail:'In Stock', stock:13, tags:['nut-free'], allergens:'Contains gluten, dairy. Nut-free.'},
+  {id:'gfbrownie', name:'Gluten-Free Brownie', cat:'cookie', price:5, cal:340, desc:'Fudgy, rich, made with almond flour blend.', icon:'🍫', avail:'In Stock', stock:9, tags:['gluten-free'], allergens:'Contains dairy, egg, tree nuts. Gluten-free.'},
+  {id:'veganbanana', name:'Vegan Banana Bread', cat:'bread', price:6, cal:230, desc:'Moist banana loaf, no dairy or eggs.', icon:'🍞', avail:'In Stock', stock:8, tags:['vegan','dairy-free','nut-free'], allergens:'Contains gluten. Dairy-free, egg-free, nut-free.'},
+];
+const productGrid = document.getElementById('productGrid');
+let activeCat='all', searchTerm='', sortMode='default', activeTags=[], maxPrice=10, showFavOnly=false;
+let favorites = JSON.parse(localStorage.getItem('gc-favs')||'[]');
+let recentlyViewed = JSON.parse(localStorage.getItem('gc-recent')||'[]');
+
+function renderRecentlyViewed(){
+  const el = document.getElementById('rvStrip');
+  if(recentlyViewed.length===0){ el.innerHTML = '<p style="color:var(--muted); font-size:0.85rem;">Click "Quick View" on any item to see it here.</p>'; return; }
+  el.innerHTML = recentlyViewed.map(id=>{ const p=products.find(x=>x.id===id); if(!p) return ''; return `<div class="rv-card"><div class="ic">${p.icon}</div>${p.name}</div>`; }).join('');
+}
+renderRecentlyViewed();
+
+function renderProducts(){
+  let list = products.filter(p =>
+    (activeCat==='all' || p.cat===activeCat) &&
+    p.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
+    p.price <= maxPrice &&
+    activeTags.every(t => p.tags.includes(t)) &&
+    (!showFavOnly || favorites.includes(p.id))
+  );
+  if(sortMode==='low') list = [...list].sort((a,b)=>a.price-b.price);
+  if(sortMode==='high') list = [...list].sort((a,b)=>b.price-a.price);
+  productGrid.innerHTML = list.map(p => {
+    const stockNote = p.stock < 6 ? `<span class="stock-note low">Only ${p.stock} left today</span>` : `<span class="stock-note ok">In stock</span>`;
+    const isFav = favorites.includes(p.id);
+    return `
+    <div class="product-card">
+      <div class="product-thumb">
+        <span class="avail-badge">${p.avail}</span>
+        <button class="fav-btn" data-id="${p.id}" aria-label="Toggle favorite">${isFav ? '♥' : '♡'}</button>
+        ${p.icon}
+      </div>
+      <div class="product-body">
+        <h4>${p.name}</h4>
+        <p class="product-desc">${p.desc}</p>
+        <div class="product-tags">${p.tags.map(t=>`<span class="tag-pill">${t}</span>`).join('')}</div>
+        <div class="product-meta"><span class="product-price">$${p.price.toFixed(2)}</span><span class="product-cal">${p.cal} cal</span></div>
+        ${stockNote}
+        <div class="product-actions">
+          <button class="btn btn-primary btn-sm add-to-cart" style="flex:1; justify-content:center;" data-name="${p.name}" data-price="${p.price}" data-icon="${p.icon}">Add to Cart</button>
+          <button class="btn btn-outline btn-sm quick-view" data-id="${p.id}">Quick View</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('') || '<p style="color:var(--muted);">No items match your filters.</p>';
+}
+renderProducts();
+
+document.getElementById('filterTabs').addEventListener('click', e=>{ if(!e.target.matches('.filter-tab')) return;
+  document.querySelectorAll('#filterTabs .filter-tab').forEach(b=>b.classList.remove('active')); e.target.classList.add('active'); activeCat=e.target.dataset.cat; renderProducts(); });
+document.getElementById('menuSearch').addEventListener('input', e=>{ searchTerm=e.target.value; renderProducts(); });
+document.getElementById('menuSort').addEventListener('change', e=>{ sortMode=e.target.value; renderProducts(); });
+document.getElementById('favToggle').addEventListener('click', e=>{ showFavOnly=!showFavOnly; e.target.classList.toggle('active', showFavOnly); renderProducts(); });
+document.querySelectorAll('.adv-filters input[type="checkbox"]').forEach(cb=>{
+  cb.addEventListener('change', ()=>{ const t=cb.dataset.tag; if(cb.checked) activeTags.push(t); else activeTags=activeTags.filter(x=>x!==t); renderProducts(); });
+});
+const priceRange = document.getElementById('priceRange');
+priceRange.addEventListener('input', ()=>{ maxPrice=parseFloat(priceRange.value); document.getElementById('priceRangeVal').textContent='$'+maxPrice.toFixed(2); renderProducts(); });
+
+productGrid.addEventListener('click', e=>{
+  if(e.target.matches('.fav-btn')){
+    const id=e.target.dataset.id;
+    favorites = favorites.includes(id) ? favorites.filter(x=>x!==id) : [...favorites, id];
+    localStorage.setItem('gc-favs', JSON.stringify(favorites));
+    renderProducts();
+  }
+  if(e.target.matches('.quick-view')){
+    const p = products.find(x=>x.id===e.target.dataset.id);
+    recentlyViewed = [p.id, ...recentlyViewed.filter(x=>x!==p.id)].slice(0,4);
+    localStorage.setItem('gc-recent', JSON.stringify(recentlyViewed));
+    renderRecentlyViewed();
+    document.getElementById('nutritionTitle').textContent = p.name;
+    document.getElementById('nutritionBody').innerHTML = `<p><strong>Calories:</strong> ${p.cal} kcal</p><p style="margin-top:8px;"><strong>Allergens:</strong> ${p.allergens}</p><p style="margin-top:8px;"><strong>Price:</strong> $${p.price.toFixed(2)}</p>`;
+    document.getElementById('nutritionModal').classList.add('open');
+  }
+});
+document.getElementById('nutritionClose').addEventListener('click', ()=>document.getElementById('nutritionModal').classList.remove('open'));
+
+/* ---------- Cart ---------- */
+let cart = JSON.parse(localStorage.getItem('gc-cart')||'[]');
+function saveCart(){ localStorage.setItem('gc-cart', JSON.stringify(cart)); renderCart(); }
+function addToCart(name, price, icon){
+  const existing = cart.find(i=>i.name===name);
+  if(existing) existing.qty++; else cart.push({name, price:parseFloat(price), icon, qty:1});
+  saveCart();
+  openCart();
+}
+document.addEventListener('click', e=>{
+  if(e.target.matches('.add-to-cart')){ addToCart(e.target.dataset.name, e.target.dataset.price, e.target.dataset.icon); }
+});
+document.getElementById('estAddCart').addEventListener('click', ()=>{
+  const price = document.getElementById('estPrice').textContent.replace('$','');
+  const sizeLabel = document.querySelector('[data-group="size"] .chip.active').dataset.value;
+  addToCart('Custom Cake ('+sizeLabel+')', price, '🎂');
+});
+
+let couponApplied = null, fulfillMode = 'Pickup';
+function renderCart(){
+  document.getElementById('cartCount').textContent = cart.reduce((s,i)=>s+i.qty,0);
+  const body = document.getElementById('cartBody');
+  body.innerHTML = cart.length ? cart.map((item,idx)=>`
+    <div class="cart-line">
+      <span class="ic">${item.icon}</span>
+      <div style="flex:1;">
+        <div style="font-weight:600; font-size:0.9rem;">${item.name}</div>
+        <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--cinnamon-dark);">$${item.price.toFixed(2)}</div>
+        <div class="qty-ctrl"><button data-idx="${idx}" data-act="dec">−</button><span>${item.qty}</span><button data-idx="${idx}" data-act="inc">+</button><button data-idx="${idx}" data-act="rem" style="margin-left:8px; color:var(--cinnamon);">Remove</button></div>
+      </div>
+    </div>`).join('') : '<p style="color:var(--muted); font-size:0.9rem;">Your cart is empty. Add something fresh!</p>';
+
+  const subtotal = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const discount = couponApplied ? subtotal*couponApplied : 0;
+  const deliveryFee = fulfillMode==='Delivery' ? 15 : 0;
+  const total = subtotal - discount + deliveryFee;
+  document.getElementById('sumSubtotal').textContent = '$'+subtotal.toFixed(2);
+  document.getElementById('sumDiscount').textContent = '-$'+discount.toFixed(2);
+  document.getElementById('sumDelivery').textContent = '$'+deliveryFee.toFixed(2);
+  document.getElementById('sumTotal').textContent = '$'+total.toFixed(2);
+
+  const readyDate = new Date(); readyDate.setDate(readyDate.getDate()+2);
+  document.getElementById('estReadyDate').textContent = readyDate.toLocaleDateString(undefined,{weekday:'short', month:'short', day:'numeric'});
+}
+renderCart();
+
+document.getElementById('cartBody').addEventListener('click', e=>{
+  if(!e.target.dataset.act) return;
+  const idx = parseInt(e.target.dataset.idx,10); const act = e.target.dataset.act;
+  if(act==='inc') cart[idx].qty++;
+  if(act==='dec') cart[idx].qty = Math.max(1, cart[idx].qty-1);
+  if(act==='rem') cart.splice(idx,1);
+  saveCart();
+});
+document.getElementById('cartFulfill').addEventListener('click', e=>{
+  if(!e.target.matches('button')) return;
+  document.querySelectorAll('#cartFulfill button').forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active'); fulfillMode = e.target.dataset.mode; renderCart();
+});
+document.getElementById('applyCoupon').addEventListener('click', ()=>{
+  const code = document.getElementById('couponInput').value.trim().toUpperCase();
+  const msg = document.getElementById('couponMsg');
+  if(code==='FRESH10'){ couponApplied=0.10; msg.textContent='FRESH10 applied — 10% off!'; msg.style.color='#5B8A5B'; }
+  else if(code==='HOLIDAY15'){ couponApplied=0.15; msg.textContent='HOLIDAY15 applied — 15% off!'; msg.style.color='#5B8A5B'; }
+  else { couponApplied=null; msg.textContent='Invalid code.'; msg.style.color='var(--cinnamon)'; }
+  renderCart();
+});
+
+function openCart(){ document.getElementById('cartDrawer').classList.add('open'); document.getElementById('cartOverlay').classList.add('open'); }
+function closeCart(){ document.getElementById('cartDrawer').classList.remove('open'); document.getElementById('cartOverlay').classList.remove('open'); }
+document.getElementById('cartToggle').addEventListener('click', openCart);
+document.getElementById('fabOrder').addEventListener('click', openCart);
+document.getElementById('cartClose').addEventListener('click', closeCart);
+document.getElementById('cartOverlay').addEventListener('click', closeCart);
+
+/* ---------- Checkout -> order tracker ---------- */
+const trackerStepsData = [
+  {name:'Order Placed', desc:'We\\'ve received your order.'},
+  {name:'Preparing', desc:'Ingredients are being measured and prepped.'},
+  {name:'Baking', desc:'Your order is in the oven.'},
+  {name:'Quality Check', desc:'Final decoration and packaging.'},
+  {name:'Ready', desc:'Ready for pickup or out for delivery.'},
+];
+let trackerIndex = 0, trackerTimer = null;
+function renderTracker(){
+  document.getElementById('trackerSteps').innerHTML = trackerStepsData.map((s,i)=>{
+    const cls = i < trackerIndex ? 'done' : (i===trackerIndex ? 'active' : '');
+    const dotContent = i < trackerIndex ? '✓' : (i+1);
+    return `<div class="tstep ${cls}"><div class="dot">${dotContent}</div><div><h5>${s.name}</h5><p>${s.desc}</p></div></div>`;
+  }).join('');
+}
+document.getElementById('checkoutBtn').addEventListener('click', ()=>{
+  if(cart.length===0){ alert('Your cart is empty.'); return; }
+  document.getElementById('orderNum').textContent = 'GC-' + Math.floor(1000+Math.random()*9000);
+  trackerIndex = 0; renderTracker();
+  closeCart();
+  document.getElementById('trackerModal').classList.add('open');
+  clearInterval(trackerTimer);
+  trackerTimer = setInterval(()=>{ if(trackerIndex < trackerStepsData.length-1){ trackerIndex++; renderTracker(); } else clearInterval(trackerTimer); }, 2200);
+  cart = []; saveCart();
+});
+document.getElementById('trackerClose').addEventListener('click', ()=>{ document.getElementById('trackerModal').classList.remove('open'); clearInterval(trackerTimer); });
+document.getElementById('trackerReset').addEventListener('click', ()=>{ document.getElementById('trackerModal').classList.remove('open'); clearInterval(trackerTimer); });
+
+/* ---------- Cake estimator ---------- */
+function updateEstimate(){
+  const sizePrice = document.querySelector('[data-group="size"] .chip.active').dataset.price;
+  const flavorPrice = document.querySelector('[data-group="flavor"] .chip.active').dataset.price;
+  const fillingPrice = document.querySelector('[data-group="filling"] .chip.active').dataset.price;
+  const icingPrice = document.querySelector('[data-group="icing"] .chip.active').dataset.price;
+  const modePrice = document.querySelector('.est-toggle .active').dataset.price;
+  const sum = [sizePrice, flavorPrice, fillingPrice, icingPrice, modePrice].reduce((a,b)=>a+parseFloat(b),0);
+  document.getElementById('estPrice').textContent = '$' + sum.toFixed(0);
+
+  const sizeLabel = document.querySelector('[data-group="size"] .chip.active').dataset.value;
+  const flavorLabel = document.querySelector('[data-group="flavor"] .chip.active').dataset.value;
+  const fillingLabel = document.querySelector('[data-group="filling"] .chip.active').dataset.value;
+  const icingLabel = document.querySelector('[data-group="icing"] .chip.active').dataset.value;
+  const modeLabel = document.querySelector('.est-toggle .active').dataset.mode;
+
+  document.getElementById('estSummary').innerHTML = `
+    <div><span>Size</span><span>${sizeLabel}</span></div>
+    <div><span>Flavor</span><span>${flavorLabel}</span></div>
+    <div><span>Filling</span><span>${fillingLabel}</span></div>
+    <div><span>Icing</span><span>${icingLabel}</span></div>
+    <div><span>Fulfillment</span><span>${modeLabel}</span></div>`;
+
+  const sizeVal = parseInt(document.querySelector('[data-group="size"] .chip.active').textContent,10);
+  const scale = {6:0.8, 8:0.9, 10:1.0, 12:1.12}[sizeVal] || 1;
+  document.getElementById('cakeSvg').style.transform = `scale(${scale})`;
+  const icingColors = {'Smooth Buttercream':'#E9C68B','Fondant':'#F7ECD8','Fresh Flowers':'#E9C68B','Gold Leaf':'#D9A63E'};
+  document.getElementById('tier1').setAttribute('fill', icingColors[icingLabel] || '#E9C68B');
+}
+document.querySelectorAll('.chip-row').forEach(row=>{
+  row.addEventListener('click', e=>{ if(!e.target.matches('.chip')) return; row.querySelectorAll('.chip').forEach(c=>c.classList.remove('active')); e.target.classList.add('active'); updateEstimate(); });
+});
+document.querySelector('.est-toggle').addEventListener('click', e=>{ if(!e.target.matches('button')) return;
+  document.querySelectorAll('.est-toggle button').forEach(b=>b.classList.remove('active')); e.target.classList.add('active'); updateEstimate(); });
+updateEstimate();
+
+/* ---------- Gallery ---------- */
+const galleryItems = [
+  {cat:'cakes', icon:'🎂', h:210}, {cat:'bread', icon:'🍞', h:170}, {cat:'events', icon:'💐', h:250},
+  {cat:'cakes', icon:'🧁', h:190}, {cat:'bread', icon:'🥖', h:220}, {cat:'events', icon:'🎉', h:180},
+  {cat:'cakes', icon:'🍰', h:200}, {cat:'bread', icon:'🥐', h:160}, {cat:'events', icon:'🥂', h:230},
+];
+function renderGallery(filter){
+  const list = galleryItems.filter(g=>filter==='all'||g.cat===filter);
+  document.getElementById('masonryGrid').innerHTML = list.map(g=>`<div class="masonry-item" data-icon="${g.icon}"><div class="ph" style="height:${g.h}px;">${g.icon}</div></div>`).join('');
+}
+renderGallery('all');
+document.getElementById('galleryFilters').addEventListener('click', e=>{ if(!e.target.matches('.filter-tab')) return;
+  document.querySelectorAll('#galleryFilters .filter-tab').forEach(b=>b.classList.remove('active')); e.target.classList.add('active'); renderGallery(e.target.dataset.gcat); });
+document.getElementById('masonryGrid').addEventListener('click', e=>{ const item=e.target.closest('.masonry-item'); if(!item) return;
+  document.getElementById('lightboxContent').textContent = item.dataset.icon; document.getElementById('lightbox').classList.add('open'); });
+document.getElementById('lightboxClose').addEventListener('click', ()=>document.getElementById('lightbox').classList.remove('open'));
+
+/* ---------- Seasonal slider ---------- */
+document.getElementById('seasonalPrev').addEventListener('click', ()=>document.getElementById('seasonalTrack').scrollBy({left:-200, behavior:'smooth'}));
+document.getElementById('seasonalNext').addEventListener('click', ()=>document.getElementById('seasonalTrack').scrollBy({left:200, behavior:'smooth'}));
+
+/* ---------- FAQ ---------- */
+document.querySelectorAll('.faq-item').forEach(item=>{
+  const q=item.querySelector('.faq-q'), a=item.querySelector('.faq-a');
+  q.addEventListener('click', ()=>{ const isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>{ i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight=null; });
+    if(!isOpen){ item.classList.add('open'); a.style.maxHeight=a.scrollHeight+'px'; } });
+});
+
+/* ---------- Loyalty / gift cards / birthday club / newsletter (mock confirmations) ---------- */
+document.getElementById('joinLoyalty').addEventListener('click', ()=>{ document.getElementById('loyaltyMsg').textContent = "You're in! You've been enrolled in Bronze tier — start earning points on your next order."; });
+let gcAmount = 25;
+document.getElementById('gcAmounts').addEventListener('click', e=>{ if(!e.target.matches('.gc-amt')) return;
+  document.querySelectorAll('.gc-amt').forEach(b=>b.classList.remove('active')); e.target.classList.add('active'); gcAmount=parseInt(e.target.dataset.amt,10); });
+document.getElementById('buyGiftCard').addEventListener('click', ()=>{ document.getElementById('giftMsg').textContent = `Demo only — a real $${gcAmount} gift card purchase would be processed here.`; });
+document.getElementById('bdayForm').addEventListener('submit', e=>{ e.preventDefault(); document.getElementById('bdayMsg').textContent = "Welcome to the Birthday Club! Watch your inbox during your birthday month."; });
+document.getElementById('newsletterForm').addEventListener('submit', e=>{ e.preventDefault(); alert("Thanks — you're on the list! (demo only)"); e.target.reset(); });
+
+/* ---------- Mobile nav toggle ---------- */
+document.querySelector('.nav-toggle').addEventListener('click', ()=>{
+  const links = document.querySelector('.nav-links');
+  const isShown = links.style.display === 'flex';
+  links.style.display = isShown ? 'none' : 'flex';
+  links.style.cssText += isShown ? '' : 'position:absolute; top:100%; left:0; right:0; background:var(--crust-white); flex-direction:column; padding:20px 24px; box-shadow:var(--shadow-soft);';
+});
+</script>
+</body>
+</html>
