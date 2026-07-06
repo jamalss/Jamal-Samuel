@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Golden Crust Artisan Bakery — Fresh Baked, Island Delivered</title>
+<meta name="description" content="Golden Crust Artisan Bakery bakes fresh bread, pastries and custom cakes every morning and delivers island-wide. Order today by WhatsApp or online.">
+<meta property="og:title" content="Golden Crust Artisan Bakery">
+<meta property="og:description" content="Freshly baked. Made with love. Delivered across the island.">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "name": "Golden Crust Artisan Bakery",
+  "servesCuisine": "Bakery, Caribbean",
+  "priceRange": "$$",
+  "telephone": "+1-758-000-0000",
+  "acceptsReservations": "false"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Karla:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   DESIGN TOKENS
+   Palette: baked-goods warm, not the generic
+   cream+terracotta AI default. Deeper amber/
+   molasses instead of dusty clay.
+   ============================================ */
+:root{
+  --crust-50:  #FBF3E7;   /* warm eggshell background */
+  --crust-100: #F5E6D0;   /* card / section alt bg */
+  --crust-white: #FFFDF8;
+  --espresso: #3B2416;    /* primary dark / text */
+  --espresso-70: #5A4230;
+  --muted: #6B5744;       /* secondary text */
+  --gold: #C98A2C;        /* baked-gold accent */
+  --gold-dark: #A8701E;
+  --cinnamon: #B5482B;    /* burnt-cinnamon, sparing use for urgency/CTA */
+  --cinnamon-dark: #8F3620;
+  --line: #E4D3B8;
+  --shadow-soft: 0 8px 30px -12px rgba(59,36,22,0.25);
+  --shadow-lift: 0 20px 45px -18px rgba(59,36,22,0.35);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 28px;
+  --font-display: "Fraunces", serif;
+  --font-body: "Karla", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+}
+body{
+  margin:0;
+  font-family:var(--font-body);
+  color:var(--espresso);
+  background:var(--crust-50);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; display:block;}
+a{color:inherit;}
+h1,h2,h3,h4{font-family:var(--font-display); margin:0; line-height:1.1; color:var(--espresso);}
+p{margin:0;}
+button{font-family:inherit; cursor:pointer;}
+:focus-visible{outline:3px solid var(--gold-dark); outline-offset:2px;}
+.container{max-width:1180px; margin:0 auto; padding:0 24px;}
+.eyebrow{
+  font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.12em;
+  font-size:0.72rem; color:var(--cinnamon-dark); font-weight:500;
+}
+.section{padding:96px 0;}
+.section-head{max-width:640px; margin-bottom:48px;}
+.section-head h2{font-size:clamp(1.8rem,4vw,2.6rem); font-weight:600; margin-top:10px;}
+.section-head p{margin-top:14px; color:var(--muted); font-size:1.05rem;}
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:14px 28px; border-radius:100px; font-weight:600; font-size:0.95rem;
+  border:1px solid transparent; text-decoration:none; transition:transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn:hover{transform:translateY(-2px);}
+.btn-primary{background:var(--cinnamon); color:#fff; box-shadow:var(--shadow-soft);}
+.btn-primary:hover{background:var(--cinnamon-dark); box-shadow:var(--shadow-lift);}
+.btn-outline{background:transparent; border-color:var(--espresso); color:var(--espresso);}
+.btn-outline:hover{background:var(--espresso); color:var(--crust-white);}
+.btn-gold{background:var(--gold); color:var(--espresso);}
+.btn-gold:hover{background:var(--gold-dark);}
+.btn-sm{padding:9px 18px; font-size:0.82rem;}
+
+/* ---------- Demo banner ---------- */
+.demo-banner{
+  background:var(--espresso); color:var(--crust-100); text-align:center;
+  font-family:var(--font-mono); font-size:0.78rem; padding:9px 16px; letter-spacing:0.02em;
+}
+.demo-banner strong{color:var(--gold);}
+
+/* ---------- Nav ---------- */
+header{position:sticky; top:0; z-index:100;}
+.navbar{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 24px; background:transparent; transition:background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+}
+.navbar.solid{background:rgba(251,243,231,0.96); backdrop-filter:blur(8px); box-shadow:0 2px 20px rgba(59,36,22,0.08); padding:12px 24px;}
+.nav-inner{max-width:1180px; margin:0 auto; width:100%; display:flex; align-items:center; justify-content:space-between;}
+.logo{font-family:var(--font-display); font-weight:700; font-size:1.35rem; display:flex; align-items:center; gap:8px; text-decoration:none;}
+.logo span{color:var(--cinnamon);}
+.nav-links{display:flex; gap:26px; list-style:none; margin:0; padding:0;}
+.nav-links a{text-decoration:none; font-weight:500; font-size:0.92rem; color:var(--espresso-70); position:relative;}
+.nav-links a::after{content:""; position:absolute; left:0; bottom:-6px; height:2px; width:0; background:var(--cinnamon); transition:width 0.2s ease;}
+.nav-links a:hover::after{width:100%;}
+.nav-cta{display:flex; align-items:center; gap:14px;}
+.nav-toggle{display:none; background:none; border:none; font-size:1.6rem; color:var(--espresso);}
+@media (max-width:900px){
+  .nav-links{display:none;}
+  .nav-toggle{display:block;}
+}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative; padding:70px 24px 60px; overflow:hidden;
+  background:linear-gradient(180deg, var(--crust-50) 0%, var(--crust-100) 100%);
+}
+.hero-inner{max-width:1180px; margin:0 auto; display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;}
+@media (max-width:900px){.hero-inner{grid-template-columns:1fr;}}
+.hero-eyebrow{opacity:0; animation:riseIn 0.7s ease forwards; animation-delay:0.05s;}
+.hero h1{font-size:clamp(2.4rem,5.2vw,3.6rem); font-weight:600; margin-top:14px; opacity:0; animation:riseIn 0.8s ease forwards; animation-delay:0.15s;}
+.hero-sub{margin-top:20px; font-size:1.1rem; color:var(--muted); max-width:520px; opacity:0; animation:riseIn 0.8s ease forwards; animation-delay:0.3s;}
+.hero-ctas{margin-top:32px; display:flex; gap:14px; flex-wrap:wrap; opacity:0; animation:riseIn 0.8s ease forwards; animation-delay:0.45s;}
+@keyframes riseIn{from{opacity:0; transform:translateY(18px);} to{opacity:1; transform:translateY(0);}}
+.hero-art{position:relative; opacity:0; animation:riseIn 0.9s ease forwards; animation-delay:0.2s;}
+.hero-art-frame{
+  border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-lift);
+  aspect-ratio:4/5; background:linear-gradient(160deg,#E9C68B,#C98A2C 60%,#8F5E1F);
+  display:flex; align-items:center; justify-content:center; position:relative;
+}
+.hero-art-frame::before{content:"🥐"; font-size:6rem; filter:drop-shadow(0 12px 18px rgba(0,0,0,0.25));}
+.hero-badge{
+  position:absolute; bottom:-22px; left:-22px; background:var(--crust-white); border-radius:var(--radius-md);
+  box-shadow:var(--shadow-lift); padding:16px 20px; font-family:var(--font-mono); font-size:0.8rem;
+}
+.hero-badge b{display:block; font-family:var(--font-display); font-size:1.3rem; color:var(--cinnamon-dark);}
+.stats-row{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:64px;}
+@media (max-width:750px){.stats-row{grid-template-columns:repeat(2,1fr);}}
+.stat-card{
+  background:var(--crust-white); border:1px solid var(--line); border-radius:var(--radius-md);
+  padding:22px 18px; text-align:center; opacity:0; transform:translateY(16px);
+}
+.stat-card.in{animation:riseIn 0.6s ease forwards;}
+.stat-num{font-family:var(--font-display); font-size:2rem; font-weight:600; color:var(--cinnamon);}
+.stat-label{font-size:0.8rem; color:var(--muted); margin-top:4px;}
+
+/* ---------- Trust strip ---------- */
+.trust-strip{background:var(--espresso); padding:26px 0;}
+.trust-row{display:flex; flex-wrap:wrap; gap:14px 34px; justify-content:center;}
+.trust-item{display:flex; align-items:center; gap:8px; color:var(--crust-100); font-size:0.85rem; font-weight:500;}
+.trust-item .dot{width:6px; height:6px; border-radius:50%; background:var(--gold);}
+
+/* ---------- About ---------- */
+.about-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:60px; align-items:center;}
+@media (max-width:900px){.about-grid{grid-template-columns:1fr;}}
+.about-img{
+  border-radius:var(--radius-lg); aspect-ratio:1/1.05; box-shadow:var(--shadow-soft);
+  background:linear-gradient(155deg,#F5E6D0,#C98A2C 75%); display:flex; align-items:center; justify-content:center;
+}
+.about-img::before{content:"🍞"; font-size:5rem;}
+.about-copy p{color:var(--muted); margin-bottom:16px; font-size:1.02rem;}
+.timeline{margin-top:32px; border-left:2px solid var(--line); padding-left:24px; display:flex; flex-direction:column; gap:22px;}
+.tl-item{position:relative;}
+.tl-item::before{content:""; position:absolute; left:-30px; top:4px; width:10px; height:10px; border-radius:50%; background:var(--cinnamon);}
+.tl-year{font-family:var(--font-mono); font-size:0.78rem; color:var(--cinnamon-dark); font-weight:500;}
+.tl-item h4{font-size:1.05rem; margin-top:4px;}
+.tl-item p{color:var(--muted); font-size:0.92rem; margin-top:4px;}
+
+/* ---------- Fresh Out of the Oven (signature board) ---------- */
+.oven-board{background:var(--espresso); border-radius:var(--radius-lg); padding:40px; color:var(--crust-100); position:relative; overflow:hidden;}
+.oven-board::after{content:""; position:absolute; inset:0; background:radial-gradient(circle at 85% 0%, rgba(201,138,44,0.18), transparent 55%); pointer-events:none;}
+.oven-head{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:16px; position:relative;}
+.oven-head h2{color:var(--crust-white);}
+.oven-clock{font-family:var(--font-mono); font-size:0.85rem; color:var(--gold); text-align:right;}
+.oven-clock b{display:block; font-size:1.1rem;}
+.oven-list{margin-top:28px; display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:14px; position:relative;}
+.oven-item{
+  background:rgba(255,253,248,0.06); border:1px solid rgba(255,253,248,0.14); border-radius:var(--radius-sm);
+  padding:16px; display:flex; justify-content:space-between; align-items:center; gap:10px;
+}
+.oven-item-name{font-weight:600; font-size:0.95rem;}
+.oven-item-time{font-family:var(--font-mono); font-size:0.72rem; color:#C9B79C; margin-top:3px;}
+.oven-pill{font-family:var(--font-mono); font-size:0.68rem; padding:5px 10px; border-radius:100px; white-space:nowrap;}
+.oven-pill.hot{background:var(--gold); color:var(--espresso);}
+.oven-pill.low{background:var(--cinnamon); color:#fff;}
+.oven-pill.soldout{background:rgba(255,253,248,0.12); color:#C9B79C;}
+
+/* ---------- Menu / Specials ---------- */
+.menu-controls{display:flex; flex-wrap:wrap; gap:12px; margin-bottom:34px; align-items:center; justify-content:space-between;}
+.filter-tabs{display:flex; gap:8px; flex-wrap:wrap;}
+.filter-tab{
+  padding:8px 16px; border-radius:100px; border:1px solid var(--line); background:var(--crust-white);
+  font-size:0.85rem; font-weight:600; color:var(--espresso-70);
+}
+.filter-tab.active{background:var(--espresso); color:var(--crust-white); border-color:var(--espresso);}
+.menu-search{
+  display:flex; align-items:center; gap:8px; background:var(--crust-white); border:1px solid var(--line);
+  border-radius:100px; padding:8px 16px; min-width:220px;
+}
+.menu-search input{border:none; background:transparent; outline:none; font-family:inherit; font-size:0.9rem; width:100%;}
+.menu-sort{padding:9px 14px; border-radius:100px; border:1px solid var(--line); background:var(--crust-white); font-family:inherit; font-size:0.85rem;}
+.product-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(255px,1fr)); gap:24px;}
+.product-card{
+  background:var(--crust-white); border:1px solid var(--line); border-radius:var(--radius-md); overflow:hidden;
+  box-shadow:var(--shadow-soft); transition:transform 0.25s ease, box-shadow 0.25s ease;
+}
+.product-card:hover{transform:translateY(-6px); box-shadow:var(--shadow-lift);}
+.product-thumb{aspect-ratio:4/3; background:linear-gradient(150deg,#F5E6D0,#DDAE5E); display:flex; align-items:center; justify-content:center; font-size:2.6rem; position:relative;}
+.fav-btn{position:absolute; top:10px; right:10px; background:rgba(255,253,248,0.85); border:none; border-radius:50%; width:34px; height:34px; font-size:1rem;}
+.avail-badge{position:absolute; top:10px; left:10px; font-family:var(--font-mono); font-size:0.65rem; padding:4px 9px; border-radius:100px; background:var(--gold); color:var(--espresso); font-weight:600;}
+.product-body{padding:18px;}
+.product-body h4{font-size:1.05rem;}
+.product-desc{color:var(--muted); font-size:0.85rem; margin-top:6px; min-height:34px;}
+.product-meta{display:flex; justify-content:space-between; align-items:center; margin-top:14px;}
+.product-price{font-family:var(--font-mono); font-weight:600; color:var(--cinnamon-dark); font-size:1.05rem;}
+.product-cal{font-size:0.72rem; color:var(--muted);}
+.product-actions{display:flex; gap:8px; margin-top:14px;}
+
+/* ---------- Featured Cakes ---------- */
+.cake-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:26px;}
+.cake-card{background:var(--crust-white); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-soft); border:1px solid var(--line);}
+.cake-img{aspect-ratio:16/10; background:linear-gradient(150deg,#F0DCB0,#C98A2C); display:flex; align-items:center; justify-content:center; font-size:2.6rem;}
+.cake-body{padding:20px;}
+.cake-body h4{font-size:1.15rem;}
+.cake-facts{display:flex; gap:14px; margin-top:10px; font-size:0.78rem; color:var(--muted); font-family:var(--font-mono);}
+.cake-price{margin-top:12px; font-family:var(--font-mono); font-weight:600; color:var(--cinnamon-dark);}
+
+/* ---------- Cake Estimator ---------- */
+.estimator{display:grid; grid-template-columns:1fr 0.85fr; gap:44px; align-items:start;}
+@media (max-width:940px){.estimator{grid-template-columns:1fr;}}
+.est-form{background:var(--crust-white); border-radius:var(--radius-lg); padding:32px; border:1px solid var(--line); box-shadow:var(--shadow-soft);}
+.est-field{margin-bottom:22px;}
+.est-field label{display:block; font-weight:600; font-size:0.9rem; margin-bottom:10px;}
+.chip-row{display:flex; flex-wrap:wrap; gap:8px;}
+.chip{padding:9px 15px; border-radius:100px; border:1px solid var(--line); background:var(--crust-50); font-size:0.83rem; font-weight:600;}
+.chip.active{background:var(--gold); border-color:var(--gold-dark); color:var(--espresso);}
+.est-field select, .est-field input[type="date"]{
+  width:100%; padding:11px 14px; border-radius:var(--radius-sm); border:1px solid var(--line); font-family:inherit; font-size:0.9rem; background:var(--crust-50);
+}
+.est-toggle{display:flex; gap:8px;}
+.est-toggle button{flex:1; padding:10px; border-radius:var(--radius-sm); border:1px solid var(--line); background:var(--crust-50); font-weight:600; font-size:0.85rem;}
+.est-toggle button.active{background:var(--espresso); color:var(--crust-white); border-color:var(--espresso);}
+.est-preview{position:sticky; top:110px; background:linear-gradient(160deg,var(--crust-100),var(--crust-50)); border-radius:var(--radius-lg); padding:34px; text-align:center; border:1px solid var(--line);}
+.cake-svg-wrap{height:210px; display:flex; align-items:flex-end; justify-content:center; margin-bottom:18px;}
+.est-price-label{font-family:var(--font-mono); font-size:0.75rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em;}
+.est-price{font-family:var(--font-display); font-size:2.6rem; font-weight:700; color:var(--cinnamon-dark); margin-top:6px;}
+.est-note{font-size:0.8rem; color:var(--muted); margin-top:8px;}
+.est-summary{text-align:left; margin-top:22px; border-top:1px solid var(--line); padding-top:18px; font-size:0.85rem; color:var(--espresso-70);}
+.est-summary div{display:flex; justify-content:space-between; padding:4px 0;}
+
+/* ---------- Wholesale ---------- */
+.wholesale{background:var(--crust-100); border-radius:var(--radius-lg); padding:52px; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;}
+@media (max-width:900px){.wholesale{grid-template-columns:1fr; padding:32px;}}
+.wholesale-list{list-style:none; margin:22px 0 0; padding:0; display:flex; flex-direction:column; gap:12px;}
+.wholesale-list li{display:flex; gap:10px; font-size:0.95rem; color:var(--espresso-70);}
+.wholesale-list li::before{content:"✓"; color:var(--gold-dark); font-weight:700;}
+.wholesale-card{background:var(--crust-white); border-radius:var(--radius-md); padding:28px; box-shadow:var(--shadow-soft);}
+.wholesale-card h4{font-size:1.05rem;}
+.wholesale-tiers{margin-top:16px; display:flex; flex-direction:column; gap:10px;}
+.wtier{display:flex; justify-content:space-between; font-size:0.85rem; padding:10px 0; border-bottom:1px dashed var(--line);}
+
+/* ---------- Reviews ---------- */
+.review-track{display:flex; gap:20px; overflow-x:auto; padding-bottom:12px; scroll-snap-type:x mandatory;}
+.review-card{
+  min-width:300px; scroll-snap-align:start; background:var(--crust-white); border:1px solid var(--line);
+  border-radius:var(--radius-md); padding:24px; box-shadow:var(--shadow-soft);
+}
+.stars{color:var(--gold-dark); letter-spacing:2px;}
+.review-card p{margin-top:12px; color:var(--espresso-70); font-size:0.92rem;}
+.reviewer{display:flex; align-items:center; gap:10px; margin-top:16px;}
+.reviewer-avatar{width:36px; height:36px; border-radius:50%; background:var(--gold); display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--espresso); font-size:0.9rem;}
+.reviewer-name{font-weight:600; font-size:0.88rem;}
+.reviewer-sub{font-size:0.75rem; color:var(--muted);}
+
+/* ---------- Gallery ---------- */
+.gallery-filters{display:flex; gap:8px; margin-bottom:22px; flex-wrap:wrap;}
+.masonry{column-count:3; column-gap:16px;}
+@media (max-width:900px){.masonry{column-count:2;}}
+@media (max-width:560px){.masonry{column-count:1;}}
+.masonry-item{break-inside:avoid; margin-bottom:16px; border-radius:var(--radius-md); overflow:hidden; cursor:zoom-in; position:relative;}
+.masonry-item .ph{width:100%; display:flex; align-items:center; justify-content:center; font-size:2.4rem; background:linear-gradient(150deg,#F0DCB0,#C98A2C);}
+.masonry-item:hover .ph{filter:brightness(0.85);}
+.lightbox{position:fixed; inset:0; background:rgba(59,36,22,0.9); display:none; align-items:center; justify-content:center; z-index:200;}
+.lightbox.open{display:flex;}
+.lightbox-inner{background:var(--crust-white); border-radius:var(--radius-md); padding:20px; max-width:80vw; max-height:80vh;}
+.lightbox-close{position:absolute; top:24px; right:32px; color:#fff; font-size:2rem; background:none; border:none;}
+
+/* ---------- FAQ ---------- */
+.faq-item{border-bottom:1px solid var(--line);}
+.faq-q{width:100%; text-align:left; background:none; border:none; padding:20px 0; display:flex; justify-content:space-between; align-items:center; font-weight:600; font-size:1rem;}
+.faq-q .icon{transition:transform 0.25s ease; color:var(--cinnamon);}
+.faq-item.open .icon{transform:rotate(45deg);}
+.faq-a{max-height:0; overflow:hidden; transition:max-height 0.3s ease;}
+.faq-a p{padding-bottom:18px; color:var(--muted); font-size:0.92rem; max-width:640px;}
+
+/* ---------- Contact ---------- */
+.contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:44px;}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr;}}
+.contact-info{display:flex; flex-direction:column; gap:18px;}
+.contact-row{display:flex; gap:14px; align-items:flex-start;}
+.contact-row .ic{font-size:1.3rem;}
+.map-ph{aspect-ratio:4/3; background:linear-gradient(150deg,var(--crust-100),var(--line)); border-radius:var(--radius-md); display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:0.9rem; font-family:var(--font-mono);}
+
+/* ---------- Floating buttons ---------- */
+.floating-stack{position:fixed; right:20px; bottom:20px; display:flex; flex-direction:column; gap:12px; z-index:150;}
+.fab{width:54px; height:54px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.4rem; box-shadow:var(--shadow-lift); border:none;}
+.fab-whatsapp{background:#25D366; color:#fff;}
+.fab-call{background:var(--espresso); color:#fff;}
+.fab-top{background:var(--crust-white); border:1px solid var(--line); opacity:0; pointer-events:none; transition:opacity 0.2s ease;}
+.fab-top.show{opacity:1; pointer-events:auto;}
+
+/* ---------- Footer ---------- */
+footer{background:var(--espresso); color:var(--crust-100); padding:64px 0 24px;}
+.footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:36px;}
+@media (max-width:800px){.footer-grid{grid-template-columns:1fr 1fr;}}
+footer h4{color:var(--crust-white); font-size:0.95rem; margin-bottom:14px;}
+footer ul{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:9px;}
+footer a{text-decoration:none; color:#C9B79C; font-size:0.88rem;}
+footer a:hover{color:var(--gold);}
+.newsletter-form{display:flex; gap:8px; margin-top:12px;}
+.newsletter-form input{flex:1; padding:11px 14px; border-radius:100px; border:none; font-family:inherit;}
+.newsletter-form button{padding:11px 18px; border-radius:100px; border:none; background:var(--gold); font-weight:700;}
+.footer-bottom{margin-top:48px; padding-top:24px; border-top:1px solid rgba(255,253,248,0.12); text-align:center; font-size:0.78rem; color:#A8927A;}
+
+.reveal{opacity:0; transform:translateY(24px); transition:opacity 0.7s ease, transform 0.7s ease;}
+.reveal.in{opacity:1; transform:translateY(0);}
+.sr-only{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0);}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">
+  <strong>Demo Website</strong> — Created to showcase what's possible for Caribbean bakeries. Your bakery would receive a fully customized version.
+</div>
+
+<header>
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="logo">🌾 Golden <span>Crust</span></a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#cakes">Cakes</a></li>
+        <li><a href="#estimator">Custom Orders</a></li>
+        <li><a href="#wholesale">Wholesale</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="#contact" class="btn btn-primary btn-sm">Order Fresh Today</a>
+        <button class="nav-toggle" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main id="home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow hero-eyebrow">GOLDEN CRUST ARTISAN BAKERY</p>
+        <h1>Fresh Bread. Beautiful Cakes.<br>Made Fresh Every Morning.</h1>
+        <p class="hero-sub">Every loaf and cake starts before sunrise — real butter, real flour, no shortcuts. Tell us what you're celebrating and we'll bake it right, delivered anywhere on the island.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-primary">Order Now</a>
+          <a href="#menu" class="btn btn-outline">View Today's Menu</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-art-frame"></div>
+        <div class="hero-badge">Baked fresh at<b id="heroTime">5:30 AM</b></div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="stats-row" id="statsRow">
+        <div class="stat-card"><div class="stat-num" data-count="15">0</div><div class="stat-label">Years Experience</div></div>
+        <div class="stat-card"><div class="stat-num" data-count="10000">0</div><div class="stat-label">Happy Customers</div></div>
+        <div class="stat-card"><div class="stat-num-text">Daily</div><div class="stat-label">Fresh Baking</div></div>
+        <div class="stat-card"><div class="stat-num-text">Island</div><div class="stat-label">Wide Delivery</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="trust-strip">
+    <div class="container trust-row">
+      <span class="trust-item"><span class="dot"></span>Fresh Daily</span>
+      <span class="trust-item"><span class="dot"></span>Locally Made</span>
+      <span class="trust-item"><span class="dot"></span>Premium Ingredients</span>
+      <span class="trust-item"><span class="dot"></span>Custom Cakes</span>
+      <span class="trust-item"><span class="dot"></span>Same-Day Pickup</span>
+      <span class="trust-item"><span class="dot"></span>Island Delivery</span>
+      <span class="trust-item"><span class="dot"></span>Food Safety Certified</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img reveal"></div>
+        <div class="about-copy reveal">
+          <p class="eyebrow">OUR STORY</p>
+          <h2>Made From Scratch. Never Mass Produced.</h2>
+          <p>Golden Crust started with one oven, one family, and a promise: nothing leaves this kitchen unless we'd serve it to our own. Fifteen years later that promise hasn't changed — every batch is still mixed, shaped, and baked by hand, every single morning.</p>
+          <p>Customers keep coming back because they can taste the difference: real butter instead of margarine, real fruit instead of flavoring, and bakers who've been perfecting these recipes for over a decade.</p>
+          <div class="timeline">
+            <div class="tl-item"><span class="tl-year">2011</span><h4>One oven, one neighborhood</h4><p>Golden Crust opens as a two-person kitchen serving fresh bread to the block.</p></div>
+            <div class="tl-item"><span class="tl-year">2016</span><h4>Custom cakes launch</h4><p>Word spreads after a wedding cake order — custom celebration cakes become a core offering.</p></div>
+            <div class="tl-item"><span class="tl-year">2021</span><h4>Island-wide delivery</h4><p>Golden Crust begins delivering fresh orders across the island, same-day where possible.</p></div>
+            <div class="tl-item"><span class="tl-year">Today</span><h4>10,000+ customers served</h4><p>Still family-run, still baking every order fresh, every morning.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FRESH OUT OF THE OVEN (signature live board) -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="oven-board reveal">
+        <div class="oven-head">
+          <div>
+            <p class="eyebrow" style="color:#C9B79C;">LIVE FROM THE KITCHEN</p>
+            <h2>Fresh Out of the Oven</h2>
+          </div>
+          <div class="oven-clock">Next batch in<b id="ovenCountdown">18:42</b></div>
+        </div>
+        <div class="oven-list" id="ovenList"><!-- populated by JS --></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU / SPECIALS -->
+  <section class="section" id="menu">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">TODAY'S SPECIALS</p>
+        <h2>Your Celebration Deserves Something Special</h2>
+        <p>Browse what's baking today. Filter by category, search by name, or sort by price — everything here can be ordered for pickup or island delivery.</p>
+      </div>
+      <div class="menu-controls">
+        <div class="filter-tabs" id="filterTabs">
+          <button class="filter-tab active" data-cat="all">All</button>
+          <button class="filter-tab" data-cat="bread">Bread</button>
+          <button class="filter-tab" data-cat="pastry">Pastries</button>
+          <button class="filter-tab" data-cat="cake">Cakes</button>
+          <button class="filter-tab" data-cat="cookie">Cookies</button>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <div class="menu-search"><span aria-hidden="true">🔍</span><input type="text" id="menuSearch" placeholder="Search the menu..." aria-label="Search menu"></div>
+          <select class="menu-sort" id="menuSort" aria-label="Sort products">
+            <option value="default">Sort: Featured</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+          </select>
+        </div>
+      </div>
+      <div class="product-grid" id="productGrid"><!-- populated by JS --></div>
+    </div>
+  </section>
+
+  <!-- FEATURED CAKES -->
+  <section class="section" id="cakes" style="background:var(--crust-100);">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">FEATURED CAKES</p>
+        <h2>Every Bite Tells a Story</h2>
+        <p>From first birthdays to fiftieth anniversaries, every cake is designed around your occasion — not pulled off a shelf.</p>
+      </div>
+      <div class="cake-grid">
+        <div class="cake-card reveal"><div class="cake-img">🎂</div><div class="cake-body"><h4>Birthday Cakes</h4><div class="cake-facts"><span>Serves 10–40</span><span>48hr lead time</span></div><p class="cake-price">From $85</p></div></div>
+        <div class="cake-card reveal"><div class="cake-img">💍</div><div class="cake-body"><h4>Wedding Cakes</h4><div class="cake-facts"><span>Serves 50–200</span><span>4 week lead time</span></div><p class="cake-price">From $350</p></div></div>
+        <div class="cake-card reveal"><div class="cake-img">🏢</div><div class="cake-body"><h4>Corporate Cakes</h4><div class="cake-facts"><span>Serves 20–100</span><span>72hr lead time</span></div><p class="cake-price">From $150</p></div></div>
+        <div class="cake-card reveal"><div class="cake-img">🧁</div><div class="cake-body"><h4>Cupcakes (dozen)</h4><div class="cake-facts"><span>12 pcs</span><span>24hr lead time</span></div><p class="cake-price">From $32</p></div></div>
+        <div class="cake-card reveal"><div class="cake-img">🎈</div><div class="cake-body"><h4>Kids Cakes</h4><div class="cake-facts"><span>Serves 10–30</span><span>48hr lead time</span></div><p class="cake-price">From $75</p></div></div>
+        <div class="cake-card reveal"><div class="cake-img">🌹</div><div class="cake-body"><h4>Anniversary Cakes</h4><div class="cake-facts"><span>Serves 10–40</span><span>48hr lead time</span></div><p class="cake-price">From $90</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAKE ESTIMATOR -->
+  <section class="section" id="estimator">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">CUSTOM ORDERS</p>
+        <h2>Build &amp; Estimate Your Cake</h2>
+        <p>Choose your size, flavor and finish — watch the preview and price update live, then send your order straight to us on WhatsApp.</p>
+      </div>
+      <div class="estimator">
+        <div class="est-form">
+          <div class="est-field">
+            <label>Cake Size</label>
+            <div class="chip-row" data-group="size">
+              <button class="chip active" data-value="6" data-price="45">6" — serves 10</button>
+              <button class="chip" data-value="8" data-price="70">8" — serves 20</button>
+              <button class="chip" data-value="10" data-price="105">10" — serves 35</button>
+              <button class="chip" data-value="12" data-price="150">12" — serves 55</button>
+            </div>
+          </div>
+          <div class="est-field">
+            <label>Flavor</label>
+            <div class="chip-row" data-group="flavor">
+              <button class="chip active" data-value="Vanilla Bean" data-price="0">Vanilla Bean</button>
+              <button class="chip" data-value="Rum & Raisin" data-price="8">Rum &amp; Raisin</button>
+              <button class="chip" data-value="Chocolate Fudge" data-price="6">Chocolate Fudge</button>
+              <button class="chip" data-value="Passionfruit" data-price="10">Passionfruit</button>
+              <button class="chip" data-value="Red Velvet" data-price="8">Red Velvet</button>
+            </div>
+          </div>
+          <div class="est-field">
+            <label>Filling</label>
+            <div class="chip-row" data-group="filling">
+              <button class="chip active" data-value="Buttercream" data-price="0">Buttercream</button>
+              <button class="chip" data-value="Guava" data-price="7">Guava</button>
+              <button class="chip" data-value="Salted Caramel" data-price="9">Salted Caramel</button>
+              <button class="chip" data-value="Fresh Fruit" data-price="11">Fresh Fruit</button>
+            </div>
+          </div>
+          <div class="est-field">
+            <label>Icing &amp; Decoration</label>
+            <div class="chip-row" data-group="icing">
+              <button class="chip active" data-value="Smooth Buttercream" data-price="0">Smooth Buttercream</button>
+              <button class="chip" data-value="Fondant" data-price="18">Fondant</button>
+              <button class="chip" data-value="Fresh Flowers" data-price="22">Fresh Flowers</button>
+              <button class="chip" data-value="Gold Leaf" data-price="28">Gold Leaf</button>
+            </div>
+          </div>
+          <div class="est-field">
+            <label for="cakeMessage">Message on Cake</label>
+            <input type="text" id="cakeMessage" placeholder="e.g. Happy Birthday Aaliyah" style="width:100%; padding:11px 14px; border-radius:10px; border:1px solid var(--line); font-family:inherit; background:var(--crust-50);">
+          </div>
+          <div class="est-field">
+            <label>Pickup or Delivery</label>
+            <div class="est-toggle">
+              <button class="active" data-mode="pickup" data-price="0">Pickup — Free</button>
+              <button data-mode="delivery" data-price="15">Delivery — +$15</button>
+            </div>
+          </div>
+          <div class="est-field">
+            <label for="cakeDate">Needed By</label>
+            <input type="date" id="cakeDate">
+          </div>
+        </div>
+        <div class="est-preview">
+          <div class="cake-svg-wrap">
+            <svg id="cakeSvg" width="180" height="180" viewBox="0 0 180 180" aria-label="Live cake preview">
+              <ellipse cx="90" cy="160" rx="70" ry="10" fill="#3B2416" opacity="0.12"/>
+              <rect id="tier1" x="30" y="105" width="120" height="45" rx="6" fill="#E9C68B"/>
+              <rect id="tier2" x="45" y="70" width="90" height="40" rx="6" fill="#DDAE5E"/>
+              <rect id="tier3" x="60" y="40" width="60" height="35" rx="6" fill="#C98A2C"/>
+              <circle cx="90" cy="36" r="6" fill="#B5482B"/>
+            </svg>
+          </div>
+          <p class="est-price-label">Estimated Price</p>
+          <p class="est-price" id="estPrice">$45</p>
+          <p class="est-note">Final quote confirmed on WhatsApp — prices vary with design complexity.</p>
+          <div class="est-summary" id="estSummary"></div>
+          <a href="#" id="estWhatsapp" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:20px;">Send Order on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHOLESALE -->
+  <section class="section" id="wholesale" style="background:var(--crust-50);">
+    <div class="container">
+      <div class="wholesale">
+        <div>
+          <p class="eyebrow">WHOLESALE PROGRAM</p>
+          <h2>Wholesale for Hotels &amp; Restaurants</h2>
+          <p style="margin-top:14px; color:var(--muted);">Consistent, restaurant-grade bread and pastry supply for hotels, resorts, cafés and restaurants — with the standing orders and delivery windows your kitchen depends on.</p>
+          <ul class="wholesale-list">
+            <li>Standing daily or weekly delivery schedules</li>
+            <li>Volume pricing for recurring orders</li>
+            <li>Custom private-label packaging available</li>
+            <li>Dedicated WhatsApp line for kitchen managers</li>
+          </ul>
+          <a href="#contact" class="btn btn-gold" style="margin-top:24px;">Request Wholesale Pricing</a>
+        </div>
+        <div class="wholesale-card">
+          <h4>Indicative Wholesale Tiers</h4>
+          <div class="wholesale-tiers">
+            <div class="wtier"><span>Small café / guesthouse</span><span>10–30 units/day</span></div>
+            <div class="wtier"><span>Restaurant kitchen</span><span>30–80 units/day</span></div>
+            <div class="wtier"><span>Hotel / resort</span><span>80–250+ units/day</span></div>
+            <div class="wtier"><span>Custom private label</span><span>By quote</span></div>
+          </div>
+          <p style="font-size:0.8rem; color:var(--muted); margin-top:16px;">Pricing depends on volume, delivery frequency and product mix — send your requirements for a same-week quote.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section" id="reviews">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">REVIEWS</p>
+        <h2>Why Customers Keep Coming Back</h2>
+      </div>
+      <div class="review-track" id="reviewTrack">
+        <div class="review-card"><span class="stars">★★★★★</span><p>"Ordered a wedding cake with three weeks notice and it looked better than the reference photo I sent. Guests are still asking who made it."</p><div class="reviewer"><div class="reviewer-avatar">M</div><div><div class="reviewer-name">Marisol T.</div><div class="reviewer-sub">Vieux-Fort</div></div></div></div>
+        <div class="review-card"><span class="stars">★★★★★</span><p>"We switched our café's bread supply to Golden Crust and haven't had a single late delivery in eight months."</p><div class="reviewer"><div class="reviewer-avatar">D</div><div><div class="reviewer-name">Devon R.</div><div class="reviewer-sub">Café Owner, Castries</div></div></div></div>
+        <div class="review-card"><span class="stars">★★★★★</span><p>"The custom cake builder let me see exactly what I was ordering before I paid a cent. Zero surprises on pickup day."</p><div class="reviewer"><div class="reviewer-avatar">A</div><div><div class="reviewer-name">Aisha P.</div><div class="reviewer-sub">Gros Islet</div></div></div></div>
+        <div class="review-card"><span class="stars">★★★★★</span><p>"Fifteen years and the quality hasn't dropped once. Still my go-to for every birthday in the family."</p><div class="reviewer"><div class="reviewer-avatar">K</div><div><div class="reviewer-name">Kenroy S.</div><div class="reviewer-sub">Vieux-Fort</div></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section" id="gallery" style="background:var(--crust-100);">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">GALLERY</p>
+        <h2>See What's Fresh</h2>
+      </div>
+      <div class="gallery-filters" id="galleryFilters">
+        <button class="filter-tab active" data-gcat="all">All</button>
+        <button class="filter-tab" data-gcat="cakes">Cakes</button>
+        <button class="filter-tab" data-gcat="bread">Bread</button>
+        <button class="filter-tab" data-gcat="events">Events</button>
+      </div>
+      <div class="masonry" id="masonryGrid"><!-- populated by JS --></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container" style="max-width:760px;">
+      <div class="section-head">
+        <p class="eyebrow">FAQ</p>
+        <h2>Common Questions</h2>
+      </div>
+      <div id="faqList">
+        <div class="faq-item"><button class="faq-q">How far in advance should I order a custom cake?<span class="icon">+</span></button><div class="faq-a"><p>Standard cakes need 48–72 hours notice. Wedding cakes and large tiered orders need at least 3–4 weeks so we can plan the design and secure ingredients.</p></div></div>
+        <div class="faq-item"><button class="faq-q">Do you deliver island-wide?<span class="icon">+</span></button><div class="faq-a"><p>Yes — we deliver across the island, with same-day delivery available in most areas for orders placed before 10am.</p></div></div>
+        <div class="faq-item"><button class="faq-q">Can you accommodate allergies or dietary needs?<span class="icon">+</span></button><div class="faq-a"><p>We offer nut-free and lower-sugar options on request. Let us know your requirements when you place your order so we can prep separately.</p></div></div>
+        <div class="faq-item"><button class="faq-q">How do I pay?<span class="icon">+</span></button><div class="faq-a"><p>We accept bank transfer, cash on pickup/delivery, and card payment in-store. A deposit is required for custom cakes over $100.</p></div></div>
+        <div class="faq-item"><button class="faq-q">Do you supply restaurants and hotels?<span class="icon">+</span></button><div class="faq-a"><p>Yes — see our Wholesale section above, or message us directly on WhatsApp to set up a standing order.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact" style="background:var(--crust-100);">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">CONTACT</p>
+        <h2>Place Your Order</h2>
+        <p>Message us on WhatsApp for the fastest response, or stop by the bakery — fresh batches come out all morning.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-row"><span class="ic">📍</span><div><strong>Location</strong><br><span style="color:var(--muted);">Bridge Street, Vieux-Fort, Saint Lucia</span></div></div>
+          <div class="contact-row"><span class="ic">🕐</span><div><strong>Hours</strong><br><span style="color:var(--muted);">Mon–Sat 6:00am – 7:00pm · Sun 7:00am – 1:00pm</span></div></div>
+          <div class="contact-row"><span class="ic">📞</span><div><strong>Phone</strong><br><span style="color:var(--muted);">+1 (758) 000-0000</span></div></div>
+          <div class="contact-row"><span class="ic">✉️</span><div><strong>Email</strong><br><span style="color:var(--muted);">hello@goldencrustbakery.demo</span></div></div>
+          <div class="contact-row"><span class="ic">📱</span><div><strong>Social</strong><br><span style="color:var(--muted);">@goldencrustbakery</span></div></div>
+          <a href="https://wa.me/17580000000" class="btn btn-primary" style="margin-top:10px; width:fit-content;">Message Us on WhatsApp</a>
+        </div>
+        <div class="map-ph">Google Maps placeholder</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="floating-stack">
+  <a href="https://wa.me/17580000000" class="fab fab-whatsapp" aria-label="Order on WhatsApp">💬</a>
+  <a href="tel:+17580000000" class="fab fab-call" aria-label="Call the bakery">📞</a>
+  <button class="fab fab-top" id="fabTop" aria-label="Scroll to top">↑</button>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo" style="color:var(--crust-white);">🌾 Golden <span style="color:var(--gold);">Crust</span></div>
+        <p style="color:#C9B79C; font-size:0.88rem; margin-top:14px; max-width:280px;">Freshly baked. Made with love. Delivered across the island.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thanks — you\'re on the list! (demo only)');">
+          <input type="email" placeholder="Your email" aria-label="Email for newsletter" required>
+          <button type="submit">Join</button>
+        </form>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul><li><a href="#menu">Menu</a></li><li><a href="#cakes">Cakes</a></li><li><a href="#estimator">Custom Orders</a></li><li><a href="#wholesale">Wholesale</a></li><li><a href="#gallery">Gallery</a></li></ul>
+      </div>
+      <div>
+        <h4>Policies</h4>
+        <ul><li><a href="#">Refund Policy</a></li><li><a href="#">Delivery Policy</a></li><li><a href="#">Privacy Policy</a></li></ul>
+      </div>
+      <div>
+        <h4>Business Hours</h4>
+        <ul><li>Mon–Sat: 6:00am – 7:00pm</li><li>Sunday: 7:00am – 1:00pm</li></ul>
+        <h4 style="margin-top:20px;">Instagram</h4>
+        <div style="display:flex; gap:6px;">
+          <div style="width:40px; height:40px; border-radius:8px; background:#5A4230;"></div>
+          <div style="width:40px; height:40px; border-radius:8px; background:#C98A2C;"></div>
+          <div style="width:40px; height:40px; border-radius:8px; background:#8F5E1F;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">© <span id="year"></span> Golden Crust Artisan Bakery — Demo site built by AkraLink. All rights reserved.</div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+  <div class="lightbox-inner"><div id="lightboxContent" style="width:60vw; max-width:500px; aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; font-size:4rem; background:linear-gradient(150deg,#F0DCB0,#C98A2C); border-radius:12px;">🍰</div></div>
+</div>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ---------- Sticky nav solid on scroll ---------- */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('solid', window.scrollY > 40);
+  document.getElementById('fabTop').classList.toggle('show', window.scrollY > 500);
+});
+
+/* ---------- Scroll to top ---------- */
+document.getElementById('fabTop').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+/* ---------- Reveal on scroll ---------- */
+const revealEls = document.querySelectorAll('.reveal, .stat-card');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+}, {threshold:0.15});
+revealEls.forEach(el => io.observe(el));
+
+/* ---------- Animated counters ---------- */
+document.querySelectorAll('.stat-num').forEach(el => {
+  const target = parseInt(el.dataset.count,10);
+  let started = false;
+  const counterIo = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting && !started){
+        started = true;
+        let cur = 0;
+        const step = Math.max(1, Math.floor(target/60));
+        const t = setInterval(() => {
+          cur += step;
+          if(cur >= target){ cur = target; clearInterval(t); }
+          el.textContent = cur.toLocaleString() + (target >= 1000 ? '+' : '+');
+        }, 20);
+      }
+    });
+  }, {threshold:0.3});
+  counterIo.observe(el);
+});
+
+/* ---------- Hero baked-at time (rounds to nearest half hour, feels "live") ---------- */
+(function(){
+  const now = new Date();
+  const mins = now.getMinutes() < 30 ? 0 : 30;
+  const hourEl = document.getElementById('heroTime');
+  const h = now.getHours() % 12 || 12;
+  const ampm = now.getHours() >= 12 ? 'PM' : 'AM';
+  hourEl.textContent = h + ':' + (mins === 0 ? '00' : '30') + ' ' + ampm;
+})();
+
+/* ---------- Fresh Out of the Oven board ---------- */
+const ovenItems = [
+  {name:'Sourdough Loaf', time:'6:10 AM', status:'hot'},
+  {name:'Butter Croissants', time:'6:45 AM', status:'hot'},
+  {name:'Coconut Bread', time:'7:00 AM', status:'low'},
+  {name:'Guava Danish', time:'7:20 AM', status:'hot'},
+  {name:'Banana Muffins', time:'7:30 AM', status:'soldout'},
+  {name:'Cheese Rolls', time:'8:00 AM', status:'low'},
+];
+const ovenList = document.getElementById('ovenList');
+const pillLabel = {hot:'Fresh Now', low:'Selling Fast', soldout:'Sold Out'};
+ovenItems.forEach(item => {
+  const div = document.createElement('div');
+  div.className = 'oven-item';
+  div.innerHTML = `<div><div class="oven-item-name">${item.name}</div><div class="oven-item-time">Baked ${item.time}</div></div><span class="oven-pill ${item.status}">${pillLabel[item.status]}</span>`;
+  ovenList.appendChild(div);
+});
+let ovenSeconds = 18*60+42;
+setInterval(() => {
+  ovenSeconds = ovenSeconds > 0 ? ovenSeconds - 1 : 25*60;
+  const m = Math.floor(ovenSeconds/60), s = ovenSeconds%60;
+  document.getElementById('ovenCountdown').textContent = String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+}, 1000);
+
+/* ---------- Product data + menu filter/search/sort ---------- */
+const products = [
+  {name:'Artisan Sourdough', cat:'bread', price:8, cal:210, desc:'Naturally leavened, 24hr proof, crisp crust.', icon:'🍞', avail:'In Stock'},
+  {name:'Butter Croissant', cat:'pastry', price:4.5, cal:280, desc:'Laminated 27 times for maximum flake.', icon:'🥐', avail:'In Stock'},
+  {name:'Almond Danish', cat:'pastry', price:5, cal:320, desc:'Frangipane center, toasted almond top.', icon:'🥮', avail:'Limited'},
+  {name:'Blueberry Muffin', cat:'pastry', price:4, cal:290, desc:'Loaded with real blueberries, not flavoring.', icon:'🧁', avail:'In Stock'},
+  {name:'Chocolate Chip Cookie', cat:'cookie', price:2.5, cal:180, desc:'Crisp edge, gooey center, sea salt finish.', icon:'🍪', avail:'In Stock'},
+  {name:'Classic Cheesecake Slice', cat:'cake', price:6.5, cal:410, desc:'Baked New York style, graham crust.', icon:'🍰', avail:'In Stock'},
+  {name:'Signature Birthday Slice', cat:'cake', price:5.5, cal:380, desc:'Vanilla sponge, buttercream, sprinkles.', icon:'🎂', avail:'In Stock'},
+  {name:'Coconut Bread Loaf', cat:'bread', price:7, cal:260, desc:'Island classic, sweet and dense.', icon:'🍞', avail:'Limited'},
+  {name:'Oatmeal Raisin Cookie', cat:'cookie', price:2.5, cal:170, desc:'Chewy, spiced, made with rolled oats.', icon:'🍪', avail:'In Stock'},
+  {name:'Guava Pastry Puff', cat:'pastry', price:4.5, cal:300, desc:'Flaky pastry, real guava filling.', icon:'🥮', avail:'In Stock'},
+];
+const productGrid = document.getElementById('productGrid');
+let activeCat = 'all';
+let searchTerm = '';
+let sortMode = 'default';
+
+function renderProducts(){
+  let list = products.filter(p => (activeCat==='all' || p.cat===activeCat) && p.name.toLowerCase().includes(searchTerm.toLowerCase()));
+  if(sortMode==='low') list = [...list].sort((a,b)=>a.price-b.price);
+  if(sortMode==='high') list = [...list].sort((a,b)=>b.price-a.price);
+  productGrid.innerHTML = list.map(p => `
+    <div class="product-card">
+      <div class="product-thumb">
+        <span class="avail-badge">${p.avail}</span>
+        <button class="fav-btn" aria-label="Add to favorites">♡</button>
+        ${p.icon}
+      </div>
+      <div class="product-body">
+        <h4>${p.name}</h4>
+        <p class="product-desc">${p.desc}</p>
+        <div class="product-meta">
+          <span class="product-price">$${p.price.toFixed(2)}</span>
+          <span class="product-cal">${p.cal} cal</span>
+        </div>
+        <div class="product-actions">
+          <a href="https://wa.me/17580000000?text=${encodeURIComponent('Hi! I\\'d like to order: '+p.name)}" class="btn btn-primary btn-sm" style="flex:1; justify-content:center;">Order</a>
+          <button class="btn btn-outline btn-sm">Quick View</button>
+        </div>
+      </div>
+    </div>
+  `).join('') || '<p style="color:var(--muted);">No items match your search.</p>';
+}
+renderProducts();
+document.getElementById('filterTabs').addEventListener('click', e => {
+  if(!e.target.matches('.filter-tab')) return;
+  document.querySelectorAll('#filterTabs .filter-tab').forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active');
+  activeCat = e.target.dataset.cat;
+  renderProducts();
+});
+document.getElementById('menuSearch').addEventListener('input', e => { searchTerm = e.target.value; renderProducts(); });
+document.getElementById('menuSort').addEventListener('change', e => { sortMode = e.target.value; renderProducts(); });
+
+/* Toggle favorite hearts */
+productGrid.addEventListener('click', e => {
+  if(e.target.matches('.fav-btn')){
+    e.target.textContent = e.target.textContent === '♡' ? '♥' : '♡';
+    e.target.style.color = e.target.textContent === '♥' ? '#B5482B' : '';
+  }
+});
+
+/* ---------- Cake Estimator ---------- */
+const estState = { size:45, flavor:0, filling:0, icing:0, mode:0 };
+function updateEstimate(){
+  const total = 45 - 45 + estState.size + estState.flavor + estState.filling + estState.icing + estState.mode;
+  // base size price replaces default; recompute cleanly:
+  const sizePrice = document.querySelector('[data-group="size"] .chip.active').dataset.price;
+  const flavorPrice = document.querySelector('[data-group="flavor"] .chip.active').dataset.price;
+  const fillingPrice = document.querySelector('[data-group="filling"] .chip.active').dataset.price;
+  const icingPrice = document.querySelector('[data-group="icing"] .chip.active').dataset.price;
+  const modePrice = document.querySelector('.est-toggle .active').dataset.price;
+  const sum = [sizePrice, flavorPrice, fillingPrice, icingPrice, modePrice].reduce((a,b)=>a+parseFloat(b),0);
+  document.getElementById('estPrice').textContent = '$' + sum.toFixed(0);
+
+  const sizeLabel = document.querySelector('[data-group="size"] .chip.active').textContent;
+  const flavorLabel = document.querySelector('[data-group="flavor"] .chip.active').textContent;
+  const fillingLabel = document.querySelector('[data-group="filling"] .chip.active').textContent;
+  const icingLabel = document.querySelector('[data-group="icing"] .chip.active').textContent;
+  const modeLabel = document.querySelector('.est-toggle .active').textContent;
+  const msg = document.getElementById('cakeMessage').value;
+  const date = document.getElementById('cakeDate').value;
+
+  document.getElementById('estSummary').innerHTML = `
+    <div><span>Size</span><span>${sizeLabel}</span></div>
+    <div><span>Flavor</span><span>${flavorLabel}</span></div>
+    <div><span>Filling</span><span>${fillingLabel}</span></div>
+    <div><span>Icing</span><span>${icingLabel}</span></div>
+    <div><span>Fulfillment</span><span>${modeLabel}</span></div>
+  `;
+
+  // Update cake preview sizing based on cake size chip
+  const sizeVal = parseInt(document.querySelector('[data-group="size"] .chip.active').dataset.value,10);
+  const scale = {6:0.8, 8:0.9, 10:1.0, 12:1.12}[sizeVal] || 1;
+  document.getElementById('cakeSvg').style.transform = `scale(${scale})`;
+
+  // Update icing color
+  const icingColors = {'Smooth Buttercream':'#E9C68B','Fondant':'#F7ECD8','Fresh Flowers':'#E9C68B','Gold Leaf':'#D9A63E'};
+  document.getElementById('tier1').setAttribute('fill', icingColors[icingLabel] || '#E9C68B');
+
+  let waMsg = `Hi! I'd like to order a custom cake:%0A- Size: ${sizeLabel}%0A- Flavor: ${flavorLabel}%0A- Filling: ${fillingLabel}%0A- Icing: ${icingLabel}%0A- Fulfillment: ${modeLabel}`;
+  if(msg) waMsg += `%0A- Message on cake: "${msg}"`;
+  if(date) waMsg += `%0A- Needed by: ${date}`;
+  waMsg += `%0A- Estimated price: $${sum.toFixed(0)} (to be confirmed)`;
+  document.getElementById('estWhatsapp').href = `https://wa.me/17580000000?text=${waMsg}`;
+}
+document.querySelectorAll('.chip-row').forEach(row => {
+  row.addEventListener('click', e => {
+    if(!e.target.matches('.chip')) return;
+    row.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+    e.target.classList.add('active');
+    updateEstimate();
+  });
+});
+document.querySelector('.est-toggle').addEventListener('click', e => {
+  if(!e.target.matches('button')) return;
+  document.querySelectorAll('.est-toggle button').forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active');
+  updateEstimate();
+});
+document.getElementById('cakeMessage').addEventListener('input', updateEstimate);
+document.getElementById('cakeDate').addEventListener('change', updateEstimate);
+updateEstimate();
+
+/* ---------- Reviews auto-scroll on load (gentle nudge) ---------- */
+const reviewTrack = document.getElementById('reviewTrack');
+
+/* ---------- Gallery masonry + filters + lightbox ---------- */
+const galleryItems = [
+  {cat:'cakes', icon:'🎂', h:220},
+  {cat:'bread', icon:'🍞', h:180},
+  {cat:'events', icon:'💐', h:260},
+  {cat:'cakes', icon:'🧁', h:200},
+  {cat:'bread', icon:'🥖', h:230},
+  {cat:'events', icon:'🎉', h:190},
+  {cat:'cakes', icon:'🍰', h:210},
+  {cat:'bread', icon:'🥐', h:170},
+  {cat:'events', icon:'🥂', h:240},
+];
+const masonryGrid = document.getElementById('masonryGrid');
+function renderGallery(filter){
+  const list = galleryItems.filter(g => filter==='all' || g.cat===filter);
+  masonryGrid.innerHTML = list.map(g => `<div class="masonry-item" data-icon="${g.icon}"><div class="ph" style="height:${g.h}px;">${g.icon}</div></div>`).join('');
+}
+renderGallery('all');
+document.getElementById('galleryFilters').addEventListener('click', e => {
+  if(!e.target.matches('.filter-tab')) return;
+  document.querySelectorAll('#galleryFilters .filter-tab').forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active');
+  renderGallery(e.target.dataset.gcat);
+});
+const lightbox = document.getElementById('lightbox');
+masonryGrid.addEventListener('click', e => {
+  const item = e.target.closest('.masonry-item');
+  if(!item) return;
+  document.getElementById('lightboxContent').textContent = item.dataset.icon;
+  lightbox.classList.add('open');
+});
+document.getElementById('lightboxClose').addEventListener('click', () => lightbox.classList.remove('open'));
+lightbox.addEventListener('click', e => { if(e.target === lightbox) lightbox.classList.remove('open'); });
+
+/* ---------- FAQ accordion ---------- */
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-q');
+  const a = item.querySelector('.faq-a');
+  q.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight = null; });
+    if(!isOpen){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
+  });
+});
+
+/* ---------- Mobile nav toggle (simple show/hide) ---------- */
+document.querySelector('.nav-toggle').addEventListener('click', () => {
+  const links = document.querySelector('.nav-links');
+  const isShown = links.style.display === 'flex';
+  links.style.display = isShown ? 'none' : 'flex';
+  links.style.cssText += isShown ? '' : 'position:absolute; top:100%; left:0; right:0; background:var(--crust-white); flex-direction:column; padding:20px 24px; box-shadow:var(--shadow-soft);';
+});
+</script>
+</body>
+</html>
