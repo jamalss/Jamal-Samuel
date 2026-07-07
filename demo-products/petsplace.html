@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pet's Place | Everything Your Best Friend Needs, Under One Roof</title>
+<meta name="description" content="Pet's Place is your family-owned Caribbean pet shop for dogs, cats, birds, fish and small pets. Quality food, toys, grooming and health supplies — order on WhatsApp for pickup today.">
+<link rel="canonical" href="https://example.com/petsplace">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#14484A">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pet's Place | Everything Your Best Friend Needs, Under One Roof">
+<meta property="og:description" content="Quality pet food, toys, grooming and health supplies for dogs, cats, birds, fish and small pets. WhatsApp ordering, island-wide friendly service.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1200&q=80">
+<meta property="og:url" content="https://example.com/petsplace">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pet's Place | Everything Your Best Friend Needs, Under One Roof">
+<meta name="twitter:description" content="Your family-owned Caribbean pet shop. Order on WhatsApp for pickup today.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1200&q=80">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%90%BE%3C/text%3E%3C/svg%3E">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PetStore",
+  "name": "Pet's Place",
+  "image": "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1200&q=80",
+  "description": "Family-owned Caribbean pet shop offering food, toys, grooming and health supplies for dogs, cats, birds, fish and small pets.",
+  "telephone": "+1-758-123-4567",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "12 Harbourview Road",
+    "addressLocality": "Castries",
+    "addressCountry": "LC"
+  },
+  "openingHoursSpecification": [
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:30","closes":"18:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"08:30","closes":"17:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"09:00","closes":"13:00"}
+  ],
+  "sameAs": ["https://www.facebook.com/petsplacedemo","https://www.instagram.com/petsplacedemo"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Pet's Place",
+  "url": "https://example.com/petsplace"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://example.com/petsplace"}
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --ivory:#FBF8F2;
+    --ivory-deep:#F3EDE1;
+    --lagoon:#14484A;
+    --lagoon-deep:#0D3335;
+    --mango:#F4A340;
+    --mango-deep:#E08B22;
+    --seafoam:#8FC1B5;
+    --sand:#EADFC8;
+    --ink:#1D2B2A;
+    --ink-soft:#4A5957;
+    --coral:#F26D5B;
+    --white:#FFFFFF;
+    --radius-sm:12px;
+    --radius-md:20px;
+    --radius-lg:32px;
+    --shadow-soft:0 8px 30px rgba(20,72,74,0.08);
+    --shadow-deep:0 20px 50px rgba(13,51,53,0.18);
+    --ease:cubic-bezier(.22,1,.36,1);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Plus Jakarta Sans',sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    line-height:1.15;
+    letter-spacing:-0.01em;
+    color:var(--lagoon-deep);
+  }
+  img{max-width:100%;display:block;}
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
+  .container{max-width:1240px;margin:0 auto;padding:0 24px;}
+  .eyebrow{
+    font-size:0.8rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--coral);
+    font-weight:700;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{content:"";width:22px;height:2px;background:var(--coral);display:inline-block;border-radius:2px;}
+  section{padding:100px 0;position:relative;}
+  @media(max-width:768px){section{padding:64px 0;}}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease), transform .8s var(--ease);}
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+
+  /* Buttons */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    padding:16px 30px;border-radius:100px;font-weight:700;font-size:0.98rem;
+    transition:transform .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease);
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--coral);color:var(--white);box-shadow:0 10px 26px rgba(242,109,91,0.35);}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(242,109,91,0.45);}
+  .btn-outline{background:transparent;color:var(--lagoon-deep);border:2px solid var(--lagoon-deep);}
+  .btn-outline:hover{background:var(--lagoon-deep);color:var(--white);transform:translateY(-3px);}
+  .btn-whatsapp{
+    background:#1E9E5A;color:var(--white);box-shadow:0 10px 26px rgba(30,158,90,0.35);
+  }
+  .btn-whatsapp:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(30,158,90,0.45);}
+  .btn-sm{padding:10px 20px;font-size:0.85rem;}
+
+  /* HEADER */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:1000;
+    background:rgba(251,248,242,0.85);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(20,72,74,0.08);
+    transition:box-shadow .3s var(--ease);
+  }
+  header.scrolled{box-shadow:0 6px 24px rgba(20,72,74,0.08);}
+  .nav-wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 24px;max-width:1240px;margin:0 auto;
+  }
+  .logo{
+    font-family:'Fraunces',serif;font-weight:700;font-size:1.4rem;color:var(--lagoon-deep);
+    display:flex;align-items:center;gap:8px;
+  }
+  .logo span{color:var(--mango-deep);}
+  nav.main-nav ul{display:flex;gap:36px;align-items:center;}
+  nav.main-nav a{
+    font-weight:600;font-size:0.95rem;color:var(--ink-soft);position:relative;padding:4px 0;
+    transition:color .25s;
+  }
+  nav.main-nav a::after{
+    content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--coral);
+    transition:width .3s var(--ease);
+  }
+  nav.main-nav a:hover{color:var(--lagoon-deep);}
+  nav.main-nav a:hover::after{width:100%;}
+  .header-actions{display:flex;align-items:center;gap:18px;}
+  .hamburger{display:none;flex-direction:column;gap:5px;width:28px;z-index:1100;}
+  .hamburger span{height:2.5px;width:100%;background:var(--lagoon-deep);border-radius:2px;transition:transform .3s var(--ease), opacity .3s var(--ease);}
+  .hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg);}
+
+  @media(max-width:900px){
+    nav.main-nav{
+      position:fixed;top:0;right:-100%;height:100vh;width:min(78vw,340px);
+      background:var(--ivory);flex-direction:column;justify-content:center;padding:40px;
+      transition:right .4s var(--ease);box-shadow:-10px 0 40px rgba(0,0,0,0.12);
+    }
+    nav.main-nav.open{right:0;}
+    nav.main-nav ul{flex-direction:column;align-items:flex-start;gap:26px;}
+    nav.main-nav a{font-size:1.2rem;}
+    .header-actions .btn-primary{display:none;}
+    .hamburger{display:flex;}
+  }
+  .nav-overlay{position:fixed;inset:0;background:rgba(13,51,53,0.4);opacity:0;pointer-events:none;transition:opacity .4s;z-index:999;}
+  .nav-overlay.open{opacity:1;pointer-events:auto;}
+
+  /* HERO */
+  .hero{
+    padding:170px 0 100px;background:linear-gradient(180deg,var(--ivory) 0%, var(--ivory-deep) 100%);
+    position:relative;overflow:hidden;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:60px;align-items:center;}
+  @media(max-width:960px){.hero-grid{grid-template-columns:1fr;}}
+  .hero h1{font-size:clamp(2.4rem,5vw,3.6rem);margin-bottom:22px;}
+  .hero h1 em{font-style:italic;color:var(--coral);}
+  .hero p.lede{font-size:1.15rem;color:var(--ink-soft);max-width:520px;margin-bottom:34px;}
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:40px;}
+  .trust-row{display:flex;gap:26px;flex-wrap:wrap;}
+  .trust-item{display:flex;align-items:center;gap:8px;font-weight:600;font-size:0.9rem;color:var(--lagoon-deep);}
+  .trust-item svg{width:18px;height:18px;flex-shrink:0;color:var(--coral);}
+
+  .hero-visual{position:relative;}
+  .hero-visual img{
+    border-radius:var(--radius-lg);width:100%;height:560px;object-fit:cover;
+    box-shadow:var(--shadow-deep);
+  }
+  .floating-card{
+    position:absolute;background:var(--white);border-radius:var(--radius-md);
+    padding:16px 20px;box-shadow:var(--shadow-deep);display:flex;align-items:center;gap:12px;
+    animation:float 5s ease-in-out infinite;
+  }
+  .floating-card.card1{top:-24px;left:-24px;animation-delay:0s;}
+  .floating-card.card2{bottom:24px;right:-28px;animation-delay:1.2s;}
+  @media(max-width:600px){.floating-card{display:none;}}
+  @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
+  .fc-icon{width:40px;height:40px;border-radius:50%;background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+  .fc-title{font-weight:700;font-size:0.9rem;color:var(--lagoon-deep);}
+  .fc-sub{font-size:0.78rem;color:var(--ink-soft);}
+
+  /* Decorative paw trail */
+  .paw-trail{position:absolute;opacity:0.5;pointer-events:none;}
+
+  /* SECTION HEADERS */
+  .section-head{max-width:640px;margin-bottom:56px;}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+  .section-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem);}
+  .section-head p{color:var(--ink-soft);font-size:1.05rem;margin-top:14px;}
+
+  /* SHOP BY PET */
+  .pet-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;}
+  @media(max-width:960px){.pet-grid{grid-template-columns:repeat(3,1fr);}}
+  @media(max-width:600px){.pet-grid{grid-template-columns:repeat(2,1fr);}}
+  .pet-card{
+    background:var(--white);border-radius:var(--radius-md);overflow:hidden;
+    box-shadow:var(--shadow-soft);transition:transform .4s var(--ease), box-shadow .4s var(--ease);
+    position:relative;
+  }
+  .pet-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-deep);}
+  .pet-card .img-wrap{height:150px;overflow:hidden;}
+  .pet-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease);}
+  .pet-card:hover img{transform:scale(1.08);}
+  .pet-card-body{padding:18px;}
+  .pet-card-body h3{font-size:1.05rem;margin-bottom:4px;}
+  .pet-card-body p{font-size:0.85rem;color:var(--ink-soft);margin-bottom:14px;}
+  .pet-card-body a{font-weight:700;font-size:0.85rem;color:var(--coral);display:inline-flex;align-items:center;gap:6px;}
+  .pet-card-body a svg{width:14px;height:14px;transition:transform .3s var(--ease);}
+  .pet-card-body a:hover svg{transform:translateX(4px);}
+
+  /* FINDER — SIGNATURE ELEMENT */
+  .finder-section{
+    background:var(--lagoon-deep);
+    border-radius:var(--radius-lg);
+    margin:0 24px;
+    padding:70px 50px;
+    color:var(--ivory);
+    position:relative;
+    overflow:hidden;
+  }
+  @media(max-width:960px){.finder-section{padding:48px 24px;margin:0 12px;}}
+  .finder-section::before{
+    content:"";position:absolute;width:480px;height:480px;border-radius:50%;
+    background:radial-gradient(circle,rgba(244,163,64,0.18),transparent 70%);
+    top:-180px;right:-160px;
+  }
+  .finder-head{position:relative;z-index:2;max-width:680px;margin:0 auto 40px;text-align:center;}
+  .finder-head .eyebrow{color:var(--mango);}
+  .finder-head .eyebrow::before{background:var(--mango);}
+  .finder-head h2{color:var(--ivory);font-size:clamp(1.9rem,3.4vw,2.5rem);}
+  .finder-head p{color:var(--seafoam);margin-top:12px;font-size:1.05rem;}
+
+  .finder-box{
+    position:relative;z-index:2;background:var(--ivory);border-radius:var(--radius-lg);
+    max-width:780px;margin:0 auto;padding:44px 40px;box-shadow:var(--shadow-deep);color:var(--ink);
+  }
+  @media(max-width:600px){.finder-box{padding:30px 22px;}}
+
+  .paw-steps{display:flex;justify-content:center;gap:14px;margin-bottom:34px;}
+  .paw-step{
+    width:38px;height:38px;border-radius:50%;background:var(--sand);
+    display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+    transition:all .4s var(--ease); position:relative;color:var(--ink-soft);
+  }
+  .paw-step.active{background:var(--coral);color:var(--white);transform:scale(1.15);}
+  .paw-step.done{background:var(--seafoam);color:var(--white);}
+
+  .finder-step{display:none;animation:fadeUp .5s var(--ease);}
+  .finder-step.active{display:block;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+  .finder-step h3{font-size:1.4rem;text-align:center;margin-bottom:8px;}
+  .finder-step .sub{text-align:center;color:var(--ink-soft);margin-bottom:28px;font-size:0.95rem;}
+
+  .option-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .option-grid.two-col{grid-template-columns:repeat(2,1fr);}
+  @media(max-width:600px){.option-grid{grid-template-columns:repeat(2,1fr);}.option-grid.two-col{grid-template-columns:1fr;}}
+  .option-card{
+    border:2px solid var(--sand);border-radius:var(--radius-sm);padding:20px 14px;
+    text-align:center;transition:all .3s var(--ease);background:var(--white);
+  }
+  .option-card:hover{border-color:var(--mango);transform:translateY(-4px);}
+  .option-card.selected{border-color:var(--coral);background:#FFF1EE;}
+  .option-emoji{font-size:1.8rem;display:block;margin-bottom:8px;}
+  .option-label{font-weight:700;font-size:0.9rem;color:var(--lagoon-deep);}
+
+  .finder-nav{display:flex;justify-content:space-between;margin-top:34px;}
+  .finder-back{font-weight:700;color:var(--ink-soft);padding:14px 10px;}
+  .finder-back:hover{color:var(--coral);}
+  .finder-back[disabled]{opacity:0;pointer-events:none;}
+
+  .finder-results h3{text-align:center;font-size:1.5rem;margin-bottom:6px;}
+  .finder-results .sub{text-align:center;color:var(--ink-soft);margin-bottom:26px;}
+  .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  @media(max-width:700px){.result-grid{grid-template-columns:1fr;}}
+  .result-card{
+    background:var(--white);border-radius:var(--radius-sm);padding:18px;text-align:left;
+    border:1px solid var(--sand);
+  }
+  .result-card img{width:100%;height:120px;object-fit:cover;border-radius:10px;margin-bottom:12px;}
+  .result-card h4{font-size:1rem;margin-bottom:4px;}
+  .result-card .price{font-weight:800;color:var(--coral);margin-bottom:10px;}
+  .result-restart{display:block;text-align:center;margin-top:28px;font-weight:700;color:var(--lagoon-deep);text-decoration:underline;}
+
+  /* FEATURED PRODUCTS */
+  .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  @media(max-width:900px){.product-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.product-grid{grid-template-columns:1fr;}}
+  .product-card{
+    background:var(--white);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-soft);
+    transition:transform .4s var(--ease), box-shadow .4s var(--ease);
+  }
+  .product-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-deep);}
+  .product-img{height:210px;overflow:hidden;position:relative;}
+  .product-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+  .product-card:hover .product-img img{transform:scale(1.07);}
+  .badge{position:absolute;top:14px;left:14px;background:var(--mango);color:var(--white);font-size:0.72rem;font-weight:800;padding:5px 12px;border-radius:100px;letter-spacing:0.04em;text-transform:uppercase;}
+  .product-body{padding:20px;}
+  .stars{color:var(--mango-deep);font-size:0.85rem;margin-bottom:6px;}
+  .product-body h3{font-size:1.08rem;margin-bottom:6px;}
+  .product-body .price-row{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+  .price-row .price{font-weight:800;font-size:1.15rem;color:var(--lagoon-deep);}
+  .price-row .old-price{text-decoration:line-through;color:var(--ink-soft);font-size:0.9rem;}
+  .product-actions{display:flex;gap:10px;}
+  .product-actions .btn{flex:1;padding:11px 14px;font-size:0.82rem;}
+
+  /* WHY US */
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  @media(max-width:900px){.why-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.why-grid{grid-template-columns:1fr;}}
+  .why-card{padding:32px 26px;border-radius:var(--radius-md);background:var(--white);box-shadow:var(--shadow-soft);transition:transform .35s var(--ease);}
+  .why-card:hover{transform:translateY(-6px);}
+  .why-icon{width:54px;height:54px;border-radius:16px;background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:18px;}
+  .why-card h3{font-size:1.1rem;margin-bottom:8px;}
+  .why-card p{color:var(--ink-soft);font-size:0.92rem;}
+
+  /* WHATSAPP STEPS */
+  .wa-section{background:var(--ivory-deep);}
+  .wa-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  @media(max-width:900px){.wa-grid{grid-template-columns:1fr;}}
+  .wa-steps{display:flex;flex-direction:column;gap:22px;}
+  .wa-step{display:flex;gap:18px;align-items:flex-start;}
+  .wa-num{width:42px;height:42px;border-radius:50%;background:var(--lagoon-deep);color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;font-family:'Fraunces',serif;}
+  .wa-step h4{font-size:1.05rem;margin-bottom:4px;}
+  .wa-step p{color:var(--ink-soft);font-size:0.92rem;}
+  .wa-visual{
+    background:var(--lagoon-deep);border-radius:var(--radius-lg);padding:40px;text-align:center;color:var(--white);
+    box-shadow:var(--shadow-deep);
+  }
+  .wa-visual .wa-icon{width:86px;height:86px;border-radius:50%;background:#1E9E5A;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:2.4rem;animation:pulse 2.4s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(30,158,90,0.5);}70%{box-shadow:0 0 0 22px rgba(30,158,90,0);}100%{box-shadow:0 0 0 0 rgba(30,158,90,0);}}
+  .wa-visual h3{color:var(--white);margin-bottom:10px;}
+  .wa-visual p{color:var(--seafoam);margin-bottom:26px;font-size:0.92rem;}
+
+  /* OFFERS */
+  .offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  @media(max-width:900px){.offer-grid{grid-template-columns:1fr;}}
+  .offer-card{
+    border-radius:var(--radius-md);overflow:hidden;position:relative;height:340px;
+    display:flex;align-items:flex-end;box-shadow:var(--shadow-soft);
+  }
+  .offer-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+  .offer-card:hover img{transform:scale(1.08);}
+  .offer-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,51,53,0) 20%,rgba(13,51,53,0.88) 100%);}
+  .offer-content{position:relative;z-index:2;padding:26px;color:var(--white);}
+  .offer-tag{background:var(--coral);display:inline-block;padding:4px 12px;border-radius:100px;font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:10px;}
+  .offer-content h3{color:var(--white);font-size:1.25rem;margin-bottom:6px;}
+  .offer-content p{font-size:0.88rem;color:#E4EDEC;margin-bottom:14px;}
+
+  /* PET CARE TIPS */
+  .tips-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  @media(max-width:900px){.tips-grid{grid-template-columns:1fr;}}
+  .tip-card{background:var(--white);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-soft);transition:transform .35s var(--ease);}
+  .tip-card:hover{transform:translateY(-6px);}
+  .tip-card .img-wrap{height:170px;overflow:hidden;}
+  .tip-card img{width:100%;height:100%;object-fit:cover;}
+  .tip-body{padding:22px;}
+  .tip-body .eyebrow{margin-bottom:10px;}
+  .tip-body h3{font-size:1.08rem;margin-bottom:10px;}
+  .tip-body a{font-weight:700;color:var(--coral);font-size:0.88rem;}
+
+  /* TESTIMONIALS */
+  .testi-section{background:var(--lagoon-deep);color:var(--ivory);}
+  .testi-section .section-head h2{color:var(--ivory);}
+  .testi-section .section-head p{color:var(--seafoam);}
+  .testi-slider{max-width:720px;margin:0 auto;position:relative;min-height:220px;}
+  .testi-slide{display:none;text-align:center;animation:fadeUp .6s var(--ease);}
+  .testi-slide.active{display:block;}
+  .testi-slide .quote{font-family:'Fraunces',serif;font-style:italic;font-size:1.35rem;line-height:1.5;margin-bottom:24px;}
+  .testi-slide .stars{color:var(--mango);font-size:1rem;margin-bottom:16px;justify-content:center;display:flex;}
+  .testi-author{font-weight:700;}
+  .testi-role{color:var(--seafoam);font-size:0.85rem;}
+  .testi-dots{display:flex;justify-content:center;gap:10px;margin-top:30px;}
+  .testi-dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.3);transition:all .3s;}
+  .testi-dot.active{background:var(--mango);width:26px;border-radius:6px;}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:60px;align-items:center;}
+  @media(max-width:900px){.about-grid{grid-template-columns:1fr;}}
+  .about-grid img{border-radius:var(--radius-lg);height:440px;width:100%;object-fit:cover;box-shadow:var(--shadow-deep);}
+  .about-copy p{color:var(--ink-soft);margin-bottom:16px;font-size:1.02rem;}
+  .about-stats{display:flex;gap:36px;margin-top:30px;}
+  .about-stat strong{font-family:'Fraunces',serif;font-size:2rem;color:var(--coral);display:block;}
+  .about-stat span{color:var(--ink-soft);font-size:0.85rem;}
+
+  /* FINAL CTA */
+  .final-cta{
+    background:linear-gradient(135deg,var(--lagoon-deep),var(--lagoon));
+    border-radius:var(--radius-lg);margin:0 24px;padding:80px 40px;text-align:center;color:var(--white);
+    position:relative;overflow:hidden;
+  }
+  .final-cta::before{content:"🐾";position:absolute;font-size:14rem;opacity:0.05;top:-40px;left:-30px;transform:rotate(-18deg);}
+  .final-cta h2{color:var(--white);font-size:clamp(2rem,4vw,3rem);margin-bottom:16px;position:relative;z-index:2;}
+  .final-cta p{color:var(--seafoam);max-width:560px;margin:0 auto 36px;font-size:1.08rem;position:relative;z-index:2;}
+  .final-cta-ctas{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;position:relative;z-index:2;}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:#CBD8D6;padding:70px 0 30px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:50px;}
+  @media(max-width:800px){.footer-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:500px){.footer-grid{grid-template-columns:1fr;}}
+  .footer-logo{font-family:'Fraunces',serif;font-size:1.3rem;color:var(--white);margin-bottom:14px;}
+  .footer-col h4{color:var(--white);font-size:0.95rem;margin-bottom:18px;}
+  .footer-col ul li{margin-bottom:11px;font-size:0.9rem;}
+  .footer-col a:hover{color:var(--mango);}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:0.82rem;color:#7C8F8C;}
+  .social-row{display:flex;gap:12px;margin-top:16px;}
+  .social-row a{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;transition:background .3s;}
+  .social-row a:hover{background:var(--coral);}
+
+  /* WhatsApp floating button */
+  .wa-float{
+    position:fixed;bottom:26px;right:26px;z-index:900;
+    width:60px;height:60px;border-radius:50%;background:#1E9E5A;color:var(--white);
+    display:flex;align-items:center;justify-content:center;font-size:1.7rem;
+    box-shadow:0 10px 30px rgba(30,158,90,0.4);animation:pulse 2.4s infinite;
+  }
+  @media(max-width:768px){.wa-float{width:52px;height:52px;bottom:18px;right:18px;}}
+
+  .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="nav-overlay" id="navOverlay"></div>
+
+<header id="siteHeader">
+  <div class="nav-wrap">
+    <a href="#home" class="logo">🐾 Pet's <span>Place</span></a>
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#finder">Product Finder</a></li>
+        <li><a href="#care">Pet Care</a></li>
+        <li><a href="#offers">Special Offers</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-primary btn-sm" target="_blank" rel="noopener" href="https://wa.me/17581234567?text=Hi%20Pet%27s%20Place!%20I%27d%20like%20to%20place%20an%20order%20for%20pickup.">Order on WhatsApp</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <p class="eyebrow">Family-owned · Castries, Saint Lucia</p>
+      <h1>Everything Your Best Friend Needs, <em>Under One Roof.</em></h1>
+      <p class="lede">Quality food, toys, grooming and health supplies for dogs, cats, birds, fish and small pets — picked by people who love animals as much as you do. Order on WhatsApp, collect in store, same day.</p>
+      <div class="hero-ctas">
+        <a href="#shop" class="btn btn-primary">Browse Our Products</a>
+        <a href="https://wa.me/17581234567?text=Hi%20Pet%27s%20Place!%20I%27d%20like%20to%20place%20an%20order%20for%20pickup." target="_blank" rel="noopener" class="btn btn-whatsapp">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.5.1-1.4-.7-2.4-1.3-3.3-2.9-.3-.4.3-.4.8-1.3.1-.2 0-.3 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-1 .9-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.3-.1-.1-.3-.2-.5-.3z"/><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.5A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .9.9-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+          WhatsApp Your Order
+        </a>
+      </div>
+      <div class="trust-row">
+        <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Friendly Local Service</span>
+        <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Quality Pet Products</span>
+        <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Island-wide Support</span>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=900&q=80" alt="Happy Caribbean family playing with their dog outdoors" loading="lazy">
+      <div class="floating-card card1">
+        <div class="fc-icon">🐕</div>
+        <div><div class="fc-title">2,400+ Pets</div><div class="fc-sub">Fed & cared for monthly</div></div>
+      </div>
+      <div class="floating-card card2">
+        <div class="fc-icon">⭐</div>
+        <div><div class="fc-title">4.9 / 5 Rating</div><div class="fc-sub">From island families</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP BY PET -->
+<section id="shop">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Shop by Pet</p>
+      <h2>Find What Your Companion Loves</h2>
+      <p>However your household is shaped — paws, fins, feathers or fur — we've stocked it thoughtfully.</p>
+    </div>
+    <div class="pet-grid">
+      <div class="pet-card reveal">
+        <div class="img-wrap"><img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=500&q=80" alt="Dog products" loading="lazy"></div>
+        <div class="pet-card-body">
+          <h3>Dogs</h3><p>Food, leashes, beds & more</p>
+          <a href="#products">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="pet-card reveal">
+        <div class="img-wrap"><img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=500&q=80" alt="Cat products" loading="lazy"></div>
+        <div class="pet-card-body">
+          <h3>Cats</h3><p>Litter, scratchers, treats</p>
+          <a href="#products">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="pet-card reveal">
+        <div class="img-wrap"><img src="https://images.unsplash.com/photo-1452570053594-1b985d6ea890?w=500&q=80" alt="Bird products" loading="lazy"></div>
+        <div class="pet-card-body">
+          <h3>Birds</h3><p>Cages, feed, perches</p>
+          <a href="#products">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="pet-card reveal">
+        <div class="img-wrap"><img src="https://images.unsplash.com/photo-1520302630591-fd1c66edc19d?w=500&q=80" alt="Fish and aquarium products" loading="lazy"></div>
+        <div class="pet-card-body">
+          <h3>Fish</h3><p>Tanks, filters, fish food</p>
+          <a href="#products">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="pet-card reveal">
+        <div class="img-wrap"><img src="https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=500&q=80" alt="Small pets like rabbits and hamsters" loading="lazy"></div>
+        <div class="pet-card-body">
+          <h3>Small Pets</h3><p>Hutches, bedding, chews</p>
+          <a href="#products">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERACTIVE PET PRODUCT FINDER (SIGNATURE) -->
+<section id="finder">
+  <div class="finder-section reveal">
+    <div class="finder-head">
+      <p class="eyebrow">Never Just Browse Again</p>
+      <h2>The Pet Product Finder</h2>
+      <p>Answer three quick questions and we'll fetch a shortlist made for your pet — no scrolling through aisles, real or digital.</p>
+    </div>
+
+    <div class="finder-box">
+      <div class="paw-steps" id="pawSteps">
+        <div class="paw-step active" data-step="1">🐾</div>
+        <div class="paw-step" data-step="2">🐾</div>
+        <div class="paw-step" data-step="3">🐾</div>
+        <div class="paw-step" data-step="4">✓</div>
+      </div>
+
+      <!-- Step 1: Pet type -->
+      <div class="finder-step active" data-step="1">
+        <h3>What pet do you have?</h3>
+        <p class="sub">Step 1 of 3</p>
+        <div class="option-grid" data-group="pet">
+          <div class="option-card" data-value="dog"><span class="option-emoji">🐕</span><span class="option-label">Dog</span></div>
+          <div class="option-card" data-value="cat"><span class="option-emoji">🐈</span><span class="option-label">Cat</span></div>
+          <div class="option-card" data-value="bird"><span class="option-emoji">🦜</span><span class="option-label">Bird</span></div>
+          <div class="option-card" data-value="fish"><span class="option-emoji">🐠</span><span class="option-label">Fish</span></div>
+          <div class="option-card" data-value="small"><span class="option-emoji">🐇</span><span class="option-label">Small Pet</span></div>
+        </div>
+        <div class="finder-nav"><button class="finder-back" disabled>Back</button><span></span></div>
+      </div>
+
+      <!-- Step 2: Age -->
+      <div class="finder-step" data-step="2">
+        <h3>How old is it?</h3>
+        <p class="sub">Step 2 of 3</p>
+        <div class="option-grid" data-group="age">
+          <div class="option-card" data-value="baby"><span class="option-emoji">🍼</span><span class="option-label">Baby / Young</span></div>
+          <div class="option-card" data-value="adult"><span class="option-emoji">🐾</span><span class="option-label">Adult</span></div>
+          <div class="option-card" data-value="senior"><span class="option-emoji">🦴</span><span class="option-label">Senior</span></div>
+        </div>
+        <div class="finder-nav"><button class="finder-back">Back</button><span></span></div>
+      </div>
+
+      <!-- Step 3: Category -->
+      <div class="finder-step" data-step="3">
+        <h3>What are you shopping for today?</h3>
+        <p class="sub">Step 3 of 3</p>
+        <div class="option-grid two-col" data-group="category">
+          <div class="option-card" data-value="food"><span class="option-emoji">🦴</span><span class="option-label">Food</span></div>
+          <div class="option-card" data-value="toys"><span class="option-emoji">🎾</span><span class="option-label">Toys</span></div>
+          <div class="option-card" data-value="grooming"><span class="option-emoji">🧼</span><span class="option-label">Grooming</span></div>
+          <div class="option-card" data-value="health"><span class="option-emoji">💊</span><span class="option-label">Health</span></div>
+          <div class="option-card" data-value="habitat"><span class="option-emoji">🏠</span><span class="option-label">Habitat</span></div>
+          <div class="option-card" data-value="accessories"><span class="option-emoji">🎀</span><span class="option-label">Accessories</span></div>
+        </div>
+        <div class="finder-nav"><button class="finder-back">Back</button><span></span></div>
+      </div>
+
+      <!-- Results -->
+      <div class="finder-step finder-results" data-step="4">
+        <h3 id="resultsHeading">Picked for your pet</h3>
+        <p class="sub" id="resultsSub">Based on what you told us</p>
+        <div class="result-grid" id="resultGrid"></div>
+        <a href="#" class="result-restart" id="restartFinder">Start over</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+<section id="products">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Featured Products</p>
+      <h2>Ready for Pickup Today</h2>
+      <p>A few favourites from the shelves — quick view, then straight to WhatsApp.</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card reveal">
+        <div class="product-img"><span class="badge">Bestseller</span><img src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=500&q=80" alt="Premium dog food bag" loading="lazy"></div>
+        <div class="product-body">
+          <div class="stars">★★★★★ <span style="color:var(--ink-soft);font-weight:600;">(128)</span></div>
+          <h3>Premium Adult Dog Food, 15kg</h3>
+          <div class="price-row"><span class="price">$89.99</span></div>
+          <div class="product-actions">
+            <a href="#" class="btn btn-outline btn-sm">Quick View</a>
+            <a href="https://wa.me/17581234567?text=Hi%20Pet%27s%20Place!%20I%27d%20like%20to%20order%3A%20Premium%20Adult%20Dog%20Food%2C%2015kg" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-img"><span class="badge">New</span><img src="https://images.unsplash.com/photo-1602584386319-fa8eb4361c4a?w=500&q=80" alt="Clumping cat litter bag" loading="lazy"></div>
+        <div class="product-body">
+          <div class="stars">★★★★★ <span style="color:var(--ink-soft);font-weight:600;">(94)</span></div>
+          <h3>Ultra Clumping Cat Litter, 10L</h3>
+          <div class="price-row"><span class="price">$34.50</span></div>
+          <div class="product-actions">
+            <a href="#" class="btn btn-outline btn-sm">Quick View</a>
+            <a href="https://wa.me/17581234567?text=Hi%20Pet%27s%20Place!%20I%27d%20like%20to%20order%3A%20Ultra%20Clumping%20Cat%20Litter%2C%2010L" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-img"><img src="https://images.unsplash.com/photo-1520302630591-fd1c66edc19d?w=500&q=80" alt="Aquarium starter kit with tank and filter" loading="lazy"></div>
+        <div class="product-body">
+          <div class="stars">★★★★☆ <span style="color:var(--ink-soft);font-weight:600;">(61)</span></div>
+          <h3>Aquarium Starter Kit, 20 Gallon</h3>
+          <div class="price-row"><span class="price">$149.00</span></div>
+          <div class="product-actions">
+            <a href="#" class="btn btn-outline btn-sm">Quick View</a>
+            <a href="https://wa.me/17581234567?text=Hi%20Pet%27s%20Place!%20I%27d%20like%20to%20order%3A%20Aquarium%20Starter%20Kit%2C%2020%20Gallon" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-img"><img src="https://images.unsplash.com/photo-1452570053594-1b985d6ea890?w=500&q=80" alt="Spacious bird cage" loading="lazy"></div>
+        <div class="product-body">
+          <div class="stars">★★★★★ <span style="color:var(--ink-soft);font-weight:600;">(37)</span></div>
+          <h3>Spacious Bird Cage, Double Door</h3>
+          <div class="price-row"><span class="price">$112.00</span></div>
+          <div class="product-actions">
+            <a href="#" class="btn btn-outline btn-sm">Quick View</a>
+            <a href="https://wa.me/17581234567?text=Hi%20Pet%27s%20Place!%20I%27d%20like%20to%20order%3A%20Spacious%20Bird%20Cage%2C%20Double%20Door" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-img"><span class="badge">Sale</span><img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?w=500&q=80" alt="Dog shampoo bottle" loading="lazy"></div>
+        <div class="product-body">
+          <div class="stars">★★★★★ <span style="color:var(--ink-soft);font-weight:600;">(52)</span></div>
+          <h3>Oatmeal Dog Shampoo, 500ml</h3>
+          <div class="price-row"><span class="price">$18.99</span><span class="old-price">$24.99</span></div>
+          <div class="product-actions">
+            <a href="#" class="btn btn-outline btn-sm">Quick View</a>
+            <a href="https://wa.me/17581234567?text=Hi%20Pet%27s%20Place!%20I%27d%20like%20to%20order%3A%20Oatmeal%20Dog%20Shampoo%2C%20500ml" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-img"><img src="https://images.unsplash.com/photo-1583512603806-077998240c7a?w=500&q=80" alt="Pet carrier bag" loading="lazy"></div>
+        <div class="product-body">
+          <div class="stars">★★★★☆ <span style="color:var(--ink-soft);font-weight:600;">(29)</span></div>
+          <h3>Airline-Ready Pet Carrier</h3>
+          <div class="price-row"><span class="price">$64.00</span></div>
+          <div class="product-actions">
+            <a href="#" class="btn btn-outline btn-sm">Quick View</a>
+            <a href="https://wa.me/17581234567?text=Hi%20Pet%27s%20Place!%20I%27d%20like%20to%20order%3A%20Airline-Ready%20Pet%20Carrier" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Why Families Choose Us</p>
+      <h2>More Than a Shop — A Second Set of Hands</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal"><div class="why-icon">💬</div><h3>Friendly Advice</h3><p>Not sure what your rescue pup needs? We'll talk it through, no upsell pressure.</p></div>
+      <div class="why-card reveal"><div class="why-icon">🏅</div><h3>Quality Brands</h3><p>We only stock what we'd give our own pets — trusted names, checked labels.</p></div>
+      <div class="why-card reveal"><div class="why-icon">❤️</div><h3>Healthy Pets</h3><p>Nutrition and care guidance that keeps tails wagging for years, not weeks.</p></div>
+      <div class="why-card reveal"><div class="why-icon">🏝️</div><h3>Island Convenience</h3><p>Order from anywhere on the island, pick up when it suits you.</p></div>
+      <div class="why-card reveal"><div class="why-icon">💰</div><h3>Affordable Prices</h3><p>Fair pricing on essentials, so quality care never feels like a luxury.</p></div>
+      <div class="why-card reveal"><div class="why-icon">⚡</div><h3>Quick Pickup</h3><p>Message us, we prep your order, you're in and out in minutes.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHATSAPP ORDERING -->
+<section class="wa-section">
+  <div class="container wa-grid">
+    <div class="reveal">
+      <p class="eyebrow">Ordering Made Simple</p>
+      <h2 style="margin-bottom:26px;">From Browsing to Pickup in Four Steps</h2>
+      <div class="wa-steps">
+        <div class="wa-step"><div class="wa-num">1</div><div><h4>Browse</h4><p>Explore our shop or use the Product Finder to shortlist what you need.</p></div></div>
+        <div class="wa-step"><div class="wa-num">2</div><div><h4>Send your order via WhatsApp</h4><p>Tap any WhatsApp button and your message is ready to send.</p></div></div>
+        <div class="wa-step"><div class="wa-num">3</div><div><h4>Receive confirmation</h4><p>We confirm stock and your pickup time, usually within minutes.</p></div></div>
+        <div class="wa-step"><div class="wa-num">4</div><div><h4>Collect in store</h4><p>Swing by, grab your order, get back to spoiling your pet.</p></div></div>
+      </div>
+    </div>
+    <div class="wa-visual reveal">
+      <div class="wa-icon">
+        <svg viewBox="0 0 24 24" width="34" height="34" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.5.1-1.4-.7-2.4-1.3-3.3-2.9-.3-.4.3-.4.8-1.3.1-.2 0-.3 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-1 .9-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.3-.1-.1-.3-.2-.5-.3z"/><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.5A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .9.9-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+      </div>
+      <h3>Ready When You Are</h3>
+      <p>Tap below and we'll pre-fill your message. Just hit send.</p>
+      <a href="https://wa.me/17581234567?text=Hi%20Pet%27s%20Place!%20I%27d%20like%20to%20place%20an%20order%20for%20pickup." target="_blank" rel="noopener" class="btn btn-whatsapp">Message Us on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIAL OFFERS -->
+<section id="offers">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Special Offers</p>
+      <h2>Treat Them to Something Special</h2>
+    </div>
+    <div class="offer-grid">
+      <div class="offer-card reveal">
+        <img src="https://images.unsplash.com/photo-1518715303255-1f1f3fb84d8f?w=600&q=80" alt="Puppy essentials bundle" loading="lazy">
+        <div class="offer-content">
+          <span class="offer-tag">Bundle</span>
+          <h3>Puppy Essentials Bundle</h3>
+          <p>Starter food, collar, bed and toy — everything for the first month home.</p>
+          <a href="https://wa.me/17581234567?text=Hi%20Pet%27s%20Place!%20I%27d%20like%20info%20on%20the%20Puppy%20Essentials%20Bundle" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Grab This Deal</a>
+        </div>
+      </div>
+      <div class="offer-card reveal">
+        <img src="https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?w=600&q=80" alt="Aquarium starter package" loading="lazy">
+        <div class="offer-content">
+          <span class="offer-tag">New Arrival</span>
+          <h3>Aquarium Starter Package</h3>
+          <p>Tank, filter, heater and fish food, bundled and ready to set up.</p>
+          <a href="https://wa.me/17581234567?text=Hi%20Pet%27s%20Place!%20I%27d%20like%20info%20on%20the%20Aquarium%20Starter%20Package" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Grab This Deal</a>
+        </div>
+      </div>
+      <div class="offer-card reveal">
+        <img src="https://images.unsplash.com/photo-1495360010541-f8f96c9440e9?w=600&q=80" alt="Cat care bundle" loading="lazy">
+        <div class="offer-content">
+          <span class="offer-tag">Monthly Special</span>
+          <h3>Cat Care Bundle</h3>
+          <p>Litter, scratching post and grooming brush, at a bundled price.</p>
+          <a href="https://wa.me/17581234567?text=Hi%20Pet%27s%20Place!%20I%27d%20like%20info%20on%20the%20Cat%20Care%20Bundle" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Grab This Deal</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PET CARE TIPS -->
+<section id="care">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Pet Care Tips</p>
+      <h2>A Little Guidance Goes a Long Way</h2>
+    </div>
+    <div class="tips-grid">
+      <div class="tip-card reveal">
+        <div class="img-wrap"><img src="https://images.unsplash.com/photo-1601758125946-6ac8acaa5b62?w=500&q=80" alt="Dog eating from bowl" loading="lazy"></div>
+        <div class="tip-body">
+          <p class="eyebrow">Nutrition</p>
+          <h3>Choosing the Right Dog Food</h3>
+          <a href="#">Read More →</a>
+        </div>
+      </div>
+      <div class="tip-card reveal">
+        <div class="img-wrap"><img src="https://images.unsplash.com/photo-1524704796725-9fc3044a58b2?w=500&q=80" alt="Aquarium with fish" loading="lazy"></div>
+        <div class="tip-body">
+          <p class="eyebrow">Aquatics</p>
+          <h3>Keeping Aquarium Fish Healthy</h3>
+          <a href="#">Read More →</a>
+        </div>
+      </div>
+      <div class="tip-card reveal">
+        <div class="img-wrap"><img src="https://images.unsplash.com/photo-1522858547098-f38dccd52e57?w=500&q=80" alt="Colorful pet bird" loading="lazy"></div>
+        <div class="tip-body">
+          <p class="eyebrow">Aviary</p>
+          <h3>Bird Care Essentials</h3>
+          <a href="#">Read More →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Kind Words</p>
+      <h2>Loved by Pet Parents Across the Island</h2>
+    </div>
+    <div class="testi-slider">
+      <div class="testi-slide active">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"They remembered my dog's name before they remembered mine. That's the kind of place this is."</p>
+        <div class="testi-author">Andrea M.</div>
+        <div class="testi-role">Castries</div>
+      </div>
+      <div class="testi-slide">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Ordered on WhatsApp on my lunch break, picked up the aquarium filter before dinner. Simple as that."</p>
+        <div class="testi-author">Kevin J.</div>
+        <div class="testi-role">Gros Islet</div>
+      </div>
+      <div class="testi-slide">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"The selection for small pets is better than anywhere else I've tried on the island. My rabbits agree."</p>
+        <div class="testi-author">Priya S.</div>
+        <div class="testi-role">Vieux Fort</div>
+      </div>
+    </div>
+    <div class="testi-dots">
+      <div class="testi-dot active"></div><div class="testi-dot"></div><div class="testi-dot"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container about-grid">
+    <img class="reveal" src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=700&q=80" alt="Pet's Place shop owners with a dog" loading="lazy">
+    <div class="about-copy reveal">
+      <p class="eyebrow">Our Story</p>
+      <h2 style="margin-bottom:18px;">Pet Lovers, Serving Pet Lovers</h2>
+      <p>Pet's Place started the way most good things on this island do — with a family, a few animals underfoot, and a frustration that quality pet care always seemed to cost more than it should, or come from somewhere far away.</p>
+      <p>So we built the shop we wished existed. Every product on our shelves is something we'd hand to our own pets without a second thought. Every question gets a real answer, not a sales script.</p>
+      <p>We're still small enough to know our regulars by name — and their pets by nickname.</p>
+      <div class="about-stats">
+        <div class="about-stat"><strong>8+</strong><span>Years Serving the Island</span></div>
+        <div class="about-stat"><strong>2,400+</strong><span>Happy Pets Monthly</span></div>
+        <div class="about-stat"><strong>4.9★</strong><span>Average Rating</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section>
+  <div class="container">
+    <div class="final-cta reveal">
+      <h2>Your Pet Deserves the Best.</h2>
+      <p>Everything they love is waiting on the shelf, and it's easier to get than you think.</p>
+      <div class="final-cta-ctas">
+        <a href="#shop" class="btn btn-primary">Visit Us Today</a>
+        <a href="https://wa.me/17581234567?text=Hi%20Pet%27s%20Place!%20I%27d%20like%20to%20place%20an%20order%20for%20pickup." target="_blank" rel="noopener" class="btn btn-whatsapp">WhatsApp Your Order</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">🐾 Pet's Place</div>
+        <p style="font-size:0.9rem;max-width:280px;">A family-owned Caribbean pet shop for every kind of companion — dogs, cats, birds, fish and small pets.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">◎</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Opening Hours</h4>
+        <ul>
+          <li>Mon – Fri: 8:30am – 6:00pm</li>
+          <li>Saturday: 8:30am – 5:00pm</li>
+          <li>Sunday: 9:00am – 1:00pm</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li>hello@petsplacedemo.com</li>
+          <li>+1 (758) 123-4567</li>
+          <li><a href="https://wa.me/17581234567" target="_blank" rel="noopener">WhatsApp Us</a></li>
+          <li>12 Harbourview Road, Castries</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#finder">Product Finder</a></li>
+          <li><a href="#care">Pet Care Tips</a></li>
+          <li><a href="#offers">Special Offers</a></li>
+          <li><a href="#about">About Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Pet's Place. Demonstration website — not a real business.</span>
+      <span>Built with care for Caribbean pet lovers.</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/17581234567?text=Hi%20Pet%27s%20Place!%20I%27d%20like%20to%20place%20an%20order%20for%20pickup." target="_blank" rel="noopener" class="wa-float" aria-label="Order on WhatsApp">
+  <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.5.1-1.4-.7-2.4-1.3-3.3-2.9-.3-.4.3-.4.8-1.3.1-.2 0-.3 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-1 .9-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.3-.1-.1-.3-.2-.5-.3z"/><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.5A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .9.9-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+</a>
+
+<script>
+// ---------- Header scroll state ----------
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// ---------- Mobile nav ----------
+const hamburger = document.getElementById('hamburger');
+const mainNav = document.getElementById('mainNav');
+const navOverlay = document.getElementById('navOverlay');
+function closeNav(){
+  hamburger.classList.remove('open');
+  mainNav.classList.remove('open');
+  navOverlay.classList.remove('open');
+  hamburger.setAttribute('aria-expanded','false');
+}
+hamburger.addEventListener('click', () => {
+  const isOpen = mainNav.classList.toggle('open');
+  hamburger.classList.toggle('open', isOpen);
+  navOverlay.classList.toggle('open', isOpen);
+  hamburger.setAttribute('aria-expanded', String(isOpen));
+});
+navOverlay.addEventListener('click', closeNav);
+mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+
+// ---------- Scroll reveal ----------
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.classList.add('is-visible');
+      io.unobserve(e.target);
+    }
+  });
+}, {threshold:0.15});
+revealEls.forEach(el => io.observe(el));
+
+// ---------- Testimonial slider ----------
+const slides = document.querySelectorAll('.testi-slide');
+const dots = document.querySelectorAll('.testi-dot');
+let testiIndex = 0;
+function showSlide(i){
+  slides.forEach(s => s.classList.remove('active'));
+  dots.forEach(d => d.classList.remove('active'));
+  slides[i].classList.add('active');
+  dots[i].classList.add('active');
+}
+dots.forEach((d,i) => d.addEventListener('click', () => { testiIndex = i; showSlide(i); }));
+setInterval(() => {
+  testiIndex = (testiIndex + 1) % slides.length;
+  showSlide(testiIndex);
+}, 5500);
+
+// =====================================================
+// INTERACTIVE PET PRODUCT FINDER
+// =====================================================
+(function(){
+  const state = { pet:null, age:null, category:null };
+  let currentStep = 1;
+
+  const steps = document.querySelectorAll('.finder-step');
+  const pawSteps = document.querySelectorAll('.paw-step');
+  const optionCards = document.querySelectorAll('.option-card');
+  const backButtons = document.querySelectorAll('.finder-back');
+  const restart = document.getElementById('restartFinder');
+
+  // Demo product catalogue for the finder
+  const catalogue = [
+    {name:"Puppy Starter Kibble, 3kg", pet:["dog"], age:["baby"], cat:["food"], price:"$28.00", img:"https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=400&q=80"},
+    {name:"Adult Dog Kibble, 15kg", pet:["dog"], age:["adult"], cat:["food"], price:"$89.99", img:"https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=400&q=80"},
+    {name:"Senior Joint-Care Dog Food", pet:["dog"], age:["senior"], cat:["food","health"], price:"$74.50", img:"https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=400&q=80"},
+    {name:"Squeaky Rope Toy Bundle", pet:["dog"], age:["baby","adult"], cat:["toys"], price:"$14.00", img:"https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&q=80"},
+    {name:"Oatmeal Dog Shampoo, 500ml", pet:["dog"], age:["baby","adult","senior"], cat:["grooming"], price:"$18.99", img:"https://images.unsplash.com/photo-1591946614720-90a587da4a36?w=400&q=80"},
+    {name:"Tick & Flea Treatment Drops", pet:["dog","cat"], age:["adult","senior"], cat:["health"], price:"$22.00", img:"https://images.unsplash.com/photo-1591946614720-90a587da4a36?w=400&q=80"},
+    {name:"Orthopedic Dog Bed, Large", pet:["dog"], age:["senior","adult"], cat:["habitat","accessories"], price:"$96.00", img:"https://images.unsplash.com/photo-1583512603806-077998240c7a?w=400&q=80"},
+    {name:"Reflective Collar & Leash Set", pet:["dog"], age:["baby","adult","senior"], cat:["accessories"], price:"$26.50", img:"https://images.unsplash.com/photo-1583512603806-077998240c7a?w=400&q=80"},
+
+    {name:"Kitten Growth Formula, 2kg", pet:["cat"], age:["baby"], cat:["food"], price:"$24.00", img:"https://images.unsplash.com/photo-1602584386319-fa8eb4361c4a?w=400&q=80"},
+    {name:"Adult Cat Kibble, 7kg", pet:["cat"], age:["adult"], cat:["food"], price:"$52.00", img:"https://images.unsplash.com/photo-1602584386319-fa8eb4361c4a?w=400&q=80"},
+    {name:"Senior Cat Digestive Formula", pet:["cat"], age:["senior"], cat:["food","health"], price:"$56.00", img:"https://images.unsplash.com/photo-1602584386319-fa8eb4361c4a?w=400&q=80"},
+    {name:"Feather Wand Cat Toy", pet:["cat"], age:["baby","adult"], cat:["toys"], price:"$9.50", img:"https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400&q=80"},
+    {name:"Self-Cleaning Grooming Brush", pet:["cat"], age:["adult","senior"], cat:["grooming"], price:"$16.00", img:"https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400&q=80"},
+    {name:"Hairball Control Supplement", pet:["cat"], age:["adult","senior"], cat:["health"], price:"$19.00", img:"https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400&q=80"},
+    {name:"Ultra Clumping Cat Litter, 10L", pet:["cat"], age:["baby","adult","senior"], cat:["habitat"], price:"$34.50", img:"https://images.unsplash.com/photo-1602584386319-fa8eb4361c4a?w=400&q=80"},
+    {name:"Cat Scratching Post & Perch", pet:["cat"], age:["baby","adult"], cat:["habitat","accessories"], price:"$68.00", img:"https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400&q=80"},
+
+    {name:"Hand-Rearing Bird Formula", pet:["bird"], age:["baby"], cat:["food"], price:"$21.00", img:"https://images.unsplash.com/photo-1452570053594-1b985d6ea890?w=400&q=80"},
+    {name:"Seed & Pellet Mix, 2kg", pet:["bird"], age:["adult","senior"], cat:["food"], price:"$18.50", img:"https://images.unsplash.com/photo-1452570053594-1b985d6ea890?w=400&q=80"},
+    {name:"Mineral Perch & Chew Toy", pet:["bird"], age:["baby","adult","senior"], cat:["toys","habitat"], price:"$12.00", img:"https://images.unsplash.com/photo-1452570053594-1b985d6ea890?w=400&q=80"},
+    {name:"Spacious Bird Cage, Double Door", pet:["bird"], age:["baby","adult","senior"], cat:["habitat"], price:"$112.00", img:"https://images.unsplash.com/photo-1452570053594-1b985d6ea890?w=400&q=80"},
+    {name:"Feather Conditioning Spray", pet:["bird"], age:["adult","senior"], cat:["grooming","health"], price:"$14.50", img:"https://images.unsplash.com/photo-1452570053594-1b985d6ea890?w=400&q=80"},
+
+    {name:"Tropical Fish Flakes, 200g", pet:["fish"], age:["baby","adult","senior"], cat:["food"], price:"$9.00", img:"https://images.unsplash.com/photo-1520302630591-fd1c66edc19d?w=400&q=80"},
+    {name:"Aquarium Starter Kit, 20 Gallon", pet:["fish"], age:["baby","adult"], cat:["habitat"], price:"$149.00", img:"https://images.unsplash.com/photo-1520302630591-fd1c66edc19d?w=400&q=80"},
+    {name:"Water Conditioner & Test Kit", pet:["fish"], age:["adult","senior"], cat:["health"], price:"$17.00", img:"https://images.unsplash.com/photo-1520302630591-fd1c66edc19d?w=400&q=80"},
+    {name:"Decorative Aquarium Ornament Set", pet:["fish"], age:["baby","adult","senior"], cat:["accessories","toys"], price:"$13.50", img:"https://images.unsplash.com/photo-1520302630591-fd1c66edc19d?w=400&q=80"},
+
+    {name:"Small Pet Pellet Mix", pet:["small"], age:["baby","adult"], cat:["food"], price:"$11.00", img:"https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=400&q=80"},
+    {name:"Timothy Hay, Compressed 1kg", pet:["small"], age:["adult","senior"], cat:["food"], price:"$8.50", img:"https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=400&q=80"},
+    {name:"Wooden Chew Toy Set", pet:["small"], age:["baby","adult","senior"], cat:["toys"], price:"$7.00", img:"https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=400&q=80"},
+    {name:"Multi-Level Hutch", pet:["small"], age:["baby","adult","senior"], cat:["habitat"], price:"$78.00", img:"https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=400&q=80"},
+    {name:"Nail Trimmer & Grooming Kit", pet:["small"], age:["adult","senior"], cat:["grooming"], price:"$15.00", img:"https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=400&q=80"}
+  ];
+
+  const petLabels = {dog:"Dog", cat:"Cat", bird:"Bird", fish:"Fish", small:"Small Pet"};
+  const ageLabels = {baby:"young", adult:"adult", senior:"senior"};
+  const catLabels = {food:"Food", toys:"Toys", grooming:"Grooming", health:"Health", habitat:"Habitat", accessories:"Accessories"};
+
+  function goToStep(n){
+    steps.forEach(s => s.classList.toggle('active', Number(s.dataset.step) === n));
+    pawSteps.forEach(p => {
+      const ps = Number(p.dataset.step);
+      p.classList.toggle('active', ps === n);
+      p.classList.toggle('done', ps < n);
+    });
+    currentStep = n;
+  }
+
+  optionCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const group = card.parentElement.dataset.group;
+      card.parentElement.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      state[group === 'pet' ? 'pet' : group === 'age' ? 'age' : 'category'] = card.dataset.value;
+
+      setTimeout(() => {
+        if(group === 'pet') goToStep(2);
+        else if(group === 'age') goToStep(3);
+        else if(group === 'category') renderResults();
+      }, 220);
+    });
+  });
+
+  backButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if(currentStep > 1) goToStep(currentStep - 1);
+    });
+  });
+
+  restart.addEventListener('click', (e) => {
+    e.preventDefault();
+    state.pet = null; state.age = null; state.category = null;
+    optionCards.forEach(c => c.classList.remove('selected'));
+    goToStep(1);
+  });
+
+  function renderResults(){
+    goToStep(4);
+    const heading = document.getElementById('resultsHeading');
+    const sub = document.getElementById('resultsSub');
+    const grid = document.getElementById('resultGrid');
+
+    heading.textContent = `Picked for your ${ageLabels[state.age]} ${petLabels[state.pet].toLowerCase()}`;
+    sub.textContent = `Best matches for ${catLabels[state.category].toLowerCase()} — ready for WhatsApp pickup`;
+
+    let matches = catalogue.filter(p =>
+      p.pet.includes(state.pet) && p.age.includes(state.age) && p.cat.includes(state.category)
+    );
+
+    if(matches.length === 0){
+      matches = catalogue.filter(p => p.pet.includes(state.pet) && p.cat.includes(state.category));
+    }
+    if(matches.length === 0){
+      matches = catalogue.filter(p => p.pet.includes(state.pet));
+    }
+    matches = matches.slice(0, 3);
+
+    grid.innerHTML = matches.map(p => {
+      const msg = encodeURIComponent(`Hi Pet's Place! I'd like to order: ${p.name}`);
+      return `
+        <div class="result-card">
+          <img src="${p.img}" alt="${p.name}" loading="lazy">
+          <h4>${p.name}</h4>
+          <div class="price">${p.price}</div>
+          <a href="https://wa.me/17581234567?text=${msg}" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm" style="width:100%;">WhatsApp Order</a>
+        </div>`;
+    }).join('');
+  }
+})();
+</script>
+
+</body>
+</html>
