@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Order a Custom Cake — Sweet Layers Bakery, Saint Lucia</title>
+<meta name="description" content="Build your custom cake order in minutes and send it directly to Sweet Layers Bakery on WhatsApp. Birthday, wedding, and celebration cakes made fresh in Castries, Saint Lucia."/>
+<meta property="og:title" content="Order a Custom Cake — Sweet Layers Bakery"/>
+<meta property="og:description" content="Build your cake, pick your flavour, and send your order on WhatsApp. Made fresh in Castries, Saint Lucia."/>
+<meta property="og:type" content="website"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+<style>
+
+/* ─────────────────────────────────────
+   TOKENS
+───────────────────────────────────── */
+:root {
+  --cream:    #fdf8f2;
+  --cream2:   #f7eedf;
+  --cream3:   #ede0ca;
+  --rose:     #c4637a;
+  --rose2:    #d4748a;
+  --rose-b:   rgba(196,99,122,0.09);
+  --gold:     #b8925a;
+  --gold2:    #d4a96a;
+  --dark:     #1a100a;
+  --dark2:    #2a1a12;
+  --text2:    #7a5040;
+  --muted:    #b09080;
+  --white:    #ffffff;
+  --wa:       #25D366;
+  --border:   rgba(196,99,122,0.14);
+  --shadow:   0 12px 40px rgba(26,16,10,0.10);
+  --radius:   20px;
+  --fd:       'Fraunces', serif;
+  --fb:       'DM Sans', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--fb);
+  background: var(--cream);
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+/* grain overlay */
+body::after {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: .5;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+}
+
+img { display: block; max-width: 100%; }
+[data-lucide] { display: block; }
+a { text-decoration: none; }
+
+/* ─────────────────────────────────────
+   BUTTONS
+───────────────────────────────────── */
+.btn-rose {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--rose); color: #fff; border: none;
+  border-radius: 10px; padding: 14px 28px;
+  font-family: var(--fb); font-size: .9rem; font-weight: 600;
+  cursor: pointer; transition: background .2s, transform .15s, box-shadow .2s;
+}
+.btn-rose:hover { background: var(--rose2); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(196,99,122,.32); }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: var(--dark);
+  border: 1.5px solid var(--cream3); border-radius: 10px; padding: 13px 22px;
+  font-family: var(--fb); font-size: .88rem; font-weight: 500;
+  cursor: pointer; transition: border-color .2s, color .2s;
+}
+.btn-ghost:hover { border-color: var(--rose); color: var(--rose); }
+
+.btn-wa {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  background: var(--wa); color: #fff; border: none;
+  border-radius: 12px; padding: 17px 28px; width: 100%;
+  font-family: var(--fb); font-size: .96rem; font-weight: 700;
+  cursor: pointer; transition: transform .15s, box-shadow .2s;
+}
+.btn-wa:hover { transform: scale(1.02); box-shadow: 0 14px 32px rgba(37,211,102,.32); }
+.btn-wa svg { width: 20px; height: 20px; }
+
+/* ─────────────────────────────────────
+   NAV
+───────────────────────────────────── */
+.mini-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  height: 62px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 32px;
+  background: rgba(253,248,242,.94); backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-brand { display: flex; align-items: center; gap: 10px; }
+.nav-mono {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--rose); display: flex; align-items: center; justify-content: center;
+  font-family: var(--fd); font-style: italic; font-weight: 700; font-size: .95rem; color: #fff;
+  box-shadow: 0 4px 14px rgba(196,99,122,.3);
+}
+.nav-name {
+  font-family: var(--fd); font-style: italic; font-weight: 700;
+  font-size: 1.05rem; color: var(--dark);
+}
+.nav-name span { color: var(--rose); }
+.nav-cta { display: flex; align-items: center; gap: 10px; }
+.nav-tel {
+  font-size: .78rem; color: var(--text2); font-weight: 500;
+  display: flex; align-items: center; gap: 6px;
+}
+.nav-tel svg { width: 13px; height: 13px; stroke: var(--muted); }
+
+/* ─────────────────────────────────────
+   HERO
+───────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding-top: 62px;
+  position: relative; overflow: hidden;
+  background: linear-gradient(135deg, var(--cream) 55%, var(--cream2) 100%);
+}
+
+/* decorative circles */
+.hero::before {
+  content: ''; position: absolute;
+  width: 560px; height: 560px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(196,99,122,.08), transparent 70%);
+  top: -180px; right: -100px; pointer-events: none;
+}
+.hero::after {
+  content: ''; position: absolute;
+  width: 320px; height: 320px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,146,90,.07), transparent 70%);
+  bottom: -60px; left: 4%; pointer-events: none;
+}
+
+.hero-left {
+  padding: 60px 50px 60px 72px;
+  position: relative; z-index: 2;
+}
+
+.hero-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--rose-b); border: 1px solid var(--border);
+  border-radius: 50px; padding: 6px 16px;
+  font-size: .7rem; font-weight: 600; color: var(--rose);
+  letter-spacing: 1.5px; text-transform: uppercase;
+  margin-bottom: 22px;
+  animation: fadeUp .55s ease both;
+}
+.hero-pill svg { width: 12px; height: 12px; stroke: var(--rose); }
+
+.hero h1 {
+  font-family: var(--fd); font-weight: 700;
+  font-size: clamp(2.4rem, 4.6vw, 3.8rem);
+  line-height: 1.06; letter-spacing: -1.2px;
+  color: var(--dark); margin-bottom: 18px;
+  animation: fadeUp .6s .08s ease both;
+}
+.hero h1 em { font-style: italic; color: var(--rose); }
+.hero h1 .gold { color: var(--gold); }
+
+.hero-sub {
+  font-size: .97rem; color: var(--text2); max-width: 440px;
+  line-height: 1.72; font-weight: 300; margin-bottom: 30px;
+  animation: fadeUp .6s .16s ease both;
+}
+
+.hero-btns {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  margin-bottom: 14px;
+  animation: fadeUp .6s .24s ease both;
+}
+
+.hero-micro {
+  font-size: .76rem; color: var(--muted);
+  animation: fadeUp .6s .3s ease both;
+}
+
+/* hero right — photo */
+.hero-right {
+  position: relative; height: 100%; min-height: 540px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 32px 40px 32px 20px;
+}
+.hero-photo {
+  position: relative; width: 100%; max-width: 420px; aspect-ratio: 4/5;
+  border-radius: 26px; overflow: hidden;
+  box-shadow: 0 28px 64px rgba(26,16,10,.18);
+  animation: fadeUp .7s .2s ease both;
+}
+.hero-photo img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center;
+  transition: transform .6s cubic-bezier(.2,.7,.3,1);
+}
+.hero-photo:hover img { transform: scale(1.04); }
+.hero-photo-badge {
+  position: absolute; bottom: 18px; left: 18px; right: 18px;
+  background: rgba(253,248,242,.93); backdrop-filter: blur(10px);
+  border-radius: 13px; padding: 13px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.hpb-label { font-size: .62rem; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
+.hpb-name { font-family: var(--fd); font-style: italic; font-weight: 600; color: var(--dark); font-size: .95rem; }
+.hpb-price { font-family: var(--fd); font-weight: 700; color: var(--rose); font-size: 1rem; }
+
+/* floating rating card */
+.hero-float {
+  position: absolute; top: 22px; right: 16px;
+  background: #fff; border-radius: 14px; padding: 12px 16px;
+  box-shadow: 0 14px 36px rgba(26,16,10,.13);
+  display: flex; align-items: center; gap: 10px;
+  animation: floatSoft 4s ease-in-out infinite;
+}
+.hf-stars { color: var(--gold); font-size: .8rem; letter-spacing: 1px; }
+.hf-label { font-size: .72rem; color: var(--text2); font-weight: 500; }
+.hf-sub { font-size: .64rem; color: var(--muted); }
+
+@keyframes floatSoft { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+/* ─────────────────────────────────────
+   TRUST STRIP
+───────────────────────────────────── */
+.trust-strip {
+  background: var(--dark);
+  padding: 0 32px;
+  overflow: hidden;
+}
+.trust-strip-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: stretch;
+}
+.trust-item {
+  flex: 1; display: flex; align-items: center; gap: 14px;
+  padding: 28px 20px;
+  border-right: 1px solid rgba(255,255,255,.08);
+}
+.trust-item:last-child { border-right: none; }
+.trust-icon-wrap {
+  width: 42px; height: 42px; flex-shrink: 0; border-radius: 11px;
+  background: rgba(196,99,122,.18);
+  display: flex; align-items: center; justify-content: center;
+}
+.trust-icon-wrap svg { width: 19px; height: 19px; stroke: var(--rose2); }
+.trust-label { font-size: .8rem; font-weight: 700; color: #fff; margin-bottom: 2px; }
+.trust-sub { font-size: .71rem; color: rgba(253,248,242,.5); font-weight: 300; }
+
+/* ─────────────────────────────────────
+   BUILDER
+───────────────────────────────────── */
+.builder-section {
+  background: linear-gradient(160deg, var(--cream2), var(--cream3));
+  padding: 88px 32px 96px;
+}
+.builder-head {
+  text-align: center; max-width: 560px; margin: 0 auto 48px;
+}
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: .7rem; font-weight: 600; color: var(--rose);
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px;
+}
+.eyebrow::before, .eyebrow::after { content:''; width:16px; height:1px; background:var(--rose); opacity:.45; }
+.builder-head h2 {
+  font-family: var(--fd); font-weight: 700;
+  font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+  letter-spacing: -1px; color: var(--dark); line-height: 1.1; margin-bottom: 10px;
+}
+.builder-head h2 em { font-style: italic; color: var(--rose); }
+.builder-head p { font-size: .92rem; color: var(--text2); font-weight: 300; line-height: 1.65; }
+
+/* card */
+.builder-card {
+  max-width: 720px; margin: 0 auto;
+  background: #fff; border-radius: 24px;
+  box-shadow: 0 28px 64px rgba(26,16,10,.12);
+  padding: 42px 42px 38px;
+}
+
+/* step tabs */
+.step-tabs {
+  display: flex; gap: 0; margin-bottom: 36px;
+  background: var(--cream2); border-radius: 12px; padding: 4px;
+}
+.step-tab {
+  flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 10px 8px; border-radius: 9px;
+  font-size: .76rem; font-weight: 600; color: var(--muted);
+  cursor: default; transition: all .25s;
+}
+.step-tab.active {
+  background: #fff; color: var(--rose);
+  box-shadow: 0 2px 10px rgba(26,16,10,.08);
+}
+.step-tab.done { color: var(--text2); }
+.step-num {
+  width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
+  background: var(--cream3); display: flex; align-items: center; justify-content: center;
+  font-size: .7rem; font-weight: 700; color: var(--text2); transition: all .25s;
+}
+.step-tab.active .step-num { background: var(--rose); color: #fff; }
+.step-tab.done .step-num { background: #3a9d6e; color: #fff; }
+.step-tab.done .step-num::after { content: '✓'; font-size: .65rem; }
+.step-tab.done .step-num span { display: none; }
+
+/* panels */
+.step-panel { display: none; }
+.step-panel.active { display: block; animation: fadeUp .35s ease both; }
+
+.panel-title {
+  font-family: var(--fd); font-weight: 700; font-size: 1.3rem; color: var(--dark); margin-bottom: 4px;
+}
+.panel-sub { font-size: .84rem; color: var(--text2); font-weight: 300; margin-bottom: 22px; line-height: 1.55; }
+
+/* option grids */
+.opt-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 6px; }
+.opt-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 6px; }
+
+.opt {
+  background: var(--cream); border: 1.5px solid var(--border);
+  border-radius: 13px; padding: 14px 8px 12px;
+  text-align: center; cursor: pointer; transition: all .18s;
+  font-family: var(--fb); font-size: .78rem; font-weight: 500; color: var(--dark);
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+}
+.opt-icon svg { width: 20px; height: 20px; stroke: var(--text2); transition: stroke .18s; }
+.opt:hover { border-color: var(--rose); }
+.opt.picked { background: var(--rose-b); border-color: var(--rose); color: var(--rose); }
+.opt.picked .opt-icon svg { stroke: var(--rose); }
+.opt-sub { font-size: .64rem; color: var(--muted); font-weight: 400; }
+
+/* step 3 — details */
+.fields { display: flex; flex-direction: column; gap: 16px; margin-bottom: 4px; }
+.field label {
+  display: block; font-size: .76rem; font-weight: 600; color: var(--text2); margin-bottom: 7px;
+  display: flex; align-items: center; gap: 6px;
+}
+.field label svg { width: 13px; height: 13px; stroke: var(--rose); }
+.field input, .field textarea, .field select {
+  width: 100%; border: 1.5px solid var(--border);
+  border-radius: 11px; padding: 12px 14px;
+  font-family: var(--fb); font-size: .87rem; color: var(--dark);
+  background: var(--cream); transition: border-color .2s;
+  resize: none;
+}
+.field input:focus, .field textarea:focus, .field select:focus {
+  outline: none; border-color: var(--rose);
+}
+.date-hint {
+  display: none; align-items: center; gap: 6px;
+  font-size: .72rem; color: var(--gold); font-weight: 500; margin-top: 5px;
+}
+.date-hint svg { width: 13px; height: 13px; stroke: var(--gold); flex-shrink: 0; }
+
+/* order summary */
+.order-summary {
+  background: var(--cream2); border-radius: 14px; padding: 18px 20px; margin-bottom: 16px;
+}
+.summary-heading {
+  font-family: var(--fd); font-weight: 700; font-size: .95rem; color: var(--dark); margin-bottom: 12px;
+  display: flex; align-items: center; gap: 7px;
+}
+.summary-heading svg { width: 15px; height: 15px; stroke: var(--rose); }
+.summary-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 7px 0; border-bottom: 1px dashed var(--border);
+  font-size: .83rem;
+}
+.summary-row:last-child { border-bottom: none; }
+.s-key { color: var(--text2); }
+.s-val { color: var(--dark); font-weight: 600; }
+
+/* nav buttons */
+.step-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 26px; gap: 12px; }
+.btn-back {
+  background: none; border: 1.5px solid var(--cream3); border-radius: 10px;
+  padding: 11px 20px; font-family: var(--fb); font-size: .84rem; font-weight: 500;
+  color: var(--text2); cursor: pointer; display: flex; align-items: center; gap: 6px;
+  transition: border-color .2s, color .2s;
+}
+.btn-back:hover { border-color: var(--rose); color: var(--rose); }
+.btn-back svg { width: 15px; height: 15px; }
+.btn-next {
+  background: var(--rose); color: #fff; border: none;
+  border-radius: 10px; padding: 13px 28px;
+  font-family: var(--fb); font-size: .88rem; font-weight: 600;
+  cursor: pointer; display: flex; align-items: center; gap: 7px;
+  transition: background .2s, transform .15s, box-shadow .2s;
+}
+.btn-next:hover { background: var(--rose2); transform: translateY(-1px); box-shadow: 0 8px 22px rgba(196,99,122,.3); }
+.btn-next svg { width: 15px; height: 15px; }
+
+/* send wa */
+.btn-send {
+  width: 100%; background: var(--wa); color: #fff; border: none;
+  border-radius: 13px; padding: 17px;
+  font-family: var(--fb); font-size: .95rem; font-weight: 700;
+  cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
+  transition: transform .15s, box-shadow .2s; margin-top: 6px;
+}
+.btn-send:hover { transform: scale(1.02); box-shadow: 0 14px 32px rgba(37,211,102,.3); }
+.btn-send svg { width: 19px; height: 19px; }
+.send-micro {
+  text-align: center; font-size: .72rem; color: var(--muted); margin-top: 10px;
+}
+
+/* ─────────────────────────────────────
+   FOOTER
+───────────────────────────────────── */
+.mini-footer {
+  background: var(--dark); padding: 40px 32px;
+}
+.mini-footer-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 24px;
+}
+.footer-brand { display: flex; align-items: center; gap: 10px; }
+.footer-name {
+  font-family: var(--fd); font-style: italic; font-weight: 700;
+  font-size: 1.05rem; color: #fff;
+}
+.footer-tagline { font-size: .78rem; color: rgba(253,248,242,.45); margin-top: 2px; }
+
+.footer-details { display: flex; gap: 28px; flex-wrap: wrap; }
+.footer-detail {
+  display: flex; align-items: center; gap: 7px;
+  font-size: .78rem; color: rgba(253,248,242,.55); font-weight: 400;
+}
+.footer-detail svg { width: 13px; height: 13px; stroke: var(--rose2); flex-shrink: 0; }
+
+.footer-wa {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--wa); color: #fff; border: none;
+  border-radius: 10px; padding: 11px 22px;
+  font-family: var(--fb); font-size: .82rem; font-weight: 600;
+  cursor: pointer; text-decoration: none; transition: transform .15s, box-shadow .2s;
+}
+.footer-wa:hover { transform: scale(1.04); box-shadow: 0 8px 22px rgba(37,211,102,.3); }
+.footer-wa svg { width: 15px; height: 15px; }
+
+.footer-bottom {
+  max-width: 1100px; margin: 24px auto 0;
+  padding-top: 20px; border-top: 1px solid rgba(255,255,255,.07);
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+}
+.footer-copy { font-size: .72rem; color: rgba(253,248,242,.28); }
+.footer-credit { font-size: .72rem; color: rgba(253,248,242,.28); }
+.footer-credit a { color: var(--rose2); }
+
+/* ─────────────────────────────────────
+   FLOAT WA
+───────────────────────────────────── */
+.float-wa {
+  position: fixed; bottom: 22px; right: 22px; z-index: 600;
+  width: 54px; height: 54px; border-radius: 50%; background: var(--wa);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 10px 28px rgba(37,211,102,.38);
+  text-decoration: none; animation: pulse 2.6s ease-in-out infinite;
+}
+.float-wa svg { width: 25px; height: 25px; stroke: #fff; }
+@keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.08)} }
+
+/* ─────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────── */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 44px 24px 28px; }
+  .hero-right { min-height: 360px; padding: 0 24px 40px; }
+  .hero-float { display: none; }
+  .trust-strip-inner { flex-wrap: wrap; }
+  .trust-item { flex: 1 1 50%; border-right: none; border-bottom: 1px solid rgba(255,255,255,.08); padding: 20px 16px; }
+  .trust-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.08); }
+  .builder-card { padding: 28px 20px 26px; }
+  .opt-grid, .opt-grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .mini-footer-inner { flex-direction: column; align-items: flex-start; }
+  .footer-details { flex-direction: column; gap: 10px; }
+}
+
+@media (max-width: 540px) {
+  .mini-nav { padding: 0 18px; }
+  .nav-tel { display: none; }
+  .builder-section { padding: 56px 18px 64px; }
+  .trust-strip { padding: 0 18px; }
+  .trust-item { flex: 1 1 100%; border-right: none; }
+  .trust-item:nth-child(odd) { border-right: none; }
+  .mini-footer { padding: 32px 18px; }
+  .float-wa { bottom: 18px; right: 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ─────────────────────────────────
+     NAV
+───────────────────────────────────── -->
+<nav class="mini-nav">
+  <div class="nav-brand">
+    <div class="nav-mono">SL</div>
+    <div>
+      <div class="nav-name">Sweet <span>Layers</span></div>
+    </div>
+  </div>
+  <div class="nav-cta">
+    <div class="nav-tel">
+      <i data-lucide="phone"></i>
+      +1 (758) 723-5872
+    </div>
+    <a href="#builder" class="btn-rose" style="padding:9px 20px;font-size:.8rem;">
+      <i data-lucide="cake" style="width:14px;height:14px;"></i> Order Now
+    </a>
+  </div>
+</nav>
+
+<!-- ─────────────────────────────────
+     HERO
+───────────────────────────────────── -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-pill">
+      <i data-lucide="map-pin"></i>
+      Castries, Saint Lucia
+    </div>
+
+    <h1>Custom Cakes for the <em>Moments</em> Your Family Will <span class="gold">Remember</span></h1>
+
+    <p class="hero-sub">
+      Birthday cakes, wedding cakes, cupcakes, and custom celebration cakes —
+      made fresh to order, designed around your occasion, and easy to order on WhatsApp.
+    </p>
+
+    <div class="hero-btns">
+      <a href="#builder" class="btn-rose">
+        <i data-lucide="cake" style="width:16px;height:16px;"></i>
+        Build My Cake Order
+      </a>
+      <a href="https://wa.me/17587235872?text=Hi%20Sweet%20Layers!%20I%27d%20like%20to%20ask%20about%20a%20cake%20🎂" target="_blank" class="btn-ghost">
+        <i data-lucide="send" style="width:15px;height:15px;"></i>
+        Message Us
+      </a>
+    </div>
+
+    <div class="hero-micro">Send your idea. We'll help with size, flavour, and design.</div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-photo">
+      <!-- 
+        SWAP GUIDE: Replace the src below with a real bakery hero image.
+        Recommended search: "floral celebration cake buttercream flowers"
+        Ideal dimensions: 800×1000px or taller
+      -->
+      <img
+        src="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/sweet-layers-images/Sweet-Layers/meet-the-baker.jpg"
+        alt="Beautiful custom celebration cake with fresh flowers and gold detail"
+        loading="eager"
+      />
+      <div class="hero-photo-badge">
+        <div>
+          <div class="hpb-label">Featured This Month</div>
+          <div class="hpb-name">Tropical Floral Cake</div>
+        </div>
+        <div class="hpb-price">From $140</div>
+      </div>
+    </div>
+
+    <div class="hero-float">
+      <div>
+        <div class="hf-stars">★★★★★</div>
+        <div class="hf-label">4.9 / 5 rating</div>
+        <div class="hf-sub">Sample proof layout</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────────────
+     TRUST STRIP
+───────────────────────────────────── -->
+<div class="trust-strip" id="trust">
+  <div class="trust-strip-inner">
+    <div class="trust-item">
+      <div class="trust-icon-wrap"><i data-lucide="leaf"></i></div>
+      <div>
+        <div class="trust-label">Made Fresh to Order</div>
+        <div class="trust-sub">Baked after you confirm — not before</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon-wrap"><i data-lucide="palette"></i></div>
+      <div>
+        <div class="trust-label">Custom Every Time</div>
+        <div class="trust-sub">Your colours, your theme, your occasion</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon-wrap"><i data-lucide="smartphone"></i></div>
+      <div>
+        <div class="trust-label">Order on WhatsApp</div>
+        <div class="trust-sub">No accounts, no forms — just message us</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon-wrap"><i data-lucide="truck"></i></div>
+      <div>
+        <div class="trust-label">Pickup & Delivery</div>
+        <div class="trust-sub">Castries pickup or island delivery</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────
+     BUILDER
+───────────────────────────────────── -->
+<section class="builder-section" id="builder">
+  <div class="builder-head">
+    <div class="eyebrow">Build Your Cake</div>
+    <h2>Design Your <em>Perfect Cake</em><br>in 3 Steps</h2>
+    <p>Not sure what to choose? Message us after and we'll guide you through the details.</p>
+  </div>
+
+  <div class="builder-card">
+
+    <!-- step tabs -->
+    <div class="step-tabs" id="stepTabs"></div>
+
+    <!-- step 1: occasion + size -->
+    <div class="step-panel active" id="panel1">
+      <div class="panel-title">What's the occasion?</div>
+      <div class="panel-sub">This helps us suggest the right size and design direction.</div>
+      <div class="opt-grid" id="occasionGrid"></div>
+
+      <div style="margin-top:22px;">
+        <div class="panel-title">How many people?</div>
+        <div class="panel-sub" style="margin-bottom:16px;">Pick the closest size — we'll confirm exact pricing on WhatsApp.</div>
+        <div class="opt-grid-3" id="sizeGrid"></div>
+      </div>
+
+      <div class="step-nav">
+        <span></span>
+        <button class="btn-next" onclick="goTo(2)">
+          Choose Flavour <i data-lucide="arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- step 2: flavour -->
+    <div class="step-panel" id="panel2">
+      <div class="panel-title">Choose your flavour</div>
+      <div class="panel-sub">Can't decide? Ask us about combining two flavours in one cake.</div>
+      <div class="opt-grid" id="flavourGrid"></div>
+
+      <div class="step-nav">
+        <button class="btn-back" onclick="goTo(1)">
+          <i data-lucide="arrow-left"></i> Back
+        </button>
+        <button class="btn-next" onclick="goTo(3)">
+          Final Details <i data-lucide="arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- step 3: details + send -->
+    <div class="step-panel" id="panel3">
+      <div class="panel-title">A few final details</div>
+      <div class="panel-sub">Then we'll send your order straight to WhatsApp.</div>
+
+      <div class="fields">
+        <div class="field">
+          <label><i data-lucide="calendar"></i> When do you need it?</label>
+          <input type="date" id="eventDate"/>
+          <div class="date-hint" id="dateHint">
+            <i data-lucide="alert-triangle"></i>
+            Sooner dates may have limited availability — we'll confirm on WhatsApp.
+          </div>
+        </div>
+        <div class="field">
+          <label><i data-lucide="user"></i> Your name</label>
+          <input type="text" id="custName" placeholder="e.g. Keisha Bernard"/>
+        </div>
+        <div class="field">
+          <label><i data-lucide="message-square"></i> Design notes (optional)</label>
+          <textarea id="designNotes" rows="3" placeholder="Colours, message on the cake, theme ideas, reference photos..."></textarea>
+        </div>
+      </div>
+
+      <div class="order-summary" id="summaryBox"></div>
+
+      <button class="btn-send" onclick="sendOrder()">
+        <i data-lucide="send"></i>
+        Send My Order on WhatsApp
+      </button>
+      <div class="send-micro">You'll be taken to WhatsApp with your order pre-filled. We reply within a few hours.</div>
+
+      <div class="step-nav" style="margin-top:18px;">
+        <button class="btn-back" onclick="goTo(2)">
+          <i data-lucide="arrow-left"></i> Back
+        </button>
+        <span></span>
+      </div>
+    </div>
+
+  </div><!-- /builder-card -->
+</section>
+
+<!-- ─────────────────────────────────
+     FOOTER
+───────────────────────────────────── -->
+<footer class="mini-footer">
+  <div class="mini-footer-inner">
+    <div class="footer-brand">
+      <div class="nav-mono">SL</div>
+      <div>
+        <div class="footer-name">Sweet Layers</div>
+        <div class="footer-tagline">Custom cakes · Castries, Saint Lucia</div>
+      </div>
+    </div>
+
+    <div class="footer-details">
+      <div class="footer-detail"><i data-lucide="phone"></i> +1 (758) 723-5872</div>
+      <div class="footer-detail"><i data-lucide="map-pin"></i> Castries, Saint Lucia</div>
+      <div class="footer-detail"><i data-lucide="clock"></i> Tue–Fri 9am–5pm · Sat 9am–2pm</div>
+    </div>
+
+    <a href="https://wa.me/17587235872?text=Hi%20Sweet%20Layers!%20I%27d%20like%20to%20order%20a%20cake%20🎂" target="_blank" class="footer-wa">
+      <i data-lucide="send"></i> Order on WhatsApp
+    </a>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Sweet Layers Bakery · Demo site</div>
+    <div class="footer-credit">Website by <a href="#" target="_blank">JamaLinks</a></div>
+  </div>
+</footer>
+
+<!-- float WA -->
+<a href="https://wa.me/17587235872?text=Hi%20Sweet%20Layers!%20I%27d%20like%20to%20order%20a%20cake%20🎂" target="_blank" class="float-wa" title="Order on WhatsApp">
+  <i data-lucide="message-square-dot"></i>
+</a>
+
+<script>
+/* ─────────────────────────────────
+   CONSTANTS
+───────────────────────────────────── */
+const PHONE = '17587235872';
+const SITE  = 'https://jamalinks758.github.io/jamalinks/sweet-layers-mini.html';
+
+/* ─────────────────────────────────
+   STATE
+───────────────────────────────────── */
+let state = { step: 1, occasion: '', size: '', flavour: '' };
+
+/* ─────────────────────────────────
+   DATA
+───────────────────────────────────── */
+const occasions = [
+  { val:'Birthday',       icon:'cake'         },
+  { val:'Wedding',        icon:'heart'        },
+  { val:'Anniversary',    icon:'sparkles'     },
+  { val:'Baby Shower',    icon:'gift'         },
+  { val:'Graduation',     icon:'award'        },
+  { val:'Corporate',      icon:'briefcase'    },
+  { val:'Gender Reveal',  icon:'star'         },
+  { val:'Just Because',   icon:'flower-2'     },
+];
+
+const sizes = [
+  { val:'6" · Serves 8',     sub:'Intimate',       icon:'minimize-2'   },
+  { val:'8" · Serves 16',    sub:'Small Group',    icon:'circle'       },
+  { val:'10" · Serves 24',   sub:'Party Size',     icon:'maximize-2'   },
+  { val:'Tiered · 40+',      sub:'Grand Occasion', icon:'layers'       },
+  { val:'Cupcakes × 12',     sub:'Individual',     icon:'cake-slice'   },
+  { val:'Cupcakes × 24',     sub:'Crowd Pleaser',  icon:'package'      },
+];
+
+const flavours = [
+  { val:'Vanilla',        icon:'droplets'     },
+  { val:'Chocolate',      icon:'coffee'       },
+  { val:'Red Velvet',     icon:'heart'        },
+  { val:'Lemon',          icon:'sun'          },
+  { val:'Salted Caramel', icon:'flame'        },
+  { val:'Passion Fruit',  icon:'flower-2'     },
+  { val:'Coconut',        icon:'palm-tree'    },
+  { val:'Strawberry',     icon:'droplet'      },
+];
+
+/* ─────────────────────────────────
+   STEP TABS
+───────────────────────────────────── */
+const stepNames = ['Occasion & Size', 'Flavour', 'Details'];
+
+function renderTabs() {
+  document.getElementById('stepTabs').innerHTML = stepNames.map((n, i) => {
+    const num = i + 1;
+    const cls = num === state.step ? 'active' : num < state.step ? 'done' : '';
+    return `<div class="step-tab ${cls}">
+      <div class="step-num"><span>${num}</span></div>
+      ${n}
+    </div>`;
+  }).join('');
+}
+
+/* ─────────────────────────────────
+   OPTION GRIDS
+───────────────────────────────────── */
+function renderGrid(containerId, data, stateKey, gridClass) {
+  const el = document.getElementById(containerId);
+  el.className = gridClass || 'opt-grid';
+  el.innerHTML = data.map(d => `
+    <div class="opt ${state[stateKey] === d.val ? 'picked' : ''}"
+         data-key="${stateKey}" data-val="${d.val.replace(/"/g,'&quot;')}">
+      <div class="opt-icon"><i data-lucide="${d.icon}"></i></div>
+      <div>${d.val}</div>
+      ${d.sub ? `<div class="opt-sub">${d.sub}</div>` : ''}
+    </div>`).join('');
+
+  el.addEventListener('click', e => {
+    const btn = e.target.closest('.opt');
+    if (!btn) return;
+    state[btn.dataset.key] = btn.dataset.val;
+    el.querySelectorAll('.opt').forEach(b => b.classList.remove('picked'));
+    btn.classList.add('picked');
+    icons();
+  });
+  icons();
+}
+
+/* ─────────────────────────────────
+   NAVIGATION
+───────────────────────────────────── */
+function goTo(n) {
+  // validate before advancing
+  if (n > state.step) {
+    if (state.step === 1 && !state.occasion) { pulse('occasionGrid'); return; }
+    if (state.step === 1 && !state.size)     { pulse('sizeGrid');     return; }
+    if (state.step === 2 && !state.flavour)  { pulse('flavourGrid');  return; }
+  }
+
+  state.step = n;
+  document.querySelectorAll('.step-panel').forEach((p, i) => {
+    p.classList.toggle('active', i + 1 === n);
+  });
+  renderTabs();
+  if (n === 3) renderSummary();
+
+  // scroll to builder top
+  const sec = document.getElementById('builder');
+  const offset = document.querySelector('.mini-nav').offsetHeight + 16;
+  window.scrollTo({ top: sec.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
+  icons();
+}
+
+/* gentle shake if validation fails */
+function pulse(gridId) {
+  const el = document.getElementById(gridId);
+  el.style.animation = 'none';
+  el.offsetHeight; // reflow
+  el.style.animation = 'shakeGrid .4s ease';
+  setTimeout(() => el.style.animation = '', 450);
+}
+
+/* ─────────────────────────────────
+   DATE LOGIC
+───────────────────────────────────── */
+function initDate() {
+  const input = document.getElementById('eventDate');
+  const hint  = document.getElementById('dateHint');
+  const today = new Date(); today.setHours(0,0,0,0);
+  input.min = today.toISOString().split('T')[0];
+  input.addEventListener('change', () => {
+    if (!input.value) { hint.style.display = 'none'; return; }
+    const diff = Math.round((new Date(input.value + 'T00:00:00') - today) / 86400000);
+    hint.style.display = diff >= 0 && diff < 10 ? 'flex' : 'none';
+  });
+}
+
+function fmtDate(iso) {
+  if (!iso) return 'Not specified';
+  return new Date(iso + 'T00:00:00').toLocaleDateString('en-US', {
+    weekday:'short', month:'short', day:'numeric', year:'numeric'
+  });
+}
+
+/* ─────────────────────────────────
+   SUMMARY
+───────────────────────────────────── */
+function renderSummary() {
+  const date = document.getElementById('eventDate').value;
+  const name = document.getElementById('custName').value.trim();
+  const rows = [
+    { k: 'Occasion', v: state.occasion || '—' },
+    { k: 'Size',     v: state.size     || '—' },
+    { k: 'Flavour',  v: state.flavour  || '—' },
+    { k: 'Event Date', v: fmtDate(date)        },
+    { k: 'Name',     v: name           || '—' },
+  ];
+  document.getElementById('summaryBox').innerHTML = `
+    <div class="summary-heading">
+      <i data-lucide="clipboard-list"></i> Your Order Summary
+    </div>
+    ${rows.map(r => `
+      <div class="summary-row">
+        <span class="s-key">${r.k}</span>
+        <span class="s-val">${r.v}</span>
+      </div>`).join('')}`;
+  icons();
+}
+
+/* ─────────────────────────────────
+   SEND ORDER
+───────────────────────────────────── */
+function sendOrder() {
+  const date  = document.getElementById('eventDate').value;
+  const name  = document.getElementById('custName').value.trim();
+  const notes = document.getElementById('designNotes').value.trim();
+
+  const msg = [
+    '🎂 *Sweet Layers — Cake Order*',
+    '────────────────────',
+    `Name: ${name || 'Not given'}`,
+    `Occasion: ${state.occasion || 'Not specified'}`,
+    `Size: ${state.size || 'Not specified'}`,
+    `Flavour: ${state.flavour || 'Not specified'}`,
+    `Event Date: ${fmtDate(date)}`,
+    notes ? `Notes: ${notes}` : '',
+    '────────────────────',
+    'Please confirm pricing, availability, and delivery options.',
+    `Ordered via: ${SITE}`,
+  ].filter(Boolean).join('\n');
+
+  window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+/* ─────────────────────────────────
+   LUCIDE
+───────────────────────────────────── */
+function icons() {
+  if (window.lucide) window.lucide.createIcons();
+}
+window.addEventListener('load', icons);
+
+/* ─────────────────────────────────
+   INIT
+───────────────────────────────────── */
+renderTabs();
+renderGrid('occasionGrid', occasions, 'occasion', 'opt-grid');
+renderGrid('sizeGrid',     sizes,     'size',     'opt-grid-3');
+renderGrid('flavourGrid',  flavours,  'flavour',  'opt-grid');
+initDate();
+icons();
+</script>
+
+<style>
+/* shake animation for validation */
+@keyframes shakeGrid {
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-6px)}
+  40%{transform:translateX(6px)}
+  60%{transform:translateX(-4px)}
+  80%{transform:translateX(4px)}
+}
+</style>
+</body>
+</html>
