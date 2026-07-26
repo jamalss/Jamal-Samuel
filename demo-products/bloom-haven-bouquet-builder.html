@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bloom Haven Floral Boutique — Flowers That Say What Words Cannot</title>
+<meta name="description" content="Handcrafted bouquets and floral arrangements for every moment worth celebrating. Same-day delivery, WhatsApp ordering, and an interactive Bouquet Builder to design your own arrangement.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Bloom Haven Floral Boutique">
+<meta property="og:description" content="Flowers That Say What Words Cannot. Fresh handcrafted bouquets for every moment worth celebrating.">
+<meta property="og:type" content="website">
+
+<!-- Schema.org LocalBusiness (placeholder data — swap for real business details) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Florist",
+  "name": "Bloom Haven Floral Boutique",
+  "description": "Handcrafted floral arrangements for every occasion.",
+  "priceRange": "$$-$$$",
+  "telephone": "+1-758-000-0000",
+  "openingHours": "Mo-Sa 08:00-18:00"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ivory:#FAF8F5;
+    --forest:#1F3A2E;
+    --forest-soft:#2C4A3B;
+    --sage:#8BA888;
+    --sage-pale:#E4EBE2;
+    --blush:#E8C4C4;
+    --blush-soft:#F5E5E4;
+    --gold:#C9A961;
+    --gold-deep:#B8924A;
+    --charcoal:#3A3530;
+    --white:#FFFFFF;
+    --shadow-soft: 0 8px 30px rgba(31,58,46,0.08);
+    --shadow-lift: 0 16px 48px rgba(31,58,46,0.14);
+    --radius: 18px;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    font-family:var(--sans);
+    color:var(--charcoal);
+    background:var(--ivory);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  button{ font-family:inherit; cursor:pointer; border:none; background:none; }
+  ul{ list-style:none; }
+
+  h1,h2,h3,h4{ font-family:var(--serif); font-weight:500; color:var(--forest); line-height:1.15; }
+  .eyebrow{
+    font-family:var(--sans); text-transform:uppercase; letter-spacing:0.14em;
+    font-size:0.75rem; color:var(--gold-deep); font-weight:600; display:inline-flex; align-items:center; gap:8px;
+  }
+  .eyebrow svg{ width:14px; height:14px; }
+
+  .container{ max-width:1180px; margin:0 auto; padding:0 24px; }
+  section{ padding:96px 0; position:relative; }
+  .section-head{ text-align:center; max-width:640px; margin:0 auto 56px; }
+  .section-head h2{ font-size:clamp(2rem,4vw,2.75rem); margin:14px 0 16px; }
+  .section-head p{ color:#665f56; font-size:1.05rem; }
+
+  :focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(250,248,245,0.0);
+    transition:background 0.4s ease, box-shadow 0.4s ease, padding 0.3s ease;
+    padding:22px 0;
+  }
+  header.scrolled{
+    background:rgba(250,248,245,0.92); backdrop-filter:blur(10px);
+    box-shadow:0 2px 24px rgba(31,58,46,0.08); padding:14px 0;
+  }
+  nav{ display:flex; align-items:center; justify-content:space-between; }
+  .logo{ font-family:var(--serif); font-size:1.4rem; color:var(--forest); font-weight:600; letter-spacing:0.01em; }
+  .logo span{ color:var(--gold-deep); }
+  .nav-links{ display:flex; gap:36px; align-items:center; }
+  .nav-links a{
+    font-size:0.92rem; color:var(--forest); position:relative; padding:4px 0;
+  }
+  .nav-links a::after{
+    content:''; position:absolute; left:0; bottom:-2px; width:0; height:1.5px; background:var(--gold); transition:width 0.3s ease;
+  }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-cta{
+    background:var(--forest); color:var(--ivory); padding:11px 22px; border-radius:30px; font-size:0.88rem; font-weight:500;
+    display:flex; align-items:center; gap:8px; transition:background 0.3s ease, transform 0.2s ease;
+  }
+  .nav-cta:hover{ background:var(--forest-soft); transform:translateY(-1px); }
+  .hamburger{ display:none; flex-direction:column; gap:5px; z-index:110; }
+  .hamburger span{ width:26px; height:2px; background:var(--forest); transition:all 0.3s ease; }
+  .mobile-menu{
+    display:none; position:fixed; inset:0; background:var(--ivory); z-index:105;
+    flex-direction:column; align-items:center; justify-content:center; gap:28px;
+    opacity:0; visibility:hidden; transition:opacity 0.35s ease;
+  }
+  .mobile-menu.open{ opacity:1; visibility:visible; display:flex; }
+  .mobile-menu a{ font-family:var(--serif); font-size:1.5rem; color:var(--forest); }
+
+  @media (max-width:900px){
+    .nav-links{ display:none; }
+    .hamburger{ display:flex; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100vh; display:flex; align-items:center; position:relative; overflow:hidden;
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(232,196,196,0.35), transparent 55%),
+      radial-gradient(ellipse at 85% 75%, rgba(201,169,97,0.18), transparent 50%),
+      linear-gradient(180deg, var(--ivory) 0%, #F3EEE7 100%);
+    padding-top:80px;
+  }
+  .petal{
+    position:absolute; width:16px; height:16px; background:var(--blush);
+    border-radius:70% 0 70% 0; opacity:0.55; pointer-events:none;
+    animation:float-petal linear infinite;
+  }
+  @keyframes float-petal{
+    0%{ transform:translateY(-40px) translateX(0) rotate(0deg); }
+    100%{ transform:translateY(110vh) translateX(40px) rotate(340deg); }
+  }
+  .hero-inner{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:64px; align-items:center; width:100%;
+  }
+  .hero-eyebrow{ margin-bottom:18px; }
+  .hero h1{
+    font-size:clamp(2.6rem,5.2vw,4.1rem); letter-spacing:-0.01em; margin-bottom:22px;
+  }
+  .hero h1 em{ font-style:italic; color:var(--gold-deep); }
+  .hero p.sub{ font-size:1.15rem; color:#665f56; max-width:480px; margin-bottom:36px; }
+  .btn-row{ display:flex; gap:16px; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex; align-items:center; gap:10px; padding:16px 30px; border-radius:40px;
+    font-size:0.95rem; font-weight:500; transition:transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .btn-primary{ background:var(--forest); color:var(--ivory); box-shadow:var(--shadow-soft); }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:var(--shadow-lift); }
+  .btn-whatsapp{ background:#FFFFFF; color:var(--forest); border:1.5px solid var(--forest); }
+  .btn-whatsapp:hover{ background:var(--forest); color:var(--ivory); transform:translateY(-2px); }
+  .btn svg{ width:18px; height:18px; }
+
+  .hero-visual{
+    position:relative; aspect-ratio:4/5; border-radius:28px; overflow:hidden; box-shadow:var(--shadow-lift);
+  }
+  .hero-visual img{ width:100%; height:100%; object-fit:cover; }
+  .hero-badge{
+    position:absolute; bottom:22px; left:22px; background:rgba(255,255,255,0.92); backdrop-filter:blur(6px);
+    padding:14px 18px; border-radius:14px; box-shadow:var(--shadow-soft); font-size:0.85rem; display:flex; gap:10px; align-items:center;
+  }
+  .hero-badge strong{ display:block; font-family:var(--serif); color:var(--forest); font-size:1rem; }
+
+  @media (max-width:900px){
+    .hero-inner{ grid-template-columns:1fr; text-align:center; }
+    .hero p.sub{ margin-left:auto; margin-right:auto; }
+    .btn-row{ justify-content:center; }
+    .hero-visual{ max-width:420px; margin:0 auto; }
+  }
+
+  /* ---------- OCCASION CARDS ---------- */
+  .occasion-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .occasion-card{
+    background:var(--white); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-soft);
+    transition:transform 0.3s ease, box-shadow 0.3s ease; position:relative;
+  }
+  .occasion-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-lift); }
+  .occasion-img{ height:180px; overflow:hidden; }
+  .occasion-img img{ width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease; }
+  .occasion-card:hover .occasion-img img{ transform:scale(1.06); }
+  .occasion-body{ padding:20px 22px 24px; }
+  .occasion-body .icon{ font-size:1.5rem; margin-bottom:6px; display:block; }
+  .occasion-body h3{ font-size:1.15rem; margin-bottom:6px; }
+  .occasion-body a{ font-size:0.85rem; color:var(--gold-deep); font-weight:500; }
+
+  @media (max-width:900px){ .occasion-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px){ .occasion-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- BOUQUET CARDS ---------- */
+  .bouquet-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:26px; }
+  .bouquet-card{
+    background:var(--white); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-soft);
+    transition:transform 0.3s ease, box-shadow 0.3s ease; display:flex; flex-direction:column;
+  }
+  .bouquet-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-lift); }
+  .bouquet-img{ height:220px; position:relative; overflow:hidden; }
+  .bouquet-img img{ width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease; }
+  .bouquet-card:hover .bouquet-img img{ transform:scale(1.07); }
+  .badge-tag{
+    position:absolute; top:14px; left:14px; background:var(--gold); color:var(--forest);
+    font-size:0.7rem; font-weight:600; padding:5px 12px; border-radius:20px; letter-spacing:0.03em;
+  }
+  .fav-btn{
+    position:absolute; top:14px; right:14px; width:34px; height:34px; border-radius:50%;
+    background:rgba(255,255,255,0.85); display:flex; align-items:center; justify-content:center;
+    transition:background 0.2s ease;
+  }
+  .fav-btn svg{ width:16px; height:16px; stroke:var(--forest); fill:none; transition:fill 0.2s ease, stroke 0.2s ease; }
+  .fav-btn.active svg{ fill:var(--blush); stroke:var(--blush); }
+  .bouquet-body{ padding:20px 20px 22px; flex:1; display:flex; flex-direction:column; }
+  .bouquet-body h3{ font-size:1.15rem; margin-bottom:6px; }
+  .bouquet-body p{ font-size:0.88rem; color:#726b60; margin-bottom:14px; flex:1; }
+  .price-row{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:14px; }
+  .price{ font-family:var(--serif); font-size:1.3rem; color:var(--forest); }
+  .price span{ font-size:0.75rem; color:#8a8377; font-family:var(--sans); }
+  .sizes{ font-size:0.78rem; color:#8a8377; }
+  .card-actions{ display:flex; gap:10px; }
+  .card-actions .btn{ flex:1; padding:11px 14px; font-size:0.82rem; justify-content:center; }
+
+  @media (max-width:1024px){ .bouquet-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px){ .bouquet-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- MOMENTS IN BLOOM (signature) ---------- */
+  .builder{
+    background:linear-gradient(160deg, var(--forest) 0%, var(--forest-soft) 100%);
+    color:var(--ivory); position:relative; overflow:hidden;
+  }
+  .builder::before{
+    content:''; position:absolute; top:-120px; right:-120px; width:400px; height:400px;
+    background:radial-gradient(circle, rgba(201,169,97,0.18), transparent 70%);
+  }
+  .builder .section-head h2{ color:var(--ivory); }
+  .builder .section-head p{ color:#CFE0D4; }
+  .builder .eyebrow{ color:var(--gold); }
+
+  .builder-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start; position:relative; z-index:1;
+  }
+  .builder-form{
+    background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.14); border-radius:var(--radius);
+    padding:32px; backdrop-filter:blur(4px);
+  }
+  .form-group{ margin-bottom:20px; }
+  .form-group label{ display:block; font-size:0.82rem; margin-bottom:8px; color:#CFE0D4; letter-spacing:0.02em; }
+  .form-group select, .form-group input:not([type="range"]):not([type="checkbox"]), .form-group textarea{
+    width:100%; padding:13px 16px; border-radius:10px; border:1px solid rgba(255,255,255,0.2);
+    background:rgba(255,255,255,0.08); color:var(--ivory); font-family:var(--sans); font-size:0.92rem;
+  }
+  .form-group input[type="range"]{ height:6px; margin-top:4px; }
+  .form-group input[type="checkbox"]{ width:auto; }
+  .form-group textarea{ resize:vertical; min-height:90px; }
+  .form-group select option{ color:var(--charcoal); }
+  .form-group input::placeholder, .form-group textarea::placeholder{ color:rgba(255,255,255,0.45); }
+  .char-count{ font-size:0.72rem; color:rgba(255,255,255,0.45); text-align:right; margin-top:6px; }
+
+  .builder-preview{ position:sticky; top:120px; }
+  .card-stage{
+    aspect-ratio:3/4; display:flex; align-items:center; justify-content:center; position:relative;
+  }
+  #builderCanvas{
+    max-width:100%; max-height:100%; border-radius:16px; box-shadow:0 30px 70px rgba(0,0,0,0.35);
+  }
+  .preview-actions{ display:flex; gap:12px; margin-top:24px; justify-content:center; flex-wrap:wrap; }
+  .btn-gold{ background:var(--gold); color:var(--forest); }
+  .btn-gold:hover{ background:#D8B978; transform:translateY(-2px); }
+  .btn-outline-light{ background:transparent; color:var(--ivory); border:1.5px solid rgba(255,255,255,0.5); }
+  .btn-outline-light:hover{ background:rgba(255,255,255,0.1); }
+
+  @media (max-width:900px){
+    .builder-grid{ grid-template-columns:1fr; }
+    .builder-preview{ position:static; }
+  }
+
+  /* ---------- WEDDINGS ---------- */
+  .wedding-gallery{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-bottom:44px; }
+  .wedding-gallery img{ border-radius:14px; height:220px; width:100%; object-fit:cover; box-shadow:var(--shadow-soft); transition:transform 0.35s ease; }
+  .wedding-gallery img:hover{ transform:translateY(-4px); }
+  .wedding-gallery a:nth-child(1) img, .wedding-gallery a:nth-child(4) img{ height:280px; }
+  .wedding-cta{ text-align:center; }
+  @media (max-width:900px){ .wedding-gallery{ grid-template-columns:repeat(2,1fr); } }
+
+  /* ---------- DELIVERY & CARE ---------- */
+  .split-panel{ display:grid; grid-template-columns:1fr 1fr; gap:48px; }
+  .panel-card{ background:var(--white); border-radius:var(--radius); padding:36px; box-shadow:var(--shadow-soft); }
+  .panel-card h3{ font-size:1.35rem; margin-bottom:18px; display:flex; align-items:center; gap:10px; }
+  .placeholder-note{
+    display:inline-flex; align-items:center; gap:6px; font-size:0.72rem; color:var(--gold-deep); background:var(--blush-soft);
+    padding:5px 12px; border-radius:20px; margin-bottom:16px; font-weight:500;
+  }
+  .zone-list li{ display:flex; justify-content:space-between; padding:11px 0; border-bottom:1px solid #F0EBE3; font-size:0.92rem; }
+  .zone-list li:last-child{ border-bottom:none; }
+  .zone-list .zone-name{ font-weight:500; color:var(--forest); }
+  .care-list li{ display:flex; gap:12px; padding:10px 0; font-size:0.92rem; align-items:flex-start; }
+  .care-list li svg{ width:18px; height:18px; flex-shrink:0; margin-top:2px; stroke:var(--sage); fill:none; }
+
+  @media (max-width:900px){ .split-panel{ grid-template-columns:1fr; } }
+
+  /* ---------- REVIEWS ---------- */
+  .reviews-track{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .review-card{ background:var(--white); border-radius:var(--radius); padding:28px; box-shadow:var(--shadow-soft); }
+  .stars{ color:var(--gold); font-size:0.95rem; margin-bottom:12px; }
+  .review-card p.quote{ font-size:0.94rem; color:#5a5348; margin-bottom:18px; font-style:italic; }
+  .review-person{ display:flex; align-items:center; gap:12px; }
+  .review-avatar{ width:42px; height:42px; border-radius:50%; background:var(--sage-pale); display:flex; align-items:center; justify-content:center; font-family:var(--serif); color:var(--forest); font-weight:600; }
+  .review-person strong{ display:block; font-size:0.9rem; color:var(--forest); }
+  .verified{ font-size:0.72rem; color:var(--sage); display:flex; align-items:center; gap:4px; }
+  @media (max-width:900px){ .reviews-track{ grid-template-columns:1fr; } }
+
+  /* ---------- FAQ ---------- */
+  .faq-list{ max-width:760px; margin:0 auto; }
+  .faq-item{ border-bottom:1px solid #E8E1D6; }
+  .faq-q{
+    width:100%; display:flex; justify-content:space-between; align-items:center; padding:22px 4px;
+    font-family:var(--serif); font-size:1.08rem; color:var(--forest); text-align:left;
+  }
+  .faq-q .plus{ font-size:1.4rem; color:var(--gold-deep); transition:transform 0.3s ease; flex-shrink:0; margin-left:20px; }
+  .faq-item.open .plus{ transform:rotate(45deg); }
+  .faq-a{ max-height:0; overflow:hidden; transition:max-height 0.35s ease; }
+  .faq-a p{ padding:0 4px 22px; color:#665f56; font-size:0.94rem; max-width:640px; }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  .contact-wrap{ display:grid; grid-template-columns:1fr 1fr; gap:56px; }
+  .contact-info li{ display:flex; gap:14px; align-items:flex-start; padding:14px 0; border-bottom:1px solid #EFE9DF; }
+  .contact-info li svg{ width:20px; height:20px; stroke:var(--gold-deep); fill:none; flex-shrink:0; margin-top:2px; }
+  .contact-info strong{ display:block; color:var(--forest); font-size:0.95rem; }
+  .contact-info span{ font-size:0.88rem; color:#726b60; }
+  .contact-form{ background:var(--white); border-radius:var(--radius); padding:32px; box-shadow:var(--shadow-soft); }
+  .contact-form input, .contact-form textarea{
+    width:100%; padding:13px 16px; border-radius:10px; border:1px solid #E6E0D5; margin-bottom:16px; font-family:var(--sans); font-size:0.92rem; background:var(--ivory);
+  }
+  .contact-form textarea{ min-height:100px; resize:vertical; }
+
+  footer{ background:var(--forest); color:#CFE0D4; padding:64px 0 28px; }
+  .footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:40px; margin-bottom:48px; }
+  .footer-grid h4{ color:var(--ivory); font-size:1rem; margin-bottom:16px; font-family:var(--sans); font-weight:500; }
+  .footer-grid ul li{ padding:6px 0; }
+  .footer-grid ul li a:hover{ color:var(--gold); }
+  .footer-logo{ font-family:var(--serif); font-size:1.5rem; color:var(--ivory); margin-bottom:14px; }
+  .newsletter-row{ display:flex; gap:0; margin-top:14px; max-width:320px; }
+  .newsletter-row input{ flex:1; padding:12px 14px; border-radius:8px 0 0 8px; border:none; font-size:0.85rem; }
+  .newsletter-row button{ background:var(--gold); color:var(--forest); padding:0 18px; border-radius:0 8px 8px 0; font-weight:600; font-size:0.85rem; }
+  .footer-bottom{ display:flex; justify-content:space-between; align-items:center; padding-top:24px; border-top:1px solid rgba(255,255,255,0.12); font-size:0.82rem; flex-wrap:wrap; gap:16px; }
+  .social-icons{ display:flex; gap:14px; }
+  .social-icons a{ width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; transition:background 0.2s ease; }
+  .social-icons a:hover{ background:var(--gold); }
+  .social-icons svg{ width:16px; height:16px; stroke:var(--ivory); fill:none; }
+
+  @media (max-width:900px){
+    .footer-grid{ grid-template-columns:1fr 1fr; }
+    .contact-wrap{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- STICKY MOBILE CTA ---------- */
+  .mobile-sticky-cta{
+    display:none; position:fixed; bottom:0; left:0; right:0; z-index:90; background:var(--white);
+    padding:14px 20px; box-shadow:0 -8px 30px rgba(0,0,0,0.08); gap:12px;
+  }
+  .mobile-sticky-cta .btn{ flex:1; justify-content:center; padding:13px; font-size:0.88rem; }
+  @media (max-width:640px){ .mobile-sticky-cta{ display:flex; } body{ padding-bottom:76px; } }
+
+  .fade-in{ opacity:0; transform:translateY(24px); transition:opacity 0.7s ease, transform 0.7s ease; }
+  .fade-in.visible{ opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body>
+
+<div class="petal-field" id="petalField"></div>
+
+<header id="siteHeader">
+  <div class="container">
+    <nav>
+      <a href="#top" class="logo">Bloom<span>Haven</span></a>
+      <div class="nav-links">
+        <a href="#occasions">Occasions</a>
+        <a href="#bouquets">Bouquets</a>
+        <a href="#builder">Bouquet Builder</a>
+        <a href="#weddings">Weddings</a>
+        <a href="#care">Delivery &amp; Care</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a href="https://wa.me/17580000000?text=Hi%20Bloom%20Haven%2C%20I%27d%20like%20to%20order%20flowers" class="nav-cta">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1.1-.1.2-.3.2-.6.1-1.6-.8-2.7-1.4-3.7-3.2-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.5 5.2L2 22l4.9-1.3c1.5.8 3.2 1.3 5.1 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.7 0-3.3-.5-4.6-1.3l-.3-.2-3.3.9.9-3.2-.2-.3C3.7 14.1 4 13.4 4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8z"/></svg>
+        WhatsApp Us
+      </a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#occasions">Occasions</a>
+  <a href="#bouquets">Bouquets</a>
+  <a href="#builder">Bouquet Builder</a>
+  <a href="#weddings">Weddings</a>
+  <a href="#care">Delivery &amp; Care</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="fade-in visible">
+        <div class="eyebrow hero-eyebrow">
+          <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="3"/></svg>
+          Fresh Daily &middot; Handcrafted &middot; Same-Day Delivery
+        </div>
+        <h1>Flowers That Say <em>What Words</em> Cannot</h1>
+        <p class="sub">Fresh handcrafted bouquets, unforgettable gifts, and beautiful floral arrangements for every moment worth celebrating.</p>
+        <div class="btn-row">
+          <a href="#bouquets" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            Order Flowers
+          </a>
+          <a href="https://wa.me/17580000000" class="btn btn-whatsapp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1.1-.1.2-.3.2-.6.1-1.6-.8-2.7-1.4-3.7-3.2-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.5 5.2L2 22l4.9-1.3c1.5.8 3.2 1.3 5.1 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.7 0-3.3-.5-4.6-1.3l-.3-.2-3.3.9.9-3.2-.2-.3C3.7 14.1 4 13.4 4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8z"/></svg>
+            Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual fade-in visible">
+        <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=1000&auto=format&fit=crop" alt="Hand-tied luxury bouquet of blush and ivory garden roses">
+        <div class="hero-badge">
+          <span style="font-size:1.4rem;">🌸</span>
+          <span><strong>Same-Day Delivery</strong>Order before 2:00 PM</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SHOP BY OCCASION ================= -->
+<section id="occasions">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="eyebrow">🌿 A Bouquet for Every Story</span>
+      <h2>Shop by Occasion</h2>
+      <p>Every moment deserves its own arrangement — chosen for what it means, not just what it looks like.</p>
+    </div>
+    <div class="occasion-grid" id="occasionGrid"></div>
+  </div>
+</section>
+
+<!-- ================= FEATURED BOUQUETS ================= -->
+<section id="bouquets" style="background:var(--sage-pale);">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="eyebrow">🌷 The Collection</span>
+      <h2>Featured Bouquets</h2>
+      <p>Hand-tied by our florists each morning, using the freshest seasonal stems available.</p>
+    </div>
+    <div class="bouquet-grid" id="bouquetGrid"></div>
+  </div>
+</section>
+
+<!-- ================= BOUQUET BUILDER ================= -->
+<section id="builder" class="builder">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="eyebrow">✨ Signature Experience</span>
+      <h2>Build Your Own Bouquet</h2>
+      <p>Choose your flowers, colors, and finishing touches — watch it come together live, with the price updating as you go.</p>
+    </div>
+    <div class="builder-grid">
+      <div class="builder-form fade-in">
+        <div class="form-group">
+          <label for="bldFlower">Flower Type</label>
+          <select id="bldFlower">
+            <option value="roses">Garden Roses</option>
+            <option value="ranunculus">Ranunculus</option>
+            <option value="peonies">Peonies</option>
+            <option value="tropical">Tropical Mix</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="bldPalette">Color Palette</label>
+          <select id="bldPalette">
+            <option value="blush">Blush &amp; Ivory</option>
+            <option value="gold">Ivory &amp; Gold</option>
+            <option value="sage">Sage &amp; White</option>
+            <option value="sunset">Sunset (Bold)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="bldStems">Stem Count — <span id="bldStemsVal">12</span> stems</label>
+          <input type="range" id="bldStems" min="6" max="24" step="2" value="12" style="width:100%; accent-color:var(--gold);">
+        </div>
+        <div class="form-group">
+          <label for="bldWrap">Wrapping Paper</label>
+          <select id="bldWrap">
+            <option value="kraft">Kraft Brown</option>
+            <option value="linen">Ivory Linen</option>
+            <option value="velvet">Black Velvet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="bldRibbon">Ribbon</label>
+          <select id="bldRibbon">
+            <option value="gold">Satin Gold</option>
+            <option value="blush">Velvet Blush</option>
+            <option value="jute">Jute Twine</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Add-Ons</label>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:6px;">
+            <label style="display:flex; align-items:center; gap:8px; font-size:0.85rem; color:#CFE0D4; font-weight:400;"><input type="checkbox" class="bldAddon" value="chocolate" data-price="12" style="accent-color:var(--gold);"> Chocolate Box (+$12)</label>
+            <label style="display:flex; align-items:center; gap:8px; font-size:0.85rem; color:#CFE0D4; font-weight:400;"><input type="checkbox" class="bldAddon" value="teddy" data-price="18" style="accent-color:var(--gold);"> Teddy Bear (+$18)</label>
+            <label style="display:flex; align-items:center; gap:8px; font-size:0.85rem; color:#CFE0D4; font-weight:400;"><input type="checkbox" class="bldAddon" value="balloon" data-price="8" style="accent-color:var(--gold);"> Balloon (+$8)</label>
+            <label style="display:flex; align-items:center; gap:8px; font-size:0.85rem; color:#CFE0D4; font-weight:400;"><input type="checkbox" class="bldAddon" value="card" data-price="5" style="accent-color:var(--gold);"> Greeting Card (+$5)</label>
+            <label style="display:flex; align-items:center; gap:8px; font-size:0.85rem; color:#CFE0D4; font-weight:400;"><input type="checkbox" class="bldAddon" value="vase" data-price="15" style="accent-color:var(--gold);"> Vase Upgrade (+$15)</label>
+            <label style="display:flex; align-items:center; gap:8px; font-size:0.85rem; color:#CFE0D4; font-weight:400;"><input type="checkbox" class="bldAddon" value="giftbox" data-price="10" style="accent-color:var(--gold);"> Gift Box (+$10)</label>
+          </div>
+        </div>
+      </div>
+      <div class="builder-preview">
+        <div class="card-stage">
+          <canvas id="builderCanvas" width="600" height="800"></canvas>
+        </div>
+        <div style="text-align:center; margin-top:18px;">
+          <div style="font-family:var(--serif); font-size:2rem; color:var(--ivory);">$<span id="bldTotal">45</span></div>
+          <div style="font-size:0.8rem; color:#CFE0D4;">Estimated price — final quote confirmed on WhatsApp</div>
+        </div>
+        <div class="preview-actions">
+          <a href="#" class="btn btn-gold" id="orderBuilderBtn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1.1-.1.2-.3.2-.6.1-1.6-.8-2.7-1.4-3.7-3.2-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.5 5.2L2 22l4.9-1.3c1.5.8 3.2 1.3 5.1 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.7 0-3.3-.5-4.6-1.3l-.3-.2-3.3.9.9-3.2-.2-.3C3.7 14.1 4 13.4 4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8z"/></svg>
+            Order This Bouquet
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WEDDINGS ================= -->
+<section id="weddings">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="eyebrow">🤍 For Your Big Day</span>
+      <h2>Wedding &amp; Event Florals</h2>
+      <p>From bridal bouquets to reception centerpieces — florals designed around your story.</p>
+    </div>
+    <div class="wedding-gallery" id="weddingGallery"></div>
+    <div class="wedding-cta">
+      <a href="#contact" class="btn btn-primary">Request a Wedding Consultation</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DELIVERY & CARE ================= -->
+<section id="care" style="background:var(--sage-pale);">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="eyebrow">🚚 Good to Know</span>
+      <h2>Delivery &amp; Flower Care</h2>
+      <p>Where we deliver, and how to make your bouquet last as long as possible.</p>
+    </div>
+    <div class="split-panel">
+      <div class="panel-card fade-in">
+        <span class="placeholder-note">📍 Illustrative — sample zones, replace with live coverage</span>
+        <h3>Delivery Zones</h3>
+        <ul class="zone-list">
+          <li><span class="zone-name">Vieux Fort &amp; surrounds</span><span>Same-day &middot; $15</span></li>
+          <li><span class="zone-name">Castries &amp; Gros Islet</span><span>Same-day &middot; $25</span></li>
+          <li><span class="zone-name">Soufrière &amp; Choiseul</span><span>Next-day &middot; $35</span></li>
+          <li><span class="zone-name">Islandwide, other areas</span><span>2–3 days &middot; from $40</span></li>
+        </ul>
+        <p style="font-size:0.82rem; color:#8a8377; margin-top:16px;">Same-day orders must be placed before 2:00 PM local time.</p>
+      </div>
+      <div class="panel-card fade-in">
+        <h3>Making Your Bouquet Last</h3>
+        <ul class="care-list">
+          <li><svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>Trim stems at an angle every 2–3 days.</li>
+          <li><svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>Change the water every other day.</li>
+          <li><svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 3v3m0 12v3M4.2 4.2l2.1 2.1m11.4 11.4 2.1 2.1M3 12h3m12 0h3M4.2 19.8l2.1-2.1m11.4-11.4 2.1-2.1"/></svg>Keep away from direct sunlight and heat vents.</li>
+          <li><svg viewBox="0 0 24 24" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"/></svg>Store in a cool spot, away from ripening fruit.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REVIEWS ================= -->
+<section id="reviews">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="eyebrow">💬 Kind Words</span>
+      <h2>What Our Customers Say</h2>
+      <p style="font-size:0.85rem; color:#a8a196;">Sample reviews shown for demo purposes — swappable for verified customer feedback.</p>
+    </div>
+    <div class="reviews-track" id="reviewsTrack"></div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq" style="background:var(--sage-pale);">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="eyebrow">❓ Questions</span>
+      <h2>Frequently Asked</h2>
+    </div>
+    <div class="faq-list" id="faqList"></div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="eyebrow">📍 Reach Us</span>
+      <h2>Get in Touch</h2>
+    </div>
+    <div class="contact-wrap">
+      <ul class="contact-info fade-in">
+        <li>
+          <svg viewBox="0 0 24 24" stroke-width="2"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9"/><circle cx="12" cy="12" r="9"/></svg>
+          <div><strong>WhatsApp</strong><span>+1 (758) 000-0000 — fastest way to order</span></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>
+          <div><strong>Phone</strong><span>+1 (758) 000-0000</span></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+          <div><strong>Email</strong><span>hello@bloomhaven.example</span></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <div><strong>Hours</strong><span>Mon–Sat, 8:00 AM – 6:00 PM</span></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 21s-7-5.4-9.3-9.6C1 8 2.8 4 6.6 4 9 4 11 5.5 12 7c1-1.5 3-3 5.4-3 3.8 0 5.6 4 3.9 7.4C19 15.6 12 21 12 21z"/></svg>
+          <div><strong>Emergency Florist Line</strong><span>For urgent same-day requests</span></div>
+        </li>
+      </ul>
+      <form class="contact-form fade-in" onsubmit="event.preventDefault(); alert('Thank you — this demo form does not send yet.');">
+        <input type="text" placeholder="Your name" required>
+        <input type="email" placeholder="Your email" required>
+        <input type="tel" placeholder="Phone (optional)">
+        <textarea placeholder="How can we help?" required></textarea>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Bloom<span style="color:var(--gold);">Haven</span></div>
+        <p style="font-size:0.88rem; color:#B7CBBD; max-width:280px;">Handcrafted floral artistry for every moment worth celebrating, delivered across Saint Lucia.</p>
+        <div class="newsletter-row">
+          <input type="email" placeholder="Your email">
+          <button onclick="alert('Thanks for subscribing — demo only.')">Join</button>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul><li><a href="#occasions">Occasions</a></li><li><a href="#bouquets">Bouquets</a></li><li><a href="#builder">Bouquet Builder</a></li><li><a href="#weddings">Weddings</a></li></ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul><li><a href="#care">Delivery Info</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Bloom Haven Floral Boutique. All rights reserved.</span>
+      <div class="social-icons">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-sticky-cta">
+  <a href="#bouquets" class="btn btn-primary">Order Flowers</a>
+  <a href="https://wa.me/17580000000" class="btn btn-whatsapp">WhatsApp</a>
+</div>
+
+<script>
+(function(){
+  // ---------- Petals ----------
+  const petalField = document.getElementById('petalField');
+  petalField.style.cssText = 'position:fixed; inset:0; pointer-events:none; z-index:1; overflow:hidden;';
+  const petalCount = window.innerWidth < 700 ? 6 : 12;
+  for(let i=0;i<petalCount;i++){
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.style.left = Math.random()*100 + 'vw';
+    p.style.animationDuration = (14 + Math.random()*10) + 's';
+    p.style.animationDelay = (Math.random()*14) + 's';
+    p.style.opacity = 0.3 + Math.random()*0.3;
+    petalField.appendChild(p);
+  }
+
+  // ---------- Header scroll state ----------
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // ---------- Mobile menu ----------
+  const hamburger = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', open);
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', false);
+  }));
+
+  // ---------- Fade-in on scroll ----------
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+  // ---------- Occasion data ----------
+  const occasions = [
+    { icon:'❤️', name:'Love & Romance', img:'https://images.unsplash.com/photo-1518895949257-7621c3c786d7?q=80&w=600&auto=format&fit=crop' },
+    { icon:'🎂', name:'Birthdays', img:'https://images.unsplash.com/photo-1520763185298-1b434c919102?q=80&w=600&auto=format&fit=crop' },
+    { icon:'🤍', name:'Sympathy', img:'https://images.unsplash.com/photo-1587049352846-4a222e784d38?q=80&w=600&auto=format&fit=crop' },
+    { icon:'👶', name:'New Baby', img:'https://images.unsplash.com/photo-1560717845-968823efbee1?q=80&w=600&auto=format&fit=crop' },
+    { icon:'🎉', name:'Congratulations', img:'https://images.unsplash.com/photo-1487530811176-3780de880c2d?q=80&w=600&auto=format&fit=crop' },
+    { icon:'🌸', name:'Just Because', img:'https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?q=80&w=600&auto=format&fit=crop' },
+  ];
+  document.getElementById('occasionGrid').innerHTML = occasions.map(o => `
+    <div class="occasion-card">
+      <div class="occasion-img"><img src="${o.img}" alt="${o.name} flower arrangement" loading="lazy"></div>
+      <div class="occasion-body">
+        <span class="icon">${o.icon}</span>
+        <h3>${o.name}</h3>
+        <a href="#bouquets">Shop the collection →</a>
+      </div>
+    </div>`).join('');
+
+  // ---------- Bouquet data ----------
+  const bouquets = [
+    { name:'The Grace', desc:'Blush garden roses, ranunculus, and eucalyptus, hand-tied in ivory paper.', price:95, sizes:'S / M / L', tag:'Best Seller', img:'https://images.unsplash.com/photo-1487070183336-b863922373d4?q=80&w=600&auto=format&fit=crop' },
+    { name:'Golden Hour', desc:'Warm dahlias, marigold, and champagne spray roses for celebration days.', price:110, sizes:'M / L', tag:'Popular', img:'https://images.unsplash.com/photo-1509927083803-4bd519298ac4?q=80&w=600&auto=format&fit=crop' },
+    { name:'Quiet Comfort', desc:'White lilies and soft greenery, arranged with gentleness in mind.', price:85, sizes:'S / M', tag:null, img:'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?q=80&w=600&auto=format&fit=crop' },
+    { name:'Island Bloom', desc:'Tropical heliconia and orchids, a bold statement piece.', price:135, sizes:'M / L / XL', tag:'Seasonal', img:'https://images.unsplash.com/photo-1563241527-3004b7be0ffd?q=80&w=600&auto=format&fit=crop' },
+  ];
+  document.getElementById('bouquetGrid').innerHTML = bouquets.map((b,i) => `
+    <div class="bouquet-card">
+      <div class="bouquet-img">
+        <img src="${b.img}" alt="${b.name} bouquet" loading="lazy">
+        ${b.tag ? `<span class="badge-tag">${b.tag}</span>` : ''}
+        <button class="fav-btn" onclick="this.classList.toggle('active')" aria-label="Save to favorites">
+          <svg viewBox="0 0 24 24"><path d="M12 21s-7-5.4-9.3-9.6C1 8 2.8 4 6.6 4 9 4 11 5.5 12 7c1-1.5 3-3 5.4-3 3.8 0 5.6 4 3.9 7.4C19 15.6 12 21 12 21z"/></svg>
+        </button>
+      </div>
+      <div class="bouquet-body">
+        <h3>${b.name}</h3>
+        <p>${b.desc}</p>
+        <div class="price-row"><span class="price">$${b.price}<span> starting</span></span><span class="sizes">${b.sizes}</span></div>
+        <div class="card-actions">
+          <a href="#" class="btn btn-primary">Quick Order</a>
+          <a href="https://wa.me/17580000000?text=Hi!%20I'd%20like%20to%20order%20the%20${encodeURIComponent(b.name)}%20bouquet." class="btn btn-whatsapp">WhatsApp</a>
+        </div>
+      </div>
+    </div>`).join('');
+
+  // ---------- Wedding gallery ----------
+  const weddingImgs = [
+    'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=700&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=700&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=700&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=700&auto=format&fit=crop',
+  ];
+  document.getElementById('weddingGallery').innerHTML = weddingImgs.map(src => `<a href="#"><img src="${src}" alt="Wedding floral arrangement" loading="lazy"></a>`).join('');
+
+  // ---------- Reviews ----------
+  const reviews = [
+    { name:'Marisol T.', text:'The bouquet arrived exactly on time for my mother\'s birthday and it was even more beautiful in person.' },
+    { name:'Devon R.', text:'Ordered through WhatsApp in five minutes flat — easiest flower order I have ever placed.' },
+    { name:'Alicia B.', text:'Used them for our wedding centerpieces. Every table looked like something from a magazine.' },
+  ];
+  document.getElementById('reviewsTrack').innerHTML = reviews.map(r => `
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="quote">"${r.text}"</p>
+      <div class="review-person">
+        <div class="review-avatar">${r.name.charAt(0)}</div>
+        <div><strong>${r.name}</strong><span class="verified">✓ Verified Purchase</span></div>
+      </div>
+    </div>`).join('');
+
+  // ---------- FAQ ----------
+  const faqs = [
+    { q:'Do you offer same-day delivery?', a:'Yes — orders placed before 2:00 PM local time qualify for same-day delivery within our core zones.' },
+    { q:'Can I customize a bouquet?', a:'Absolutely. Message us on WhatsApp with your color preferences, budget, and occasion, and we\'ll tailor an arrangement for you.' },
+    { q:'Do you decorate weddings?', a:'Yes, from bridal bouquets to full ceremony and reception florals. Reach out through our wedding consultation request.' },
+    { q:'Can I schedule a delivery for a future date?', a:'Yes — let us know your preferred date when ordering and we\'ll confirm availability.' },
+    { q:'How long do the flowers last?', a:'With proper care (see our Flower Care section above), most arrangements stay fresh for 5–7 days.' },
+  ];
+  document.getElementById('faqList').innerHTML = faqs.map((f,i) => `
+    <div class="faq-item">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open'); const a=this.nextElementSibling; a.style.maxHeight = this.parentElement.classList.contains('open') ? a.scrollHeight+'px' : null;">
+        ${f.q}<span class="plus">+</span>
+      </button>
+      <div class="faq-a"><p>${f.a}</p></div>
+    </div>`).join('');
+
+  // ==================================================
+  // BOUQUET BUILDER — signature live preview + pricing
+  // ==================================================
+  const canvas = document.getElementById('builderCanvas');
+  const ctx = canvas.getContext('2d');
+  const flowerSelect = document.getElementById('bldFlower');
+  const paletteSelect = document.getElementById('bldPalette');
+  const stemsInput = document.getElementById('bldStems');
+  const stemsVal = document.getElementById('bldStemsVal');
+  const wrapSelect = document.getElementById('bldWrap');
+  const ribbonSelect = document.getElementById('bldRibbon');
+  const addonChecks = document.querySelectorAll('.bldAddon');
+  const totalEl = document.getElementById('bldTotal');
+  const orderBtn = document.getElementById('orderBuilderBtn');
+
+  const palettes = {
+    blush:  ['#E8C4C4', '#F5E5E4', '#D9A9A9'],
+    gold:   ['#F2E3C4', '#FBEBC9', '#C9A961'],
+    sage:   ['#C9D9C4', '#E4EBE2', '#8BA888'],
+    sunset: ['#E8956B', '#F2C14E', '#D9645A'],
+  };
+  const wraps  = { kraft:'#B99A72', linen:'#F3EFE6', velvet:'#2A2622' };
+  const ribbons = { gold:'#C9A961', blush:'#D9A9A9', jute:'#A8875C' };
+  const addonPrices = { chocolate:12, teddy:18, balloon:8, card:5, vase:15, giftbox:10 };
+  const BASE_PRICE = 45;
+
+  function roundRect(context, x, y, w, h, r){
+    context.beginPath();
+    context.moveTo(x+r, y);
+    context.arcTo(x+w, y, x+w, y+h, r);
+    context.arcTo(x+w, y+h, x, y+h, r);
+    context.arcTo(x, y+h, x, y, r);
+    context.arcTo(x, y, x+w, y, r);
+    context.closePath();
+  }
+
+  function currentSelection(){
+    const stems = parseInt(stemsInput.value, 10);
+    const addons = Array.from(addonChecks).filter(c => c.checked).map(c => c.value);
+    return {
+      flower: flowerSelect.value,
+      palette: paletteSelect.value,
+      stems,
+      wrap: wrapSelect.value,
+      ribbon: ribbonSelect.value,
+      addons,
+    };
+  }
+
+  function calcPrice(sel){
+    let price = BASE_PRICE + (sel.stems - 6) * 2.5;
+    sel.addons.forEach(a => { price += addonPrices[a]; });
+    return Math.round(price);
+  }
+
+  function drawAddonBadge(x, y, label, color){
+    ctx.save();
+    ctx.fillStyle = color;
+    roundRect(ctx, x, y, 150, 40, 10);
+    ctx.fill();
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = '500 15px Jost, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(label, x + 75, y + 25);
+    ctx.restore();
+  }
+
+  function renderBouquet(){
+    const sel = currentSelection();
+    const colors = palettes[sel.palette];
+    const w = canvas.width, h = canvas.height;
+
+    ctx.clearRect(0, 0, w, h);
+
+    // backdrop
+    const bg = ctx.createLinearGradient(0, 0, 0, h);
+    bg.addColorStop(0, '#FFFFFF');
+    bg.addColorStop(1, '#F3EEE7');
+    ctx.fillStyle = bg;
+    roundRect(ctx, 0, 0, w, h, 28);
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(31,58,46,0.08)';
+    ctx.lineWidth = 2;
+    roundRect(ctx, 8, 8, w-16, h-16, 22);
+    ctx.stroke();
+
+    const baseX = w/2, baseY = 560;
+
+    // stems (fanned)
+    const stemCount = Math.min(sel.stems, 16);
+    const heads = [];
+    for(let i=0; i<stemCount; i++){
+      const t = stemCount === 1 ? 0.5 : i/(stemCount-1);
+      const angle = (t - 0.5) * 1.15; // fan spread
+      const len = 260 + Math.sin(t*Math.PI) * 40;
+      const headX = baseX + Math.sin(angle) * 150;
+      const headY = baseY - Math.cos(angle) * len + 40;
+      ctx.strokeStyle = '#6B7F5E';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(baseX, baseY);
+      ctx.quadraticCurveTo(baseX + Math.sin(angle)*70, baseY - len*0.5, headX, headY);
+      ctx.stroke();
+      heads.push({x: headX, y: headY});
+    }
+
+    // flower heads
+    heads.forEach((pt, i) => {
+      const color = colors[i % colors.length];
+      const petalCount = sel.flower === 'peonies' ? 10 : sel.flower === 'tropical' ? 5 : 7;
+      const radius = sel.flower === 'peonies' ? 22 : sel.flower === 'tropical' ? 26 : 17;
+      ctx.save();
+      ctx.translate(pt.x, pt.y);
+      for(let p=0; p<petalCount; p++){
+        ctx.save();
+        ctx.rotate((Math.PI*2/petalCount) * p);
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.ellipse(0, -radius*0.6, radius*0.45, radius*0.75, 0, 0, Math.PI*2);
+        ctx.fill();
+        ctx.restore();
+      }
+      ctx.fillStyle = sel.flower === 'tropical' ? '#7A4E2D' : '#E8D9A0';
+      ctx.beginPath();
+      ctx.arc(0, 0, radius*0.35, 0, Math.PI*2);
+      ctx.fill();
+      ctx.restore();
+    });
+
+    // wrap (cone)
+    ctx.fillStyle = wraps[sel.wrap];
+    ctx.beginPath();
+    ctx.moveTo(baseX - 95, baseY + 210);
+    ctx.lineTo(baseX + 95, baseY + 210);
+    ctx.lineTo(baseX + 30, baseY + 10);
+    ctx.lineTo(baseX - 30, baseY + 10);
+    ctx.closePath();
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(0,0,0,0.08)';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // ribbon band + bow
+    ctx.fillStyle = ribbons[sel.ribbon];
+    ctx.fillRect(baseX - 70, baseY + 55, 140, 24);
+    ctx.beginPath();
+    ctx.ellipse(baseX - 26, baseY + 67, 22, 14, 0.4, 0, Math.PI*2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(baseX + 26, baseY + 67, 22, 14, -0.4, 0, Math.PI*2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(baseX, baseY + 67, 9, 0, Math.PI*2);
+    ctx.fill();
+
+    // add-on badges along the bottom
+    const badgeLabels = {
+      chocolate:'🍫 Chocolate', teddy:'🧸 Teddy Bear', balloon:'🎈 Balloon',
+      card:'💌 Card', vase:'🏺 Vase', giftbox:'🎁 Gift Box'
+    };
+    let bx = 40, by = h - 70;
+    sel.addons.slice(0,3).forEach((a, i) => {
+      drawAddonBadge(bx + i*170, by, badgeLabels[a], '#1F3A2E');
+    });
+
+    // caption
+    ctx.fillStyle = '#1F3A2E';
+    ctx.font = '500 22px Fraunces, serif';
+    ctx.textAlign = 'center';
+    const flowerNames = { roses:'Garden Roses', ranunculus:'Ranunculus', peonies:'Peonies', tropical:'Tropical Mix' };
+    ctx.fillText(`${sel.stems}-Stem ${flowerNames[sel.flower]}`, w/2, 60);
+    ctx.textAlign = 'left';
+
+    totalEl.textContent = calcPrice(sel);
+  }
+
+  stemsInput.addEventListener('input', () => { stemsVal.textContent = stemsInput.value; renderBouquet(); });
+  [flowerSelect, paletteSelect, wrapSelect, ribbonSelect].forEach(el => el.addEventListener('change', renderBouquet));
+  addonChecks.forEach(c => c.addEventListener('change', renderBouquet));
+
+  document.fonts.ready.then(renderBouquet);
+
+  orderBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const sel = currentSelection();
+    const price = calcPrice(sel);
+    const flowerNames = { roses:'Garden Roses', ranunculus:'Ranunculus', peonies:'Peonies', tropical:'Tropical Mix' };
+    const paletteNames = { blush:'Blush & Ivory', gold:'Ivory & Gold', sage:'Sage & White', sunset:'Sunset (Bold)' };
+    const addonLabels = { chocolate:'Chocolate Box', teddy:'Teddy Bear', balloon:'Balloon', card:'Greeting Card', vase:'Vase Upgrade', giftbox:'Gift Box' };
+    const addonText = sel.addons.length ? sel.addons.map(a => addonLabels[a]).join(', ') : 'None';
+    const text = `Hi Bloom Haven! I built my own bouquet: ${sel.stems}-stem ${flowerNames[sel.flower]}, ${paletteNames[sel.palette]} palette, ${sel.wrap} wrap, ${sel.ribbon} ribbon. Add-ons: ${addonText}. Estimated total: $${price}. I'd like to order this.`;
+    window.open('https://wa.me/17580000000?text=' + encodeURIComponent(text), '_blank');
+  });
+
+})();
+</script>
+</body>
+</html>
