@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health For Life Pharmacy — Your Health. Your Family. Your Trusted Pharmacy.</title>
+<meta name="description" content="Health For Life Pharmacy — prescriptions, wellness essentials, and trusted pharmacist advice, with fast WhatsApp ordering for your family.">
+<style>
+  :root{
+    --navy:#033B63;
+    --blue:#0A6FB6;
+    --green:#38A169;
+    --teal:#4FA8A0;
+    --bg:#F6FAFB;
+    --bg-alt:#EBF3F5;
+    --ink:#10232F;
+    --ink-soft:#4A5C68;
+    --white:#FFFFFF;
+    --line:#DCE7EA;
+    --radius-lg:22px;
+    --radius-md:16px;
+    --radius-sm:10px;
+    --shadow-sm:0 2px 10px rgba(3,59,99,0.06);
+    --shadow-md:0 10px 30px rgba(3,59,99,0.10);
+    --container:1180px;
+    font-size:16px;
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  h1,h2,h3,h4{margin:0 0 .5em 0;font-weight:700;letter-spacing:-0.01em;color:var(--navy);}
+  h1{font-size:clamp(2.1rem,5vw,3.4rem);line-height:1.08;}
+  h2{font-size:clamp(1.6rem,3.2vw,2.3rem);line-height:1.15;}
+  h3{font-size:1.15rem;}
+  p{margin:0 0 1em 0;color:var(--ink-soft);}
+  .container{max-width:var(--container);margin:0 auto;padding:0 20px;}
+  section{padding:72px 0;}
+  .section-alt{background:var(--bg-alt);}
+  .eyebrow{
+    display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--green);margin-bottom:10px;
+  }
+  .section-head{max-width:640px;margin:0 auto 44px auto;text-align:center;}
+  .section-head p{font-size:1.02rem;}
+
+  /* Skip link */
+  .skip-link{position:absolute;left:-999px;top:0;background:var(--navy);color:#fff;padding:12px 18px;z-index:200;border-radius:0 0 8px 0;}
+  .skip-link:focus{left:0;}
+
+  /* Buttons */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:14px 26px;border-radius:100px;font-weight:700;font-size:.98rem;
+    text-decoration:none;border:2px solid transparent;cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn-primary{background:var(--green);color:#fff;box-shadow:var(--shadow-sm);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);}
+  .btn-secondary{background:#fff;color:var(--navy);border-color:var(--line);}
+  .btn-secondary:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px);}
+  .btn-ghost{background:transparent;color:var(--blue);border-color:var(--blue);}
+  .btn-ghost:hover{background:var(--blue);color:#fff;}
+  .btn-sm{padding:10px 18px;font-size:.85rem;}
+  .btn:focus-visible, a:focus-visible, button:focus-visible, summary:focus-visible{
+    outline:3px solid var(--teal);outline-offset:2px;
+  }
+
+  /* Header */
+  header{
+    position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+  }
+  .nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;color:var(--navy);font-size:1.15rem;}
+  .logo svg{width:34px;height:34px;flex-shrink:0;}
+  nav.primary-nav ul{list-style:none;display:flex;gap:28px;margin:0;padding:0;}
+  nav.primary-nav a{text-decoration:none;font-weight:600;font-size:.95rem;color:var(--ink);}
+  nav.primary-nav a:hover{color:var(--blue);}
+  .nav-actions{display:flex;align-items:center;gap:14px;}
+  .menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+  .menu-toggle svg{width:26px;height:26px;color:var(--navy);}
+
+  /* Hero */
+  .hero{
+    padding:64px 0 56px 0;
+    background:linear-gradient(160deg,#EAF4F8 0%,#F6FAFB 55%,#F6FAFB 100%);
+    position:relative;overflow:hidden;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;}
+  .trust-row{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:28px;}
+  .trust-item{display:flex;align-items:center;gap:8px;font-size:.88rem;font-weight:600;color:var(--navy);}
+  .trust-item svg{width:18px;height:18px;color:var(--green);flex-shrink:0;}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin:26px 0 6px 0;}
+  .hero-art{width:100%;height:auto;}
+
+  /* Quick actions */
+  .quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .quick-card{
+    background:#fff;border-radius:var(--radius-md);padding:26px 20px;text-align:center;
+    box-shadow:var(--shadow-sm);border:1px solid var(--line);text-decoration:none;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .quick-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
+  .quick-icon{
+    width:56px;height:56px;border-radius:50%;background:var(--bg-alt);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 14px auto;
+  }
+  .quick-icon svg{width:28px;height:28px;color:var(--blue);}
+  .quick-card h3{margin-bottom:6px;font-size:1rem;color:var(--navy);}
+  .quick-card p{font-size:.85rem;margin:0;}
+
+  /* Departments */
+  .dept-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;}
+  .dept-card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);
+    padding:22px 18px;box-shadow:var(--shadow-sm);
+  }
+  .dept-icon{width:42px;height:42px;border-radius:12px;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
+  .dept-icon svg{width:22px;height:22px;color:var(--teal);}
+  .dept-card h3{font-size:.98rem;margin-bottom:6px;}
+  .dept-card p{font-size:.82rem;margin-bottom:12px;}
+  .dept-card a{font-size:.82rem;font-weight:700;color:var(--blue);text-decoration:none;}
+  .dept-card a:hover{text-decoration:underline;}
+  .dept-note{font-size:.78rem;color:var(--ink-soft);font-style:italic;}
+
+  /* Products */
+  .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .product-card{
+    background:#fff;border-radius:var(--radius-md);overflow:hidden;
+    border:1px solid var(--line);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;
+  }
+  .product-media{
+    aspect-ratio:4/3;background:linear-gradient(135deg,var(--bg-alt),#fff);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .product-media svg{width:64px;height:64px;color:var(--blue);}
+  .product-body{padding:20px;display:flex;flex-direction:column;flex:1;}
+  .product-body h3{font-size:1.02rem;margin-bottom:6px;}
+  .product-body p{font-size:.88rem;flex:1;}
+  .product-price{font-weight:800;color:var(--navy);font-size:1.1rem;margin-bottom:12px;}
+  .product-price .demo-tag{font-size:.68rem;font-weight:700;color:var(--ink-soft);background:var(--bg-alt);padding:2px 8px;border-radius:100px;margin-left:8px;vertical-align:middle;}
+
+  /* Services */
+  .service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .service-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);padding:24px 20px;box-shadow:var(--shadow-sm);}
+  .service-icon{width:46px;height:46px;border-radius:50%;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+  .service-icon svg{width:24px;height:24px;color:var(--green);}
+  .service-card h3{font-size:1rem;margin-bottom:6px;}
+  .service-card p{font-size:.86rem;margin:0;}
+
+  /* Wellness Finder (signature feature) */
+  .finder-panel{
+    background:linear-gradient(160deg,var(--navy),#04547F);
+    border-radius:28px;padding:44px 40px;color:#fff;
+  }
+  .finder-panel .section-head{color:#fff;}
+  .finder-panel .section-head p{color:#CFE3ED;}
+  .finder-panel .eyebrow{color:#8FE3C7;}
+  .finder-panel h2{color:#fff;}
+  .chip-grid{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:30px;}
+  .chip{
+    background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.35);color:#fff;
+    padding:11px 20px;border-radius:100px;font-weight:600;font-size:.9rem;cursor:pointer;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .chip:hover{background:rgba(255,255,255,.22);transform:translateY(-2px);}
+  .chip[aria-pressed="true"]{background:var(--green);border-color:var(--green);}
+  .finder-result{
+    background:#fff;color:var(--ink);border-radius:var(--radius-md);padding:28px;
+    max-width:640px;margin:0 auto;box-shadow:var(--shadow-md);display:none;
+  }
+  .finder-result.is-visible{display:block;}
+  .finder-result h3{color:var(--navy);}
+  .finder-disclaimer{
+    font-size:.78rem;color:var(--ink-soft);border-top:1px dashed var(--line);
+    padding-top:12px;margin-top:14px;
+  }
+  .finder-placeholder{text-align:center;color:#CFE3ED;font-size:.92rem;}
+
+  /* Reorder dashboard */
+  .reorder-card{background:#fff;border-radius:var(--radius-lg);padding:34px;box-shadow:var(--shadow-md);border:1px solid var(--line);}
+  .reorder-badge{
+    display:inline-block;background:#FDF3D9;color:#8A6A00;font-size:.72rem;font-weight:700;
+    padding:5px 12px;border-radius:100px;margin-bottom:16px;
+  }
+  .reorder-list{display:flex;flex-direction:column;gap:14px;}
+  .reorder-row{
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    padding:16px;border:1px solid var(--line);border-radius:var(--radius-sm);flex-wrap:wrap;
+  }
+  .reorder-row .r-left{display:flex;align-items:center;gap:14px;}
+  .reorder-row .r-left svg{width:30px;height:30px;color:var(--green);flex-shrink:0;}
+  .reorder-row h4{margin:0;font-size:.95rem;color:var(--navy);}
+  .reorder-row span{font-size:.8rem;color:var(--ink-soft);}
+
+  /* Ask pharmacist */
+  .ask-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+  .ask-examples{list-style:none;margin:0 0 24px 0;padding:0;display:flex;flex-direction:column;gap:10px;}
+  .ask-examples li{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);
+    padding:12px 16px;font-size:.9rem;color:var(--ink);
+  }
+  .emergency-note{
+    background:#FDEDEC;border:1px solid #F3C7C2;border-radius:var(--radius-sm);
+    padding:14px 16px;font-size:.85rem;color:#8A2E22;
+  }
+
+  /* Why choose */
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .why-card{text-align:center;padding:10px;}
+  .why-icon{width:60px;height:60px;border-radius:50%;background:#fff;box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:center;margin:0 auto 16px auto;}
+  .why-icon svg{width:28px;height:28px;color:var(--blue);}
+
+  /* Advice articles */
+  .advice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .advice-card{background:#fff;border-radius:var(--radius-md);border:1px solid var(--line);box-shadow:var(--shadow-sm);overflow:hidden;}
+  .advice-media{height:150px;background:linear-gradient(135deg,var(--teal),var(--blue));display:flex;align-items:center;justify-content:center;}
+  .advice-media svg{width:44px;height:44px;color:#fff;}
+  .advice-body{padding:20px;}
+  .advice-body h3{font-size:1rem;}
+  .advice-body a{font-size:.85rem;font-weight:700;color:var(--blue);text-decoration:none;}
+
+  /* Testimonials */
+  .testi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .testi-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);padding:22px;box-shadow:var(--shadow-sm);}
+  .testi-stars{color:var(--green);margin-bottom:10px;}
+  .testi-card p{font-size:.88rem;margin-bottom:14px;}
+  .testi-name{font-weight:700;font-size:.85rem;color:var(--navy);}
+  .testi-loc{font-size:.75rem;color:var(--ink-soft);}
+  .testi-fictional-tag{font-size:.7rem;color:var(--ink-soft);font-style:italic;margin-top:8px;}
+
+  /* FAQ */
+  .faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px;}
+  .faq-item{background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;}
+  .faq-item summary{
+    padding:18px 20px;cursor:pointer;font-weight:700;color:var(--navy);
+    display:flex;align-items:center;justify-content:space-between;list-style:none;font-size:.96rem;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary svg{width:20px;height:20px;flex-shrink:0;transition:transform .2s ease;color:var(--blue);}
+  .faq-item[open] summary svg{transform:rotate(180deg);}
+  .faq-item .faq-body{padding:0 20px 18px 20px;font-size:.9rem;color:var(--ink-soft);}
+
+  /* Contact */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+  .map-placeholder{
+    width:100%;aspect-ratio:4/3;border-radius:var(--radius-md);background:var(--bg-alt);
+    display:flex;align-items:center;justify-content:center;border:1px dashed var(--line);color:var(--ink-soft);
+    font-size:.85rem;text-align:center;flex-direction:column;gap:10px;
+  }
+  .map-placeholder svg{width:36px;height:36px;color:var(--teal);}
+  .contact-list{list-style:none;margin:0 0 20px 0;padding:0;display:flex;flex-direction:column;gap:16px;}
+  .contact-list li{display:flex;gap:14px;align-items:flex-start;}
+  .contact-list svg{width:22px;height:22px;color:var(--blue);flex-shrink:0;margin-top:2px;}
+  .contact-list strong{display:block;color:var(--navy);font-size:.92rem;}
+  .contact-list span{font-size:.88rem;color:var(--ink-soft);}
+
+  /* Footer */
+  footer{background:var(--navy);color:#D9E7EE;padding:56px 0 26px 0;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+  footer h4{color:#fff;font-size:.92rem;margin-bottom:14px;}
+  footer .logo{color:#fff;}
+  footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;}
+  footer a{text-decoration:none;font-size:.86rem;color:#B9CEDA;}
+  footer a:hover{color:#fff;}
+  .social-row{display:flex;gap:12px;margin-top:16px;}
+  .social-row a{
+    width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.08);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .social-row svg{width:17px;height:17px;color:#fff;}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.15);padding-top:22px;font-size:.76rem;color:#9FB6C4;}
+  .footer-disclaimers{display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
+  .footer-legal-links{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px;}
+  .footer-legal-links a{font-size:.76rem;}
+
+  /* Sticky mobile WhatsApp bar */
+  .sticky-cta{
+    display:none;position:fixed;bottom:0;left:0;right:0;z-index:150;
+    background:#fff;border-top:1px solid var(--line);padding:12px 16px;
+    box-shadow:0 -6px 20px rgba(3,59,99,.10);
+  }
+  .sticky-cta .btn{width:100%;}
+
+  /* Responsive */
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-art{order:-1;max-width:340px;margin:0 auto;}
+    .quick-grid{grid-template-columns:repeat(2,1fr);}
+    .dept-grid{grid-template-columns:repeat(3,1fr);}
+    .product-grid{grid-template-columns:repeat(2,1fr);}
+    .service-grid{grid-template-columns:repeat(2,1fr);}
+    .why-grid{grid-template-columns:repeat(2,1fr);}
+    .advice-grid{grid-template-columns:1fr;}
+    .testi-grid{grid-template-columns:repeat(2,1fr);}
+    .ask-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:640px){
+    nav.primary-nav{display:none;}
+    .menu-toggle{display:inline-flex;}
+    .nav-actions .btn-secondary-desktop{display:none;}
+    .quick-grid{grid-template-columns:1fr 1fr;}
+    .dept-grid{grid-template-columns:1fr 1fr;}
+    .product-grid{grid-template-columns:1fr;}
+    .service-grid{grid-template-columns:1fr;}
+    .why-grid{grid-template-columns:1fr;}
+    .testi-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    section{padding:52px 0;}
+    .sticky-cta{display:block;}
+    body{padding-bottom:74px;}
+    .finder-panel{padding:32px 20px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important;transition:none !important;scroll-behavior:auto !important;}
+  }
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header>
+  <div class="nav-wrap">
+    <a href="#home" class="logo" aria-label="Health For Life Pharmacy home">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="24" cy="24" r="23" fill="#0A6FB6"/>
+        <path d="M24 12v24M12 24h24" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+        <path d="M24 12v24M12 24h24" stroke="#38A169" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      Health For Life <span style="color:#38A169;">Pharmacy</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#advice">Health Advice</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a href="#" class="btn btn-primary btn-sm whatsapp-generic" aria-label="Order on WhatsApp">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.6 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-5-4.3-5.1-4.5-.2-.2-1.2-1.6-1.2-3s.8-2.1 1-2.4c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.2.1.4 0 .6-.1.2-.2.3-.3.5-.2.2-.3.3-.5.5-.2.2-.3.4-.1.7.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.8.9.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>
+        Order on WhatsApp
+      </a>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" id="menuToggle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">Vieux Fort · Castries · Gros Islet</p>
+        <h1>Healthcare Made Simpler.</h1>
+        <p style="font-size:1.08rem;max-width:520px;">From prescriptions and wellness essentials to trusted advice and convenient WhatsApp ordering, we're here to help you and your family stay healthy every day.</p>
+        <div class="hero-actions">
+          <a href="#" class="btn btn-primary whatsapp-generic">Order on WhatsApp</a>
+          <a href="#shop" class="btn btn-secondary">Browse Products</a>
+        </div>
+        <div class="trust-row">
+          <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Licensed Pharmacists</div>
+          <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Prescription Services</div>
+          <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Home Delivery Available</div>
+          <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Trusted by Caribbean Families</div>
+        </div>
+      </div>
+      <svg class="hero-art" viewBox="0 0 420 380" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a pharmacy cross with wellness icons">
+        <circle cx="210" cy="190" r="170" fill="#DCEFF3"/>
+        <circle cx="210" cy="190" r="120" fill="#FFFFFF"/>
+        <rect x="170" y="110" width="80" height="160" rx="18" fill="#0A6FB6"/>
+        <rect x="140" y="150" width="140" height="80" rx="18" fill="#0A6FB6"/>
+        <rect x="182" y="150" width="56" height="80" fill="#FFFFFF"/>
+        <rect x="152" y="178" width="116" height="24" fill="#FFFFFF"/>
+        <circle cx="90" cy="90" r="26" fill="#38A169" opacity=".9"/>
+        <circle cx="335" cy="270" r="22" fill="#4FA8A0" opacity=".9"/>
+        <circle cx="75" cy="290" r="16" fill="#0A6FB6" opacity=".7"/>
+        <path d="M300 90c14-10 30-6 36 6 6 12-2 26-18 34-16-8-24-22-18-40z" fill="#38A169" opacity=".85"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- QUICK ACTIONS -->
+  <section aria-labelledby="quick-actions-heading">
+    <div class="container">
+      <h2 id="quick-actions-heading" style="text-align:center;margin-bottom:34px;">What can we help you with today?</h2>
+      <div class="quick-grid">
+        <a href="#contact" class="quick-card">
+          <div class="quick-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4z" opacity="0"/><path d="M9 3v4M15 3v4M4 9h16M6 13h4M6 17h6"/><rect x="4" y="5" width="16" height="16" rx="2"/></svg></div>
+          <h3>Refill Prescription</h3>
+          <p>Send us your details on WhatsApp and we'll prepare it for pickup or delivery.</p>
+        </a>
+        <a href="#contact" class="quick-card">
+          <div class="quick-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 7h13M7 7l3-3M7 7l3 3M17 17H4M17 17l-3 3M17 17l-3-3"/></svg></div>
+          <h3>Transfer Prescription</h3>
+          <p>Moving from another pharmacy? We'll guide you through what's needed.</p>
+        </a>
+        <a href="#finder" class="quick-card">
+          <div class="quick-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+          <h3>Explore Wellness Needs</h3>
+          <p>Browse products by wellness category — immunity, sleep, joints, and more.</p>
+        </a>
+        <a href="#ask" class="quick-card">
+          <div class="quick-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L4 20l1-4.4A8.5 8.5 0 1 1 21 11.5z"/></svg></div>
+          <h3>Ask a Pharmacist</h3>
+          <p>Have a general question? Message our team directly on WhatsApp.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPARTMENTS -->
+  <section class="section-alt" id="shop">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Departments</p>
+        <h2>Everything Your Family Needs, In One Place</h2>
+        <p>From essential medicines to everyday wellness, browse our departments below.</p>
+      </div>
+      <div class="dept-grid">
+
+        <div class="dept-card">
+          <div class="dept-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></div>
+          <h3>Prescription Medicines</h3>
+          <p>Filled and reviewed by our licensed pharmacy team.</p>
+          <a href="#ask">Ask About a Refill →</a>
+          <p class="dept-note">Prescription medicines are provided in person and are never sold directly online.</p>
+        </div>
+
+        <div class="dept-card">
+          <div class="dept-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2v6M9 5h6"/><path d="M7 8h10l1 12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2z"/></svg></div>
+          <h3>Vitamins &amp; Supplements</h3>
+          <p>Everyday nutritional support for the whole family.</p>
+          <a href="#products">Shop Now →</a>
+        </div>
+
+        <div class="dept-card">
+          <div class="dept-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3c3 3 6 6.5 6 10a6 6 0 0 1-12 0c0-3.5 3-7 6-10z"/></svg></div>
+          <h3>Cold &amp; Flu Care</h3>
+          <p>Everyday comfort items for seasonal symptoms.</p>
+          <a href="#finder">Explore Options →</a>
+        </div>
+
+        <div class="dept-card">
+          <div class="dept-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <h3>Pain Relief</h3>
+          <p>General comfort products for everyday aches.</p>
+          <a href="#ask">Ask a Pharmacist →</a>
+        </div>
+
+        <div class="dept-card">
+          <div class="dept-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></div>
+          <h3>Baby &amp; Mom</h3>
+          <p>Gentle essentials for growing families.</p>
+          <a href="#products">Shop Now →</a>
+        </div>
+
+        <div class="dept-card">
+          <div class="dept-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21c-5-4-8-7-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 4-3 7-8 11z"/></svg></div>
+          <h3>Personal Care</h3>
+          <p>Daily hygiene and self-care essentials.</p>
+          <a href="#products">Shop Now →</a>
+        </div>
+
+        <div class="dept-card">
+          <div class="dept-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3c-4 4-4 8-4 8a4 4 0 0 0 8 0s0-4-4-8z"/><path d="M8.5 15a5 5 0 0 0 7 0"/></svg></div>
+          <h3>Skin Care</h3>
+          <p>Sun protection and everyday skin essentials.</p>
+          <a href="#products">Shop Now →</a>
+        </div>
+
+        <div class="dept-card">
+          <div class="dept-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h3"/></svg></div>
+          <h3>Medical Devices</h3>
+          <p>Home monitors and everyday health devices.</p>
+          <a href="#ask">Ask a Pharmacist →</a>
+        </div>
+
+        <div class="dept-card">
+          <div class="dept-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2 6 12l6 4 6-4z"/><path d="M6 12v4l6 4 6-4v-4"/></svg></div>
+          <h3>Diabetes Care</h3>
+          <p>Everyday monitoring supplies and guidance.</p>
+          <a href="#ask">Ask a Pharmacist →</a>
+        </div>
+
+        <div class="dept-card">
+          <div class="dept-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2 3 6v6c0 5 4 8 9 10 5-2 9-5 9-10V6z"/><path d="M9 12h6M12 9v6"/></svg></div>
+          <h3>First Aid</h3>
+          <p>Essentials to keep your home ready for the unexpected.</p>
+          <a href="#products">Shop Now →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCTS -->
+  <section id="products">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Featured Products</p>
+        <h2>Everyday Wellness Favorites</h2>
+        <p>All-purpose supplements, priced for demonstration purposes. Availability and pricing vary in-store.</p>
+      </div>
+      <div class="product-grid">
+
+        <article class="product-card">
+          <div class="product-media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="4"/><path d="M7 11h10"/></svg></div>
+          <div class="product-body">
+            <h3>VitaBoost Daily Multivitamin</h3>
+            <p>A general daily multivitamin to support everyday nutritional needs.</p>
+            <div class="product-price">EC$32.00 <span class="demo-tag">Demo price</span></div>
+            <button class="btn btn-secondary btn-sm whatsapp-product" data-product="VitaBoost Daily Multivitamin">Add to WhatsApp Order</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M8 12h8" opacity=".5"/></svg></div>
+          <div class="product-body">
+            <h3>PureHeart Omega-3</h3>
+            <p>Fish oil supplement commonly used to support general heart wellness.</p>
+            <div class="product-price">EC$45.00 <span class="demo-tag">Demo price</span></div>
+            <button class="btn btn-secondary btn-sm whatsapp-product" data-product="PureHeart Omega-3">Add to WhatsApp Order</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3c3 3 6 6.5 6 10a6 6 0 0 1-12 0c0-3.5 3-7 6-10z"/></svg></div>
+          <div class="product-body">
+            <h3>ImmuniCare Vitamin C + Zinc</h3>
+            <p>A daily combination formula for everyday immune support.</p>
+            <div class="product-price">EC$28.00 <span class="demo-tag">Demo price</span></div>
+            <button class="btn btn-secondary btn-sm whatsapp-product" data-product="ImmuniCare Vitamin C + Zinc">Add to WhatsApp Order</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8" opacity=".4"/></svg></div>
+          <div class="product-body">
+            <h3>JointEase Collagen Complex</h3>
+            <p>A collagen-based supplement for everyday joint and mobility support.</p>
+            <div class="product-price">EC$52.00 <span class="demo-tag">Demo price</span></div>
+            <button class="btn btn-secondary btn-sm whatsapp-product" data-product="JointEase Collagen Complex">Add to WhatsApp Order</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="4"/></svg></div>
+          <div class="product-body">
+            <h3>CalmSleep Herbal Formula</h3>
+            <p>A gentle herbal blend some customers use to support restful sleep.</p>
+            <div class="product-price">EC$30.00 <span class="demo-tag">Demo price</span></div>
+            <button class="btn btn-secondary btn-sm whatsapp-product" data-product="CalmSleep Herbal Formula">Add to WhatsApp Order</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></div>
+          <div class="product-body">
+            <h3>KidsBright Complete Gummies</h3>
+            <p>A child-friendly daily multivitamin gummy in a family-favorite flavor.</p>
+            <div class="product-price">EC$26.00 <span class="demo-tag">Demo price</span></div>
+            <button class="btn btn-secondary btn-sm whatsapp-product" data-product="KidsBright Complete Gummies">Add to WhatsApp Order</button>
+          </div>
+        </article>
+
+      </div>
+      <p style="text-align:center;font-size:.8rem;margin-top:20px;">Product suggestions are general information, not medical advice. Please consult our pharmacist before starting any new supplement — especially if you are pregnant, nursing, taking other medication, or managing a health condition.</p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section-alt" id="services">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Services</p>
+        <h2>Care That Goes Beyond the Counter</h2>
+        <p>Practical support for busy families, delivered by our pharmacy team.</p>
+      </div>
+      <div class="service-grid">
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4z" opacity="0"/><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M9 3v4M15 3v4M4 9h16"/></svg></div>
+          <h3>Prescription Refills</h3>
+          <p>Skip the wait — send your refill request ahead and collect when it's ready.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+          <h3>Medication Reviews</h3>
+          <p>A pharmacist checks your current medications for a clearer picture of your routine.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2v6M9 5h6"/><path d="M6 8h12l-1 12a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2z"/></svg></div>
+          <h3>Vaccinations*</h3>
+          <p>Ask our team about currently available vaccination services.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21c-4-4-7-7.5-7-11a7 7 0 0 1 14 0c0 3.5-3 7-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg></div>
+          <h3>Blood Pressure Checks*</h3>
+          <p>A quick, no-fuss check-in on one of the most important numbers for your health.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2 3 6v6c0 5 4 8 9 10 5-2 9-5 9-10V6z"/></svg></div>
+          <h3>Diabetes Monitoring*</h3>
+          <p>Guidance and supplies to help you stay on top of daily monitoring.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L4 20l1-4.4A8.5 8.5 0 1 1 21 11.5z"/></svg></div>
+          <h3>Medication Guidance</h3>
+          <p>General guidance on how to take your medication correctly and safely.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="9" width="13" height="9" rx="1.5"/><path d="M15 12h4l3 3v3h-7z"/><circle cx="6.5" cy="20" r="1.7"/><circle cx="18" cy="20" r="1.7"/></svg></div>
+          <h3>Home Delivery</h3>
+          <p>Can't make it in? We'll bring your order to your door within our delivery area.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></div>
+          <h3>Health Consultations</h3>
+          <p>A private conversation with our pharmacist about your general wellness questions.</p>
+        </div>
+      </div>
+      <p style="text-align:center;font-size:.78rem;margin-top:22px;">*Subject to availability, applicable regulations, and staffing at each location. Please confirm with our team before visiting.</p>
+    </div>
+  </section>
+
+  <!-- WELLNESS FINDER (SIGNATURE FEATURE) -->
+  <section id="finder">
+    <div class="container">
+      <div class="finder-panel">
+        <div class="section-head">
+          <p class="eyebrow">Explore by Wellness Need</p>
+          <h2>Not Sure Where to Start? Explore by Category.</h2>
+          <p>Select a general wellness area below to see products our customers often ask about.</p>
+        </div>
+        <div class="chip-grid" role="group" aria-label="Wellness categories" id="chipGrid">
+          <button class="chip" data-cat="immune">Immune Support</button>
+          <button class="chip" data-cat="sleep">Sleep &amp; Rest</button>
+          <button class="chip" data-cat="joint">Joint &amp; Muscle Comfort</button>
+          <button class="chip" data-cat="digestive">Digestive Balance</button>
+          <button class="chip" data-cat="skin">Skin Care</button>
+          <button class="chip" data-cat="energy">Energy &amp; Vitality</button>
+          <button class="chip" data-cat="baby">Baby &amp; Mom Care</button>
+          <button class="chip" data-cat="women">Women's Wellness</button>
+          <button class="chip" data-cat="men">Men's Wellness</button>
+          <button class="chip" data-cat="seasonal">Seasonal Wellness Prep</button>
+        </div>
+        <p class="finder-placeholder" id="finderPlaceholder">Tap a category above to see a general suggestion.</p>
+        <div class="finder-result" id="finderResult" aria-live="polite">
+          <h3 id="finderResultTitle"></h3>
+          <p id="finderResultBody"></p>
+          <a href="#" class="btn btn-primary btn-sm" id="finderResultCta">Ask a Pharmacist About This</a>
+          <p class="finder-disclaimer">This is general wellness information, not a diagnosis or medical advice. Product availability varies. Always check with our pharmacist before starting something new — especially if you're pregnant, nursing, on other medication, or managing a health condition.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK REORDER -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Returning Customers</p>
+        <h2>Quick Reorder</h2>
+        <p>See how easy reordering is for our regular customers.</p>
+      </div>
+      <div class="reorder-card">
+        <span class="reorder-badge">Demo Preview — Example Customer Dashboard</span>
+        <h3 style="margin-bottom:16px;">Recent Wellness Purchases</h3>
+        <div class="reorder-list">
+          <div class="reorder-row">
+            <div class="r-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              <div><h4>VitaBoost Daily Multivitamin</h4><span>Last ordered 28 days ago</span></div>
+            </div>
+            <button class="btn btn-ghost btn-sm whatsapp-product" data-product="VitaBoost Daily Multivitamin" data-reorder="true">Reorder on WhatsApp</button>
+          </div>
+          <div class="reorder-row">
+            <div class="r-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              <div><h4>PureHeart Omega-3</h4><span>Last ordered 31 days ago</span></div>
+            </div>
+            <button class="btn btn-ghost btn-sm whatsapp-product" data-product="PureHeart Omega-3" data-reorder="true">Reorder on WhatsApp</button>
+          </div>
+          <div class="reorder-row">
+            <div class="r-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              <div><h4>ImmuniCare Vitamin C + Zinc</h4><span>Last ordered 14 days ago</span></div>
+            </div>
+            <button class="btn btn-ghost btn-sm whatsapp-product" data-product="ImmuniCare Vitamin C + Zinc" data-reorder="true">Reorder on WhatsApp</button>
+          </div>
+        </div>
+        <p style="font-size:.78rem;margin-top:18px;margin-bottom:0;">This dashboard uses example data to demonstrate the returning-customer experience. No real purchase history is shown or stored.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ASK A PHARMACIST -->
+  <section id="ask">
+    <div class="container ask-grid">
+      <div>
+        <p class="eyebrow">Ask a Pharmacist</p>
+        <h2>Questions? Speak With a Pharmacist.</h2>
+        <p>You can reach our pharmacy team directly on WhatsApp for general questions — no appointment needed.</p>
+        <a href="#" class="btn btn-primary whatsapp-generic">Ask on WhatsApp</a>
+        <div class="emergency-note" style="margin-top:22px;">
+          For emergencies or urgent medical conditions, contact your local emergency services or healthcare provider immediately. Do not wait for a WhatsApp reply.
+        </div>
+      </div>
+      <div>
+        <h3 style="font-size:1rem;margin-bottom:14px;">Examples of questions we can help with:</h3>
+        <ul class="ask-examples">
+          <li>How should I take this medicine?</li>
+          <li>What vitamins support immunity?</li>
+          <li>Do you have this product in stock?</li>
+          <li>Can I refill my prescription?</li>
+          <li>What should I bring for a prescription transfer?</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="section-alt" id="about">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Why Choose Us</p>
+        <h2>Why Families Choose Health For Life</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card"><div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L4 20l1-4.4A8.5 8.5 0 1 1 21 11.5z"/></svg></div><h3>Trusted Advice</h3><p>Straightforward, honest guidance from people who know your community.</p></div>
+        <div class="why-card"><div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></div><h3>Friendly Pharmacists</h3><p>A team that takes time to listen, not just to fill an order.</p></div>
+        <div class="why-card"><div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 12h6M3 12l3-3M3 12l3 3"/></svg></div><h3>Convenient WhatsApp Ordering</h3><p>Order, ask, and reorder without leaving the app you already use.</p></div>
+        <div class="why-card"><div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div><h3>Fast Prescription Service</h3><p>We know your time matters — refills are prepared quickly and carefully.</p></div>
+        <div class="why-card"><div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21c-5-4-8-7-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 4-3 7-8 11z"/></svg></div><h3>Family Healthcare</h3><p>From baby care to senior wellness, we support every stage of life.</p></div>
+        <div class="why-card"><div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div><h3>Community Focused</h3><p>A neighborhood pharmacy that's part of the community it serves.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HEALTH ADVICE -->
+  <section id="advice">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Health Advice</p>
+        <h2>General Wellness Reading</h2>
+        <p>General information for your family — always confirm anything specific with our pharmacist.</p>
+      </div>
+      <div class="advice-grid">
+        <article class="advice-card">
+          <div class="advice-media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></div>
+          <div class="advice-body">
+            <h3>Preparing Your Family Medicine Cabinet</h3>
+            <p style="font-size:.86rem;">A general checklist of everyday items worth having on hand at home.</p>
+            <a href="#">Continue reading →</a>
+          </div>
+        </article>
+        <article class="advice-card">
+          <div class="advice-media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21c-4-4-7-7.5-7-11a7 7 0 0 1 14 0c0 3.5-3 7-7 11z"/><circle cx="12" cy="10" r="2"/></svg></div>
+          <div class="advice-body">
+            <h3>Managing Blood Pressure at Home</h3>
+            <p style="font-size:.86rem;">General habits that may support healthy everyday blood pressure.</p>
+            <a href="#">Continue reading →</a>
+          </div>
+        </article>
+        <article class="advice-card">
+          <div class="advice-media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3c3 3 6 6.5 6 10a6 6 0 0 1-12 0c0-3.5 3-7 6-10z"/></svg></div>
+          <div class="advice-body">
+            <h3>Cold vs Flu: Understanding the Difference</h3>
+            <p style="font-size:.86rem;">A general overview of common differences between the two.</p>
+            <a href="#">Continue reading →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">What Customers Say</p>
+        <h2>Trusted by Families Like Yours</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p>"Ordering our refills on WhatsApp has saved us so much time as a busy family."</p>
+          <div class="testi-name">Andrea M.</div><div class="testi-loc">Vieux Fort</div>
+          <div class="testi-fictional-tag">Fictional testimonial</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p>"The pharmacist actually took the time to explain things to me clearly."</p>
+          <div class="testi-name">Kester D.</div><div class="testi-loc">Castries</div>
+          <div class="testi-fictional-tag">Fictional testimonial</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p>"Home delivery has made managing my mother's medication so much easier."</p>
+          <div class="testi-name">Renee A.</div><div class="testi-loc">Gros Islet</div>
+          <div class="testi-fictional-tag">Fictional testimonial</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p>"Friendly team, quick service, and they always have what my kids need."</p>
+          <div class="testi-name">Marcus J.</div><div class="testi-loc">Vieux Fort</div>
+          <div class="testi-fictional-tag">Fictional testimonial</div>
+        </div>
+      </div>
+      <p style="text-align:center;font-size:.78rem;margin-top:20px;">All testimonials shown are fictional and created for demonstration purposes only.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">FAQ</p>
+        <h2>Common Questions</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Do you fill prescriptions from any doctor?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="faq-body">In most cases, yes. Bring your valid prescription in person or send us a photo on WhatsApp and our pharmacist will confirm the next steps.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I transfer my prescription from another pharmacy?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="faq-body">Yes. Message us on WhatsApp with your current pharmacy's name and prescription details, and our team will guide you through the transfer.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Do you deliver?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="faq-body">Home delivery is available within our local delivery area. Ask our team on WhatsApp to confirm if we deliver to you.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I ask about a medication over WhatsApp?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="faq-body">Yes, for general questions. For anything specific to your personal health or medical history, our pharmacist may ask you to speak in person or by phone.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Do you accept insurance?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="faq-body">Coverage varies by provider. Bring your insurance details in person or ask our team on WhatsApp before your visit.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section-alt" id="contact">
+    <div class="container contact-grid">
+      <div>
+        <p class="eyebrow">Contact Us</p>
+        <h2>Visit or Reach Us Anytime</h2>
+        <ul class="contact-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21c-4-4-7-7.5-7-11a7 7 0 0 1 14 0c0 3.5-3 7-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+            <div><strong>Address (Demo)</strong><span>12 Bridge Street, Vieux Fort, Saint Lucia</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            <div><strong>Opening Hours</strong><span>Mon–Fri 8:00 AM–7:00 PM · Sat 9:00 AM–5:00 PM · Sun Closed</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .6 3a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c1 .3 2 .5 3 .6a2 2 0 0 1 1.7 2z"/></svg>
+            <div><strong>Phone (Demo)</strong><span>+1 (758) 555-0142</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            <div><strong>Email (Demo)</strong><span>hello@healthforlifepharmacy.demo</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            <div><strong>WhatsApp</strong><span>Fastest way to reach us — tap the button below.</span></div>
+          </li>
+        </ul>
+        <a href="#" class="btn btn-primary whatsapp-generic">Message Us on WhatsApp</a>
+        <div class="emergency-note" style="margin-top:20px;">For medical emergencies, call your local emergency number immediately. This website does not provide emergency care.</div>
+      </div>
+      <div class="map-placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21c-4-4-7-7.5-7-11a7 7 0 0 1 14 0c0 3.5-3 7-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+        <span>Map placeholder — embed your real Google Maps location here at build time.</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="#home" class="logo" style="margin-bottom:14px;">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="24" cy="24" r="23" fill="#0A6FB6"/>
+            <path d="M24 12v24M12 24h24" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+          Health For Life Pharmacy
+        </a>
+        <p style="font-size:.85rem;color:#B9CEDA;max-width:280px;">Your Health. Your Family. Your Trusted Pharmacy.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v6h3v-6h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z" opacity=".9"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#advice">Health Advice</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Opening Hours</h4>
+        <ul>
+          <li>Mon–Fri: 8:00 AM–7:00 PM</li>
+          <li>Saturday: 9:00 AM–5:00 PM</li>
+          <li>Sunday: Closed</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#finder">Explore Wellness Needs</a></li>
+          <li><a href="#ask">Ask a Pharmacist</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-disclaimers">
+        <span><strong>Demo disclaimer:</strong> Health For Life Pharmacy is a fictional business created solely to demonstrate website design and functionality. Names, products, prices, testimonials, and contact details shown are not real.</span>
+        <span><strong>Not medical advice:</strong> Nothing on this website is medical advice, diagnosis, or treatment. Always speak with a licensed pharmacist or physician about your medications and health conditions.</span>
+        <span><strong>Age notice:</strong> This website is intended for users 18 years of age or older. If you are under 18, please have a parent or guardian assist you before contacting us about any health product or service.</span>
+      </div>
+      <div class="footer-legal-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Accessibility Statement</a>
+      </div>
+      <div>© 2026 Health For Life Pharmacy. This is a demonstration website and is not a real, operating pharmacy.</div>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a href="#" class="btn btn-primary whatsapp-generic">Order on WhatsApp</a>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var WHATSAPP_NUMBER = "17585550142"; // demo number, no plus sign, digits only
+
+  function buildWaLink(message){
+    return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+  }
+
+  // Generic "Order/Ask on WhatsApp" buttons
+  var genericMsg = "Hello! I'd like to speak with someone at Health For Life Pharmacy.";
+  document.querySelectorAll(".whatsapp-generic").forEach(function(el){
+    el.setAttribute("href", buildWaLink(genericMsg));
+    el.setAttribute("target", "_blank");
+    el.setAttribute("rel", "noopener");
+  });
+
+  // Product order / reorder buttons
+  document.querySelectorAll(".whatsapp-product").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var product = btn.getAttribute("data-product") || "a product";
+      var isReorder = btn.getAttribute("data-reorder") === "true";
+      var msg = isReorder
+        ? "Hello! I'd like to reorder " + product + "."
+        : "Hello! I'd like to order " + product + ".";
+      window.open(buildWaLink(msg), "_blank", "noopener");
+    });
+  });
+
+  // Mobile menu toggle
+  var menuToggle = document.getElementById("menuToggle");
+  var primaryNav = document.querySelector("nav.primary-nav");
+  if (menuToggle && primaryNav){
+    menuToggle.addEventListener("click", function(){
+      var expanded = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!expanded));
+      primaryNav.style.display = expanded ? "none" : "block";
+      if (!expanded){
+        primaryNav.style.position = "absolute";
+        primaryNav.style.top = "64px";
+        primaryNav.style.left = "0";
+        primaryNav.style.right = "0";
+        primaryNav.style.background = "#fff";
+        primaryNav.style.borderTop = "1px solid #DCE7EA";
+        primaryNav.style.padding = "16px 20px";
+        primaryNav.querySelector("ul").style.flexDirection = "column";
+        primaryNav.querySelector("ul").style.gap = "16px";
+      }
+    });
+  }
+
+  // Wellness category finder — general info only, never symptom-to-drug matching
+  var wellnessData = {
+    immune: {
+      title: "Immune Support",
+      body: "Customers exploring immune support often ask about our ImmuniCare Vitamin C + Zinc and VitaBoost Daily Multivitamin. These are general wellness products, not treatments for any specific illness."
+    },
+    sleep: {
+      title: "Sleep & Rest",
+      body: "Customers focused on rest and relaxation often ask about our CalmSleep Herbal Formula. This is a general wellness product, and results vary from person to person."
+    },
+    joint: {
+      title: "Joint & Muscle Comfort",
+      body: "Customers looking for everyday joint and mobility support often ask about our JointEase Collagen Complex. Please speak with our pharmacist if you have ongoing joint pain."
+    },
+    digestive: {
+      title: "Digestive Balance",
+      body: "For everyday digestive comfort, our pharmacist can recommend a general wellness option that suits your needs — message us on WhatsApp for a personal suggestion."
+    },
+    skin: {
+      title: "Skin Care",
+      body: "We stock a general range of everyday skin care and sun protection essentials. Our pharmacist can point you toward what suits your skin type."
+    },
+    energy: {
+      title: "Energy & Vitality",
+      body: "Customers looking for everyday energy support often ask about our VitaBoost Daily Multivitamin and PureHeart Omega-3. These are general wellness products, not stimulants or treatments."
+    },
+    baby: {
+      title: "Baby & Mom Care",
+      body: "We carry a general range of gentle baby and maternal care essentials. Our pharmacist can help you choose age-appropriate options."
+    },
+    women: {
+      title: "Women's Wellness",
+      body: "We stock a general range of everyday women's wellness essentials. Message us on WhatsApp and our pharmacist can point you in the right direction."
+    },
+    men: {
+      title: "Men's Wellness",
+      body: "We stock a general range of everyday men's wellness essentials. Message us on WhatsApp and our pharmacist can point you in the right direction."
+    },
+    seasonal: {
+      title: "Seasonal Wellness Prep",
+      body: "As seasons change, customers often stock up on general comfort and immune-support items. Ask our pharmacist what's currently recommended in-store."
+    }
+  };
+
+  var chipGrid = document.getElementById("chipGrid");
+  var finderResult = document.getElementById("finderResult");
+  var finderTitle = document.getElementById("finderResultTitle");
+  var finderBody = document.getElementById("finderResultBody");
+  var finderCta = document.getElementById("finderResultCta");
+  var finderPlaceholder = document.getElementById("finderPlaceholder");
+
+  if (chipGrid){
+    chipGrid.querySelectorAll(".chip").forEach(function(chip){
+      chip.setAttribute("aria-pressed", "false");
+      chip.addEventListener("click", function(){
+        chipGrid.querySelectorAll(".chip").forEach(function(c){ c.setAttribute("aria-pressed","false"); });
+        chip.setAttribute("aria-pressed", "true");
+
+        var key = chip.getAttribute("data-cat");
+        var entry = wellnessData[key];
+        if (!entry) return;
+
+        finderTitle.textContent = entry.title;
+        finderBody.textContent = entry.body;
+        var msg = "Hello! I'd like some general guidance on " + entry.title.toLowerCase() + " products.";
+        finderCta.setAttribute("href", buildWaLink(msg));
+        finderCta.setAttribute("target", "_blank");
+        finderCta.setAttribute("rel", "noopener");
+
+        finderResult.classList.add("is-visible");
+        if (finderPlaceholder) finderPlaceholder.style.display = "none";
+        finderResult.scrollIntoView({behavior: "smooth", block: "nearest"});
+      });
+    });
+  }
+
+})();
+</script>
+
+</body>
+</html>
