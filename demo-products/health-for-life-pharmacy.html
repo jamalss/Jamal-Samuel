@@ -25,10 +25,13 @@
     --container:1180px;
     font-size:16px;
   }
-  *,*::before,*::after{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  *,*::before,*::after{box-sizing:border-box;min-width:0;}
+  html{scroll-behavior:smooth;overflow-x:hidden;width:100%;}
   body{
     margin:0;
+    width:100%;
+    overflow-x:hidden;
+    overscroll-behavior-x:none;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     color:var(--ink);
     background:var(--bg);
@@ -36,6 +39,7 @@
     -webkit-font-smoothing:antialiased;
   }
   img{max-width:100%;display:block;}
+  svg{max-width:100%;}
   a{color:inherit;}
   h1,h2,h3,h4{margin:0 0 .5em 0;font-weight:700;letter-spacing:-0.01em;color:var(--navy);}
   h1{font-size:clamp(2.1rem,5vw,3.4rem);line-height:1.08;}
@@ -78,24 +82,48 @@
   header{
     position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);
     backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+    transition:background .2s ease, border-color .2s ease;
   }
-  .nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;}
-  .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;color:var(--navy);font-size:1.15rem;}
-  .logo svg{width:34px;height:34px;flex-shrink:0;}
-  nav.primary-nav ul{list-style:none;display:flex;gap:28px;margin:0;padding:0;}
-  nav.primary-nav a{text-decoration:none;font-weight:600;font-size:.95rem;color:var(--ink);}
+  .nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 16px;line-height:1.1;}
+  .logo{display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:800;color:var(--navy);font-size:1rem;line-height:1.1;white-space:nowrap;flex-shrink:1;overflow:hidden;text-overflow:ellipsis;}
+  .logo svg{width:28px;height:28px;flex-shrink:0;}
+  .logo .logo-full{display:inline;}
+  .logo .logo-short{display:none;}
+  nav.primary-nav ul{list-style:none;display:flex;gap:20px;margin:0;padding:0;line-height:1.1;}
+  nav.primary-nav a{text-decoration:none;font-weight:600;font-size:.85rem;color:var(--ink);}
   nav.primary-nav a:hover{color:var(--blue);}
-  .nav-actions{display:flex;align-items:center;gap:14px;}
-  .menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;}
-  .menu-toggle svg{width:26px;height:26px;color:var(--navy);}
+  .nav-actions{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+  .menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-shrink:0;}
+  .menu-toggle svg{width:24px;height:24px;color:var(--navy);}
+
+  /* Navbar dark mode — follows the device's own light/dark setting */
+  @media (prefers-color-scheme: dark){
+    header{
+      background:rgba(3,27,46,.92);
+      border-bottom-color:rgba(255,255,255,.12);
+    }
+    .logo{color:#fff;}
+    nav.primary-nav a{color:#D9E7EE;}
+    nav.primary-nav a:hover{color:#8FE3C7;}
+    .menu-toggle svg{color:#fff;}
+    header .primary-nav{background:#04314f;}
+  }
 
   /* Hero */
   .hero{
-    padding:64px 0 56px 0;
+    padding:64px 0 96px 0;
     background:linear-gradient(160deg,#EAF4F8 0%,#F6FAFB 55%,#F6FAFB 100%);
     position:relative;overflow:hidden;
   }
-  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;}
+  .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden;}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;}
+  .hero-bg-overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(160deg,rgba(234,244,248,.93) 0%,rgba(246,250,251,.90) 55%,rgba(246,250,251,.97) 100%);
+  }
+  .hero-wave{position:absolute;left:0;right:0;bottom:-1px;z-index:2;line-height:0;}
+  .hero-wave svg{display:block;width:100%;height:70px;}
+  .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;}
   .trust-row{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:28px;}
   .trust-item{display:flex;align-items:center;gap:8px;font-size:.88rem;font-weight:600;color:var(--navy);}
   .trust-item svg{width:18px;height:18px;color:var(--green);flex-shrink:0;}
@@ -223,8 +251,8 @@
   /* Advice articles */
   .advice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
   .advice-card{background:#fff;border-radius:var(--radius-md);border:1px solid var(--line);box-shadow:var(--shadow-sm);overflow:hidden;}
-  .advice-media{height:150px;background:linear-gradient(135deg,var(--teal),var(--blue));display:flex;align-items:center;justify-content:center;}
-  .advice-media svg{width:44px;height:44px;color:#fff;}
+  .advice-media{height:150px;background:linear-gradient(135deg,var(--teal),var(--blue));position:relative;overflow:hidden;}
+  .advice-media img{width:100%;height:100%;object-fit:cover;}
   .advice-body{padding:20px;}
   .advice-body h3{font-size:1rem;}
   .advice-body a{font-size:.85rem;font-weight:700;color:var(--blue);text-decoration:none;}
@@ -283,13 +311,19 @@
   .footer-legal-links{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px;}
   .footer-legal-links a{font-size:.76rem;}
 
-  /* Sticky mobile WhatsApp bar */
-  .sticky-cta{
-    display:none;position:fixed;bottom:0;left:0;right:0;z-index:150;
-    background:#fff;border-top:1px solid var(--line);padding:12px 16px;
-    box-shadow:0 -6px 20px rgba(3,59,99,.10);
+  /* Floating WhatsApp button */
+  .fab-whatsapp{
+    position:fixed;bottom:24px;right:20px;z-index:150;
+    width:58px;height:58px;border-radius:50%;background:var(--green);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 8px 24px rgba(3,59,99,.28);transition:transform .15s ease, box-shadow .15s ease;
   }
-  .sticky-cta .btn{width:100%;}
+  .fab-whatsapp svg{width:27px;height:27px;color:#fff;}
+  .fab-whatsapp:hover{transform:scale(1.08);box-shadow:0 10px 28px rgba(3,59,99,.34);}
+  @media (max-width:640px){
+    .fab-whatsapp{width:52px;height:52px;bottom:18px;right:16px;}
+    .fab-whatsapp svg{width:24px;height:24px;}
+  }
 
   /* Responsive */
   @media (max-width:980px){
@@ -309,7 +343,6 @@
   @media (max-width:640px){
     nav.primary-nav{display:none;}
     .menu-toggle{display:inline-flex;}
-    .nav-actions .btn-secondary-desktop{display:none;}
     .quick-grid{grid-template-columns:1fr 1fr;}
     .dept-grid{grid-template-columns:1fr 1fr;}
     .product-grid{grid-template-columns:1fr;}
@@ -318,9 +351,12 @@
     .testi-grid{grid-template-columns:1fr;}
     .footer-grid{grid-template-columns:1fr;}
     section{padding:52px 0;}
-    .sticky-cta{display:block;}
-    body{padding-bottom:74px;}
     .finder-panel{padding:32px 20px;}
+  }
+  @media (max-width:380px){
+    .logo-full{display:none;}
+    .logo-short{display:inline;}
+    .logo{font-size:.92rem;}
   }
   @media (prefers-reduced-motion:reduce){
     *{animation:none !important;transition:none !important;scroll-behavior:auto !important;}
@@ -338,7 +374,8 @@
         <path d="M24 12v24M12 24h24" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
         <path d="M24 12v24M12 24h24" stroke="#38A169" stroke-width="2" stroke-linecap="round"/>
       </svg>
-      Health For Life <span style="color:#38A169;">Pharmacy</span>
+      <span class="logo-full">Health For Life <span style="color:#38A169;">Pharmacy</span></span>
+      <span class="logo-short">HFL <span style="color:#38A169;">Pharmacy</span></span>
     </a>
     <nav class="primary-nav" aria-label="Primary">
       <ul>
@@ -351,10 +388,6 @@
       </ul>
     </nav>
     <div class="nav-actions">
-      <a href="#" class="btn btn-primary btn-sm whatsapp-generic" aria-label="Order on WhatsApp">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.6 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-5-4.3-5.1-4.5-.2-.2-1.2-1.6-1.2-3s.8-2.1 1-2.4c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.2.1.4 0 .6-.1.2-.2.3-.3.5-.2.2-.3.3-.5.5-.2.2-.3.4-.1.7.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.8.9.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>
-        Order on WhatsApp
-      </a>
       <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" id="menuToggle">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg>
       </button>
@@ -366,6 +399,15 @@
 
   <!-- HERO -->
   <section class="hero" id="home">
+    <!-- Background photo placeholder. Replace assets/hero-pharmacy.webp / .jpg with your Squoosh-optimized export.
+         If the files are missing, this quietly falls back to the gradient background below — no broken image icon. -->
+    <div class="hero-bg" aria-hidden="true">
+      <picture>
+        <source srcset="assets/hero-pharmacy.webp" type="image/webp">
+        <img src="assets/hero-pharmacy.jpg" alt="" loading="eager" onerror="this.parentElement.parentElement.style.display='none'">
+      </picture>
+      <div class="hero-bg-overlay"></div>
+    </div>
     <div class="container hero-grid">
       <div>
         <p class="eyebrow">Vieux Fort · Castries · Gros Islet</p>
@@ -393,6 +435,11 @@
         <circle cx="335" cy="270" r="22" fill="#4FA8A0" opacity=".9"/>
         <circle cx="75" cy="290" r="16" fill="#0A6FB6" opacity=".7"/>
         <path d="M300 90c14-10 30-6 36 6 6 12-2 26-18 34-16-8-24-22-18-40z" fill="#38A169" opacity=".85"/>
+      </svg>
+    </div>
+    <div class="hero-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,32 C240,68 480,0 720,18 C960,36 1200,66 1440,28 L1440,70 L0,70 Z" style="fill:var(--bg);"/>
       </svg>
     </div>
   </section>
@@ -764,7 +811,13 @@
       </div>
       <div class="advice-grid">
         <article class="advice-card">
-          <div class="advice-media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></div>
+          <div class="advice-media">
+            <!-- Replace assets/advice-medicine-cabinet.webp / .jpg with your Squoosh export -->
+            <picture>
+              <source srcset="assets/advice-medicine-cabinet.webp" type="image/webp">
+              <img src="assets/advice-medicine-cabinet.jpg" alt="Organized family medicine cabinet" loading="lazy" width="400" height="150" onerror="this.parentElement.remove()">
+            </picture>
+          </div>
           <div class="advice-body">
             <h3>Preparing Your Family Medicine Cabinet</h3>
             <p style="font-size:.86rem;">A general checklist of everyday items worth having on hand at home.</p>
@@ -772,7 +825,13 @@
           </div>
         </article>
         <article class="advice-card">
-          <div class="advice-media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21c-4-4-7-7.5-7-11a7 7 0 0 1 14 0c0 3.5-3 7-7 11z"/><circle cx="12" cy="10" r="2"/></svg></div>
+          <div class="advice-media">
+            <!-- Replace assets/advice-blood-pressure.webp / .jpg with your Squoosh export -->
+            <picture>
+              <source srcset="assets/advice-blood-pressure.webp" type="image/webp">
+              <img src="assets/advice-blood-pressure.jpg" alt="Home blood pressure monitor" loading="lazy" width="400" height="150" onerror="this.parentElement.remove()">
+            </picture>
+          </div>
           <div class="advice-body">
             <h3>Managing Blood Pressure at Home</h3>
             <p style="font-size:.86rem;">General habits that may support healthy everyday blood pressure.</p>
@@ -780,7 +839,13 @@
           </div>
         </article>
         <article class="advice-card">
-          <div class="advice-media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3c3 3 6 6.5 6 10a6 6 0 0 1-12 0c0-3.5 3-7 6-10z"/></svg></div>
+          <div class="advice-media">
+            <!-- Replace assets/advice-cold-vs-flu.webp / .jpg with your Squoosh export -->
+            <picture>
+              <source srcset="assets/advice-cold-vs-flu.webp" type="image/webp">
+              <img src="assets/advice-cold-vs-flu.jpg" alt="Cold and flu care essentials" loading="lazy" width="400" height="150" onerror="this.parentElement.remove()">
+            </picture>
+          </div>
           <div class="advice-body">
             <h3>Cold vs Flu: Understanding the Difference</h3>
             <p style="font-size:.86rem;">A general overview of common differences between the two.</p>
@@ -885,10 +950,9 @@
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-            <div><strong>WhatsApp</strong><span>Fastest way to reach us — tap the button below.</span></div>
+            <div><strong>WhatsApp</strong><span>Fastest way to reach us — tap the green WhatsApp button in the corner of your screen.</span></div>
           </li>
         </ul>
-        <a href="#" class="btn btn-primary whatsapp-generic">Message Us on WhatsApp</a>
         <div class="emergency-note" style="margin-top:20px;">For medical emergencies, call your local emergency number immediately. This website does not provide emergency care.</div>
       </div>
       <div class="map-placeholder">
@@ -962,9 +1026,9 @@
   </div>
 </footer>
 
-<div class="sticky-cta">
-  <a href="#" class="btn btn-primary whatsapp-generic">Order on WhatsApp</a>
-</div>
+<a href="#" class="fab-whatsapp whatsapp-generic" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.6 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-5-4.3-5.1-4.5-.2-.2-1.2-1.6-1.2-3s.8-2.1 1-2.4c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.2.1.4 0 .6-.1.2-.2.3-.3.5-.2.2-.3.3-.5.5-.2.2-.3.4-.1.7.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.8.9.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>
+</a>
 
 <script>
 (function(){
