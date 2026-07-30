@@ -174,15 +174,45 @@ body::after {
   position: relative; overflow: hidden;
 }
 
+/* HERO BACKGROUND PHOTOS (time-of-day) */
+.hero-bg-layer {
+  position: absolute; inset: 0; z-index: 0;
+  overflow: hidden; pointer-events: none;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  opacity: 0; transition: opacity 1.8s ease;
+}
+.hero-bg img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;
+}
+html[data-time="morning"]   .hero-bg-morning,
+html[data-time="afternoon"] .hero-bg-afternoon,
+html[data-time="evening"]   .hero-bg-evening,
+html[data-time="night"]     .hero-bg-night { opacity: 1; }
+
+/* legibility scrim — tuned per time-of-day so text always reads clean over any photo */
+.hero-scrim {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  transition: background 1.4s ease;
+  background: linear-gradient(180deg, rgba(253,246,237,.72) 0%, rgba(253,246,237,.55) 45%, rgba(253,246,237,.8) 100%);
+}
+html[data-time="evening"] .hero-scrim,
+html[data-time="night"]   .hero-scrim {
+  background: linear-gradient(180deg, rgba(14,10,6,.6) 0%, rgba(14,10,6,.45) 45%, rgba(14,10,6,.7) 100%);
+}
+
 /* animated background gradient */
 .hero-atmosphere {
-  position: absolute; inset: 0;
+  position: absolute; inset: 0; z-index: 2;
   background:
     radial-gradient(ellipse at 30% 20%, var(--accent-glow), transparent 55%),
     radial-gradient(ellipse at 70% 80%, var(--accent-glow), transparent 55%);
   transition: var(--transition);
   pointer-events: none;
 }
+
+.hero-content { position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; }
 
 /* COFFEE CUP + STEAM */
 .cup-wrap {
@@ -389,6 +419,35 @@ body::after {
   max-width: 1100px; margin: 0 auto;
 }
 
+/* ═══════════════════════════════════════════
+   GALLERY STRIP
+═══════════════════════════════════════════ */
+.gallery-strip { transition: background 1.2s ease; }
+.gallery-strip-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  height: 250px; gap: 2px;
+  background: var(--border);
+}
+.gallery-strip-item {
+  position: relative; overflow: hidden; height: 100%; margin: 0;
+}
+.gallery-strip-item picture, .gallery-strip-item img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.7s ease;
+}
+.gallery-strip-item:hover img { transform: scale(1.07); }
+.gallery-strip-item figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 16px 18px 12px;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,.6));
+  color: #fff; font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 0.95rem; letter-spacing: 0.3px;
+}
+@media(max-width:700px){
+  .gallery-strip-grid { grid-template-columns: repeat(2, 1fr); height: auto; }
+  .gallery-strip-item { height: 170px; }
+}
+
 .menu-cat-tabs {
   display: flex; gap: 6px; flex-wrap: wrap;
   margin-bottom: 36px; border-bottom: 1px solid var(--border);
@@ -451,7 +510,11 @@ body::after {
 }
 
 .card-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 10px; }
-.card-emoji { font-size: 2.2rem; flex-shrink: 0; transition: transform 0.3s; }
+.card-emoji {
+  width: 44px; height: 44px; flex-shrink: 0; transition: transform 0.3s;
+  color: var(--accent); display: flex; align-items: center; justify-content: center;
+}
+.card-emoji svg { width: 100%; height: 100%; }
 .menu-card:hover .card-emoji { transform: scale(1.15) rotate(-5deg); }
 .card-info { flex: 1; }
 
@@ -525,7 +588,7 @@ body::after {
   margin-bottom: 36px;
 }
 .closed-banner.show { display: block; }
-.closed-icon { font-size: 2.5rem; margin-bottom: 12px; display: block; }
+.closed-icon { font-size: 2.5rem; margin-bottom: 12px; display: block; color: var(--accent); }
 .closed-title {
   font-family: 'Playfair Display', serif; font-size: 1.5rem;
   font-weight: 700; color: var(--text); margin-bottom: 8px;
@@ -733,9 +796,10 @@ body::after {
   transition: background 1.2s ease;
 }
 .footer-inner {
-  max-width: 900px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 36px;
+  max-width: 1080px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 36px;
 }
+@media(max-width:760px){ .footer-inner{ grid-template-columns:1fr 1fr; gap:28px; } }
 @media(max-width:600px){ .footer-inner{ grid-template-columns:1fr; gap:28px; } }
 
 .footer-brand {}
@@ -759,8 +823,34 @@ body::after {
 }
 .footer-links a:hover { color: var(--accent); }
 
+.icon-inline {
+  width: 1em; height: 1em; display: inline-block;
+  vertical-align: -0.14em; flex-shrink: 0;
+}
+
+.footer-contact-item {
+  display: flex; align-items: center; gap: 8px;
+  color: var(--text2); text-decoration: none; font-size: 0.85rem;
+  margin-bottom: 10px; transition: color 0.2s;
+}
+.footer-contact-item:hover { color: var(--accent); }
+.footer-contact-item svg { flex-shrink: 0; opacity: 0.8; }
+
+.footer-socials { display: flex; gap: 10px; margin-top: 14px; }
+.footer-social-link {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--surface); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text2); transition: all 0.2s;
+}
+.footer-social-link:hover {
+  background: var(--accent); border-color: var(--accent); color: white;
+  transform: translateY(-2px);
+}
+.footer-social-link svg { width: 16px; height: 16px; }
+
 .footer-bottom {
-  max-width: 900px; margin: 36px auto 0;
+  max-width: 1080px; margin: 36px auto 0;
   border-top: 1px solid var(--border); padding-top: 20px;
   display: flex; justify-content: space-between; align-items: center;
   flex-wrap: wrap; gap: 10px;
@@ -825,7 +915,7 @@ body::after {
       <div class="time-dot"></div>
       <span id="timeBadgeText">Morning</span>
     </div>
-    <button class="btn-nav" onclick="openOrder()">☕ My Order</button>
+    <button class="btn-nav" onclick="openOrder()"><svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>My Order</button>
   </div>
 </nav>
 
@@ -833,8 +923,28 @@ body::after {
      HERO
 ═══════════════════════════════════════ -->
 <section class="v-hero" id="home">
+  <div class="hero-bg-layer" id="heroBgLayer">
+    <picture class="hero-bg hero-bg-morning">
+      <source srcset="velour-cafe-images/morning-hero-background.webp" type="image/webp"/>
+      <img src="velour-cafe-images/morning-hero-background.jpg" alt="Velour Café bathed in warm morning light" loading="eager" fetchpriority="high"/>
+    </picture>
+    <picture class="hero-bg hero-bg-afternoon">
+      <source srcset="velour-cafe-images/afternoon-hero-background.webp" type="image/webp"/>
+      <img src="velour-cafe-images/afternoon-hero-background.jpg" alt="Velour Café in the golden afternoon" loading="lazy"/>
+    </picture>
+    <picture class="hero-bg hero-bg-evening">
+      <source srcset="velour-cafe-images/evening-hero-background.webp" type="image/webp"/>
+      <img src="velour-cafe-images/evening-hero-background.jpg" alt="Velour Café glowing at evening" loading="lazy"/>
+    </picture>
+    <picture class="hero-bg hero-bg-night">
+      <source srcset="velour-cafe-images/night-hero-background.webp" type="image/webp"/>
+      <img src="velour-cafe-images/night-hero-background.jpg" alt="Velour Café at quiet night" loading="lazy"/>
+    </picture>
+  </div>
+  <div class="hero-scrim"></div>
   <div class="hero-atmosphere"></div>
 
+  <div class="hero-content">
   <div class="cup-wrap">
     <div class="steam-wrap">
       <div class="steam"></div>
@@ -846,7 +956,7 @@ body::after {
     <span class="coffee-cup" id="heroCup">☕</span>
   </div>
 
-  <div class="hero-greeting" id="heroGreeting">☀️ Good Morning</div>
+  <div class="hero-greeting" id="heroGreeting"><svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M3 12h2M19 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>Good Morning</div>
 
   <h1 id="heroH1">Where Every <em>Cup</em><br/>Tells a Story</h1>
 
@@ -855,20 +965,21 @@ body::after {
   </p>
 
   <div class="hero-btns">
-    <a href="#menu" class="btn-primary">☕ Browse the Menu</a>
+    <a href="#menu" class="btn-primary"><svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Browse the Menu</a>
     <button class="btn-ghost" onclick="openOrder()">View My Order</button>
   </div>
 
   <div class="hero-trust">
-    <div class="trust-pill">🌱 Ethically Sourced</div>
+    <div class="trust-pill"><svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21c0-9 5-15 14-15 0 9-5 15-14 15z"/><path d="M5 21c3-5 7-9 12-11"/></svg>Ethically Sourced</div>
     <div class="trust-pill">✦ Est. 2019, Saint Lucia</div>
-    <div class="trust-pill">💬 WhatsApp Orders</div>
-    <div class="trust-pill">🕐 Ready in Minutes</div>
+    <div class="trust-pill"><svg class="icon-inline" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>WhatsApp Orders</div>
+    <div class="trust-pill"><svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>Ready in Minutes</div>
   </div>
 
   <div class="scroll-hint">
     <span class="scroll-arrow">↓</span>
     Explore the menu
+  </div>
   </div>
 </section>
 
@@ -883,11 +994,12 @@ body::after {
      CLOSED BANNER (night only)
 ═══════════════════════════════════════ -->
 <div class="closed-banner" id="closedBanner">
-  <span class="closed-icon">🌙</span>
+  <span class="closed-icon"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1110.5 4a7 7 0 009.5 10.5z"/></svg></span>
   <div class="closed-title">We're Resting for the Night</div>
   <p class="closed-sub">Velour Café is closed right now, but we open again at 7:00 AM.<br/>Send us a WhatsApp and we'll have your order ready for when you arrive.</p>
   <a href="https://wa.me/17587235872?text=Hi%20Velour!%20I'd%20like%20to%20pre-order%20for%20tomorrow%20morning%20🌅" target="_blank" class="btn-primary" style="display:inline-flex;">
-    💬 Pre-order for Tomorrow
+    <svg class="icon-inline" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
+    Pre-order for Tomorrow
   </a>
 </div>
 
@@ -899,11 +1011,11 @@ body::after {
   <h2 class="mood-title">Let Your Mood <em>Choose</em> for You</h2>
   <p class="mood-sub">Pick a vibe and we'll highlight the perfect picks — or browse everything below.</p>
   <div class="mood-pills">
-    <button class="mood-pill active" onclick="setMood('all', this)">☕ Show Everything</button>
-    <button class="mood-pill" onclick="setMood('fuel', this)">⚡ Morning Fuel</button>
-    <button class="mood-pill" onclick="setMood('chill', this)">🍃 Slow &amp; Easy</button>
-    <button class="mood-pill" onclick="setMood('sweet', this)">🍰 Sweet Treat</button>
-    <button class="mood-pill" onclick="setMood('fresh', this)">🌿 Something Fresh</button>
+    <button class="mood-pill active" onclick="setMood('all', this)">✦ Show Everything</button>
+    <button class="mood-pill" onclick="setMood('fuel', this)"><svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg>Morning Fuel</button>
+    <button class="mood-pill" onclick="setMood('chill', this)"><svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M3 15c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2"/></svg>Slow &amp; Easy</button>
+    <button class="mood-pill" onclick="setMood('sweet', this)"><svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l8-15 8 15H4z"/><path d="M8 20l4-9 4 9"/><circle cx="12" cy="4" r="1" fill="currentColor" stroke="none"/></svg>Sweet Treat</button>
+    <button class="mood-pill" onclick="setMood('fresh', this)"><svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c0-6 2-9 2-9M12 21c0-6-2-9-2-9M8 6c1 3 4 4 4 4s3-1 4-4c-2-2-6-2-8 0z"/></svg>Something Fresh</button>
   </div>
 </div>
 
@@ -914,6 +1026,42 @@ body::after {
   <div class="menu-cat-tabs" id="catTabs"></div>
   <div class="menu-grid" id="menuGrid"></div>
 </div>
+
+<!-- ═══════════════════════════════════════
+     GALLERY STRIP
+═══════════════════════════════════════ -->
+<section class="gallery-strip reveal" aria-label="A closer look">
+  <div class="gallery-strip-grid">
+    <figure class="gallery-strip-item">
+      <picture>
+        <source srcset="velour-cafe-images/espresso-strip-image.webp" type="image/webp"/>
+        <img src="velour-cafe-images/espresso-strip-image.jpg" alt="Freshly pulled espresso shot" loading="lazy"/>
+      </picture>
+      <figcaption>Espresso</figcaption>
+    </figure>
+    <figure class="gallery-strip-item">
+      <picture>
+        <source srcset="velour-cafe-images/croissants-strip-image.webp" type="image/webp"/>
+        <img src="velour-cafe-images/croissants-strip-image.jpg" alt="Buttery fresh-baked croissants" loading="lazy"/>
+      </picture>
+      <figcaption>Croissants</figcaption>
+    </figure>
+    <figure class="gallery-strip-item">
+      <picture>
+        <source srcset="velour-cafe-images/tea-strip-image.webp" type="image/webp"/>
+        <img src="velour-cafe-images/tea-strip-image.jpg" alt="Delicate loose-leaf tea" loading="lazy"/>
+      </picture>
+      <figcaption>Tea</figcaption>
+    </figure>
+    <figure class="gallery-strip-item">
+      <picture>
+        <source srcset="velour-cafe-images/desserts-strip-image.webp" type="image/webp"/>
+        <img src="velour-cafe-images/desserts-strip-image.jpg" alt="House-made desserts" loading="lazy"/>
+      </picture>
+      <figcaption>Desserts</figcaption>
+    </figure>
+  </div>
+</section>
 
 <!-- ═══════════════════════════════════════
      STORY
@@ -953,7 +1101,7 @@ body::after {
       </div>
       <div class="hours-card">
         <div class="hours-title">
-          ⏰ Hours
+          <svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>Hours
           <span id="openStatus"></span>
         </div>
         <div class="hours-row">
@@ -966,7 +1114,7 @@ body::after {
         </div>
         <div class="hours-row">
           <span class="hours-day">WhatsApp Orders</span>
-          <span class="hours-time">Always Open 💬</span>
+          <span class="hours-time" style="display:inline-flex;align-items:center;gap:5px;">Always Open <svg class="icon-inline" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg></span>
         </div>
       </div>
     </div>
@@ -1014,15 +1162,42 @@ body::after {
         <li><a href="https://wa.me/17587235872?text=Hi%20Velour!%20What%27s%20today%27s%20special%3F" target="_blank">Today's Special</a></li>
       </ul>
     </div>
+    <div>
+      <div class="footer-col-title">Connect</div>
+      <a href="mailto:jamal.s.samuel@outlook.com" class="footer-contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg>
+        jamal.s.samuel@outlook.com
+      </a>
+      <a href="tel:+17587235872" class="footer-contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M6.6 10.8c1.2 2.4 3.2 4.4 5.6 5.6l1.9-1.9c.24-.24.6-.32.9-.2 1 .34 2.1.52 3.2.52.5 0 .9.4.9.9V19c0 .5-.4.9-.9.9C9.6 19.9 4.1 14.4 4.1 7.7c0-.5.4-.9.9-.9h3.3c.5 0 .9.4.9.9 0 1.1.18 2.2.52 3.2.1.3.03.66-.2.9l-1.9 1.9z"/></svg>
+        +1 758-723-5872
+      </a>
+      <div class="footer-socials">
+        <a href="#" target="_blank" class="footer-social-link" title="Instagram" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" target="_blank" class="footer-social-link" title="Facebook" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.4c0-.87.24-1.46 1.49-1.46h1.6V4.28C16.3 4.19 15.3 4.1 14.2 4.1c-2.44 0-4.1 1.49-4.1 4.22v2.18H7.6v3h2.5V21h3.4z"/></svg>
+        </a>
+        <a href="https://wa.me/17587235872" target="_blank" class="footer-social-link" title="WhatsApp" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
+        </a>
+        <a href="#" target="_blank" class="footer-social-link" title="TikTok" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2h-3.1v13.2c0 1.5-1.2 2.8-2.8 2.8s-2.8-1.2-2.8-2.8 1.2-2.8 2.8-2.8c.3 0 .6.05.9.13V9.3a6 6 0 00-.9-.07 6 6 0 106 6V9.4c1.2.85 2.7 1.35 4.3 1.35V7.6c-2.4 0-4.4-1.9-4.4-4.3z"/></svg>
+        </a>
+      </div>
+    </div>
   </div>
   <div class="footer-bottom">
     <span>© 2025 Velour Café · Est. 2019, Saint Lucia · All rights reserved</span>
-    <a href="https://jamalinks758.github.io/jamalinks/" target="_blank">Powered by JAMALINKS</a>
+    <a href="https://www.jamalsamuel.online/demo-products/velour-cafe.html" target="_blank">Powered by Jamal Samuel</a>
   </div>
 </footer>
 
 <!-- FLOAT WA -->
-<a href="https://wa.me/17587235872?text=Hi%20Velour!%20I%27d%20like%20to%20place%20an%20order%20☕" target="_blank" class="float-wa" title="Order on WhatsApp">💬</a>
+<a href="https://wa.me/17587235872?text=Hi%20Velour!%20I%27d%20like%20to%20place%20an%20order%20☕" target="_blank" class="float-wa" title="Order on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
+</a>
 
 <!-- FLOAT ORDER BAR -->
 <div class="float-bar" id="floatBar">
@@ -1045,68 +1220,68 @@ body::after {
    CONSTANTS
 ═══════════════════════════════════════ */
 const PHONE = '17587235872';
-const SITE  = 'https://jamalinks758.github.io/jamalinks/velour-cafe.html';
+const SITE  = 'https://www.jamalsamuel.online/demo-products/velour-cafe.html';
 
 /* ═══════════════════════════════════════
    MENU DATA
 ═══════════════════════════════════════ */
 const menuData = [
   /* ── COFFEE ── */
-  { id:1, cat:'Coffee', emoji:'☕', name:'Velour Espresso',
+  { id:1, cat:'Coffee', name:'Velour Espresso',
     desc:'Double shot of our signature single-origin blend. Rich, bold, and smooth to the last drop.',
     price:8, moods:['fuel','all'], timeMatch:['morning','afternoon'] },
-  { id:2, cat:'Coffee', emoji:'🥛', name:'Flat White',
+  { id:2, cat:'Coffee', name:'Flat White',
     desc:'Velvety microfoam over a double ristretto. The perfect balance of strength and silk.',
     price:10, moods:['fuel','chill','all'], timeMatch:['morning','afternoon'] },
-  { id:3, cat:'Coffee', emoji:'🍦', name:'Iced Caramel Latte',
+  { id:3, cat:'Coffee', name:'Iced Caramel Latte',
     desc:'Espresso, cold milk, and a drizzle of house caramel over ice. Refreshing and indulgent.',
     price:12, moods:['sweet','chill','all'], timeMatch:['afternoon','morning'] },
-  { id:4, cat:'Coffee', emoji:'🌙', name:'Evening Velvet',
+  { id:4, cat:'Coffee', name:'Evening Velvet',
     desc:'Decaf espresso with warm oat milk and a hint of vanilla. Wind down beautifully.',
     price:11, moods:['chill','all'], timeMatch:['evening'] },
-  { id:5, cat:'Coffee', emoji:'🧊', name:'Cold Brew',
+  { id:5, cat:'Coffee', name:'Cold Brew',
     desc:'Steeped for 16 hours, served over ice. Smooth, strong, zero bitterness.',
     price:11, moods:['fuel','fresh','all'], timeMatch:['morning','afternoon'] },
 
   /* ── DRINKS ── */
-  { id:6, cat:'Drinks', emoji:'🍵', name:'Matcha Latte',
+  { id:6, cat:'Drinks', name:'Matcha Latte',
     desc:'Ceremonial grade matcha whisked with steamed oat milk. Earthy, calming, beautiful.',
     price:12, moods:['chill','fresh','all'], timeMatch:['morning','afternoon','evening'] },
-  { id:7, cat:'Drinks', emoji:'🍋', name:'Velour Lemonade',
+  { id:7, cat:'Drinks', name:'Velour Lemonade',
     desc:'House-pressed lemon with cane sugar, fresh mint, and a splash of sparkling water.',
     price:9, moods:['fresh','all'], timeMatch:['afternoon'] },
-  { id:8, cat:'Drinks', emoji:'🧃', name:'Passion Fruit Cooler',
+  { id:8, cat:'Drinks', name:'Passion Fruit Cooler',
     desc:'Local passion fruit blended with hibiscus and honey. A taste of Saint Lucia.',
     price:10, moods:['fresh','all'], timeMatch:['afternoon','morning'] },
-  { id:9, cat:'Drinks', emoji:'🍫', name:'Dark Hot Chocolate',
+  { id:9, cat:'Drinks', name:'Dark Hot Chocolate',
     desc:'Melted 70% dark chocolate with steamed whole milk and sea salt. Pure indulgence.',
     price:11, moods:['sweet','chill','all'], timeMatch:['evening','morning'] },
 
   /* ── FOOD ── */
-  { id:10, cat:'Food', emoji:'🥑', name:'Avocado Toast',
+  { id:10, cat:'Food', name:'Avocado Toast',
     desc:'Sourdough, smashed avo, chilli flakes, poached egg, and a squeeze of lime.',
     price:18, moods:['fuel','fresh','all'], timeMatch:['morning','afternoon'] },
-  { id:11, cat:'Food', emoji:'🥗', name:'Garden Grain Bowl',
+  { id:11, cat:'Food', name:'Garden Grain Bowl',
     desc:'Quinoa, roasted veg, feta, and our house herb dressing. Light, filling, and fresh.',
     price:22, moods:['fresh','chill','all'], timeMatch:['afternoon'] },
-  { id:12, cat:'Food', emoji:'🥪', name:'Velour Club Sandwich',
+  { id:12, cat:'Food', name:'Velour Club Sandwich',
     desc:'Toasted brioche, chicken, bacon, lettuce, tomato, and herb mayo. A café classic done right.',
     price:24, moods:['fuel','all'], timeMatch:['afternoon','morning'] },
-  { id:13, cat:'Food', emoji:'🍳', name:'Full Breakfast Plate',
+  { id:13, cat:'Food', name:'Full Breakfast Plate',
     desc:'Eggs your way, sausage, grilled tomato, toast, and fresh juice. The full morning ritual.',
     price:28, moods:['fuel','all'], timeMatch:['morning'] },
 
   /* ── PASTRIES ── */
-  { id:14, cat:'Pastries', emoji:'🥐', name:'Butter Croissant',
+  { id:14, cat:'Pastries', name:'Butter Croissant',
     desc:'Flaky, golden, freshly baked each morning. Best with our espresso.',
     price:7, moods:['sweet','chill','all'], timeMatch:['morning'] },
-  { id:15, cat:'Pastries', emoji:'🍰', name:'Velour Cheesecake Slice',
+  { id:15, cat:'Pastries', name:'Velour Cheesecake Slice',
     desc:'New York-style cheesecake with a local passion fruit coulis. Light yet luxurious.',
     price:14, moods:['sweet','all'], timeMatch:['afternoon','evening'] },
-  { id:16, cat:'Pastries', emoji:'🍫', name:'Chocolate Lava Brownie',
+  { id:16, cat:'Pastries', name:'Chocolate Lava Brownie',
     desc:'Warm, fudgy brownie with a molten centre. Pairs perfectly with a scoop of vanilla.',
     price:12, moods:['sweet','all'], timeMatch:['afternoon','evening'] },
-  { id:17, cat:'Pastries', emoji:'🫐', name:'Blueberry Muffin',
+  { id:17, cat:'Pastries', name:'Blueberry Muffin',
     desc:'Bursting with fresh blueberries, light crumb, buttery top. Made daily.',
     price:8, moods:['sweet','fuel','all'], timeMatch:['morning'] },
 ];
@@ -1136,25 +1311,33 @@ let currentTime = 'morning';
 ═══════════════════════════════════════ */
 const timeConfig = {
   morning: {
-    range:[6,11], label:'Morning ☀️', greeting:'Good Morning ☀️',
+    range:[6,11], label:'Morning', greeting:'Good Morning',
     cup:'☕', tagline:'"Start your morning right — every cup a quiet ceremony."',
     h1:'Where Every <em>Cup</em><br/>Tells a Story', badge:'Morning',
   },
   afternoon: {
-    range:[11,16], label:'Afternoon 🌤️', greeting:'Good Afternoon 🌤️',
+    range:[11,16], label:'Afternoon', greeting:'Good Afternoon',
     cup:'🧋', tagline:'"Midday fuel or an afternoon pause — we have just the thing."',
     h1:'Take a <em>Moment</em><br/>Just for You', badge:'Afternoon',
   },
   evening: {
-    range:[16,20], label:'Evening 🌇', greeting:'Good Evening 🌇',
+    range:[16,20], label:'Evening', greeting:'Good Evening',
     cup:'🍵', tagline:'"Wind down slowly. The best evenings start with a warm cup."',
     h1:'The Perfect <em>Evening</em><br/>Ritual Awaits', badge:'Evening',
   },
   night: {
-    range:[20,24], label:'Late Night 🌙', greeting:'Night Owl? 🌙',
+    range:[20,24], label:'Late Night', greeting:'Night Owl?',
     cup:'🌙', tagline:'"We\'re resting — but message us and we\'ll be ready for you."',
     h1:'Come Find <em>Us</em><br/>in the Morning', badge:'Closed',
   },
+};
+
+/* icons for the hero greeting pill — paired 1:1 with the buckets above */
+const greetIcon = {
+  morning:   '<svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M3 12h2M19 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>',
+  afternoon: '<svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="10" r="3.5"/><path d="M9 3v1.5M9 15v1.5M2 10h1.5M14.5 10H16M3.6 4.6l1 1M12.4 4.6l-1 1"/><path d="M8 17h8a3.5 3.5 0 000-7 5 5 0 00-9.5-1.5"/></svg>',
+  evening:   '<svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h18"/><circle cx="12" cy="13" r="4.5"/><path d="M12 5.5V7M6 9l1 1M18 9l-1 1"/></svg>',
+  night:     '<svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1110.5 4a7 7 0 009.5 10.5z"/></svg>',
 };
 
 function getTimeOfDay() {
@@ -1181,7 +1364,7 @@ function applyTimeTheme() {
   html.setAttribute('data-time', currentTime);
 
   // hero content
-  document.getElementById('heroGreeting').textContent = cfg.greeting;
+  document.getElementById('heroGreeting').innerHTML = greetIcon[currentTime] + cfg.greeting;
   document.getElementById('heroH1').innerHTML = cfg.h1;
   document.getElementById('heroTagline').textContent = cfg.tagline.replace(/"/g,'');
   document.getElementById('heroCup').textContent = cfg.cup;
@@ -1228,13 +1411,19 @@ function setMood(mood, btn) {
 /* ═══════════════════════════════════════
    CATEGORY TABS
 ═══════════════════════════════════════ */
-const catEmoji = { Coffee:'☕', Drinks:'🥤', Food:'🍽️', Pastries:'🍰', All:'✦' };
+const catIcon = {
+  Coffee:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h13v5a5 5 0 01-5 5H9a5 5 0 01-5-5V9z"/><path d="M17 10h1.5a2.5 2.5 0 010 5H17"/><path d="M8 3c0 1-1 1-1 2s1 1 1 2M12 3c0 1-1 1-1 2s1 1 1 2"/></svg>',
+  Drinks:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l-1.2 16.5A2 2 0 0114.8 21H9.2a2 2 0 01-2-1.5L6 3z"/><path d="M6.6 8h10.8"/></svg>',
+  Food:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a2 2 0 002 2v10M6 3v5M8 3v5M6 8h2"/><path d="M17.5 3c-1.4 0-2.5 2-2.5 4.5S16.1 12 17.5 12 20 10 20 7.5 18.9 3 17.5 3zM17.5 12v9"/></svg>',
+  Pastries: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15c2-6 7-10 9-10s2 2 0 4c3-1 6 0 7 3s-1 6-4 6c-3 1-6 1-9 0-2-1-3.5-2-3-3z"/></svg>',
+};
+const catEmoji = { All:'✦' };
 
 function buildCatTabs() {
   const tabs = ['All', ...categories];
   document.getElementById('catTabs').innerHTML = tabs
     .map(c => `<button class="cat-tab ${c===activeCat?'active':''}" onclick="setCat('${c}',this)">
-      ${catEmoji[c]||'✦'} ${c}
+      ${catIcon[c] ? `<span class="icon-inline">${catIcon[c]}</span>` : catEmoji.All} ${c}
     </button>`).join('');
 }
 
@@ -1282,7 +1471,7 @@ function buildCard(item) {
   <div class="menu-card ${inCart?'in-order':''} ${isMoodMatch?'mood-match':''}" id="mc-${item.id}">
     ${badge}
     <div class="card-top">
-      <span class="card-emoji">${item.emoji}</span>
+      <span class="card-emoji">${catIcon[item.cat] || ''}</span>
       <div class="card-info">
         <div class="card-cat">${item.cat}</div>
         <div class="card-name">${item.name}</div>
@@ -1316,7 +1505,7 @@ function addItem(id) {
   else cart[id].qty++;
   refreshCard(id);
   updateBar();
-  showToast(`${item.emoji} ${item.name} added!`);
+  showToast(`${item.name} added!`);
   popBar();
 }
 
@@ -1370,7 +1559,7 @@ function openOrder() {
   const qty = getTotalQty();
   if (qty === 0) {
     document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
-    showToast('Add something from the menu first ☕');
+    showToast('Add something from the menu first');
   } else {
     sendWhatsApp();
   }
@@ -1385,7 +1574,7 @@ function sendWhatsApp() {
 
   const cfg  = timeConfig[currentTime];
   const lines = items.map(i =>
-    `• ${i.item.emoji} ${i.item.name} ×${i.qty} = $${(i.item.price * i.qty).toFixed(2)}`
+    `• ${i.item.name} ×${i.qty} = $${(i.item.price * i.qty).toFixed(2)}`
   );
   const total = getTotal();
   const totalQty = getTotalQty();
@@ -1443,4 +1632,3 @@ setInterval(applyTimeTheme, 5 * 60 * 1000);
 </script>
 </body>
 </html>
-
