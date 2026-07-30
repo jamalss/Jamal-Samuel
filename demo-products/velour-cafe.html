@@ -4,6 +4,8 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Velour Café — Where Every Cup Tells a Story</title>
+<link rel="icon" type="image/png" href="velour-cafe-images/velour-cafe-favicon.png"/>
+<link rel="apple-touch-icon" href="velour-cafe-images/velour-cafe-favicon.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 /* ═══════════════════════════════════════════
@@ -119,8 +121,17 @@ body::after {
   color: var(--accent); text-decoration: none;
   letter-spacing: -0.5px;
   transition: color 1.2s ease;
+  display: inline-flex; align-items: center; gap: 10px;
 }
 .nav-brand span { font-style: normal; font-size: 0.6rem; opacity: 0.6; }
+
+.nav-logo-wrap { position: relative; width: 36px; height: 36px; flex-shrink: 0; }
+.nav-logo { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease; }
+.nav-logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
+html[data-time="morning"]   .nav-logo-day,
+html[data-time="afternoon"] .nav-logo-day   { opacity: 1; }
+html[data-time="evening"]   .nav-logo-night,
+html[data-time="night"]     .nav-logo-night { opacity: 1; }
 
 .nav-links { display: flex; gap: 28px; list-style: none; }
 .nav-links a {
@@ -636,13 +647,21 @@ html[data-time="night"]   .hero-scrim {
 }
 
 .story-right {}
+.story-media { position: relative; margin-bottom: 64px; }
+.story-media picture {
+  display: block; border-radius: 20px; overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,.18);
+}
+.story-media img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; }
 .story-stats {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  position: absolute; left: 5%; right: 5%; bottom: -56px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
 }
 .story-stat {
   background: var(--surface); border: 1px solid var(--border);
-  border-radius: 14px; padding: 24px 20px;
+  border-radius: 14px; padding: 20px 16px;
   text-align: center; transition: background 1.2s ease, transform 0.25s;
+  box-shadow: 0 14px 32px rgba(0,0,0,.14);
 }
 .story-stat:hover { transform: translateY(-3px); }
 .stat-num {
@@ -904,7 +923,19 @@ html[data-time="night"]   .hero-scrim {
      NAV
 ═══════════════════════════════════════ -->
 <nav class="v-nav">
-  <a href="#" class="nav-brand">Velour<span>.</span></a>
+  <a href="#" class="nav-brand">
+  <span class="nav-logo-wrap">
+    <picture class="nav-logo nav-logo-day">
+      <source srcset="velour-cafe-images/velour-cafe-logo-day.webp" type="image/webp"/>
+      <img src="velour-cafe-images/velour-cafe-logo-day.jpg" alt="Velour Café logo" loading="eager"/>
+    </picture>
+    <picture class="nav-logo nav-logo-night">
+      <source srcset="velour-cafe-images/velour-cafe-logo-night.webp" type="image/webp"/>
+      <img src="velour-cafe-images/velour-cafe-logo-night.jpg" alt="Velour Café logo" loading="eager"/>
+    </picture>
+  </span>
+  Velour<span>.</span>
+</a>
   <ul class="nav-links">
     <li><a href="#menu">Menu</a></li>
     <li><a href="#story">Our Story</a></li>
@@ -1081,22 +1112,28 @@ html[data-time="night"]   .hero-scrim {
       </div>
     </div>
     <div class="story-right reveal">
-      <div class="story-stats">
-        <div class="story-stat">
-          <div class="stat-num">2019</div>
-          <div class="stat-lbl">Est. in Saint Lucia</div>
-        </div>
-        <div class="story-stat">
-          <div class="stat-num">100%</div>
-          <div class="stat-lbl">Ethically Sourced</div>
-        </div>
-        <div class="story-stat">
-          <div class="stat-num">5★</div>
-          <div class="stat-lbl">Customer Rating</div>
-        </div>
-        <div class="story-stat">
-          <div class="stat-num">Daily</div>
-          <div class="stat-lbl">Handcrafted Fresh</div>
+      <div class="story-media">
+        <picture>
+          <source srcset="velour-cafe-images/cafe-our-story-image.webp" type="image/webp"/>
+          <img src="velour-cafe-images/cafe-our-story-image.jpg" alt="Inside Velour Café — boutique coffee culture in Saint Lucia" loading="lazy"/>
+        </picture>
+        <div class="story-stats">
+          <div class="story-stat">
+            <div class="stat-num">2019</div>
+            <div class="stat-lbl">Est. in Saint Lucia</div>
+          </div>
+          <div class="story-stat">
+            <div class="stat-num">100%</div>
+            <div class="stat-lbl">Ethically Sourced</div>
+          </div>
+          <div class="story-stat">
+            <div class="stat-num">5★</div>
+            <div class="stat-lbl">Customer Rating</div>
+          </div>
+          <div class="story-stat">
+            <div class="stat-num">Daily</div>
+            <div class="stat-lbl">Handcrafted Fresh</div>
+          </div>
         </div>
       </div>
       <div class="hours-card">
