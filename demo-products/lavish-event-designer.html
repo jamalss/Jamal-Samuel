@@ -20,14 +20,14 @@
   <meta property="og:description" content="Bespoke luxury event design and planning in Castries, Saint Lucia. We transform visions into unforgettable experiences." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.jamalsamuel.online/demo-products/lavish-event-designer.html" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1200&q=80" />
+  <meta property="og:image" content="https://www.jamalsamuel.online/demo-products/lavish-events-images/hero-main.jpg" />
   <meta property="og:locale" content="en_US" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Lavish Events | Luxury Event Design & Planning" />
   <meta name="twitter:description" content="Bespoke luxury event design and planning in Castries, Saint Lucia." />
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1200&q=80" />
+  <meta name="twitter:image" content="https://www.jamalsamuel.online/demo-products/lavish-events-images/hero-main.jpg" />
 
   <!-- Favicon (inline SVG monogram, no external asset needed) -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23090704'/%3E%3Ctext x='50' y='68' font-size='55' font-family='Georgia,serif' fill='%23C9A96E' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E" />
@@ -39,7 +39,7 @@
     "@type": "LocalBusiness",
     "name": "Lavish Events",
     "description": "Bespoke luxury event design and planning — weddings, galas, corporate events, and social celebrations.",
-    "image": "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1200&q=80",
+    "image": "https://www.jamalsamuel.online/demo-products/lavish-events-images/hero-main.jpg",
     "url": "https://www.jamalsamuel.online/demo-products/lavish-event-designer.html",
     "telephone": "+17587235872",
     "priceRange": "$$$",
@@ -524,9 +524,14 @@
       width: 100%;
       aspect-ratio: 3/4;
       max-height: 80vh;
-      overflow: hidden;
       opacity: 0;
       animation: fadeIn 1.2s 0.6s forwards;
+    }
+
+    .hero-img-frame .hero-img-clip {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
     }
 
     .hero-img-frame::before {
@@ -535,6 +540,7 @@
       inset: 0;
       background: linear-gradient(135deg, rgba(201,169,110,0.08) 0%, transparent 60%);
       z-index: 1;
+      pointer-events: none;
     }
 
     .hero-img-frame img {
@@ -1587,14 +1593,19 @@
         <div class="col-lg-5 d-none d-lg-block">
           <div class="hero-image-panel">
             <div class="hero-img-frame">
-              <img
-                src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=700&q=80"
-                alt="Elegant wedding reception with gold floral arrangements and candlelight"
-                width="700"
-                height="933"
-                loading="eager"
-                onerror="this.style.display='none'"
-              />
+              <div class="hero-img-clip">
+                <picture>
+                  <source srcset="lavish-events-images/hero-main.webp" type="image/webp" />
+                  <img
+                    src="lavish-events-images/hero-main.jpg"
+                    alt="Elegant wedding reception with gold floral arrangements and candlelight"
+                    width="700"
+                    height="933"
+                    loading="eager"
+                    onerror="this.style.display='none'"
+                  />
+                </picture>
+              </div>
               <div class="hero-img-badge" aria-label="Award winning design">
                 <div class="badge-num">12</div>
                 <div class="badge-text">Years of Excellence</div>
@@ -1649,15 +1660,18 @@
         <!-- Left: Image collage -->
         <div class="col-lg-5 reveal">
           <div style="position:relative;">
-            <img
-              src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80"
-              alt="Elegant event setup with gold candelabras and floral centrepieces"
-              width="600"
-              height="720"
-              loading="lazy"
-              onerror="this.style.display='none'"
-              style="width:100%; height:420px; object-fit:cover; filter:saturate(0.7) brightness(0.85);"
-            />
+            <picture>
+              <source srcset="lavish-events-images/about-setup.webp" type="image/webp" />
+              <img
+                src="lavish-events-images/about-setup.jpg"
+                alt="Elegant event setup with gold candelabras and floral centrepieces"
+                width="600"
+                height="720"
+                loading="lazy"
+                onerror="this.style.display='none'"
+                style="width:100%; height:420px; object-fit:cover; filter:saturate(0.7) brightness(0.85);"
+              />
+            </picture>
             <div style="position:absolute; bottom:-1.5rem; right:-1.5rem; background:var(--gold); padding:1.5rem; min-width:140px;">
               <div style="font-family:var(--font-display); font-size:2rem; font-weight:500; color:#0A0705; line-height:1;">500+</div>
               <div style="font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:#0A0705; margin-top:0.2rem; opacity:0.7;">Dreams Realised</div>
@@ -1732,7 +1746,7 @@
         <div class="col-md-6 col-lg-4 reveal">
           <div class="service-card" role="article">
             <span class="service-num" aria-hidden="true">01</span>
-            <div class="service-icon" aria-hidden="true"><i class="fa-solid fa-rings-wedding"></i></div>
+            <div class="service-icon" aria-hidden="true"><i class="fa-solid fa-ring"></i></div>
             <h3 class="service-title">Wedding Planning</h3>
             <p class="service-desc">Full-service wedding design and coordination. We handle every detail so you can fully live your special day without a single worry.</p>
             <a href="#contact" class="service-link" aria-label="Learn more about wedding planning services">
@@ -1831,84 +1845,102 @@
       <div class="gallery-grid reveal reveal-delay-1" id="galleryGrid" aria-label="Event portfolio images">
 
         <div class="gallery-item" data-category="wedding" role="button" tabindex="0" aria-label="View wedding reception with floral arrangements">
-          <img
-            src="https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80"
-            alt="Grand wedding reception hall with gold floral archway and chandelier lighting"
-            width="900"
-            height="600"
-            loading="lazy"
-            onerror="this.style.display='none'"
-          />
+          <picture>
+            <source srcset="lavish-events-images/gallery-wedding-reception.webp" type="image/webp" />
+            <img
+              src="lavish-events-images/gallery-wedding-reception.jpg"
+              alt="Grand wedding reception hall with gold floral archway and chandelier lighting"
+              width="900"
+              height="600"
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+          </picture>
           <div class="gallery-overlay" aria-hidden="true">
             <span class="gallery-overlay-text">The Richardson Wedding</span>
           </div>
         </div>
 
         <div class="gallery-item" data-category="corporate" role="button" tabindex="0" aria-label="View corporate gala event">
-          <img
-            src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80"
-            alt="Corporate gala event with elegant table settings and ambient lighting"
-            width="600"
-            height="400"
-            loading="lazy"
-            onerror="this.style.display='none'"
-          />
+          <picture>
+            <source srcset="lavish-events-images/gallery-corporate-gala.webp" type="image/webp" />
+            <img
+              src="lavish-events-images/gallery-corporate-gala.jpg"
+              alt="Corporate gala event with elegant table settings and ambient lighting"
+              width="600"
+              height="400"
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+          </picture>
           <div class="gallery-overlay" aria-hidden="true">
             <span class="gallery-overlay-text">Summit Financial Gala</span>
           </div>
         </div>
 
         <div class="gallery-item" data-category="birthday" role="button" tabindex="0" aria-label="View luxury birthday celebration">
-          <img
-            src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&q=80"
-            alt="Luxury birthday celebration with gold balloon arrangements and dessert table"
-            width="600"
-            height="400"
-            loading="lazy"
-            onerror="this.style.display='none'"
-          />
+          <picture>
+            <source srcset="lavish-events-images/gallery-birthday.webp" type="image/webp" />
+            <img
+              src="lavish-events-images/gallery-birthday.jpg"
+              alt="Luxury birthday celebration with gold balloon arrangements and dessert table"
+              width="600"
+              height="400"
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+          </picture>
           <div class="gallery-overlay" aria-hidden="true">
             <span class="gallery-overlay-text">Sofia's 30th Milestone</span>
           </div>
         </div>
 
         <div class="gallery-item" data-category="wedding" role="button" tabindex="0" aria-label="View intimate wedding ceremony">
-          <img
-            src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80"
-            alt="Intimate outdoor wedding ceremony with white floral arch and rose petals"
-            width="600"
-            height="400"
-            loading="lazy"
-            onerror="this.style.display='none'"
-          />
+          <picture>
+            <source srcset="lavish-events-images/gallery-wedding-ceremony.webp" type="image/webp" />
+            <img
+              src="lavish-events-images/gallery-wedding-ceremony.jpg"
+              alt="Intimate outdoor wedding ceremony with white floral arch and rose petals"
+              width="600"
+              height="400"
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+          </picture>
           <div class="gallery-overlay" aria-hidden="true">
             <span class="gallery-overlay-text">Garden Ceremony</span>
           </div>
         </div>
 
         <div class="gallery-item" data-category="social" role="button" tabindex="0" aria-label="View elegant dinner party setup">
-          <img
-            src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80"
-            alt="Elegant dinner party table setting with gold cutlery and candles"
-            width="600"
-            height="400"
-            loading="lazy"
-            onerror="this.style.display='none'"
-          />
+          <picture>
+            <source srcset="lavish-events-images/gallery-dinner-soiree.webp" type="image/webp" />
+            <img
+              src="lavish-events-images/gallery-dinner-soiree.jpg"
+              alt="Elegant dinner party table setting with gold cutlery and candles"
+              width="600"
+              height="400"
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+          </picture>
           <div class="gallery-overlay" aria-hidden="true">
             <span class="gallery-overlay-text">Private Dinner Soirée</span>
           </div>
         </div>
 
         <div class="gallery-item" data-category="birthday" role="button" tabindex="0" aria-label="View styled dessert table">
-          <img
-            src="https://images.unsplash.com/photo-1464347744102-11db6282a4f9?w=600&q=80"
-            alt="Styled dessert table with macarons, cakes, and florals in gold and ivory"
-            width="600"
-            height="400"
-            loading="lazy"
-            onerror="this.style.display='none'"
-          />
+          <picture>
+            <source srcset="lavish-events-images/gallery-dessert-table.webp" type="image/webp" />
+            <img
+              src="lavish-events-images/gallery-dessert-table.jpg"
+              alt="Styled dessert table with macarons, cakes, and florals in gold and ivory"
+              width="600"
+              height="400"
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+          </picture>
           <div class="gallery-overlay" aria-hidden="true">
             <span class="gallery-overlay-text">Sweet Celebration</span>
           </div>
@@ -2632,7 +2664,7 @@
     function openLightbox() {
       const img = this.querySelector('img');
       if (!img) return;
-      lightboxImg.src = img.src.replace('w=600', 'w=1200').replace('w=900', 'w=1400');
+      lightboxImg.src = img.src;
       lightboxImg.alt = img.alt;
       lightbox.classList.add('active');
       document.body.style.overflow = 'hidden';
@@ -2737,4 +2769,3 @@
 
 </body>
 </html>
-
