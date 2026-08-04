@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Golden Crust Artisan Bakery | Fresh Caribbean Bread & Custom Cakes — Saint Lucia</title>
+<meta name="description" content="Golden Crust Artisan Bakery bakes fresh bread, pastries and custom cakes every morning in Saint Lucia. Order on WhatsApp for same-day pickup or island-wide delivery.">
+<meta name="keywords" content="bakery Saint Lucia, custom cakes Saint Lucia, artisan bread, wedding cakes Caribbean, birthday cakes Vieux Fort">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Golden Crust Artisan Bakery — Freshly Baked. Made With Love.">
+<meta property="og:description" content="Fresh bread, pastries and custom cakes baked every morning. Order on WhatsApp — same-day pickup or island-wide delivery across Saint Lucia.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_LC">
+
+<!-- JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "name": "Golden Crust Artisan Bakery",
+  "description": "Artisan bakery in Saint Lucia specializing in fresh daily bread, pastries and custom celebration cakes.",
+  "areaServed": "Saint Lucia",
+  "servesCuisine": "Bakery",
+  "priceRange": "$$",
+  "telephone": "+1-758-723-5872",
+  "sameAs": []
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23C8942F%22 stroke-width=%222%22><circle cx=%2212%22 cy=%2212%22 r=%2210%22 fill=%22%233B2618%22/><path d=%22M7 13c0-3 2-5 5-5s5 2 5 5-2 4-5 4-5-1-5-4z%22 stroke=%22%23C8942F%22/></svg>">
+
+<style>
+:root{
+  --cream:#FBF4E8;
+  --cream-2:#F3E7D3;
+  --espresso:#3B2618;
+  --espresso-soft:#5A3D28;
+  --gold:#C8942F;
+  --gold-deep:#A9741C;
+  --cinnamon:#B5602E;
+  --seaglass:#2E6B5E;
+  --white:#FFFFFF;
+  --radius:14px;
+  --shadow-soft:0 10px 30px -12px rgba(59,38,24,0.25);
+  --font-display:'Fraunces', serif;
+  --font-body:'Work Sans', sans-serif;
+}
+[data-theme="dark"]{
+  --cream:#211510;
+  --cream-2:#2A1B14;
+  --espresso:#F5E9DA;
+  --espresso-soft:#D9C4AC;
+  --white:#2A1B14;
+  --shadow-soft:0 10px 30px -12px rgba(0,0,0,0.5);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--font-body);
+  background:var(--cream);
+  color:var(--espresso);
+  transition:background .4s ease, color .4s ease;
+  overflow-x:hidden;
+}
+h1,h2,h3,.font-display{font-family:var(--font-display);}
+.eyebrow{
+  font-family:var(--font-body);
+  font-size:.78rem;
+  font-weight:600;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--cinnamon);
+}
+a{color:inherit;}
+.btn-gold{
+  background:linear-gradient(135deg,var(--gold),var(--gold-deep));
+  color:var(--white);
+  border:none;
+  border-radius:999px;
+  padding:.85rem 2rem;
+  font-weight:600;
+  box-shadow:var(--shadow-soft);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 34px -10px rgba(169,116,28,.55);color:var(--white);}
+.btn-outline-espresso{
+  border:1.5px solid var(--espresso);
+  color:var(--espresso);
+  border-radius:999px;
+  padding:.8rem 1.9rem;
+  font-weight:600;
+  background:transparent;
+  transition:all .25s ease;
+}
+.btn-outline-espresso:hover{background:var(--espresso);color:var(--cream);}
+
+/* NAV */
+.navbar-gc{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:1.1rem 0;
+  background:transparent;
+  transition:all .35s ease;
+}
+.navbar-gc.solid{
+  background:var(--cream);
+  padding:.7rem 0;
+  box-shadow:0 4px 20px rgba(59,38,24,.08);
+}
+.navbar-gc .brand{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:1.5rem;
+  color:var(--espresso);
+  letter-spacing:.01em;
+}
+.navbar-gc .brand span{color:var(--gold-deep);}
+.nav-link-gc{
+  font-weight:500;
+  font-size:.95rem;
+  color:var(--espresso);
+  margin:0 .7rem;
+  position:relative;
+  opacity:.85;
+}
+.nav-link-gc::after{
+  content:'';position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--cinnamon);transition:width .25s ease;
+}
+.nav-link-gc:hover::after{width:100%;}
+.theme-toggle{
+  border:1.5px solid var(--espresso-soft);
+  background:transparent;
+  border-radius:50%;
+  width:38px;height:38px;
+  display:inline-flex;align-items:center;justify-content:center;
+  cursor:pointer;
+}
+
+/* IMAGE FRAMES (picture + icon fallback) */
+.visual-frame{
+  position:relative;
+  overflow:hidden;
+  width:100%;height:100%;
+}
+.visual-frame picture{position:absolute;inset:0;display:block;}
+.visual-frame img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  z-index:2;
+}
+.visual-icon-fallback{
+  position:relative;
+  z-index:1;
+  width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:3.5rem;
+  color:rgba(255,255,255,.85);
+}
+.hero-visual .visual-icon-fallback{font-size:6rem;}
+.about-visual .visual-icon-fallback{font-size:5rem;color:rgba(255,255,255,.85);}
+
+/* TRUST MARQUEE */
+.marquee-wrap{overflow:hidden;position:relative;}
+.marquee-track{
+  display:flex;
+  width:max-content;
+  gap:3rem;
+  animation:marquee 26s linear infinite;
+}
+.marquee-wrap:hover .marquee-track{animation-play-state:paused;}
+@keyframes marquee{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
+}
+.trust-strip .item{display:flex;align-items:center;gap:.55rem;}
+.trust-strip .item i{font-size:1.05rem;color:var(--gold);}
+
+/* HERO */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding-top:6rem;
+  background:
+    radial-gradient(circle at 85% 15%, rgba(200,148,47,.18), transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(46,107,94,.12), transparent 40%),
+    var(--cream);
+  overflow:hidden;
+}
+.hero-crumb{
+  position:absolute;
+  border-radius:50%;
+  background:var(--gold);
+  opacity:.15;
+}
+.hero h1{
+  font-size:clamp(2.4rem, 5.5vw, 4.2rem);
+  font-weight:600;
+  line-height:1.05;
+  color:var(--espresso);
+}
+.hero h1 em{
+  font-style:italic;
+  color:var(--cinnamon);
+}
+.hero-lead{
+  font-size:1.15rem;
+  color:var(--espresso-soft);
+  max-width:520px;
+}
+.hero-visual{
+  position:relative;
+  border-radius:28px;
+  overflow:hidden;
+  aspect-ratio:4/5;
+  background:linear-gradient(160deg,var(--gold) 0%,var(--cinnamon) 55%,var(--espresso) 100%);
+  box-shadow:var(--shadow-soft);
+  display:flex;align-items:flex-end;
+  padding:1.5rem;
+}
+.hero-visual-caption{
+  position:relative;z-index:3;
+  background:rgba(255,255,255,.92);
+  color:var(--espresso);
+  border-radius:12px;
+  padding:.9rem 1.1rem;
+  font-size:.85rem;
+  font-weight:600;
+  width:100%;
+}
+.stat-strip{
+  display:flex;
+  gap:2.2rem;
+  flex-wrap:wrap;
+  margin-top:3rem;
+  padding-top:2rem;
+  border-top:1px solid rgba(59,38,24,.1);
+}
+.stat-num{
+  font-family:var(--font-display);
+  font-size:2rem;
+  font-weight:700;
+  color:var(--espresso);
+}
+.stat-label{
+  font-size:.8rem;
+  color:var(--espresso-soft);
+  letter-spacing:.03em;
+}
+
+/* TRUST STRIP */
+.trust-strip{
+  background:var(--espresso);
+  color:var(--cream);
+  padding:1.1rem 0;
+}
+.trust-strip .item{
+  font-size:.85rem;
+  font-weight:500;
+  letter-spacing:.02em;
+  white-space:nowrap;
+  opacity:.92;
+}
+
+/* SECTION SPACING */
+.section{padding:6.5rem 0;}
+.section-sm{padding:4rem 0;}
+.section-head{max-width:640px;}
+.section-head h2{
+  font-size:clamp(1.9rem,3.5vw,2.75rem);
+  font-weight:600;
+}
+
+/* PRODUCT CARDS */
+.product-card{
+  background:var(--white);
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:0 6px 20px -10px rgba(59,38,24,.18);
+  transition:transform .3s ease, box-shadow .3s ease;
+  height:100%;
+}
+.product-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-soft);}
+.product-img{
+  height:190px;
+  background:linear-gradient(150deg,var(--cream-2),var(--gold) 140%);
+}
+.product-img .visual-icon-fallback{font-size:2.8rem;}
+.product-body{padding:1.25rem 1.3rem 1.4rem;}
+.product-title{font-family:var(--font-display);font-weight:600;font-size:1.15rem;margin-bottom:.15rem;}
+.product-desc{font-size:.87rem;color:var(--espresso-soft);min-height:2.6em;}
+.product-price{font-weight:700;color:var(--gold-deep);font-size:1.05rem;}
+.badge-fresh{
+  background:var(--seaglass);color:#fff;font-size:.68rem;font-weight:600;
+  border-radius:999px;padding:.25rem .6rem;letter-spacing:.04em;
+}
+
+/* ABOUT */
+.about-visual{
+  border-radius:24px;
+  background:linear-gradient(160deg,var(--seaglass),var(--espresso));
+  aspect-ratio:1/1;
+  display:flex;align-items:center;justify-content:center;
+  font-size:5rem;
+  box-shadow:var(--shadow-soft);
+}
+
+/* CAKES GALLERY */
+.cake-card{
+  border-radius:var(--radius);
+  overflow:hidden;
+  position:relative;
+  aspect-ratio:3/4;
+  box-shadow:0 6px 20px -10px rgba(59,38,24,.2);
+}
+.cake-card .cake-fill{
+  position:absolute;inset:0;
+  background:linear-gradient(165deg,var(--cream-2),var(--cinnamon) 150%);
+  transition:transform .4s ease;
+}
+.cake-card:hover .cake-fill{transform:scale(1.08);}
+.cake-card .cake-fill .visual-icon-fallback{font-size:3.2rem;}
+.cake-overlay{
+  position:absolute;left:0;right:0;bottom:0;
+  background:linear-gradient(0deg, rgba(59,38,24,.88), transparent);
+  color:#fff;
+  padding:1.4rem 1.1rem .9rem;
+}
+.cake-overlay h4{font-family:var(--font-display);font-size:1.05rem;margin-bottom:.1rem;}
+.cake-overlay p{font-size:.78rem;opacity:.85;margin-bottom:0;}
+
+/* CAKE INQUIRY */
+.inquiry-panel{
+  background:var(--espresso);
+  color:var(--cream);
+  border-radius:24px;
+  padding:3rem;
+  box-shadow:var(--shadow-soft);
+}
+.inquiry-panel .form-control, .inquiry-panel .form-select{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.2);
+  color:var(--cream);
+  border-radius:10px;
+  padding:.7rem .9rem;
+}
+.inquiry-panel .form-control::placeholder{color:rgba(251,244,232,.5);}
+.inquiry-panel .form-control:focus, .inquiry-panel .form-select:focus{
+  background:rgba(255,255,255,.12);border-color:var(--gold);box-shadow:0 0 0 .2rem rgba(200,148,47,.25);color:var(--cream);
+}
+.inquiry-panel label{font-size:.82rem;font-weight:600;letter-spacing:.03em;color:rgba(251,244,232,.75);}
+
+/* REVIEWS */
+.review-card{
+  background:var(--white);
+  border-radius:var(--radius);
+  padding:1.6rem;
+  box-shadow:0 6px 20px -10px rgba(59,38,24,.15);
+  height:100%;
+}
+.stars{color:var(--gold);font-size:1.1rem;}
+.stars i{margin:0 .12rem;}
+.review-name{font-weight:600;font-size:.9rem;}
+.review-role{font-size:.78rem;color:var(--espresso-soft);}
+
+/* FAQ */
+.accordion-item{
+  background:transparent;
+  border:none;
+  border-bottom:1px solid rgba(59,38,24,.12);
+}
+.accordion-button{
+  background:transparent;
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:1.05rem;
+  color:var(--espresso);
+  padding:1.3rem .2rem;
+  box-shadow:none !important;
+}
+.accordion-button:not(.collapsed){color:var(--cinnamon);background:transparent;}
+.accordion-button::after{filter:none;}
+.accordion-body{color:var(--espresso-soft);padding:0 .2rem 1.4rem;}
+
+/* CONTACT / FOOTER */
+.footer-gc{
+  background:var(--espresso);
+  color:var(--cream);
+  padding:4.5rem 0 2rem;
+}
+.footer-gc a{opacity:.8;text-decoration:none;}
+.footer-gc a:hover{opacity:1;color:var(--gold);}
+.footer-brand{font-family:var(--font-display);font-size:1.6rem;font-weight:700;}
+.footer-divider{border-color:rgba(251,244,232,.15);margin:2.5rem 0 1.5rem;}
+.social-row a{
+  width:38px;height:38px;border-radius:50%;
+  border:1px solid rgba(251,244,232,.25);
+  display:flex;align-items:center;justify-content:center;
+  opacity:1;transition:all .25s ease;
+}
+.social-row a:hover{background:var(--gold);border-color:var(--gold);color:var(--espresso);}
+.footer-bottom{font-size:.8rem;opacity:.6;}
+
+/* FLOATING BUTTONS */
+.float-stack{
+  position:fixed;bottom:1.5rem;right:1.5rem;z-index:1000;
+  display:flex;flex-direction:column;gap:.7rem;align-items:flex-end;
+}
+.fab{
+  width:56px;height:56px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;
+  box-shadow:0 10px 25px -6px rgba(0,0,0,.35);
+  border:none;
+  cursor:pointer;
+  text-decoration:none;
+}
+.fab-whatsapp{background:#25D366;color:#fff;}
+.fab-top{
+  width:44px;height:44px;background:var(--espresso);color:var(--cream);
+  opacity:0;pointer-events:none;transition:opacity .3s ease;
+}
+.fab-top.show{opacity:1;pointer-events:auto;}
+
+/* REVEAL ANIMATION */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* MISC */
+.divider-crumb{
+  display:flex;align-items:center;gap:.8rem;
+  color:var(--gold-deep);
+  margin:0 0 1rem;
+}
+.divider-crumb::before,.divider-crumb::after{content:'';flex:1;height:1px;background:currentColor;opacity:.35;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar-gc" id="mainNav">
+  <div class="container d-flex align-items-center justify-content-between">
+    <a href="#top" class="brand text-decoration-none">Golden<span>Crust</span></a>
+    <div class="d-none d-lg-flex align-items-center">
+      <a href="#about" class="nav-link-gc text-decoration-none">About</a>
+      <a href="#menu" class="nav-link-gc text-decoration-none">Menu</a>
+      <a href="#cakes" class="nav-link-gc text-decoration-none">Cakes</a>
+      <a href="#reviews" class="nav-link-gc text-decoration-none">Reviews</a>
+      <a href="#faq" class="nav-link-gc text-decoration-none">FAQ</a>
+      <a href="#contact" class="nav-link-gc text-decoration-none">Contact</a>
+    </div>
+    <div class="d-flex align-items-center gap-2">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="bi bi-moon-stars-fill" id="themeIcon"></i></button>
+      <a href="https://wa.me/17587235872?text=Hi%20Golden%20Crust!%20I'd%20like%20to%20place%20an%20order." class="btn btn-gold d-none d-md-inline-block" target="_blank" rel="noopener">Order Fresh Today</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-crumb" style="width:220px;height:220px;top:8%;right:6%;"></div>
+  <div class="hero-crumb" style="width:120px;height:120px;bottom:12%;left:4%;"></div>
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 reveal">
+        <p class="eyebrow mb-3">Vieux Fort, Saint Lucia · Baking Since 2011</p>
+        <h1 class="mb-4">Fresh Bread. Beautiful Cakes. <em>Made Fresh</em> Every Morning.</h1>
+        <p class="hero-lead mb-4">Every loaf and every cake at Golden Crust starts before sunrise — real butter, real ingredients, no shortcuts. Order ahead on WhatsApp for same-day pickup or delivery anywhere on the island.</p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="https://wa.me/17587235872?text=Hi%20Golden%20Crust!%20I'd%20like%20to%20place%20an%20order." class="btn btn-gold" target="_blank" rel="noopener">Order Now →</a>
+          <a href="#menu" class="btn btn-outline-espresso">View Today's Menu</a>
+        </div>
+        <div class="stat-strip">
+          <div><div class="stat-num">15+</div><div class="stat-label">Years Baking</div></div>
+          <div><div class="stat-num">10K+</div><div class="stat-label">Happy Customers</div></div>
+          <div><div class="stat-num">100%</div><div class="stat-label">Baked Fresh Daily</div></div>
+          <div><div class="stat-num">Island</div><div class="stat-label">Wide Delivery</div></div>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal">
+        <div class="hero-visual">
+          <div class="visual-frame">
+            <picture>
+              <source srcset="images/golden-crust-hero-fresh-bread.webp" type="image/webp">
+              <img src="images/golden-crust-hero-fresh-bread.jpg" alt="Fresh baked sourdough bread at Golden Crust Artisan Bakery" loading="eager" onerror="this.closest('picture').style.display='none'">
+            </picture>
+            <div class="visual-icon-fallback"><i class="bi bi-basket2-fill"></i></div>
+          </div>
+          <div class="hero-visual-caption"><i class="bi bi-fire me-1" style="color:var(--cinnamon);"></i> Out of the oven — 6:15 AM this morning</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip marquee-wrap">
+  <div class="marquee-track">
+    <span class="item"><i class="bi bi-sunrise-fill"></i> Fresh Daily</span>
+    <span class="item"><i class="bi bi-geo-alt-fill"></i> Locally Made</span>
+    <span class="item"><i class="bi bi-award-fill"></i> Premium Ingredients</span>
+    <span class="item"><i class="bi bi-cake2-fill"></i> Custom Cakes</span>
+    <span class="item"><i class="bi bi-clock-fill"></i> Same-Day Pickup</span>
+    <span class="item"><i class="bi bi-truck"></i> Island Delivery</span>
+    <span class="item"><i class="bi bi-shield-check"></i> Food Safety Certified</span>
+    <span class="item"><i class="bi bi-sunrise-fill"></i> Fresh Daily</span>
+    <span class="item"><i class="bi bi-geo-alt-fill"></i> Locally Made</span>
+    <span class="item"><i class="bi bi-award-fill"></i> Premium Ingredients</span>
+    <span class="item"><i class="bi bi-cake2-fill"></i> Custom Cakes</span>
+    <span class="item"><i class="bi bi-clock-fill"></i> Same-Day Pickup</span>
+    <span class="item"><i class="bi bi-truck"></i> Island Delivery</span>
+    <span class="item"><i class="bi bi-shield-check"></i> Food Safety Certified</span>
+  </div>
+</div>
+
+<!-- TODAY'S SPECIALS -->
+<section class="section" id="menu">
+  <div class="container">
+    <div class="section-head mx-auto text-center reveal">
+      <p class="divider-crumb justify-content-center">Today's Specials</p>
+      <h2>Taste the Difference Real Ingredients Make</h2>
+    </div>
+    <div class="row g-4 mt-3">
+      <div class="col-md-4 reveal">
+        <div class="product-card">
+          <div class="product-img visual-frame">
+            <picture>
+              <source srcset="images/product-sourdough-batard.webp" type="image/webp">
+              <img src="images/product-sourdough-batard.jpg" alt="Sourdough Batard bread" loading="lazy" onerror="this.closest('picture').style.display='none'">
+            </picture>
+            <div class="visual-icon-fallback"><i class="bi bi-basket2-fill"></i></div>
+          </div>
+          <div class="product-body">
+            <div class="d-flex justify-content-between align-items-start mb-1">
+              <span class="product-title">Sourdough Batard</span>
+              <span class="badge-fresh">Fresh Today</span>
+            </div>
+            <p class="product-desc">24-hour fermented, crackling crust, open crumb.</p>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <span class="product-price">$14 EC</span>
+              <a href="https://wa.me/17587235872?text=Hi!%20I'd%20like%20to%20order%20a%20Sourdough%20Batard." class="btn btn-sm btn-outline-espresso" target="_blank" rel="noopener">Order</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="product-card">
+          <div class="product-img visual-frame">
+            <picture>
+              <source srcset="images/product-butter-croissant.webp" type="image/webp">
+              <img src="images/product-butter-croissant.jpg" alt="Butter Croissant" loading="lazy" onerror="this.closest('picture').style.display='none'">
+            </picture>
+            <div class="visual-icon-fallback"><i class="bi bi-moon-fill"></i></div>
+          </div>
+          <div class="product-body">
+            <div class="d-flex justify-content-between align-items-start mb-1">
+              <span class="product-title">Butter Croissant</span>
+              <span class="badge-fresh">Fresh Today</span>
+            </div>
+            <p class="product-desc">Laminated 27 times, real French butter.</p>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <span class="product-price">$7 EC</span>
+              <a href="https://wa.me/17587235872?text=Hi!%20I'd%20like%20to%20order%20Butter%20Croissants." class="btn btn-sm btn-outline-espresso" target="_blank" rel="noopener">Order</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="product-card">
+          <div class="product-img visual-frame">
+            <picture>
+              <source srcset="images/product-guava-cheesecake-slice.webp" type="image/webp">
+              <img src="images/product-guava-cheesecake-slice.jpg" alt="Guava Cheesecake Slice" loading="lazy" onerror="this.closest('picture').style.display='none'">
+            </picture>
+            <div class="visual-icon-fallback"><i class="bi bi-pie-chart-fill"></i></div>
+          </div>
+          <div class="product-body">
+            <div class="d-flex justify-content-between align-items-start mb-1">
+              <span class="product-title">Guava Cheesecake Slice</span>
+              <span class="badge-fresh">Limited</span>
+            </div>
+            <p class="product-desc">Island guava swirl, graham crust, house recipe.</p>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <span class="product-price">$12 EC</span>
+              <a href="https://wa.me/17587235872?text=Hi!%20I'd%20like%20to%20order%20Guava%20Cheesecake." class="btn btn-sm btn-outline-espresso" target="_blank" rel="noopener">Order</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="product-card">
+          <div class="product-img visual-frame">
+            <picture>
+              <source srcset="images/product-coconut-bake-muffins.webp" type="image/webp">
+              <img src="images/product-coconut-bake-muffins.jpg" alt="Coconut Bake Muffins" loading="lazy" onerror="this.closest('picture').style.display='none'">
+            </picture>
+            <div class="visual-icon-fallback"><i class="bi bi-basket3-fill"></i></div>
+          </div>
+          <div class="product-body">
+            <div class="d-flex justify-content-between align-items-start mb-1">
+              <span class="product-title">Coconut Bake Muffins</span>
+              <span class="badge-fresh">Fresh Today</span>
+            </div>
+            <p class="product-desc">A Caribbean classic, reimagined — toasted coconut.</p>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <span class="product-price">$5 EC</span>
+              <a href="https://wa.me/17587235872?text=Hi!%20I'd%20like%20to%20order%20Coconut%20Bake%20Muffins." class="btn btn-sm btn-outline-espresso" target="_blank" rel="noopener">Order</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="product-card">
+          <div class="product-img visual-frame">
+            <picture>
+              <source srcset="images/product-spiced-rum-cookies.webp" type="image/webp">
+              <img src="images/product-spiced-rum-cookies.jpg" alt="Spiced Rum Cookies" loading="lazy" onerror="this.closest('picture').style.display='none'">
+            </picture>
+            <div class="visual-icon-fallback"><i class="bi bi-cookie"></i></div>
+          </div>
+          <div class="product-body">
+            <div class="d-flex justify-content-between align-items-start mb-1">
+              <span class="product-title">Spiced Rum Cookies</span>
+              <span class="badge-fresh">Fresh Today</span>
+            </div>
+            <p class="product-desc">Dark rum, molasses, a hint of nutmeg.</p>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <span class="product-price">$4 EC</span>
+              <a href="https://wa.me/17587235872?text=Hi!%20I'd%20like%20to%20order%20Spiced%20Rum%20Cookies." class="btn btn-sm btn-outline-espresso" target="_blank" rel="noopener">Order</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="product-card">
+          <div class="product-img visual-frame">
+            <picture>
+              <source srcset="images/product-passion-fruit-danish.webp" type="image/webp">
+              <img src="images/product-passion-fruit-danish.jpg" alt="Passion Fruit Danish" loading="lazy" onerror="this.closest('picture').style.display='none'">
+            </picture>
+            <div class="visual-icon-fallback"><i class="bi bi-flower1"></i></div>
+          </div>
+          <div class="product-body">
+            <div class="d-flex justify-content-between align-items-start mb-1">
+              <span class="product-title">Passion Fruit Danish</span>
+              <span class="badge-fresh">Limited</span>
+            </div>
+            <p class="product-desc">Flaky pastry, fresh passion fruit curd.</p>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <span class="product-price">$8 EC</span>
+              <a href="https://wa.me/17587235872?text=Hi!%20I'd%20like%20to%20order%20Passion%20Fruit%20Danish." class="btn btn-sm btn-outline-espresso" target="_blank" rel="noopener">Order</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-5 reveal">
+      <a href="https://wa.me/17587235872?text=Hi!%20Can%20I%20see%20the%20full%20menu%3F" class="btn btn-outline-espresso" target="_blank" rel="noopener">See Full Menu on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" style="background:var(--cream-2);" id="about">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5 reveal order-2 order-lg-1">
+        <div class="about-visual visual-frame">
+          <picture>
+            <source srcset="images/about-golden-crust-baking-team.webp" type="image/webp">
+            <img src="images/about-golden-crust-baking-team.jpg" alt="The Golden Crust Artisan Bakery baking team at work" loading="lazy" onerror="this.closest('picture').style.display='none'">
+          </picture>
+          <div class="visual-icon-fallback"><i class="bi bi-people-fill"></i></div>
+        </div>
+      </div>
+      <div class="col-lg-7 reveal order-1 order-lg-2">
+        <p class="divider-crumb">Our Story</p>
+        <h2 class="mb-3">Every Bite Tells a Story</h2>
+        <p class="hero-lead mb-3">Golden Crust started in a home kitchen in Vieux Fort in 2011, baking bread for neighbors who couldn't find real sourdough on the island. Fifteen years later, we still mix every dough by hand before dawn and never mass-produce a single cake.</p>
+        <p class="hero-lead mb-4">No preservatives. No shortcuts. Just butter, flour, patience, and a team that treats every order like it's for family.</p>
+        <div class="row g-3">
+          <div class="col-6">
+            <div class="stat-num">4:00 AM</div>
+            <div class="stat-label">First dough of the day</div>
+          </div>
+          <div class="col-6">
+            <div class="stat-num">3</div>
+            <div class="stat-label">Master bakers on staff</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED CAKES -->
+<section class="section" id="cakes">
+  <div class="container">
+    <div class="section-head mx-auto text-center reveal">
+      <p class="divider-crumb justify-content-center">Custom Cakes</p>
+      <h2>Your Celebration Deserves Something Special</h2>
+    </div>
+    <div class="row g-4 mt-3">
+      <div class="col-md-4 reveal">
+        <div class="cake-card">
+          <div class="cake-fill visual-frame">
+            <picture>
+              <source srcset="images/cake-wedding-golden-crust.webp" type="image/webp">
+              <img src="images/cake-wedding-golden-crust.jpg" alt="Custom wedding cake by Golden Crust Artisan Bakery" loading="lazy" onerror="this.closest('picture').style.display='none'">
+            </picture>
+            <div class="visual-icon-fallback"><i class="bi bi-cake2-fill"></i></div>
+          </div>
+          <div class="cake-overlay">
+            <h4>Wedding Cakes</h4>
+            <p>Serves 30–150 · From $450 EC · 2 weeks notice</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="cake-card">
+          <div class="cake-fill visual-frame">
+            <picture>
+              <source srcset="images/cake-birthday-golden-crust.webp" type="image/webp">
+              <img src="images/cake-birthday-golden-crust.jpg" alt="Custom birthday cake by Golden Crust Artisan Bakery" loading="lazy" onerror="this.closest('picture').style.display='none'">
+            </picture>
+            <div class="visual-icon-fallback"><i class="bi bi-cake-fill"></i></div>
+          </div>
+          <div class="cake-overlay">
+            <h4>Birthday Cakes</h4>
+            <p>Serves 10–40 · From $120 EC · 3 days notice</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="cake-card">
+          <div class="cake-fill visual-frame">
+            <picture>
+              <source srcset="images/cake-corporate-event-golden-crust.webp" type="image/webp">
+              <img src="images/cake-corporate-event-golden-crust.jpg" alt="Custom corporate event cake by Golden Crust Artisan Bakery" loading="lazy" onerror="this.closest('picture').style.display='none'">
+            </picture>
+            <div class="visual-icon-fallback"><i class="bi bi-building-fill"></i></div>
+          </div>
+          <div class="cake-overlay">
+            <h4>Corporate & Event Cakes</h4>
+            <p>Serves 20–200 · Custom quote · 1 week notice</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAKE INQUIRY -->
+<section class="section-sm">
+  <div class="container">
+    <div class="inquiry-panel reveal">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-5">
+          <p class="eyebrow mb-2" style="color:var(--gold);">Custom Cake Order</p>
+          <h2 class="mb-3" style="color:var(--cream);">Tell Us What You're Celebrating</h2>
+          <p style="color:rgba(251,244,232,.75);">Fill this in and it goes straight to our WhatsApp — a real baker replies personally, usually within the hour, with pricing and design options.</p>
+        </div>
+        <div class="col-lg-7">
+          <form id="cakeForm">
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label class="form-label">Occasion</label>
+                <select class="form-select" id="occasion">
+                  <option>Birthday</option>
+                  <option>Wedding</option>
+                  <option>Corporate Event</option>
+                  <option>Anniversary</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label">Serves how many?</label>
+                <input type="number" class="form-control" id="serves" placeholder="e.g. 25">
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label">Flavor preference</label>
+                <input type="text" class="form-control" id="flavor" placeholder="e.g. Red velvet">
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label">Date needed</label>
+                <input type="date" class="form-control" id="dateNeeded">
+              </div>
+              <div class="col-12">
+                <label class="form-label">Your name</label>
+                <input type="text" class="form-control" id="cName" placeholder="Full name">
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-gold w-100">Send to WhatsApp →</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section" style="background:var(--cream-2);" id="reviews">
+  <div class="container">
+    <div class="section-head mx-auto text-center reveal">
+      <p class="divider-crumb justify-content-center">Reviews</p>
+      <h2>Loved Across the Island</h2>
+    </div>
+    <div class="row g-4 mt-3">
+      <div class="col-md-4 reveal">
+        <div class="review-card text-center">
+          <div class="stars mb-2">
+            <i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
+          </div>
+          <p class="mb-3 fst-italic">Be the first to review Golden Crust Artisan Bakery.</p>
+          <div class="review-name">Your name goes here</div>
+          <div class="review-role">Your address goes here</div>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="review-card text-center">
+          <div class="stars mb-2">
+            <i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
+          </div>
+          <p class="mb-3 fst-italic">Be the first to review Golden Crust Artisan Bakery.</p>
+          <div class="review-name">Your name goes here</div>
+          <div class="review-role">Your address goes here</div>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="review-card text-center">
+          <div class="stars mb-2">
+            <i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
+          </div>
+          <p class="mb-3 fst-italic">Be the first to review Golden Crust Artisan Bakery.</p>
+          <div class="review-name">Your name goes here</div>
+          <div class="review-role">Your address goes here</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4 reveal">
+        <p class="divider-crumb">FAQ</p>
+        <h2>Common Questions</h2>
+        <p class="hero-lead mt-3">Can't find your answer? Message us directly — we reply personally, every time.</p>
+        <a href="https://wa.me/17587235872" class="btn btn-outline-espresso mt-2" target="_blank" rel="noopener">Ask on WhatsApp</a>
+      </div>
+      <div class="col-lg-8 reveal">
+        <div class="accordion" id="faqAccordion">
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">How far in advance should I order a custom cake?</button>
+            </h3>
+            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">Birthday cakes need at least 3 days notice, wedding cakes need 2 weeks, and large corporate orders need 1 week. Rush orders are sometimes possible — just ask on WhatsApp.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">Do you deliver island-wide?</button>
+            </h3>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">Yes. Same-day delivery is available in Vieux Fort and Castries; other areas typically take one extra day. Delivery fees are quoted based on distance.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">Can you accommodate dietary restrictions?</button>
+            </h3>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">We offer gluten-reduced and egg-free options on select items, and can discuss allergy-friendly custom cakes. Let us know your needs when you order.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">How do I pay?</button>
+            </h3>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">Cash on pickup/delivery, or bank transfer for larger custom orders. We'll confirm details when your order is finalized on WhatsApp.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER / CONTACT -->
+<footer class="footer-gc" id="contact">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="footer-brand mb-3">Golden Crust</div>
+        <p style="opacity:.75;">Freshly Baked. Made With Love. Delivered Across the Island.</p>
+        <a href="https://wa.me/17587235872?text=Hi%20Golden%20Crust!" class="btn btn-gold mt-2" target="_blank" rel="noopener">Place Your Order</a>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6 class="mb-3" style="opacity:.6;letter-spacing:.05em;">MENU</h6>
+        <p><a href="#menu">Today's Specials</a></p>
+        <p><a href="#cakes">Custom Cakes</a></p>
+        <p><a href="#reviews">Reviews</a></p>
+        <p><a href="#faq">FAQ</a></p>
+      </div>
+      <div class="col-lg-3 col-6">
+        <h6 class="mb-3" style="opacity:.6;letter-spacing:.05em;">HOURS</h6>
+        <p style="opacity:.85;">Mon–Sat: 6:00 AM – 6:00 PM</p>
+        <p style="opacity:.85;">Sunday: 7:00 AM – 1:00 PM</p>
+      </div>
+      <div class="col-lg-3">
+        <h6 class="mb-3" style="opacity:.6;letter-spacing:.05em;">CONTACT</h6>
+        <p><a href="https://wa.me/17587235872">WhatsApp: +1 758 723 5872</a></p>
+        <p><a href="tel:+17587235872">Call: +1 758 723 5872</a></p>
+        <p style="opacity:.85;">Vieux Fort, Saint Lucia</p>
+        <div class="d-flex gap-3 mt-3 social-row">
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Golden Crust on Instagram"><i class="bi bi-instagram fs-5"></i></a>
+          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Golden Crust on Facebook"><i class="bi bi-facebook fs-5"></i></a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="Golden Crust on TikTok"><i class="bi bi-tiktok fs-5"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="d-flex flex-wrap justify-content-between footer-bottom">
+      <span>© 2026 Golden Crust Artisan Bakery. All rights reserved.</span>
+      <span>Site by JAMALINKS</span>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<div class="float-stack">
+  <button class="fab fab-top" id="toTop" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+  <a href="https://wa.me/17587235872?text=Hi%20Golden%20Crust!%20I'd%20like%20to%20place%20an%20order." class="fab fab-whatsapp" target="_blank" rel="noopener" aria-label="Order on WhatsApp"><i class="bi bi-whatsapp"></i></a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Sticky nav solid state
+const nav = document.getElementById('mainNav');
+const toTop = document.getElementById('toTop');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) { nav.classList.add('solid'); } else { nav.classList.remove('solid'); }
+  if (window.scrollY > 500) { toTop.classList.add('show'); } else { toTop.classList.remove('show'); }
+});
+toTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+// IntersectionObserver reveal
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+revealEls.forEach(el => io.observe(el));
+
+// Time-of-day auto dark/light mode with localStorage override
+const root = document.documentElement;
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+function applyTheme(theme) {
+  root.setAttribute('data-theme', theme);
+  themeIcon.className = theme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill';
+}
+const saved = localStorage.getItem('gc-theme');
+if (saved) {
+  applyTheme(saved);
+} else {
+  const hour = new Date().getHours();
+  applyTheme((hour >= 19 || hour < 6) ? 'dark' : 'light');
+}
+themeToggle.addEventListener('click', () => {
+  const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  applyTheme(next);
+  localStorage.setItem('gc-theme', next);
+});
+
+// Cake inquiry form -> WhatsApp
+document.getElementById('cakeForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const occasion = document.getElementById('occasion').value;
+  const serves = document.getElementById('serves').value || 'not specified';
+  const flavor = document.getElementById('flavor').value || 'open to suggestions';
+  const dateNeeded = document.getElementById('dateNeeded').value || 'flexible';
+  const name = document.getElementById('cName').value || '';
+  const msg = `Hi Golden Crust! I'd like to inquire about a custom cake.%0A%0AOccasion: ${occasion}%0AServes: ${serves}%0AFlavor: ${flavor}%0ADate needed: ${dateNeeded}%0AName: ${name}`;
+  window.open(`https://wa.me/17587235872?text=${msg}`, '_blank');
+});
+</script>
+</body>
+</html>
