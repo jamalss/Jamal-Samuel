@@ -63,6 +63,7 @@
   --shadow-soft:0 10px 30px -12px rgba(0,0,0,0.5);
 }
 *{box-sizing:border-box;}
+html,body{max-width:100%;overflow-x:hidden;}
 html{scroll-behavior:smooth;}
 body{
   font-family:var(--font-body);
@@ -70,6 +71,8 @@ body{
   color:var(--espresso);
   transition:background .4s ease, color .4s ease;
   overflow-x:hidden;
+  width:100%;
+  position:relative;
 }
 h1,h2,h3,.font-display{font-family:var(--font-display);}
 .eyebrow{
@@ -91,6 +94,7 @@ a{color:inherit;}
   box-shadow:var(--shadow-soft);
   transition:transform .25s ease, box-shadow .25s ease;
 }
+.btn-gold, .btn-outline-espresso{min-height:46px;display:inline-flex;align-items:center;justify-content:center;}
 .btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 34px -10px rgba(169,116,28,.55);color:var(--white);}
 .btn-outline-espresso{
   border:1.5px solid var(--espresso);
@@ -139,9 +143,31 @@ a{color:inherit;}
   border:1.5px solid var(--espresso-soft);
   background:transparent;
   border-radius:50%;
-  width:38px;height:38px;
+  width:44px;height:44px;
   display:inline-flex;align-items:center;justify-content:center;
   cursor:pointer;
+  flex-shrink:0;
+}
+.mobile-nav-panel{
+  max-height:0;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  gap:.2rem;
+  transition:max-height .35s ease, padding .35s ease;
+  background:var(--cream);
+  border-radius:0 0 18px 18px;
+}
+.mobile-nav-panel.open{
+  max-height:560px;
+  padding:.75rem 0 1.25rem;
+}
+.mobile-nav-link{
+  color:var(--espresso);
+  text-decoration:none;
+  font-weight:500;
+  padding:.75rem .25rem;
+  border-bottom:1px solid rgba(59,38,24,.08);
 }
 
 /* IMAGE FRAMES (picture + icon fallback) */
@@ -188,6 +214,7 @@ a{color:inherit;}
 .hero{
   position:relative;
   min-height:100vh;
+  min-height:100svh;
   display:flex;align-items:center;
   padding-top:6rem;
   background:
@@ -230,12 +257,13 @@ a{color:inherit;}
   position:absolute;
   left:1.5rem;right:1.5rem;bottom:1.5rem;
   z-index:3;
-  background:rgba(255,255,255,.92);
+  background:var(--white);
   color:var(--espresso);
   border-radius:12px;
   padding:.9rem 1.1rem;
   font-size:.85rem;
   font-weight:600;
+  box-shadow:0 8px 20px -8px rgba(0,0,0,.35);
 }
 .stat-strip{
   display:flex;
@@ -259,8 +287,8 @@ a{color:inherit;}
 
 /* TRUST STRIP */
 .trust-strip{
-  background:var(--espresso);
-  color:var(--cream);
+  background:#3B2618;
+  color:#FBF4E8;
   padding:1.1rem 0;
 }
 .trust-strip .item{
@@ -340,8 +368,8 @@ a{color:inherit;}
 
 /* CAKE INQUIRY */
 .inquiry-panel{
-  background:var(--espresso);
-  color:var(--cream);
+  background:#3B2618;
+  color:#FBF4E8;
   border-radius:24px;
   padding:3rem;
   box-shadow:var(--shadow-soft);
@@ -349,13 +377,13 @@ a{color:inherit;}
 .inquiry-panel .form-control, .inquiry-panel .form-select{
   background:rgba(255,255,255,.08);
   border:1px solid rgba(255,255,255,.2);
-  color:var(--cream);
+  color:#FBF4E8;
   border-radius:10px;
   padding:.7rem .9rem;
 }
 .inquiry-panel .form-control::placeholder{color:rgba(251,244,232,.5);}
 .inquiry-panel .form-control:focus, .inquiry-panel .form-select:focus{
-  background:rgba(255,255,255,.12);border-color:var(--gold);box-shadow:0 0 0 .2rem rgba(200,148,47,.25);color:var(--cream);
+  background:rgba(255,255,255,.12);border-color:var(--gold);box-shadow:0 0 0 .2rem rgba(200,148,47,.25);color:#FBF4E8;
 }
 .inquiry-panel label{font-size:.82rem;font-weight:600;letter-spacing:.03em;color:rgba(251,244,232,.75);}
 
@@ -393,8 +421,8 @@ a{color:inherit;}
 
 /* CONTACT / FOOTER */
 .footer-gc{
-  background:var(--espresso);
-  color:var(--cream);
+  background:#3B2618;
+  color:#FBF4E8;
   padding:4.5rem 0 2rem;
 }
 .footer-gc a{opacity:.8;text-decoration:none;}
@@ -448,19 +476,33 @@ a{color:inherit;}
 
 <!-- NAV -->
 <nav class="navbar-gc" id="mainNav">
-  <div class="container d-flex align-items-center justify-content-between">
-    <a href="#top" class="brand text-decoration-none">Golden<span>Crust</span></a>
-    <div class="d-none d-lg-flex align-items-center">
-      <a href="#about" class="nav-link-gc text-decoration-none">About</a>
-      <a href="#menu" class="nav-link-gc text-decoration-none">Menu</a>
-      <a href="#cakes" class="nav-link-gc text-decoration-none">Cakes</a>
-      <a href="#reviews" class="nav-link-gc text-decoration-none">Reviews</a>
-      <a href="#faq" class="nav-link-gc text-decoration-none">FAQ</a>
-      <a href="#contact" class="nav-link-gc text-decoration-none">Contact</a>
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="#top" class="brand text-decoration-none">Golden<span>Crust</span></a>
+      <div class="d-none d-lg-flex align-items-center">
+        <a href="#about" class="nav-link-gc text-decoration-none">About</a>
+        <a href="#menu" class="nav-link-gc text-decoration-none">Menu</a>
+        <a href="#cakes" class="nav-link-gc text-decoration-none">Cakes</a>
+        <a href="#reviews" class="nav-link-gc text-decoration-none">Reviews</a>
+        <a href="#faq" class="nav-link-gc text-decoration-none">FAQ</a>
+        <a href="#contact" class="nav-link-gc text-decoration-none">Contact</a>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="bi bi-moon-stars-fill" id="themeIcon"></i></button>
+        <a href="https://wa.me/17587235872?text=Hi%20Golden%20Crust!%20I'd%20like%20to%20place%20an%20order." class="btn btn-gold d-none d-lg-inline-block" target="_blank" rel="noopener">Order Fresh Today</a>
+        <button class="theme-toggle d-lg-none" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNavPanel">
+          <i class="bi bi-list" id="navToggleIcon"></i>
+        </button>
+      </div>
     </div>
-    <div class="d-flex align-items-center gap-2">
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="bi bi-moon-stars-fill" id="themeIcon"></i></button>
-      <a href="https://wa.me/17587235872?text=Hi%20Golden%20Crust!%20I'd%20like%20to%20place%20an%20order." class="btn btn-gold d-none d-md-inline-block" target="_blank" rel="noopener">Order Fresh Today</a>
+    <div class="mobile-nav-panel" id="mobileNavPanel">
+      <a href="#about" class="mobile-nav-link" data-nav-close>About</a>
+      <a href="#menu" class="mobile-nav-link" data-nav-close>Menu</a>
+      <a href="#cakes" class="mobile-nav-link" data-nav-close>Cakes</a>
+      <a href="#reviews" class="mobile-nav-link" data-nav-close>Reviews</a>
+      <a href="#faq" class="mobile-nav-link" data-nav-close>FAQ</a>
+      <a href="#contact" class="mobile-nav-link" data-nav-close>Contact</a>
+      <a href="https://wa.me/17587235872?text=Hi%20Golden%20Crust!%20I'd%20like%20to%20place%20an%20order." class="btn btn-gold w-100 mt-2" target="_blank" rel="noopener" data-nav-close>Order Fresh Today</a>
     </div>
   </div>
 </nav>
@@ -766,7 +808,7 @@ a{color:inherit;}
       <div class="row g-5 align-items-center">
         <div class="col-lg-5">
           <p class="eyebrow mb-2" style="color:var(--gold);">Custom Cake Order</p>
-          <h2 class="mb-3" style="color:var(--cream);">Tell Us What You're Celebrating</h2>
+          <h2 class="mb-3" style="color:#FBF4E8;">Tell Us What You're Celebrating</h2>
           <p style="color:rgba(251,244,232,.75);">Fill this in and it goes straight to our WhatsApp — a real baker replies personally, usually within the hour, with pricing and design options.</p>
         </div>
         <div class="col-lg-7">
@@ -958,6 +1000,27 @@ window.addEventListener('scroll', () => {
   if (window.scrollY > 500) { toTop.classList.add('show'); } else { toTop.classList.remove('show'); }
 });
 toTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+// Mobile nav panel toggle
+const navToggle = document.getElementById('navToggle');
+const navToggleIcon = document.getElementById('navToggleIcon');
+const mobileNavPanel = document.getElementById('mobileNavPanel');
+function closeMobileNav() {
+  mobileNavPanel.classList.remove('open');
+  navToggle.setAttribute('aria-expanded', 'false');
+  navToggleIcon.className = 'bi bi-list';
+}
+navToggle.addEventListener('click', () => {
+  const isOpen = mobileNavPanel.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', String(isOpen));
+  navToggleIcon.className = isOpen ? 'bi bi-x-lg' : 'bi bi-list';
+});
+mobileNavPanel.querySelectorAll('[data-nav-close]').forEach(el => {
+  el.addEventListener('click', closeMobileNav);
+});
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= 992) closeMobileNav();
+});
 
 // IntersectionObserver reveal
 const revealEls = document.querySelectorAll('.reveal');
