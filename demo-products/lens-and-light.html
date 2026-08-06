@@ -3,8 +3,50 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Lens & Light Photography — Cinematic Portraits, Weddings & Events</title>
+<title>Lens & Light Photography — Cinematic Portraits, Weddings & Events in Saint Lucia</title>
+<meta name="description" content="Cinematic wedding, portrait and event photography in Saint Lucia — Rodney Bay, Soufrière, Pigeon Island and destination shoots across the Caribbean. Explore packages and check availability directly on WhatsApp."/>
+<link rel="canonical" href="https://jamalsamuel.online/demo-products/lens-and-light.html"/>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="images/favicon.png"/>
+<link rel="apple-touch-icon" href="images/favicon.png"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Lens & Light Photography"/>
+<meta property="og:title" content="Lens & Light Photography — Cinematic Portraits, Weddings & Events in Saint Lucia"/>
+<meta property="og:description" content="Cinematic weddings, portraits and events in Saint Lucia. Book directly on WhatsApp."/>
+<meta property="og:image" content="https://jamalsamuel.online/demo-products/images/social-preview.jpg"/>
+<meta property="og:url" content="https://jamalsamuel.online/demo-products/lens-and-light.html"/>
+<meta property="og:locale" content="en_US"/>
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Lens & Light Photography — Saint Lucia"/>
+<meta name="twitter:description" content="Cinematic weddings, portraits and events in Saint Lucia. Book directly on WhatsApp."/>
+<meta name="twitter:image" content="https://jamalsamuel.online/demo-products/images/social-preview.jpg"/>
+
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+<!-- Local business schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Lens & Light Photography",
+  "image": "https://jamalsamuel.online/demo-products/images/social-preview.jpg",
+  "description": "Wedding, portrait and event photography in Saint Lucia, serving Rodney Bay, Soufrière, Pigeon Island and the wider Caribbean.",
+  "areaServed": ["Saint Lucia", "Caribbean"],
+  "telephone": "+1-758-723-5872",
+  "url": "https://jamalsamuel.online/demo-products/lens-and-light.html",
+  "priceRange": "$180–$1200",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "LC"
+  }
+}
+</script>
+
 <style>
 /* ═══════════════════════════════════════════
    ROOT
@@ -111,19 +153,10 @@ body::after{
   background:var(--black);z-index:3;
 }
 
-/* background mosaic of emoji photo frames */
+/* hero background photo */
 .hero-mosaic{
   position:absolute;inset:0;z-index:1;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  grid-template-rows:repeat(3,1fr);
-  gap:2px;opacity:0.18;
-}
-.mosaic-cell{
-  display:flex;align-items:center;justify-content:center;
-  font-size:clamp(4rem,8vw,8rem);
-  background:var(--dark2);
-  filter:grayscale(1) brightness(0.6);
+  display:block;opacity:0.55;
   overflow:hidden;
 }
 
@@ -181,7 +214,6 @@ body::after{
   margin-bottom:32px;
   animation:fadeUp 0.7s 0.25s ease both;
 }
-.hero-location::before{content:'📍';font-size:0.9rem;}
 
 .hero-btns{
   display:flex;gap:14px;flex-wrap:wrap;
@@ -745,15 +777,94 @@ body::after{
 ::-webkit-scrollbar{width:4px;}
 ::-webkit-scrollbar-track{background:var(--dark);}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
+
+/* ═══════════════════════════════════════════
+   REDUCED MOTION
+═══════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *,*::before,*::after{
+    animation-duration:0.01ms !important;
+    animation-iteration-count:1 !important;
+    scroll-behavior:auto !important;
+    transition-duration:0.01ms !important;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   FOCUS VISIBLE
+═══════════════════════════════════════════ */
+a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{
+  outline:2px solid var(--gold);outline-offset:2px;
+}
+
+/* ═══════════════════════════════════════════
+   DEMO BANNER
+═══════════════════════════════════════════ */
+.demo-banner{
+  position:relative;z-index:900;
+  background:var(--dark2);border-bottom:1px solid var(--border);
+  color:var(--muted);font-size:0.72rem;text-align:center;
+  padding:8px 16px;letter-spacing:0.3px;
+}
+.demo-banner strong{color:var(--gold);font-weight:500;}
+
+/* ═══════════════════════════════════════════
+   MOBILE MENU
+═══════════════════════════════════════════ */
+.menu-toggle{
+  display:none;background:transparent;border:1px solid rgba(255,255,255,0.2);
+  color:var(--white);border-radius:4px;padding:8px 14px;
+  font-family:var(--font-b);font-size:0.72rem;letter-spacing:1.5px;
+  text-transform:uppercase;cursor:pointer;
+}
+.mobile-menu{
+  position:fixed;top:66px;left:0;right:0;z-index:599;
+  background:rgba(5,5,5,0.98);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  display:none;flex-direction:column;padding:8px 24px 20px;
+}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{
+  color:var(--muted);text-decoration:none;padding:14px 0;
+  font-size:0.85rem;letter-spacing:1.5px;text-transform:uppercase;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.mobile-menu a:last-child{border-bottom:none;}
+.mobile-menu a:hover{color:var(--gold);}
+@media(max-width:768px){
+  .menu-toggle{display:block;}
+}
+
+/* ═══════════════════════════════════════════
+   ICONS (replace emoji)
+═══════════════════════════════════════════ */
+.icon{display:inline-block;vertical-align:-0.15em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.icon-wa-fill{fill:currentColor;stroke:none;}
+
+/* ═══════════════════════════════════════════
+   PORTFOLIO — TOUCH/KEYBOARD SUPPORT
+═══════════════════════════════════════════ */
+.masonry-item:focus-within .photo-overlay,
+.masonry-item.tapped .photo-overlay{opacity:1;}
+.masonry-item:focus-within .photo-wa,
+.masonry-item.tapped .photo-wa{opacity:1;}
+@media(max-width:768px){
+  .photo-overlay{opacity:1;background:linear-gradient(to top,rgba(5,5,5,0.9) 0%,transparent 65%);}
+  .photo-wa{opacity:1;}
+}
 </style>
 </head>
 <body>
+
+<div class="demo-banner" role="note">
+  <strong>Demo website concept.</strong> Business name, photographs, reviews, packages and details shown are sample content for illustration only.
+</div>
 
 <!-- ═══════════════════════════════════
      NAV
 ═══════════════════════════════════ -->
 <nav class="ll-nav">
-  <a href="#" class="nav-brand">
+  <a href="#home" class="nav-brand">
     <span class="nav-brand-name">Lens & Light</span>
     <span class="nav-brand-tag">Photography Studio</span>
   </a>
@@ -763,17 +874,35 @@ body::after{
     <li><a href="#process">Process</a></li>
     <li><a href="#reviews">Reviews</a></li>
   </ul>
-  <a href="https://wa.me/17587235872?text=Hi%20Lens%20%26%20Light!%20I%27d%20like%20to%20check%20availability%20for%20a%20shoot%20📸" target="_blank" class="btn-nav-avail">
+  <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open navigation menu">
+    Menu
+  </button>
+  <a href="https://wa.me/17587235872?text=Hi%20Lens%20%26%20Light!%20I%27d%20like%20to%20check%20availability%20for%20a%20shoot" target="_blank" rel="noopener noreferrer" class="btn-nav-avail">
     Check Availability
   </a>
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#portfolio">Portfolio</a>
+  <a href="#packages">Packages</a>
+  <a href="#process">Process</a>
+  <a href="#reviews">Reviews</a>
+</div>
 
 <!-- ═══════════════════════════════════
      HERO
 ═══════════════════════════════════ -->
 <section class="ll-hero" id="home">
   <div class="hero-letterbox-top"></div>
-  <div class="hero-mosaic" id="heroMosaic"></div>
+  <picture class="hero-mosaic" id="heroMosaic">
+    <source srcset="images/hero-cliff-wedding.avif" type="image/avif">
+    <source srcset="images/hero-cliff-wedding.webp" type="image/webp">
+    <img
+      src="images/hero-cliff-wedding.jpg"
+      alt="Newly married couple photographed at sunset on a Saint Lucia cliff"
+      width="1920" height="1080"
+      style="width:100%;height:100%;object-fit:cover;filter:grayscale(0.3) brightness(0.6);"
+    >
+  </picture>
   <div class="hero-overlay"></div>
   <div class="hero-line"></div>
 
@@ -790,14 +919,18 @@ body::after{
     </h1>
 
     <p class="hero-desc">
-      Weddings, portraits, and events captured with intention — where every image holds the emotion of the moment, long after it passes.
+      Saint Lucia wedding photographer, portrait and event coverage — captured with intention, where every image holds the emotion of the moment, long after it passes.
     </p>
 
-    <div class="hero-location">Saint Lucia · Caribbean · Worldwide</div>
+    <div class="hero-location">
+      <svg class="icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+      Saint Lucia · Caribbean · Worldwide
+    </div>
 
     <div class="hero-btns">
-      <a href="https://wa.me/17587235872?text=Hi%20Lens%20%26%20Light!%20I%27d%20like%20to%20book%20a%20shoot%20📸%20Can%20you%20tell%20me%20about%20your%20packages%3F" target="_blank" class="btn-primary-ll">
-        📸 Book a Shoot
+      <a href="https://wa.me/17587235872?text=Hi%20Lens%20%26%20Light!%20I%27d%20like%20to%20book%20a%20shoot.%20Can%20you%20tell%20me%20about%20your%20packages%3F" target="_blank" rel="noopener noreferrer" class="btn-primary-ll">
+        <svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg>
+        Book a Shoot
       </a>
       <a href="#portfolio" class="btn-ghost-ll">View Portfolio →</a>
     </div>
@@ -814,7 +947,7 @@ body::after{
     </div>
     <div class="h-stat">
       <div class="h-stat-num">48hr</div>
-      <div class="h-stat-lbl">Preview Delivery</div>
+      <div class="h-stat-lbl">Typical Preview Time</div>
     </div>
   </div>
 
@@ -846,8 +979,9 @@ body::after{
     <div class="masonry reveal" id="masonryGrid"></div>
 
     <div style="text-align:center;margin-top:44px;" class="reveal">
-      <a href="https://wa.me/17587235872?text=Hi%20Lens%20%26%20Light!%20I%27d%20love%20to%20see%20more%20of%20your%20work%20📸" target="_blank" class="btn-ghost-ll">
-        💬 See More Work on WhatsApp
+      <a href="https://wa.me/17587235872?text=Hi%20Lens%20%26%20Light!%20I%27d%20love%20to%20see%20more%20of%20your%20work." target="_blank" rel="noopener noreferrer" class="btn-ghost-ll">
+        <svg class="icon" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>
+        See More Work on WhatsApp
       </a>
     </div>
   </div>
@@ -871,45 +1005,47 @@ body::after{
 <div class="ll-section avail-section" id="availability">
   <div class="sec-inner sec-center">
     <span class="sec-eye reveal">Check Availability</span>
-    <h2 class="sec-h2 reveal">Is Your Date <em>Available?</em></h2>
-    <p class="sec-sub mx-auto reveal" style="margin:0 auto;">Tell us your shoot type and preferred date and we'll confirm availability on WhatsApp within the hour.</p>
+    <h2 class="sec-h2 reveal">Ask About <em>Your Date.</em></h2>
+    <p class="sec-sub mx-auto reveal" style="margin:0 auto;">Tell us your shoot type and preferred date. We'll reply on WhatsApp to confirm availability, usually within one business hour.</p>
     <div class="avail-card reveal">
       <div class="avail-h">"Let's make sure we're there for your moment."</div>
       <div class="avail-sub">Fill in the details below — your enquiry goes straight to WhatsApp.</div>
 
-      <div class="avail-form">
+      <form class="avail-form" id="availabilityForm">
         <div class="avail-field">
-          <label>Shoot Type</label>
-          <select class="avail-select" id="availType">
-            <option value="Wedding">💍 Wedding</option>
-            <option value="Portrait">🧍 Portrait Session</option>
-            <option value="Event">🎉 Event Coverage</option>
-            <option value="Couples">💕 Couples Shoot</option>
-            <option value="Family">👨‍👩‍👧 Family Session</option>
-            <option value="Corporate">💼 Corporate / Brand</option>
+          <label for="availType">Shoot type</label>
+          <select class="avail-select" id="availType" name="shootType">
+            <option value="Wedding">Wedding</option>
+            <option value="Portrait">Portrait Session</option>
+            <option value="Event">Event Coverage</option>
+            <option value="Couples">Couples Shoot</option>
+            <option value="Family">Family Session</option>
+            <option value="Corporate">Corporate / Brand</option>
           </select>
         </div>
         <div class="avail-field">
-          <label>Preferred Month</label>
-          <select class="avail-select" id="availMonth">
-            <option>April 2026</option>
-            <option>May 2026</option>
-            <option>June 2026</option>
-            <option>July 2026</option>
-            <option>August 2026</option>
-            <option>September 2026</option>
-            <option>October 2026</option>
-            <option>November 2026</option>
-            <option>December 2026</option>
-          </select>
+          <label for="availMonth">Preferred month</label>
+          <select class="avail-select" id="availMonth" name="preferredMonth"></select>
         </div>
         <div class="avail-field">
-          <label>Location</label>
-          <input type="text" class="avail-input" id="availLoc" placeholder="e.g. Saint Lucia, Rodney Bay…"/>
+          <label for="availDate">Preferred date</label>
+          <input type="date" class="avail-input" id="availDate" name="preferredDate"/>
         </div>
         <div class="avail-field">
-          <label>Budget Range</label>
-          <select class="avail-select" id="availBudget">
+          <label for="availAltDate">Alternate date</label>
+          <input type="date" class="avail-input" id="availAltDate" name="alternateDate"/>
+        </div>
+        <div class="avail-field">
+          <label for="availTime">Event start time</label>
+          <input type="time" class="avail-input" id="availTime" name="startTime"/>
+        </div>
+        <div class="avail-field">
+          <label for="availLoc">Venue or area</label>
+          <input type="text" class="avail-input" id="availLoc" name="venue" placeholder="e.g. Rodney Bay, Soufrière…"/>
+        </div>
+        <div class="avail-field">
+          <label for="availBudget">Budget range</label>
+          <select class="avail-select" id="availBudget" name="budget">
             <option value="Under $300">Under $300</option>
             <option value="$300 – $600">$300 – $600</option>
             <option value="$600 – $1,000">$600 – $1,000</option>
@@ -917,13 +1053,25 @@ body::after{
             <option value="Flexible">Flexible — let's talk</option>
           </select>
         </div>
-      </div>
+        <div class="avail-field">
+          <label for="availName">Your name</label>
+          <input type="text" class="avail-input" id="availName" name="fullName" placeholder="So we know who's asking" autocomplete="name"/>
+        </div>
+        <div class="avail-field">
+          <label for="availContact">Preferred contact method</label>
+          <select class="avail-select" id="availContact" name="contactPreference">
+            <option value="WhatsApp">WhatsApp</option>
+            <option value="Phone call">Phone call</option>
+            <option value="Email">Email</option>
+          </select>
+        </div>
+      </form>
 
-      <button class="btn-check-avail" onclick="checkAvailability()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
+      <button class="btn-check-avail" type="submit" form="availabilityForm" onclick="event.preventDefault();checkAvailability();">
+        <svg class="icon icon-wa-fill" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
         Send My Enquiry on WhatsApp
       </button>
-      <div class="avail-note">We typically confirm availability within 1 hour during business hours.</div>
+      <div class="avail-note">This sends your details to WhatsApp — it doesn't check a live calendar. We usually reply within one business hour; response times may be longer on weekends and during peak wedding season.</div>
     </div>
   </div>
 </div>
@@ -939,27 +1087,27 @@ body::after{
     <div class="process-grid reveal">
       <div class="process-step">
         <div class="ps-num">01</div>
-        <span class="ps-icon">💬</span>
+        <span class="ps-icon"><svg class="icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg></span>
         <div class="ps-title">Message Us</div>
-        <div class="ps-desc">Tap any button on this page. Your enquiry arrives on WhatsApp pre-filled with your shoot type. We reply within the hour.</div>
+        <div class="ps-desc">Tap any button on this page. Your enquiry arrives on WhatsApp pre-filled with your shoot type. We usually reply within one business hour.</div>
       </div>
       <div class="process-step">
         <div class="ps-num">02</div>
-        <span class="ps-icon">📋</span>
+        <span class="ps-icon"><svg class="icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 13h6M9 17h6M9 9h1"/></svg></span>
         <div class="ps-title">We Plan Together</div>
         <div class="ps-desc">We discuss your vision, location, timing, outfits, and what moments matter most to you. Your shoot is built around you.</div>
       </div>
       <div class="process-step">
         <div class="ps-num">03</div>
-        <span class="ps-icon">📸</span>
+        <span class="ps-icon"><svg class="icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg></span>
         <div class="ps-title">The Shoot</div>
         <div class="ps-desc">We guide you through every pose and moment. You don't need experience — just show up and be yourself. We do the rest.</div>
       </div>
       <div class="process-step">
         <div class="ps-num">04</div>
-        <span class="ps-icon">🖼️</span>
+        <span class="ps-icon"><svg class="icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></span>
         <div class="ps-title">Your Gallery</div>
-        <div class="ps-desc">Preview images delivered within 48 hours. Full edited gallery within 7 days — delivered digitally, ready to share and print.</div>
+        <div class="ps-desc">Preview images are typically delivered within 48 hours. Final delivery time varies by package and event size — see individual packages for details.</div>
       </div>
     </div>
   </div>
@@ -989,14 +1137,14 @@ body::after{
       </div>
       <div class="final-h2">Your Moment<br/>Won't Wait.<br/><em>Neither Should You.</em></div>
       <p class="final-sub">Dates book up fast — especially for weddings and events. Message us today and let's make sure your moment is captured the way it deserves to be.</p>
-      <a href="https://wa.me/17587235872?text=Hi%20Lens%20%26%20Light!%20📸%20I%27d%20like%20to%20book%20a%20shoot.%20Can%20we%20talk%20about%20packages%20and%20availability%3F" target="_blank" class="btn-wa-final">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
+      <a href="https://wa.me/17587235872?text=Hi%20Lens%20%26%20Light!%20I%27d%20like%20to%20book%20a%20shoot.%20Can%20we%20talk%20about%20packages%20and%20availability%3F" target="_blank" rel="noopener noreferrer" class="btn-wa-final">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
         Message Us on WhatsApp
       </a>
     </div>
 
     <div class="final-right">
-      <div class="final-avail-label">2026 Availability</div>
+      <div class="final-avail-label">Sample Availability</div>
       <div class="month-slots" id="monthSlots"></div>
     </div>
   </div>
@@ -1025,13 +1173,13 @@ body::after{
         <li><a href="#availability">Check Availability</a></li>
         <li><a href="#packages">View Packages</a></li>
         <li><a href="#reviews">Client Reviews</a></li>
-        <li><a href="https://wa.me/17587235872" target="_blank">WhatsApp Us</a></li>
+        <li><a href="https://wa.me/17587235872" target="_blank" rel="noopener noreferrer">WhatsApp Us</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 Lens & Light Photography · Saint Lucia · Caribbean & Worldwide</span>
-    <a href="https://jamalinks758.github.io/jamalinks/" target="_blank">Powered by JAMALINKS</a>
+    <span>© <span data-current-year>2026</span> Lens & Light Photography · Saint Lucia · Caribbean & Worldwide</span>
+    <a href="https://jamalsamuel.online/" target="_blank" rel="noopener noreferrer">Built by Jamal Samuel</a>
   </div>
 </footer>
 
@@ -1039,73 +1187,91 @@ body::after{
 <div class="sticky-bar">
   <div class="sticky-text">
     <strong>Book your shoot</strong>
-    Reply within the hour 📸
+    Usually reply within the hour
   </div>
-  <a href="https://wa.me/17587235872?text=Hi%20Lens%20%26%20Light!%20I%27d%20like%20to%20book%20a%20shoot%20📸" target="_blank" class="btn-sticky-wa">
-    💬 Book Now
+  <a href="https://wa.me/17587235872?text=Hi%20Lens%20%26%20Light!%20I%27d%20like%20to%20book%20a%20shoot." target="_blank" rel="noopener noreferrer" class="btn-sticky-wa" aria-label="Book your shoot through WhatsApp">
+    <svg class="icon icon-wa-fill" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
+    Book Now
   </a>
 </div>
 
 <!-- FLOAT WA -->
-<a href="https://wa.me/17587235872?text=Hi%20Lens%20%26%20Light!%20I%27d%20like%20to%20enquire%20about%20a%20shoot%20📸" target="_blank" class="float-wa" title="Book on WhatsApp">💬</a>
+<a href="https://wa.me/17587235872?text=Hi%20Lens%20%26%20Light!%20I%27d%20like%20to%20enquire%20about%20a%20shoot." target="_blank" rel="noopener noreferrer" class="float-wa" aria-label="Enquire about photography through WhatsApp">
+  <svg class="icon icon-wa-fill" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
+</a>
 
 <script>
 /* ═══════════════════════════════════
    DATA
 ═══════════════════════════════════ */
 const PHONE = '17587235872';
-const SITE  = 'https://jamalinks758.github.io/jamalinks/photography.html';
+const SITE  = 'https://jamalsamuel.online/demo-products/lens-and-light.html';
+
+/* Reusable inline icon markup (replaces emoji) */
+const ICONS = {
+  portrait:  '<svg class="icon" width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>',
+  couples:   '<svg class="icon" width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a4.8 4.8 0 0 0-6.8 0L12 6.6l-2-2a4.8 4.8 0 1 0-6.8 6.8L12 20.6l8.8-9.2a4.8 4.8 0 0 0 0-6.8Z"/></svg>',
+  event:     '<svg class="icon" width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v4M16 2v4M3 10h18M5 6h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z"/></svg>',
+  wedding:   '<svg class="icon" width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="15" r="5"/><circle cx="16" cy="15" r="5"/><path d="M9.5 11.5 12 4l2.5 7.5"/></svg>',
+  family:    '<svg class="icon" width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="8" r="3"/><circle cx="17" cy="8" r="3"/><path d="M2 21c0-3.3 2.2-6 5-6s5 2.7 5 6M12 21c0-3.3 2.2-6 5-6s5 2.7 5 6"/></svg>',
+  camera:    '<svg class="icon" width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg>',
+  frame:     '<svg class="icon" width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>',
+  wa:        '<svg class="icon icon-wa-fill" width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>',
+  clock:     '<svg class="icon" width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>',
+  star:      '<svg class="icon" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9-6.2-3.3-6.2 3.3 1.2-6.9-5-4.9 6.9-1Z"/></svg>',
+  users:     '<svg class="icon" width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6.5 6.5-6.5s6.5 2.9 6.5 6.5"/><circle cx="17.5" cy="8.5" r="2.5"/><path d="M16 13.2c2.6.4 4.5 2.6 4.5 5.3"/></svg>'
+};
 
 const packages = [
   {
-    icon:'🧍', type:'Portrait', name:'Solo Portrait Session',
+    icon:'portrait', type:'Portrait', name:'Solo Portrait Session',
     desc:'A focused 1-hour shoot designed to capture who you truly are — confident, relaxed, and beautifully lit.',
-    includes:['60-minute shoot','2 locations/looks','15 fully edited images','48hr preview delivery','Private online gallery'],
+    includes:['60-minute shoot','2 locations/looks','15 fully edited images','Preview within 48hrs (typical)','Private online gallery'],
     price:180, duration:'1 hour', featured:false,
-    wa:'Hi Lens & Light! 📸 I\'d like to book a Portrait Session. Can you tell me about availability and details?'
+    wa:'Hi Lens & Light! I\'d like to book a Portrait Session. Can you tell me about availability and details?'
   },
   {
-    icon:'💕', type:'Couples & Family', name:'Connection Session',
+    icon:'couples', type:'Couples & Family', name:'Connection Session',
     desc:'For couples and families. We capture the real moments — the laughs, the glances, the in-between seconds.',
-    includes:['90-minute shoot','Multiple locations','25 fully edited images','48hr sneak peek','Full gallery in 7 days','Print release included'],
+    includes:['90-minute shoot','Multiple locations','25 fully edited images','Sneak peek within 48hrs (typical)','Full gallery in 7 days (typical)','Print release included'],
     price:280, duration:'90 minutes', featured:true,
-    wa:'Hi Lens & Light! 💕 I\'d like to book a Couples/Family Session. Can we discuss date and location?'
+    wa:'Hi Lens & Light! I\'d like to book a Couples/Family Session. Can we discuss date and location?'
   },
   {
-    icon:'🎉', type:'Events', name:'Event Coverage',
+    icon:'event', type:'Events', name:'Event Coverage',
     desc:'Birthdays, launches, graduations, corporate events. We document every key moment without missing a beat.',
-    includes:['Up to 4 hours coverage','Unlimited edited images','Same-day social previews','Full gallery in 5 days','Delivered digitally'],
+    includes:['Up to 4 hours coverage','Unlimited edited images','Social previews same day (typical)','Full gallery in 5 days (typical)','Delivered digitally'],
     price:450, duration:'Up to 4 hours', featured:false,
-    wa:'Hi Lens & Light! 🎉 I\'d like to enquire about Event Coverage. Can you share details and availability?'
+    wa:'Hi Lens & Light! I\'d like to enquire about Event Coverage. Can you share details and availability?'
   },
   {
-    icon:'💍', type:'Wedding', name:'Wedding Day Package',
+    icon:'wedding', type:'Wedding', name:'Wedding Day Package',
     desc:'Your day, told completely. From getting ready to the last dance — every emotion, every detail, preserved forever.',
-    includes:['Full day coverage (8–10 hrs)','Two photographers','100+ edited images','Engagement shoot included','Premium digital album','Priority 48hr preview'],
+    includes:['Full day coverage (8–10 hrs)','Two photographers','100+ edited images','Engagement shoot included','Premium digital album','Priority preview within 48hrs (typical)'],
     price:1200, duration:'Full day', featured:false,
-    wa:'Hi Lens & Light! 💍 I\'d like to discuss Wedding Photography. Our date is '
+    wa:'Hi Lens & Light! I\'d like to discuss Wedding Photography. Our date is '
   },
 ];
 
 const portfolio = [
-  {cat:'Wedding',   emoji:'💍', h:280, caption:'They cried before we even started. That was the whole session.',     wa:'I love this wedding shot — can we do something similar?'},
-  {cat:'Portrait',  emoji:'🧍', h:200, caption:'She said she\'d "never look good in photos." She was so wrong.',         wa:'I\'d love a portrait session like this one.'},
-  {cat:'Event',     emoji:'🎉', h:240, caption:'60 guests. 400 photos. Every smile captured.',                          wa:'I need event coverage — can we chat?'},
-  {cat:'Couples',   emoji:'💕', h:220, caption:'10 minutes in, they forgot we were there. That\'s the goal.',           wa:'I want a couples shoot like this — when are you free?'},
-  {cat:'Wedding',   emoji:'👰', h:260, caption:'Ceremony on the cliff. Golden hour. Unforgettable.',                    wa:'I\'d love a clifftop wedding shoot — can we discuss?'},
-  {cat:'Portrait',  emoji:'👨‍💼', h:200, caption:'Brand shoot that finally felt like him.',                              wa:'I need a personal brand shoot — let\'s chat.'},
-  {cat:'Couples',   emoji:'🌅', h:250, caption:'Sunset at Pigeon Island. They didn\'t want to leave.',                 wa:'The sunset shoot is stunning — I\'d love to book one.'},
-  {cat:'Event',     emoji:'🥂', h:220, caption:'The toast. The tears. The laughter. All of it.',                        wa:'I have an event coming up — can you cover it?'},
-  {cat:'Family',    emoji:'👨‍👩‍👧', h:240, caption:'The little one didn\'t stop laughing. Best shoot of the month.',       wa:'I want a family session — when are you available?'},
+  {cat:'Wedding',  icon:'wedding',  img:'wedding-cliff',                    h:280, alt:'Newly married couple photographed at sunset on a Saint Lucia cliff',        caption:'They cried before we even started. That was the whole session.',     wa:'I love this wedding shot — can we do something similar?'},
+  {cat:'Portrait', icon:'portrait', img:'portrait-confidence',              h:200, alt:'Studio portrait of a woman with soft directional lighting',                caption:'She said she\'d "never look good in photos." She was so wrong.',         wa:'I\'d love a portrait session like this one.'},
+  {cat:'Event',    icon:'event',    img:'event-celebration',                h:240, alt:'Guests celebrating at an evening event in Saint Lucia',                     caption:'60 guests. 400 photos. Every smile captured.',                          wa:'I need event coverage — can we chat?'},
+  {cat:'Couples',  icon:'couples',  img:'couples-forgot-camera',            h:220, alt:'Couple laughing together during a candid outdoor photo session',           caption:'10 minutes in, they forgot we were there. That\'s the goal.',           wa:'I want a couples shoot like this — when are you free?'},
+  {cat:'Wedding',  icon:'wedding',  img:'wedding-golden-hour',              h:260, alt:'Bride and groom at a clifftop wedding ceremony during golden hour',         caption:'Ceremony on the cliff. Golden hour. Unforgettable.',                    wa:'I\'d love a clifftop wedding shoot — can we discuss?'},
+  {cat:'Portrait', icon:'portrait', img:'portrait-brand',                   h:200, alt:'Personal branding portrait of a professional in business attire',          caption:'Brand shoot that finally felt like him.',                              wa:'I need a personal brand shoot — let\'s chat.'},
+  {cat:'Couples',  icon:'couples',  img:'couples-sunset-pigeon-island',     h:250, alt:'Couple at sunset on the beach near Pigeon Island, Saint Lucia',             caption:'Sunset at Pigeon Island. They didn\'t want to leave.',                 wa:'The sunset shoot is stunning — I\'d love to book one.'},
+  {cat:'Event',    icon:'event',    img:'event-toast',                      h:220, alt:'Guests raising a toast during an event celebration',                       caption:'The toast. The tears. The laughter. All of it.',                        wa:'I have an event coming up — can you cover it?'},
+  {cat:'Family',   icon:'family',   img:'family-laugh',                     h:240, alt:'Young child laughing during a family portrait session',                    caption:'The little one didn\'t stop laughing. Best shoot of the month.',       wa:'I want a family session — when are you available?'},
 ];
 
 const testimonials = [
-  {pkg:'Wedding Photography',quote:'"I looked at the preview photos and sobbed. I had no idea our wedding looked that cinematic. Lens & Light gave us something we\'ll look at for the rest of our lives."',name:'Keisha & Marcus Thompson',occasion:'Wedding · Saint Lucia',avatar:'💑'},
-  {pkg:'Portrait Session',quote:'"I\'ve always hated having my photo taken. I\'m not photogenic, I\'m awkward — I told them all of this. They made me feel so comfortable that I forgot about the camera entirely. The photos are the best I\'ve ever looked."',name:'Nadine Charles',occasion:'Personal Portrait',avatar:'👩🏽'},
-  {pkg:'Event Coverage',quote:'"Our company launch had 80 attendees. Every key moment was captured — the CEO\'s speech, the product reveal, the networking. We had same-day previews to post on social before the event even ended. Brilliant."',name:'Roland Estimé',occasion:'Corporate Launch Event',avatar:'👨🏾'},
-  {pkg:'Couples Session',quote:'"We booked this as a gift to ourselves on our anniversary. The photos turned our regular Tuesday afternoon into something we\'ll show our grandchildren. Worth every penny and more."',name:'Alicia & Devon Pierre',occasion:'Anniversary Couples Shoot',avatar:'💕'},
-  {pkg:'Family Session',quote:'"Three kids under 8. I was terrified. They wrangled them, made them laugh, got natural smiles out of all of them. I don\'t know how. The photos are framed and on our wall already."',name:'Steph Mathurin',occasion:'Family Session',avatar:'👩🏻'},
-  {pkg:'Wedding Photography',quote:'"We flew them to Martinique for our wedding. Worth every cent of the travel. From the morning prep to midnight, they were invisible but everywhere. We didn\'t miss a single moment."',name:'Janelle & Chris Dupont',occasion:'Destination Wedding',avatar:'👰'},
+  {pkg:'Wedding Photography',quote:'"I looked at the preview photos and sobbed. I had no idea our wedding looked that cinematic. Lens & Light gave us something we\'ll look at for the rest of our lives."',name:'Keisha & Marcus Thompson',occasion:'Wedding · Saint Lucia',avatar:'wedding'},
+  {pkg:'Portrait Session',quote:'"I\'ve always hated having my photo taken. I\'m not photogenic, I\'m awkward — I told them all of this. They made me feel so comfortable that I forgot about the camera entirely. The photos are the best I\'ve ever looked."',name:'Nadine Charles',occasion:'Personal Portrait',avatar:'portrait'},
+  {pkg:'Event Coverage',quote:'"Our company launch had 80 attendees. Every key moment was captured — the CEO\'s speech, the product reveal, the networking. We had same-day previews to post on social before the event even ended. Brilliant."',name:'Roland Estimé',occasion:'Corporate Launch Event',avatar:'event'},
+  {pkg:'Couples Session',quote:'"We booked this as a gift to ourselves on our anniversary. The photos turned our regular Tuesday afternoon into something we\'ll show our grandchildren. Worth every penny and more."',name:'Alicia & Devon Pierre',occasion:'Anniversary Couples Shoot',avatar:'couples'},
+  {pkg:'Family Session',quote:'"Three kids under 8. I was terrified. They wrangled them, made them laugh, got natural smiles out of all of them. I don\'t know how. The photos are framed and on our wall already."',name:'Steph Mathurin',occasion:'Family Session',avatar:'family'},
+  {pkg:'Wedding Photography',quote:'"We flew them to Martinique for our wedding. Worth every cent of the travel. From the morning prep to midnight, they were invisible but everywhere. We didn\'t miss a single moment."',name:'Janelle & Chris Dupont',occasion:'Destination Wedding',avatar:'wedding'},
 ];
 
 const availSlots = [
@@ -1118,18 +1284,6 @@ const availSlots = [
   {month:'Oct 2026',    status:'open',    label:'Available'},
   {month:'Nov 2026',    status:'open',    label:'Available'},
 ];
-
-/* ═══════════════════════════════════
-   HERO MOSAIC
-═══════════════════════════════════ */
-function buildMosaic() {
-  const emojis = ['📸','💍','👰','💕','🎉','🖼️','🌅','👨‍👩‍👧','🧍','📷','💑','🌺'];
-  const mosaic = document.getElementById('heroMosaic');
-  const count = 12;
-  mosaic.innerHTML = Array.from({length:count},(_,i)=>
-    `<div class="mosaic-cell">${emojis[i%emojis.length]}</div>`
-  ).join('');
-}
 
 /* ═══════════════════════════════════
    TICKER
@@ -1168,14 +1322,18 @@ function renderMasonry() {
   buildPortTabs();
   const filtered = activePortCat==='All' ? portfolio : portfolio.filter(p=>p.cat===activePortCat);
   document.getElementById('masonryGrid').innerHTML = filtered.map(p=>`
-    <div class="masonry-item">
+    <div class="masonry-item" tabindex="0">
       <div class="photo-frame" style="height:${p.h}px">
-        <div style="font-size:${p.h/40}rem;position:relative;z-index:1;">${p.emoji}</div>
+        <picture>
+          <source srcset="images/${p.img}.avif" type="image/avif">
+          <source srcset="images/${p.img}.webp" type="image/webp">
+          <img src="images/${p.img}.jpg" alt="${p.alt}" width="1200" height="1600" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+        </picture>
         <div class="photo-overlay">
           <div class="photo-caption">${p.caption}</div>
         </div>
-        <button class="photo-wa" onclick="bookFromPhoto('${p.wa.replace(/'/g,"\\'")}')">
-          💬 Book This Look
+        <button class="photo-wa" onclick="bookFromPhoto('${p.wa.replace(/'/g,"\\'")}')" aria-label="Book a shoot like this ${p.cat.toLowerCase()} photo on WhatsApp">
+          ${ICONS.wa} Book This Look
         </button>
       </div>
     </div>`).join('');
@@ -1193,7 +1351,7 @@ function buildPackages() {
   document.getElementById('packagesGrid').innerHTML = packages.map(p=>`
     <div class="pkg-card ${p.featured?'featured':''} reveal">
       ${p.featured?'<div class="pkg-feat-tag">Most Popular</div>':''}
-      <span class="pkg-icon">${p.icon}</span>
+      <span class="pkg-icon">${ICONS[p.icon]}</span>
       <div class="pkg-type">${p.type}</div>
       <div class="pkg-name">${p.name}</div>
       <div class="pkg-desc">${p.desc}</div>
@@ -1203,11 +1361,11 @@ function buildPackages() {
       <div class="pkg-footer">
         <div>
           <div class="pkg-price">$${p.price}<small> from</small></div>
-          <div class="pkg-duration">⏱ ${p.duration}</div>
+          <div class="pkg-duration">${ICONS.clock} ${p.duration}</div>
         </div>
         <button class="btn-book-pkg ${p.featured?'featured-btn':''}"
-          onclick="bookPkg('${p.wa.replace(/'/g,"\\'")}')">
-          📸 Book This
+          onclick="bookPkg('${p.wa.replace(/'/g,"\\'")}')" aria-label="Book the ${p.name} package on WhatsApp">
+          ${ICONS.camera} Book This
         </button>
       </div>
     </div>`).join('');
@@ -1222,22 +1380,35 @@ function bookPkg(wa) {
    AVAILABILITY CHECKER
 ═══════════════════════════════════ */
 function checkAvailability() {
-  const type   = document.getElementById('availType').value;
-  const month  = document.getElementById('availMonth').value;
-  const loc    = document.getElementById('availLoc').value || 'Saint Lucia';
-  const budget = document.getElementById('availBudget').value;
-  const msg = [
-    `📸 *Lens & Light Photography — Availability Enquiry*`,
+  const type    = document.getElementById('availType').value;
+  const month   = document.getElementById('availMonth').value;
+  const date    = document.getElementById('availDate').value;
+  const altDate = document.getElementById('availAltDate').value;
+  const time    = document.getElementById('availTime').value;
+  const loc     = document.getElementById('availLoc').value || 'Not specified';
+  const budget  = document.getElementById('availBudget').value;
+  const name    = document.getElementById('availName').value || 'Not provided';
+  const contact = document.getElementById('availContact').value;
+
+  const lines = [
+    `Lens & Light Photography — Availability Enquiry`,
     `────────────────────`,
+    `Name: ${name}`,
     `Shoot Type: ${type}`,
     `Preferred Month: ${month}`,
-    `Location: ${loc}`,
+  ];
+  if (date) lines.push(`Preferred Date: ${date}`);
+  if (altDate) lines.push(`Alternate Date: ${altDate}`);
+  if (time) lines.push(`Start Time: ${time}`);
+  lines.push(
+    `Venue / Area: ${loc}`,
     `Budget: ${budget}`,
+    `Preferred Contact: ${contact}`,
     `────────────────────`,
     `Please confirm availability and package options.`,
-    `🔗 Enquiry via: ${SITE}`
-  ].join('\n');
-  window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
+    `Enquiry via: ${SITE}`
+  );
+  window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank');
 }
 
 /* ═══════════════════════════════════
@@ -1249,7 +1420,7 @@ function buildTestimonials() {
       <div class="t-pkg">${t.pkg}</div>
       <div class="t-quote">${t.quote}</div>
       <div class="t-author">
-        <div class="t-avatar">${t.avatar}</div>
+        <div class="t-avatar">${ICONS[t.avatar]}</div>
         <div>
           <div class="t-name">${t.name}</div>
           <div class="t-occasion">${t.occasion}</div>
@@ -1262,11 +1433,16 @@ function buildTestimonials() {
 /* ═══════════════════════════════════
    AVAILABILITY SLOTS
 ═══════════════════════════════════ */
+const SLOT_ICONS = {
+  open:'<svg class="icon" width="0.7em" height="0.7em" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="vertical-align:-0.05em;"><circle cx="12" cy="12" r="8"/></svg>',
+  limited:'<svg class="icon" width="0.8em" height="0.8em" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="vertical-align:-0.1em;"><path d="M12 2 1 21h22Z"/><rect x="11" y="9" width="2" height="6" fill="var(--dark2)"/><circle cx="12" cy="18" r="1" fill="var(--dark2)"/></svg>',
+  full:'<svg class="icon" width="0.75em" height="0.75em" viewBox="0 0 24 24" style="vertical-align:-0.08em;"><path d="M18 6 6 18M6 6l12 12"/></svg>'
+};
 function buildSlots() {
   document.getElementById('monthSlots').innerHTML = availSlots.slice(0,8).map(s=>`
     <div class="slot ${s.status}">
       <div class="slot-month">${s.month}</div>
-      <div class="slot-avail">${s.status==='open'?'● Available':s.status==='limited'?'⚠ '+s.label:'✕ Fully Booked'}</div>
+      <div class="slot-avail">${SLOT_ICONS[s.status]} ${s.status==='open'?'Available':s.status==='limited'?s.label:'Fully Booked'}</div>
     </div>`).join('');
 }
 
@@ -1286,16 +1462,53 @@ function observeReveal() {
 }
 
 /* ═══════════════════════════════════
+   MONTH OPTIONS (dynamic, relative to today)
+═══════════════════════════════════ */
+function buildMonthOptions(numberOfMonths = 12) {
+  const select = document.getElementById('availMonth');
+  const formatter = new Intl.DateTimeFormat('en', { month: 'long', year: 'numeric' });
+  select.innerHTML = '';
+  const current = new Date();
+  for (let i = 0; i < numberOfMonths; i++) {
+    const date = new Date(current.getFullYear(), current.getMonth() + i, 1);
+    const option = document.createElement('option');
+    option.value = formatter.format(date);
+    option.textContent = formatter.format(date);
+    select.appendChild(option);
+  }
+}
+
+/* ═══════════════════════════════════
+   MOBILE MENU
+═══════════════════════════════════ */
+function initMobileMenu() {
+  const toggle = document.getElementById('menuToggle');
+  const menu = document.getElementById('mobileMenu');
+  toggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+}
+
+/* ═══════════════════════════════════
    INIT
 ═══════════════════════════════════ */
-buildMosaic();
 buildTicker();
 renderMasonry();
 buildPackages();
 buildTestimonials();
 buildSlots();
+buildMonthOptions();
+initMobileMenu();
 observeReveal();
+
+document.querySelectorAll('[data-current-year]').forEach(el => {
+  el.textContent = new Date().getFullYear();
+});
 </script>
 </body>
 </html>
-
