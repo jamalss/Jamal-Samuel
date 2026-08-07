@@ -8,15 +8,15 @@
 <link rel="canonical" href="https://jamalsamuel.online/demo-products/lens-and-light.html"/>
 
 <!-- Favicon -->
-<link rel="icon" type="image/png" href="images/favicon.png"/>
-<link rel="apple-touch-icon" href="images/favicon.png"/>
+<link rel="icon" type="image/png" href="lens-light-images/favicon.png"/>
+<link rel="apple-touch-icon" href="lens-light-images/favicon.png"/>
 
 <!-- Open Graph -->
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="Lens & Light Photography"/>
 <meta property="og:title" content="Lens & Light Photography — Cinematic Portraits, Weddings & Events in Saint Lucia"/>
 <meta property="og:description" content="Cinematic weddings, portraits and events in Saint Lucia. Book directly on WhatsApp."/>
-<meta property="og:image" content="https://jamalsamuel.online/demo-products/images/social-preview.jpg"/>
+<meta property="og:image" content="https://jamalsamuel.online/demo-products/lens-light-images/social-preview.jpg"/>
 <meta property="og:url" content="https://jamalsamuel.online/demo-products/lens-and-light.html"/>
 <meta property="og:locale" content="en_US"/>
 
@@ -24,7 +24,7 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Lens & Light Photography — Saint Lucia"/>
 <meta name="twitter:description" content="Cinematic weddings, portraits and events in Saint Lucia. Book directly on WhatsApp."/>
-<meta name="twitter:image" content="https://jamalsamuel.online/demo-products/images/social-preview.jpg"/>
+<meta name="twitter:image" content="https://jamalsamuel.online/demo-products/lens-light-images/social-preview.jpg"/>
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 
@@ -34,7 +34,7 @@
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "Lens & Light Photography",
-  "image": "https://jamalsamuel.online/demo-products/images/social-preview.jpg",
+  "image": "https://jamalsamuel.online/demo-products/lens-light-images/social-preview.jpg",
   "description": "Wedding, portrait and event photography in Saint Lucia, serving Rodney Bay, Soufrière, Pigeon Island and the wider Caribbean.",
   "areaServed": ["Saint Lucia", "Caribbean"],
   "telephone": "+1-758-723-5872",
@@ -91,7 +91,7 @@ body::after{
    NAV
 ═══════════════════════════════════════════ */
 .ll-nav{
-  position:fixed;top:0;left:0;right:0;z-index:600;
+  position:fixed;top:30px;left:0;right:0;z-index:600;
   height:66px;display:flex;align-items:center;
   justify-content:space-between;padding:0 36px;
   background:rgba(5,5,5,0.92);
@@ -391,6 +391,51 @@ body::after{
   font-family:var(--font-b);
 }
 .masonry-item:hover .photo-wa{opacity:1;}
+
+/* ═══════════════════════════════════════════
+   ABOUT / PHOTOGRAPHER
+═══════════════════════════════════════════ */
+.about-bg{background:var(--dark2);}
+.about-inner{
+  display:grid;grid-template-columns:0.8fr 1.2fr;gap:56px;align-items:center;
+}
+@media(max-width:768px){.about-inner{grid-template-columns:1fr;gap:32px;}}
+.about-photo{border-radius:16px;overflow:hidden;border:1px solid var(--border);}
+.about-photo img{width:100%;height:auto;display:block;object-fit:cover;}
+.about-text{font-size:0.9rem;color:var(--off);line-height:1.8;font-weight:300;margin-bottom:16px;}
+.about-stats{display:flex;flex-direction:column;gap:14px;margin:24px 0 28px;}
+.about-stat-num{
+  display:block;font-family:var(--font-d);font-size:1.15rem;font-style:italic;
+  color:var(--gold);line-height:1.3;
+}
+.about-stat-lbl{
+  display:block;font-size:0.65rem;color:var(--muted);
+  letter-spacing:1.5px;text-transform:uppercase;margin-top:2px;
+}
+
+/* ═══════════════════════════════════════════
+   FAQ
+═══════════════════════════════════════════ */
+.faq-bg{background:var(--dark);}
+.faq-list{max-width:760px;margin:40px auto 0;display:flex;flex-direction:column;gap:1px;}
+.faq-item{
+  background:var(--card);border:1px solid rgba(255,255,255,0.05);
+  border-radius:10px;margin-bottom:10px;overflow:hidden;
+}
+.faq-item summary{
+  list-style:none;cursor:pointer;padding:20px 24px;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  font-family:var(--font-b);font-size:0.9rem;font-weight:500;color:var(--white);
+}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{
+  content:'+';font-size:1.3rem;color:var(--gold);font-weight:300;flex-shrink:0;
+  transition:transform 0.2s;line-height:1;
+}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item .faq-a{
+  padding:0 24px 20px;font-size:0.85rem;color:var(--muted);line-height:1.75;font-weight:300;
+}
 
 /* ═══════════════════════════════════════════
    BOOKING FUNNEL / PACKAGES
@@ -700,6 +745,14 @@ body::after{
 }
 .footer-brand-tag{font-size:0.55rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase;}
 .footer-tagline{font-size:0.8rem;color:var(--muted);line-height:1.65;max-width:220px;margin-top:10px;}
+.footer-social{display:flex;gap:10px;margin-top:18px;}
+.social-btn{
+  width:36px;height:36px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(255,255,255,0.12);color:var(--muted);
+  transition:all 0.2s;
+}
+.social-btn:hover{border-color:var(--gold);color:var(--gold);}
 .footer-col-title{
   font-size:0.62rem;font-weight:500;letter-spacing:3px;
   text-transform:uppercase;color:var(--gold);margin-bottom:14px;
@@ -801,10 +854,11 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{
    DEMO BANNER
 ═══════════════════════════════════════════ */
 .demo-banner{
-  position:relative;z-index:900;
+  position:fixed;top:0;left:0;right:0;z-index:700;
+  height:30px;display:flex;align-items:center;justify-content:center;
   background:var(--dark2);border-bottom:1px solid var(--border);
-  color:var(--muted);font-size:0.72rem;text-align:center;
-  padding:8px 16px;letter-spacing:0.3px;
+  color:var(--muted);font-size:0.68rem;text-align:center;
+  padding:0 16px;letter-spacing:0.3px;line-height:1.3;
 }
 .demo-banner strong{color:var(--gold);font-weight:500;}
 
@@ -818,7 +872,7 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{
   text-transform:uppercase;cursor:pointer;
 }
 .mobile-menu{
-  position:fixed;top:66px;left:0;right:0;z-index:599;
+  position:fixed;top:96px;left:0;right:0;z-index:599;
   background:rgba(5,5,5,0.98);backdrop-filter:blur(20px);
   border-bottom:1px solid var(--border);
   display:none;flex-direction:column;padding:8px 24px 20px;
@@ -870,9 +924,11 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{
   </a>
   <ul class="nav-links">
     <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#about">About</a></li>
     <li><a href="#packages">Packages</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#faq">FAQ</a></li>
   </ul>
   <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open navigation menu">
     Menu
@@ -883,9 +939,11 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <a href="#portfolio">Portfolio</a>
+  <a href="#about">About</a>
   <a href="#packages">Packages</a>
   <a href="#process">Process</a>
   <a href="#reviews">Reviews</a>
+  <a href="#faq">FAQ</a>
 </div>
 
 <!-- ═══════════════════════════════════
@@ -894,10 +952,10 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{
 <section class="ll-hero" id="home">
   <div class="hero-letterbox-top"></div>
   <picture class="hero-mosaic" id="heroMosaic">
-    <source srcset="images/hero-cliff-wedding.avif" type="image/avif">
-    <source srcset="images/hero-cliff-wedding.webp" type="image/webp">
+    <source srcset="lens-light-images/hero-cliff-wedding.avif" type="image/avif">
+    <source srcset="lens-light-images/hero-cliff-wedding.webp" type="image/webp">
     <img
-      src="images/hero-cliff-wedding.jpg"
+      src="lens-light-images/hero-cliff-wedding.jpg"
       alt="Newly married couple photographed at sunset on a Saint Lucia cliff"
       width="1920" height="1080"
       style="width:100%;height:100%;object-fit:cover;filter:grayscale(0.3) brightness(0.6);"
@@ -983,6 +1041,32 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{
         <svg class="icon" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>
         See More Work on WhatsApp
       </a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     ABOUT / PHOTOGRAPHER
+═══════════════════════════════════ -->
+<div class="ll-section about-bg" id="about">
+  <div class="sec-inner about-inner">
+    <div class="about-photo reveal">
+      <picture>
+        <source srcset="lens-light-images/photographer-portrait.avif" type="image/avif">
+        <source srcset="lens-light-images/photographer-portrait.webp" type="image/webp">
+        <img src="lens-light-images/photographer-portrait.jpg" alt="Portrait of the photographer behind Lens & Light Photography" width="900" height="1100" loading="lazy">
+      </picture>
+    </div>
+    <div class="about-copy reveal">
+      <span class="sec-eye">Behind the Camera</span>
+      <h2 class="sec-h2">Hi, I'm <em>Alex Bellrose.</em></h2>
+      <p class="about-text">I started shooting weddings on borrowed gear on the north coast of Saint Lucia, and I've spent the years since chasing the same thing: the moment someone stops posing and just is. Not the stiff, staged version of a day — the real one.</p>
+      <p class="about-text">I work across the island and the wider Caribbean, from cliffside ceremonies in Soufrière to quiet portrait sessions in Rodney Bay. My approach is simple — I stay close, I stay quiet, and I let the day happen. The camera just makes sure you don't have to remember it alone.</p>
+      <div class="about-stats">
+        <div class="about-stat"><span class="about-stat-num">Saint Lucia</span><span class="about-stat-lbl">Based & Working Across the Caribbean</span></div>
+        <div class="about-stat"><span class="about-stat-num">Weddings · Portraits · Events</span><span class="about-stat-lbl">Areas of Focus</span></div>
+      </div>
+      <a href="https://wa.me/17587235872?text=Hi%20Alex!%20I%27d%20love%20to%20know%20more%20about%20how%20you%20work." target="_blank" rel="noopener noreferrer" class="btn-ghost-ll">Say Hello on WhatsApp →</a>
     </div>
   </div>
 </div>
@@ -1126,6 +1210,18 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{
 </div>
 
 <!-- ═══════════════════════════════════
+     FAQ
+═══════════════════════════════════ -->
+<div class="ll-section faq-bg" id="faq">
+  <div class="sec-inner">
+    <span class="sec-eye reveal">Questions</span>
+    <h2 class="sec-h2 reveal">Frequently <em>Asked.</em></h2>
+    <p class="sec-sub reveal">Everything people usually ask before booking. Message us on WhatsApp if yours isn't here.</p>
+    <div class="faq-list reveal" id="faqList"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
      FINAL CTA
 ═══════════════════════════════════ -->
 <div class="ll-section final-sec reveal" style="padding-top:0;">
@@ -1157,6 +1253,17 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{
       <div class="footer-brand-name">Lens & Light</div>
       <div class="footer-brand-tag">Photography Studio</div>
       <p class="footer-tagline">Cinematic portraits, weddings, and events captured with intention. Based in Saint Lucia.</p>
+      <div class="footer-social">
+        <a href="https://wa.me/17587235872" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Message us on WhatsApp">
+          <svg class="icon icon-wa-fill" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
+        </a>
+        <a href="https://instagram.com/jamalsamuel.online" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Follow us on Instagram">
+          <svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="mailto:jamal.s.samuel@outlook.com" class="social-btn" aria-label="Email us">
+          <svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+        </a>
+      </div>
     </div>
     <div>
       <div class="footer-col-title">Specialties</div>
@@ -1265,6 +1372,15 @@ const portfolio = [
   {cat:'Family',   icon:'family',   img:'family-laugh',                     h:240, alt:'Young child laughing during a family portrait session',                    caption:'The little one didn\'t stop laughing. Best shoot of the month.',       wa:'I want a family session — when are you available?'},
 ];
 
+const faqs = [
+  {q:'How far in advance should I book?', a:'For weddings and destination shoots, 2–3 months ahead is ideal, especially in peak wedding season (Dec–Apr). Portrait and event sessions can often be booked with 1–2 weeks notice, availability permitting.'},
+  {q:'Do you travel outside Saint Lucia?', a:'Yes — we cover destination weddings and shoots across the Caribbean. Travel costs are quoted separately based on location.'},
+  {q:'What happens if it rains on shoot day?', a:'We monitor weather closely and will discuss a backup plan or reschedule together if conditions genuinely won\'t work — your safety and the quality of the images come first.'},
+  {q:'Do you offer payment plans?', a:'For wedding packages, yes — a deposit secures your date, with the balance due before the event. Message us on WhatsApp to discuss a schedule that works for you.'},
+  {q:'How many images will I receive?', a:'This varies by package — see the specific package details above. Every package includes a set number of fully edited images, not just raw, unedited files.'},
+  {q:'Can I request specific shots or a shot list?', a:'Absolutely. We build your shoot around a short planning conversation beforehand, so bring your must-have shots and we\'ll make sure we get them.'},
+];
+
 const testimonials = [
   {pkg:'Wedding Photography',quote:'"I looked at the preview photos and sobbed. I had no idea our wedding looked that cinematic. Lens & Light gave us something we\'ll look at for the rest of our lives."',name:'Keisha & Marcus Thompson',occasion:'Wedding · Saint Lucia',avatar:'wedding'},
   {pkg:'Portrait Session',quote:'"I\'ve always hated having my photo taken. I\'m not photogenic, I\'m awkward — I told them all of this. They made me feel so comfortable that I forgot about the camera entirely. The photos are the best I\'ve ever looked."',name:'Nadine Charles',occasion:'Personal Portrait',avatar:'portrait'},
@@ -1325,9 +1441,9 @@ function renderMasonry() {
     <div class="masonry-item" tabindex="0">
       <div class="photo-frame" style="height:${p.h}px">
         <picture>
-          <source srcset="images/${p.img}.avif" type="image/avif">
-          <source srcset="images/${p.img}.webp" type="image/webp">
-          <img src="images/${p.img}.jpg" alt="${p.alt}" width="1200" height="1600" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+          <source srcset="lens-light-lens-light-images/${p.img}.avif" type="image/avif">
+          <source srcset="lens-light-lens-light-images/${p.img}.webp" type="image/webp">
+          <img src="lens-light-lens-light-images/${p.img}.jpg" alt="${p.alt}" width="1200" height="1600" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
         </picture>
         <div class="photo-overlay">
           <div class="photo-caption">${p.caption}</div>
@@ -1462,6 +1578,17 @@ function observeReveal() {
 }
 
 /* ═══════════════════════════════════
+   FAQ
+═══════════════════════════════════ */
+function buildFAQ() {
+  document.getElementById('faqList').innerHTML = faqs.map((f,i)=>`
+    <details class="faq-item"${i===0?' open':''}>
+      <summary>${f.q}</summary>
+      <div class="faq-a">${f.a}</div>
+    </details>`).join('');
+}
+
+/* ═══════════════════════════════════
    MONTH OPTIONS (dynamic, relative to today)
 ═══════════════════════════════════ */
 function buildMonthOptions(numberOfMonths = 12) {
@@ -1501,6 +1628,7 @@ buildTicker();
 renderMasonry();
 buildPackages();
 buildTestimonials();
+buildFAQ();
 buildSlots();
 buildMonthOptions();
 initMobileMenu();
