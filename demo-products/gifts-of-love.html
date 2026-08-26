@@ -11,7 +11,7 @@
 <meta property="og:title" content="Gifts Of Love | Curated Gift Baskets & Flowers, Delivered Across Saint Lucia">
 <meta property="og:description" content="Beautifully curated gift baskets, flowers, celebration gifts and custom gift boxes delivered island-wide. Same-day delivery available. Order on WhatsApp.">
 <meta property="og:image" content="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=1200&q=80">
-<meta property="og:url" content="https://giftsoflove.example.com">
+<meta property="og:url" content="https://www.jamalsamuel.online/demo-products/gifts-of-love.html">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Gifts Of Love | Every Gift Creates a Lasting Memory">
@@ -30,7 +30,8 @@
     "addressLocality": "Castries",
     "addressCountry": "LC"
   },
-  "telephone": "+1-758-555-0142",
+  "telephone": "+1-758-723-5872",
+  "url": "https://www.jamalsamuel.online/demo-products/gifts-of-love.html",
   "priceRange": "$$",
   "openingHours": "Mo-Sa 08:00-18:00"
 }
@@ -59,13 +60,14 @@
 }
 
 *{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;overflow-x:hidden;width:100%;}
 body{
   font-family:'Inter',sans-serif;
   color:var(--charcoal);
   background:var(--ivory);
   line-height:1.6;
   overflow-x:hidden;
+  width:100%;
 }
 h1,h2,h3,h4{
   font-family:'Playfair Display',serif;
@@ -179,7 +181,7 @@ nav{display:flex;align-items:center;justify-content:space-between;}
 /* ---------- HERO ---------- */
 .hero{
   position:relative;min-height:100vh;display:flex;align-items:center;
-  padding-top:120px;overflow:hidden;
+  padding-top:148px;overflow:hidden;
   background:
     linear-gradient(180deg, rgba(249,247,243,0.2) 0%, rgba(249,247,243,0.75) 78%, var(--ivory) 100%),
     url('https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=1800&q=80') center 32%/cover no-repeat;
@@ -209,7 +211,7 @@ nav{display:flex;align-items:center;justify-content:space-between;}
   position:relative;z-index:3;margin-top:-64px;
 }
 .stats-row{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;
   max-width:1100px;margin:0 auto;padding:0 24px;
 }
 .stat-card{
@@ -222,14 +224,14 @@ nav{display:flex;align-items:center;justify-content:space-between;}
 }
 .stat-card .num{font-family:'Playfair Display',serif;font-size:26px;color:var(--gold-deep);font-weight:700;}
 .stat-card .lbl{font-size:12.5px;color:#6b6459;margin-top:4px;font-weight:500;}
-@media(max-width:768px){.stats-row{grid-template-columns:repeat(2,1fr);} .hero-stats{margin-top:-48px;}}
+@media(max-width:768px){.stats-row{grid-template-columns:repeat(2,minmax(0,1fr));} .hero-stats{margin-top:-48px;}}
 
 /* ---------- OCCASIONS ---------- */
 .occasion-grid{
-  display:grid;grid-template-columns:repeat(6,1fr);gap:16px;
+  display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px;
 }
-@media(max-width:980px){.occasion-grid{grid-template-columns:repeat(3,1fr);}}
-@media(max-width:560px){.occasion-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:980px){.occasion-grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media(max-width:560px){.occasion-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
 .occasion-card{
   position:relative;border-radius:var(--radius-md);overflow:hidden;aspect-ratio:3/3.6;
   cursor:pointer;box-shadow:var(--shadow-card);
@@ -246,8 +248,8 @@ nav{display:flex;align-items:center;justify-content:space-between;}
 }
 
 /* ---------- COLLECTIONS ---------- */
-.collection-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
-@media(max-width:980px){.collection-grid{grid-template-columns:repeat(2,1fr);}}
+.collection-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;}
+@media(max-width:980px){.collection-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
 @media(max-width:640px){.collection-grid{grid-template-columns:1fr;}}
 .gift-card{
   background:var(--white);border-radius:var(--radius-lg);overflow:hidden;
@@ -272,7 +274,8 @@ nav{display:flex;align-items:center;justify-content:space-between;}
 .gift-body{padding:24px;}
 .gift-body h3{font-size:19px;margin-bottom:6px;}
 .gift-body p.desc{font-size:14px;color:#7a7364;margin-bottom:14px;}
-.gift-foot{display:flex;align-items:center;justify-content:space-between;}
+.gift-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.gift-foot>div{min-width:0;}
 .gift-price{font-family:'Playfair Display',serif;font-size:19px;color:var(--gold-deep);font-weight:700;}
 .delivery-tag{font-size:11.5px;color:var(--sage-deep);font-weight:600;margin-top:2px;}
 
@@ -282,7 +285,7 @@ nav{display:flex;align-items:center;justify-content:space-between;}
   border-radius:36px;
   box-shadow:var(--shadow-soft);
   padding:56px;
-  display:grid;grid-template-columns:1fr 1fr;gap:52px;
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:52px;
   position:relative;overflow:hidden;
 }
 .builder::before{
@@ -342,7 +345,7 @@ nav{display:flex;align-items:center;justify-content:space-between;}
 .finder-step.active{display:block;animation:fadeUp .5s ease;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
 .finder-step h3{color:#fff;font-size:22px;text-align:center;margin-bottom:26px;}
-.finder-options{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.finder-options{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;}
 .finder-opt{
   padding:16px;border-radius:14px;background:rgba(255,255,255,0.06);
   border:1.5px solid rgba(255,255,255,0.14);color:#fff;font-size:14.5px;font-weight:500;text-align:center;
@@ -355,7 +358,7 @@ nav{display:flex;align-items:center;justify-content:space-between;}
 .finder-nav button:disabled{opacity:0.3;pointer-events:none;}
 .finder-result{text-align:center;}
 .finder-result h4{color:var(--gold);font-family:'Playfair Display',serif;font-size:24px;margin:10px 0 24px;}
-.finder-result-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:26px;}
+.finder-result-cards{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;margin-bottom:26px;}
 @media(max-width:560px){.finder-result-cards{grid-template-columns:1fr;} .finder-options{grid-template-columns:1fr;}}
 .fr-card{background:rgba(255,255,255,0.07);border-radius:16px;overflow:hidden;text-align:left;}
 .fr-card img{aspect-ratio:4/3;object-fit:cover;width:100%;}
@@ -367,18 +370,18 @@ nav{display:flex;align-items:center;justify-content:space-between;}
 .delivery-strip{
   background:linear-gradient(135deg,var(--sage),var(--sage-deep));
   border-radius:32px;padding:50px 40px;
-  display:grid;grid-template-columns:repeat(5,1fr);gap:26px;color:#fff;
+  display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:26px;color:#fff;
 }
-@media(max-width:980px){.delivery-strip{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:980px){.delivery-strip{grid-template-columns:repeat(2,minmax(0,1fr));}}
 @media(max-width:560px){.delivery-strip{grid-template-columns:1fr;text-align:center;}}
 .delivery-item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;}
 .delivery-item .ico{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:22px;}
 .delivery-item p{font-size:13.5px;font-weight:600;}
 
 /* ---------- WHY CHOOSE ---------- */
-.why-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;}
-@media(max-width:980px){.why-grid{grid-template-columns:repeat(3,1fr);}}
-@media(max-width:560px){.why-grid{grid-template-columns:repeat(2,1fr);}}
+.why-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;}
+@media(max-width:980px){.why-grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media(max-width:560px){.why-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
 .why-card{background:#fff;border-radius:var(--radius-md);padding:30px 20px;text-align:center;box-shadow:var(--shadow-card);transition:transform .35s ease;}
 .why-card:hover{transform:translateY(-6px);}
 .why-card .ico{font-size:30px;margin-bottom:14px;}
@@ -393,7 +396,7 @@ nav{display:flex;align-items:center;justify-content:space-between;}
 .gallery-item:hover img{transform:scale(1.08);}
 
 /* ---------- TESTIMONIALS ---------- */
-.test-track{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:16px;-webkit-overflow-scrolling:touch;}
+.test-track{display:flex;justify-content:center;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:16px;-webkit-overflow-scrolling:touch;}
 .test-track::-webkit-scrollbar{height:6px;}
 .test-track::-webkit-scrollbar-thumb{background:var(--gold);border-radius:6px;}
 .test-card{
@@ -408,11 +411,11 @@ nav{display:flex;align-items:center;justify-content:space-between;}
 .test-person span{font-size:12px;color:#8a8474;}
 
 /* ---------- CORPORATE ---------- */
-.corp-wrap{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;}
+.corp-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:52px;align-items:center;}
 @media(max-width:900px){.corp-wrap{grid-template-columns:1fr;}}
 .corp-img{border-radius:28px;overflow:hidden;box-shadow:var(--shadow-soft);aspect-ratio:4/3.4;}
 .corp-img img{width:100%;height:100%;object-fit:cover;}
-.corp-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:26px 0 30px;}
+.corp-list{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;margin:26px 0 30px;}
 .corp-list li{
   background:#fff;padding:14px 16px;border-radius:12px;font-size:13.5px;font-weight:500;
   box-shadow:var(--shadow-card);display:flex;align-items:center;gap:8px;
@@ -421,11 +424,11 @@ nav{display:flex;align-items:center;justify-content:space-between;}
 /* ---------- REMINDER ---------- */
 .reminder-box{
   background:var(--blush);border-radius:32px;padding:52px;display:grid;
-  grid-template-columns:1fr 1fr;gap:46px;align-items:center;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:46px;align-items:center;
 }
 @media(max-width:900px){.reminder-box{grid-template-columns:1fr;padding:34px 24px;}}
 .reminder-form{background:#fff;border-radius:22px;padding:28px;box-shadow:var(--shadow-card);}
-.reminder-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
+.reminder-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;margin-bottom:14px;}
 @media(max-width:480px){.reminder-row{grid-template-columns:1fr;}}
 .reminder-row select, .reminder-row input{
   padding:12px 14px;border-radius:10px;border:1.5px solid rgba(51,41,20,0.15);font-family:'Inter',sans-serif;font-size:14px;width:100%;
@@ -459,16 +462,16 @@ nav{display:flex;align-items:center;justify-content:space-between;}
 .final-cta .btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:10px;}
 
 /* ---------- INSTAGRAM ---------- */
-.insta-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;}
-@media(max-width:768px){.insta-grid{grid-template-columns:repeat(3,1fr);}}
+.insta-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;}
+@media(max-width:768px){.insta-grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
 .insta-item{aspect-ratio:1;border-radius:12px;overflow:hidden;position:relative;}
 .insta-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
 .insta-item:hover img{transform:scale(1.1);}
 
 /* ---------- FOOTER ---------- */
 footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26px;}
-.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:50px;}
-@media(max-width:860px){.footer-grid{grid-template-columns:1fr 1fr;}}
+.footer-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1.2fr);gap:40px;margin-bottom:50px;}
+@media(max-width:860px){.footer-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);}}
 .footer-grid h5{color:#fff;font-size:14px;margin-bottom:18px;letter-spacing:0.04em;text-transform:uppercase;}
 .footer-grid li{margin-bottom:10px;font-size:13.5px;}
 .footer-grid a:hover{color:var(--gold);}
@@ -477,9 +480,6 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26
 .social-row{display:flex;gap:12px;}
 .social-row a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:15px;transition:background .3s ease;}
 .social-row a:hover{background:var(--gold);}
-.newsletter{display:flex;gap:8px;margin-top:6px;}
-.newsletter input{flex:1;padding:12px 14px;border-radius:10px;border:none;font-size:13.5px;min-width:0;}
-.newsletter button{background:var(--gold);color:#fff;padding:0 18px;border-radius:10px;font-size:13px;font-weight:700;}
 .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12.5px;color:rgba(255,255,255,0.45);}
 .footer-bottom a{margin-left:16px;color:rgba(255,255,255,0.55);}
 
@@ -505,13 +505,67 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26
 .reveal.in{opacity:1;transform:translateY(0);}
 
 :focus-visible{outline:2.5px solid var(--gold-deep);outline-offset:2px;}
+
+/* ---------- ICON SYSTEM ---------- */
+.ico-svg{width:1em;height:1em;display:inline-block;vertical-align:-0.15em;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+.ico-inline{flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;vertical-align:-3px;margin-right:2px;}
+#icon-instagram circle:last-of-type{fill:currentColor;}
+#icon-facebook path{fill:currentColor;stroke:none;}
+
+/* ---------- DEMO NOTICE ---------- */
+.demo-note{
+  text-align:center;font-size:11.5px;font-weight:600;letter-spacing:0.03em;
+  color:var(--gold-deep);padding-bottom:9px;
+}
+.demo-note a{text-decoration:underline;text-underline-offset:2px;}
+
+/* ---------- MAP SECTION ---------- */
+.map-wrap{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-soft);}
+.map-wrap iframe{width:100%;height:420px;border:0;display:block;}
+@media(max-width:768px){.map-wrap iframe{height:320px;}}
+
+/* ---------- TESTIMONIAL PLACEHOLDER ---------- */
+.test-placeholder{
+  min-width:300px;max-width:420px;scroll-snap-align:start;background:#fff;border-radius:var(--radius-lg);
+  padding:36px 32px;box-shadow:var(--shadow-card);border:1.5px dashed rgba(51,41,20,0.22);
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;color:#7a7364;
+}
+.test-placeholder .ico-svg{font-size:26px;color:var(--gold-deep);}
+.test-placeholder strong{color:var(--charcoal);font-family:'Playfair Display',serif;font-size:17px;font-weight:600;}
 </style>
 </head>
 <body>
 
+<!-- ================= ICON SPRITE (hidden) ================= -->
+<svg style="position:absolute;width:0;height:0;overflow:hidden;" aria-hidden="true">
+  <defs>
+    <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
+    <symbol id="icon-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+    <symbol id="icon-flower" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.6"/><path d="M12 9.4a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2ZM12 19.8a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2ZM9.4 12a2.6 2.6 0 1 1-5.2 0 2.6 2.6 0 0 1 5.2 0ZM19.8 12a2.6 2.6 0 1 1-5.2 0 2.6 2.6 0 0 1 5.2 0Z"/></symbol>
+    <symbol id="icon-package" viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5V8Z"/><path d="M3 8l9 5 9-5M12 13v8"/></symbol>
+    <symbol id="icon-envelope" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6.5 8 6 8-6"/></symbol>
+    <symbol id="icon-scissors" viewBox="0 0 24 24"><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="6.5" cy="17.5" r="2.5"/><path d="M20 5 8.5 15.5M8.5 8.5 20 19"/></symbol>
+    <symbol id="icon-gift" viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="12" rx="1.5"/><path d="M3 9V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2M12 21V5M12 5c-1.5-3-6-3-6 0s3 2 6 0ZM12 5c1.5-3 6-3 6 0s-3 2-6 0Z"/></symbol>
+    <symbol id="icon-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1 0 1.6-.6 1.6-1.4 0-.4-.2-.7-.4-1-.3-.3-.4-.6-.4-1 0-.8.6-1.4 1.4-1.4H16a4 4 0 0 0 4-4c0-5-3.6-9-8-9Z"/><circle cx="7.5" cy="10.5" r="1.1"/><circle cx="11" cy="7.2" r="1.1"/><circle cx="15.2" cy="8.5" r="1.1"/></symbol>
+    <symbol id="icon-truck" viewBox="0 0 24 24"><rect x="1" y="7" width="13" height="10" rx="1"/><path d="M14 10h4l4 3.5V17h-8"/><circle cx="6" cy="18.5" r="1.6"/><circle cx="17.5" cy="18.5" r="1.6"/></symbol>
+    <symbol id="icon-trophy" viewBox="0 0 24 24"><path d="M8 4h8v4a4 4 0 0 1-8 0V4Z"/><path d="M8 5H5a3 3 0 0 0 3 4M16 5h3a3 3 0 0 1-3 4"/><path d="M12 12v3M9 20h6M9.5 20c0-1.8.9-2.6 2.5-2.6s2.5.8 2.5 2.6"/></symbol>
+    <symbol id="icon-handshake" viewBox="0 0 24 24"><path d="m2 12 4-4 4 3 3-3 3 3 4-4 2 2-5 6-2-1.5-3 3-3.5-2.5L4 16Z"/></symbol>
+    <symbol id="icon-tree" viewBox="0 0 24 24"><path d="M12 2 7 9h2.5L6 14h3.2L6.5 18H12M12 2l5 7h-2.5L18 14h-3.2l2.7 4H12M12 18v3"/></symbol>
+    <symbol id="icon-building" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2M10 21v-3h4v3"/></symbol>
+    <symbol id="icon-clipboard" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><rect x="9" y="2.5" width="6" height="3" rx="1"/><path d="M8.5 11h7M8.5 14.5h7M8.5 18h4.5"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m4 12.5 5 5L20 6.5"/></symbol>
+    <symbol id="icon-home" viewBox="0 0 24 24"><path d="m3 11 9-7 9 7"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1.2 1.2 0 0 1 1.2-.3 10 10 0 0 0 3.2.5 1.2 1.2 0 0 1 1.2 1.2V20a1.2 1.2 0 0 1-1.2 1.2A17.2 17.2 0 0 1 2.8 4.2 1.2 1.2 0 0 1 4 3h3.4a1.2 1.2 0 0 1 1.2 1.2 10 10 0 0 0 .5 3.2 1.2 1.2 0 0 1-.3 1.2Z"/></symbol>
+    <symbol id="icon-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 1 1-3.6-6.7L21 4l-1.2 3.8A8 8 0 0 1 21 12Z"/><path d="M8 11h.01M12 11h.01M16 11h.01"/></symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="icon-facebook" viewBox="0 0 24 24"><path d="M14 21v-8h3l.5-3.5H14V7.2c0-1 .3-1.7 1.8-1.7H18V2.3C17.6 2.2 16.5 2 15.2 2 12.5 2 10.7 3.6 10.7 6.5V9.5H7.7V13h3v8Z"/></symbol>
+  </defs>
+</svg>
+
 <!-- ================= HEADER ================= -->
 <header id="siteHeader">
   <div class="container">
+    <div class="demo-note">This is a demo website built by <a href="https://www.jamalsamuel.online" target="_blank">Jamal Samuel</a> for Gifts Of Love — not the business's official live site.</div>
     <nav>
       <a href="#home" class="logo">Gifts <span>Of Love</span></a>
       <div class="nav-links">
@@ -522,11 +576,11 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26
         <a href="#corporate">Corporate</a>
         <a href="#testimonials">Testimonials</a>
         <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
+        <a href="#location">Find Us</a>
       </div>
       <div class="nav-cta">
         <a href="#builder" class="btn btn-outline btn-sm">Browse Gifts</a>
-        <a href="https://wa.me/17585550142?text=Hi%20Gifts%20Of%20Love%2C%20I%27d%20like%20to%20place%20an%20order." target="_blank" class="btn btn-whatsapp btn-sm">Order on WhatsApp</a>
+        <a href="https://wa.me/17587235872?text=Hi%20Gifts%20Of%20Love%2C%20I%27d%20like%20to%20place%20an%20order." target="_blank" class="btn btn-whatsapp btn-sm">Order on WhatsApp</a>
       </div>
       <button class="burger" id="burgerBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
     </nav>
@@ -543,8 +597,9 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26
   <a href="#corporate">Corporate</a>
   <a href="#testimonials">Testimonials</a>
   <a href="#faq">FAQ</a>
+  <a href="#location">Find Us</a>
   <a href="#contact">Contact</a>
-  <a href="https://wa.me/17585550142" target="_blank" style="color:#25D366;">Order on WhatsApp →</a>
+  <a href="https://wa.me/17587235872" target="_blank" style="color:#25D366;">Order on WhatsApp →</a>
 </div>
 
 <!-- ================= HERO ================= -->
@@ -560,7 +615,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26
     <p>Beautifully curated gift baskets, flowers, celebration gifts and custom gift boxes, delivered island-wide across Saint Lucia.</p>
     <div class="hero-btns">
       <a href="#collections" class="btn btn-gold">Browse Gift Collections</a>
-      <a href="https://wa.me/17585550142?text=Hi%20Gifts%20Of%20Love%2C%20I%27d%20like%20to%20order%20a%20gift." target="_blank" class="btn btn-whatsapp">Order on WhatsApp</a>
+      <a href="https://wa.me/17587235872?text=Hi%20Gifts%20Of%20Love%2C%20I%27d%20like%20to%20order%20a%20gift." target="_blank" class="btn btn-whatsapp">Order on WhatsApp</a>
     </div>
   </div>
 </section>
@@ -785,11 +840,11 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26
 <section style="padding-top:0;">
   <div class="container">
     <div class="delivery-strip reveal">
-      <div class="delivery-item"><div class="ico">🕐</div><p>Order Before 1 PM for Same-Day</p></div>
-      <div class="delivery-item"><div class="ico">🏝️</div><p>Island-Wide Delivery</p></div>
-      <div class="delivery-item"><div class="ico">🌸</div><p>Fresh Flowers Daily</p></div>
-      <div class="delivery-item"><div class="ico">📦</div><p>Secure, Beautiful Packaging</p></div>
-      <div class="delivery-item"><div class="ico">💌</div><p>Personalized Message Included</p></div>
+      <div class="delivery-item"><div class="ico"><svg class="ico-svg"><use href="#icon-clock"></use></svg></div><p>Order Before 1 PM for Same-Day</p></div>
+      <div class="delivery-item"><div class="ico"><svg class="ico-svg"><use href="#icon-map-pin"></use></svg></div><p>Island-Wide Delivery</p></div>
+      <div class="delivery-item"><div class="ico"><svg class="ico-svg"><use href="#icon-flower"></use></svg></div><p>Fresh Flowers Daily</p></div>
+      <div class="delivery-item"><div class="ico"><svg class="ico-svg"><use href="#icon-package"></use></svg></div><p>Secure, Beautiful Packaging</p></div>
+      <div class="delivery-item"><div class="ico"><svg class="ico-svg"><use href="#icon-envelope"></use></svg></div><p>Personalized Message Included</p></div>
     </div>
   </div>
 </section>
@@ -802,11 +857,11 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26
       <h2>Gifting, Done With Care</h2>
     </div>
     <div class="why-grid reveal">
-      <div class="why-card"><div class="ico">✂️</div><h4>Handcrafted Gifts</h4><p>Assembled by hand, never mass-produced.</p></div>
-      <div class="why-card"><div class="ico">🎀</div><h4>Premium Packaging</h4><p>Wrapped like it's the gift itself.</p></div>
-      <div class="why-card"><div class="ico">💐</div><h4>Fresh Flowers</h4><p>Sourced and arranged the same day.</p></div>
-      <div class="why-card"><div class="ico">🎨</div><h4>Custom Designs</h4><p>Built around the person, not a catalogue.</p></div>
-      <div class="why-card"><div class="ico">🚚</div><h4>Reliable Delivery</h4><p>Trusted by hundreds across the island.</p></div>
+      <div class="why-card"><div class="ico"><svg class="ico-svg"><use href="#icon-scissors"></use></svg></div><h4>Handcrafted Gifts</h4><p>Assembled by hand, never mass-produced.</p></div>
+      <div class="why-card"><div class="ico"><svg class="ico-svg"><use href="#icon-gift"></use></svg></div><h4>Premium Packaging</h4><p>Wrapped like it's the gift itself.</p></div>
+      <div class="why-card"><div class="ico"><svg class="ico-svg"><use href="#icon-flower"></use></svg></div><h4>Fresh Flowers</h4><p>Sourced and arranged the same day.</p></div>
+      <div class="why-card"><div class="ico"><svg class="ico-svg"><use href="#icon-palette"></use></svg></div><h4>Custom Designs</h4><p>Built around the person, not a catalogue.</p></div>
+      <div class="why-card"><div class="ico"><svg class="ico-svg"><use href="#icon-truck"></use></svg></div><h4>Reliable Delivery</h4><p>Trusted by hundreds across the island.</p></div>
     </div>
   </div>
 </section>
@@ -845,14 +900,14 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26
         <h2 style="font-size:clamp(26px,3.4vw,36px);margin-bottom:16px;">Make Your Business Memorable</h2>
         <p style="color:#6b6459;margin-bottom:10px;">From employee appreciation to client thank-yous, we handle bulk gifting with the same care as a single order.</p>
         <ul class="corp-list">
-          <li>🏆 Employee Appreciation</li>
-          <li>🤝 Client Thank You Gifts</li>
-          <li>🎄 Holiday Gifts</li>
-          <li>🏨 Hotel Welcome Gifts</li>
-          <li>📋 Conference Gifts</li>
-          <li>📦 Bulk Orders</li>
+          <li><svg class="ico-svg" style="font-size:17px;color:var(--gold-deep);"><use href="#icon-trophy"></use></svg> Employee Appreciation</li>
+          <li><svg class="ico-svg" style="font-size:17px;color:var(--gold-deep);"><use href="#icon-handshake"></use></svg> Client Thank You Gifts</li>
+          <li><svg class="ico-svg" style="font-size:17px;color:var(--gold-deep);"><use href="#icon-tree"></use></svg> Holiday Gifts</li>
+          <li><svg class="ico-svg" style="font-size:17px;color:var(--gold-deep);"><use href="#icon-building"></use></svg> Hotel Welcome Gifts</li>
+          <li><svg class="ico-svg" style="font-size:17px;color:var(--gold-deep);"><use href="#icon-clipboard"></use></svg> Conference Gifts</li>
+          <li><svg class="ico-svg" style="font-size:17px;color:var(--gold-deep);"><use href="#icon-package"></use></svg> Bulk Orders</li>
         </ul>
-        <a href="https://wa.me/17585550142?text=Hi%2C%20I%27d%20like%20to%20request%20a%20corporate%20gifting%20quote." target="_blank" class="btn btn-gold">Request a Corporate Quote</a>
+        <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20request%20a%20corporate%20gifting%20quote." target="_blank" class="btn btn-gold">Request a Corporate Quote</a>
       </div>
     </div>
   </div>
@@ -892,11 +947,11 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26
     </div>
     <div class="tracker reveal">
       <div class="tracker-line"></div>
-      <div class="tstep done"><div class="dot">✓</div><p>Order Received</p></div>
-      <div class="tstep done"><div class="dot">✓</div><p>Preparing Your Gift</p></div>
-      <div class="tstep done"><div class="dot">✓</div><p>Beautifully Wrapped</p></div>
-      <div class="tstep done"><div class="dot">🚚</div><p>Out for Delivery</p></div>
-      <div class="tstep"><div class="dot">🏠</div><p>Delivered</p></div>
+      <div class="tstep done"><div class="dot"><svg class="ico-svg"><use href="#icon-check"></use></svg></div><p>Order Received</p></div>
+      <div class="tstep done"><div class="dot"><svg class="ico-svg"><use href="#icon-check"></use></svg></div><p>Preparing Your Gift</p></div>
+      <div class="tstep done"><div class="dot"><svg class="ico-svg"><use href="#icon-check"></use></svg></div><p>Beautifully Wrapped</p></div>
+      <div class="tstep done"><div class="dot"><svg class="ico-svg"><use href="#icon-truck"></use></svg></div><p>Out for Delivery</p></div>
+      <div class="tstep"><div class="dot"><svg class="ico-svg"><use href="#icon-home"></use></svg></div><p>Delivered</p></div>
     </div>
   </div>
 </section>
@@ -929,9 +984,23 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26
     <div class="final-cta reveal">
       <h2>Someone You Love Is Waiting For Their Smile.</h2>
       <div class="btns">
-        <a href="https://wa.me/17585550142?text=Hi%20Gifts%20Of%20Love%2C%20I%27d%20like%20to%20order%20a%20gift." target="_blank" class="btn btn-whatsapp">Order on WhatsApp</a>
+        <a href="https://wa.me/17587235872?text=Hi%20Gifts%20Of%20Love%2C%20I%27d%20like%20to%20order%20a%20gift." target="_blank" class="btn btn-whatsapp">Order on WhatsApp</a>
         <a href="#collections" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.5);">Browse Collections</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LOCATION / MAP ================= -->
+<section id="location" style="background:#fff;">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow" style="justify-content:center;">Find Us</div>
+      <h2>Serving All Of Saint Lucia</h2>
+      <p>Based in Castries with island-wide delivery — or reach out on WhatsApp to arrange a pickup.</p>
+    </div>
+    <div class="map-wrap reveal">
+      <iframe src="https://www.google.com/maps?q=Castries,+Saint+Lucia&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Gifts Of Love service area map — Castries, Saint Lucia"></iframe>
     </div>
   </div>
 </section>
@@ -944,10 +1013,10 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26
         <div class="footer-logo">Gifts Of Love</div>
         <p class="desc">Curated gift baskets, flowers and custom gifting, delivered with care across Saint Lucia.</p>
         <div class="social-row">
-          <a href="https://wa.me/17585550142" target="_blank" aria-label="WhatsApp">🟢</a>
-          <a href="https://instagram.com" target="_blank" aria-label="Instagram">📷</a>
-          <a href="https://facebook.com" target="_blank" aria-label="Facebook">📘</a>
-          <a href="https://maps.google.com" target="_blank" aria-label="Google Maps">📍</a>
+          <a href="https://wa.me/17587235872" target="_blank" aria-label="WhatsApp"><svg class="ico-svg" style="font-size:16px;"><use href="#icon-chat"></use></svg></a>
+          <a href="https://instagram.com" target="_blank" aria-label="Instagram"><svg class="ico-svg" style="font-size:16px;"><use href="#icon-instagram"></use></svg></a>
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook"><svg class="ico-svg" style="font-size:16px;"><use href="#icon-facebook"></use></svg></a>
+          <a href="#location" aria-label="Find us on the map"><svg class="ico-svg" style="font-size:16px;"><use href="#icon-map-pin"></use></svg></a>
         </div>
       </div>
       <div>
@@ -963,19 +1032,16 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26
       <div>
         <h5>Business Info</h5>
         <ul>
-          <li>📍 Castries, Saint Lucia</li>
-          <li>📞 +1 (758) 555-0142</li>
-          <li>✉️ hello@giftsoflove.lc</li>
-          <li>🕐 Mon – Sat: 8am – 6pm</li>
+          <li><svg class="ico-inline" width="16" height="16" viewBox="0 0 24 24"><use href="#icon-map-pin"></use></svg> Castries, Saint Lucia</li>
+          <li><svg class="ico-inline" width="16" height="16" viewBox="0 0 24 24"><use href="#icon-phone"></use></svg> +1 (758) 723-5872</li>
+          <li><svg class="ico-inline" width="16" height="16" viewBox="0 0 24 24"><use href="#icon-envelope"></use></svg> hello@giftsoflove.lc</li>
+          <li><svg class="ico-inline" width="16" height="16" viewBox="0 0 24 24"><use href="#icon-clock"></use></svg> Mon – Sat: 8am – 6pm</li>
         </ul>
       </div>
       <div>
         <h5>Stay In Touch</h5>
-        <p class="desc">Get gifting ideas and occasion reminders in your inbox.</p>
-        <div class="newsletter">
-          <input type="email" placeholder="Your email">
-          <button>Join</button>
-        </div>
+        <p class="desc">Prefer a quicker way to reach us? Message us directly on WhatsApp for gifting ideas, orders and occasion reminders.</p>
+        <a href="https://wa.me/17587235872?text=Hi%20Gifts%20Of%20Love%2C%20I%27d%20like%20to%20get%20in%20touch." target="_blank" class="btn btn-whatsapp btn-sm">Message Us</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -985,11 +1051,11 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26
   </div>
 </footer>
 
-<a href="https://wa.me/17585550142?text=Hi%20Gifts%20Of%20Love%2C%20I%27d%20like%20to%20order%20a%20gift." target="_blank" class="fab-whatsapp" aria-label="Chat on WhatsApp">💬</a>
+<a href="https://wa.me/17587235872?text=Hi%20Gifts%20Of%20Love%2C%20I%27d%20like%20to%20order%20a%20gift." target="_blank" class="fab-whatsapp" aria-label="Chat on WhatsApp"><svg class="ico-svg" style="font-size:26px;"><use href="#icon-chat"></use></svg></a>
 
 <div class="sticky-bar">
   <a href="#builder" class="btn-outline" style="background:var(--ivory);color:var(--charcoal);">Build a Gift</a>
-  <a href="https://wa.me/17585550142?text=Hi%20Gifts%20Of%20Love%2C%20I%27d%20like%20to%20order%20a%20gift." target="_blank" class="btn-whatsapp" style="background:#25D366;color:#fff;">Order on WhatsApp</a>
+  <a href="https://wa.me/17587235872?text=Hi%20Gifts%20Of%20Love%2C%20I%27d%20like%20to%20order%20a%20gift." target="_blank" class="btn-whatsapp" style="background:#25D366;color:#fff;">Order on WhatsApp</a>
 </div>
 
 <script>
@@ -1025,12 +1091,6 @@ const galleryImgs = [
   "https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=500&q=70",
   "https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=500&q=70",
   "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=500&q=70",
-];
-const testimonials = [
-  {n:"Andrea Charles",loc:"Castries",t:"Ordered a birthday basket same-day and it arrived more beautiful than the photos. My sister cried."},
-  {n:"Marcus Joseph",loc:"Gros Islet",t:"The corporate order for our staff was seamless from quote to delivery. Every hamper was consistent and polished."},
-  {n:"Renel Auguste",loc:"Vieux-Fort",t:"I built a custom gift for my mother's anniversary through the site — the WhatsApp order made it effortless."},
-  {n:"Sherise Peter",loc:"Soufrière",t:"Fresh flowers, thoughtful packaging, and a genuinely kind delivery experience. This is now my go-to."},
 ];
 const instaImgs = [
   "https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=300&q=60",
@@ -1070,7 +1130,7 @@ document.getElementById('collectionGrid').innerHTML = collections.map(c=>`
           <div class="gift-price">${c.p}</div>
           <div class="delivery-tag">Island-Wide Delivery</div>
         </div>
-        <a href="https://wa.me/17585550142?text=${encodeURIComponent('Hi, I\'d like to order the '+c.n+' ('+c.p+').')}" target="_blank" class="btn btn-whatsapp btn-sm">Order</a>
+        <a href="https://wa.me/17587235872?text=${encodeURIComponent('Hi, I\'d like to order the '+c.n+' ('+c.p+').')}" target="_blank" class="btn btn-whatsapp btn-sm">Order</a>
       </div>
     </div>
   </div>
@@ -1080,16 +1140,13 @@ document.getElementById('galleryGrid').innerHTML = galleryImgs.map(g=>`
   <div class="gallery-item"><img src="${g}" alt="Customer gift delivery" loading="lazy"></div>
 `).join('');
 
-document.getElementById('testTrack').innerHTML = testimonials.map(t=>`
-  <div class="test-card">
-    <div class="test-stars">★★★★★</div>
-    <p class="quote">"${t.t}"</p>
-    <div class="test-person">
-      <div class="test-avatar" style="background:var(--sage);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Playfair Display',serif;font-weight:700;">${t.n[0]}</div>
-      <div><strong>${t.n}</strong><span>${t.loc}, Saint Lucia</span></div>
-    </div>
+document.getElementById('testTrack').innerHTML = `
+  <div class="test-placeholder">
+    <svg class="ico-svg"><use href="#icon-envelope"></use></svg>
+    <strong>Real customer reviews go here.</strong>
+    <p>This section is ready to display genuine feedback from Gifts Of Love customers as soon as they're shared — nothing here is invented.</p>
   </div>
-`).join('');
+`;
 
 document.getElementById('instaGrid').innerHTML = instaImgs.map(g=>`
   <div class="insta-item"><img src="${g}" alt="Instagram post" loading="lazy"></div>
@@ -1188,7 +1245,7 @@ document.getElementById('builderWhatsapp').addEventListener('click', ()=>{
 - Recipient: ${recipient}
 - Message: ${message}
 - Preferred Delivery Date: ${date}`;
-  window.open(`https://wa.me/17585550142?text=${encodeURIComponent(text)}`, '_blank');
+  window.open(`https://wa.me/17587235872?text=${encodeURIComponent(text)}`, '_blank');
 });
 
 /* ---------------- GIFT FINDER QUIZ ---------------- */
@@ -1254,7 +1311,7 @@ function buildFinderResult(){
     </div>
   `).join('');
   const summary = `Hi! The Gift Finder suggested: ${picks.map(p=>p.n).join(' & ')} — for ${finderAnswers.who||'someone special'}'s ${finderAnswers.occasion||'occasion'}, budget ${finderAnswers.budget||'flexible'}. I'd like to order.`;
-  document.getElementById('finderWhatsapp').href = `https://wa.me/17585550142?text=${encodeURIComponent(summary)}`;
+  document.getElementById('finderWhatsapp').href = `https://wa.me/17587235872?text=${encodeURIComponent(summary)}`;
 }
 renderFinderStep();
 
@@ -1268,7 +1325,7 @@ document.getElementById('reminderBtn').addEventListener('click', (e)=>{
 - Relationship: ${relation.value || 'Not specified'}
 - Date: ${date.value || 'Not specified'}
 - WhatsApp: ${phone.value || 'Not specified'}`;
-  window.open(`https://wa.me/17585550142?text=${encodeURIComponent(text)}`, '_blank');
+  window.open(`https://wa.me/17587235872?text=${encodeURIComponent(text)}`, '_blank');
 });
 </script>
 </body>
