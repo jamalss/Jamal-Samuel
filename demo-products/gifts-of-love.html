@@ -664,7 +664,10 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26
 
     <div class="builder reveal">
       <div class="builder-preview">
-        <img id="previewImg" src="https://images.unsplash.com/photo-1559648285-851dd3a04a02?w=900&q=80" alt="Live preview of your custom gift">
+        <picture>
+          <source id="previewImgWebp" type="image/webp" srcset="https://images.unsplash.com/photo-1559648285-851dd3a04a02?w=900&q=80&fm=webp">
+          <img id="previewImg" src="https://images.unsplash.com/photo-1559648285-851dd3a04a02?w=900&q=80&fm=jpg" alt="Live preview of your custom gift">
+        </picture>
         <div class="preview-overlay">
           <h4>Your Gift Summary</h4>
           <div class="preview-line"><span>Basket Style</span><span id="pStyle">Classic Wicker</span></div>
@@ -893,7 +896,10 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26
   <div class="container">
     <div class="corp-wrap reveal">
       <div class="corp-img">
-        <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=900&q=80" alt="Corporate gift hampers ready for delivery">
+        <picture>
+          <source type="image/webp" srcset="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=900&q=80&fm=webp">
+          <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=900&q=80&fm=jpg" alt="Corporate gift hampers ready for delivery">
+        </picture>
       </div>
       <div>
         <div class="eyebrow">Corporate Gifting</div>
@@ -1110,15 +1116,23 @@ const faqs = [
   ["Do you guarantee fresh flowers?","All floral arrangements are sourced and assembled on the day of delivery. If anything arrives below standard, we'll make it right."],
 ];
 
+/* ---------------- IMAGE HELPER ---------------- */
+function picHTML(url, alt, extraAttrs){
+  const sep = url.includes('?') ? '&' : '?';
+  const webp = url + sep + 'fm=webp';
+  const jpg = url + sep + 'fm=jpg';
+  return `<picture><source type="image/webp" srcset="${webp}"><img src="${jpg}" alt="${alt}" ${extraAttrs||''}></picture>`;
+}
+
 /* ---------------- RENDER ---------------- */
 document.getElementById('occasionGrid').innerHTML = occasions.map(o=>`
-  <div class="occasion-card"><img src="${o[1]}" alt="${o[0]} gifts" loading="lazy"><span>${o[0]}</span></div>
+  <div class="occasion-card">${picHTML(o[1], o[0]+' gifts', 'loading="lazy"')}<span>${o[0]}</span></div>
 `).join('');
 
 document.getElementById('collectionGrid').innerHTML = collections.map(c=>`
   <div class="gift-card">
     <div class="gift-media">
-      <img src="${c.img}" alt="${c.n}" loading="lazy">
+      ${picHTML(c.img, c.n, 'loading="lazy"')}
       <div class="gift-badge">${c.badge}</div>
       <div class="gift-fav">♡</div>
     </div>
@@ -1137,7 +1151,7 @@ document.getElementById('collectionGrid').innerHTML = collections.map(c=>`
 `).join('');
 
 document.getElementById('galleryGrid').innerHTML = galleryImgs.map(g=>`
-  <div class="gallery-item"><img src="${g}" alt="Customer gift delivery" loading="lazy"></div>
+  <div class="gallery-item">${picHTML(g, 'Customer gift delivery', 'loading="lazy"')}</div>
 `).join('');
 
 document.getElementById('testTrack').innerHTML = `
@@ -1149,7 +1163,7 @@ document.getElementById('testTrack').innerHTML = `
 `;
 
 document.getElementById('instaGrid').innerHTML = instaImgs.map(g=>`
-  <div class="insta-item"><img src="${g}" alt="Instagram post" loading="lazy"></div>
+  <div class="insta-item">${picHTML(g, 'Instagram post', 'loading="lazy"')}</div>
 `).join('');
 
 document.getElementById('faqList').innerHTML = faqs.map((f,i)=>`
@@ -1229,7 +1243,10 @@ document.getElementById('recipientInput').addEventListener('input', e=>{
 });
 function updatePreview(){
   document.getElementById('pPrice').textContent = `EC$${builderState.min} – ${builderState.max}`;
-  document.getElementById('previewImg').src = previewMap[builderState.flowers] || previewMap.default;
+  const base = previewMap[builderState.flowers] || previewMap.default;
+  const sep = base.includes('?') ? '&' : '?';
+  document.getElementById('previewImgWebp').srcset = base + sep + 'fm=webp';
+  document.getElementById('previewImg').src = base + sep + 'fm=jpg';
 }
 document.getElementById('builderWhatsapp').addEventListener('click', ()=>{
   const recipient = document.getElementById('recipientInput').value || 'a special someone';
@@ -1306,7 +1323,7 @@ function buildFinderResult(){
   else picks = [collections[0], collections[5]];
   document.getElementById('finderResults').innerHTML = picks.map(c=>`
     <div class="fr-card">
-      <img src="${c.img}" alt="${c.n}">
+      ${picHTML(c.img, c.n)}
       <div class="fr-card-body"><h5>${c.n}</h5><p>${c.p}</p></div>
     </div>
   `).join('');
