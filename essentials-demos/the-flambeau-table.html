@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Flambeau Table — Authentic Caribbean Dining · St. Lucia</title>
+<meta name="description" content="Where Caribbean fire meets flavour. Authentic dishes crafted with passion at The Flambeau Table, Castries, St. Lucia.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+:root{
+  --char:    #0C0805;
+  --char-lt: #1A1208;
+  --card:    #1E1409;
+  --flame:   #D4793A;
+  --flame-lt:#E8943A;
+  --gold:    #C9A55A;
+  --gold-lt: #DDB96A;
+  --cream:   #F5EBD7;
+  --cream-dk:#D9C9AD;
+  --muted:   #9E8E7A;
+  --green:   #25D366;
+  --border:  rgba(201,165,90,.13);
+  --rad:     .6rem;
+  --trans:   all .3s ease;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{overflow-x:hidden;scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--char);color:var(--cream-dk);line-height:1.68}
+h1,h2,h3,h4,h5,h6{font-family:'Cormorant Garamond',serif;color:var(--cream);font-weight:600;line-height:1.12}
+section{padding:5.5rem 0}
+
+/* UTILITIES */
+.sec-label{display:inline-flex;align-items:center;gap:.5rem;font-family:'DM Sans',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.85rem}
+.sec-label::before,.sec-label::after{content:'';display:block;width:22px;height:1px;background:var(--gold);opacity:.45}
+.flame-text{color:var(--flame)}
+.gold-text{color:var(--gold)}
+
+/* BUTTONS */
+.btn-wa{display:inline-flex;align-items:center;gap:.48rem;background:#25D366;color:#fff;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.87rem;padding:.76rem 1.65rem;border-radius:var(--rad);border:none;text-decoration:none;transition:var(--trans);cursor:pointer;white-space:nowrap}
+.btn-wa:hover{background:#1cb857;color:#fff;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.32)}
+.btn-flame{display:inline-flex;align-items:center;gap:.48rem;background:var(--flame);color:#fff;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.87rem;padding:.76rem 1.65rem;border-radius:var(--rad);border:none;text-decoration:none;transition:var(--trans);cursor:pointer;white-space:nowrap}
+.btn-flame:hover{background:var(--flame-lt);color:#fff;transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,121,58,.32)}
+.btn-outline-c{display:inline-flex;align-items:center;gap:.48rem;background:transparent;color:var(--cream);font-family:'DM Sans',sans-serif;font-weight:600;font-size:.87rem;padding:.76rem 1.65rem;border-radius:var(--rad);border:1.5px solid rgba(245,235,215,.22);text-decoration:none;transition:var(--trans);cursor:pointer;white-space:nowrap}
+.btn-outline-c:hover{background:rgba(245,235,215,.07);color:var(--cream);border-color:rgba(245,235,215,.42)}
+
+/* NAVBAR */
+#mainNav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.9rem 0;background:rgba(12,8,5,.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(201,165,90,.1);transition:var(--trans)}
+#mainNav.scrolled{padding:.55rem 0;box-shadow:0 4px 32px rgba(0,0,0,.55)}
+.navbar-brand{text-decoration:none;display:flex;flex-direction:column;line-height:1}
+.brand-name{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:700;color:var(--cream);letter-spacing:.02em}
+.brand-name span{color:var(--flame)}
+.brand-sub{font-size:.45rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.65}
+.nav-link{color:rgba(245,235,215,.6)!important;font-size:.83rem;font-weight:500;padding:.4rem .7rem!important;transition:var(--trans)}
+.nav-link:hover{color:var(--cream)!important}
+.nav-cta{background:var(--flame)!important;color:#fff!important;border-radius:var(--rad)!important;padding:.42rem 1.1rem!important;font-weight:600!important;font-size:.81rem!important;display:flex!important;align-items:center!important;gap:.35rem!important}
+.nav-cta:hover{background:var(--flame-lt)!important;transform:translateY(-1px)}
+.navbar-toggler{border:1.5px solid rgba(201,165,90,.25);border-radius:.45rem;padding:.36rem .58rem}
+.navbar-toggler-icon{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28245,235,215,0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")!important}
+
+/* HERO */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  position:relative;overflow:hidden;padding:7rem 0 5rem;
+  background:
+    linear-gradient(180deg,rgba(12,8,5,.45) 0%,rgba(12,8,5,.72) 55%,rgba(12,8,5,.97) 100%),
+    url('https://images.unsplash.com/photo-1544025162-d76694265947?w=1600&q=85') center/cover no-repeat;
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 40%,rgba(212,121,58,.18) 0%,transparent 60%)}
+.hero-badge{display:inline-flex;align-items:center;gap:.45rem;background:rgba(201,165,90,.12);border:1px solid rgba(201,165,90,.25);color:var(--gold);font-size:.67rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .9rem;border-radius:2rem;margin-bottom:1.5rem}
+.hero-title{font-size:clamp(2.8rem,6vw,5rem);font-weight:700;color:var(--cream);line-height:1.04;margin-bottom:.6rem;letter-spacing:-.01em}
+.hero-title em{color:var(--flame);font-style:italic}
+.hero-tagline{font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2vw,1.3rem);color:var(--gold);font-style:italic;margin-bottom:1.5rem;opacity:.85}
+.hero-desc{font-size:.93rem;color:rgba(245,235,215,.6);max-width:430px;line-height:1.75;margin-bottom:2rem}
+.hero-info{display:flex;flex-wrap:wrap;gap:1.25rem;margin-bottom:2.25rem}
+.h-info-item{display:flex;align-items:center;gap:.42rem;font-size:.78rem;color:rgba(245,235,215,.5)}
+.h-info-item i{color:var(--gold);font-size:.88rem}
+/* fire particles */
+.flame-particles{position:absolute;bottom:0;left:0;right:0;height:220px;pointer-events:none;overflow:hidden}
+.fp{position:absolute;bottom:0;width:2px;border-radius:50%;animation:rise linear infinite;opacity:0}
+@keyframes rise{0%{transform:translateY(0) scale(1);opacity:.7}100%{transform:translateY(-200px) scale(0);opacity:0}}
+.hero-scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;color:rgba(245,235,215,.3);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(5px)}}
+
+/* STORY / ABOUT */
+.story-section{background:var(--char-lt)}
+.story-img-wrap{position:relative}
+.story-img{
+  width:100%;aspect-ratio:4/5;object-fit:cover;
+  border-radius:1.2rem;
+  background:linear-gradient(160deg,#2a1a08,#1a0e04);
+  display:flex;align-items:center;justify-content:center;
+  font-size:5rem;
+}
+.story-badge{
+  position:absolute;bottom:-1.5rem;right:-1.5rem;
+  background:var(--flame);color:#fff;
+  border-radius:1rem;padding:1.25rem 1.5rem;
+  box-shadow:0 12px 36px rgba(212,121,58,.4);
+  text-align:center;min-width:130px;
+}
+.story-badge .num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;line-height:1;display:block}
+.story-badge .lbl{font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+.story-text h2{font-size:clamp(2rem,4vw,2.9rem);margin-bottom:.75rem}
+.story-text p{font-size:.9rem;color:rgba(245,235,215,.58);line-height:1.78;margin-bottom:1rem}
+.signature{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-style:italic;color:var(--gold);margin-top:.5rem}
+
+/* SPECIALS */
+.specials-section{background:var(--char)}
+.spec-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:1.1rem;overflow:hidden;
+  transition:var(--trans);position:relative;
+}
+.spec-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.45);border-color:rgba(212,121,58,.25)}
+.spec-img{
+  width:100%;aspect-ratio:4/3;
+  background:linear-gradient(135deg,#2a1a08,#1a0e04);
+  display:flex;align-items:center;justify-content:center;
+  font-size:3.5rem;position:relative;overflow:hidden;
+}
+.spec-tag{
+  position:absolute;top:.75rem;left:.75rem;
+  background:var(--flame);color:#fff;
+  font-size:.56rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:.2rem .55rem;border-radius:2rem;
+}
+.spec-body{padding:1.25rem}
+.spec-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--cream);margin-bottom:.35rem}
+.spec-desc{font-size:.78rem;color:var(--muted);line-height:1.58;margin-bottom:.85rem}
+.spec-footer{display:flex;align-items:center;justify-content:space-between}
+.spec-price{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--gold)}
+.spec-order{display:inline-flex;align-items:center;gap:.3rem;background:#25D366;color:#fff;font-size:.72rem;font-weight:600;padding:.38rem .85rem;border-radius:.45rem;text-decoration:none;transition:var(--trans)}
+.spec-order:hover{background:#1cb857;color:#fff;transform:translateY(-1px)}
+
+/* HOURS & LOCATION — LAUNCH VISIBLE */
+.info-section{background:var(--char-lt)}
+.info-card{background:var(--card);border:1px solid var(--border);border-radius:1.1rem;padding:2rem;height:100%}
+.info-card h4{font-size:1.4rem;margin-bottom:1.1rem;color:var(--cream)}
+.hours-row{display:flex;justify-content:space-between;align-items:center;padding:.55rem 0;border-bottom:1px solid rgba(201,165,90,.08);font-size:.83rem}
+.hours-row:last-child{border-bottom:none}
+.hours-day{color:var(--cream-dk)}
+.hours-time{color:var(--gold);font-weight:500}
+.hours-row.today .hours-day{color:var(--flame);font-weight:600}
+.hours-row.today .hours-time{color:var(--flame)}
+.loc-item{display:flex;gap:.75rem;margin-bottom:1rem;font-size:.84rem}
+.loc-item i{color:var(--flame);font-size:1.05rem;margin-top:.18rem;flex-shrink:0}
+.loc-item span{color:var(--cream-dk);line-height:1.55}
+
+/* ═══════════════════════════════════════════════════════
+   LOCKED SECTIONS — Grow tier features
+═══════════════════════════════════════════════════════ */
+.locked-section{position:relative;overflow:hidden}
+.locked-content{
+  filter:blur(5px);
+  pointer-events:none;
+  user-select:none;
+  opacity:.55;
+}
+.lock-overlay{
+  position:absolute;inset:0;z-index:10;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:rgba(12,8,5,.72);
+  backdrop-filter:blur(2px);
+  text-align:center;padding:2rem;
+}
+.lock-icon{
+  width:64px;height:64px;border-radius:50%;
+  background:rgba(212,121,58,.15);border:2px solid rgba(212,121,58,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;color:var(--flame);margin:0 auto 1.1rem;
+}
+.lock-title{font-family:'Cormorant Garamond',serif;font-size:1.55rem;color:var(--cream);margin-bottom:.4rem}
+.lock-sub{font-size:.8rem;color:rgba(245,235,215,.5);margin-bottom:1.35rem;max-width:280px;line-height:1.6}
+.lock-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(201,165,90,.12);border:1px solid rgba(201,165,90,.25);color:var(--gold);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .75rem;border-radius:2rem;margin-bottom:1rem}
+
+/* MENU GRID (locked) */
+.menu-section{background:var(--char)}
+.menu-cat-tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.m-tab{background:rgba(201,165,90,.1);border:1px solid rgba(201,165,90,.2);color:var(--gold);font-size:.73rem;font-weight:600;padding:.35rem .9rem;border-radius:2rem;cursor:pointer;transition:var(--trans)}
+.m-tab.active{background:var(--flame);border-color:var(--flame);color:#fff}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem}
+.menu-item{background:var(--card);border:1px solid var(--border);border-radius:.85rem;padding:1rem;display:flex;gap:.85rem;align-items:flex-start}
+.menu-item-ico{font-size:1.8rem;flex-shrink:0}
+.menu-item-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--cream);margin-bottom:.18rem}
+.menu-item-desc{font-size:.72rem;color:var(--muted);line-height:1.5;margin-bottom:.45rem}
+.menu-item-price{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold);font-weight:700}
+
+/* TESTIMONIALS (locked) */
+.testi-section{background:var(--char-lt)}
+.testi-card{background:var(--card);border:1px solid var(--border);border-radius:1.1rem;padding:1.75rem;position:relative}
+.tq{font-size:2.8rem;line-height:1;color:var(--flame);opacity:.25;position:absolute;top:.7rem;left:1.2rem;font-family:Georgia,serif}
+.t-stars{color:var(--gold);font-size:.75rem;margin-bottom:.65rem;padding-top:.9rem}
+.t-text{font-size:.85rem;color:rgba(245,235,215,.65);line-height:1.72;margin-bottom:1rem}
+.t-av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--flame),var(--gold));color:#fff;font-weight:700;font-size:.9rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.t-name{font-weight:600;font-size:.83rem;color:var(--cream)}
+.t-loc{font-size:.68rem;color:var(--muted)}
+
+/* CTA SECTION */
+.cta-section{
+  background:
+    linear-gradient(135deg,rgba(12,8,5,.92) 0%,rgba(26,18,8,.94) 100%),
+    url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80') center/cover no-repeat;
+  padding:6rem 0;position:relative;text-align:center;
+}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(212,121,58,.12) 0%,transparent 65%)}
+.cta-section .container{position:relative;z-index:2}
+
+/* FOOTER */
+footer{background:#060402;padding:3rem 0 1.5rem;border-top:1px solid rgba(201,165,90,.1)}
+.f-brand-name{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:700;color:var(--cream)}
+.f-brand-name span{color:var(--flame)}
+.f-about{font-size:.78rem;color:rgba(245,235,215,.38);line-height:1.72;max-width:270px;margin-top:.5rem}
+.f-head{font-size:.67rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,235,215,.7);margin-bottom:.85rem}
+.f-lnk{display:block;font-size:.78rem;color:rgba(245,235,215,.38);text-decoration:none;margin-bottom:.4rem;transition:var(--trans)}
+.f-lnk:hover{color:var(--gold)}
+.f-bottom{border-top:1px solid rgba(201,165,90,.08);padding-top:1.25rem;margin-top:2.5rem;font-size:.7rem;color:rgba(245,235,215,.2);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem;align-items:center}
+.soc-btn{width:34px;height:34px;border-radius:50%;background:rgba(201,165,90,.08);border:1px solid rgba(201,165,90,.15);color:rgba(245,235,215,.45);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.85rem;transition:var(--trans)}
+.soc-btn:hover{background:var(--flame);border-color:var(--flame);color:#fff;transform:translateY(-2px)}
+
+/* WA FLOAT */
+.wa-float{position:fixed!important;bottom:1.5rem!important;right:1.5rem!important;width:56px!important;height:56px!important;background:#25D366!important;color:#fff!important;border-radius:50%!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:1.6rem!important;box-shadow:0 4px 20px rgba(37,211,102,.45)!important;text-decoration:none!important;z-index:9999!important;transition:var(--trans)!important}
+.wa-float:hover{transform:scale(1.1)!important;box-shadow:0 6px 28px rgba(37,211,102,.6)!important}
+
+/* AKRALINK WATERMARK BANNER */
+.akra-banner{
+  background:rgba(37,99,235,.08);border-top:1px solid rgba(37,99,235,.18);
+  padding:.65rem 0;text-align:center;font-size:.7rem;color:rgba(245,235,215,.38);
+}
+.akra-banner a{color:#3B82F6;text-decoration:none;font-weight:600}
+.akra-banner a:hover{color:#60A5FA}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+.from-right{transform:translateX(18px)}.from-right.visible{transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+@media(max-width:767px){
+  .story-badge{bottom:-.8rem;right:-.5rem;padding:.9rem 1.1rem}
+  .story-badge .num{font-size:1.8rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <div class="brand-name">The <span>Flambeau</span> Table</div>
+      <div class="brand-sub">Authentic Caribbean Dining</div>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav align-items-lg-center gap-lg-1 mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#about">Our Story</a></li>
+        <li class="nav-item"><a class="nav-link" href="#specials">Specials</a></li>
+        <li class="nav-item"><a class="nav-link" href="#hours">Visit Us</a></li>
+        <li class="nav-item ms-lg-2">
+          <a class="nav-link nav-cta" href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20reserve%20a%20table%20at%20The%20Flambeau%20Table">
+            <i class="bi bi-whatsapp"></i> Reserve a Table
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ══════════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="flame-particles" id="particles"></div>
+  <div class="container position-relative" style="z-index:2">
+    <div class="row align-items-center">
+      <div class="col-lg-7">
+        <div class="hero-badge reveal"><i class="bi bi-fire"></i> Est. 2019 · Castries, St. Lucia</div>
+        <h1 class="hero-title reveal d1">Where the <em>fire</em><br>tells the story.</h1>
+        <p class="hero-tagline reveal d2">"Every dish is a memory. Every meal, a celebration."</p>
+        <p class="hero-desc reveal d2">From the slow-cooked breadfruit to the fire-kissed snapper — The Flambeau Table brings the full soul of Caribbean cooking to your table.</p>
+        <div class="hero-info reveal d2">
+          <div class="h-info-item"><i class="bi bi-geo-alt-fill"></i> Jeremie Street, Castries</div>
+          <div class="h-info-item"><i class="bi bi-clock-fill"></i> Tue–Sun · 11AM – 10PM</div>
+          <div class="h-info-item"><i class="bi bi-star-fill" style="color:var(--gold)"></i> 4.9 · 200+ reviews</div>
+        </div>
+        <div class="d-flex flex-wrap gap-3 reveal d3">
+          <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20reserve%20a%20table%20at%20The%20Flambeau%20Table" class="btn-wa">
+            <i class="bi bi-whatsapp"></i> Reserve a Table
+          </a>
+          <a href="#specials" class="btn-outline-c"><i class="bi bi-journal-bookmark"></i> View Today's Specials</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <i class="bi bi-chevron-double-down"></i>
+    <span>Scroll to explore</span>
+  </div>
+</section>
+
+<!-- ═══ STORY ══════════════════════════════════════════════ -->
+<section class="story-section" id="about">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+
+      <div class="col-lg-5" data-aos="fade-right">
+        <div class="story-img-wrap">
+          <div class="story-img">
+            <!-- Replace with real restaurant image -->
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="Caribbean cuisine at The Flambeau Table" style="width:100%;height:100%;object-fit:cover;border-radius:1.2rem;">
+          </div>
+          <div class="story-badge">
+            <span class="num">5+</span>
+            <span class="lbl">Years of<br>Caribbean Fire</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-7 story-text" data-aos="fade-left" data-aos-delay="150">
+        <div class="sec-label">Our Story</div>
+        <h2>Born from the<br>heart of the island.</h2>
+        <div style="width:40px;height:2px;background:var(--flame);margin:1rem 0 1.25rem;opacity:.6"></div>
+        <p>The Flambeau Table was born from one simple belief — that Caribbean food deserves to be celebrated, not rushed. Our founder, Chef Marlene Joseph, grew up watching her grandmother cook over open wood fire in the hills of Soufrière. That fire never left her.</p>
+        <p>Today, every plate that leaves our kitchen carries that same love. Slow-braised, fire-kissed, hand-seasoned with herbs from our own garden. This is food that tells you where you are the moment it hits your lips.</p>
+        <div class="d-flex flex-wrap gap-4 mt-4 mb-4">
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--flame);line-height:1">200+</div>
+            <div style="font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em">5-Star Reviews</div>
+          </div>
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--flame);line-height:1">100%</div>
+            <div style="font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em">Locally Sourced</div>
+          </div>
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--flame);line-height:1">40+</div>
+            <div style="font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em">Signature Dishes</div>
+          </div>
+        </div>
+        <div class="signature">— Chef Marlene Joseph</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TODAY'S SPECIALS ══════════════════════════════════ -->
+<section class="specials-section" id="specials">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="sec-label">Today's Specials</div>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem)">Fresh From the Fire</h2>
+      <p style="font-size:.88rem;color:var(--muted);max-width:420px;margin:.65rem auto 0">Prepared fresh daily. Available while stocks last. Order via WhatsApp for dine-in or takeout.</p>
+    </div>
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="spec-card">
+          <div class="spec-img">
+            <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=500&q=80" alt="Grilled Snapper" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">
+            <span class="spec-tag">Chef's Pick</span>
+          </div>
+          <div class="spec-body">
+            <div class="spec-name">Fire-Grilled Red Snapper</div>
+            <div class="spec-desc">Whole snapper marinated in a creole herb paste, grilled over open fire. Served with festival and seasoned rice.</div>
+            <div class="spec-footer">
+              <div class="spec-price">$38 <small style="font-size:.75rem;color:var(--muted);font-weight:400">EC / serves 1</small></div>
+              <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20order%20the%20Fire-Grilled%20Red%20Snapper" class="spec-order"><i class="bi bi-whatsapp"></i> Order</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="spec-card">
+          <div class="spec-img">
+            <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?w=500&q=80" alt="Oxtail stew" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">
+            <span class="spec-tag" style="background:var(--gold);color:#1a0e04">Fan Favourite</span>
+          </div>
+          <div class="spec-body">
+            <div class="spec-name">Slow-Braised Oxtail</div>
+            <div class="spec-desc">12-hour braised oxtail in a rich, smoky stew with butter beans and roasted breadfruit. Deep, warming, unforgettable.</div>
+            <div class="spec-footer">
+              <div class="spec-price">$42 <small style="font-size:.75rem;color:var(--muted);font-weight:400">EC / serves 1</small></div>
+              <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20order%20the%20Slow-Braised%20Oxtail" class="spec-order"><i class="bi bi-whatsapp"></i> Order</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="spec-card">
+          <div class="spec-img">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&q=80" alt="Vegetarian plate" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">
+            <span class="spec-tag" style="background:#2d6a4f">Plant-Based</span>
+          </div>
+          <div class="spec-body">
+            <div class="spec-name">Harvest Bowl</div>
+            <div class="spec-desc">Roasted callaloo, christophene, sweet potato, and plantain with a tamarind-chilli dressing. Bold, vibrant, completely local.</div>
+            <div class="spec-footer">
+              <div class="spec-price">$26 <small style="font-size:.75rem;color:var(--muted);font-weight:400">EC / serves 1</small></div>
+              <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20order%20the%20Harvest%20Bowl" class="spec-order"><i class="bi bi-whatsapp"></i> Order</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-5" data-aos="fade-up">
+      <a href="https://wa.me/17581234567?text=Hi%2C%20can%20I%20see%20the%20full%20menu%20for%20today%3F" class="btn-flame"><i class="bi bi-whatsapp"></i> Get the Full Menu on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOURS & LOCATION (LAUNCH — VISIBLE) ══════════════ -->
+<section class="info-section" id="hours">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="sec-label">Find Us</div>
+      <h2 style="font-size:clamp(1.8rem,4vw,2.6rem)">Come to the Table</h2>
+    </div>
+    <div class="row g-4">
+
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="info-card">
+          <h4><i class="bi bi-clock" style="color:var(--flame);margin-right:.5rem"></i>Opening Hours</h4>
+          <div class="hours-row"><span class="hours-day">Monday</span><span class="hours-time">Closed</span></div>
+          <div class="hours-row"><span class="hours-day">Tuesday – Thursday</span><span class="hours-time">11:00 AM – 9:00 PM</span></div>
+          <div class="hours-row today"><span class="hours-day">Friday ← Today</span><span class="hours-time">11:00 AM – 10:30 PM</span></div>
+          <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">10:00 AM – 10:30 PM</span></div>
+          <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time">10:00 AM – 8:00 PM</span></div>
+          <div style="margin-top:1.25rem">
+            <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20book%20a%20table" class="btn-wa w-100 justify-content-center"><i class="bi bi-whatsapp"></i> Book a Table</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="info-card">
+          <h4><i class="bi bi-geo-alt" style="color:var(--flame);margin-right:.5rem"></i>Location & Contact</h4>
+          <div class="loc-item">
+            <i class="bi bi-pin-map-fill"></i>
+            <span>14 Jeremie Street, Castries, Saint Lucia<br><small style="opacity:.6">Opposite the Derek Walcott Square</small></span>
+          </div>
+          <div class="loc-item">
+            <i class="bi bi-whatsapp"></i>
+            <span>+1 (758) 123-4567<br><small style="opacity:.6">WhatsApp orders &amp; reservations</small></span>
+          </div>
+          <div class="loc-item">
+            <i class="bi bi-instagram"></i>
+            <span>@flambeautable<br><small style="opacity:.6">See daily specials &amp; behind the scenes</small></span>
+          </div>
+          <div class="loc-item">
+            <i class="bi bi-car-front-fill"></i>
+            <span>Parking available on Brazil Street<br><small style="opacity:.6">2-minute walk from restaurant</small></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FULL MENU GRID — LOCKED (Grow Feature) ═══════════ -->
+<section class="menu-section locked-section" id="menu">
+  <!-- Blurred content underneath -->
+  <div class="locked-content">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="sec-label">Full Menu</div>
+        <h2 style="font-size:clamp(1.8rem,4vw,2.6rem)">Everything We Serve</h2>
+      </div>
+      <div class="menu-cat-tabs">
+        <span class="m-tab active">Starters</span>
+        <span class="m-tab">Mains</span>
+        <span class="m-tab">Sides</span>
+        <span class="m-tab">Desserts</span>
+        <span class="m-tab">Drinks</span>
+      </div>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="menu-item-ico">🦐</span><div><div class="menu-item-name">Creole Pepper Shrimp</div><div class="menu-item-desc">Local shrimp in a fire-roasted pepper sauce</div><div class="menu-item-price">$22 EC</div></div></div>
+        <div class="menu-item"><span class="menu-item-ico">🥗</span><div><div class="menu-item-name">Accra Fritters</div><div class="menu-item-desc">Traditional saltfish fritters with hot pepper sauce</div><div class="menu-item-price">$16 EC</div></div></div>
+        <div class="menu-item"><span class="menu-item-ico">🐟</span><div><div class="menu-item-name">Lambi Stew</div><div class="menu-item-desc">Conch slow-cooked in coconut &amp; thyme gravy</div><div class="menu-item-price">$45 EC</div></div></div>
+        <div class="menu-item"><span class="menu-item-ico">🍗</span><div><div class="menu-item-name">Jerk Chicken Platter</div><div class="menu-item-desc">Half chicken, coal-smoked jerk with rice &amp; peas</div><div class="menu-item-price">$34 EC</div></div></div>
+      </div>
+    </div>
+  </div>
+  <!-- Lock Overlay -->
+  <div class="lock-overlay">
+    <div class="lock-icon"><i class="bi bi-lock-fill"></i></div>
+    <div class="lock-badge"><i class="bi bi-stars"></i> Link &amp; Grow Plan Feature</div>
+    <div class="lock-title">Interactive Full Menu</div>
+    <p class="lock-sub">A filterable, category-organised menu that lets customers browse and order instantly — available on Link and Grow plans.</p>
+    <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20upgrade%20to%20unlock%20the%20full%20menu%20feature" class="btn-wa"><i class="bi bi-whatsapp"></i> Unlock This Feature</a>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS — LOCKED (Grow Feature) ════════════ -->
+<section class="testi-section locked-section" id="reviews">
+  <div class="locked-content">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="sec-label">Guest Reviews</div>
+        <h2 style="font-size:clamp(1.8rem,4vw,2.6rem)">What Our Guests Say</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="testi-card">
+            <div class="tq">"</div>
+            <div class="t-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+            <p class="t-text">The oxtail was absolutely the best I've had outside of my grandmother's kitchen. We came for dinner and ended up ordering takeout for the next day too.</p>
+            <div class="d-flex align-items-center gap-3"><div class="t-av">R</div><div><div class="t-name">Renée P.</div><div class="t-loc">Martinique, via Google</div></div></div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testi-card">
+            <div class="tq">"</div>
+            <div class="t-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+            <p class="t-text">Visited during our honeymoon and The Flambeau Table was the highlight. The atmosphere, the fire grill smell, the service — everything was perfect.</p>
+            <div class="d-flex align-items-center gap-3"><div class="t-av">J</div><div><div class="t-name">Jordan &amp; Camille</div><div class="t-loc">Toronto, via TripAdvisor</div></div></div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testi-card">
+            <div class="tq">"</div>
+            <div class="t-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+            <p class="t-text">Ordered via WhatsApp and the food arrived still perfectly hot. The grilled snapper was flawless. This is our go-to now every Friday evening.</p>
+            <div class="d-flex align-items-center gap-3"><div class="t-av">D</div><div><div class="t-name">Donna M.</div><div class="t-loc">Castries, St. Lucia</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Lock Overlay -->
+  <div class="lock-overlay">
+    <div class="lock-icon"><i class="bi bi-chat-quote-fill"></i></div>
+    <div class="lock-badge"><i class="bi bi-stars"></i> Grow Plan Feature</div>
+    <div class="lock-title">Guest Testimonials Section</div>
+    <p class="lock-sub">A dedicated reviews section that builds trust and social proof — turning new visitors into confident customers.</p>
+    <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20upgrade%20to%20unlock%20the%20testimonials%20feature" class="btn-wa"><i class="bi bi-whatsapp"></i> Unlock This Feature</a>
+  </div>
+</section>
+
+<!-- ═══ CTA ════════════════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="container">
+    <div data-aos="fade-up">
+      <div class="sec-label" style="justify-content:center;color:rgba(245,235,215,.5);border-color:transparent">Come hungry. Leave happy.</div>
+      <h2 style="font-size:clamp(2rem,5vw,3.5rem);margin-bottom:.65rem">Your table is waiting.</h2>
+      <p style="font-size:.93rem;color:rgba(245,235,215,.52);max-width:400px;margin:.5rem auto 2rem;line-height:1.76">Reserve your spot or place a takeout order in seconds. Just message us on WhatsApp — we respond fast.</p>
+      <div class="d-flex flex-wrap gap-3 justify-content-center">
+        <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20reserve%20a%20table%20at%20The%20Flambeau%20Table" class="btn-wa" style="font-size:.95rem;padding:.85rem 2rem"><i class="bi bi-whatsapp"></i> Reserve a Table Now</a>
+        <a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20order%20takeout%20from%20The%20Flambeau%20Table" class="btn-outline-c" style="font-size:.95rem;padding:.85rem 2rem"><i class="bi bi-bag"></i> Order Takeout</a>
+      </div>
+      <p style="font-size:.7rem;color:rgba(245,235,215,.22);margin-top:1.25rem">Tue–Sun · Dine-in, Takeout &amp; Private Events</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="row g-4 mb-3">
+      <div class="col-lg-5">
+        <div class="f-brand-name">The <span>Flambeau</span> Table</div>
+        <p class="f-about">Authentic Caribbean fire cooking in the heart of Castries, St. Lucia. Locally sourced. Passionately prepared. Always fresh.</p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="#" class="soc-btn" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          <a href="#" class="soc-btn" title="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="soc-btn" title="Facebook"><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <p class="f-head">Dining</p>
+        <a href="#about" class="f-lnk">Our Story</a>
+        <a href="#specials" class="f-lnk">Today's Specials</a>
+        <a href="#hours" class="f-lnk">Opening Hours</a>
+        <a href="#hours" class="f-lnk">Find Us</a>
+      </div>
+      <div class="col-6 col-lg-3">
+        <p class="f-head">Reserve</p>
+        <a href="https://wa.me/17581234567?text=I%27d%20like%20to%20book%20a%20table" class="f-lnk"><i class="bi bi-whatsapp me-1" style="color:#25D366"></i> Book a Table</a>
+        <a href="https://wa.me/17581234567?text=I%27d%20like%20to%20order%20takeout" class="f-lnk"><i class="bi bi-bag me-1" style="color:var(--gold)"></i> Order Takeout</a>
+        <a href="https://wa.me/17581234567?text=I%27d%20like%20to%20enquire%20about%20a%20private%20event" class="f-lnk"><i class="bi bi-calendar-event me-1" style="color:var(--flame)"></i> Private Events</a>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 The Flambeau Table. All rights reserved. · Castries, Saint Lucia</span>
+      <span>Authentic Caribbean Dining</span>
+    </div>
+  </div>
+</footer>
+
+<!-- AkraLink Watermark -->
+<div class="akra-banner">
+  This website was built by <a href="https://jamalinks758.github.io/AkraLink/" target="_blank">AkraLink</a> — Professional websites for Caribbean small businesses. Starting at $24.99/month.
+</div>
+
+<!-- WA Float -->
+<a href="https://wa.me/17581234567?text=Hi%2C%20I%27d%20like%20to%20reserve%20a%20table%20or%20place%20an%20order" class="wa-float" title="Chat on WhatsApp" aria-label="Reserve or order via WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+/* AOS */
+AOS.init({duration:700,once:true,offset:60,easing:'ease-out-cubic'});
+
+/* NAVBAR */
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60),{passive:true});
+
+/* HERO REVEAL */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* SMOOTH SCROLL */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(!t)return;e.preventDefault();
+    t.scrollIntoView({behavior:'smooth',block:'start'});
+    const m=document.getElementById('navMenu');
+    if(m?.classList.contains('show'))bootstrap.Collapse.getInstance(m)?.hide();
+  });
+});
+
+/* FLAME PARTICLES */
+(function(){
+  const c=document.getElementById('particles');
+  if(!c)return;
+  const colors=['#D4793A','#E8943A','#C9A55A','#F5B000','#FFCF72'];
+  for(let i=0;i<28;i++){
+    const p=document.createElement('div');
+    p.className='fp';
+    const size=Math.random()*3+1.5;
+    p.style.cssText=`
+      left:${Math.random()*100}%;
+      width:${size}px;height:${size*2.5}px;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      animation-duration:${Math.random()*3+2}s;
+      animation-delay:${Math.random()*4}s;
+      border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+    `;
+    c.appendChild(p);
+  }
+})();
+
+/* AUTO YEAR */
+const fy=document.querySelector('.f-bottom span');
+if(fy)fy.textContent=fy.textContent.replace('2026',new Date().getFullYear());
+</script>
+</body>
+</html>
