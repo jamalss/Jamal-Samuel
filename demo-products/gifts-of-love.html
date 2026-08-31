@@ -494,6 +494,8 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26
 .social-row{display:flex;gap:12px;}
 .social-row a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:15px;transition:background .3s ease;}
 .social-row a:hover{background:var(--gold);}
+.social-row a.social-preview{opacity:0.4;filter:grayscale(1);cursor:default;}
+.social-row a.social-preview:hover{background:rgba(255,255,255,0.08);}
 .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12.5px;color:rgba(255,255,255,0.45);}
 .footer-bottom a{margin-left:16px;color:rgba(255,255,255,0.55);}
 
@@ -529,8 +531,15 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26
 /* ---------- DEMO NOTICE ---------- */
 .demo-note{
   text-align:center;font-size:11.5px;font-weight:600;letter-spacing:0.03em;
-  color:var(--gold-deep);padding-bottom:9px;
+  color:var(--gold-deep);padding:7px 14px;
+  background:rgba(255,255,255,0.92);
+  border:1px solid rgba(200,169,106,0.35);
+  border-radius:100px;
+  display:inline-block;
+  margin:0 auto 10px;
+  box-shadow:0 4px 14px -6px rgba(51,41,20,0.2);
 }
+.demo-note-wrap{text-align:center;}
 .demo-note a{text-decoration:underline;text-underline-offset:2px;}
 
 /* ---------- MAP SECTION ---------- */
@@ -555,30 +564,6 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26
   text-align:center;
   margin-top:14px;
   letter-spacing:0.01em;
-}
-.illustrative-tag{
-  display:inline-block;
-  font-size:10.5px;
-  font-style:italic;
-  color:#9a927f;
-  font-weight:500;
-  margin-left:6px;
-  white-space:nowrap;
-}
-.illustrative-pill{
-  display:inline-flex;
-  align-items:center;
-  gap:5px;
-  font-size:10px;
-  font-style:italic;
-  font-weight:600;
-  letter-spacing:0.02em;
-  color:var(--gold-deep);
-  background:rgba(200,169,106,0.12);
-  border:1px solid rgba(200,169,106,0.35);
-  padding:3px 10px;
-  border-radius:100px;
-  margin-top:6px;
 }
 </style>
 </head>
@@ -613,7 +598,9 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26
 <!-- ================= HEADER ================= -->
 <header id="siteHeader">
   <div class="container">
-    <div class="demo-note">This is a demo website built by <a href="https://www.jamalsamuel.online" target="_blank">Jamal Samuel</a> for Gifts Of Love — not the business's official live site.</div>
+    <div class="demo-note-wrap">
+      <div class="demo-note">Concept demo by <a href="https://www.jamalsamuel.online" target="_blank">Jamal Samuel</a> — all content, images, figures &amp; testimonials shown are illustrative examples, not real Gifts Of Love data.</div>
+    </div>
     <nav>
       <a href="#home" class="logo">Gifts <span>Of Love</span></a>
       <div class="nav-links">
@@ -675,7 +662,6 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26
     <div class="stat-card"><div class="num">100%</div><div class="lbl">Custom Gift Design</div></div>
     <div class="stat-card"><div class="num">Same-Day</div><div class="lbl">Delivery Available</div></div>
   </div>
-  <p class="illustrative-note">Illustrative example figures shown for demo purposes — not verified business data.</p>
 </div>
 
 <!-- ================= OCCASIONS ================= -->
@@ -697,7 +683,6 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26
       <div class="eyebrow" style="justify-content:center;">Featured Collections</div>
       <h2>Handpicked Gifts, Ready To Send</h2>
       <p>Each collection is thoughtfully assembled and can be personalized on request.</p>
-      <p class="illustrative-note">Products, pricing and labels (e.g. "Best Seller," "Trending") are illustrative examples for this demo — not real inventory or sales data.</p>
     </div>
     <div class="collection-grid reveal" id="collectionGrid"></div>
   </div>
@@ -914,7 +899,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26
       <div class="why-card"><div class="ico"><svg class="ico-svg"><use href="#icon-gift"></use></svg></div><h4>Premium Packaging</h4><p>Wrapped like it's the gift itself.</p></div>
       <div class="why-card"><div class="ico"><svg class="ico-svg"><use href="#icon-flower"></use></svg></div><h4>Fresh Flowers</h4><p>Sourced and arranged the same day.</p></div>
       <div class="why-card"><div class="ico"><svg class="ico-svg"><use href="#icon-palette"></use></svg></div><h4>Custom Designs</h4><p>Built around the person, not a catalogue.</p></div>
-      <div class="why-card"><div class="ico"><svg class="ico-svg"><use href="#icon-truck"></use></svg></div><h4>Reliable Delivery</h4><p>Trusted by hundreds across the island.<span class="illustrative-tag">(illustrative example)</span></p></div>
+      <div class="why-card"><div class="ico"><svg class="ico-svg"><use href="#icon-truck"></use></svg></div><h4>Reliable Delivery</h4><p>Trusted by hundreds across the island.</p></div>
     </div>
   </div>
 </section>
@@ -925,7 +910,6 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26
     <div class="section-head reveal">
       <div class="eyebrow" style="justify-content:center;">Customer Gallery</div>
       <h2>Gifts, As They Arrived</h2>
-      <p class="illustrative-note">Sample gallery for demo purposes — not real customer deliveries.</p>
     </div>
     <div class="gallery reveal" id="galleryGrid"></div>
   </div>
@@ -1001,7 +985,6 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26
       <div class="eyebrow" style="justify-content:center;">See It In Action</div>
       <h2>From Order To Doorstep</h2>
       <p>A look at how every Gifts Of Love order moves — this order is currently "Out for Delivery."</p>
-      <p class="illustrative-note">Sample order shown to demonstrate the tracking feature — not a real order.</p>
     </div>
     <div class="tracker reveal">
       <div class="tracker-line"></div>
@@ -1020,7 +1003,6 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26
     <div class="section-head reveal">
       <div class="eyebrow" style="justify-content:center;">@giftsoflove.lc</div>
       <h2>Follow Along On Instagram</h2>
-      <p class="illustrative-note" style="margin-top:6px;">Sample gallery for demo purposes — not a live Instagram feed.</p>
     </div>
     <div class="insta-grid reveal" id="instaGrid"></div>
   </div>
@@ -1073,11 +1055,15 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26
         <p class="desc">Curated gift baskets, flowers and custom gifting, delivered with care across Saint Lucia.</p>
         <div class="social-row">
           <a href="https://wa.me/17587235872" target="_blank" aria-label="WhatsApp"><svg class="ico-svg" style="font-size:16px;"><use href="#icon-chat"></use></svg></a>
-          <a href="https://instagram.com" target="_blank" aria-label="Instagram (sample link)" title="Sample link — not a live account"><svg class="ico-svg" style="font-size:16px;"><use href="#icon-instagram"></use></svg></a>
-          <a href="https://facebook.com" target="_blank" aria-label="Facebook (sample link)" title="Sample link — not a live account"><svg class="ico-svg" style="font-size:16px;"><use href="#icon-facebook"></use></svg></a>
+          <a class="social-preview" href="javascript:void(0)" aria-label="Instagram icon preview" title="Preview only — for illustration">
+            <svg class="ico-svg" style="font-size:16px;"><use href="#icon-instagram"></use></svg>
+          </a>
+          <a class="social-preview" href="javascript:void(0)" aria-label="Facebook icon preview" title="Preview only — for illustration">
+            <svg class="ico-svg" style="font-size:16px;"><use href="#icon-facebook"></use></svg>
+          </a>
           <a href="#location" aria-label="Find us on the map"><svg class="ico-svg" style="font-size:16px;"><use href="#icon-map-pin"></use></svg></a>
         </div>
-        <p class="illustrative-note" style="text-align:left;margin-top:10px;margin-left:0;">Instagram &amp; Facebook icons are sample placeholders — not live accounts.</p>
+        <p class="illustrative-note" style="text-align:left;margin-top:8px;margin-left:0;">Instagram &amp; Facebook icons shown for preview only.</p>
       </div>
       <div>
         <h5>Quick Links</h5>
@@ -1105,7 +1091,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.82);padding:70px 0 26
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Gifts Of Love. This is a concept demo. Jamal Samuel Built.</span>
+      <span>© 2026 Gifts Of Love. Concept demo — all content shown is illustrative, not real business data. Jamal Samuel Built.</span>
       <span><a href="#">Privacy Policy</a><a href="#">Terms</a></span>
     </div>
   </div>
