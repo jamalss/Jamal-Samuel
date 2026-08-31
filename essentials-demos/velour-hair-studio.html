@@ -1,0 +1,2390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================
+       1. CHARACTER ENCODING — ALWAYS FIRST
+  ============================================ -->
+  <meta charset="UTF-8">
+
+  <!-- ============================================
+       2. VIEWPORT
+  ============================================ -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ============================================
+       3. CONTENT SECURITY POLICY
+       Tailored to this specific stack — no GA, no Formspree, no Ecwid
+  ============================================ -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self';
+                 script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com;
+                 style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com;
+                 font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+                 img-src 'self' data: https:;
+                 connect-src 'self' https://api.whatsapp.com;
+                 object-src 'none';
+                 base-uri 'self';
+                 form-action 'self';">
+
+  <!-- ============================================
+       4. X-CONTENT-TYPE-OPTIONS
+  ============================================ -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+
+  <!-- ============================================
+       5. REFERRER POLICY
+  ============================================ -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- ============================================
+       6. PERMISSIONS POLICY
+  ============================================ -->
+  <meta http-equiv="Permissions-Policy"
+        content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()">
+
+  <!-- ============================================
+       7. SEO & SOCIAL META TAGS
+  ============================================ -->
+  <title>Velour Hair Studio — Braids, Silk Press & Installs | Castries, Saint Lucia</title>
+  <meta name="description" content="Velour Hair Studio offers professional knotless braids, silk press, wig installs, hair colouring and bridal styling in Castries, Saint Lucia. Appointment-based. Book on WhatsApp today.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://velourhairstudio.lc/">
+  <meta property="og:title" content="Velour Hair Studio — Castries, Saint Lucia">
+  <meta property="og:description" content="Professional braids, silk press, wig installs and bridal styling. Book your appointment on WhatsApp today.">
+  <meta property="og:url" content="https://velourhairstudio.lc/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://velourhairstudio.lc/assets/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- ============================================
+       CDN RESOURCES — ALL WITH SRI INTEGRITY HASHES
+  ============================================ -->
+
+  <!-- Bootstrap 5.3.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+        crossorigin="anonymous">
+
+  <!-- Font Awesome 6.5.1 — deferred, non-render-blocking -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+        media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  </noscript>
+
+  <!-- Google Fonts — Cormorant Garamond (display) + Jost (body) — non-render-blocking -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+        media="print"
+        onload="this.media='all'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  </noscript>
+
+  <!-- ============================================
+       JSON-LD STRUCTURED DATA — HairSalon schema
+  ============================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    "name": "Velour Hair Studio",
+    "url": "https://velourhairstudio.lc/",
+    "telephone": "+17584100000",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Castries",
+      "addressCountry": "LC"
+    },
+    "description": "Professional hair salon in Castries, Saint Lucia offering knotless braids, silk press, wig installs, hair colouring, loc styling and bridal hair.",
+    "openingHours": "Tu-Sa 09:00-18:00",
+    "priceRange": "$$",
+    "sameAs": [
+      "https://www.instagram.com/velourhairstudio",
+      "https://www.facebook.com/velourhairstudio"
+    ]
+  }
+  </script>
+
+  <style>
+    /* ============================================
+       CSS VARIABLES — LIGHT MODE (DEFAULT)
+       font-display: swap prevents invisible text during font load
+    ============================================ */
+    :root {
+      --cream:        #FAF7F2;
+      --cream-dark:   #F2EDE4;
+      --deep-brown:   #2C1810;
+      --warm-brown:   #5C3D2E;
+      --gold:         #C8956C;
+      --gold-dark:    #A87450;
+      --blush:        #EDD9D0;
+      --blush-mid:    #E0C4B6;
+      --card-bg:      #FFFFFF;
+      --card-shadow:  rgba(44, 24, 16, 0.08);
+      --border:       #E8DDD5;
+      --text-primary: #2C1810;
+      --text-secondary: #6B4E42;
+      --text-muted:   #9E7B6E;
+      --bg-main:      #FAF7F2;
+      --bg-section:   #F5EFE8;
+      --nav-bg:       rgba(250, 247, 242, 0.96);
+      --nav-shadow:   rgba(44, 24, 16, 0.1);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-display:   swap;
+      --transition:   0.3s ease;
+    }
+
+    /* ============================================
+       DARK MODE OVERRIDES
+    ============================================ */
+    body.dark-mode {
+      --cream:          #1C1008;
+      --cream-dark:     #251508;
+      --deep-brown:     #FAF0E8;
+      --warm-brown:     #D4A990;
+      --gold:           #D4A07A;
+      --gold-dark:      #C8956C;
+      --blush:          #3D2218;
+      --blush-mid:      #4A2820;
+      --card-bg:        #221006;
+      --card-shadow:    rgba(0, 0, 0, 0.35);
+      --border:         #4A2820;
+      --text-primary:   #FAF0E8;
+      --text-secondary: #D4A990;
+      --text-muted:     #8B6B5E;
+      --bg-main:        #1C1008;
+      --bg-section:     #140C04;
+      --nav-bg:         rgba(28, 16, 8, 0.96);
+      --nav-shadow:     rgba(0, 0, 0, 0.4);
+    }
+
+    /* ============================================
+       GLOBAL RESET & BASE
+    ============================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      background-color: var(--bg-main);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      max-width: 100%;
+      line-height: 1.7;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    /* ============================================
+       SKIP LINK — WCAG REQUIREMENT
+    ============================================ */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: var(--gold);
+      color: #fff;
+      padding: 0.5rem 1.1rem;
+      border-radius: 0 0 4px 4px;
+      z-index: 9999;
+      font-weight: 600;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      transition: top 0.2s;
+      text-decoration: none;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* ============================================
+       FOCUS STYLES — WCAG 2.1 AA
+    ============================================ */
+    *:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
+    *:focus:not(:focus-visible) { outline: none; }
+
+    /* ============================================
+       TYPOGRAPHY SYSTEM
+    ============================================ */
+    h1, h2, h3, h4, h5 {
+      font-family: var(--font-display);
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      font-weight: 300;
+      line-height: 1.75;
+      max-width: 560px;
+    }
+
+    /* ============================================
+       BUTTON SYSTEM
+    ============================================ */
+    .btn-salon {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      background: var(--gold);
+      color: #fff;
+      border: none;
+      border-radius: 2px;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+    .btn-salon:hover {
+      background: var(--gold-dark);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(200, 149, 108, 0.4);
+    }
+    .btn-salon:active { transform: translateY(0); }
+
+    .btn-salon-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.8rem;
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.65);
+      border-radius: 2px;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .btn-salon-outline:hover {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border-color: #fff;
+    }
+
+    .btn-salon-brown {
+      background: var(--deep-brown);
+      color: #FAF7F2;
+    }
+    body.dark-mode .btn-salon-brown {
+      background: var(--gold);
+      color: #fff;
+    }
+    .btn-salon-brown:hover {
+      background: var(--warm-brown);
+      color: #FAF7F2;
+      box-shadow: 0 8px 24px rgba(44, 24, 16, 0.3);
+    }
+
+    /* ============================================
+       PROMO BANNER
+    ============================================ */
+    .promo-banner {
+      background: var(--deep-brown);
+      text-align: center;
+      padding: 0.65rem 1rem;
+      transition: background 0.4s ease;
+    }
+    body.dark-mode .promo-banner { background: #140C04; }
+    .promo-banner p {
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.75);
+      margin: 0;
+    }
+    .promo-banner a {
+      color: var(--gold);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .promo-banner a:hover { color: #fff; }
+
+    /* ============================================
+       NAVBAR
+    ============================================ */
+    .salon-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1.4rem 0;
+      background: transparent;
+      transition: background var(--transition), padding var(--transition), box-shadow var(--transition);
+    }
+    .salon-nav.scrolled {
+      background: var(--nav-bg);
+      padding: 0.8rem 0;
+      box-shadow: 0 2px 20px var(--nav-shadow);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .salon-nav .navbar-brand {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: #fff;
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    .salon-nav.scrolled .navbar-brand { color: var(--text-primary); }
+
+    .salon-nav .nav-link {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      padding: 0.4rem 0.9rem;
+      transition: color var(--transition);
+    }
+    .salon-nav.scrolled .nav-link { color: var(--text-secondary); }
+    .salon-nav .nav-link:hover,
+    .salon-nav .nav-link.active { color: var(--gold); }
+
+    .navbar-toggler {
+      border: 1.5px solid rgba(255,255,255,0.55);
+      padding: 0.3rem 0.6rem;
+      background: transparent;
+      transition: border-color var(--transition);
+    }
+    .salon-nav.scrolled .navbar-toggler { border-color: var(--gold); }
+    .navbar-toggler:focus { box-shadow: 0 0 0 3px rgba(200,149,108,0.35); }
+
+    .toggler-bars { display: flex; flex-direction: column; gap: 4px; width: 20px; }
+    .toggler-bars span { display: block; height: 2px; background: #fff; border-radius: 1px; transition: background var(--transition); }
+    .salon-nav.scrolled .toggler-bars span { background: var(--text-primary); }
+
+    .theme-toggle-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.4);
+      background: transparent;
+      color: rgba(255,255,255,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .salon-nav.scrolled .theme-toggle-btn {
+      border-color: var(--border);
+      color: var(--text-secondary);
+    }
+    .theme-toggle-btn:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #fff;
+    }
+
+    @media (max-width: 991px) {
+      .navbar-collapse {
+        background: var(--card-bg);
+        border-radius: 4px;
+        padding: 1rem 1.25rem;
+        margin-top: 0.6rem;
+        box-shadow: 0 8px 32px var(--card-shadow);
+      }
+      .salon-nav .nav-link {
+        color: var(--text-primary);
+        padding: 0.7rem 0.25rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .salon-nav .nav-link:last-of-type { border-bottom: none; }
+    }
+
+    /* ============================================
+       HERO SECTION
+    ============================================ */
+    .hero-section {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: #1C0A04;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0.5;
+    }
+    body.dark-mode .hero-bg { opacity: 0.3; }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        140deg,
+        rgba(20, 8, 2, 0.82) 0%,
+        rgba(44, 24, 16, 0.6) 55%,
+        rgba(92, 61, 46, 0.3) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 8rem 0 5rem;
+    }
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(200,149,108,0.6);
+      padding: 0.35rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 1.75rem;
+      opacity: 0;
+      animation: fadeInUp 0.8s 0.25s forwards;
+    }
+    .hero-title {
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeInUp 0.85s 0.45s forwards;
+    }
+    .hero-title em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--blush-mid);
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.75);
+      font-weight: 300;
+      max-width: 500px;
+      margin-bottom: 2.5rem;
+      line-height: 1.75;
+      opacity: 0;
+      animation: fadeInUp 0.85s 0.65s forwards;
+    }
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      opacity: 0;
+      animation: fadeInUp 0.85s 0.85s forwards;
+    }
+    .hero-scroll-cue {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      opacity: 0;
+      animation: fadeIn 1s 1.8s forwards;
+      z-index: 2;
+    }
+    .hero-scroll-cue span {
+      font-family: var(--font-body);
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+    .scroll-bar {
+      width: 1px;
+      height: 38px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+      animation: scrollPulse 2.2s infinite;
+    }
+
+    /* ============================================
+       TRUST STRIP
+    ============================================ */
+    .trust-strip {
+      background: var(--deep-brown);
+      padding: 1.4rem 0;
+      border-top: 1px solid rgba(200,149,108,0.15);
+      transition: background 0.4s ease;
+    }
+    body.dark-mode .trust-strip { background: #140C04; }
+
+    .trust-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.7rem 2rem;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .trust-item:last-child { border-right: none; }
+    .trust-item i { font-size: 1.1rem; color: var(--gold); flex-shrink: 0; }
+    .trust-text strong {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.3;
+    }
+    .trust-text span {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 767px) {
+      .trust-item {
+        padding: 0.6rem 1.2rem;
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        width: 50%;
+        justify-content: flex-start;
+      }
+      .trust-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.06); }
+      .trust-item:nth-last-child(-n+2):nth-child(odd),
+      .trust-item:last-child { border-bottom: none; }
+    }
+    @media (max-width: 400px) {
+      .trust-item { width: 100%; border-right: none; }
+    }
+
+    /* ============================================
+       SECTION SPACING
+    ============================================ */
+    .section-pad { padding: 6rem 0; }
+    @media (max-width: 767px) { .section-pad { padding: 4.5rem 0; } }
+
+    /* ============================================
+       GALLERY SECTION
+    ============================================ */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.9rem;
+    }
+    @media (max-width: 991px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .gallery-grid { gap: 0.5rem; } }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+      aspect-ratio: 3/4;
+      cursor: pointer;
+      background: var(--blush);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.65s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.07); }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(30, 12, 4, 0.88) 0%, transparent 50%);
+      opacity: 0;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.25rem;
+      transition: opacity var(--transition);
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-overlay span {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: #fff;
+      letter-spacing: 0.02em;
+    }
+
+    /* ============================================
+       SERVICES SECTION
+    ============================================ */
+    .service-card {
+      background: var(--card-bg);
+      border-radius: 2px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px var(--card-shadow);
+      transition: transform var(--transition), box-shadow var(--transition);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .service-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 18px 45px rgba(44, 24, 16, 0.16);
+    }
+    .service-card-img {
+      position: relative;
+      height: 210px;
+      overflow: hidden;
+      background: var(--blush);
+    }
+    .service-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.65s ease;
+    }
+    .service-card:hover .service-card-img img { transform: scale(1.06); }
+
+    .badge-pill {
+      position: absolute;
+      top: 0.9rem;
+      right: 0.9rem;
+      background: var(--gold);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 0.28rem 0.7rem;
+      border-radius: 100px;
+    }
+    .service-card-body {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .service-name {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+    .service-desc {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 1rem;
+    }
+    .service-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.25rem;
+    }
+    .service-price {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .service-price small {
+      font-size: 0.75rem;
+      font-family: var(--font-body);
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-right: 2px;
+    }
+    .service-duration {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .service-duration i { color: var(--gold); font-size: 0.8rem; }
+
+    .btn-service {
+      width: 100%;
+      justify-content: center;
+      font-size: 0.78rem;
+      padding: 0.8rem 1.5rem;
+    }
+
+    /* ============================================
+       WHY CHOOSE US
+    ============================================ */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    @media (max-width: 767px) { .why-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 460px) { .why-grid { grid-template-columns: 1fr; } }
+
+    .why-card {
+      padding: 1.75rem 1.4rem;
+      background: var(--card-bg);
+      border-radius: 2px;
+      border: 1px solid var(--border);
+      transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+    }
+    .why-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 8px 28px var(--card-shadow);
+      transform: translateY(-4px);
+    }
+    .why-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--blush);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.1rem;
+      transition: background var(--transition);
+    }
+    body.dark-mode .why-icon { background: rgba(200,149,108,0.12); }
+    .why-card:hover .why-icon { background: var(--gold); }
+    .why-icon i { font-size: 1.1rem; color: var(--gold); transition: color var(--transition); }
+    .why-card:hover .why-icon i { color: #fff; }
+    .why-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.45rem;
+    }
+    .why-desc { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.65; }
+
+    /* ============================================
+       TESTIMONIALS
+    ============================================ */
+    .testimonial-card {
+      background: var(--card-bg);
+      border-radius: 2px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px var(--card-shadow);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin: 0;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 38px rgba(44, 24, 16, 0.13);
+    }
+    .quote-mark {
+      position: absolute;
+      top: 1.1rem;
+      right: 1.4rem;
+      font-family: var(--font-display);
+      font-size: 5rem;
+      color: var(--blush);
+      line-height: 1;
+      font-weight: 700;
+      pointer-events: none;
+      transition: color var(--transition);
+    }
+    body.dark-mode .quote-mark { color: rgba(200,149,108,0.1); }
+
+    .t-stars { display: flex; gap: 0.2rem; margin-bottom: 1rem; }
+    .t-stars i { font-size: 0.82rem; color: var(--gold); }
+
+    .t-text {
+      font-family: var(--font-display);
+      font-size: 1.12rem;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--text-primary);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 1.5rem;
+    }
+    .t-author {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      margin-top: auto;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+    }
+    .t-avatar {
+      width: 43px;
+      height: 43px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .t-name {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      display: block;
+    }
+    .t-service { font-size: 0.76rem; color: var(--text-muted); }
+
+    /* ============================================
+       BOOKING STEPS SECTION
+    ============================================ */
+    .booking-section {
+      background: var(--deep-brown);
+      position: relative;
+      overflow: hidden;
+      transition: background 0.4s ease;
+    }
+    body.dark-mode .booking-section { background: #140C04; }
+    .booking-section::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -15%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,149,108,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .booking-section .section-label { color: rgba(200,149,108,0.85); }
+    .booking-section .section-title { color: #fff; }
+    .booking-section .section-subtitle { color: rgba(255,255,255,0.55); }
+
+    .steps-wrap { position: relative; margin-top: 3.5rem; }
+    .steps-line {
+      position: absolute;
+      top: 27px;
+      left: calc(12.5% + 27px);
+      right: calc(12.5% + 27px);
+      height: 1px;
+      background: linear-gradient(to right, rgba(200,149,108,0.1), rgba(200,149,108,0.55), rgba(200,149,108,0.1));
+      pointer-events: none;
+    }
+    @media (max-width: 767px) { .steps-line { display: none; } }
+
+    .step-item {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .step-num {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: rgba(200,149,108,0.12);
+      border: 1.5px solid rgba(200,149,108,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.4rem;
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--gold);
+      transition: background var(--transition), border-color var(--transition), color var(--transition);
+    }
+    .step-item:hover .step-num {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #fff;
+    }
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    .step-desc { font-size: 0.84rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
+
+    @media (max-width: 575px) {
+      .step-item {
+        display: flex;
+        text-align: left;
+        gap: 1.25rem;
+        align-items: flex-start;
+        margin-bottom: 2rem;
+      }
+      .step-num { flex-shrink: 0; margin: 0; }
+    }
+
+    /* ============================================
+       FAQ SECTION
+    ============================================ */
+    .faq-wrap { max-width: 710px; margin: 2.75rem auto 0; }
+    .accordion-item {
+      background: var(--card-bg) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 2px !important;
+      margin-bottom: 0.7rem;
+      overflow: hidden;
+    }
+    .accordion-button {
+      background: var(--card-bg) !important;
+      color: var(--text-primary) !important;
+      font-family: var(--font-body) !important;
+      font-size: 0.93rem !important;
+      font-weight: 500 !important;
+      padding: 1.2rem 1.5rem !important;
+      box-shadow: none !important;
+    }
+    .accordion-button::after {
+      content: '+';
+      background-image: none !important;
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      width: auto;
+      height: auto;
+    }
+    .accordion-button:not(.collapsed)::after { content: '−'; transform: none; }
+    .accordion-button:not(.collapsed) { color: var(--gold) !important; }
+    .accordion-body {
+      background: var(--card-bg);
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.75;
+      padding: 0 1.5rem 1.25rem !important;
+    }
+
+    /* ============================================
+       FINAL CTA SECTION
+    ============================================ */
+    .final-cta-section {
+      position: relative;
+      overflow: hidden;
+    }
+    .final-cta-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+    }
+    .final-cta-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(28, 8, 2, 0.92) 0%, rgba(60, 32, 18, 0.78) 100%);
+    }
+    .final-cta-content {
+      position: relative;
+      z-index: 2;
+      padding: 7rem 0;
+      text-align: center;
+    }
+    .final-cta-title {
+      font-size: clamp(2.4rem, 6vw, 4.4rem);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.12;
+      margin-bottom: 1.25rem;
+    }
+    .final-cta-title em { font-style: italic; font-weight: 300; color: var(--blush-mid); }
+    .final-cta-sub {
+      color: rgba(255,255,255,0.65);
+      font-size: 1rem;
+      font-weight: 300;
+      max-width: 460px;
+      margin: 0 auto 2.75rem;
+      line-height: 1.75;
+    }
+    .final-cta-btns {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    .salon-footer {
+      background: #160803;
+      padding: 4.5rem 0 2rem;
+      color: rgba(255,255,255,0.65);
+    }
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 0.75rem;
+    }
+    .footer-tagline {
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.45);
+      font-weight: 300;
+      max-width: 250px;
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+    .footer-social { display: flex; gap: 0.65rem; margin-bottom: 1.5rem; }
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+    .footer-social a:hover { background: var(--gold); border-color: var(--gold); color: #fff; }
+
+    .footer-heading {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.1rem;
+    }
+    .footer-links { list-style: none; padding: 0; }
+    .footer-links li { margin-bottom: 0.55rem; }
+    .footer-links a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.86rem;
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    .footer-contact-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+    .footer-contact-row i { color: var(--gold); font-size: 0.85rem; margin-top: 0.15rem; flex-shrink: 0; }
+    .footer-contact-row span,
+    .footer-contact-row a {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      line-height: 1.55;
+    }
+    .footer-contact-row a:hover { color: var(--gold); }
+
+    .footer-divider { border-color: rgba(255,255,255,0.07); margin: 2.5rem 0 1.5rem; }
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .footer-copy { font-size: 0.76rem; color: rgba(255,255,255,0.3); }
+    .footer-legal { display: flex; gap: 1.25rem; }
+    .footer-legal a {
+      font-size: 0.76rem;
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    .footer-legal a:hover { color: var(--gold); }
+    .footer-credit { font-size: 0.76rem; color: rgba(255,255,255,0.3); }
+    .footer-credit a { color: var(--gold); text-decoration: none; }
+    .footer-credit a:hover { color: #fff; }
+
+    /* ============================================
+       WHATSAPP FLOAT BUTTON
+    ============================================ */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 997;
+      text-decoration: none;
+      box-shadow: 0 6px 22px rgba(37, 211, 102, 0.45);
+      animation: waPulse 2.5s infinite;
+      transition: transform var(--transition);
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      animation: none;
+      box-shadow: 0 10px 32px rgba(37, 211, 102, 0.55);
+    }
+    .whatsapp-float i { font-size: 1.6rem; color: #fff; }
+
+    /* ============================================
+       SCROLL REVEAL
+    ============================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.32s; }
+    .reveal-delay-4 { transition-delay: 0.44s; }
+
+    /* ============================================
+       KEYFRAME ANIMATIONS
+    ============================================ */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0);    }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.5; }
+      50%       { opacity: 1;   }
+    }
+    @keyframes waPulse {
+      0%   { box-shadow: 0 6px 22px rgba(37,211,102,0.45); }
+      50%  { box-shadow: 0 6px 28px rgba(37,211,102,0.65), 0 0 0 10px rgba(37,211,102,0.07); }
+      100% { box-shadow: 0 6px 22px rgba(37,211,102,0.45); }
+    }
+
+    /* ============================================
+       RESPONSIVE EXTRAS
+    ============================================ */
+    @media (max-width: 375px) {
+      .hero-title { font-size: 2.3rem; }
+      .btn-salon { padding: 0.8rem 1.4rem; font-size: 0.78rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Skip to main content — WCAG requirement -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ============================================
+       PROMO BANNER
+  ============================================ -->
+  <div class="promo-banner" role="complementary" aria-label="Promotional announcement">
+    <p>✨ Bridal bookings now open for the season —
+      <a href="https://wa.me/17584100000?text=Hi%20Velour%20Hair%20Studio!%20I'd%20like%20to%20enquire%20about%20bridal%20styling."
+         target="_blank" rel="noopener noreferrer">Enquire on WhatsApp</a>
+    </p>
+  </div>
+
+  <!-- ============================================
+       NAVBAR
+  ============================================ -->
+  <header>
+    <nav class="salon-nav navbar navbar-expand-lg"
+         id="mainNav"
+         role="navigation"
+         aria-label="Main navigation">
+      <div class="container">
+
+        <a class="navbar-brand" href="#" aria-label="Velour Hair Studio — return to top">
+          Velour Hair Studio
+        </a>
+
+        <!-- Mobile: theme toggle + hamburger -->
+        <div class="d-flex align-items-center gap-2 ms-auto d-lg-none">
+          <button class="theme-toggle-btn"
+                  id="themeToggleMobile"
+                  type="button"
+                  aria-label="Switch to dark mode"
+                  aria-pressed="false">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </button>
+          <button class="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navMenu"
+                  aria-controls="navMenu"
+                  aria-expanded="false"
+                  aria-label="Open navigation menu">
+            <div class="toggler-bars" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+            <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
+            <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+            <li class="nav-item ms-lg-2">
+              <!-- Desktop theme toggle -->
+              <button class="theme-toggle-btn d-none d-lg-flex"
+                      id="themeToggleDesktop"
+                      type="button"
+                      aria-label="Switch to dark mode"
+                      aria-pressed="false">
+                <i class="fas fa-moon" aria-hidden="true"></i>
+              </button>
+            </li>
+            <li class="nav-item ms-lg-2">
+              <a href="https://wa.me/17584100000?text=Hi%20Velour%20Hair%20Studio!%20I'd%20like%20to%20book%20an%20appointment."
+                 class="btn-salon"
+                 style="padding: 0.55rem 1.3rem; font-size: 0.75rem;"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Book appointment on WhatsApp">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Book Now
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+  <!-- ============================================
+       MAIN CONTENT
+  ============================================ -->
+  <main id="main-content" role="main">
+
+    <!-- ==========================================
+         HERO SECTION
+    ========================================== -->
+    <section class="hero-section" aria-label="Velour Hair Studio — professional hair care in Castries">
+
+      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1600&q=80"
+           alt="Warm, professionally lit hair salon interior with elegant styling stations"
+           class="hero-bg"
+           width="1600" height="900"
+           loading="eager" decoding="sync"
+           onerror="this.style.display='none'">
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-xl-7">
+            <div class="hero-content">
+
+              <div class="hero-pill">
+                <i class="fas fa-location-dot" aria-hidden="true"></i>
+                Castries, Saint Lucia
+              </div>
+
+              <h1 class="hero-title">
+                Walk In.<br><em>Leave Radiant.</em>
+              </h1>
+
+              <p class="hero-sub">
+                Braids, silk presses, installs and colour for women who want clean, lasting styles — without spending all day waiting.
+              </p>
+
+              <div class="hero-cta-group">
+                <a href="https://wa.me/17584100000?text=Hi%20Velour%20Hair%20Studio!%20I'd%20like%20to%20book%20an%20appointment."
+                   class="btn-salon"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Book your hair appointment on WhatsApp">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                  Book Appointment
+                </a>
+                <a href="#services"
+                   class="btn-salon-outline"
+                   aria-label="View our full list of services">
+                  View Services
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-scroll-cue" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="scroll-bar"></div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         TRUST STRIP
+    ========================================== -->
+    <section class="trust-strip" aria-label="Trust and credibility indicators">
+      <div class="container">
+        <div class="trust-inner">
+
+          <div class="trust-item">
+            <i class="fas fa-star" aria-hidden="true"></i>
+            <div class="trust-text">
+              <strong>4.9 Rated</strong>
+              <span>By Our Clients</span>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <i class="fas fa-scissors" aria-hidden="true"></i>
+            <div class="trust-text">
+              <strong>1,200+ Styles</strong>
+              <span>Completed</span>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <i class="fas fa-calendar-check" aria-hidden="true"></i>
+            <div class="trust-text">
+              <strong>On-Time</strong>
+              <span>Appointment-Based</span>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <i class="fas fa-leaf" aria-hidden="true"></i>
+            <div class="trust-text">
+              <strong>Premium Products</strong>
+              <span>Every Single Client</span>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <i class="fas fa-shield-halved" aria-hidden="true"></i>
+            <div class="trust-text">
+              <strong>Hygienic Studio</strong>
+              <span>Sanitised Between Clients</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TRANSFORMATION GALLERY
+    ========================================== -->
+    <section class="section-pad" id="gallery" style="background: var(--bg-main);" aria-label="Client transformation gallery">
+      <div class="container">
+
+        <div class="row align-items-end mb-4">
+          <div class="col-lg-6">
+            <span class="section-label reveal">Our Work</span>
+            <h2 class="section-title reveal reveal-delay-1">
+              Styles That Speak<br>
+              <em style="font-style:italic; color:var(--gold);">For Themselves</em>
+            </h2>
+          </div>
+          <div class="col-lg-5 offset-lg-1 mt-3 mt-lg-0">
+            <p class="section-subtitle reveal reveal-delay-2">
+              Every transformation completed with precision, quality products, and genuine care for your hair health.
+            </p>
+          </div>
+        </div>
+
+        <div class="gallery-grid" role="list" aria-label="Hair style transformation photos">
+
+          <div class="gallery-item reveal reveal-delay-1" role="listitem">
+            <img src="https://images.unsplash.com/photo-1522337660788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80"
+                 alt="Professional knotless braids — clean parts, lightweight, long-lasting wear"
+                 width="600" height="800"
+                 loading="lazy" decoding="async"
+                 onerror="this.style.display='none'">
+            <div class="gallery-overlay" aria-hidden="true"><span>Knotless Braids</span></div>
+          </div>
+
+          <div class="gallery-item reveal reveal-delay-2" role="listitem">
+            <img src="https://images.unsplash.com/photo-1595163153849-8bcba43bfe4f?auto=format&fit=crop&w=600&q=80"
+                 alt="Silk press — smooth, bouncy natural hair with minimal heat damage"
+                 width="600" height="800"
+                 loading="lazy" decoding="async"
+                 onerror="this.style.display='none'">
+            <div class="gallery-overlay" aria-hidden="true"><span>Silk Press</span></div>
+          </div>
+
+          <div class="gallery-item reveal reveal-delay-3" role="listitem">
+            <img src="https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=600&q=80"
+                 alt="Wig install — natural-looking lace wig blended and styled professionally"
+                 width="600" height="800"
+                 loading="lazy" decoding="async"
+                 onerror="this.style.display='none'">
+            <div class="gallery-overlay" aria-hidden="true"><span>Wig Install</span></div>
+          </div>
+
+          <div class="gallery-item reveal reveal-delay-1" role="listitem">
+            <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=600&q=80"
+                 alt="Professional hair colouring service — vibrant, even colour applied by stylist"
+                 width="600" height="800"
+                 loading="lazy" decoding="async"
+                 onerror="this.style.display='none'">
+            <div class="gallery-overlay" aria-hidden="true"><span>Hair Colouring</span></div>
+          </div>
+
+          <div class="gallery-item reveal reveal-delay-2" role="listitem">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80"
+                 alt="Bridal hair styling — elegant updo for a wedding or special occasion"
+                 width="600" height="800"
+                 loading="lazy" decoding="async"
+                 onerror="this.style.display='none'">
+            <div class="gallery-overlay" aria-hidden="true"><span>Bridal Styling</span></div>
+          </div>
+
+          <div class="gallery-item reveal reveal-delay-3" role="listitem">
+            <img src="https://images.unsplash.com/photo-1590080874088-eec64895b423?auto=format&fit=crop&w=600&q=80"
+                 alt="Loc styling — beautifully maintained and retwisted dreadlocks"
+                 width="600" height="800"
+                 loading="lazy" decoding="async"
+                 onerror="this.style.display='none'">
+            <div class="gallery-overlay" aria-hidden="true"><span>Loc Styling</span></div>
+          </div>
+
+        </div>
+
+        <div class="text-center mt-5 reveal">
+          <a href="https://wa.me/17584100000?text=Hi%20Velour%20Hair%20Studio!%20I%20saw%20your%20gallery%20and%20I'd%20like%20to%20book%20this%20look."
+             class="btn-salon btn-salon-brown"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Message us on WhatsApp to book a style from the gallery">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            Get This Look
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SERVICES SECTION
+    ========================================== -->
+    <section class="section-pad" id="services" style="background: var(--bg-section);" aria-label="Our salon services and pricing">
+      <div class="container">
+
+        <div class="text-center mb-5">
+          <span class="section-label reveal">What We Offer</span>
+          <h2 class="section-title reveal reveal-delay-1">Our Signature Services</h2>
+          <p class="section-subtitle mx-auto reveal reveal-delay-2">
+            Every service uses premium products and professional technique. Your hair health is never sacrificed for speed.
+          </p>
+        </div>
+
+        <div class="row g-4">
+
+          <!-- Knotless Braids -->
+          <div class="col-lg-4 col-md-6 reveal reveal-delay-1">
+            <article class="service-card" aria-label="Knotless Braids service">
+              <div class="service-card-img">
+                <img src="https://images.unsplash.com/photo-1522337660788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80"
+                     alt="Knotless braids — lightweight protective style with clean partings"
+                     width="600" height="420"
+                     loading="lazy" decoding="async"
+                     onerror="this.style.display='none'">
+                <span class="badge-pill">Most Popular</span>
+              </div>
+              <div class="service-card-body">
+                <h3 class="service-name">Knotless Braids</h3>
+                <p class="service-desc">Lightweight protective braids designed for scalp comfort, clean partings, and long wear. Gentle from root to tip.</p>
+                <div class="service-meta">
+                  <div class="service-price"><small>from</small>$180</div>
+                  <div class="service-duration"><i class="fas fa-clock" aria-hidden="true"></i> 4–6 hrs</div>
+                </div>
+                <a href="https://wa.me/17584100000?text=Hi!%20I'd%20like%20to%20book%20Knotless%20Braids%20at%20Velour%20Hair%20Studio."
+                   class="btn-salon btn-service"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="Book Knotless Braids appointment on WhatsApp">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Book This Style
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Silk Press -->
+          <div class="col-lg-4 col-md-6 reveal reveal-delay-2">
+            <article class="service-card" aria-label="Silk Press service">
+              <div class="service-card-img">
+                <img src="https://images.unsplash.com/photo-1595163153849-8bcba43bfe4f?auto=format&fit=crop&w=600&q=80"
+                     alt="Silk press — smooth, bouncy natural hair styled with minimal heat"
+                     width="600" height="420"
+                     loading="lazy" decoding="async"
+                     onerror="this.style.display='none'">
+              </div>
+              <div class="service-card-body">
+                <h3 class="service-name">Silk Press</h3>
+                <p class="service-desc">Smooth, bouncy results that hold their shape — even in Saint Lucia's humidity. Maximum results, minimal heat damage.</p>
+                <div class="service-meta">
+                  <div class="service-price"><small>from</small>$95</div>
+                  <div class="service-duration"><i class="fas fa-clock" aria-hidden="true"></i> 2–3 hrs</div>
+                </div>
+                <a href="https://wa.me/17584100000?text=Hi!%20I'd%20like%20to%20book%20a%20Silk%20Press%20at%20Velour%20Hair%20Studio."
+                   class="btn-salon btn-service"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="Book a Silk Press appointment on WhatsApp">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Book This Style
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Wig Install -->
+          <div class="col-lg-4 col-md-6 reveal reveal-delay-3">
+            <article class="service-card" aria-label="Wig Install service">
+              <div class="service-card-img">
+                <img src="https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=600&q=80"
+                     alt="Wig install — professional lace wig blended naturally and styled to finish"
+                     width="600" height="420"
+                     loading="lazy" decoding="async"
+                     onerror="this.style.display='none'">
+              </div>
+              <div class="service-card-body">
+                <h3 class="service-name">Wig Install</h3>
+                <p class="service-desc">Natural-looking installs that blend flawlessly. Lace melted, edges laid, styled exactly to your preference.</p>
+                <div class="service-meta">
+                  <div class="service-price"><small>from</small>$120</div>
+                  <div class="service-duration"><i class="fas fa-clock" aria-hidden="true"></i> 2–4 hrs</div>
+                </div>
+                <a href="https://wa.me/17584100000?text=Hi!%20I'd%20like%20to%20book%20a%20Wig%20Install%20at%20Velour%20Hair%20Studio."
+                   class="btn-salon btn-service"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="Book a Wig Install appointment on WhatsApp">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Book This Style
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Hair Colouring -->
+          <div class="col-lg-4 col-md-6 reveal reveal-delay-1">
+            <article class="service-card" aria-label="Hair Colouring service">
+              <div class="service-card-img">
+                <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=600&q=80"
+                     alt="Professional hair colouring — vibrant colour with deep conditioning treatment"
+                     width="600" height="420"
+                     loading="lazy" decoding="async"
+                     onerror="this.style.display='none'">
+              </div>
+              <div class="service-card-body">
+                <h3 class="service-name">Hair Colouring</h3>
+                <p class="service-desc">Full colour, highlights, balayage and ombré. Every colour service includes a deep conditioning treatment to protect your hair.</p>
+                <div class="service-meta">
+                  <div class="service-price"><small>from</small>$130</div>
+                  <div class="service-duration"><i class="fas fa-clock" aria-hidden="true"></i> 3–5 hrs</div>
+                </div>
+                <a href="https://wa.me/17584100000?text=Hi!%20I'd%20like%20to%20book%20a%20Hair%20Colouring%20service%20at%20Velour%20Hair%20Studio."
+                   class="btn-salon btn-service"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="Book a Hair Colouring appointment on WhatsApp">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Book This Style
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Bridal Styling -->
+          <div class="col-lg-4 col-md-6 reveal reveal-delay-2">
+            <article class="service-card" aria-label="Bridal Styling service">
+              <div class="service-card-img">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80"
+                     alt="Bridal hair styling — elegant updo for weddings and formal occasions"
+                     width="600" height="420"
+                     loading="lazy" decoding="async"
+                     onerror="this.style.display='none'">
+                <span class="badge-pill">By Appointment</span>
+              </div>
+              <div class="service-card-body">
+                <h3 class="service-name">Bridal Styling</h3>
+                <p class="service-desc">Your wedding day hair, done flawlessly. Includes trial session, day-of styling, and bridal party coordination if needed.</p>
+                <div class="service-meta">
+                  <div class="service-price"><small>from</small>$250</div>
+                  <div class="service-duration"><i class="fas fa-clock" aria-hidden="true"></i> 4–6 hrs</div>
+                </div>
+                <a href="https://wa.me/17584100000?text=Hi!%20I'd%20like%20to%20enquire%20about%20Bridal%20Styling%20at%20Velour%20Hair%20Studio."
+                   class="btn-salon btn-service"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="Enquire about Bridal Styling on WhatsApp">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Enquire Now
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Loc Styling -->
+          <div class="col-lg-4 col-md-6 reveal reveal-delay-3">
+            <article class="service-card" aria-label="Loc Styling service">
+              <div class="service-card-img">
+                <img src="https://images.unsplash.com/photo-1590080874088-eec64895b423?auto=format&fit=crop&w=600&q=80"
+                     alt="Loc styling — professional retwist and creative loc maintenance"
+                     width="600" height="420"
+                     loading="lazy" decoding="async"
+                     onerror="this.style.display='none'">
+              </div>
+              <div class="service-card-body">
+                <h3 class="service-name">Loc Styling</h3>
+                <p class="service-desc">Retwists, loc maintenance and creative styling for every stage of your loc journey. Healthy locs start with professional care.</p>
+                <div class="service-meta">
+                  <div class="service-price"><small>from</small>$85</div>
+                  <div class="service-duration"><i class="fas fa-clock" aria-hidden="true"></i> 1.5–3 hrs</div>
+                </div>
+                <a href="https://wa.me/17584100000?text=Hi!%20I'd%20like%20to%20book%20Loc%20Styling%20at%20Velour%20Hair%20Studio."
+                   class="btn-salon btn-service"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="Book a Loc Styling appointment on WhatsApp">
+                  <i class="fab fa-whatsapp" aria-hidden="true"></i> Book This Style
+                </a>
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         WHY CHOOSE US
+    ========================================== -->
+    <section class="section-pad" id="about" style="background: var(--bg-main);" aria-label="Why choose Velour Hair Studio">
+      <div class="container">
+        <div class="row align-items-center">
+
+          <div class="col-lg-5 mb-5 mb-lg-0">
+            <span class="section-label reveal">Why Velour</span>
+            <h2 class="section-title reveal reveal-delay-1">More Than a Hair Appointment</h2>
+            <p class="section-subtitle reveal reveal-delay-2">
+              We built this studio around one idea: you should leave feeling better than when you walked in — in every sense of the word.
+            </p>
+            <div class="mt-4 reveal reveal-delay-3">
+              <a href="https://wa.me/17584100000?text=Hi!%20I'd%20like%20to%20book%20an%20appointment%20at%20Velour%20Hair%20Studio."
+                 class="btn-salon"
+                 target="_blank" rel="noopener noreferrer"
+                 aria-label="Book your visit at Velour Hair Studio on WhatsApp">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                Book Your Visit
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-6 offset-lg-1">
+            <div class="why-grid">
+
+              <div class="why-card reveal reveal-delay-1">
+                <div class="why-icon" aria-hidden="true"><i class="fas fa-calendar-check" aria-hidden="true"></i></div>
+                <h3 class="why-title">Appointment-Based</h3>
+                <p class="why-desc">Focused appointments without overcrowding or long wait times. Your time is always respected.</p>
+              </div>
+
+              <div class="why-card reveal reveal-delay-2">
+                <div class="why-icon" aria-hidden="true"><i class="fas fa-jar" aria-hidden="true"></i></div>
+                <h3 class="why-title">Premium Products</h3>
+                <p class="why-desc">Only professional-grade, hair-healthy products are used on every single client, every time.</p>
+              </div>
+
+              <div class="why-card reveal reveal-delay-3">
+                <div class="why-icon" aria-hidden="true"><i class="fas fa-broom" aria-hidden="true"></i></div>
+                <h3 class="why-title">Always Clean</h3>
+                <p class="why-desc">Tools sanitised between every client. A spotless studio is a non-negotiable standard here.</p>
+              </div>
+
+              <div class="why-card reveal reveal-delay-1">
+                <div class="why-icon" aria-hidden="true"><i class="fas fa-heart" aria-hidden="true"></i></div>
+                <h3 class="why-title">Hair-First Always</h3>
+                <p class="why-desc">We prioritise the long-term health of your hair. A look should never cost you your hair's integrity.</p>
+              </div>
+
+              <div class="why-card reveal reveal-delay-2">
+                <div class="why-icon" aria-hidden="true"><i class="fas fa-clock" aria-hidden="true"></i></div>
+                <h3 class="why-title">On-Time, Every Time</h3>
+                <p class="why-desc">When you book a time, we honour it. No sitting around waiting for a chair to open up.</p>
+              </div>
+
+              <div class="why-card reveal reveal-delay-3">
+                <div class="why-icon" aria-hidden="true"><i class="fab fa-whatsapp" aria-hidden="true"></i></div>
+                <h3 class="why-title">Easy to Book</h3>
+                <p class="why-desc">Book, ask questions, confirm appointments — all through WhatsApp. Quick, simple, no forms.</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TESTIMONIALS
+    ========================================== -->
+    <section class="section-pad" id="testimonials" style="background: var(--bg-section);" aria-label="Client reviews and testimonials">
+      <div class="container">
+
+        <div class="text-center mb-5">
+          <span class="section-label reveal">Real Clients</span>
+          <h2 class="section-title reveal reveal-delay-1">What Our Clients Say</h2>
+          <p class="section-subtitle mx-auto reveal reveal-delay-2">Every review is from a real client. No scripts, no polish — just honest feedback.</p>
+        </div>
+
+        <div class="row g-4">
+
+          <div class="col-lg-4 col-md-6 reveal reveal-delay-1">
+            <blockquote class="testimonial-card">
+              <div class="quote-mark" aria-hidden="true">"</div>
+              <div class="t-stars" aria-label="5 out of 5 stars">
+                <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+              </div>
+              <p class="t-text">"My silk press lasted through an entire vacation without frizz. I was shocked. Will not go anywhere else."</p>
+              <footer class="t-author">
+                <div class="t-avatar" aria-hidden="true">KM</div>
+                <div>
+                  <span class="t-name">Kayla M.</span>
+                  <span class="t-service">Silk Press Client</span>
+                </div>
+              </footer>
+            </blockquote>
+          </div>
+
+          <div class="col-lg-4 col-md-6 reveal reveal-delay-2">
+            <blockquote class="testimonial-card">
+              <div class="quote-mark" aria-hidden="true">"</div>
+              <div class="t-stars" aria-label="5 out of 5 stars">
+                <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+              </div>
+              <p class="t-text">"She started on time, my braids were clean from root to tip, and they lasted six solid weeks. I don't trust anyone else with my hair now."</p>
+              <footer class="t-author">
+                <div class="t-avatar" aria-hidden="true">TP</div>
+                <div>
+                  <span class="t-name">Tiffany P.</span>
+                  <span class="t-service">Knotless Braids Client</span>
+                </div>
+              </footer>
+            </blockquote>
+          </div>
+
+          <div class="col-lg-4 col-md-6 reveal reveal-delay-3">
+            <blockquote class="testimonial-card">
+              <div class="quote-mark" aria-hidden="true">"</div>
+              <div class="t-stars" aria-label="5 out of 5 stars">
+                <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+              </div>
+              <p class="t-text">"My wig install looked completely natural the entire trip. I got compliments every day. The booking process through WhatsApp was so easy too."</p>
+              <footer class="t-author">
+                <div class="t-avatar" aria-hidden="true">NJ</div>
+                <div>
+                  <span class="t-name">Nadine J.</span>
+                  <span class="t-service">Wig Install Client</span>
+                </div>
+              </footer>
+            </blockquote>
+          </div>
+
+          <div class="col-lg-4 col-md-6 reveal reveal-delay-1">
+            <blockquote class="testimonial-card">
+              <div class="quote-mark" aria-hidden="true">"</div>
+              <div class="t-stars" aria-label="5 out of 5 stars">
+                <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+              </div>
+              <p class="t-text">"I've been doing my bridal trial here and I'm beyond impressed. The stylist listened to exactly what I wanted. My wedding day hair is in safe hands."</p>
+              <footer class="t-author">
+                <div class="t-avatar" aria-hidden="true">SA</div>
+                <div>
+                  <span class="t-name">Simone A.</span>
+                  <span class="t-service">Bridal Styling Client</span>
+                </div>
+              </footer>
+            </blockquote>
+          </div>
+
+          <div class="col-lg-4 col-md-6 reveal reveal-delay-2">
+            <blockquote class="testimonial-card">
+              <div class="quote-mark" aria-hidden="true">"</div>
+              <div class="t-stars" aria-label="5 out of 5 stars">
+                <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+              </div>
+              <p class="t-text">"My colour came out exactly as I showed in the reference photo. No damage, no brassiness. My hair felt healthier walking out than when I came in."</p>
+              <footer class="t-author">
+                <div class="t-avatar" aria-hidden="true">RB</div>
+                <div>
+                  <span class="t-name">Renée B.</span>
+                  <span class="t-service">Hair Colour Client</span>
+                </div>
+              </footer>
+            </blockquote>
+          </div>
+
+          <div class="col-lg-4 col-md-6 reveal reveal-delay-3">
+            <blockquote class="testimonial-card">
+              <div class="quote-mark" aria-hidden="true">"</div>
+              <div class="t-stars" aria-label="5 out of 5 stars">
+                <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+              </div>
+              <p class="t-text">"Clean studio, professional atmosphere, and my retwist was done with real care. Best salon experience I've had since moving back to Saint Lucia."</p>
+              <footer class="t-author">
+                <div class="t-avatar" aria-hidden="true">MC</div>
+                <div>
+                  <span class="t-name">Marcia C.</span>
+                  <span class="t-service">Loc Styling Client</span>
+                </div>
+              </footer>
+            </blockquote>
+          </div>
+
+        </div>
+
+        <div class="text-center mt-5 reveal">
+          <a href="https://wa.me/17584100000?text=Hi%20Velour%20Hair%20Studio!%20I'd%20like%20to%20reserve%20an%20appointment."
+             class="btn-salon"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Reserve your appointment on WhatsApp">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            Reserve Your Appointment
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         BOOKING STEPS
+    ========================================== -->
+    <section class="booking-section section-pad" id="booking" aria-label="How to book an appointment at Velour Hair Studio">
+      <div class="container">
+
+        <div class="text-center">
+          <span class="section-label reveal">Simple Process</span>
+          <h2 class="section-title reveal reveal-delay-1">How Booking Works</h2>
+          <p class="section-subtitle mx-auto reveal reveal-delay-2">No complicated forms. No lengthy sign-ups. Four steps from scroll to styled.</p>
+        </div>
+
+        <div class="steps-wrap">
+          <div class="steps-line" aria-hidden="true"></div>
+          <div class="row g-4 g-lg-0 mt-2">
+
+            <div class="col-lg-3 col-sm-6 reveal reveal-delay-1">
+              <div class="step-item">
+                <div class="step-num" aria-hidden="true">1</div>
+                <div>
+                  <h3 class="step-title">Choose Your Style</h3>
+                  <p class="step-desc">Browse our services and gallery to find the look you want.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 reveal reveal-delay-2">
+              <div class="step-item">
+                <div class="step-num" aria-hidden="true">2</div>
+                <div>
+                  <h3 class="step-title">Message on WhatsApp</h3>
+                  <p class="step-desc">Send us your style choice, preferred date, and any reference photos.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 reveal reveal-delay-3">
+              <div class="step-item">
+                <div class="step-num" aria-hidden="true">3</div>
+                <div>
+                  <h3 class="step-title">Confirm Your Slot</h3>
+                  <p class="step-desc">We confirm your time and a small deposit locks in your booking.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 reveal reveal-delay-4">
+              <div class="step-item">
+                <div class="step-num" aria-hidden="true">4</div>
+                <div>
+                  <h3 class="step-title">Arrive & Get Styled</h3>
+                  <p class="step-desc">Come in, relax, and leave looking and feeling exactly right.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="text-center mt-5 reveal">
+          <a href="https://wa.me/17584100000?text=Hi%20Velour%20Hair%20Studio!%20I'd%20like%20to%20start%20my%20booking."
+             class="btn-salon"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Start booking your appointment on WhatsApp">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            Start Booking Now
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         FAQ SECTION
+    ========================================== -->
+    <section class="section-pad" id="faq" style="background: var(--bg-main);" aria-label="Frequently asked questions">
+      <div class="container">
+
+        <div class="text-center">
+          <span class="section-label reveal">Got Questions?</span>
+          <h2 class="section-title reveal reveal-delay-1">Frequently Asked</h2>
+          <p class="section-subtitle mx-auto reveal reveal-delay-2">
+            Don't see your question here? Message us directly on WhatsApp.
+          </p>
+        </div>
+
+        <div class="faq-wrap reveal reveal-delay-2">
+          <div class="accordion" id="faqAccordion">
+
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="faq1h">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+                  Do you provide hair for braids and installs?
+                </button>
+              </h3>
+              <div id="faq1" class="accordion-collapse collapse show" aria-labelledby="faq1h" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Yes. We source quality braiding hair and extensions for most styles. Let us know at booking and we will include it in your quote. You are also welcome to bring your own hair if you prefer a specific brand or texture.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="faq2h">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                  Is a deposit required to book?
+                </button>
+              </h3>
+              <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faq2h" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Yes. A small deposit is required to confirm your appointment. This holds your time slot and is applied to your final balance. Full details are confirmed over WhatsApp at the time of booking.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="faq3h">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                  Do I need to wash my hair before coming in?
+                </button>
+              </h3>
+              <div id="faq3" class="accordion-collapse collapse" aria-labelledby="faq3h" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  For most natural and protective styles, coming with freshly washed hair is preferred. For silk presses, a wash and deep condition are included as part of the service. If you are unsure, just ask when booking — we will tell you exactly what to do.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="faq4h">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                  What payment methods do you accept?
+                </button>
+              </h3>
+              <div id="faq4" class="accordion-collapse collapse" aria-labelledby="faq4h" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  We currently accept cash and local bank transfers. Payment details are provided at booking confirmation. We are working to expand our payment options and will update clients as new methods become available.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="faq5h">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
+                  Can I reschedule or cancel my appointment?
+                </button>
+              </h3>
+              <div id="faq5" class="accordion-collapse collapse" aria-labelledby="faq5h" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Yes. We ask for at least 24 hours' notice to reschedule or cancel. Cancellations made with less than 24 hours' notice may result in the deposit being non-refundable. Life happens — just let us know as early as possible and we will do our best to accommodate you.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="faq6h">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6" aria-expanded="false" aria-controls="faq6">
+                  Do you accept walk-ins?
+                </button>
+              </h3>
+              <div id="faq6" class="accordion-collapse collapse" aria-labelledby="faq6h" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  We are appointment-based only. This allows every client to receive the full time and attention their hair deserves. Walk-ins cannot be guaranteed, so we strongly recommend booking in advance — especially for weekends and public holidays.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         FINAL CTA SECTION
+    ========================================== -->
+    <section class="final-cta-section" aria-label="Book your next appointment">
+      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1600&q=65"
+           alt="Velour Hair Studio — warm, welcoming, professional hair salon environment"
+           class="final-cta-bg"
+           width="1600" height="700"
+           loading="lazy" decoding="async"
+           onerror="this.style.display='none'">
+      <div class="final-cta-overlay" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="final-cta-content">
+          <span class="section-label reveal" style="color:var(--gold);">Ready?</span>
+          <h2 class="final-cta-title reveal reveal-delay-1">
+            Your Next Look<br><em>Is Waiting.</em>
+          </h2>
+          <p class="final-cta-sub reveal reveal-delay-2">
+            Weekend appointments fill up fast. Message now to secure your preferred date.
+          </p>
+          <div class="final-cta-btns reveal reveal-delay-3">
+            <a href="https://wa.me/17584100000?text=Hi%20Velour%20Hair%20Studio!%20I'd%20like%20to%20book%20an%20appointment."
+               class="btn-salon"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Book your appointment on WhatsApp now">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+              Book on WhatsApp
+            </a>
+            <a href="#services"
+               class="btn-salon-outline"
+               aria-label="View all services offered">
+              View All Services
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================
+       FOOTER
+  ============================================ -->
+  <footer class="salon-footer" role="contentinfo" aria-label="Site footer">
+    <div class="container">
+      <div class="row g-5">
+
+        <div class="col-lg-4">
+          <div class="footer-brand">Velour Hair Studio</div>
+          <p class="footer-tagline">Professional hair care in the heart of Castries, Saint Lucia. Appointment-based. Premium results.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/velourhairstudio" target="_blank" rel="noopener noreferrer" aria-label="Visit Velour Hair Studio on Instagram">
+              <i class="fab fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.facebook.com/velourhairstudio" target="_blank" rel="noopener noreferrer" aria-label="Visit Velour Hair Studio on Facebook">
+              <i class="fab fa-facebook-f" aria-hidden="true"></i>
+            </a>
+            <a href="https://wa.me/17584100000?text=Hi%20Velour%20Hair%20Studio!" target="_blank" rel="noopener noreferrer" aria-label="Message Velour Hair Studio on WhatsApp">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li><a href="#services">Knotless Braids</a></li>
+            <li><a href="#services">Silk Press</a></li>
+            <li><a href="#services">Wig Install</a></li>
+            <li><a href="#services">Hair Colouring</a></li>
+            <li><a href="#services">Bridal Styling</a></li>
+            <li><a href="#services">Loc Styling</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+          <h4 class="footer-heading">Navigate</h4>
+          <ul class="footer-links">
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#booking">How to Book</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="/privacy-policy.html" rel="noopener">Privacy Policy</a></li>
+            <li><a href="/terms.html" rel="noopener">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-4">
+          <h4 class="footer-heading">Find Us</h4>
+          <div class="footer-contact-row">
+            <i class="fas fa-location-dot" aria-hidden="true"></i>
+            <span>Castries, Saint Lucia<br>Exact address provided at booking</span>
+          </div>
+          <div class="footer-contact-row">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span>Tuesday – Saturday<br>9:00 AM – 6:00 PM</span>
+          </div>
+          <div class="footer-contact-row">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            <a href="https://wa.me/17584100000?text=Hi%20Velour%20Hair%20Studio!" target="_blank" rel="noopener noreferrer" aria-label="Call or WhatsApp Velour Hair Studio">+1 (758) 410-0000</a>
+          </div>
+          <div class="footer-contact-row">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+            <a href="https://www.instagram.com/velourhairstudio" target="_blank" rel="noopener noreferrer" aria-label="Follow Velour Hair Studio on Instagram">@velourhairstudio</a>
+          </div>
+        </div>
+
+      </div>
+
+      <hr class="footer-divider">
+
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 Velour Hair Studio. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="/privacy-policy.html" rel="noopener">Privacy Policy</a>
+          <a href="/terms.html" rel="noopener">Terms of Service</a>
+        </div>
+        <p class="footer-credit">
+          Website by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank" rel="noopener noreferrer">JAMALINKS</a>
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ============================================
+       WHATSAPP FLOATING BUTTON
+       Always last before closing body — JAMALINKS standard
+  ============================================ -->
+  <a href="https://wa.me/17584100000?text=Hi%20Velour%20Hair%20Studio!%20I'd%20like%20to%20book%20an%20appointment."
+     class="whatsapp-float"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Chat with Velour Hair Studio on WhatsApp to book an appointment"
+     role="button">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+  </a>
+
+  <!-- Bootstrap 5.3.3 JS — deferred with SRI -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmQKZr5QFBkRQqEpfGXL1P1/1j5u"
+          crossorigin="anonymous" defer></script>
+
+  <!-- ============================================
+       CUSTOM JAVASCRIPT — All wrapped in DOMContentLoaded
+  ============================================ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      // ============================================
+      // THEME MANAGEMENT
+      // Time-based default (6am–6pm = light, 6pm–6am = dark)
+      // User preference stored and respected on next visit
+      // ============================================
+      function applyTheme(isDark) {
+        document.body.classList.toggle('dark-mode', isDark);
+
+        // Update both toggle buttons
+        ['themeToggleDesktop', 'themeToggleMobile'].forEach(function (id) {
+          var btn = document.getElementById(id);
+          if (!btn) return;
+          var icon = btn.querySelector('i');
+          btn.setAttribute('aria-pressed', String(isDark));
+          btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+          if (icon) {
+            icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+          }
+        });
+      }
+
+      function initTheme() {
+        var saved = localStorage.getItem('velour-theme');
+        if (saved) {
+          applyTheme(saved === 'dark');
+        } else {
+          var hour = new Date().getHours();
+          applyTheme(hour < 6 || hour >= 18);
+        }
+      }
+
+      initTheme();
+
+      function handleThemeToggle() {
+        var isDark = document.body.classList.toggle('dark-mode');
+        // Note: localStorage stores only a theme preference string — not sensitive data
+        localStorage.setItem('velour-theme', isDark ? 'dark' : 'light');
+        applyTheme(isDark);
+      }
+
+      var btnDesktop = document.getElementById('themeToggleDesktop');
+      var btnMobile  = document.getElementById('themeToggleMobile');
+      if (btnDesktop) btnDesktop.addEventListener('click', handleThemeToggle);
+      if (btnMobile)  btnMobile.addEventListener('click', handleThemeToggle);
+
+      // ============================================
+      // NAVBAR SCROLL STATE
+      // ============================================
+      var nav = document.getElementById('mainNav');
+
+      function updateNav() {
+        if (!nav) return;
+        if (window.scrollY > 60) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      }
+
+      // Throttle via requestAnimationFrame — prevents jank on scroll
+      var rafPending = false;
+      window.addEventListener('scroll', function () {
+        if (!rafPending) {
+          requestAnimationFrame(function () {
+            updateNav();
+            rafPending = false;
+          });
+          rafPending = true;
+        }
+      }, { passive: true });
+
+      updateNav();
+
+      // ============================================
+      // SMOOTH SCROLL — Internal anchors
+      // ============================================
+      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener('click', function (e) {
+          var href = this.getAttribute('href');
+          if (!href || href === '#') return;
+          var target = document.querySelector(href);
+          if (!target) return;
+          e.preventDefault();
+          var offset = nav ? nav.offsetHeight + 16 : 80;
+          var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+
+          // Close mobile menu if open
+          var collapse = document.getElementById('navMenu');
+          if (collapse && collapse.classList.contains('show')) {
+            var bs = bootstrap.Collapse.getInstance(collapse);
+            if (bs) bs.hide();
+          }
+        });
+      });
+
+      // ============================================
+      // SCROLL REVEAL — IntersectionObserver
+      // ============================================
+      var reveals = document.querySelectorAll('.reveal');
+
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '0px 0px -36px 0px'
+        });
+        reveals.forEach(function (el) { observer.observe(el); });
+      } else {
+        // Fallback for browsers without IntersectionObserver
+        reveals.forEach(function (el) { el.classList.add('visible'); });
+      }
+
+      // ============================================
+      // ACTIVE NAV LINK — Highlight on section enter
+      // ============================================
+      var sections  = document.querySelectorAll('section[id]');
+      var navLinks  = document.querySelectorAll('.nav-link[href^="#"]');
+
+      if ('IntersectionObserver' in window && sections.length) {
+        var sectionObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              var id = entry.target.getAttribute('id');
+              navLinks.forEach(function (link) {
+                link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+              });
+            }
+          });
+        }, { threshold: 0.45 });
+
+        sections.forEach(function (s) { sectionObserver.observe(s); });
+      }
+
+    }); // End DOMContentLoaded
+  </script>
+
+</body>
+</html>
