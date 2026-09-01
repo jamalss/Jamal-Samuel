@@ -45,15 +45,15 @@
   <!-- ============================================
        7. SEO & SOCIAL META TAGS
   ============================================ -->
-  <title>Velour Hair Studio — Braids, Silk Press & Installs | Castries, Saint Lucia</title>
-  <meta name="description" content="Velour Hair Studio offers professional knotless braids, silk press, wig installs, hair colouring and bridal styling in Castries, Saint Lucia. Appointment-based. Book on WhatsApp today.">
-  <meta name="robots" content="index, follow">
+  <title>Velour Hair Studio (Concept Demo by Jamal Samuel) — Braids, Silk Press & Installs</title>
+  <meta name="description" content="Concept website demo built by Jamal Samuel for a fictional hair salon, showcasing single-file HTML design and WhatsApp booking flow. Not a real business.">
+  <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://velourhairstudio.lc/">
-  <meta property="og:title" content="Velour Hair Studio — Castries, Saint Lucia">
-  <meta property="og:description" content="Professional braids, silk press, wig installs and bridal styling. Book your appointment on WhatsApp today.">
+  <meta property="og:title" content="Velour Hair Studio — Concept Demo by Jamal Samuel">
+  <meta property="og:description" content="A concept salon website demo — real design, fictional business. Built to show what your site could look like.">
   <meta property="og:url" content="https://velourhairstudio.lc/">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://velourhairstudio.lc/assets/og-image.jpg">
+  <meta property="og:image" content="assets/images/hero.jpg">
   <meta name="twitter:card" content="summary_large_image">
 
   <!-- ============================================
@@ -90,6 +90,9 @@
 
   <!-- ============================================
        JSON-LD STRUCTURED DATA — HairSalon schema
+       DEMO NOTE: illustrates how schema markup would be implemented.
+       All values below (URL, phone, sameAs profiles) are fictional —
+       this is a concept demo, not a real, registered business.
   ============================================ -->
   <script type="application/ld+json">
   {
@@ -348,6 +351,58 @@
       text-underline-offset: 3px;
     }
     .promo-banner a:hover { color: #fff; }
+
+    /* ============================================
+       DEMO DISCLOSURE BANNER
+    ============================================ */
+    .demo-disclosure {
+      background: #1C1008;
+      text-align: center;
+      padding: 0.55rem 1rem;
+      border-bottom: 1px solid rgba(200,149,108,0.35);
+    }
+    .demo-disclosure p {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      color: rgba(255,255,255,0.82);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .demo-disclosure strong { color: var(--gold); }
+
+    /* ============================================
+       DEMO NOTE (inline, section-level)
+    ============================================ */
+    .demo-note {
+      display: block;
+      font-size: 0.72rem;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      opacity: 0.85;
+    }
+
+    /* ============================================
+       GREYED-OUT SOCIAL LINKS (demo state)
+    ============================================ */
+    .social-disabled {
+      opacity: 0.4;
+      pointer-events: none;
+      filter: grayscale(1);
+      cursor: not-allowed;
+    }
+    .social-disabled-wrap {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.15rem;
+    }
+    .social-disabled-note {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
 
     /* ============================================
        NAVBAR
@@ -1237,11 +1292,18 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- ============================================
+       DEMO DISCLOSURE BANNER — always first, never removed on demo builds
+  ============================================ -->
+  <div class="demo-disclosure" role="complementary" aria-label="Demo disclosure">
+    <p><strong>Concept Demo</strong> — "Velour Hair Studio" is a fictional business built by <strong>Jamal Samuel</strong> to showcase site design and WhatsApp booking flow. Photos, pricing, reviews and contact details are illustrative, not real. WhatsApp buttons on this page route to Jamal for inquiries about a real website.</p>
+  </div>
+
+  <!-- ============================================
        PROMO BANNER
   ============================================ -->
   <div class="promo-banner" role="complementary" aria-label="Promotional announcement">
     <p>✨ Bridal bookings now open for the season —
-      <a href="https://wa.me/17584100000?text=Hi%20Velour%20Hair%20Studio!%20I'd%20like%20to%20enquire%20about%20bridal%20styling."
+      <a href="https://wa.me/17587235872?text=Hi%20Jamal!%20I%20saw%20the%20Velour%20Hair%20Studio%20demo%20and%20I'd%20like%20to%20talk%20about%20a%20website%20for%20my%20business."
          target="_blank" rel="noopener noreferrer">Enquire on WhatsApp</a>
     </p>
   </div>
@@ -1299,7 +1361,7 @@
               </button>
             </li>
             <li class="nav-item ms-lg-2">
-              <a href="https://wa.me/17584100000?text=Hi%20Velour%20Hair%20Studio!%20I'd%20like%20to%20book%20an%20appointment."
+              <a href="https://wa.me/17587235872?text=Hi%20Jamal!%20I%20saw%20the%20Velour%20Hair%20Studio%20demo%20and%20I'd%20like%20to%20talk%20about%20a%20website%20for%20my%20business."
                  class="btn-salon"
                  style="padding: 0.55rem 1.3rem; font-size: 0.75rem;"
                  target="_blank"
@@ -1325,12 +1387,15 @@
     ========================================== -->
     <section class="hero-section" aria-label="Velour Hair Studio — professional hair care in Castries">
 
-      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1600&q=80"
-           alt="Warm, professionally lit hair salon interior with elegant styling stations"
-           class="hero-bg"
-           width="1600" height="900"
-           loading="eager" decoding="sync"
-           onerror="this.style.display='none'">
+      <picture>
+        <source srcset="assets/images/hero.webp" type="image/webp">
+        <img src="assets/images/hero.jpg"
+             alt="Warm, professionally lit hair salon interior with elegant styling stations"
+             class="hero-bg"
+             width="1600" height="900"
+             loading="eager" decoding="sync"
+             onerror="this.style.display='none'">
+      </picture>
       <div class="hero-overlay" aria-hidden="true"></div>
 
       <div class="container">
@@ -1352,7 +1417,7 @@
               </p>
 
               <div class="hero-cta-group">
-                <a href="https://wa.me/17584100000?text=Hi%20Velour%20Hair%20Studio!%20I'd%20like%20to%20book%20an%20appointment."
+                <a href="https://wa.me/17587235872?text=Hi%20Jamal!%20I%20saw%20the%20Velour%20Hair%20Studio%20demo%20and%20I'd%20like%20to%20talk%20about%20a%20website%20for%20my%20business."
                    class="btn-salon"
                    target="_blank"
                    rel="noopener noreferrer"
@@ -1389,16 +1454,16 @@
           <div class="trust-item">
             <i class="fas fa-star" aria-hidden="true"></i>
             <div class="trust-text">
-              <strong>4.9 Rated</strong>
-              <span>By Our Clients</span>
+              <strong>Rating Display</strong>
+              <span>Sample — Not Live Data</span>
             </div>
           </div>
 
           <div class="trust-item">
             <i class="fas fa-scissors" aria-hidden="true"></i>
             <div class="trust-text">
-              <strong>1,200+ Styles</strong>
-              <span>Completed</span>
+              <strong>Style Count</strong>
+              <span>Sample — Not Live Data</span>
             </div>
           </div>
 
@@ -1454,63 +1519,81 @@
         <div class="gallery-grid" role="list" aria-label="Hair style transformation photos">
 
           <div class="gallery-item reveal reveal-delay-1" role="listitem">
-            <img src="https://images.unsplash.com/photo-1522337660788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80"
-                 alt="Professional knotless braids — clean parts, lightweight, long-lasting wear"
-                 width="600" height="800"
-                 loading="lazy" decoding="async"
-                 onerror="this.style.display='none'">
+            <picture>
+              <source srcset="assets/images/knotless-braids.webp" type="image/webp">
+              <img src="assets/images/knotless-braids.jpg"
+                   alt="Professional knotless braids — clean parts, lightweight, long-lasting wear"
+                   width="600" height="800"
+                   loading="lazy" decoding="async"
+                   onerror="this.style.display='none'">
+            </picture>
             <div class="gallery-overlay" aria-hidden="true"><span>Knotless Braids</span></div>
           </div>
 
           <div class="gallery-item reveal reveal-delay-2" role="listitem">
-            <img src="https://images.unsplash.com/photo-1595163153849-8bcba43bfe4f?auto=format&fit=crop&w=600&q=80"
-                 alt="Silk press — smooth, bouncy natural hair with minimal heat damage"
-                 width="600" height="800"
-                 loading="lazy" decoding="async"
-                 onerror="this.style.display='none'">
+            <picture>
+              <source srcset="assets/images/silk-press.webp" type="image/webp">
+              <img src="assets/images/silk-press.jpg"
+                   alt="Silk press — smooth, bouncy natural hair with minimal heat damage"
+                   width="600" height="800"
+                   loading="lazy" decoding="async"
+                   onerror="this.style.display='none'">
+            </picture>
             <div class="gallery-overlay" aria-hidden="true"><span>Silk Press</span></div>
           </div>
 
           <div class="gallery-item reveal reveal-delay-3" role="listitem">
-            <img src="https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=600&q=80"
-                 alt="Wig install — natural-looking lace wig blended and styled professionally"
-                 width="600" height="800"
-                 loading="lazy" decoding="async"
-                 onerror="this.style.display='none'">
+            <picture>
+              <source srcset="assets/images/wig-install.webp" type="image/webp">
+              <img src="assets/images/wig-install.jpg"
+                   alt="Wig install — natural-looking lace wig blended and styled professionally"
+                   width="600" height="800"
+                   loading="lazy" decoding="async"
+                   onerror="this.style.display='none'">
+            </picture>
             <div class="gallery-overlay" aria-hidden="true"><span>Wig Install</span></div>
           </div>
 
           <div class="gallery-item reveal reveal-delay-1" role="listitem">
-            <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=600&q=80"
-                 alt="Professional hair colouring service — vibrant, even colour applied by stylist"
-                 width="600" height="800"
-                 loading="lazy" decoding="async"
-                 onerror="this.style.display='none'">
+            <picture>
+              <source srcset="assets/images/hair-colouring.webp" type="image/webp">
+              <img src="assets/images/hair-colouring.jpg"
+                   alt="Professional hair colouring service — vibrant, even colour applied by stylist"
+                   width="600" height="800"
+                   loading="lazy" decoding="async"
+                   onerror="this.style.display='none'">
+            </picture>
             <div class="gallery-overlay" aria-hidden="true"><span>Hair Colouring</span></div>
           </div>
 
           <div class="gallery-item reveal reveal-delay-2" role="listitem">
-            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80"
-                 alt="Bridal hair styling — elegant updo for a wedding or special occasion"
-                 width="600" height="800"
-                 loading="lazy" decoding="async"
-                 onerror="this.style.display='none'">
+            <picture>
+              <source srcset="assets/images/bridal-styling.webp" type="image/webp">
+              <img src="assets/images/bridal-styling.jpg"
+                   alt="Bridal hair styling — elegant updo for a wedding or special occasion"
+                   width="600" height="800"
+                   loading="lazy" decoding="async"
+                   onerror="this.style.display='none'">
+            </picture>
             <div class="gallery-overlay" aria-hidden="true"><span>Bridal Styling</span></div>
           </div>
 
           <div class="gallery-item reveal reveal-delay-3" role="listitem">
-            <img src="https://images.unsplash.com/photo-1590080874088-eec64895b423?auto=format&fit=crop&w=600&q=80"
-                 alt="Loc styling — beautifully maintained and retwisted dreadlocks"
-                 width="600" height="800"
-                 loading="lazy" decoding="async"
-                 onerror="this.style.display='none'">
+            <picture>
+              <source srcset="assets/images/loc-styling.webp" type="image/webp">
+              <img src="assets/images/loc-styling.jpg"
+                   alt="Loc styling — beautifully maintained and retwisted dreadlocks"
+                   width="600" height="800"
+                   loading="lazy" decoding="async"
+                   onerror="this.style.display='none'">
+            </picture>
             <div class="gallery-overlay" aria-hidden="true"><span>Loc Styling</span></div>
           </div>
 
         </div>
 
         <div class="text-center mt-5 reveal">
-          <a href="https://wa.me/17584100000?text=Hi%20Velour%20Hair%20Studio!%20I%20saw%20your%20gallery%20and%20I'd%20like%20to%20book%20this%20look."
+          <a href="https://wa.me/17587235872?text=Hi%20Jamal!%20I%20saw%20the%20Velour%20Hair%20Studio%20demo%20and%20I'd%20like%20to%20talk%20about%20a%20website%20for%20my%20business."
              class="btn-salon btn-salon-brown"
              target="_blank"
              rel="noopener noreferrer"
@@ -1543,11 +1626,14 @@
           <div class="col-lg-4 col-md-6 reveal reveal-delay-1">
             <article class="service-card" aria-label="Knotless Braids service">
               <div class="service-card-img">
-                <img src="https://images.unsplash.com/photo-1522337660788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80"
-                     alt="Knotless braids — lightweight protective style with clean partings"
-                     width="600" height="420"
-                     loading="lazy" decoding="async"
-                     onerror="this.style.display='none'">
+                <picture>
+                  <source srcset="assets/images/knotless-braids.webp" type="image/webp">
+                  <img src="assets/images/knotless-braids.jpg"
+                       alt="Knotless braids — lightweight protective style with clean partings"
+                       width="600" height="420"
+                       loading="lazy" decoding="async"
+                       onerror="this.style.display='none'">
+                </picture>
                 <span class="badge-pill">Most Popular</span>
               </div>
               <div class="service-card-body">
@@ -1557,7 +1643,7 @@
                   <div class="service-price"><small>from</small>$180</div>
                   <div class="service-duration"><i class="fas fa-clock" aria-hidden="true"></i> 4–6 hrs</div>
                 </div>
-                <a href="https://wa.me/17584100000?text=Hi!%20I'd%20like%20to%20book%20Knotless%20Braids%20at%20Velour%20Hair%20Studio."
+                <a href="https://wa.me/17587235872?text=Hi%20Jamal!%20I%20saw%20the%20Velour%20Hair%20Studio%20demo%20and%20I'd%20like%20to%20talk%20about%20a%20website%20for%20my%20business."
                    class="btn-salon btn-service"
                    target="_blank" rel="noopener noreferrer"
                    aria-label="Book Knotless Braids appointment on WhatsApp">
@@ -1571,11 +1657,14 @@
           <div class="col-lg-4 col-md-6 reveal reveal-delay-2">
             <article class="service-card" aria-label="Silk Press service">
               <div class="service-card-img">
-                <img src="https://images.unsplash.com/photo-1595163153849-8bcba43bfe4f?auto=format&fit=crop&w=600&q=80"
-                     alt="Silk press — smooth, bouncy natural hair styled with minimal heat"
-                     width="600" height="420"
-                     loading="lazy" decoding="async"
-                     onerror="this.style.display='none'">
+                <picture>
+                  <source srcset="assets/images/silk-press.webp" type="image/webp">
+                  <img src="assets/images/silk-press.jpg"
+                       alt="Silk press — smooth, bouncy natural hair styled with minimal heat"
+                       width="600" height="420"
+                       loading="lazy" decoding="async"
+                       onerror="this.style.display='none'">
+                </picture>
               </div>
               <div class="service-card-body">
                 <h3 class="service-name">Silk Press</h3>
@@ -1584,7 +1673,7 @@
                   <div class="service-price"><small>from</small>$95</div>
                   <div class="service-duration"><i class="fas fa-clock" aria-hidden="true"></i> 2–3 hrs</div>
                 </div>
-                <a href="https://wa.me/17584100000?text=Hi!%20I'd%20like%20to%20book%20a%20Silk%20Press%20at%20Velour%20Hair%20Studio."
+                <a href="https://wa.me/17587235872?text=Hi%20Jamal!%20I%20saw%20the%20Velour%20Hair%20Studio%20demo%20and%20I'd%20like%20to%20talk%20about%20a%20website%20for%20my%20business."
                    class="btn-salon btn-service"
                    target="_blank" rel="noopener noreferrer"
                    aria-label="Book a Silk Press appointment on WhatsApp">
@@ -1598,11 +1687,14 @@
           <div class="col-lg-4 col-md-6 reveal reveal-delay-3">
             <article class="service-card" aria-label="Wig Install service">
               <div class="service-card-img">
-                <img src="https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=600&q=80"
-                     alt="Wig install — professional lace wig blended naturally and styled to finish"
-                     width="600" height="420"
-                     loading="lazy" decoding="async"
-                     onerror="this.style.display='none'">
+                <picture>
+                  <source srcset="assets/images/wig-install.webp" type="image/webp">
+                  <img src="assets/images/wig-install.jpg"
+                       alt="Wig install — professional lace wig blended naturally and styled to finish"
+                       width="600" height="420"
+                       loading="lazy" decoding="async"
+                       onerror="this.style.display='none'">
+                </picture>
               </div>
               <div class="service-card-body">
                 <h3 class="service-name">Wig Install</h3>
@@ -1611,7 +1703,7 @@
                   <div class="service-price"><small>from</small>$120</div>
                   <div class="service-duration"><i class="fas fa-clock" aria-hidden="true"></i> 2–4 hrs</div>
                 </div>
-                <a href="https://wa.me/17584100000?text=Hi!%20I'd%20like%20to%20book%20a%20Wig%20Install%20at%20Velour%20Hair%20Studio."
+                <a href="https://wa.me/17587235872?text=Hi%20Jamal!%20I%20saw%20the%20Velour%20Hair%20Studio%20demo%20and%20I'd%20like%20to%20talk%20about%20a%20website%20for%20my%20business."
                    class="btn-salon btn-service"
                    target="_blank" rel="noopener noreferrer"
                    aria-label="Book a Wig Install appointment on WhatsApp">
@@ -1625,11 +1717,14 @@
           <div class="col-lg-4 col-md-6 reveal reveal-delay-1">
             <article class="service-card" aria-label="Hair Colouring service">
               <div class="service-card-img">
-                <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=600&q=80"
-                     alt="Professional hair colouring — vibrant colour with deep conditioning treatment"
-                     width="600" height="420"
-                     loading="lazy" decoding="async"
-                     onerror="this.style.display='none'">
+                <picture>
+                  <source srcset="assets/images/hair-colouring.webp" type="image/webp">
+                  <img src="assets/images/hair-colouring.jpg"
+                       alt="Professional hair colouring — vibrant colour with deep conditioning treatment"
+                       width="600" height="420"
+                       loading="lazy" decoding="async"
+                       onerror="this.style.display='none'">
+                </picture>
               </div>
               <div class="service-card-body">
                 <h3 class="service-name">Hair Colouring</h3>
@@ -1638,7 +1733,7 @@
                   <div class="service-price"><small>from</small>$130</div>
                   <div class="service-duration"><i class="fas fa-clock" aria-hidden="true"></i> 3–5 hrs</div>
                 </div>
-                <a href="https://wa.me/17584100000?text=Hi!%20I'd%20like%20to%20book%20a%20Hair%20Colouring%20service%20at%20Velour%20Hair%20Studio."
+                <a href="https://wa.me/17587235872?text=Hi%20Jamal!%20I%20saw%20the%20Velour%20Hair%20Studio%20demo%20and%20I'd%20like%20to%20talk%20about%20a%20website%20for%20my%20business."
                    class="btn-salon btn-service"
                    target="_blank" rel="noopener noreferrer"
                    aria-label="Book a Hair Colouring appointment on WhatsApp">
@@ -1652,11 +1747,14 @@
           <div class="col-lg-4 col-md-6 reveal reveal-delay-2">
             <article class="service-card" aria-label="Bridal Styling service">
               <div class="service-card-img">
-                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80"
-                     alt="Bridal hair styling — elegant updo for weddings and formal occasions"
-                     width="600" height="420"
-                     loading="lazy" decoding="async"
-                     onerror="this.style.display='none'">
+                <picture>
+                  <source srcset="assets/images/bridal-styling.webp" type="image/webp">
+                  <img src="assets/images/bridal-styling.jpg"
+                       alt="Bridal hair styling — elegant updo for weddings and formal occasions"
+                       width="600" height="420"
+                       loading="lazy" decoding="async"
+                       onerror="this.style.display='none'">
+                </picture>
                 <span class="badge-pill">By Appointment</span>
               </div>
               <div class="service-card-body">
@@ -1666,7 +1764,7 @@
                   <div class="service-price"><small>from</small>$250</div>
                   <div class="service-duration"><i class="fas fa-clock" aria-hidden="true"></i> 4–6 hrs</div>
                 </div>
-                <a href="https://wa.me/17584100000?text=Hi!%20I'd%20like%20to%20enquire%20about%20Bridal%20Styling%20at%20Velour%20Hair%20Studio."
+                <a href="https://wa.me/17587235872?text=Hi%20Jamal!%20I%20saw%20the%20Velour%20Hair%20Studio%20demo%20and%20I'd%20like%20to%20talk%20about%20a%20website%20for%20my%20business."
                    class="btn-salon btn-service"
                    target="_blank" rel="noopener noreferrer"
                    aria-label="Enquire about Bridal Styling on WhatsApp">
@@ -1680,11 +1778,14 @@
           <div class="col-lg-4 col-md-6 reveal reveal-delay-3">
             <article class="service-card" aria-label="Loc Styling service">
               <div class="service-card-img">
-                <img src="https://images.unsplash.com/photo-1590080874088-eec64895b423?auto=format&fit=crop&w=600&q=80"
-                     alt="Loc styling — professional retwist and creative loc maintenance"
-                     width="600" height="420"
-                     loading="lazy" decoding="async"
-                     onerror="this.style.display='none'">
+                <picture>
+                  <source srcset="assets/images/loc-styling.webp" type="image/webp">
+                  <img src="assets/images/loc-styling.jpg"
+                       alt="Loc styling — professional retwist and creative loc maintenance"
+                       width="600" height="420"
+                       loading="lazy" decoding="async"
+                       onerror="this.style.display='none'">
+                </picture>
               </div>
               <div class="service-card-body">
                 <h3 class="service-name">Loc Styling</h3>
@@ -1693,7 +1794,7 @@
                   <div class="service-price"><small>from</small>$85</div>
                   <div class="service-duration"><i class="fas fa-clock" aria-hidden="true"></i> 1.5–3 hrs</div>
                 </div>
-                <a href="https://wa.me/17584100000?text=Hi!%20I'd%20like%20to%20book%20Loc%20Styling%20at%20Velour%20Hair%20Studio."
+                <a href="https://wa.me/17587235872?text=Hi%20Jamal!%20I%20saw%20the%20Velour%20Hair%20Studio%20demo%20and%20I'd%20like%20to%20talk%20about%20a%20website%20for%20my%20business."
                    class="btn-salon btn-service"
                    target="_blank" rel="noopener noreferrer"
                    aria-label="Book a Loc Styling appointment on WhatsApp">
@@ -1721,7 +1822,7 @@
               We built this studio around one idea: you should leave feeling better than when you walked in — in every sense of the word.
             </p>
             <div class="mt-4 reveal reveal-delay-3">
-              <a href="https://wa.me/17584100000?text=Hi!%20I'd%20like%20to%20book%20an%20appointment%20at%20Velour%20Hair%20Studio."
+              <a href="https://wa.me/17587235872?text=Hi%20Jamal!%20I%20saw%20the%20Velour%20Hair%20Studio%20demo%20and%20I'd%20like%20to%20talk%20about%20a%20website%20for%20my%20business."
                  class="btn-salon"
                  target="_blank" rel="noopener noreferrer"
                  aria-label="Book your visit at Velour Hair Studio on WhatsApp">
@@ -1780,13 +1881,13 @@
     <!-- ==========================================
          TESTIMONIALS
     ========================================== -->
-    <section class="section-pad" id="testimonials" style="background: var(--bg-section);" aria-label="Client reviews and testimonials">
+    <section class="section-pad" id="testimonials" style="background: var(--bg-section);" aria-label="Sample review layout — for demonstration only">
       <div class="container">
 
         <div class="text-center mb-5">
-          <span class="section-label reveal">Real Clients</span>
-          <h2 class="section-title reveal reveal-delay-1">What Our Clients Say</h2>
-          <p class="section-subtitle mx-auto reveal reveal-delay-2">Every review is from a real client. No scripts, no polish — just honest feedback.</p>
+          <span class="section-label reveal">Sample Reviews</span>
+          <h2 class="section-title reveal reveal-delay-1">How Reviews Would Display</h2>
+          <p class="section-subtitle mx-auto reveal reveal-delay-2">These are illustrative examples showing how client reviews would appear on the finished site — not real feedback from real clients.</p>
         </div>
 
         <div class="row g-4">
@@ -1794,17 +1895,17 @@
           <div class="col-lg-4 col-md-6 reveal reveal-delay-1">
             <blockquote class="testimonial-card">
               <div class="quote-mark" aria-hidden="true">"</div>
-              <div class="t-stars" aria-label="5 out of 5 stars">
+              <div class="t-stars" aria-label="Sample 5 out of 5 star rating">
                 <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
                 <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
                 <i class="fas fa-star" aria-hidden="true"></i>
               </div>
               <p class="t-text">"My silk press lasted through an entire vacation without frizz. I was shocked. Will not go anywhere else."</p>
               <footer class="t-author">
-                <div class="t-avatar" aria-hidden="true">KM</div>
+                <div class="t-avatar" aria-hidden="true"><i class="fas fa-quote-right" aria-hidden="true"></i></div>
                 <div>
-                  <span class="t-name">Kayla M.</span>
-                  <span class="t-service">Silk Press Client</span>
+                  <span class="t-name">Sample Review</span>
+                  <span class="t-service">Silk Press — illustrative only</span>
                 </div>
               </footer>
             </blockquote>
@@ -1813,17 +1914,17 @@
           <div class="col-lg-4 col-md-6 reveal reveal-delay-2">
             <blockquote class="testimonial-card">
               <div class="quote-mark" aria-hidden="true">"</div>
-              <div class="t-stars" aria-label="5 out of 5 stars">
+              <div class="t-stars" aria-label="Sample 5 out of 5 star rating">
                 <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
                 <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
                 <i class="fas fa-star" aria-hidden="true"></i>
               </div>
               <p class="t-text">"She started on time, my braids were clean from root to tip, and they lasted six solid weeks. I don't trust anyone else with my hair now."</p>
               <footer class="t-author">
-                <div class="t-avatar" aria-hidden="true">TP</div>
+                <div class="t-avatar" aria-hidden="true"><i class="fas fa-quote-right" aria-hidden="true"></i></div>
                 <div>
-                  <span class="t-name">Tiffany P.</span>
-                  <span class="t-service">Knotless Braids Client</span>
+                  <span class="t-name">Sample Review</span>
+                  <span class="t-service">Knotless Braids — illustrative only</span>
                 </div>
               </footer>
             </blockquote>
@@ -1832,17 +1933,17 @@
           <div class="col-lg-4 col-md-6 reveal reveal-delay-3">
             <blockquote class="testimonial-card">
               <div class="quote-mark" aria-hidden="true">"</div>
-              <div class="t-stars" aria-label="5 out of 5 stars">
+              <div class="t-stars" aria-label="Sample 5 out of 5 star rating">
                 <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
                 <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
                 <i class="fas fa-star" aria-hidden="true"></i>
               </div>
               <p class="t-text">"My wig install looked completely natural the entire trip. I got compliments every day. The booking process through WhatsApp was so easy too."</p>
               <footer class="t-author">
-                <div class="t-avatar" aria-hidden="true">NJ</div>
+                <div class="t-avatar" aria-hidden="true"><i class="fas fa-quote-right" aria-hidden="true"></i></div>
                 <div>
-                  <span class="t-name">Nadine J.</span>
-                  <span class="t-service">Wig Install Client</span>
+                  <span class="t-name">Sample Review</span>
+                  <span class="t-service">Wig Install — illustrative only</span>
                 </div>
               </footer>
             </blockquote>
@@ -1851,17 +1952,17 @@
           <div class="col-lg-4 col-md-6 reveal reveal-delay-1">
             <blockquote class="testimonial-card">
               <div class="quote-mark" aria-hidden="true">"</div>
-              <div class="t-stars" aria-label="5 out of 5 stars">
+              <div class="t-stars" aria-label="Sample 5 out of 5 star rating">
                 <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
                 <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
                 <i class="fas fa-star" aria-hidden="true"></i>
               </div>
               <p class="t-text">"I've been doing my bridal trial here and I'm beyond impressed. The stylist listened to exactly what I wanted. My wedding day hair is in safe hands."</p>
               <footer class="t-author">
-                <div class="t-avatar" aria-hidden="true">SA</div>
+                <div class="t-avatar" aria-hidden="true"><i class="fas fa-quote-right" aria-hidden="true"></i></div>
                 <div>
-                  <span class="t-name">Simone A.</span>
-                  <span class="t-service">Bridal Styling Client</span>
+                  <span class="t-name">Sample Review</span>
+                  <span class="t-service">Bridal Styling — illustrative only</span>
                 </div>
               </footer>
             </blockquote>
@@ -1870,17 +1971,17 @@
           <div class="col-lg-4 col-md-6 reveal reveal-delay-2">
             <blockquote class="testimonial-card">
               <div class="quote-mark" aria-hidden="true">"</div>
-              <div class="t-stars" aria-label="5 out of 5 stars">
+              <div class="t-stars" aria-label="Sample 5 out of 5 star rating">
                 <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
                 <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
                 <i class="fas fa-star" aria-hidden="true"></i>
               </div>
               <p class="t-text">"My colour came out exactly as I showed in the reference photo. No damage, no brassiness. My hair felt healthier walking out than when I came in."</p>
               <footer class="t-author">
-                <div class="t-avatar" aria-hidden="true">RB</div>
+                <div class="t-avatar" aria-hidden="true"><i class="fas fa-quote-right" aria-hidden="true"></i></div>
                 <div>
-                  <span class="t-name">Renée B.</span>
-                  <span class="t-service">Hair Colour Client</span>
+                  <span class="t-name">Sample Review</span>
+                  <span class="t-service">Hair Colouring — illustrative only</span>
                 </div>
               </footer>
             </blockquote>
@@ -1889,17 +1990,17 @@
           <div class="col-lg-4 col-md-6 reveal reveal-delay-3">
             <blockquote class="testimonial-card">
               <div class="quote-mark" aria-hidden="true">"</div>
-              <div class="t-stars" aria-label="5 out of 5 stars">
+              <div class="t-stars" aria-label="Sample 5 out of 5 star rating">
                 <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
                 <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
                 <i class="fas fa-star" aria-hidden="true"></i>
               </div>
               <p class="t-text">"Clean studio, professional atmosphere, and my retwist was done with real care. Best salon experience I've had since moving back to Saint Lucia."</p>
               <footer class="t-author">
-                <div class="t-avatar" aria-hidden="true">MC</div>
+                <div class="t-avatar" aria-hidden="true"><i class="fas fa-quote-right" aria-hidden="true"></i></div>
                 <div>
-                  <span class="t-name">Marcia C.</span>
-                  <span class="t-service">Loc Styling Client</span>
+                  <span class="t-name">Sample Review</span>
+                  <span class="t-service">Loc Styling — illustrative only</span>
                 </div>
               </footer>
             </blockquote>
@@ -1907,18 +2008,21 @@
 
         </div>
 
+        <p class="demo-note text-center">On a real client site, this section is replaced with genuine reviews collected from actual customers.</p>
+
         <div class="text-center mt-5 reveal">
-          <a href="https://wa.me/17584100000?text=Hi%20Velour%20Hair%20Studio!%20I'd%20like%20to%20reserve%20an%20appointment."
+          <a href="https://wa.me/17587235872?text=Hi%20Jamal!%20I%20saw%20the%20Velour%20Hair%20Studio%20demo%20and%20I'd%20like%20to%20talk%20about%20a%20website%20for%20my%20business."
              class="btn-salon"
              target="_blank" rel="noopener noreferrer"
-             aria-label="Reserve your appointment on WhatsApp">
+             aria-label="Message Jamal on WhatsApp about a real website">
             <i class="fab fa-whatsapp" aria-hidden="true"></i>
-            Reserve Your Appointment
+            Ask About Your Own Site
           </a>
         </div>
 
       </div>
     </section>
+
 
     <!-- ==========================================
          BOOKING STEPS
@@ -1980,7 +2084,7 @@
         </div>
 
         <div class="text-center mt-5 reveal">
-          <a href="https://wa.me/17584100000?text=Hi%20Velour%20Hair%20Studio!%20I'd%20like%20to%20start%20my%20booking."
+          <a href="https://wa.me/17587235872?text=Hi%20Jamal!%20I%20saw%20the%20Velour%20Hair%20Studio%20demo%20and%20I'd%20like%20to%20talk%20about%20a%20website%20for%20my%20business."
              class="btn-salon"
              target="_blank" rel="noopener noreferrer"
              aria-label="Start booking your appointment on WhatsApp">
@@ -2097,12 +2201,15 @@
          FINAL CTA SECTION
     ========================================== -->
     <section class="final-cta-section" aria-label="Book your next appointment">
-      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1600&q=65"
-           alt="Velour Hair Studio — warm, welcoming, professional hair salon environment"
-           class="final-cta-bg"
-           width="1600" height="700"
-           loading="lazy" decoding="async"
-           onerror="this.style.display='none'">
+      <picture>
+        <source srcset="assets/images/final-cta.webp" type="image/webp">
+        <img src="assets/images/final-cta.jpg"
+             alt="Velour Hair Studio — warm, welcoming, professional hair salon environment"
+             class="final-cta-bg"
+             width="1600" height="700"
+             loading="lazy" decoding="async"
+             onerror="this.style.display='none'">
+      </picture>
       <div class="final-cta-overlay" aria-hidden="true"></div>
 
       <div class="container">
@@ -2115,7 +2222,7 @@
             Weekend appointments fill up fast. Message now to secure your preferred date.
           </p>
           <div class="final-cta-btns reveal reveal-delay-3">
-            <a href="https://wa.me/17584100000?text=Hi%20Velour%20Hair%20Studio!%20I'd%20like%20to%20book%20an%20appointment."
+            <a href="https://wa.me/17587235872?text=Hi%20Jamal!%20I%20saw%20the%20Velour%20Hair%20Studio%20demo%20and%20I'd%20like%20to%20talk%20about%20a%20website%20for%20my%20business."
                class="btn-salon"
                target="_blank" rel="noopener noreferrer"
                aria-label="Book your appointment on WhatsApp now">
@@ -2145,16 +2252,21 @@
           <div class="footer-brand">Velour Hair Studio</div>
           <p class="footer-tagline">Professional hair care in the heart of Castries, Saint Lucia. Appointment-based. Premium results.</p>
           <div class="footer-social">
-            <a href="https://www.instagram.com/velourhairstudio" target="_blank" rel="noopener noreferrer" aria-label="Visit Velour Hair Studio on Instagram">
-              <i class="fab fa-instagram" aria-hidden="true"></i>
-            </a>
-            <a href="https://www.facebook.com/velourhairstudio" target="_blank" rel="noopener noreferrer" aria-label="Visit Velour Hair Studio on Facebook">
-              <i class="fab fa-facebook-f" aria-hidden="true"></i>
-            </a>
-            <a href="https://wa.me/17584100000?text=Hi%20Velour%20Hair%20Studio!" target="_blank" rel="noopener noreferrer" aria-label="Message Velour Hair Studio on WhatsApp">
+            <span class="social-disabled-wrap">
+              <a href="#" class="social-disabled" aria-label="Instagram — disabled in demo" tabindex="-1" aria-disabled="true" onclick="return false;">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+              </a>
+            </span>
+            <span class="social-disabled-wrap">
+              <a href="#" class="social-disabled" aria-label="Facebook — disabled in demo" tabindex="-1" aria-disabled="true" onclick="return false;">
+                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+              </a>
+            </span>
+            <a href="https://wa.me/17587235872?text=Hi%20Jamal!%20I%20saw%20the%20Velour%20Hair%20Studio%20demo%20and%20I'd%20like%20to%20talk%20about%20a%20website%20for%20my%20business." target="_blank" rel="noopener noreferrer" aria-label="Message Jamal on WhatsApp about a real website">
               <i class="fab fa-whatsapp" aria-hidden="true"></i>
             </a>
           </div>
+          <p class="demo-note">Social icons are greyed out — this demo isn't linked to real Instagram or Facebook accounts.</p>
         </div>
 
         <div class="col-lg-2 col-md-4 col-6">
@@ -2176,8 +2288,8 @@
             <li><a href="#testimonials">Reviews</a></li>
             <li><a href="#booking">How to Book</a></li>
             <li><a href="#faq">FAQ</a></li>
-            <li><a href="/privacy-policy.html" rel="noopener">Privacy Policy</a></li>
-            <li><a href="/terms.html" rel="noopener">Terms of Service</a></li>
+            <li><a href="#" class="social-disabled" tabindex="-1" aria-disabled="true" onclick="return false;">Privacy Policy</a> <span class="demo-note" style="display:inline;">(demo)</span></li>
+            <li><a href="#" class="social-disabled" tabindex="-1" aria-disabled="true" onclick="return false;">Terms of Service</a> <span class="demo-note" style="display:inline;">(demo)</span></li>
           </ul>
         </div>
 
@@ -2193,11 +2305,11 @@
           </div>
           <div class="footer-contact-row">
             <i class="fab fa-whatsapp" aria-hidden="true"></i>
-            <a href="https://wa.me/17584100000?text=Hi%20Velour%20Hair%20Studio!" target="_blank" rel="noopener noreferrer" aria-label="Call or WhatsApp Velour Hair Studio">+1 (758) 410-0000</a>
+            <a href="https://wa.me/17587235872?text=Hi%20Jamal!%20I%20saw%20the%20Velour%20Hair%20Studio%20demo%20and%20I'd%20like%20to%20talk%20about%20a%20website%20for%20my%20business." target="_blank" rel="noopener noreferrer" aria-label="Call or WhatsApp Velour Hair Studio">+1 (758) 410-0000</a>
           </div>
           <div class="footer-contact-row">
-            <i class="fab fa-instagram" aria-hidden="true"></i>
-            <a href="https://www.instagram.com/velourhairstudio" target="_blank" rel="noopener noreferrer" aria-label="Follow Velour Hair Studio on Instagram">@velourhairstudio</a>
+            <i class="fab fa-instagram" aria-hidden="true" style="opacity:0.4;"></i>
+            <span style="opacity:0.4;">@velourhairstudio <em class="demo-note" style="display:inline;">(demo — not a live account)</em></span>
           </div>
         </div>
 
@@ -2206,13 +2318,14 @@
       <hr class="footer-divider">
 
       <div class="footer-bottom">
-        <p class="footer-copy">© 2025 Velour Hair Studio. All rights reserved.</p>
+        <p class="footer-copy">Concept demo — not a registered or operating business.</p>
         <div class="footer-legal">
-          <a href="/privacy-policy.html" rel="noopener">Privacy Policy</a>
-          <a href="/terms.html" rel="noopener">Terms of Service</a>
+          <a href="#" class="social-disabled" tabindex="-1" aria-disabled="true" onclick="return false;">Privacy Policy</a>
+          <a href="#" class="social-disabled" tabindex="-1" aria-disabled="true" onclick="return false;">Terms of Service</a>
         </div>
+        <p class="demo-note">Privacy Policy and Terms links are greyed out — placeholders to show layout, not real legal pages. A live site gets real ones.</p>
         <p class="footer-credit">
-          Website by <a href="https://jamalinks758.github.io/jamalinks/" target="_blank" rel="noopener noreferrer">JAMALINKS</a>
+          Demo Build by <strong>Jamal Samuel</strong>
         </p>
       </div>
 
@@ -2223,7 +2336,7 @@
        WHATSAPP FLOATING BUTTON
        Always last before closing body — JAMALINKS standard
   ============================================ -->
-  <a href="https://wa.me/17584100000?text=Hi%20Velour%20Hair%20Studio!%20I'd%20like%20to%20book%20an%20appointment."
+  <a href="https://wa.me/17587235872?text=Hi%20Jamal!%20I%20saw%20the%20Velour%20Hair%20Studio%20demo%20and%20I'd%20like%20to%20talk%20about%20a%20website%20for%20my%20business."
      class="whatsapp-float"
      target="_blank"
      rel="noopener noreferrer"
