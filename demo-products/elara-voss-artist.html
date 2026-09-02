@@ -241,7 +241,11 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=1600&q=80&fit=crop');
+      background-image: url('images/elara-voss/hero-bg.jpg');
+      background-image: image-set(
+        url('images/elara-voss/hero-bg.webp') type('image/webp') 1x,
+        url('images/elara-voss/hero-bg.jpg') type('image/jpeg') 1x
+      );
       background-size: cover;
       background-position: center 40%;
       transform: scale(1.08);
@@ -991,10 +995,13 @@
                tabindex="0" role="button"
                aria-label="View artwork: Tide — Abstract painting in blues and teals. Available."
                onclick="openLb(0)" onkeydown="if(event.key==='Enter'||event.key===' ')openLb(0)">
-            <img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600&q=80&fit=crop"
-                 alt="Tide — Abstract painting in deep blues and teal tones"
-                 width="600" height="400" loading="lazy"
-                 onerror="this.parentElement.style.display='none'">
+            <picture>
+                 <source srcset="images/elara-voss/tide.webp" type="image/webp">
+                 <img src="images/elara-voss/tide.jpg"
+                      alt="Tide — Abstract painting in deep blues and teal tones"
+                      width="600" height="400" loading="lazy"
+                      onerror="this.parentElement.style.display='none'">
+               </picture>
             <span class="art-status st-available" aria-label="Status: Available">Available</span>
             <div class="art-card-veil" aria-hidden="true">
               <p class="art-name">Tide</p>
@@ -1007,10 +1014,13 @@
                tabindex="0" role="button"
                aria-label="View artwork: Ignition — Expressionist painting in reds and orange. Sold."
                onclick="openLb(1)" onkeydown="if(event.key==='Enter'||event.key===' ')openLb(1)">
-            <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&q=80&fit=crop"
-                 alt="Ignition — Fiery abstract painting with red and orange explosions of colour"
-                 width="600" height="500" loading="lazy"
-                 onerror="this.parentElement.style.display='none'">
+            <picture>
+                 <source srcset="images/elara-voss/ignition.webp" type="image/webp">
+                 <img src="images/elara-voss/ignition.jpg"
+                      alt="Ignition — Fiery abstract painting with red and orange explosions of colour"
+                      width="600" height="500" loading="lazy"
+                      onerror="this.parentElement.style.display='none'">
+               </picture>
             <span class="art-status st-sold" aria-label="Status: Sold">Sold</span>
             <div class="art-card-veil" aria-hidden="true">
               <p class="art-name">Ignition</p>
@@ -1023,10 +1033,13 @@
                tabindex="0" role="button"
                aria-label="View artwork: Bloom No.3 — Colourful abstract. Available."
                onclick="openLb(2)" onkeydown="if(event.key==='Enter'||event.key===' ')openLb(2)">
-            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&q=80&fit=crop"
-                 alt="Bloom No.3 — Abstract painting with vibrant colour explosions and layered texture"
-                 width="600" height="600" loading="lazy"
-                 onerror="this.parentElement.style.display='none'">
+            <picture>
+                 <source srcset="images/elara-voss/bloom-no-3.webp" type="image/webp">
+                 <img src="images/elara-voss/bloom-no-3.jpg"
+                      alt="Bloom No.3 — Abstract painting with vibrant colour explosions and layered texture"
+                      width="600" height="600" loading="lazy"
+                      onerror="this.parentElement.style.display='none'">
+               </picture>
             <span class="art-status st-available" aria-label="Status: Available">Available</span>
             <div class="art-card-veil" aria-hidden="true">
               <p class="art-name">Bloom No.3</p>
@@ -1039,10 +1052,13 @@
                tabindex="0" role="button"
                aria-label="View artwork: Undertow — Dark abstract. On Commission."
                onclick="openLb(3)" onkeydown="if(event.key==='Enter'||event.key===' ')openLb(3)">
-            <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?w=600&q=80&fit=crop"
-                 alt="Undertow — Dark abstract painting with flowing organic forms and deep tones"
-                 width="600" height="720" loading="lazy"
-                 onerror="this.parentElement.style.display='none'">
+            <picture>
+                 <source srcset="images/elara-voss/undertow.webp" type="image/webp">
+                 <img src="images/elara-voss/undertow.jpg"
+                      alt="Undertow — Dark abstract painting with flowing organic forms and deep tones"
+                      width="600" height="720" loading="lazy"
+                      onerror="this.parentElement.style.display='none'">
+               </picture>
             <span class="art-status st-commission" aria-label="Status: On Commission">On Commission</span>
             <div class="art-card-veil" aria-hidden="true">
               <p class="art-name">Undertow</p>
@@ -1055,10 +1071,13 @@
                tabindex="0" role="button"
                aria-label="View artwork: Flux — Abstract with geometric tension. Available."
                onclick="openLb(4)" onkeydown="if(event.key==='Enter'||event.key===' ')openLb(4)">
-            <img src="https://images.unsplash.com/photo-1605106702734-205df224ecce?w=600&q=80&fit=crop"
-                 alt="Flux — Abstract painting with geometric shapes and contrasting colour fields"
-                 width="600" height="480" loading="lazy"
-                 onerror="this.parentElement.style.display='none'">
+            <picture>
+                 <source srcset="images/elara-voss/flux.webp" type="image/webp">
+                 <img src="images/elara-voss/flux.jpg"
+                      alt="Flux — Abstract painting with geometric shapes and contrasting colour fields"
+                      width="600" height="480" loading="lazy"
+                      onerror="this.parentElement.style.display='none'">
+               </picture>
             <span class="art-status st-available" aria-label="Status: Available">Available</span>
             <div class="art-card-veil" aria-hidden="true">
               <p class="art-name">Flux</p>
@@ -1071,10 +1090,13 @@
                tabindex="0" role="button"
                aria-label="View artwork: Solstice — Dark oil painting. Sold."
                onclick="openLb(5)" onkeydown="if(event.key==='Enter'||event.key===' ')openLb(5)">
-            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&q=80&fit=crop"
-                 alt="Solstice — Dark abstract oil painting with dramatic light and shadow contrast"
-                 width="600" height="540" loading="lazy"
-                 onerror="this.parentElement.style.display='none'">
+            <picture>
+                 <source srcset="images/elara-voss/solstice.webp" type="image/webp">
+                 <img src="images/elara-voss/solstice.jpg"
+                      alt="Solstice — Dark abstract oil painting with dramatic light and shadow contrast"
+                      width="600" height="540" loading="lazy"
+                      onerror="this.parentElement.style.display='none'">
+               </picture>
             <span class="art-status st-sold" aria-label="Status: Sold">Sold</span>
             <div class="art-card-veil" aria-hidden="true">
               <p class="art-name">Solstice</p>
@@ -1087,10 +1109,13 @@
                tabindex="0" role="button"
                aria-label="View artwork: Drift — Soft watercolour abstract. Available."
                onclick="openLb(6)" onkeydown="if(event.key==='Enter'||event.key===' ')openLb(6)">
-            <img src="https://images.unsplash.com/photo-1580136579952-981182ecd37f?w=600&q=80&fit=crop"
-                 alt="Drift — Soft abstract painting with gentle movement and muted organic tones"
-                 width="600" height="460" loading="lazy"
-                 onerror="this.parentElement.style.display='none'">
+            <picture>
+                 <source srcset="images/elara-voss/drift.webp" type="image/webp">
+                 <img src="images/elara-voss/drift.jpg"
+                      alt="Drift — Soft abstract painting with gentle movement and muted organic tones"
+                      width="600" height="460" loading="lazy"
+                      onerror="this.parentElement.style.display='none'">
+               </picture>
             <span class="art-status st-available" aria-label="Status: Available">Available</span>
             <div class="art-card-veil" aria-hidden="true">
               <p class="art-name">Drift</p>
@@ -1103,10 +1128,13 @@
                tabindex="0" role="button"
                aria-label="View artwork: Vessel — Resin abstract. On Commission."
                onclick="openLb(7)" onkeydown="if(event.key==='Enter'||event.key===' ')openLb(7)">
-            <img src="https://images.unsplash.com/photo-1574169208507-84376144848b?w=600&q=80&fit=crop"
-                 alt="Vessel — Abstract painting with organic flowing forms and layered resin depth"
-                 width="600" height="600" loading="lazy"
-                 onerror="this.parentElement.style.display='none'">
+            <picture>
+                 <source srcset="images/elara-voss/vessel.webp" type="image/webp">
+                 <img src="images/elara-voss/vessel.jpg"
+                      alt="Vessel — Abstract painting with organic flowing forms and layered resin depth"
+                      width="600" height="600" loading="lazy"
+                      onerror="this.parentElement.style.display='none'">
+               </picture>
             <span class="art-status st-commission" aria-label="Status: On Commission">On Commission</span>
             <div class="art-card-veil" aria-hidden="true">
               <p class="art-name">Vessel</p>
@@ -1119,10 +1147,13 @@
                tabindex="0" role="button"
                aria-label="View artwork: Equinox — Abstract landscape. Available."
                onclick="openLb(8)" onkeydown="if(event.key==='Enter'||event.key===' ')openLb(8)">
-            <img src="https://images.unsplash.com/photo-1567095761908-ab41e8c94ee8?w=600&q=80&fit=crop"
-                 alt="Equinox — Abstract landscape painting with warm horizon tones and gestural marks"
-                 width="600" height="380" loading="lazy"
-                 onerror="this.parentElement.style.display='none'">
+            <picture>
+                 <source srcset="images/elara-voss/equinox.webp" type="image/webp">
+                 <img src="images/elara-voss/equinox.jpg"
+                      alt="Equinox — Abstract landscape painting with warm horizon tones and gestural marks"
+                      width="600" height="380" loading="lazy"
+                      onerror="this.parentElement.style.display='none'">
+               </picture>
             <span class="art-status st-available" aria-label="Status: Available">Available</span>
             <div class="art-card-veil" aria-hidden="true">
               <p class="art-name">Equinox</p>
@@ -1141,10 +1172,13 @@
 
           <div class="col-lg-5" data-aos="fade-right">
             <div class="about-photo-frame">
-              <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=700&q=80&fit=crop&crop=top"
-                   alt="Elara Voss — abstract artist working at her canvas in her studio"
-                   width="700" height="875" loading="lazy"
-                   onerror="this.style.display='none'">
+              <picture>
+                <source srcset="images/elara-voss/artist-portrait.webp" type="image/webp">
+                <img src="images/elara-voss/artist-portrait.jpg"
+                     alt="Elara Voss — abstract artist working at her canvas in her studio"
+                     width="700" height="875" loading="lazy"
+                     onerror="this.style.display='none'">
+              </picture>
             </div>
           </div>
 
@@ -1564,15 +1598,15 @@
        LIGHTBOX
     ================================================ */
     const lbData = [
-      { src: 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=1400&q=85',  alt: 'Tide — Abstract in deep blues and teals',           title: 'Tide',       meta: 'Acrylic on Canvas · 80 × 100 cm · Available' },
-      { src: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=1400&q=85',  alt: 'Ignition — Fiery abstract reds and oranges',         title: 'Ignition',   meta: 'Mixed Media · 120 × 90 cm · Sold' },
-      { src: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1400&q=85',  alt: 'Bloom No.3 — Vibrant colour explosions',             title: 'Bloom No.3', meta: 'Acrylic on Canvas · 60 × 80 cm · Available' },
-      { src: 'https://images.unsplash.com/photo-1549490349-8643362247b5?w=1400&q=85',     alt: 'Undertow — Dark abstract, flowing forms',            title: 'Undertow',   meta: 'Acrylic on Canvas · 100 × 120 cm · On Commission' },
-      { src: 'https://images.unsplash.com/photo-1605106702734-205df224ecce?w=1400&q=85',  alt: 'Flux — Geometric tension and contrasting colours',   title: 'Flux',       meta: 'Mixed Media · 70 × 70 cm · Available' },
-      { src: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1400&q=85',     alt: 'Solstice — Dramatic light and shadow contrast',      title: 'Solstice',   meta: 'Oil on Canvas · 90 × 110 cm · Sold' },
-      { src: 'https://images.unsplash.com/photo-1580136579952-981182ecd37f?w=1400&q=85',  alt: 'Drift — Soft movement and muted organic tones',      title: 'Drift',      meta: 'Watercolour & Acrylic · 50 × 70 cm · Available' },
-      { src: 'https://images.unsplash.com/photo-1574169208507-84376144848b?w=1400&q=85',  alt: 'Vessel — Organic forms and layered resin depth',     title: 'Vessel',     meta: 'Acrylic & Resin · 80 × 80 cm · On Commission' },
-      { src: 'https://images.unsplash.com/photo-1567095761908-ab41e8c94ee8?w=1400&q=85',  alt: 'Equinox — Warm horizon tones and gestural marks',    title: 'Equinox',    meta: 'Oil on Canvas · 100 × 70 cm · Available' }
+      { src: 'images/elara-voss/tide.jpg',  alt: 'Tide — Abstract in deep blues and teals',           title: 'Tide',       meta: 'Acrylic on Canvas · 80 × 100 cm · Available' },
+      { src: 'images/elara-voss/ignition.jpg',  alt: 'Ignition — Fiery abstract reds and oranges',         title: 'Ignition',   meta: 'Mixed Media · 120 × 90 cm · Sold' },
+      { src: 'images/elara-voss/bloom-no-3.jpg',  alt: 'Bloom No.3 — Vibrant colour explosions',             title: 'Bloom No.3', meta: 'Acrylic on Canvas · 60 × 80 cm · Available' },
+      { src: 'images/elara-voss/undertow.jpg',     alt: 'Undertow — Dark abstract, flowing forms',            title: 'Undertow',   meta: 'Acrylic on Canvas · 100 × 120 cm · On Commission' },
+      { src: 'images/elara-voss/flux.jpg',  alt: 'Flux — Geometric tension and contrasting colours',   title: 'Flux',       meta: 'Mixed Media · 70 × 70 cm · Available' },
+      { src: 'images/elara-voss/solstice.jpg',     alt: 'Solstice — Dramatic light and shadow contrast',      title: 'Solstice',   meta: 'Oil on Canvas · 90 × 110 cm · Sold' },
+      { src: 'images/elara-voss/drift.jpg',  alt: 'Drift — Soft movement and muted organic tones',      title: 'Drift',      meta: 'Watercolour & Acrylic · 50 × 70 cm · Available' },
+      { src: 'images/elara-voss/vessel.jpg',  alt: 'Vessel — Organic forms and layered resin depth',     title: 'Vessel',     meta: 'Acrylic & Resin · 80 × 80 cm · On Commission' },
+      { src: 'images/elara-voss/equinox.jpg',  alt: 'Equinox — Warm horizon tones and gestural marks',    title: 'Equinox',    meta: 'Oil on Canvas · 100 × 70 cm · Available' }
     ];
 
     let lbIdx = 0;
