@@ -2,6 +2,19 @@
 <html lang="en" data-theme="light">
 <head>
 
+<!-- Start cookieyes banner -->
+<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/e0d130b04fadd524d28d39702e9f7bad/script.js"></script>
+<!-- End cookieyes banner -->
+
+<!-- Google tag (gtag.js) — held by CookieYes until analytics consent is granted -->
+<script type="text/plain" data-cookieyes="cookieyes-analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-JL0E79LFZR"></script>
+<script type="text/plain" data-cookieyes="cookieyes-analytics">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JL0E79LFZR');
+</script>
+
 <!-- ══ META ═══════════════════════════════════════════ -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -887,7 +900,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
 <section class="bg-alt" id="portfolio" aria-label="Demo portfolio grid">
   <div class="container">
 
-    <!-- Filter bar -->
+    <!-- Filter bar — disabled while no demos are live; restore when cards return -->
+    <!--
     <div class="filter-bar" role="group" aria-label="Filter demos by industry">
       <button class="filter-btn active" data-filter="all">
         <i class="bi bi-grid" aria-hidden="true"></i> All (24)
@@ -911,6 +925,19 @@ html, body { overflow-x: hidden; max-width: 100%; }
         <i class="bi bi-cpu" aria-hidden="true"></i> Tech &amp; Devices
       </button>
     </div>
+    -->
+
+    <!-- Demos coming soon notice — shown while all demo cards below are commented out -->
+    <div class="text-center reveal" style="padding:3rem 1rem;">
+      <i class="bi bi-hourglass-split" aria-hidden="true" style="font-size:2rem;color:var(--gold,#F5B000);"></i>
+      <h2 class="h4 mt-3 mb-2">Demos Coming Soon</h2>
+      <p class="text-m mx-auto" style="max-width:480px;opacity:.85;">
+        We're rebuilding our demo portfolio. New sample systems will be live here shortly — in the meantime, message us on WhatsApp and we'll walk you through examples directly.
+      </p>
+      <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20see%20a%20demo" class="btn-wa mt-2" aria-label="Ask to see a demo on WhatsApp">
+        <i class="bi bi-whatsapp" aria-hidden="true"></i> Ask to See a Demo
+      </a>
+    </div>
 
     <!-- ══════════════════════════════════════════════
          ROW 1 — Food & Drink (4 cards)
@@ -918,7 +945,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
     <div class="row g-4 mb-4">
 
       <!-- Card 1: Sweet Layers Bakery -->
-      <div class="col-sm-6 col-lg-3 reveal d1">
+      <!--
+<div class="col-sm-6 col-lg-3 reveal d1">
         <article class="demo-card" data-category="food" aria-label="Sweet Layers Bakery sample system">
           <div class="demo-picture">
             <img src="images/sweet-layers.webp" class="demo-card-img" alt="Sweet Layers Bakery — sample conversion system preview" loading="lazy" width="400" height="225">
@@ -933,9 +961,11 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </div>
         </article>
       </div>
+-->
 
       <!-- Card 2: Island Bites -->
-      <div class="col-sm-6 col-lg-3 reveal d2">
+      <!--
+<div class="col-sm-6 col-lg-3 reveal d2">
         <article class="demo-card" data-category="food" aria-label="Island Bites sample system">
           <div class="demo-picture">
             <img src="images/islandbites.webp" class="demo-card-img" alt="Island Bites — sample restaurant conversion system preview" loading="lazy" width="400" height="225">
@@ -950,9 +980,11 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </div>
         </article>
       </div>
+-->
 
       <!-- Card 3: Fresh Flow Juices -->
-      <div class="col-sm-6 col-lg-3 reveal d3">
+      <!--
+<div class="col-sm-6 col-lg-3 reveal d3">
         <article class="demo-card" data-category="food" aria-label="Fresh Flow Juices sample system">
           <div class="demo-picture">
             <img src="images/freshflowjuices.webp" class="demo-card-img" alt="Fresh Flow Juices — sample juice bar conversion system preview" loading="lazy" width="400" height="225">
@@ -967,9 +999,11 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </div>
         </article>
       </div>
+-->
 
       <!-- Card 4: Velour Café -->
-      <div class="col-sm-6 col-lg-3 reveal d4">
+      <!--
+<div class="col-sm-6 col-lg-3 reveal d4">
         <article class="demo-card" data-category="food" aria-label="Velour Café sample system">
           <div class="demo-picture">
             <img src="images/velourcafe.webp" class="demo-card-img" alt="Velour Café — sample café conversion system preview" loading="lazy" width="400" height="225">
@@ -984,6 +1018,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </div>
         </article>
       </div>
+-->
 
     </div>
 
@@ -993,7 +1028,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
     <div class="row g-4 mb-4">
 
       <!-- Card 5: Boutique Corner -->
-      <div class="col-sm-6 col-lg-3 reveal d1">
+      <!--
+<div class="col-sm-6 col-lg-3 reveal d1">
         <article class="demo-card" data-category="retail" aria-label="Boutique Corner sample system">
           <div class="demo-picture">
             <img src="images/boutique-corner.webp" class="demo-card-img" alt="Boutique Corner — sample retail conversion system preview" loading="lazy" width="400" height="225">
@@ -1008,9 +1044,11 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </div>
         </article>
       </div>
+-->
 
       <!-- Card 6: Lavish Event Designer -->
-      <div class="col-sm-6 col-lg-3 reveal d2">
+      <!--
+<div class="col-sm-6 col-lg-3 reveal d2">
         <article class="demo-card" data-category="services" aria-label="Lavish Event Designer sample system">
           <div class="demo-picture">
             <img src="images/lavish-event.webp" class="demo-card-img" alt="Lavish Event Designer — sample catering conversion system preview" loading="lazy" width="400" height="225">
@@ -1025,9 +1063,11 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </div>
         </article>
       </div>
+-->
 
       <!-- Card 7: Lens & Light Studio -->
-      <div class="col-sm-6 col-lg-3 reveal d3">
+      <!--
+<div class="col-sm-6 col-lg-3 reveal d3">
         <article class="demo-card" data-category="services" aria-label="Lens and Light Studio sample system">
           <div class="demo-picture">
             <img src="images/lens-light.webp" class="demo-card-img" alt="Lens and Light Studio — sample photography conversion system preview" loading="lazy" width="400" height="225">
@@ -1042,9 +1082,11 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </div>
         </article>
       </div>
+-->
 
       <!-- Card 8: FitLife Training -->
-      <div class="col-sm-6 col-lg-3 reveal d4">
+      <!--
+<div class="col-sm-6 col-lg-3 reveal d4">
         <article class="demo-card" data-category="wellness" aria-label="FitLife Training sample system">
           <div class="demo-picture">
             <img src="images/fit-life.webp" class="demo-card-img" alt="FitLife Training — sample fitness conversion system preview" loading="lazy" width="400" height="225">
@@ -1059,6 +1101,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </div>
         </article>
       </div>
+-->
 
     </div>
 
@@ -1069,7 +1112,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
     <div class="row g-4 mb-4">
 
       <!-- Card 21: GridCore Electronics (existing — unchanged) -->
-      <div class="col-sm-6 col-lg-3 reveal d1">
+      <!--
+<div class="col-sm-6 col-lg-3 reveal d1">
         <article class="demo-card" data-category="tech" aria-label="GridCore Electronics sample system">
           <div class="demo-picture">
             <img src="images/gridcore-electronics.webp" class="demo-card-img" alt="GridCore Electronics — sample tech store conversion system preview" loading="lazy" width="400" height="225">
@@ -1084,9 +1128,11 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </div>
         </article>
       </div>
+-->
 
       <!-- Card 22: SwiftFix Device Repair -->
-      <div class="col-sm-6 col-lg-3 reveal d2">
+      <!--
+<div class="col-sm-6 col-lg-3 reveal d2">
         <article class="demo-card" data-category="tech" aria-label="SwiftFix Device Repair sample system">
           <div class="demo-picture">
             <img src="images/swiftfix-repair.webp" class="demo-card-img" alt="SwiftFix Device Repair — sample phone repair conversion system preview" loading="lazy" width="400" height="225" onerror="this.style.display='none'">
@@ -1101,9 +1147,11 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </div>
         </article>
       </div>
+-->
 
       <!-- Card 23: ShieldView CCTV & Security -->
-      <div class="col-sm-6 col-lg-3 reveal d3">
+      <!--
+<div class="col-sm-6 col-lg-3 reveal d3">
         <article class="demo-card" data-category="tech" aria-label="ShieldView CCTV and Security sample system">
           <div class="demo-picture">
             <img src="images/shieldview-security.webp" class="demo-card-img" alt="ShieldView CCTV and Security — sample security systems conversion system preview" loading="lazy" width="400" height="225" onerror="this.style.display='none'">
@@ -1118,9 +1166,11 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </div>
         </article>
       </div>
+-->
 
       <!-- Card 24: SolarEdge Caribbean -->
-      <div class="col-sm-6 col-lg-3 reveal d4">
+      <!--
+<div class="col-sm-6 col-lg-3 reveal d4">
         <article class="demo-card" data-category="tech" aria-label="SolarEdge Caribbean sample system">
           <div class="demo-picture">
             <img src="images/solaredge-caribbean.webp" class="demo-card-img" alt="SolarEdge Caribbean — sample solar energy conversion system preview" loading="lazy" width="400" height="225" onerror="this.style.display='none'">
@@ -1135,6 +1185,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </div>
         </article>
       </div>
+-->
 
     </div>
 
@@ -1144,7 +1195,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
     <div class="row g-4 mb-4">
 
     <!-- Card 9: Glow Skin Studio -->
-   <div class="col-sm-6 col-lg-3 reveal d4">
+   <!--
+<div class="col-sm-6 col-lg-3 reveal d4">
         <article class="demo-card" data-category="wellness" aria-label="Glow Skin Studio sample system">
           <div class="demo-picture">
             <img src="images/glow-skin-studio.webp" class="demo-card-img" alt="Glow Skin Studio — sample beauty conversion system preview" loading="lazy" width="400" height="225">
@@ -1159,9 +1211,11 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </div>
         </article>
       </div>
+-->
 
       <!-- Card 10: Roots & Braids -->
-   <div class="col-sm-6 col-lg-3 reveal d4">
+   <!--
+<div class="col-sm-6 col-lg-3 reveal d4">
         <article class="demo-card" data-category="wellness" aria-label="Roots and Braids sample system">
           <div class="demo-picture">
             <img src="images/roots-and-braids.webp" class="demo-card-img" alt="Roots and Braids — sample beauty conversion system preview" loading="lazy" width="400" height="225">
@@ -1176,9 +1230,11 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </div>
         </article>
       </div>
+-->
 
       <!-- Card 11: Nail'd It Studio -->
-      <div class="col-sm-6 col-lg-3 reveal d3">
+      <!--
+<div class="col-sm-6 col-lg-3 reveal d3">
         <article class="demo-card" data-category="wellness" aria-label="Nail'd It Studio sample system">
           <div class="demo-picture">
             <img src="images/nailed-it-studio.webp" class="demo-card-img" alt="Nail'd It Studio — sample nail studio conversion system preview" loading="lazy" width="400" height="225">
@@ -1193,9 +1249,11 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </div>
         </article>
       </div>
+-->
 
       <!-- Card 12: MassageWave Spa -->
-      <div class="col-sm-6 col-lg-3 reveal d4">
+      <!--
+<div class="col-sm-6 col-lg-3 reveal d4">
         <article class="demo-card" data-category="wellness" aria-label="MassageWave Spa sample system">
           <div class="demo-picture">
             <img src="images/massagewave-spa.webp" class="demo-card-img" alt="MassageWave Spa — sample wellness spa conversion system preview" loading="lazy" width="400" height="225">
@@ -1210,6 +1268,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </div>
         </article>
       </div>
+-->
 
     </div>
 
@@ -1219,7 +1278,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
     <div class="row g-4 mb-4">
 
       <!-- Card 13: Island Villa Rentals -->
-      <div class="col-sm-6 col-lg-3 reveal d1">
+      <!--
+<div class="col-sm-6 col-lg-3 reveal d1">
         <article class="demo-card" data-category="hospitality" aria-label="Island Villa Rentals sample system">
           <div class="demo-picture">
             <img src="images/island-villa-rentals.webp" class="demo-card-img" alt="Island Villa Rentals — sample villa rental conversion system preview" loading="lazy" width="400" height="225">
@@ -1234,9 +1294,11 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </div>
         </article>
       </div>
+-->
 
       <!-- Card 14: Tropic Tours -->
-      <div class="col-sm-6 col-lg-3 reveal d2">
+      <!--
+<div class="col-sm-6 col-lg-3 reveal d2">
         <article class="demo-card" data-category="hospitality" aria-label="Tropic Tours sample system">
           <div class="demo-picture">
             <img src="images/tropic-tours.webp" class="demo-card-img" alt="Tropic Tours — sample tour operator conversion system preview" loading="lazy" width="400" height="225">
@@ -1251,9 +1313,11 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </div>
         </article>
       </div>
+-->
 
       <!-- Card 15: Blue Bay Guesthouse -->
-      <div class="col-sm-6 col-lg-3 reveal d3">
+      <!--
+<div class="col-sm-6 col-lg-3 reveal d3">
         <article class="demo-card" data-category="hospitality" aria-label="Blue Bay Guesthouse sample system">
           <div class="demo-picture">
             <img src="images/blue-bay-guesthouse.webp" class="demo-card-img" alt="Blue Bay Guesthouse — sample guesthouse conversion system preview" loading="lazy" width="400" height="225">
@@ -1268,9 +1332,11 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </div>
         </article>
       </div>
+-->
 
       <!-- Card 16: Sun &amp; Sea Watersports -->
-      <div class="col-sm-6 col-lg-3 reveal d4">
+      <!--
+<div class="col-sm-6 col-lg-3 reveal d4">
         <article class="demo-card" data-category="hospitality" aria-label="Sun and Sea Watersports sample system">
           <div class="demo-picture">
             <img src="images/sun-sea-watersports.webp" class="demo-card-img" alt="Sun and Sea Watersports — sample watersports conversion system preview" loading="lazy" width="400" height="225">
@@ -1285,6 +1351,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </div>
         </article>
       </div>
+-->
 
     </div>
 
@@ -1294,7 +1361,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
     <div class="row g-4 mb-4">
 
       <!-- Card 17: CaribbeanThreads -->
-      <div class="col-sm-6 col-lg-3 reveal d1">
+      <!--
+<div class="col-sm-6 col-lg-3 reveal d1">
         <article class="demo-card" data-category="retail" aria-label="Caribbean Threads fashion sample system">
           <div class="demo-picture">
             <img src="images/caribbean-threads.webp" class="demo-card-img" alt="CaribbeanThreads — sample fashion conversion system preview" loading="lazy" width="400" height="225">
@@ -1309,9 +1377,11 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </div>
         </article>
       </div>
+-->
 
       <!-- Card 18: Tradewinds Print Co. -->
-      <div class="col-sm-6 col-lg-3 reveal d2">
+      <!--
+<div class="col-sm-6 col-lg-3 reveal d2">
         <article class="demo-card" data-category="services" aria-label="Tradewinds Print Co sample system">
           <div class="demo-picture">
             <img src="images/tradewinds-print-co.webp" class="demo-card-img" alt="Tradewinds Print Co — sample print and design conversion system preview" loading="lazy" width="400" height="225">
@@ -1326,9 +1396,11 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </div>
         </article>
       </div>
+-->
 
       <!-- Card 19: Island Cleaning Co. -->
-      <div class="col-sm-6 col-lg-3 reveal d3">
+      <!--
+<div class="col-sm-6 col-lg-3 reveal d3">
         <article class="demo-card" data-category="services" aria-label="Island Cleaning Co sample system">
           <div class="demo-picture">
             <img src="images/island-cleaning-co.webp" class="demo-card-img" alt="Island Cleaning Co — sample home services conversion system preview" loading="lazy" width="400" height="225">
@@ -1343,9 +1415,11 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </div>
         </article>
       </div>
+-->
 
       <!-- Card 20: CargoLink Shipping -->
-      <div class="col-sm-6 col-lg-3 reveal d4">
+      <!--
+<div class="col-sm-6 col-lg-3 reveal d4">
         <article class="demo-card" data-category="services" aria-label="CargoLink Shipping sample system">
           <div class="demo-picture">
             <img src="images/cargolink-shipping.webp" class="demo-card-img" alt="CargoLink Shipping — sample shipping and barrel service conversion system preview" loading="lazy" width="400" height="225">
@@ -1360,6 +1434,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </div>
         </article>
       </div>
+-->
 
     </div>
 
