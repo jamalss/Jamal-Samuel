@@ -2,6 +2,19 @@
 <html lang="en" data-theme="light">
 <head>
 
+<!-- Start cookieyes banner -->
+<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/e0d130b04fadd524d28d39702e9f7bad/script.js"></script>
+<!-- End cookieyes banner -->
+
+<!-- Google tag (gtag.js) — held by CookieYes until analytics consent is granted -->
+<script type="text/plain" data-cookieyes="cookieyes-analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-JL0E79LFZR"></script>
+<script type="text/plain" data-cookieyes="cookieyes-analytics">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JL0E79LFZR');
+</script>
+
 <!-- ════════════════════════════════════════════════════
      META
 ═══════════════════════════════════════════════════════ -->
@@ -96,9 +109,6 @@ href="https://cdn.jsdelivr.net">
 <!-- ════════════════════════════════════════════════════
      STYLESHEETS
 ═══════════════════════════════════════════════════════ -->
-
-<link rel="stylesheet"
-href="https://tagconcierge.github.io/consent-banner-js/dist/consent-banner.css">
 
 <link
 href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -292,10 +302,6 @@ rel="stylesheet">
   text-decoration: none; transition: top .2s;
 }
 .skip-link:focus { top: 0; }
-
-/* ── Consent Banner Overrides ─────────────────────── */
-.consent-banner-button[href="#accept"] { background-color: #4CAF50; font-family: inherit; }
-.consent-banner-modal { font-family: 'Poppins', 'Georgia', sans-serif; }
 
 /* ══════════════════════════════════════════════════════
    HERO PHONE MOCKUP
@@ -2615,65 +2621,6 @@ function trackWhatsAppClick(event) {
 }
 </script>
 
-
-<!-- ════════════════════════════════════════════════════
-   CONSENT BANNER + GOOGLE ANALYTICS (consent-gated)
-   ════════════════════════════════════════════════════ -->
-<script>
-const consentConfig = {
-  display: { mode: 'bar', wall: false },
-  consent_types: [
-    {
-      name:        'analytics_storage',
-      title:       'Analytics',
-      description: 'Helps us understand how visitors interact with our website.',
-      default:     'denied',
-      require:     false
-    }
-  ],
-  modal: {
-    title:       'We value your privacy',
-    description: 'This site uses cookies to improve your experience.',
-    buttons: { settings: 'Settings', close: 'Close', reject: 'Reject', accept: 'Accept all' }
-  },
-  settings: {
-    title:       'Customise your preferences',
-    description: 'Choose which cookies you want to allow.',
-    buttons: { reject: 'Reject', close: 'Close', save: 'Save', accept: 'Accept all' }
-  }
-};
-
-function loadConsentState() {
-  const saved = localStorage.getItem('cookie_consent');
-  return saved ? JSON.parse(saved) : {};
-}
-
-function saveConsentState(consentState) {
-  localStorage.setItem('cookie_consent', JSON.stringify(consentState));
-  if (consentState.analytics_storage === 'granted') loadGoogleAnalytics();
-}
-
-function loadGoogleAnalytics() {
-  const script = document.createElement('script');
-  script.src   = 'https://www.googletagmanager.com/gtag/js?id=G-JL0E79LFZR';
-  script.async = true;
-  document.head.appendChild(script);
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){ dataLayer.push(arguments); }
-  gtag('js', new Date());
-  gtag('config', 'G-JL0E79LFZR');
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-  if (typeof cookiesBannerJs !== 'undefined') {
-    cookiesBannerJs(loadConsentState, saveConsentState, consentConfig);
-  }
-  const saved = loadConsentState();
-  if (saved.analytics_storage === 'granted') loadGoogleAnalytics();
-});
-</script>
-
-<script src="https://tagconcierge.github.io/consent-banner-js/dist/consent-banner.js" defer></script>
 
 </body>
 </html>
