@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hearth &amp; Grain Sourdough — Concept Demo by Jamal Samuel</title>
+<meta name="description" content="Concept demo of a pre-order page for a small-batch sourdough bakery: weekly menu, live batch counts, and one-tap text ordering. Built by Jamal Samuel.">
+<!-- Fictional business: keep it out of search results so it is never mistaken for a real bakery -->
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Hearth &amp; Grain — Sourdough pre-order page (concept demo)">
+<meta property="og:description" content="A concept demo by Jamal Samuel showing how a home sourdough bakery can take weekly pre-orders by text.">
+<meta name="theme-color" content="#2A1C14">
+
+<!-- Fonts load without blocking the page. System fonts show first if they're slow. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Young+Serif&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Young+Serif&display=swap"></noscript>
+
+<style>
+  :root{
+    --flour:#F5F0E7;      /* page */
+    --paper:#FFFDF9;      /* surfaces */
+    --linen:#E7DDCC;      /* borders, alt sections */
+    --crust:#2A1C14;      /* text */
+    --crumb:#65513F;      /* muted text (6.4:1 on flour) */
+    --enamel:#1E4A73;     /* actions — Dutch-oven enamel blue */
+    --enamel-deep:#15385A;
+    --wheat:#B7852F;      /* decoration only, never body text */
+    --low:#9B2C1F;        /* low-stock text (6.9:1 on paper) */
+
+    --display:'Young Serif', Georgia, 'Times New Roman', serif;
+    --body:'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    --max-w:1120px;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  *{ margin:0; padding:0; }
+  [hidden]{ display:none !important; }
+  html{ scroll-behavior:smooth; scroll-padding-top:120px; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *,*::before,*::after{ transition-duration:0.01ms !important; animation-duration:0.01ms !important; }
+  }
+
+  body{
+    font-family:var(--body);
+    font-size:16.5px;
+    line-height:1.6;
+    background:var(--flour);
+    color:var(--crust);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; }
+  button{ font:inherit; cursor:pointer; border:none; background:none; color:inherit; }
+  ul,ol{ list-style:none; }
+
+  h1,h2,h3{
+    font-family:var(--display);
+    font-weight:400;
+    line-height:1.12;
+    letter-spacing:-0.01em;
+  }
+  h2{ font-size:clamp(1.85rem, 3.2vw, 2.6rem); }
+  h3{ font-size:1.2rem; }
+
+  .wrap{ max-width:var(--max-w); margin:0 auto; padding:0 24px; }
+  .lede{ color:var(--crumb); font-size:1.06rem; max-width:52ch; margin-top:12px; }
+
+  :focus-visible{ outline:3px solid var(--enamel); outline-offset:3px; border-radius:4px; }
+
+  .skip-link{
+    position:absolute; left:12px; top:-60px; z-index:1000;
+    background:var(--crust); color:var(--paper);
+    padding:10px 16px; border-radius:6px; font-weight:600; text-decoration:none;
+  }
+  .skip-link:focus{ top:12px; }
+
+  .visually-hidden{
+    position:absolute !important; width:1px; height:1px; overflow:hidden;
+    clip:rect(0,0,0,0); white-space:nowrap; border:0; padding:0; margin:-1px;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    min-height:48px; padding:12px 24px;
+    border-radius:999px;
+    font-weight:700; font-size:15px; text-decoration:none;
+    transition:background .15s ease, color .15s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{ background:var(--enamel); color:#fff; }
+  .btn-primary:hover{ background:var(--enamel-deep); }
+  .btn-outline{ border:1.5px solid var(--crust); color:var(--crust); background:transparent; }
+  .btn-outline:hover{ background:var(--crust); color:var(--paper); }
+  .btn-sm{ min-height:40px; padding:8px 18px; font-size:14px; }
+  .btn[disabled]{ opacity:.5; cursor:not-allowed; }
+
+  /* ---------- Top: demo notice + nav (one sticky block, no offset hacks) ---------- */
+  .topbar{ position:sticky; top:0; z-index:200; }
+  .demo-bar{
+    background:var(--crust); color:#EFE6D6;
+    font-size:13px; line-height:1.45;
+  }
+  .demo-bar .wrap{
+    display:flex; align-items:center; justify-content:center; gap:6px 14px;
+    flex-wrap:wrap; text-align:center; padding-top:8px; padding-bottom:8px;
+  }
+  .demo-bar strong{ color:#fff; font-weight:700; }
+  .demo-bar a{ color:#F0CF8A; font-weight:700; text-underline-offset:3px; }
+  .demo-short{ display:none; }
+
+  .site-nav{
+    background:rgba(245,240,231,.95);
+    backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--linen);
+  }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; padding-top:12px; padding-bottom:12px; }
+  .logo{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:var(--display); font-size:21px; text-decoration:none; color:var(--crust);
+  }
+  .logo svg{ flex-shrink:0; }
+  .nav-links{ display:flex; align-items:center; gap:28px; }
+  .nav-links a{ font-weight:600; font-size:15px; text-decoration:none; }
+  .nav-links a:not(.btn):hover{ color:var(--enamel); text-decoration:underline; text-underline-offset:4px; }
+  .menu-toggle{
+    display:none; width:44px; height:44px; border-radius:10px;
+    align-items:center; justify-content:center;
+  }
+
+  /* ---------- Media + graceful missing-image state ---------- */
+  .media{
+    display:block; position:relative; overflow:hidden;
+    background:linear-gradient(150deg, #D8BF93 0%, #A9773F 55%, #6E4524 100%);
+  }
+  .media img{ width:100%; height:100%; object-fit:cover; }
+  .media.is-missing img{ display:none; }
+  .media.is-missing::after{
+    content:attr(data-fallback);
+    position:absolute; left:12px; bottom:12px; right:12px;
+    color:#FFF7EA; font-size:12.5px; font-weight:600; line-height:1.3;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{ padding:56px 0 72px; }
+  .hero-grid{ display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center; }
+  .hero h1{ font-size:clamp(2.5rem, 5.2vw, 4.1rem); max-width:13ch; }
+  .hero .lede{ font-size:1.12rem; margin:20px 0 28px; }
+  .hero-ctas{ display:flex; gap:12px; flex-wrap:wrap; }
+  .hero-facts{ display:flex; flex-wrap:wrap; gap:8px 22px; margin-top:24px; font-size:14px; color:var(--crumb); font-weight:600; }
+  .hero-facts li{ display:flex; align-items:center; gap:8px; }
+  .hero-facts li::before{ content:""; width:14px; height:2px; background:var(--wheat); }
+
+  .hero-visual{ position:relative; }
+  .hero-visual .media{ border-radius:22px; aspect-ratio:6/7; }
+  .hero-visual .media.is-missing::after{ top:14px; bottom:auto; }
+  .window-card{
+    position:absolute; left:-28px; bottom:28px; width:min(300px, 85%);
+    background:var(--paper); border-radius:16px; padding:18px 20px;
+    box-shadow:0 18px 40px rgba(42,28,20,.22);
+  }
+  .window-card p{ font-size:14px; color:var(--crumb); }
+  .window-card .when{ font-family:var(--display); font-size:1.35rem; color:var(--crust); line-height:1.2; margin:2px 0 12px; }
+  .batch-row{ display:flex; justify-content:space-between; font-size:13.5px; font-weight:600; color:var(--crust); }
+  .batch-bar{ height:8px; background:var(--linen); border-radius:99px; margin-top:6px; overflow:hidden; }
+  .batch-fill{ height:100%; width:35%; background:var(--enamel); border-radius:99px; transition:width .3s ease; }
+
+  /* ---------- Sections ---------- */
+  section{ padding:88px 0; }
+  .alt{ background:var(--linen); }
+  .section-head{ margin-bottom:40px; }
+
+  /* How it works — a real 3-step sequence, so numbers earn their place */
+  .steps{ padding:0 0 88px; }
+  .steps ol{
+    display:grid; grid-template-columns:repeat(3,1fr);
+    border-top:1.5px solid var(--crust);
+  }
+  .steps li{ padding:22px 24px 0 0; display:flex; gap:14px; }
+  .steps .n{ font-family:var(--display); font-size:2rem; line-height:1; color:var(--wheat); }
+  .steps h3{ font-size:1.12rem; margin-bottom:4px; }
+  .steps p{ font-size:15px; color:var(--crumb); }
+
+  /* ---------- Order builder (the signature) ---------- */
+  .order-grid{ display:grid; grid-template-columns:1.25fr .9fr; gap:40px; align-items:start; }
+  .menu-group + .menu-group{ margin-top:36px; }
+  .menu-group h3{ font-size:1.05rem; font-family:var(--body); font-weight:700; color:var(--crumb); padding-bottom:10px; border-bottom:1px solid var(--linen); }
+  .items li{
+    display:grid; grid-template-columns:88px 1fr auto; gap:18px; align-items:center;
+    padding:18px 0; border-bottom:1px solid var(--linen);
+  }
+  .items .media{ width:88px; height:88px; border-radius:12px; }
+  .items .media.is-missing::after{ content:none; }
+  .item-name{ font-family:var(--display); font-size:1.18rem; }
+  .item-desc{ font-size:14.5px; color:var(--crumb); margin-top:2px; }
+  .item-meta{ display:flex; gap:14px; align-items:baseline; margin-top:6px; font-size:14px; }
+  .price{ font-weight:700; }
+  .stock{ color:var(--crumb); font-weight:600; }
+  .stock.low{ color:var(--low); }
+  .stepper{
+    display:flex; align-items:center; gap:2px;
+    background:var(--paper); border:1.5px solid var(--linen); border-radius:999px; padding:3px;
+  }
+  .stepper button{
+    width:40px; height:40px; border-radius:50%;
+    font-size:20px; font-weight:600; line-height:1; color:var(--enamel);
+  }
+  .stepper button:hover:not([disabled]){ background:var(--flour); }
+  .stepper button[disabled]{ color:#B9AD9C; cursor:not-allowed; }
+  .stepper .qty{ min-width:26px; text-align:center; font-weight:700; }
+  .sold-out{ text-align:right; font-size:13.5px; }
+  .sold-out strong{ display:block; color:var(--low); }
+  .sold-out a{ color:var(--enamel); font-weight:600; }
+
+  .ticket{
+    background:var(--paper); border-radius:18px;
+    border:1.5px solid var(--linen);
+    padding:26px 24px;
+  }
+  @media (min-width:921px) and (min-height:1100px){ .ticket{ position:sticky; top:130px; } }
+  .ticket h3{ font-size:1.4rem; }
+  .ticket-empty{ color:var(--crumb); font-size:15px; margin:10px 0 4px; }
+  .ticket-lines{ margin:14px 0 6px; }
+  .ticket-lines li{ display:flex; justify-content:space-between; gap:12px; font-size:15px; padding:6px 0; }
+  .ticket-total{
+    display:flex; justify-content:space-between; font-weight:700; font-size:16px;
+    padding-top:10px; margin-top:6px; border-top:1px dashed var(--linen);
+  }
+  .field{ margin-top:18px; }
+  .field label, fieldset legend{ display:block; font-weight:700; font-size:14.5px; margin-bottom:6px; }
+  .req{ color:var(--low); }
+  fieldset{ border:none; margin-top:18px; }
+  .radio{ display:flex; gap:10px; align-items:flex-start; padding:7px 0; font-size:14.5px; cursor:pointer; }
+  .radio input{ margin-top:4px; accent-color:var(--enamel); width:18px; height:18px; flex-shrink:0; }
+  .radio small{ display:block; color:var(--crumb); font-size:13px; }
+  input[type="text"], textarea{
+    width:100%; font:inherit; font-size:15px;
+    padding:11px 14px; border-radius:10px;
+    border:1.5px solid var(--linen); background:var(--flour); color:var(--crust);
+  }
+  textarea{ min-height:70px; resize:vertical; }
+  input[aria-invalid="true"]{ border-color:var(--low); }
+  .error{ color:var(--low); font-size:13.5px; font-weight:600; margin-top:6px; }
+
+  .preview{ margin-top:22px; }
+  .preview-label{ font-size:13px; font-weight:700; color:var(--crumb); margin-bottom:8px; }
+  .bubble{
+    background:var(--enamel); color:#fff;
+    border-radius:18px 18px 4px 18px;
+    padding:12px 15px; font-size:14px; line-height:1.5;
+    white-space:pre-wrap; word-break:break-word;
+    max-height:220px; overflow:auto;
+  }
+  .bubble.is-empty{ background:var(--linen); color:var(--crumb); }
+  .ticket-actions{ display:flex; gap:10px; margin-top:16px; }
+  .ticket-actions .btn-primary{ flex:1; }
+  .fine{ font-size:13px; color:var(--crumb); margin-top:12px; }
+  .status{ font-size:14px; font-weight:600; margin-top:10px; }
+  .status.is-error{ color:var(--low); }
+
+  /* ---------- Ingredients (the typographic moment) ---------- */
+  .ingredients-words{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:32px;
+    margin-top:36px;
+  }
+  .ingredients-words dt{
+    font-family:var(--display);
+    font-size:clamp(2.6rem, 6vw, 4.4rem); line-height:1;
+    border-bottom:1.5px solid var(--crust); padding-bottom:14px; margin-bottom:14px;
+  }
+  .ingredients-words dd{ color:var(--crumb); font-size:15.5px; }
+  .ingredients-note{ margin-top:36px; max-width:62ch; font-size:1.05rem; }
+
+  /* ---------- Pickup ---------- */
+  .pickup-grid{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
+  .pickup-grid .media{ border-radius:18px; aspect-ratio:3/2; }
+  .spots li{
+    display:grid; grid-template-columns:78px 1fr auto; gap:16px; align-items:center;
+    padding:18px 0; border-bottom:1px solid rgba(42,28,20,.14);
+  }
+  .spots li:first-child{ border-top:1px solid rgba(42,28,20,.14); }
+  .spot-date{ font-weight:700; font-size:14px; line-height:1.25; }
+  .spot-date span{ display:block; font-family:var(--display); font-weight:400; font-size:1.5rem; }
+  .spots h3{ font-size:1.1rem; }
+  .spots p{ font-size:14px; color:var(--crumb); }
+  .porch-note{ margin-top:20px; font-size:14.5px; color:var(--crumb); }
+  .social-note{ display:flex; align-items:center; gap:8px; margin-top:14px; font-size:14px; color:var(--crumb); }
+
+  /* ---------- Story ---------- */
+  .story-grid{ display:grid; grid-template-columns:.85fr 1.15fr; gap:56px; align-items:center; }
+  .story-grid .media{ border-radius:18px; aspect-ratio:10/11; }
+  .story-copy p{ margin-top:16px; max-width:58ch; }
+  .story-copy p.first{ font-size:1.15rem; }
+  .sign{ font-family:var(--display); font-size:1.3rem; margin-top:22px; }
+
+  /* ---------- Reviews placeholder (honest empty state) ---------- */
+  .reviews-empty{
+    border:2px dashed rgba(42,28,20,.28); border-radius:18px;
+    padding:36px 32px; max-width:720px;
+  }
+  .reviews-empty h3{ font-size:1.4rem; margin-bottom:8px; }
+  .reviews-empty p{ color:var(--crumb); max-width:56ch; }
+
+  /* ---------- FAQ ---------- */
+  .faq{ max-width:760px; }
+  .faq details{ border-bottom:1px solid var(--linen); }
+  .faq details:first-child{ border-top:1px solid var(--linen); }
+  .faq summary{
+    list-style:none; cursor:pointer;
+    display:flex; justify-content:space-between; gap:16px; align-items:center;
+    padding:18px 0; font-weight:700; font-size:16.5px;
+  }
+  .faq summary::-webkit-details-marker{ display:none; }
+  .faq summary::after{ content:"+"; font-size:22px; font-weight:400; color:var(--enamel); flex-shrink:0; }
+  .faq details[open] summary::after{ content:"\2212"; }
+  .faq details p{ padding:0 0 18px; color:var(--crumb); max-width:62ch; }
+
+  /* ---------- Bake text list ---------- */
+  .textlist{
+    display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap;
+    background:var(--paper); border-radius:20px; padding:36px 40px; border:1.5px solid var(--linen);
+  }
+  .textlist p{ color:var(--crumb); max-width:52ch; margin-top:8px; }
+
+  /* ---------- Final CTA ---------- */
+  .final{
+    background:var(--crust); color:#EFE6D6; border-radius:26px;
+    padding:64px 40px; text-align:center;
+  }
+  .final h2{ color:#FFFBF3; max-width:22ch; margin:0 auto; }
+  .final p{ margin:16px auto 28px; max-width:48ch; color:#DCCDB6; }
+  .final .hero-ctas{ justify-content:center; }
+  .final .btn-outline{ border-color:#EFE6D6; color:#EFE6D6; }
+  .final .btn-outline:hover{ background:#EFE6D6; color:var(--crust); }
+  .final .btn-primary{ background:#F0CF8A; color:var(--crust); }
+  .final .btn-primary:hover{ background:#E6BE6A; }
+
+  /* ---------- Footer ---------- */
+  footer{ padding:64px 0 120px; border-top:1px solid var(--linen); margin-top:88px; }
+  .foot-grid{ display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:40px; }
+  .foot-grid h2{ font-family:var(--body); font-size:14px; font-weight:700; margin-bottom:10px; }
+  .foot-grid p, .foot-grid li{ font-size:14.5px; color:var(--crumb); }
+  .foot-grid a{ font-weight:600; color:var(--crust); }
+  .contact-links li{ margin-bottom:6px; }
+  .socials{ display:flex; gap:12px; margin-top:4px; }
+  .social-off{
+    width:40px; height:40px; border-radius:50%;
+    display:inline-flex; align-items:center; justify-content:center;
+    background:#E2D9CA; color:#8C7E6C;
+    cursor:not-allowed;
+  }
+  .preview-only{ font-size:12.5px; color:var(--crumb); margin-top:8px; }
+  .foot-legal{
+    margin-top:44px; padding-top:22px; border-top:1px solid var(--linen);
+    font-size:13px; color:var(--crumb);
+  }
+  .foot-legal p + p{ margin-top:8px; }
+  .built{ font-weight:700; color:var(--crust); }
+  .built a{ color:var(--enamel); }
+
+  /* ---------- Mobile sticky order button ---------- */
+  .sticky-cta{
+    display:none; position:fixed; left:0; right:0; bottom:0; z-index:150;
+    padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+    background:rgba(245,240,231,.97); border-top:1px solid var(--linen);
+    transition:transform .2s ease;
+  }
+  .sticky-cta .btn{ width:100%; }
+  .sticky-cta.is-hidden{ transform:translateY(110%); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 920px){
+    .hero-grid, .order-grid, .pickup-grid, .story-grid{ grid-template-columns:1fr; }
+    .hero{ padding-top:28px; }
+    .hero-visual .media{ aspect-ratio:4/3; }
+    .window-card{ position:relative; left:auto; bottom:auto; width:100%; margin-top:-48px; margin-left:auto; margin-right:auto; max-width:calc(100% - 32px); }
+    .steps ol{ grid-template-columns:1fr; }
+    .steps li{ padding:18px 0; border-bottom:1px solid var(--linen); }
+    .ingredients-words{ grid-template-columns:1fr; gap:22px; }
+    .foot-grid{ grid-template-columns:1fr; gap:28px; }
+    .sticky-cta{ display:block; }
+    section{ padding:64px 0; }
+    .steps{ padding-bottom:64px; }
+
+    .menu-toggle{ display:inline-flex; }
+    .nav-links{
+      position:absolute; top:100%; left:0; right:0;
+      flex-direction:column; align-items:stretch; gap:0;
+      background:var(--flour); border-bottom:1px solid var(--linen);
+      padding:8px 24px 20px;
+      display:none;
+    }
+    .nav-links.open{ display:flex; }
+    .nav-links a{ padding:12px 0; font-size:17px; }
+    .nav-links .btn{ margin-top:10px; }
+  }
+  @media (max-width: 560px){
+    body{ font-size:16px; }
+    .demo-long{ display:none; }
+    .demo-short{ display:inline; }
+    .items li{ grid-template-columns:64px 1fr; gap:14px; }
+    .items .media{ width:64px; height:64px; }
+    .items .stepper, .items .sold-out{ grid-column:2; justify-self:start; text-align:left; }
+    .spots li{ grid-template-columns:64px 1fr; }
+    .spots .btn{ grid-column:2; justify-self:start; }
+    .hero-ctas .btn{ flex:1 1 100%; }
+    .textlist{ padding:28px 22px; }
+    .textlist .btn{ width:100%; }
+    .final{ padding:48px 22px; border-radius:20px; }
+    .reviews-empty{ padding:28px 22px; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- Sticky block: demo disclaimer (top touchpoint) + navigation -->
+<div class="topbar">
+  <div class="demo-bar" role="note" aria-label="Demo notice">
+    <div class="wrap">
+      <span>
+        <strong>Concept demo by Jamal Samuel.</strong>
+        <span class="demo-long">Hearth &amp; Grain is fictional. Its menu, prices, stock counts, dates, photos and phone number are illustrative, not real data.</span>
+        <span class="demo-short">Fictional bakery. All content is illustrative.</span>
+      </span>
+      <a href="https://wa.me/17587235872?text=Hi%20Jamal%2C%20I%20saw%20the%20Hearth%20%26%20Grain%20sourdough%20demo.%20I%27d%20like%20a%20page%20like%20this%20for%20my%20bakery." target="_blank" rel="noopener noreferrer">Want this for your bakery?</a>
+    </div>
+  </div>
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="#top" class="logo" aria-label="Hearth and Grain, back to top">
+        <svg width="30" height="22" viewBox="0 0 30 22" fill="none" aria-hidden="true">
+          <path d="M2 16c0-7.7 5.8-13 13-13s13 5.3 13 13c0 1.7-1.3 3-3 3H5c-1.7 0-3-1.3-3-3z" fill="#B7852F"/>
+          <path d="M9 13c3-4 7-5.5 12-5" stroke="#2A1C14" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        Hearth &amp; Grain
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">
+        <span class="visually-hidden">Menu</span>
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18" stroke="#2A1C14" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <nav class="nav-links" id="navLinks" aria-label="Main">
+        <a href="#order">This week's bake</a>
+        <a href="#pickup">Pickup</a>
+        <a href="#story">About the baker</a>
+        <a href="#faq">Questions</a>
+        <a href="#order" class="btn btn-primary btn-sm">Order by text</a>
+      </nav>
+    </div>
+  </header>
+</div>
+
+<main id="main-content">
+  <span id="top"></span>
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 id="hero-title">Sourdough, baked to order every Saturday</h1>
+        <p class="lede">Naturally leavened loaves, cinnamon rolls and focaccia from one home kitchen, made in a single small batch each week. Reserve by Thursday evening and yours is set aside with your name on it.</p>
+        <div class="hero-ctas">
+          <a href="#order" class="btn btn-primary">Build my order</a>
+          <a href="#pickup" class="btn btn-outline">See pickup spots</a>
+        </div>
+        <ul class="hero-facts">
+          <li>Flour, water, salt</li>
+          <li>36-hour ferment</li>
+          <li>Order by text, pay at pickup</li>
+        </ul>
+      </div>
+
+      <div class="hero-visual">
+        <picture class="media" data-fallback="Photo: Shaped sourdough on a floured board">
+          <source srcset="images/hearth-and-grain-hero-shaping-dough.webp" type="image/webp">
+          <img src="images/hearth-and-grain-hero-shaping-dough.jpg" width="1200" height="1400" loading="eager" fetchpriority="high" decoding="async"
+               alt="Shaped round sourdough dough on a wooden board">
+        </picture>
+        <div class="window-card">
+          <p>Pre-orders for <span data-date="pickup-sat">Saturday</span> close in</p>
+          <p class="when" id="countdown">Thursday, 6 PM</p>
+          <div class="batch-row"><span>This week's batch</span><span id="batchText">25 of 72 open</span></div>
+          <div class="batch-bar" aria-hidden="true"><div class="batch-fill" id="batchFill"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="steps" aria-labelledby="steps-title">
+    <div class="wrap">
+      <h2 id="steps-title" class="visually-hidden">How ordering works</h2>
+      <ol>
+        <li><span class="n" aria-hidden="true">1</span><div><h3>Pick your bake</h3><p>Choose loaves and how many from this week's menu.</p></div></li>
+        <li><span class="n" aria-hidden="true">2</span><div><h3>Send one text</h3><p>Your order is typed out for you. Just press send.</p></div></li>
+        <li><span class="n" aria-hidden="true">3</span><div><h3>Pick up fresh</h3><p>We confirm by text. Pay at pickup or by the link we send.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ORDER BUILDER -->
+  <section id="order" class="alt" aria-labelledby="order-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="order-title">This week's bake</h2>
+        <p class="lede">One batch, baked Friday night for <span data-date="pickup-sat">Saturday</span>. Tap + to add items and your order writes itself.</p>
+      </div>
+
+      <div class="order-grid">
+        <div>
+          <div class="menu-group">
+            <h3>Loaves</h3>
+            <ul class="items">
+              <li data-id="country" data-name="Country sourdough" data-price="10" data-left="7" data-batch="24">
+                <picture class="media" data-fallback="Country sourdough">
+                  <source srcset="images/hearth-and-grain-country-sourdough.webp" type="image/webp">
+                  <img src="images/hearth-and-grain-country-sourdough.jpg" width="400" height="400" loading="lazy" decoding="async" alt="Sliced country sourdough loaf showing an open, airy crumb">
+                </picture>
+                <div>
+                  <p class="item-name">Country sourdough</p>
+                  <p class="item-desc">The everyday loaf. Crackling crust, tangy open crumb.</p>
+                  <p class="item-meta"><span class="price">$10</span><span class="stock"></span></p>
+                </div>
+              </li>
+              <li data-id="jalapeno" data-name="Jalapeño cheddar" data-price="14" data-left="3" data-batch="12">
+                <picture class="media" data-fallback="Jalapeño cheddar">
+                  <source srcset="images/hearth-and-grain-jalapeno-cheddar.webp" type="image/webp">
+                  <img src="images/hearth-and-grain-jalapeno-cheddar.jpg" width="400" height="400" loading="lazy" decoding="async" alt="Jalapeño cheddar sourdough, sliced, with pockets of melted cheese and green pepper">
+                </picture>
+                <div>
+                  <p class="item-name">Jalapeño cheddar</p>
+                  <p class="item-desc">Sharp cheddar and fresh jalapeño folded through. A mild kick.</p>
+                  <p class="item-meta"><span class="price">$14</span><span class="stock"></span></p>
+                </div>
+              </li>
+              <li data-id="multigrain" data-name="Seeded multigrain" data-price="12" data-left="0" data-batch="10">
+                <picture class="media" data-fallback="Seeded multigrain">
+                  <source srcset="images/hearth-and-grain-seeded-multigrain.webp" type="image/webp">
+                  <img src="images/hearth-and-grain-seeded-multigrain.jpg" width="400" height="400" loading="lazy" decoding="async" alt="Round seeded multigrain sourdough crusted with sunflower, sesame and flax seeds">
+                </picture>
+                <div>
+                  <p class="item-name">Seeded multigrain</p>
+                  <p class="item-desc">Whole wheat, rye and a toasted seed mix inside and out.</p>
+                  <p class="item-meta"><span class="price">$12</span><span class="stock"></span></p>
+                </div>
+              </li>
+              <li data-id="raisin" data-name="Cinnamon raisin" data-price="13" data-left="5" data-batch="10">
+                <picture class="media" data-fallback="Cinnamon raisin">
+                  <source srcset="images/hearth-and-grain-cinnamon-raisin.webp" type="image/webp">
+                  <img src="images/hearth-and-grain-cinnamon-raisin.jpg" width="400" height="400" loading="lazy" decoding="async" alt="Cinnamon raisin sourdough cut open to show a cinnamon swirl and plump raisins">
+                </picture>
+                <div>
+                  <p class="item-name">Cinnamon raisin</p>
+                  <p class="item-desc">Brown sugar and cinnamon swirl. The best toast you'll have all week.</p>
+                  <p class="item-meta"><span class="price">$13</span><span class="stock"></span></p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="menu-group">
+            <h3>Sweet &amp; savory extras</h3>
+            <ul class="items">
+              <li data-id="rolls" data-name="Cinnamon rolls, 4-pack" data-price="18" data-left="6" data-batch="10">
+                <picture class="media" data-fallback="Cinnamon rolls">
+                  <source srcset="images/hearth-and-grain-cinnamon-rolls.webp" type="image/webp">
+                  <img src="images/hearth-and-grain-cinnamon-rolls.jpg" width="400" height="400" loading="lazy" decoding="async" alt="Four iced sourdough cinnamon rolls in a baking tray">
+                </picture>
+                <div>
+                  <p class="item-name">Cinnamon rolls, 4-pack</p>
+                  <p class="item-desc">Soft sourdough rolls with vanilla icing, iced the morning of pickup.</p>
+                  <p class="item-meta"><span class="price">$18</span><span class="stock"></span></p>
+                </div>
+              </li>
+              <li data-id="focaccia" data-name="Rosemary garlic focaccia" data-price="11" data-left="4" data-batch="6">
+                <picture class="media" data-fallback="Rosemary focaccia">
+                  <source srcset="images/hearth-and-grain-rosemary-focaccia.webp" type="image/webp">
+                  <img src="images/hearth-and-grain-rosemary-focaccia.jpg" width="400" height="400" loading="lazy" decoding="async" alt="Overhead view of golden focaccia topped with rosemary, roasted garlic and flaky salt">
+                </picture>
+                <div>
+                  <p class="item-name">Rosemary garlic focaccia</p>
+                  <p class="item-desc">Olive oil, roasted garlic, flaky salt. A half-sheet, cut in squares.</p>
+                  <p class="item-meta"><span class="price">$11</span><span class="stock"></span></p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ORDER TICKET -->
+        <aside class="ticket" id="ticket" aria-labelledby="ticket-title">
+          <h3 id="ticket-title">Your order</h3>
+          <p class="ticket-empty" id="ticketEmpty">Nothing added yet. Tap + on any item to start.</p>
+          <ul class="ticket-lines" id="ticketLines"></ul>
+          <div class="ticket-total" id="ticketTotal" hidden><span>Total</span><span id="totalAmount">$0</span></div>
+          <p class="visually-hidden" id="orderSummary" aria-live="polite"></p>
+
+          <fieldset>
+            <legend>Pickup</legend>
+            <label class="radio"><input type="radio" name="pickup" value="market" checked>
+              <span>Riverside farmers market <small><span data-date="pickup-sat">Saturday</span>, 8 AM to 1 PM</small></span></label>
+            <label class="radio"><input type="radio" name="pickup" value="porch">
+              <span>Porch pickup <small><span data-date="pickup-sat">Saturday</span>, 10 AM to noon. Address sent by text.</small></span></label>
+            <label class="radio"><input type="radio" name="pickup" value="popup">
+              <span>Coffee shop pop-up <small><span data-date="pickup-sun">Sunday</span>, 9 AM to noon</small></span></label>
+          </fieldset>
+
+          <div class="field">
+            <label for="custName">Your name <span class="req" aria-hidden="true">*</span><span class="visually-hidden">(required)</span></label>
+            <input type="text" id="custName" autocomplete="given-name" required aria-required="true" aria-describedby="nameError">
+            <p class="error" id="nameError" hidden>Add your name so the baker knows whose order this is.</p>
+          </div>
+          <div class="field">
+            <label for="custNote">Note <span style="font-weight:400;color:var(--crumb)">(optional)</span></label>
+            <textarea id="custNote" placeholder="Sliced? Allergies? Picking up for someone?"></textarea>
+          </div>
+
+          <div class="preview">
+            <p class="preview-label" id="previewLabel">The text you'll send</p>
+            <div class="bubble is-empty" id="msgPreview" aria-labelledby="previewLabel">Your order message appears here as you add items.</div>
+          </div>
+
+          <div class="ticket-actions">
+            <a class="btn btn-primary" id="sendText" href="sms:+15555550142?body=Hi%20Hearth%20%26%20Grain!%20I%27d%20like%20to%20pre-order%3A%20">Text my order</a>
+            <button type="button" class="btn btn-outline btn-sm" id="copyOrder">Copy</button>
+          </div>
+          <p class="status" id="sendStatus" role="status"></p>
+          <p class="fine">Nothing is charged here. The bakery replies by text to confirm your order and pickup.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- INGREDIENTS -->
+  <section aria-labelledby="ing-title">
+    <div class="wrap">
+      <h2 id="ing-title">Three ingredients and a lot of time</h2>
+      <dl class="ingredients-words">
+        <div><dt>Flour</dt><dd>Unbleached bread flour, with whole wheat and rye for depth and color.</dd></div>
+        <div><dt>Water</dt><dd>Filtered, and plenty of it. High hydration is what opens up the crumb.</dd></div>
+        <div><dt>Salt</dt><dd>Sea salt for flavor and structure. That's the whole list for the country loaf.</dd></div>
+      </dl>
+      <p class="ingredients-note">No commercial yeast, no preservatives, no dough conditioners. The rise comes from a starter fed every morning, and each dough ferments for about 36 hours before it meets the oven. That slow ferment is where the flavor comes from.</p>
+    </div>
+  </section>
+
+  <!-- PICKUP -->
+  <section id="pickup" class="alt" aria-labelledby="pickup-title">
+    <div class="wrap pickup-grid">
+      <div>
+        <h2 id="pickup-title">Where to pick up</h2>
+        <p class="lede">Pre-order for any spot and your bake is set aside. Walk-up stock at markets is limited.</p>
+        <ul class="spots" style="margin-top:28px;">
+          <li>
+            <p class="spot-date"><span data-day="pickup-sat">Sat</span><small data-date="pickup-sat">Saturday</small></p>
+            <div><h3>Riverside farmers market</h3><p>8 AM to 1 PM. Look for the blue tablecloth.</p></div>
+            <a href="#order" class="btn btn-outline btn-sm" data-pickup="market">Pre-order</a>
+          </li>
+          <li>
+            <p class="spot-date"><span data-day="pickup-sun">Sun</span><small data-date="pickup-sun">Sunday</small></p>
+            <div><h3>Coffee shop pop-up</h3><p>9 AM to noon, at a neighborhood café.</p></div>
+            <a href="#order" class="btn btn-outline btn-sm" data-pickup="popup">Pre-order</a>
+          </li>
+          <li>
+            <p class="spot-date"><span data-day="first-fri">Fri</span><small data-date="first-fri">First Friday</small></p>
+            <div><h3>First Friday night market</h3><p>5 to 9 PM. Once a month, walk-up only.</p></div>
+            <span></span>
+          </li>
+        </ul>
+        <p class="porch-note">Porch pickup runs every Saturday, 10 AM to noon. The address is sent privately in your confirmation text, never posted online.</p>
+        <p class="social-note">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          Weekly menus are posted on Instagram (preview only in this demo).
+        </p>
+      </div>
+      <picture class="media" data-fallback="Photo: bakery table at a farmers market">
+        <source srcset="images/hearth-and-grain-market-table.webp" type="image/webp">
+        <img src="images/hearth-and-grain-market-table.jpg" width="1200" height="800" loading="lazy" decoding="async"
+             alt="Farmers market table with a blue cloth, stacked sourdough loaves and a handwritten price board">
+      </picture>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section id="story" aria-labelledby="story-title">
+    <div class="wrap story-grid">
+      <picture class="media" data-fallback="Photo: the baker in her home kitchen">
+        <source srcset="images/hearth-and-grain-baker-kitchen.webp" type="image/webp">
+        <img src="images/hearth-and-grain-baker-kitchen.jpg" width="1000" height="1100" loading="lazy" decoding="async"
+             alt="The baker scoring a loaf in a small home kitchen in early morning light">
+      </picture>
+      <div class="story-copy">
+        <h2 id="story-title">Hi, I'm Nora. This all started with one jar of starter.</h2>
+        <p class="first">Hearth &amp; Grain runs out of a kitchen built for a family of four, not a bakery. One oven, early mornings, and a starter I've fed every day for three years.</p>
+        <p>Every loaf is mixed, folded and shaped by hand the night before it's baked. I bake to order so nothing goes to waste, and so the bread you pick up on Saturday came out of the oven the night before, not days before.</p>
+        <p>By pickup, I'll know your name. That's the whole point.</p>
+        <p class="sign">Nora, baker</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS — honest empty state, never invented -->
+  <section class="alt" aria-labelledby="reviews-title">
+    <div class="wrap">
+      <div class="reviews-empty">
+        <h3 id="reviews-title">Real customer reviews go here</h3>
+        <p>Once the bakery has reviews on Google or Facebook, the best ones appear here with each customer's permission. Reviews are never written for a business. This space stays empty until real customers fill it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="section-head"><h2 id="faq-title">Good to know</h2></div>
+      <div class="faq">
+        <details>
+          <summary>How long does sourdough keep?</summary>
+          <p>Three to four days on the counter, cut side down or in a bread bag. To bring back a day-old loaf, warm it in a 350°F oven for 5 to 8 minutes.</p>
+        </details>
+        <details>
+          <summary>Can I freeze it?</summary>
+          <p>Yes. Slice it first, freeze it in a sealed bag for up to three months, and toast slices straight from the freezer.</p>
+        </details>
+        <details>
+          <summary>Can you slice my loaf?</summary>
+          <p>Yes. Add "sliced" in the note on your order.</p>
+        </details>
+        <details>
+          <summary>How do I pay?</summary>
+          <p>Pay at pickup with cash or card, or use the payment link in your confirmation text. Nothing is charged when you send your order.</p>
+        </details>
+        <details>
+          <summary>What if I can't make my pickup?</summary>
+          <p>Text before the pickup window ends and we'll work out another time. Orders that aren't picked up are held until the end of that day.</p>
+        </details>
+        <details>
+          <summary>Is it safe for allergies?</summary>
+          <p>Everything is made in a home kitchen that also handles wheat, dairy, eggs, tree nuts and seeds. Every loaf's label lists its ingredients. If you have a serious allergy, text before ordering.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- WEEKLY TEXT LIST (no data collected on this page) -->
+  <section class="alt" aria-labelledby="list-title">
+    <div class="wrap">
+      <div class="textlist">
+        <div>
+          <h2 id="list-title" style="font-size:1.8rem;">Get the weekly menu by text</h2>
+          <p>One short text every Monday with the weekend's bake and the order cutoff. Reply STOP any time.</p>
+        </div>
+        <a class="btn btn-primary" href="sms:+15555550142?body=MENU%20-%20please%20add%20me%20to%20the%20weekly%20bake%20text." id="joinList">Text MENU to join</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section aria-labelledby="final-title">
+    <div class="wrap">
+      <div class="final">
+        <h2 id="final-title">Saturday's loaves are baked for the people who order by Thursday</h2>
+        <p>Pre-orders close Thursday at 6 PM. It takes about a minute, and the baker confirms by text.</p>
+        <div class="hero-ctas">
+          <a href="#order" class="btn btn-primary">Build my order</a>
+          <a href="#pickup" class="btn btn-outline">See pickup spots</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#top" class="logo">
+          <svg width="30" height="22" viewBox="0 0 30 22" fill="none" aria-hidden="true">
+            <path d="M2 16c0-7.7 5.8-13 13-13s13 5.3 13 13c0 1.7-1.3 3-3 3H5c-1.7 0-3-1.3-3-3z" fill="#B7852F"/>
+            <path d="M9 13c3-4 7-5.5 12-5" stroke="#2A1C14" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          Hearth &amp; Grain
+        </a>
+        <p style="margin-top:10px;">Small-batch sourdough from one home kitchen. Weekly pre-orders, Saturday pickup.</p>
+      </div>
+      <div>
+        <h2>Order or ask a question</h2>
+        <ul class="contact-links">
+          <li>Text: <a href="sms:+15555550142">(555) 555-0142</a></li>
+          <li>Call: <a href="tel:+15555550142">(555) 555-0142</a></li>
+          <li>Replies within a few hours, Monday to Saturday</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Follow the weekly bake</h2>
+        <div class="socials">
+          <span class="social-off" role="img" aria-label="Facebook, preview only, not linked" title="Preview only">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8.5V6.8c0-.8.2-1.3 1.4-1.3H17V2.3c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.1H7.6v3.4h2.8v9.8H14v-9.8h2.8l.4-3.4H14z"/></svg>
+          </span>
+          <span class="social-off" role="img" aria-label="Instagram, preview only, not linked" title="Preview only">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </span>
+        </div>
+        <p class="preview-only">Preview only. Social links go live on a real bakery's page.</p>
+      </div>
+    </div>
+
+    <div class="foot-legal">
+      <p>Made in a home kitchen. Where state cottage food law requires a disclosure, the required wording appears here and on every label.</p>
+      <p><strong>Concept demo.</strong> Hearth &amp; Grain is a fictional bakery created by Jamal Samuel to show what a sourdough pre-order page can do. The business name, baker, menu, prices, stock counts, dates, locations, photos and phone number are illustrative examples, not a real business or real data. The (555) number is fictional and does not receive messages.</p>
+      <p class="built">Jamal Samuel Built · <a href="https://jamalsamuel.online" target="_blank" rel="noopener noreferrer">jamalsamuel.online</a> · <a href="https://wa.me/17587235872?text=Hi%20Jamal%2C%20I%20saw%20the%20Hearth%20%26%20Grain%20sourdough%20demo.%20I%27d%20like%20a%20page%20like%20this%20for%20my%20bakery." target="_blank" rel="noopener noreferrer">Get a page like this for your bakery</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta" id="stickyCta">
+  <a href="#order" class="btn btn-primary" id="stickyBtn">Build my order</a>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  var PHONE = '+15555550142';        // fictional demo number
+  var BAKERY = 'Hearth & Grain';
+
+  /* ---------- Missing images fall back to a labelled gradient, not a broken icon ---------- */
+  document.querySelectorAll('.media img').forEach(function(img){
+    var mark = function(){ img.closest('.media').classList.add('is-missing'); };
+    if (img.complete && img.naturalWidth === 0) mark();
+    img.addEventListener('error', mark);
+  });
+
+  /* ---------- Mobile menu ---------- */
+  var toggle = document.getElementById('menuToggle');
+  var nav = document.getElementById('navLinks');
+  function closeMenu(){ nav.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }
+  toggle.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && nav.classList.contains('open')){ closeMenu(); toggle.focus(); }
+  });
+
+  /* ---------- Dates: always relative to today, so the demo never looks stale ---------- */
+  function nextCutoff(now){
+    var diff = (4 - now.getDay() + 7) % 7;               // next Thursday
+    var c = new Date(now.getFullYear(), now.getMonth(), now.getDate() + diff, 18, 0, 0);
+    if (c <= now) c.setDate(c.getDate() + 7);
+    return c;
+  }
+  function firstFriday(y, m){
+    var d = new Date(y, m, 1);
+    d.setDate(1 + ((5 - d.getDay() + 7) % 7));
+    return d;
+  }
+  var now = new Date();
+  var cutoff = nextCutoff(now);
+  var sat = new Date(cutoff); sat.setDate(sat.getDate() + 2); sat.setHours(0,0,0,0);
+  var sun = new Date(sat); sun.setDate(sun.getDate() + 1);
+  var ff = firstFriday(now.getFullYear(), now.getMonth());
+  if (ff < new Date(now.getFullYear(), now.getMonth(), now.getDate())) ff = firstFriday(now.getFullYear(), now.getMonth() + 1);
+
+  var dates = { 'pickup-sat': sat, 'pickup-sun': sun, 'first-fri': ff };
+  function fmt(d){ return d.toLocaleDateString('en-US', { weekday:'long', month:'short', day:'numeric' }); }
+  document.querySelectorAll('[data-date]').forEach(function(el){
+    var d = dates[el.getAttribute('data-date')];
+    if (d) el.textContent = fmt(d);
+  });
+  document.querySelectorAll('[data-day]').forEach(function(el){
+    var d = dates[el.getAttribute('data-day')];
+    if (d) el.textContent = d.toLocaleDateString('en-US', { month:'short', day:'numeric' });
+  });
+  // In the pickup list, the small line under the date only needs the weekday
+  document.querySelectorAll('.spot-date small').forEach(function(el){
+    var d = dates[el.getAttribute('data-date')];
+    if (d) el.textContent = d.toLocaleDateString('en-US', { weekday:'long' });
+  });
+
+  // Keep pickup spots in date order
+  var spotList = document.querySelector('.spots');
+  if (spotList){
+    Array.prototype.slice.call(spotList.children).sort(function(a,b){
+      return dates[a.querySelector('[data-day]').getAttribute('data-day')] - dates[b.querySelector('[data-day]').getAttribute('data-day')];
+    }).forEach(function(li){ spotList.appendChild(li); });
+  }
+
+  var countdownEl = document.getElementById('countdown');
+  function updateCountdown(){
+    var ms = cutoff - new Date();
+    if (ms <= 0){ countdownEl.textContent = 'Closed for this week'; return; }
+    var mins = Math.floor(ms / 60000);
+    var days = Math.floor(mins / 1440);
+    var hrs = Math.floor((mins % 1440) / 60);
+    var m = mins % 60;
+    countdownEl.textContent = days > 0
+      ? days + (days === 1 ? ' day, ' : ' days, ') + hrs + (hrs === 1 ? ' hr' : ' hrs')
+      : hrs + (hrs === 1 ? ' hr, ' : ' hrs, ') + m + ' min';
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 60000);
+
+  /* ---------- Order builder ---------- */
+  var rows = Array.prototype.slice.call(document.querySelectorAll('.items li'));
+  var cart = {};
+  var batchTotal = 0, openAtStart = 0;
+
+  rows.forEach(function(li){
+    var id = li.dataset.id, name = li.dataset.name;
+    var left = +li.dataset.left, batch = +li.dataset.batch;
+    batchTotal += batch; openAtStart += left;
+    cart[id] = 0;
+
+    if (left === 0){
+      var so = document.createElement('div');
+      so.className = 'sold-out';
+      so.innerHTML = '<strong>Sold out this week</strong>' +
+        '<a href="sms:' + PHONE + '?body=' + encodeURIComponent('Hi ' + BAKERY + '! Please text me when the ' + name + ' is back.') + '">Text me when it\'s back</a>';
+      li.appendChild(so);
+      li.querySelector('.stock').textContent = 'Back next week';
+      return;
+    }
+
+    var group = document.createElement('div');
+    group.className = 'stepper';
+    group.setAttribute('role','group');
+    group.setAttribute('aria-label','Quantity for ' + name);
+    group.innerHTML =
+      '<button type="button" class="minus" aria-label="Remove one ' + name + '" disabled>&minus;</button>' +
+      '<span class="qty"><span class="visually-hidden">Quantity </span><span class="n">0</span></span>' +
+      '<button type="button" class="plus" aria-label="Add one ' + name + '">+</button>';
+    li.appendChild(group);
+
+    group.querySelector('.plus').addEventListener('click', function(){ change(li, 1); });
+    group.querySelector('.minus').addEventListener('click', function(){ change(li, -1); });
+    renderRow(li);
+  });
+
+  function renderRow(li){
+    var id = li.dataset.id, left = +li.dataset.left, batch = +li.dataset.batch;
+    var remaining = left - cart[id];
+    var stock = li.querySelector('.stock');
+    stock.textContent = remaining === 0 ? 'None left after yours'
+      : (remaining <= 3 ? 'Only ' + remaining + ' left' : remaining + ' of ' + batch + ' left');
+    stock.classList.toggle('low', remaining <= 3);
+    var st = li.querySelector('.stepper');
+    if (!st) return;
+    st.querySelector('.n').textContent = cart[id];
+    st.querySelector('.minus').disabled = cart[id] === 0;
+    st.querySelector('.plus').disabled = remaining === 0;
+  }
+
+  function change(li, d){
+    var id = li.dataset.id, left = +li.dataset.left;
+    var next = cart[id] + d;
+    if (next < 0 || next > left) return;
+    cart[id] = next;
+    renderRow(li);
+    renderTicket();
+  }
+
+  var linesEl = document.getElementById('ticketLines');
+  var emptyEl = document.getElementById('ticketEmpty');
+  var totalWrap = document.getElementById('ticketTotal');
+  var totalEl = document.getElementById('totalAmount');
+  var summaryEl = document.getElementById('orderSummary');
+  var previewEl = document.getElementById('msgPreview');
+  var sendBtn = document.getElementById('sendText');
+  var nameEl = document.getElementById('custName');
+  var noteEl = document.getElementById('custNote');
+  var nameErr = document.getElementById('nameError');
+  var statusEl = document.getElementById('sendStatus');
+  var stickyBtn = document.getElementById('stickyBtn');
+  var batchText = document.getElementById('batchText');
+  var batchFill = document.getElementById('batchFill');
+
+  function selectedPickup(){
+    var r = document.querySelector('input[name="pickup"]:checked');
+    return r ? r.closest('label').querySelector('span').firstChild.textContent.trim() +
+      ', ' + r.closest('label').querySelector('small').textContent.trim() : '';
+  }
+
+  function orderLines(){
+    return rows.filter(function(li){ return cart[li.dataset.id] > 0; }).map(function(li){
+      var q = cart[li.dataset.id], p = +li.dataset.price;
+      return { name: li.dataset.name, qty: q, sub: q * p };
+    });
+  }
+
+  function buildMessage(lines, total){
+    var msg = 'Hi ' + BAKERY + '! I\'d like to pre-order for ' + fmt(sat) + ':\n';
+    lines.forEach(function(l){ msg += '\u2022 ' + l.qty + ' \u00d7 ' + l.name + ' ($' + l.sub + ')\n'; });
+    msg += 'Total: $' + total + '\n';
+    msg += 'Pickup: ' + selectedPickup() + '\n';
+    msg += 'Name: ' + (nameEl.value.trim() || '[your name]');
+    if (noteEl.value.trim()) msg += '\nNote: ' + noteEl.value.trim();
+    return msg;
+  }
+
+  function smsHref(body){
+    var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+              (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    return 'sms:' + PHONE + (ios ? '&' : '?') + 'body=' + encodeURIComponent(body);
+  }
+
+  function renderTicket(){
+    var lines = orderLines();
+    var count = lines.reduce(function(a,l){ return a + l.qty; }, 0);
+    var total = lines.reduce(function(a,l){ return a + l.sub; }, 0);
+
+    linesEl.innerHTML = '';
+    lines.forEach(function(l){
+      var li = document.createElement('li');
+      li.innerHTML = '<span></span><span></span>';
+      li.children[0].textContent = l.qty + ' \u00d7 ' + l.name;
+      li.children[1].textContent = '$' + l.sub;
+      linesEl.appendChild(li);
+    });
+    emptyEl.hidden = count > 0;
+    totalWrap.hidden = count === 0;
+    totalEl.textContent = '$' + total;
+
+    if (count > 0){
+      var msg = buildMessage(lines, total);
+      previewEl.textContent = msg;
+      previewEl.classList.remove('is-empty');
+      sendBtn.href = smsHref(msg);
+      stickyBtn.textContent = 'Review order: ' + count + (count === 1 ? ' item' : ' items') + ', $' + total;
+      stickyBtn.setAttribute('href', '#ticket');
+      summaryEl.textContent = 'Order updated: ' + count + (count === 1 ? ' item' : ' items') + ', $' + total + ' total.';
+    } else {
+      previewEl.textContent = 'Your order message appears here as you add items.';
+      previewEl.classList.add('is-empty');
+      stickyBtn.textContent = 'Build my order';
+      stickyBtn.setAttribute('href', '#order');
+      summaryEl.textContent = 'Order is empty.';
+    }
+
+    var open = openAtStart - count;
+    batchText.textContent = open + ' of ' + batchTotal + ' open';
+    batchFill.style.width = Math.round(open / batchTotal * 100) + '%';
+  }
+
+  [nameEl, noteEl].forEach(function(el){ el.addEventListener('input', function(){
+    if (el === nameEl && nameEl.value.trim()){ nameErr.hidden = true; nameEl.removeAttribute('aria-invalid'); }
+    if (orderLines().length) renderTicket();
+  }); });
+  document.querySelectorAll('input[name="pickup"]').forEach(function(r){
+    r.addEventListener('change', function(){ if (orderLines().length) renderTicket(); });
+  });
+
+  function validate(){
+    statusEl.classList.remove('is-error');
+    if (!orderLines().length){
+      statusEl.textContent = 'Add at least one item before sending your order.';
+      statusEl.classList.add('is-error');
+      return false;
+    }
+    if (!nameEl.value.trim()){
+      nameErr.hidden = false;
+      nameEl.setAttribute('aria-invalid','true');
+      nameEl.focus();
+      statusEl.textContent = '';
+      return false;
+    }
+    return true;
+  }
+
+  sendBtn.addEventListener('click', function(e){
+    if (!validate()){ e.preventDefault(); return; }
+    statusEl.textContent = 'Your messages app should open with the order typed out. If it didn\'t, tap Copy and paste it into a text.';
+  });
+
+  document.getElementById('copyOrder').addEventListener('click', function(){
+    if (!validate()) return;
+    var lines = orderLines();
+    var text = buildMessage(lines, lines.reduce(function(a,l){ return a + l.sub; }, 0));
+    function done(){ statusEl.textContent = 'Order copied. Paste it into a text to (555) 555-0142.'; }
+    if (navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else { fallback(); }
+    function fallback(){
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.setAttribute('readonly',''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); done(); } catch(err){ statusEl.textContent = 'Copy didn\'t work on this device. Select the message above and copy it.'; }
+      document.body.removeChild(ta);
+    }
+  });
+
+  /* Pickup "Pre-order" buttons preselect that pickup spot */
+  document.querySelectorAll('[data-pickup]').forEach(function(a){
+    a.addEventListener('click', function(){
+      var r = document.querySelector('input[name="pickup"][value="' + a.dataset.pickup + '"]');
+      if (r){ r.checked = true; if (orderLines().length) renderTicket(); }
+    });
+  });
+
+  /* Hide the mobile sticky button while the order section is on screen */
+  var sticky = document.getElementById('stickyCta');
+  if ('IntersectionObserver' in window){
+    new IntersectionObserver(function(entries){
+      sticky.classList.toggle('is-hidden', entries[0].isIntersecting);
+    }, { threshold: 0.08 }).observe(document.getElementById('order'));
+  }
+
+  renderTicket();
+})();
+</script>
+</body>
+</html>
