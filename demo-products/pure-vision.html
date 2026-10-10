@@ -10,6 +10,20 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="PURE VISION | Eye Care &amp; Optical Experience — Website Demo">
   <meta property="og:description" content="Fictional eye-care website concept built by Jamal Samuel for demonstration purposes. Not a real healthcare provider.">
+  <meta property="og:url" content="https://www.jamalsamuel.online/demo-products/pure-vision.html">
+  <meta property="og:site_name" content="Jamal Samuel">
+  <meta property="og:image" content="https://www.jamalsamuel.online/demo-products/pure-vision-images/og-image.jpg?v=2">
+  <meta property="og:image:secure_url" content="https://www.jamalsamuel.online/demo-products/pure-vision-images/og-image.jpg?v=2">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="PURE VISION eye logo with the words Eye Care and Optical Experience">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PURE VISION | Eye Care &amp; Optical Experience — Website Demo">
+  <meta name="twitter:description" content="Fictional eye-care website concept built by Jamal Samuel. Not a real healthcare provider.">
+  <meta name="twitter:image" content="https://www.jamalsamuel.online/demo-products/pure-vision-images/og-image.jpg?v=2">
+  <link rel="icon" type="image/png" sizes="32x32" href="pure-vision-images/favicon-32.png?v=2">
+  <link rel="apple-touch-icon" href="pure-vision-images/apple-touch-icon.png?v=2">
 
   <link rel="preload" as="image" href="pure-vision-images/hero-exam-room.webp?v=2" type="image/webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -152,7 +166,18 @@
     .navbar { min-height: var(--header-h); padding-block: .5rem; }
     .brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; color: var(--pv-midnight); }
     .brand:hover { color: var(--pv-midnight); }
-    .brand-mark { flex: 0 0 auto; }
+    .brand-mark { flex: 0 0 auto; display: block; }
+    .brand-mark img { height: 40px; width: auto; display: block; }
+    @media (max-width: 575.98px) {
+      .brand { gap: .5rem; }
+      .brand-mark img { height: 32px; }
+      .brand-name { font-size: 1.1rem; letter-spacing: .1em; }
+      .demo-pill { font-size: .58rem; padding: .1rem .4rem; letter-spacing: .06em; }
+      .navbar .container { flex-wrap: nowrap; }
+    }
+    @media (max-width: 380px) { .brand-name { font-size: 1rem; letter-spacing: .08em; } .brand-mark img { height: 28px; } }
+    .footer-mark { flex: 0 0 auto; width: 58px; height: 58px; border-radius: 50%; background: var(--pv-ivory); display: grid; place-items: center; }
+    .footer-mark img { height: 30px; width: auto; display: block; }
     .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
     .brand-name { font-family: var(--pv-serif); font-size: 1.3rem; font-weight: 600; letter-spacing: .14em; }
     .brand-desc { font-size: .72rem; color: var(--pv-grey-text); letter-spacing: .02em; margin-top: .2rem; }
@@ -175,7 +200,6 @@
       .nav-link { padding: .5rem 0 !important; position: relative; }
       .nav-cta { --bs-btn-padding-y: .6rem; --bs-btn-padding-x: 1.15rem; min-height: 44px; font-size: .95rem; }
     }
-    @media (max-width: 380px) { .brand-desc { display: none; } .brand-name { font-size: 1.15rem; } }
 
     /* ============ 6. Hero ============ */
     .hero { padding-block: clamp(3rem, 8vw, 6rem) clamp(4rem, 9vw, 7rem); position: relative; overflow: hidden; }
@@ -451,12 +475,10 @@
     <nav class="navbar navbar-expand-xl" aria-label="Main navigation">
       <div class="container">
         <a class="brand" href="#top" aria-label="PURE VISION, Eye Care and Optical Experience, demo concept. Back to top">
-          <svg class="brand-mark" width="38" height="38" viewBox="0 0 40 40" aria-hidden="true">
-            <circle cx="20" cy="20" r="18.5" fill="none" stroke="#123B43" stroke-width="1.5"/>
-            <circle cx="20" cy="20" r="11" fill="none" stroke="#1D6B70" stroke-width="1.5"/>
-            <circle cx="20" cy="20" r="4.2" fill="#123B43"/>
-            <circle cx="22" cy="18" r="1.3" fill="#C6A45A"/>
-          </svg>
+          <picture class="brand-mark">
+            <source srcset="pure-vision-images/logo-mark.webp?v=2" type="image/webp">
+            <img src="pure-vision-images/logo-mark.png?v=2" alt="" width="229" height="176" decoding="async">
+          </picture>
           <span class="brand-text">
             <span class="brand-name">PURE VISION <span class="demo-pill">DEMO CONCEPT</span></span>
             <span class="brand-desc">Eye Care &amp; Optical Experience</span>
@@ -1028,12 +1050,12 @@
       <div class="row g-5">
         <div class="col-lg-5">
           <span class="brand mb-3">
-            <svg class="brand-mark" width="38" height="38" viewBox="0 0 40 40" aria-hidden="true">
-              <circle cx="20" cy="20" r="18.5" fill="none" stroke="#DDEDE9" stroke-width="1.5"/>
-              <circle cx="20" cy="20" r="11" fill="none" stroke="#7FB3AF" stroke-width="1.5"/>
-              <circle cx="20" cy="20" r="4.2" fill="#DDEDE9"/>
-              <circle cx="22" cy="18" r="1.3" fill="#C6A45A"/>
-            </svg>
+            <span class="footer-mark">
+              <picture>
+                <source srcset="pure-vision-images/logo-mark.webp?v=2" type="image/webp">
+                <img src="pure-vision-images/logo-mark.png?v=2" alt="" width="229" height="176" loading="lazy" decoding="async">
+              </picture>
+            </span>
             <span class="brand-text"><span class="brand-name">PURE VISION</span><span class="brand-desc">Eye Care &amp; Optical Experience</span></span>
           </span>
           <p>A fictional eye-care brand used to show how a calm, clear and conversion-focused website can help patients find services, locations and appointment information.</p>
@@ -1045,7 +1067,7 @@
           </ul>
           <p class="socials-note">Illustrative social icons — links are disabled in this demonstration.</p>
         </div>
-        <div class="col-6 col-lg-3">
+        <div class="col-12 col-sm-6 col-lg-3">
           <h2>Explore</h2>
           <ul class="footer-links">
             <li><a href="#services">Services</a></li>
@@ -1056,7 +1078,7 @@
             <li><a href="#faqs">FAQs</a></li>
           </ul>
         </div>
-        <div class="col-6 col-lg-4">
+        <div class="col-12 col-sm-6 col-lg-4">
           <h2>Privacy</h2>
           <p>This demo does not collect, store or process patient submissions or personal information. It uses no cookies, analytics, advertising or tracking. Pathway choices exist only in your browser and are cleared on reload. WhatsApp links open WhatsApp; nothing is sent unless you press send.</p>
         </div>
