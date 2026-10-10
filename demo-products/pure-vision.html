@@ -1,0 +1,1354 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>PURE VISION | Eye Care &amp; Optical Experience — Website Demo</title>
+  <meta name="description" content="A fictional eye-care website demonstration created by Jamal Samuel. PURE VISION is a demo brand, not a real healthcare provider. No appointments or patient data are accepted.">
+  <meta name="theme-color" content="#123B43">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PURE VISION | Eye Care &amp; Optical Experience — Website Demo">
+  <meta property="og:description" content="Fictional eye-care website concept built by Jamal Samuel for demonstration purposes. Not a real healthcare provider.">
+
+  <link rel="preload" as="image" href="pure-vision-images/hero-exam-room.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+
+  <style>
+    /* ============ 1. Tokens ============ */
+    :root {
+      --pv-midnight: #123B43;
+      --pv-teal: #1D6B70;
+      --pv-seaglass: #DDEDE9;
+      --pv-ivory: #FAF8F2;
+      --pv-white: #FFFFFF;
+      --pv-charcoal: #243238;
+      --pv-grey: #6C777A;          /* decorative / large text only */
+      --pv-grey-text: #56625F;     /* AA-safe body grey on ivory + white */
+      --pv-gold: #C6A45A;
+      --pv-border: #E4E9E6;
+
+      --pv-serif: "Fraunces", Georgia, "Times New Roman", serif;
+      --pv-sans: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+      --fs-hero: clamp(2.35rem, 7.4vw, 4.4rem);
+      --fs-h2: clamp(1.8rem, 4.6vw, 2.75rem);
+      --fs-h3: clamp(1.2rem, 2.4vw, 1.4rem);
+      --fs-body: 1.0625rem;
+      --fs-small: 0.9375rem;
+      --fs-label: 0.8125rem;
+
+      --space-section: clamp(4.5rem, 10vw, 7.5rem);
+      --radius-s: 6px;
+      --radius-m: 14px;
+      --radius-l: 28px;
+      --shadow-soft: 0 18px 40px -24px rgba(18, 59, 67, 0.35);
+      --header-h: 72px;
+    }
+
+    /* ============ 2. Base ============ */
+    html { scroll-padding-top: calc(var(--header-h) + 16px); overflow-x: clip; }
+    @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+    body {
+      font-family: var(--pv-sans);
+      font-size: var(--fs-body);
+      line-height: 1.65;
+      color: var(--pv-charcoal);
+      background: var(--pv-ivory);
+      overflow-x: clip;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 { font-family: var(--pv-serif); color: var(--pv-midnight); font-weight: 500; letter-spacing: -0.015em; line-height: 1.12; }
+    h2 { font-size: var(--fs-h2); margin-bottom: 1rem; }
+    h3 { font-size: var(--fs-h3); line-height: 1.25; }
+    p { max-width: 64ch; }
+    a { color: var(--pv-teal); text-underline-offset: 3px; }
+    a:hover { color: var(--pv-midnight); }
+    img, svg { max-width: 100%; }
+    [tabindex="-1"]:focus { outline: none; }
+    :focus-visible { outline: 3px solid var(--pv-gold); outline-offset: 3px; border-radius: 4px; }
+    .section-dark :focus-visible, .demo-banner :focus-visible { outline-color: var(--pv-white); }
+    .text-muted-pv { color: var(--pv-grey-text); }
+    .section { padding-block: var(--space-section); position: relative; }
+    .section-white { background: var(--pv-white); }
+    .section-sea { background: var(--pv-seaglass); }
+    .section-dark { background: var(--pv-midnight); color: #E8F1EF; }
+    .section-dark h2, .section-dark h3 { color: var(--pv-white); }
+    .lead-pv { font-size: 1.15rem; color: var(--pv-grey-text); }
+    .section-intro { max-width: 640px; margin-bottom: 2.75rem; }
+    .kicker { font-size: var(--fs-small); font-weight: 600; color: var(--pv-teal); margin-bottom: .6rem; display: inline-flex; align-items: center; gap: .55rem; }
+    .kicker::before { content: ""; width: 28px; height: 1px; background: var(--pv-gold); }
+
+    .skip-link {
+      position: absolute; left: 1rem; top: -100px; z-index: 2000;
+      background: var(--pv-midnight); color: #fff; padding: .75rem 1rem; border-radius: var(--radius-s);
+      font-weight: 600; text-decoration: none;
+    }
+    .skip-link:focus { top: 1rem; color: #fff; }
+
+    /* ============ 3. Buttons ============ */
+    .btn-pv {
+      --bs-btn-padding-y: .85rem; --bs-btn-padding-x: 1.5rem;
+      font-weight: 600; font-size: 1rem; border-radius: 999px; letter-spacing: .005em;
+      display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+      min-height: 48px; transition: background-color .2s, color .2s, border-color .2s;
+    }
+    .btn-pv-primary { background: var(--pv-midnight); color: #fff; border: 1px solid var(--pv-midnight); }
+    .btn-pv-primary:hover, .btn-pv-primary:focus-visible { background: var(--pv-teal); border-color: var(--pv-teal); color: #fff; }
+    .btn-pv-outline { background: transparent; color: var(--pv-midnight); border: 1px solid var(--pv-midnight); }
+    .btn-pv-outline:hover, .btn-pv-outline:focus-visible { background: var(--pv-midnight); color: #fff; }
+    .btn-pv-gold { background: var(--pv-gold); color: var(--pv-midnight); border: 1px solid var(--pv-gold); }
+    .btn-pv-gold:hover, .btn-pv-gold:focus-visible { background: #d6b770; color: var(--pv-midnight); }
+    .btn-pv-light { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.55); }
+    .btn-pv-light:hover, .btn-pv-light:focus-visible { background: #fff; color: var(--pv-midnight); }
+    .btn-text {
+      background: none; border: 0; padding: .4rem 0; color: var(--pv-teal); font-weight: 600;
+      text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; min-height: 44px;
+    }
+    .btn-text:hover { color: var(--pv-midnight); }
+
+    /* ============ 4. Demo notices ============ */
+    .demo-banner { background: var(--pv-midnight); color: #E8F1EF; font-size: var(--fs-small); line-height: 1.5; }
+    .demo-banner .inner { display: flex; gap: .85rem; align-items: flex-start; padding-block: .85rem; }
+    .demo-banner svg { flex: 0 0 auto; margin-top: .15rem; color: var(--pv-gold); }
+    .demo-banner strong { color: var(--pv-gold); letter-spacing: .06em; font-size: var(--fs-label); display: block; margin-bottom: .1rem; }
+    .demo-banner p { margin: 0; max-width: none; }
+
+    .demo-note {
+      display: flex; gap: .6rem; align-items: flex-start;
+      font-size: var(--fs-small); line-height: 1.5; color: var(--pv-charcoal);
+      background: var(--pv-white); border: 1px solid var(--pv-border); border-left: 3px solid var(--pv-gold);
+      padding: .75rem 1rem; border-radius: var(--radius-s); max-width: 760px;
+    }
+    .demo-note b { font-weight: 700; color: var(--pv-midnight); white-space: nowrap; }
+    .demo-note svg { flex: 0 0 auto; margin-top: .2rem; color: var(--pv-teal); }
+    .section-white .demo-note { background: var(--pv-ivory); }
+    .section-dark .demo-note { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.18); border-left-color: var(--pv-gold); color: #E8F1EF; }
+    .section-dark .demo-note b { color: var(--pv-gold); }
+    .section-dark .demo-note svg { color: var(--pv-gold); }
+
+    .demo-line { font-size: var(--fs-label); color: var(--pv-grey-text); margin: .75rem 0 0; max-width: 70ch; }
+    .demo-line b { color: var(--pv-midnight); }
+    .section-dark .demo-line { color: #C9DBD7; }
+    .section-dark .demo-line b { color: var(--pv-gold); }
+    .wa-float {
+      position: fixed; z-index: 1040; right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom));
+      width: 58px; height: 58px; border-radius: 50%; background: #25D366; color: #0B3B2A;
+      display: grid; place-items: center; box-shadow: 0 10px 24px -8px rgba(18,59,67,.55); text-decoration: none;
+    }
+    .wa-float:hover { background: #20bd5a; color: #0B3B2A; }
+    .tag-placeholder {
+      display: inline-block; font-size: var(--fs-label); font-weight: 700; letter-spacing: .04em;
+      color: var(--pv-midnight); background: var(--pv-seaglass); border: 1px dashed var(--pv-teal);
+      padding: .15rem .55rem; border-radius: 4px;
+    }
+
+    /* ============ 5. Header ============ */
+    .site-header { background: rgba(250, 248, 242, .94); border-bottom: 1px solid var(--pv-border); z-index: 1030; }
+    @supports (backdrop-filter: blur(8px)) { .site-header { backdrop-filter: blur(8px); } }
+    .navbar { min-height: var(--header-h); padding-block: .5rem; }
+    .brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; color: var(--pv-midnight); }
+    .brand:hover { color: var(--pv-midnight); }
+    .brand-mark { flex: 0 0 auto; }
+    .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .brand-name { font-family: var(--pv-serif); font-size: 1.3rem; font-weight: 600; letter-spacing: .14em; }
+    .brand-desc { font-size: .72rem; color: var(--pv-grey-text); letter-spacing: .02em; margin-top: .2rem; }
+    .demo-pill {
+      font-size: .66rem; font-weight: 700; letter-spacing: .08em; color: var(--pv-midnight);
+      border: 1px solid var(--pv-gold); border-radius: 999px; padding: .15rem .5rem; margin-left: .25rem; white-space: nowrap;
+    }
+    .navbar-toggler { border: 1px solid var(--pv-border); border-radius: var(--radius-s); padding: .55rem .65rem; min-width: 48px; min-height: 48px; }
+    .navbar-toggler:focus { box-shadow: none; }
+    .navbar-toggler:focus-visible { outline: 3px solid var(--pv-gold); }
+    .nav-link { color: var(--pv-charcoal) !important; font-weight: 500; padding: .75rem 0 !important; }
+    .nav-link:hover { color: var(--pv-teal) !important; }
+    @media (max-width: 1199.98px) {
+      .navbar-collapse { padding: .5rem 0 1.25rem; border-top: 1px solid var(--pv-border); margin-top: .5rem; }
+      .navbar-nav .nav-link { font-size: 1.1rem; border-bottom: 1px solid var(--pv-border); }
+      .nav-cta { margin-top: 1rem; width: 100%; }
+    }
+    @media (min-width: 1200px) {
+      .navbar-nav { gap: 1.6rem; }
+      .nav-link { padding: .5rem 0 !important; position: relative; }
+      .nav-cta { --bs-btn-padding-y: .6rem; --bs-btn-padding-x: 1.15rem; min-height: 44px; font-size: .95rem; }
+    }
+    @media (max-width: 380px) { .brand-desc { display: none; } .brand-name { font-size: 1.15rem; } }
+
+    /* ============ 6. Hero ============ */
+    .hero { padding-block: clamp(3rem, 8vw, 6rem) clamp(4rem, 9vw, 7rem); position: relative; overflow: hidden; }
+    .hero h1 { font-size: var(--fs-hero); font-weight: 400; margin-bottom: 1.4rem; max-width: 12ch; }
+    .hero-sub { font-size: 1.15rem; color: var(--pv-grey-text); max-width: 46ch; margin-bottom: 2rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-bottom: 1.75rem; }
+    .hero-actions .btn-pv { flex: 1 1 100%; }
+    @media (min-width: 576px) { .hero-actions .btn-pv { flex: 0 0 auto; } }
+    .hero-disclaimer { font-size: var(--fs-small); color: var(--pv-grey-text); display: flex; gap: .5rem; align-items: center; margin: 0; }
+    .hero-disclaimer::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--pv-gold); flex: 0 0 auto; }
+
+    /* Signature hero: clinic photo that comes into focus inside an arched lens frame */
+    .hero-media { position: relative; margin: 2.5rem auto 0; max-width: 500px; }
+    @media (min-width: 992px) { .hero-media { margin-top: 0; } }
+    .hero-media::before {
+      content: ""; position: absolute; z-index: 0; width: 58%; aspect-ratio: 1 / 1; border-radius: 50%;
+      background: var(--pv-seaglass); top: -7%; right: -10%;
+    }
+    .hero-frame {
+      position: relative; z-index: 1; aspect-ratio: 4 / 5; overflow: hidden; background: var(--pv-seaglass);
+      border-radius: 250px 250px var(--radius-l) var(--radius-l); box-shadow: var(--shadow-soft);
+      outline: 1px solid var(--pv-gold); outline-offset: 10px;
+    }
+    .hero-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .lens-caption {
+      position: absolute; z-index: 2; left: -4%; bottom: 7%; background: var(--pv-white);
+      border: 1px solid var(--pv-border); border-radius: var(--radius-m); padding: .8rem 1rem;
+      box-shadow: var(--shadow-soft); max-width: 230px; font-size: var(--fs-small); line-height: 1.45; color: var(--pv-midnight); font-weight: 600;
+    }
+    @media (max-width: 575.98px) { .lens-caption { left: 4%; } }
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-frame img { animation: focusIn 1.9s cubic-bezier(.2,.7,.2,1) .15s both; }
+    }
+    @keyframes focusIn { from { filter: blur(14px); transform: scale(1.05); } to { filter: blur(0); transform: scale(1); } }
+
+    /* Shared picture behaviour */
+    picture { display: block; }
+    .img-missing { visibility: hidden; }
+
+    /* ============ 7. Services ============ */
+    .services-grid { display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--pv-border); }
+    @media (min-width: 768px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1200px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
+    .service {
+      padding: 2rem 0 2.25rem; border-bottom: 1px solid var(--pv-border);
+      display: flex; flex-direction: column; scroll-margin-top: calc(var(--header-h) + 24px);
+      transition: background-color .4s;
+    }
+    @media (min-width: 768px) {
+      .service { padding: 2.25rem 2rem 2.5rem; border-right: 1px solid var(--pv-border); }
+      .services-grid .service:nth-child(2n) { border-right: 0; }
+    }
+    @media (min-width: 1200px) {
+      .services-grid .service:nth-child(2n) { border-right: 1px solid var(--pv-border); }
+      .services-grid .service:nth-child(3n) { border-right: 0; }
+    }
+    .service.is-highlighted { background: var(--pv-seaglass); }
+    .service-icon { width: 52px; height: 52px; border-radius: 50%; background: var(--pv-seaglass); display: grid; place-items: center; color: var(--pv-midnight); margin-bottom: 1.25rem; }
+    .service h3 { margin-bottom: .6rem; }
+    .service p { color: var(--pv-grey-text); font-size: 1rem; margin-bottom: 1rem; }
+    .service-actions { margin-top: auto; display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; }
+    .service-detail { margin-top: .75rem; padding: 1rem 1.1rem; background: var(--pv-ivory); border-radius: var(--radius-s); font-size: var(--fs-small); border: 1px solid var(--pv-border); }
+    .service-detail p { margin: 0; color: var(--pv-charcoal); font-size: var(--fs-small); }
+
+    /* ============ 8. Pathway ============ */
+    .pathway-shell {
+      background: var(--pv-white); border-radius: var(--radius-l); border: 1px solid var(--pv-border);
+      box-shadow: var(--shadow-soft); overflow: hidden;
+    }
+    .pathway-head { padding: 1.5rem 1.25rem 1.25rem; border-bottom: 1px solid var(--pv-border); }
+    @media (min-width: 768px) { .pathway-head { padding: 2rem 2.5rem 1.5rem; } }
+    .progress-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: .5rem; }
+    .progress-steps li { font-size: var(--fs-label); color: var(--pv-grey-text); font-weight: 600; }
+    .progress-steps .bar { display: block; height: 4px; border-radius: 4px; background: var(--pv-border); margin-bottom: .5rem; transition: background-color .3s; }
+    .progress-steps li.is-done .bar, .progress-steps li[aria-current="step"] .bar { background: var(--pv-teal); }
+    .progress-steps li[aria-current="step"] { color: var(--pv-midnight); }
+    .progress-steps .step-name { display: none; }
+    @media (min-width: 576px) { .progress-steps .step-name { display: inline; } }
+    .pathway-body { padding: 1.75rem 1.25rem 2rem; }
+    @media (min-width: 768px) { .pathway-body { padding: 2.25rem 2.5rem 2.5rem; } }
+    .pathway-step fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+    .pathway-step legend { font-family: var(--pv-serif); font-size: clamp(1.4rem, 3.6vw, 1.9rem); color: var(--pv-midnight); margin-bottom: .4rem; float: none; line-height: 1.2; }
+    .step-help { color: var(--pv-grey-text); font-size: var(--fs-small); margin-bottom: 1.5rem; }
+    .options { display: grid; gap: .85rem; grid-template-columns: 1fr; }
+    @media (min-width: 768px) { .options.cols-2 { grid-template-columns: repeat(2, 1fr); } .options.cols-3 { grid-template-columns: repeat(3, 1fr); } }
+    .option { position: relative; }
+    .option input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .option-card {
+      display: flex; align-items: flex-start; gap: .9rem; height: 100%; cursor: pointer;
+      border: 1.5px solid var(--pv-border); border-radius: var(--radius-m); padding: 1.1rem 1.15rem;
+      background: var(--pv-white); transition: border-color .2s, background-color .2s; min-height: 64px;
+    }
+    .option-card:hover { border-color: var(--pv-teal); }
+    .option-radio { flex: 0 0 auto; width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--pv-grey); margin-top: .1rem; display: grid; place-items: center; transition: border-color .2s; }
+    .option-radio::after { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--pv-teal); transform: scale(0); transition: transform .15s; }
+    .option-title { display: block; font-weight: 700; color: var(--pv-midnight); line-height: 1.35; }
+    .option-sub { display: block; font-size: var(--fs-small); color: var(--pv-grey-text); margin-top: .2rem; line-height: 1.45; }
+    .option input:checked + .option-card { border-color: var(--pv-teal); background: #F1F8F6; }
+    .option input:checked + .option-card .option-radio { border-color: var(--pv-teal); }
+    .option input:checked + .option-card .option-radio::after { transform: scale(1); }
+    .option input:focus-visible + .option-card { outline: 3px solid var(--pv-gold); outline-offset: 2px; }
+    .pathway-error { color: #9B2C1F; font-weight: 600; font-size: var(--fs-small); margin-top: 1rem; min-height: 1.5em; }
+    .pathway-nav { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: space-between; align-items: center; margin-top: 1.25rem; padding-top: 1.5rem; border-top: 1px solid var(--pv-border); }
+    .pathway-nav .btn-pv { min-width: 140px; }
+    .result-summary { font-family: var(--pv-serif); font-size: clamp(1.3rem, 3.2vw, 1.7rem); color: var(--pv-midnight); line-height: 1.35; max-width: 34ch; }
+    .result-grid { display: grid; gap: 1rem; margin-top: 1.5rem; grid-template-columns: 1fr; }
+    @media (min-width: 768px) { .result-grid { grid-template-columns: 1.2fr 1fr; } }
+    .result-block { border: 1px solid var(--pv-border); border-radius: var(--radius-m); padding: 1.25rem; background: var(--pv-ivory); }
+    .result-block h3 { font-size: 1.1rem; margin-bottom: .5rem; font-family: var(--pv-sans); font-weight: 700; letter-spacing: 0; }
+    .result-block p { font-size: var(--fs-small); margin-bottom: .75rem; }
+    .pathway-disclaimer { margin-top: 1.5rem; }
+
+    /* ============ 9. Approach ============ */
+    .approach-list { list-style: none; padding: 0; margin: 0; }
+    .approach-list li { display: grid; grid-template-columns: 44px 1fr; gap: 1rem; padding: 1.25rem 0; border-bottom: 1px solid var(--pv-border); }
+    .approach-list li:first-child { border-top: 1px solid var(--pv-border); }
+    .approach-list .ico { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--pv-teal); display: grid; place-items: center; color: var(--pv-teal); }
+    .approach-list h3 { font-family: var(--pv-sans); font-size: 1.05rem; font-weight: 700; letter-spacing: 0; margin-bottom: .25rem; }
+    .approach-list p { margin: 0; color: var(--pv-grey-text); font-size: 1rem; }
+    .approach-art { border-radius: var(--radius-l) var(--radius-l) var(--radius-l) 200px; overflow: hidden; background: var(--pv-seaglass); aspect-ratio: 4 / 5; position: relative; }
+    .approach-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ============ 10. Team ============ */
+    .team-card { background: var(--pv-white); border: 1px dashed #B9CCC7; border-radius: var(--radius-m); overflow: hidden; height: 100%; }
+    .team-portrait { aspect-ratio: 1 / 1; background: var(--pv-seaglass); position: relative; overflow: hidden; }
+    .team-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .team-portrait .tag-placeholder { position: absolute; top: 1rem; left: 1rem; z-index: 1; background: rgba(255,255,255,.92); }
+    .team-body { padding: 1.4rem 1.4rem 1.6rem; }
+    .team-body .ph-name { font-family: var(--pv-serif); font-size: 1.25rem; color: var(--pv-midnight); margin-bottom: .25rem; }
+    .team-body .ph-title { font-weight: 600; color: var(--pv-teal); font-size: var(--fs-small); margin-bottom: .75rem; }
+    .team-body .ph-bio { color: var(--pv-grey-text); font-size: var(--fs-small); margin: 0; font-style: italic; }
+
+    /* ============ 11. Trust ============ */
+    .trust-grid { display: grid; grid-template-columns: 1fr; gap: 0; border-top: 1px solid rgba(255,255,255,.16); }
+    @media (min-width: 768px) { .trust-grid { grid-template-columns: repeat(2, 1fr); column-gap: 3rem; } }
+    @media (min-width: 1200px) { .trust-grid { grid-template-columns: repeat(3, 1fr); } }
+    .trust-item { padding: 1.5rem 0; border-bottom: 1px solid rgba(255,255,255,.16); display: grid; grid-template-columns: 32px 1fr; gap: .9rem; }
+    .trust-item svg { color: var(--pv-gold); margin-top: .2rem; }
+    .trust-item h3 { font-family: var(--pv-sans); font-size: 1.05rem; font-weight: 700; letter-spacing: 0; margin-bottom: .3rem; }
+    .trust-item p { margin: 0; font-size: var(--fs-small); color: #C9DBD7; }
+    .testimonial-ph { border: 1px dashed rgba(255,255,255,.35); border-radius: var(--radius-m); padding: 1.5rem; height: 100%; display: flex; flex-direction: column; gap: 1rem; }
+    .testimonial-ph p { margin: 0; color: #E8F1EF; font-family: var(--pv-serif); font-size: 1.15rem; }
+    .testimonial-ph .tag-placeholder { align-self: flex-start; }
+
+    /* ============ 12. Eyewear ============ */
+    .eyewear-layout { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
+    @media (min-width: 992px) {
+      .eyewear-layout { grid-template-columns: 1.15fr 1fr; grid-template-rows: auto auto; }
+      .eyewear-feature { grid-row: span 2; }
+    }
+    .eyewear-panel { border-radius: var(--radius-l); overflow: hidden; position: relative; background: var(--pv-white); border: 1px solid var(--pv-border); }
+    .eyewear-visual { width: 100%; aspect-ratio: 3 / 2; overflow: hidden; background: var(--pv-seaglass); }
+    .eyewear-feature .eyewear-visual { aspect-ratio: 1 / 1; }
+    @media (min-width: 992px) { .eyewear-feature { display: flex; flex-direction: column; } .eyewear-feature .eyewear-visual { aspect-ratio: auto; flex: 1 1 auto; min-height: 420px; } }
+    .eyewear-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .eyewear-copy { padding: 1.4rem 1.5rem 1.6rem; }
+    .eyewear-copy h3 { margin-bottom: .4rem; }
+    .eyewear-copy p { margin: 0; color: var(--pv-grey-text); font-size: 1rem; }
+    .inline-panel { margin-top: 1.25rem; background: var(--pv-white); border: 1px solid var(--pv-border); border-left: 3px solid var(--pv-teal); border-radius: var(--radius-s); padding: 1.1rem 1.25rem; max-width: 760px; }
+    .inline-panel p { margin: 0; font-size: var(--fs-small); }
+    .inline-panel strong { color: var(--pv-midnight); }
+
+    /* ============ 13. Locations ============ */
+    .loc-card { background: var(--pv-white); border: 1px solid var(--pv-border); border-radius: var(--radius-l); overflow: hidden; height: 100%; display: flex; flex-direction: column; }
+    .map-ph {
+      aspect-ratio: 16 / 8; position: relative; display: grid; place-items: center; text-align: center; padding: 1rem;
+      background-color: var(--pv-seaglass);
+      background-image: linear-gradient(rgba(29,107,112,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(29,107,112,.12) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .map-ph p { margin: 0; font-weight: 600; color: var(--pv-midnight); font-size: var(--fs-small); background: rgba(255,255,255,.9); padding: .5rem .8rem; border-radius: var(--radius-s); }
+    .loc-body { padding: 1.5rem 1.5rem 1.75rem; display: flex; flex-direction: column; flex: 1; }
+    .loc-body h3 { font-size: 1.6rem; margin-bottom: 1rem; }
+    .loc-list { margin: 0 0 1.25rem; padding: 0; list-style: none; }
+    .loc-list li { display: grid; grid-template-columns: 7.5rem 1fr; gap: .75rem; padding: .7rem 0; border-bottom: 1px solid var(--pv-border); font-size: var(--fs-small); }
+    .loc-list dt, .loc-list .k { font-weight: 700; color: var(--pv-midnight); }
+    .loc-list .v { color: var(--pv-grey-text); font-style: italic; }
+    .loc-body .btn-pv { margin-top: auto; align-self: flex-start; }
+
+    /* ============ 14. Appointment ============ */
+    .journey { list-style: none; padding: 0; margin: 1.5rem 0 2rem; counter-reset: j; }
+    .journey li { counter-increment: j; display: grid; grid-template-columns: 2.25rem 1fr; gap: .9rem; padding: .7rem 0; }
+    .journey li::before {
+      content: counter(j); width: 2.25rem; height: 2.25rem; border-radius: 50%; display: grid; place-items: center;
+      background: var(--pv-midnight); color: #fff; font-weight: 700; font-size: .95rem;
+    }
+    .journey strong { display: block; color: var(--pv-midnight); }
+    .journey span { font-size: var(--fs-small); color: var(--pv-grey-text); }
+    .appt-card { background: var(--pv-white); border-radius: var(--radius-l); border: 1px solid var(--pv-border); padding: clamp(1.5rem, 4vw, 2.5rem); box-shadow: var(--shadow-soft); }
+    .appt-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+    .appt-actions .btn-pv { flex: 1 1 100%; }
+    @media (min-width: 576px) { .appt-actions .btn-pv { flex: 0 0 auto; } }
+    .demo-feedback {
+      margin-top: 1.25rem; border: 1px solid var(--pv-gold); background: #FBF6EA; border-radius: var(--radius-s);
+      padding: 1rem 1.15rem; font-size: var(--fs-small); color: var(--pv-charcoal);
+    }
+    .demo-feedback strong { color: var(--pv-midnight); }
+
+    /* ============ 15. Contact ============ */
+    .contact-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+    @media (min-width: 576px) { .contact-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1200px) { .contact-grid { grid-template-columns: repeat(4, 1fr); } }
+    .contact-tile { background: var(--pv-white); border: 1px solid var(--pv-border); border-radius: var(--radius-m); padding: 1.4rem; display: flex; flex-direction: column; gap: .5rem; }
+    .contact-tile .ico { color: var(--pv-teal); }
+    .contact-tile h3 { font-family: var(--pv-sans); font-weight: 700; font-size: 1.05rem; letter-spacing: 0; margin: .25rem 0 0; }
+    .contact-tile .v { color: var(--pv-grey-text); font-style: italic; font-size: var(--fs-small); margin: 0; }
+    .contact-tile .btn-text { align-self: flex-start; margin-top: auto; }
+
+    /* ============ 16. FAQ ============ */
+    .faq .accordion { --bs-accordion-bg: transparent; --bs-accordion-border-color: var(--pv-border); --bs-accordion-btn-focus-box-shadow: none; --bs-accordion-active-bg: transparent; --bs-accordion-active-color: var(--pv-midnight); }
+    .faq .accordion-item { border-left: 0; border-right: 0; border-radius: 0 !important; }
+    .faq .accordion-button { font-family: var(--pv-serif); font-size: clamp(1.1rem, 2.6vw, 1.3rem); color: var(--pv-midnight); padding: 1.35rem 0; background: transparent; line-height: 1.3; }
+    .faq .accordion-button:focus-visible { outline: 3px solid var(--pv-gold); outline-offset: 2px; }
+    .faq .accordion-body { padding: 0 0 1.5rem; color: var(--pv-grey-text); }
+    .faq .accordion-body p { margin-bottom: .6rem; }
+    @media (prefers-reduced-motion: reduce) { .collapsing { transition: none !important; } }
+
+    /* ============ 17. Final CTA ============ */
+    .final-cta { text-align: left; overflow: hidden; }
+    .final-cta h2 { font-size: clamp(2rem, 5.6vw, 3.4rem); font-weight: 400; max-width: 16ch; }
+    .final-cta p { color: #C9DBD7; font-size: 1.1rem; margin-bottom: 2rem; }
+    .final-rule { width: 64px; height: 2px; background: var(--pv-gold); margin-bottom: 1.75rem; }
+    .final-rings { position: absolute; right: -140px; top: 50%; transform: translateY(-50%); width: 520px; opacity: .14; pointer-events: none; }
+    .final-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+    .final-actions .btn-pv { flex: 1 1 100%; }
+    @media (min-width: 576px) { .final-actions .btn-pv { flex: 0 0 auto; } }
+
+    /* ============ 18. Footer ============ */
+    .site-footer { background: #0E3037; color: #C9DBD7; padding: 4rem 0 6rem; font-size: var(--fs-small); }
+    .site-footer .brand { color: #fff; }
+    .site-footer .brand-desc { color: #A9C2BD; }
+    .site-footer h2 { font-family: var(--pv-sans); font-size: .95rem; font-weight: 700; color: #fff; letter-spacing: .02em; margin-bottom: 1rem; }
+    .footer-links { list-style: none; padding: 0; margin: 0; }
+    .footer-links li { margin-bottom: .2rem; }
+    .footer-links a { color: #C9DBD7; text-decoration: none; display: inline-block; padding: .35rem 0; }
+    .footer-links a:hover { color: #fff; text-decoration: underline; }
+    .footer-disclaimer { border-top: 1px solid rgba(255,255,255,.14); margin-top: 2.5rem; padding-top: 2rem; }
+    .footer-disclaimer p { max-width: 90ch; color: #D6E4E1; line-height: 1.65; }
+    .socials { display: flex; gap: .75rem; margin: 0 0 .6rem; padding: 0; list-style: none; }
+    .socials li { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,.22); display: grid; place-items: center; color: #9FB5B1; filter: grayscale(1); }
+    .socials-note { font-size: var(--fs-label); color: #A9C2BD; margin: 0; }
+    .built-by { font-weight: 700; color: #fff; letter-spacing: .03em; }
+    .footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem; margin-top: 1.5rem; font-size: var(--fs-label); color: #A9C2BD; }
+
+    /* ============ 19. Modal ============ */
+    .modal-content { border-radius: var(--radius-m); border: 0; }
+    .modal-header { border-bottom: 1px solid var(--pv-border); padding: 1.25rem 1.5rem; }
+    .modal-title { font-size: 1.35rem; }
+    .modal-body { padding: 1.25rem 1.5rem; }
+    .modal-footer { border-top: 0; padding: 0 1.5rem 1.5rem; }
+    .modal-demo-label { display: inline-block; font-size: var(--fs-label); font-weight: 700; letter-spacing: .06em; color: var(--pv-midnight); background: #FBF6EA; border: 1px solid var(--pv-gold); border-radius: 4px; padding: .15rem .5rem; margin-bottom: .75rem; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ===== Persistent demo notice ===== -->
+  <aside class="demo-banner" aria-label="Demonstration notice">
+    <div class="container inner">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01" stroke-linecap="round"/></svg>
+      <p><strong>INDEPENDENT WEBSITE DEMO</strong>A fictional concept by Jamal Samuel. PURE VISION is not a real healthcare provider. WhatsApp buttons reach the developer, not a clinic, so please don't send medical details.</p>
+    </div>
+  </aside>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header sticky-top">
+    <nav class="navbar navbar-expand-xl" aria-label="Main navigation">
+      <div class="container">
+        <a class="brand" href="#top" aria-label="PURE VISION, Eye Care and Optical Experience, demo concept. Back to top">
+          <svg class="brand-mark" width="38" height="38" viewBox="0 0 40 40" aria-hidden="true">
+            <circle cx="20" cy="20" r="18.5" fill="none" stroke="#123B43" stroke-width="1.5"/>
+            <circle cx="20" cy="20" r="11" fill="none" stroke="#1D6B70" stroke-width="1.5"/>
+            <circle cx="20" cy="20" r="4.2" fill="#123B43"/>
+            <circle cx="22" cy="18" r="1.3" fill="#C6A45A"/>
+          </svg>
+          <span class="brand-text">
+            <span class="brand-name">PURE VISION <span class="demo-pill">DEMO CONCEPT</span></span>
+            <span class="brand-desc">Eye Care &amp; Optical Experience</span>
+          </span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Open or close the main menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#123B43" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+          <ul class="navbar-nav align-items-xl-center me-xl-4">
+            <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="#approach">Our Approach</a></li>
+            <li class="nav-item"><a class="nav-link" href="#pathway">Find Your Pathway</a></li>
+            <li class="nav-item"><a class="nav-link" href="#locations">Locations</a></li>
+            <li class="nav-item"><a class="nav-link" href="#faqs">FAQs</a></li>
+          </ul>
+          <a class="btn btn-pv btn-pv-primary nav-cta" href="#appointments">Explore Appointment Options</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <p class="kicker">Eye Care &amp; Optical Experience</p>
+            <h1 id="hero-title">See Clearly. Live Confidently.</h1>
+            <p class="hero-sub">Explore a more convenient way to discover eye-care services, understand your options and find the information you need to take the next step.</p>
+            <div class="hero-actions">
+              <a class="btn btn-pv btn-pv-primary" href="#services">Explore Eye Care Services</a>
+              <a class="btn btn-pv btn-pv-outline" href="#pathway">Find Your Eye Care Pathway</a>
+            </div>
+            <p class="hero-disclaimer">Illustrative concept only — PURE VISION is not a verified healthcare provider.</p>
+          </div>
+          <div class="col-lg-6">
+            <figure class="hero-media">
+<div class="hero-frame">
+<picture>
+<source srcset="pure-vision-images/hero-exam-room.webp" type="image/webp">
+<img src="pure-vision-images/hero-exam-room.jpg" alt="Bright modern eye examination room with a phoropter on an adjustable arm, an exam chair and a softly lit vision chart" width="1024" height="1536" fetchpriority="high" decoding="async">
+</picture>
+</div>
+<figcaption class="lens-caption">Find the right care in three quick steps.</figcaption>
+</figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Services ===== -->
+    <section class="section section-white" id="services" aria-labelledby="services-title" tabindex="-1">
+      <div class="container">
+        <div class="section-intro">
+          <p class="kicker">Services</p>
+          <h2 id="services-title">Eye care, explained in plain language.</h2>
+          <p class="lead-pv">A clear overview of the kinds of care an eye-care practice may offer, so visitors know where to start before they make contact.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service" id="svc-routine" tabindex="-1" aria-labelledby="svc-routine-t">
+            <div class="service-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <h3 id="svc-routine-t">Routine Eye Examinations</h3>
+            <p>A general check of vision and eye health. Many people book one on a regular schedule, even when their eyes feel fine.</p>
+            <div class="service-actions">
+              <button class="btn-text" type="button" data-detail="d-routine" aria-expanded="false" aria-controls="d-routine">View Demonstration Details</button>
+              <a class="btn-text" href="#pathway">Find Your Pathway</a>
+            </div>
+            <div class="service-detail" id="d-routine" hidden><p>On a live site, this card would link to a full service page with what to expect, how long a visit takes and how to book. Details would come from the practice.</p></div>
+          </article>
+
+          <article class="service" id="svc-children" tabindex="-1" aria-labelledby="svc-children-t">
+            <div class="service-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="7" r="3.5"/><path d="M5 21c0-4 3-7 7-7s7 3 7 7"/></svg></div>
+            <h3 id="svc-children-t">Children's Vision Care</h3>
+            <p>Eye care for younger patients, with information parents can read before a visit about what an appointment usually involves.</p>
+            <div class="service-actions">
+              <button class="btn-text" type="button" data-detail="d-children" aria-expanded="false" aria-controls="d-children">View Demonstration Details</button>
+              <a class="btn-text" href="#pathway">Find Your Pathway</a>
+            </div>
+            <div class="service-detail" id="d-children" hidden><p>A real version would explain age guidance and what parents should bring, using information approved by the practice's professionals.</p></div>
+          </article>
+
+          <article class="service" id="svc-specialist" tabindex="-1" aria-labelledby="svc-specialist-t">
+            <div class="service-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/><path d="M11 8v6M8 11h6"/></svg></div>
+            <h3 id="svc-specialist-t">Specialist Eye Care</h3>
+            <p>Care for specific eye conditions that may need more detailed assessment or ongoing follow-up from a qualified professional.</p>
+            <div class="service-actions">
+              <button class="btn-text" type="button" data-detail="d-specialist" aria-expanded="false" aria-controls="d-specialist">View Demonstration Details</button>
+              <a class="btn-text" href="#pathway">Find Your Pathway</a>
+            </div>
+            <div class="service-detail" id="d-specialist" hidden><p>Specialist services vary by practice and by practitioner. A live site would list only services that are confirmed and explain referral steps where they apply.</p></div>
+          </article>
+
+          <article class="service" id="svc-diabetic" tabindex="-1" aria-labelledby="svc-diabetic-t">
+            <div class="service-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></div>
+            <h3 id="svc-diabetic-t">Diabetic Eye Care</h3>
+            <p>Eye checks for people living with diabetes, who are often advised to have their eyes examined regularly.</p>
+            <div class="service-actions">
+              <button class="btn-text" type="button" data-detail="d-diabetic" aria-expanded="false" aria-controls="d-diabetic">View Demonstration Details</button>
+              <a class="btn-text" href="#pathway">Find Your Pathway</a>
+            </div>
+            <div class="service-detail" id="d-diabetic" hidden><p>A real page would carry patient education written or approved by the practice's clinicians, not generic web copy.</p></div>
+          </article>
+
+          <article class="service" id="svc-eyewear" tabindex="-1" aria-labelledby="svc-eyewear-t">
+            <div class="service-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6.5" cy="14" r="4"/><circle cx="17.5" cy="14" r="4"/><path d="M10.5 14h3M2.5 14 4 8M21.5 14 20 8"/></svg></div>
+            <h3 id="svc-eyewear-t">Prescription Eyewear</h3>
+            <p>Help choosing frames and lenses that suit a prescription, daily routine and personal style.</p>
+            <div class="service-actions">
+              <a class="btn-text" href="#eyewear">Explore This Service</a>
+              <a class="btn-text" href="#pathway">Find Your Pathway</a>
+            </div>
+          </article>
+
+          <article class="service" id="svc-contacts" tabindex="-1" aria-labelledby="svc-contacts-t">
+            <div class="service-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 13c2-5 5.5-7 9-7s7 2 9 7"/><path d="M6 13.5c1.6 2.4 3.7 3.5 6 3.5s4.4-1.1 6-3.5"/></svg></div>
+            <h3 id="svc-contacts-t">Contact Lenses</h3>
+            <p>Information on contact lens options and the fitting and follow-up that usually come with them.</p>
+            <div class="service-actions">
+              <a class="btn-text" href="#eyewear">Explore This Service</a>
+              <a class="btn-text" href="#pathway">Find Your Pathway</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Pathway (signature feature) ===== -->
+    <section class="section section-sea" id="pathway" aria-labelledby="pathway-title" tabindex="-1">
+      <div class="container">
+        <div class="section-intro">
+          <p class="kicker">Find Your Eye Care Pathway</p>
+          <h2 id="pathway-title">Three questions. One clear next step.</h2>
+          <p class="lead-pv">Answer a few simple questions to see which information is most relevant to you. Nothing you choose is saved or sent anywhere.</p>
+        </div>
+
+        <div class="pathway-shell">
+          <div class="pathway-head">
+            <ol class="progress-steps" aria-label="Pathway progress">
+              <li data-progress="1" aria-current="step"><span class="bar"></span>Step 1<span class="step-name"> · Who</span></li>
+              <li data-progress="2"><span class="bar"></span>Step 2<span class="step-name"> · What</span></li>
+              <li data-progress="3"><span class="bar"></span>Step 3<span class="step-name"> · Where</span></li>
+              <li data-progress="4"><span class="bar"></span>Result</li>
+            </ol>
+          </div>
+
+          <div class="pathway-body">
+            <!-- Step 1 -->
+            <div class="pathway-step" data-step="1">
+              <fieldset>
+                <legend tabindex="-1">Who are you exploring care for?</legend>
+                <p class="step-help">Choose one option.</p>
+                <div class="options cols-2">
+                  <div class="option">
+                    <input type="radio" name="who" id="who-adult" value="adult">
+                    <label class="option-card" for="who-adult"><span class="option-radio" aria-hidden="true"></span><span><span class="option-title">Myself or another adult</span><span class="option-sub">Information for adult patients.</span></span></label>
+                  </div>
+                  <div class="option">
+                    <input type="radio" name="who" id="who-child" value="child">
+                    <label class="option-card" for="who-child"><span class="option-radio" aria-hidden="true"></span><span><span class="option-title">A child</span><span class="option-sub">Information for parents and guardians.</span></span></label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+
+            <!-- Step 2 (options built by JS based on step 1) -->
+            <div class="pathway-step" data-step="2" hidden>
+              <fieldset>
+                <legend tabindex="-1">What would you like to explore?</legend>
+                <p class="step-help">Choose the topic closest to what you're looking for.</p>
+                <div class="options cols-3" id="step2Options"></div>
+              </fieldset>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="pathway-step" data-step="3" hidden>
+              <fieldset>
+                <legend tabindex="-1">Which location is most convenient?</legend>
+                <p class="step-help">Location names are illustrative examples for this demo.</p>
+                <div class="options cols-3">
+                  <div class="option">
+                    <input type="radio" name="where" id="where-castries" value="castries">
+                    <label class="option-card" for="where-castries"><span class="option-radio" aria-hidden="true"></span><span><span class="option-title">Castries</span></span></label>
+                  </div>
+                  <div class="option">
+                    <input type="radio" name="where" id="where-rodney" value="rodney">
+                    <label class="option-card" for="where-rodney"><span class="option-radio" aria-hidden="true"></span><span><span class="option-title">Rodney Bay</span></span></label>
+                  </div>
+                  <div class="option">
+                    <input type="radio" name="where" id="where-either" value="either">
+                    <label class="option-card" for="where-either"><span class="option-radio" aria-hidden="true"></span><span><span class="option-title">Either location</span></span></label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+
+            <!-- Result -->
+            <div class="pathway-step" data-step="4" hidden>
+              <h3 class="h4 mb-2" tabindex="-1" id="resultHeading">Your next step</h3>
+              <p class="result-summary" id="resultSummary"></p>
+              <div class="result-grid">
+                <div class="result-block">
+                  <h3 id="resultServiceTitle">About this service</h3>
+                  <p id="resultServiceText"></p>
+                  <a class="btn-text" id="resultServiceLink" href="#services">Read about this service</a>
+                </div>
+                <div class="result-block">
+                  <h3>Continue on WhatsApp</h3>
+<p>Your choices are added to the message so you don't have to repeat them. Nothing is sent until you press send.</p>
+<a class="btn btn-pv btn-pv-primary" id="resultWhatsApp" href="https://wa.me/17587235872" target="_blank" rel="noopener noreferrer">Continue on WhatsApp</a>
+<p class="demo-line">Demo: messages reach the site's developer, not a clinic.</p>
+                </div>
+              </div>
+              <p class="demo-note pathway-disclaimer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01" stroke-linecap="round"/></svg>
+                <span>This guide helps you explore eye-care information. It does not diagnose conditions or determine which examination you need. Seek guidance from a qualified eye-care professional for clinical advice.</span>
+              </p>
+            </div>
+
+            <p class="pathway-error" id="pathwayError" role="alert" aria-live="assertive"></p>
+
+            <div class="pathway-nav">
+              <button class="btn btn-pv btn-pv-outline" type="button" id="pathBack" hidden>Back</button>
+              <span class="d-flex flex-wrap gap-2 ms-auto">
+                <button class="btn btn-pv btn-pv-outline" type="button" id="pathRestart" hidden>Start Again</button>
+                <button class="btn btn-pv btn-pv-primary" type="button" id="pathNext">Continue</button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Approach ===== -->
+    <section class="section" id="approach" aria-labelledby="approach-title" tabindex="-1">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-5 order-lg-2">
+            <div class="approach-art">
+<picture>
+<source srcset="pure-vision-images/approach-reception.webp" type="image/webp">
+<img src="pure-vision-images/approach-reception.jpg" alt="Calm optical clinic reception with a light wood counter, teal accent wall, potted plants and neatly lit eyewear shelves" width="1024" height="1536" loading="lazy" decoding="async">
+</picture>
+</div>
+          </div>
+          <div class="col-lg-7 order-lg-1">
+            <p class="kicker">Our Approach</p>
+            <h2 id="approach-title">What a well-organized eye-care experience looks like.</h2>
+            <p class="lead-pv mb-4">Patients feel more at ease when they can find answers before they call. This concept is built around that idea.</p>
+            <ul class="approach-list">
+              <li><span class="ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h10M4 18h13"/></svg></span><div><h3>Clear service information</h3><p>Each service is described in everyday language, so patients know what it is before they ask.</p></div></li>
+              <li><span class="ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 4v5c0 4.5-3 8-7 9-4-1-7-4.5-7-9V7z"/></svg></span><div><h3>Guidance from professionals</h3><p>Clinical questions are pointed to qualified eye-care professionals, not answered by the website.</p></div></li>
+              <li><span class="ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><div><h3>Easy access to appointment details</h3><p>Booking options are visible from every part of the page, never buried.</p></div></li>
+              <li><span class="ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="6.5" cy="14" r="4"/><circle cx="17.5" cy="14" r="4"/><path d="M10.5 14h3"/></svg></span><div><h3>Help exploring eyewear</h3><p>Frames and lenses are presented as a calm, guided choice rather than a crowded shop.</p></div></li>
+              <li><span class="ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><div><h3>Simple location information</h3><p>Addresses, hours and directions in one place, easy to read on a phone.</p></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Team ===== -->
+    <section class="section section-white" id="team" aria-labelledby="team-title">
+      <div class="container">
+        <div class="section-intro">
+          <p class="kicker">Professional Team</p>
+          <h2 id="team-title">The people patients will meet.</h2>
+          <p class="lead-pv">A real version of this section would introduce verified practitioners with approved photographs and biographies.</p>
+        </div>
+        <p class="demo-line mb-4"><b>Placeholder profiles.</b> Real names, credentials and photos would be added with the practice's approval.</p>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <article class="team-card">
+              <div class="team-portrait"><span class="tag-placeholder">PLACEHOLDER PHOTO</span>
+<picture>
+<source srcset="pure-vision-images/team-trial-lens-set.webp" type="image/webp">
+<img src="pure-vision-images/team-trial-lens-set.jpg" alt="Optometrist's trial lens set in an open case, with rows of round lenses and metal rims" width="1024" height="1024" loading="lazy" decoding="async">
+</picture>
+</div>
+              <div class="team-body"><p class="ph-name">Professional Name Goes Here</p><p class="ph-title">Verified Professional Title Goes Here</p><p class="ph-bio">Approved Professional Biography Goes Here</p></div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <article class="team-card">
+              <div class="team-portrait"><span class="tag-placeholder">PLACEHOLDER PHOTO</span>
+<picture>
+<source srcset="pure-vision-images/team-ophthalmoscope.webp" type="image/webp">
+<img src="pure-vision-images/team-ophthalmoscope.jpg" alt="Ophthalmoscope and retinoscope resting on a clean white clinic desk beside a notepad" width="1024" height="1024" loading="lazy" decoding="async">
+</picture>
+</div>
+              <div class="team-body"><p class="ph-name">Professional Name Goes Here</p><p class="ph-title">Verified Professional Title Goes Here</p><p class="ph-bio">Approved Professional Biography Goes Here</p></div>
+            </article>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <article class="team-card">
+              <div class="team-portrait"><span class="tag-placeholder">PLACEHOLDER PHOTO</span>
+<picture>
+<source srcset="pure-vision-images/team-slit-lamp.webp" type="image/webp">
+<img src="pure-vision-images/team-slit-lamp.jpg" alt="Slit lamp examination microscope in a dimly lit clinic room" width="1024" height="1024" loading="lazy" decoding="async">
+</picture>
+</div>
+              <div class="team-body"><p class="ph-name">Professional Name Goes Here</p><p class="ph-title">Verified Professional Title Goes Here</p><p class="ph-bio">Approved Professional Biography Goes Here</p></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Trust ===== -->
+    <section class="section section-dark" id="trust" aria-labelledby="trust-title">
+      <div class="container">
+        <div class="section-intro">
+          <p class="kicker" style="color:#DDEDE9">Trust &amp; Credibility</p>
+          <h2 id="trust-title">Credibility patients can check for themselves.</h2>
+          <p style="color:#C9DBD7;font-size:1.1rem">These are the signals a real practice would show here, each backed by verified information.</p>
+        </div>
+        <div class="trust-grid mb-5">
+          <div class="trust-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3l7 4v5c0 4.5-3 8-7 9-4-1-7-4.5-7-9V7z"/><path d="m9 12 2 2 4-4"/></svg><div><h3>Verified qualifications</h3><p>Practitioner credentials, confirmed and shown with permission.</p></div></div>
+          <div class="trust-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg><div><h3>Diagnostic technology</h3><p>The equipment the practice actually uses, described accurately.</p></div></div>
+          <div class="trust-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg><div><h3>Accurate service information</h3><p>Only services the practice confirms it provides.</p></div></div>
+          <div class="trust-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18"/></svg><div><h3>Clear appointment access</h3><p>One obvious way to book, kept up to date.</p></div></div>
+          <div class="trust-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/></svg><div><h3>Accessible location details</h3><p>Correct addresses, hours and directions for every clinic.</p></div></div>
+          <div class="trust-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5h11a3 3 0 0 1 3 3v12H7a3 3 0 0 1-3-3z"/><path d="M8 9h6M8 13h6"/></svg><div><h3>Approved patient education</h3><p>Health information written or reviewed by the practice's professionals.</p></div></div>
+        </div>
+
+        <h3 class="h4 mb-3">Patient testimonials</h3>
+        <div class="row g-3 mb-4">
+          <div class="col-md-4"><div class="testimonial-ph"><span class="tag-placeholder">PLACEHOLDER</span><p>Approved patient testimonial goes here.</p></div></div>
+          <div class="col-md-4"><div class="testimonial-ph"><span class="tag-placeholder">PLACEHOLDER</span><p>Approved patient testimonial goes here.</p></div></div>
+          <div class="col-md-4"><div class="testimonial-ph"><span class="tag-placeholder">PLACEHOLDER</span><p>Approved patient testimonial goes here.</p></div></div>
+        </div>
+        <p class="demo-line"><b>Placeholders only.</b> Real reviews, ratings and credentials would be verified before launch.</p>
+      </div>
+    </section>
+
+    <!-- ===== Eyewear ===== -->
+    <section class="section" id="eyewear" aria-labelledby="eyewear-title" tabindex="-1">
+      <div class="container">
+        <div class="section-intro">
+          <p class="kicker">Eyewear</p>
+          <h2 id="eyewear-title">Frames chosen with care, not in a hurry.</h2>
+          <p class="lead-pv">An optical boutique experience: fewer choices on screen, better guidance in person.</p>
+        </div>
+
+        <div class="eyewear-layout">
+          <article class="eyewear-panel eyewear-feature">
+            <div class="eyewear-visual">
+<picture>
+<source srcset="pure-vision-images/eyewear-frames-display.webp" type="image/webp">
+<img src="pure-vision-images/eyewear-frames-display.jpg" alt="Rows of stylish optical frames displayed on illuminated white boutique shelving" width="1024" height="1024" loading="lazy" decoding="async">
+</picture>
+</div>
+            <div class="eyewear-copy">
+              <h3>Optical frames</h3>
+              <p>Shapes and materials to suit different faces and routines, with help choosing the right fit.</p>
+            </div>
+          </article>
+
+          <article class="eyewear-panel">
+            <div class="eyewear-visual">
+<picture>
+<source srcset="pure-vision-images/eyewear-prescription-glasses.webp" type="image/webp">
+<img src="pure-vision-images/eyewear-prescription-glasses.jpg" alt="Pair of tortoiseshell prescription glasses resting on a folded linen cloth" width="1536" height="1024" loading="lazy" decoding="async">
+</picture>
+</div>
+            <div class="eyewear-copy">
+              <h3>Prescription glasses</h3>
+              <p>Lenses matched to a prescription, with options explained in plain language.</p>
+            </div>
+          </article>
+
+          <article class="eyewear-panel">
+            <div class="eyewear-visual">
+<picture>
+<source srcset="pure-vision-images/eyewear-contact-lenses.webp" type="image/webp">
+<img src="pure-vision-images/eyewear-contact-lenses.jpg" alt="Contact lens case and solution bottle on a clean bathroom counter in soft daylight" width="1536" height="1024" loading="lazy" decoding="async">
+</picture>
+</div>
+            <div class="eyewear-copy">
+              <h3>Contact lenses</h3>
+              <p>Lens types explained, with fitting and aftercare handled by the practice.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <button class="btn btn-pv btn-pv-primary" type="button" id="eyewearBtn" aria-expanded="false" aria-controls="eyewearPanel">Explore Eyewear Options</button>
+          <a class="btn btn-pv btn-pv-outline" href="https://wa.me/17587235872?text=Hello%2C%20I%27d%20like%20to%20ask%20about%20eyewear%20options%20(PURE%20VISION%20demo)." target="_blank" rel="noopener noreferrer">Ask About Eyewear on WhatsApp</a>
+        </div>
+        <div class="inline-panel" id="eyewearPanel" hidden>
+          <p><strong>Demonstration feature.</strong> On a live site, this would open a curated lookbook of the practice's real frame collections, with an option to ask about a style before visiting. No catalogue or shop is connected to this demo.</p>
+        </div>
+
+        <p class="demo-line mt-3"><b>Illustrative only.</b> Brands, prices and stock are not confirmed.</p>
+      </div>
+    </section>
+
+    <!-- ===== Locations ===== -->
+    <section class="section section-white" id="locations" aria-labelledby="locations-title" tabindex="-1">
+      <div class="container">
+        <div class="section-intro">
+          <p class="kicker">Locations</p>
+          <h2 id="locations-title">Find the clinic that suits you.</h2>
+          <p class="lead-pv">Each location card would hold everything a patient needs on the day of their visit.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <article class="loc-card" aria-labelledby="loc1">
+              <div class="map-ph"><p>Verified location and Google Maps integration go here.</p></div>
+              <div class="loc-body">
+                <h3 id="loc1">Castries</h3>
+                <ul class="loc-list">
+                  <li><span class="k">Address</span><span class="v">Verified street address goes here</span></li>
+                  <li><span class="k">Opening hours</span><span class="v">Verified opening hours go here</span></li>
+                  <li><span class="k">Telephone</span><span class="v">Verified telephone number goes here</span></li>
+                  <li><span class="k">Directions</span><span class="v">Verified directions go here</span></li>
+                  <li><span class="k">Appointments</span><span class="v">Verified appointment information goes here</span></li>
+                </ul>
+                <button class="btn btn-pv btn-pv-outline" type="button" data-bs-toggle="modal" data-bs-target="#demoModal"
+                  data-demo-title="Directions to Castries (demo)"
+                  data-demo-body="DEMO ONLY — No physical PURE VISION clinic exists. A live site would open verified directions in Google Maps for the practice's real address.">Get Directions</button>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6">
+            <article class="loc-card" aria-labelledby="loc2">
+              <div class="map-ph"><p>Verified location and Google Maps integration go here.</p></div>
+              <div class="loc-body">
+                <h3 id="loc2">Rodney Bay</h3>
+                <ul class="loc-list">
+                  <li><span class="k">Address</span><span class="v">Verified street address goes here</span></li>
+                  <li><span class="k">Opening hours</span><span class="v">Verified opening hours go here</span></li>
+                  <li><span class="k">Telephone</span><span class="v">Verified telephone number goes here</span></li>
+                  <li><span class="k">Directions</span><span class="v">Verified directions go here</span></li>
+                  <li><span class="k">Appointments</span><span class="v">Verified appointment information goes here</span></li>
+                </ul>
+                <button class="btn btn-pv btn-pv-outline" type="button" data-bs-toggle="modal" data-bs-target="#demoModal"
+                  data-demo-title="Directions to Rodney Bay (demo)"
+                  data-demo-body="DEMO ONLY — No physical PURE VISION clinic exists. A live site would open verified directions in Google Maps for the practice's real address.">Get Directions</button>
+              </div>
+            </article>
+          </div>
+        </div>
+        <p class="demo-line mt-3"><b>Placeholder locations.</b> No PURE VISION clinic exists.</p>
+      </div>
+    </section>
+
+    <!-- ===== Appointment ===== -->
+    <section class="section section-sea" id="appointments" aria-labelledby="appt-title" tabindex="-1">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-6">
+            <p class="kicker">Appointments</p>
+            <h2 id="appt-title">Your Next Step Starts Here.</h2>
+            <p class="lead-pv">Explore the services, choose a location, then book through the practice's own system. Here is how that journey would be organized on a live site.</p>
+            <ol class="journey">
+              <li><span><strong>Explore</strong><span>Read about the service you're interested in.</span></span></li>
+              <li><span><strong>Choose</strong><span>Pick the most convenient clinic location.</span></span></li>
+              <li><span><strong>Book</strong><span>Message the practice on WhatsApp to arrange a time.</span></span></li>
+            </ol>
+          </div>
+          <div class="col-lg-6">
+            <div class="appt-card">
+              <h3 class="mb-2">Ready to book?</h3>
+              <p class="text-muted-pv">Message the team on WhatsApp and they'll help you find a suitable time.</p>
+<div class="appt-actions">
+<a class="btn btn-pv btn-pv-primary" href="https://wa.me/17587235872?text=Hello%2C%20I%27d%20like%20to%20ask%20about%20booking%20an%20eye-care%20appointment%20(PURE%20VISION%20demo)." target="_blank" rel="noopener noreferrer">Book on WhatsApp</a>
+<a class="btn btn-pv btn-pv-outline" href="#pathway">Find Your Pathway First</a>
+</div>
+<p class="demo-line">Demo: this reaches the site's developer. No appointments are booked.</p>
+</div>
+</div>
+</div>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section class="section" id="contact" aria-labelledby="contact-title" tabindex="-1">
+      <div class="container">
+        <div class="section-intro">
+          <p class="kicker">Contact</p>
+          <h2 id="contact-title">Questions before you visit?</h2>
+          <p class="lead-pv">Reach out on the channel you already use. WhatsApp is the quickest.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-tile">
+            <svg class="ico" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+            <h3>Telephone</h3><p class="v">Verified telephone number goes here</p>
+            <button class="btn-text" type="button" data-bs-toggle="modal" data-bs-target="#demoModal" data-demo-title="Telephone (demo)" data-demo-body="DEMO ONLY — No phone number is connected. A live site would show the practice's verified number as a tap-to-call link.">How this would work</button>
+          </div>
+          <div class="contact-tile">
+            <svg class="ico" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/></svg>
+            <h3>WhatsApp</h3><p class="v" style="font-style:normal;color:var(--pv-charcoal)">+1 (758) 723-5872</p>
+<a class="btn-text" href="https://wa.me/17587235872?text=Hello%2C%20I%20have%20a%20question%20(PURE%20VISION%20demo)." target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+          </div>
+          <div class="contact-tile">
+            <svg class="ico" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            <h3>General inquiries</h3><p class="v">Verified email address goes here</p>
+            <button class="btn-text" type="button" data-bs-toggle="modal" data-bs-target="#demoModal" data-demo-title="General inquiries (demo)" data-demo-body="DEMO ONLY — No email address is connected. A live site would show the practice's verified inquiries address.">How this would work</button>
+          </div>
+          <div class="contact-tile">
+            <svg class="ico" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+            <h3>Appointment information</h3><p class="v">Verified booking details go here</p>
+            <a class="btn-text" href="#appointments">See the booking journey</a>
+          </div>
+        </div>
+        <p class="demo-line mt-3"><b>Demo:</b> WhatsApp reaches the site's developer, not a clinic. Please don't share medical details. Phone and email are placeholders.</p>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section section-white faq" id="faqs" aria-labelledby="faq-title" tabindex="-1">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-4">
+            <p class="kicker">FAQs</p>
+            <h2 id="faq-title">Common questions.</h2>
+            <p class="text-muted-pv">General answers only. A live site would use the practice's own approved wording.</p>
+          </div>
+          <div class="col-lg-8">
+            <div class="accordion" id="faqAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="fq1h"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fq1" aria-expanded="false" aria-controls="fq1">What should I expect during an eye examination?</button></h3>
+                <div id="fq1" class="accordion-collapse collapse" aria-labelledby="fq1h" data-bs-parent="#faqAccordion"><div class="accordion-body"><p>An eye examination generally includes questions about your eyes and general health, vision tests and a check of how healthy your eyes are. The exact steps depend on the practitioner and the reason for your visit.</p><p>A real practice would describe its own process here.</p></div></div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="fq2h"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fq2" aria-expanded="false" aria-controls="fq2">How can I explore available eye-care services?</button></h3>
+                <div id="fq2" class="accordion-collapse collapse" aria-labelledby="fq2h" data-bs-parent="#faqAccordion"><div class="accordion-body"><p>Start with the <a href="#services">Services</a> section, or use <a href="#pathway">Find Your Pathway</a> to narrow things down in three quick steps. The services shown in this demo are illustrative.</p></div></div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="fq3h"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fq3" aria-expanded="false" aria-controls="fq3">How do I find the appropriate clinic location?</button></h3>
+                <div id="fq3" class="accordion-collapse collapse" aria-labelledby="fq3h" data-bs-parent="#faqAccordion"><div class="accordion-body"><p>The <a href="#locations">Locations</a> section would list each clinic's verified address, hours and directions. In this demo, all location details are placeholders.</p></div></div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="fq4h"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fq4" aria-expanded="false" aria-controls="fq4">How can I ask about eyewear?</button></h3>
+                <div id="fq4" class="accordion-collapse collapse" aria-labelledby="fq4h" data-bs-parent="#faqAccordion"><div class="accordion-body"><p>Message the team on WhatsApp with the style you're interested in. In this demo, brands, pricing and availability are not confirmed.</p></div></div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="fq5h"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fq5" aria-expanded="false" aria-controls="fq5">How would appointment booking work on a real website?</button></h3>
+                <div id="fq5" class="accordion-collapse collapse" aria-labelledby="fq5h" data-bs-parent="#faqAccordion"><div class="accordion-body"><p>Booking buttons open a WhatsApp chat with a short message already written for you. On a live site, that chat would go to the practice. <strong>In this demo it reaches the developer, and no appointments are booked.</strong></p></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Final CTA ===== -->
+    <section class="section section-dark final-cta" aria-labelledby="final-title">
+      <svg class="final-rings" viewBox="0 0 520 520" aria-hidden="true"><g fill="none" stroke="#DDEDE9" stroke-width="1.5"><circle cx="260" cy="260" r="250"/><circle cx="260" cy="260" r="190"/><circle cx="260" cy="260" r="130"/><circle cx="260" cy="260" r="70"/></g></svg>
+      <div class="container position-relative">
+        <div class="final-rule"></div>
+        <h2 id="final-title">A Better Way to Explore Eye Care.</h2>
+        <p>Discover how a thoughtful digital experience can make service information, patient navigation and appointment access easier to understand.</p>
+        <div class="final-actions">
+          <a class="btn btn-pv btn-pv-gold" href="#pathway">Explore Your Eye Care Pathway</a>
+          <a class="btn btn-pv btn-pv-light" href="#services">Return to Services</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-5">
+          <span class="brand mb-3">
+            <svg class="brand-mark" width="38" height="38" viewBox="0 0 40 40" aria-hidden="true">
+              <circle cx="20" cy="20" r="18.5" fill="none" stroke="#DDEDE9" stroke-width="1.5"/>
+              <circle cx="20" cy="20" r="11" fill="none" stroke="#7FB3AF" stroke-width="1.5"/>
+              <circle cx="20" cy="20" r="4.2" fill="#DDEDE9"/>
+              <circle cx="22" cy="18" r="1.3" fill="#C6A45A"/>
+            </svg>
+            <span class="brand-text"><span class="brand-name">PURE VISION</span><span class="brand-desc">Eye Care &amp; Optical Experience</span></span>
+          </span>
+          <p>A fictional eye-care brand used to show how a calm, clear and conversion-focused website can help patients find services, locations and appointment information.</p>
+          <ul class="socials" aria-label="Illustrative social media icons, links disabled">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" role="img" aria-label="Instagram icon (disabled)"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="Facebook icon (disabled)"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H8v4h2v8h4v-8h3l1-4h-4V8.5c0-.3.2-.5.5-.5z"/></svg></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="TikTok icon (disabled)"><path d="M16 3c.4 2.4 1.9 4 4 4.3v3.3a7.6 7.6 0 0 1-4-1.3v6.3A5.7 5.7 0 1 1 10.3 10v3.4a2.4 2.4 0 1 0 2.4 2.3V3z"/></svg></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="LinkedIn icon (disabled)"><path d="M4 9h3.6v11H4zM5.8 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM10 9h3.4v1.6c.5-.9 1.7-1.9 3.5-1.9 3.7 0 4.1 2.4 4.1 5.5V20h-3.6v-5c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V20H10z"/></svg></li>
+          </ul>
+          <p class="socials-note">Illustrative social icons — links are disabled in this demonstration.</p>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h2>Explore</h2>
+          <ul class="footer-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#approach">Our Approach</a></li>
+            <li><a href="#pathway">Find Your Pathway</a></li>
+            <li><a href="#eyewear">Eyewear</a></li>
+            <li><a href="#locations">Locations</a></li>
+            <li><a href="#faqs">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-4">
+          <h2>Privacy</h2>
+          <p>This demo does not collect, store or process patient submissions or personal information. It uses no cookies, analytics, advertising or tracking. Pathway choices exist only in your browser and are cleared on reload. WhatsApp links open WhatsApp; nothing is sent unless you press send.</p>
+        </div>
+      </div>
+
+      <div class="footer-disclaimer">
+        <p><strong>Demonstration disclaimer.</strong> PURE VISION is a fictional demonstration brand created by Jamal Samuel to illustrate a potential eye-care website experience. This webpage is not an operating healthcare provider, does not represent an official clinic and is not affiliated with or endorsed by any existing eye-care business. Services, team profiles, product imagery, locations and contact information are illustrative or subject to verification. WhatsApp links reach the website's developer, Jamal Samuel, not a clinic. No appointments, purchases or patient submissions are accepted.</p>
+        <div class="footer-bottom">
+          <span>&copy; <span id="year"></span> PURE VISION demonstration concept</span>
+          <span class="built-by">Jamal Samuel Built</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/17587235872?text=Hello%2C%20I%27m%20viewing%20the%20PURE%20VISION%20demo%20and%20have%20a%20question." target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp (opens in a new tab)">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+  </a>
+
+  <!-- ===== Shared demo dialog ===== -->
+  <div class="modal fade" id="demoModal" tabindex="-1" aria-labelledby="demoModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="demoModalTitle">Demonstration only</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close dialog"></button>
+        </div>
+        <div class="modal-body">
+          <span class="modal-demo-label">DEMO ONLY</span>
+          <p id="demoModalBody" class="mb-0">This action is not connected in the demonstration.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-pv btn-pv-primary" data-bs-dismiss="modal">Got It</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+      /* ---------- 1. In-page navigation (smooth when allowed, focus moves to target) ---------- */
+      function goTo(hash) {
+        var target = hash === "#top" ? document.getElementById("top") : document.querySelector(hash);
+        if (!target) return;
+        target.scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth", block: "start" });
+        if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
+        target.focus({ preventScroll: true });
+        if (history.replaceState) history.replaceState(null, "", hash);
+      }
+
+      document.addEventListener("click", function (e) {
+        var link = e.target.closest('a[href^="#"]');
+        if (!link) return;
+        var hash = link.getAttribute("href");
+        if (hash.length < 2) return;
+        e.preventDefault();
+
+        // Close the mobile menu after a selection
+        var nav = document.getElementById("mainNav");
+        if (nav && nav.classList.contains("show") && window.bootstrap) {
+          bootstrap.Collapse.getOrCreateInstance(nav).hide();
+        }
+
+        goTo(hash);
+        highlightService(hash);
+      });
+
+      /* ---------- 2. Service detail toggles ---------- */
+      document.querySelectorAll("[data-detail]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var panel = document.getElementById(btn.getAttribute("data-detail"));
+          var open = btn.getAttribute("aria-expanded") === "true";
+          btn.setAttribute("aria-expanded", String(!open));
+          panel.hidden = open;
+          btn.textContent = open ? "View Demonstration Details" : "Hide Demonstration Details";
+        });
+      });
+
+      function highlightService(hash) {
+        if (!/^#svc-/.test(hash)) return;
+        var card = document.querySelector(hash);
+        if (!card) return;
+        document.querySelectorAll(".service.is-highlighted").forEach(function (c) { c.classList.remove("is-highlighted"); });
+        card.classList.add("is-highlighted");
+        window.setTimeout(function () { card.classList.remove("is-highlighted"); }, 2600);
+      }
+
+      /* ---------- 3. Pathway (in-memory only, nothing persisted) ---------- */
+      var STEP2 = {
+        adult: [
+          { v: "routine", t: "Routine eye examination", s: "A general check of vision and eye health." },
+          { v: "eyewear", t: "Glasses or contact lenses", s: "Frames, lenses and contact lens options." },
+          { v: "specialist", t: "Specialist eye care", s: "Care for specific eye conditions." }
+        ],
+        child: [
+          { v: "children", t: "Children's vision care", s: "Eye care information for younger patients." },
+          { v: "eyewear", t: "Glasses or contact lenses", s: "Eyewear options for children." },
+          { v: "specialist", t: "Specialist eye care", s: "Care for specific eye conditions." }
+        ]
+      };
+
+      var SERVICE_INFO = {
+        routine: { name: "a routine eye examination", title: "Routine eye examinations", link: "#svc-routine",
+          text: "A routine eye examination is a general check of vision and eye health. A qualified professional decides what each visit involves." },
+        children: { name: "children's vision care", title: "Children's vision care", link: "#svc-children",
+          text: "Children's vision care covers eye examinations for younger patients. A qualified professional advises on timing and what a visit involves." },
+        eyewear: { name: "glasses or contact lenses", title: "Prescription eyewear and contact lenses", link: "#svc-eyewear",
+          text: "Eyewear services help people choose frames, lenses or contact lenses that suit their prescription. Fitting and aftercare would be handled by the practice." },
+        specialist: { name: "specialist eye care", title: "Specialist eye care", link: "#svc-specialist",
+          text: "Specialist eye care covers more detailed assessment of specific eye conditions. Only a qualified eye-care professional can advise whether it is appropriate." }
+      };
+
+      var LOCATION_TEXT = {
+        castries: "prefer the Castries location",
+        rodney: "prefer the Rodney Bay location",
+        either: "are happy with either location"
+      };
+
+      var state = { step: 1, who: null, what: null, where: null };
+
+      var steps = document.querySelectorAll(".pathway-step");
+      var progress = document.querySelectorAll("[data-progress]");
+      var btnNext = document.getElementById("pathNext");
+      var btnBack = document.getElementById("pathBack");
+      var btnRestart = document.getElementById("pathRestart");
+      var errorEl = document.getElementById("pathwayError");
+      var step2Box = document.getElementById("step2Options");
+
+      function buildStep2() {
+        var list = STEP2[state.who] || STEP2.adult;
+        step2Box.innerHTML = "";
+        list.forEach(function (o) {
+          var id = "what-" + o.v;
+          var wrap = document.createElement("div");
+          wrap.className = "option";
+          wrap.innerHTML =
+            '<input type="radio" name="what" id="' + id + '" value="' + o.v + '">' +
+            '<label class="option-card" for="' + id + '"><span class="option-radio" aria-hidden="true"></span>' +
+            '<span><span class="option-title"></span><span class="option-sub"></span></span></label>';
+          wrap.querySelector(".option-title").textContent = o.t;
+          wrap.querySelector(".option-sub").textContent = o.s;
+          step2Box.appendChild(wrap);
+        });
+        // Keep a previous answer if it still exists for this group
+        if (state.what) {
+          var keep = step2Box.querySelector('input[value="' + state.what + '"]');
+          if (keep) keep.checked = true; else state.what = null;
+        }
+      }
+
+      function selected(name) {
+        var el = document.querySelector('input[name="' + name + '"]:checked');
+        return el ? el.value : null;
+      }
+
+      function render(moveFocus) {
+        steps.forEach(function (s) { s.hidden = Number(s.getAttribute("data-step")) !== state.step; });
+        progress.forEach(function (p) {
+          var n = Number(p.getAttribute("data-progress"));
+          p.classList.toggle("is-done", n < state.step);
+          if (n === state.step) p.setAttribute("aria-current", "step"); else p.removeAttribute("aria-current");
+        });
+        btnBack.hidden = state.step === 1;
+        btnRestart.hidden = state.step === 1;
+        btnNext.hidden = state.step === 4;
+        btnNext.textContent = state.step === 3 ? "See My Next Step" : "Continue";
+        errorEl.textContent = "";
+
+        if (state.step === 4) showResult();
+
+        if (moveFocus) {
+          var current = document.querySelector('.pathway-step[data-step="' + state.step + '"]');
+          var heading = current.querySelector("legend, #resultHeading");
+          if (heading) heading.focus({ preventScroll: true });
+          var shell = document.querySelector(".pathway-shell");
+          var top = shell.getBoundingClientRect().top;
+          if (top < 0 || top > window.innerHeight * 0.6) {
+            shell.scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth", block: "start" });
+          }
+        }
+      }
+
+      function showResult() {
+        var info = SERVICE_INFO[state.what];
+        var forWhom = state.who === "child" ? "for a child" : "";
+        var summary = "You are exploring " + info.name + (forWhom ? " " + forWhom : "") + " and " + LOCATION_TEXT[state.where] + ".";
+        document.getElementById("resultSummary").textContent = summary;
+        document.getElementById("resultServiceTitle").textContent = info.title;
+        document.getElementById("resultServiceText").textContent = info.text;
+        var place = { castries: "the Castries location", rodney: "the Rodney Bay location", either: "either location" }[state.where];
+        var msg = "Hello, I'm exploring the PURE VISION demo. I'm interested in " + info.title.toLowerCase() +
+          (state.who === "child" ? " for a child" : "") + " at " + place + ".";
+        document.getElementById("resultWhatsApp").setAttribute("href", "https://wa.me/17587235872?text=" + encodeURIComponent(msg));
+        var link = document.getElementById("resultServiceLink");
+        link.setAttribute("href", info.link);
+        link.textContent = "Read about " + info.title.toLowerCase();
+      }
+
+      function validate() {
+        var name = state.step === 1 ? "who" : state.step === 2 ? "what" : "where";
+        var val = selected(name);
+        if (!val) {
+          errorEl.textContent = "Choose an option to continue.";
+          var first = document.querySelector('input[name="' + name + '"]');
+          if (first) first.focus();
+          return false;
+        }
+        state[name] = val;
+        return true;
+      }
+
+      btnNext.addEventListener("click", function () {
+        if (!validate()) return;
+        if (state.step === 1) buildStep2();
+        state.step = Math.min(4, state.step + 1);
+        render(true);
+      });
+
+      btnBack.addEventListener("click", function () {
+        state.step = Math.max(1, state.step - 1);
+        render(true);
+      });
+
+      btnRestart.addEventListener("click", function () {
+        state = { step: 1, who: null, what: null, where: null };
+        document.querySelectorAll('.pathway-step input[type="radio"]').forEach(function (r) { r.checked = false; });
+        step2Box.innerHTML = "";
+        render(true);
+      });
+
+      // Clear the error as soon as a choice is made; update group answer if "who" changes
+      document.querySelector(".pathway-body").addEventListener("change", function (e) {
+        if (e.target.name === "who" && state.who && e.target.value !== state.who) state.what = null;
+        errorEl.textContent = "";
+      });
+
+      render(false);
+
+      /* ---------- 4. Eyewear inline panel ---------- */
+      var eyewearBtn = document.getElementById("eyewearBtn");
+      var eyewearPanel = document.getElementById("eyewearPanel");
+      eyewearBtn.addEventListener("click", function () {
+        var open = eyewearBtn.getAttribute("aria-expanded") === "true";
+        eyewearBtn.setAttribute("aria-expanded", String(!open));
+        eyewearPanel.hidden = open;
+      });
+
+      /* ---------- 5. Image fallback: keep the tinted frame if a file is missing ---------- */
+      document.querySelectorAll("picture img").forEach(function (img) {
+        function fail() { img.classList.add("img-missing"); }
+        if (img.complete && img.naturalWidth === 0) fail(); else img.addEventListener("error", fail);
+      });
+
+      /* ---------- 6. Shared demo dialog ---------- */
+      var modalEl = document.getElementById("demoModal");
+      modalEl.addEventListener("show.bs.modal", function (e) {
+        var trigger = e.relatedTarget;
+        if (!trigger) return;
+        document.getElementById("demoModalTitle").textContent = trigger.getAttribute("data-demo-title") || "Demonstration only";
+        document.getElementById("demoModalBody").textContent = trigger.getAttribute("data-demo-body") || "This action is not connected in the demonstration.";
+      });
+
+      /* ---------- 7. Footer year ---------- */
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      /* ---------- 8. Fallback if Bootstrap JS fails to load ---------- */
+      if (!window.bootstrap) {
+        var toggler = document.querySelector(".navbar-toggler");
+        var nav = document.getElementById("mainNav");
+        toggler.addEventListener("click", function () {
+          var open = nav.classList.toggle("show");
+          toggler.setAttribute("aria-expanded", String(open));
+        });
+        document.querySelectorAll(".accordion-button").forEach(function (b) {
+          b.addEventListener("click", function () {
+            var panel = document.querySelector(b.getAttribute("data-bs-target"));
+            var open = panel.classList.toggle("show");
+            b.classList.toggle("collapsed", !open);
+            b.setAttribute("aria-expanded", String(open));
+          });
+        });
+        document.querySelectorAll('[data-bs-toggle="modal"]').forEach(function (b) {
+          b.addEventListener("click", function () {
+            window.alert((b.getAttribute("data-demo-body") || "Demonstration only."));
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
