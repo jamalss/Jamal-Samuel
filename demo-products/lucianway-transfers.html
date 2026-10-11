@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LuciaWay Transfers | Airport Transfers &amp; Private Rides in Saint Lucia</title>
+  <meta name="description" content="Private airport transfers from Hewanorra (UVF) and George F.L. Charles (SLU), island rides and tours across Saint Lucia. Fixed fares agreed upfront, flight tracking, meet &amp; greet. Book on WhatsApp." />
+  <!-- Concept demo: keep a fictional business out of search results -->
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://jamalsamuel.online/demo-products/lucianway-transfers.html" />
+  <meta name="theme-color" content="#0B2A30" />
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="LuciaWay Transfers | Saint Lucia Airport Transfers" />
+  <meta property="og:description" content="Fixed fares, flight tracking and a driver waiting when you land. Book your Saint Lucia transfer on WhatsApp." />
+  <meta property="og:url" content="https://jamalsamuel.online/demo-products/lucianway-transfers.html" />
+  <meta property="og:image" content="https://jamalsamuel.online/demo-products/lucianway-transfers-images/luciaway-og-1200x630.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LuciaWay Transfers | Saint Lucia Airport Transfers" />
+  <meta name="twitter:description" content="Fixed fares, flight tracking and a driver waiting when you land." />
+  <meta name="twitter:image" content="https://jamalsamuel.online/demo-products/lucianway-transfers-images/luciaway-og-1200x630.jpg" />
+
+  <!-- Preload the hero image (LCP) -->
+  <link rel="preload" as="image" type="image/webp"
+        href="lucianway-transfers-images/luciaway-hero-pitons-1680.webp"
+        imagesrcset="lucianway-transfers-images/luciaway-hero-pitons-900.webp 900w, lucianway-transfers-images/luciaway-hero-pitons-1680.webp 1680w"
+        imagesizes="100vw" fetchpriority="high" />
+
+  <!-- Bootstrap 5.3.3 (SRI verified against the official npm package) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TaxiService",
+    "name": "LuciaWay Transfers",
+    "description": "Private airport transfers, island rides and tours across Saint Lucia.",
+    "url": "https://jamalsamuel.online/demo-products/lucianway-transfers.html",
+    "image": "https://jamalsamuel.online/demo-products/lucianway-transfers-images/luciaway-og-1200x630.jpg",
+    "telephone": "+1-758-723-5872",
+    "priceRange": "$$",
+    "areaServed": { "@type": "Country", "name": "Saint Lucia" },
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "LuciaWay Transfers",
+      "address": { "@type": "PostalAddress", "addressCountry": "LC", "addressLocality": "Vieux Fort" }
+    },
+    "hoursAvailable": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "00:00", "closes": "23:59"
+    }
+  }
+  </script>
+
+  <style>
+    /* ============================================================
+       LUCIAWAY PALETTE — Caribbean teal, sunlit amber, warm sand
+    ============================================================ */
+    :root {
+      --lw-deep:    #0B2A30;   /* darkest teal: hero overlay, footer */
+      --lw-teal:    #0F4C55;   /* primary brand */
+      --lw-teal-2:  #16707C;   /* lighter teal accent */
+      --lw-amber:   #F2A93B;   /* CTA / highlight */
+      --lw-amber-d: #DD9223;
+      --lw-sand:    #F7F2E8;   /* light section background */
+      --lw-sand-2:  #EFE6D6;
+      --lw-white:   #FFFFFF;
+      --lw-ink:     #10272B;   /* body text on light */
+      --lw-muted:   #4A6266;   /* secondary text on light */
+      --lw-mist:    #BFD3D5;   /* secondary text on dark */
+      --lw-line:    rgba(15,76,85,0.14);
+      --wa-green:   #25D366;
+      --wa-green-d: #1DA851;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Jost', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --header-h: 108px;
+      --radius: 14px;
+      --shadow: 0 12px 36px rgba(11,42,48,0.10);
+    }
+
+    /* ============================================================
+       BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
+    body {
+      font-family: var(--font-body);
+      background: var(--lw-sand);
+      color: var(--lw-ink);
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--lw-teal); }
+    .icon { width: 1em; height: 1em; fill: currentColor; flex-shrink: 0; vertical-align: -0.125em; }
+    .visually-hidden-focusable:focus { position: fixed !important; top: 8px; left: 8px; z-index: 3000; background: var(--lw-amber); color: var(--lw-deep); padding: 10px 16px; border-radius: 8px; }
+    :focus-visible { outline: 3px solid var(--lw-amber); outline-offset: 3px; }
+
+    h1, h2, h3, h4, .display-serif { font-family: var(--font-display); font-weight: 600; letter-spacing: 0.01em; line-height: 1.15; }
+    .section-title { font-size: clamp(2rem, 4vw, 3rem); color: var(--lw-deep); }
+    .section-lead { color: var(--lw-muted); max-width: 580px; font-size: 1.05rem; }
+    .eyebrow {
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--lw-teal-2); margin-bottom: 0.6rem;
+    }
+    .on-dark .eyebrow { color: var(--lw-amber); }
+    .section-pad { padding: 96px 0; }
+    .rule { width: 56px; height: 3px; background: var(--lw-amber); border-radius: 3px; margin: 18px 0 22px; }
+    .text-center .rule { margin-left: auto; margin-right: auto; }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn-lw {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      font-family: var(--font-body); font-weight: 600; font-size: 0.85rem;
+      letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none;
+      padding: 15px 30px; border-radius: 999px; border: 2px solid transparent;
+      transition: background .25s, color .25s, border-color .25s, transform .2s;
+      cursor: pointer; min-height: 48px;
+    }
+    .btn-lw:hover { transform: translateY(-2px); }
+    .btn-amber { background: var(--lw-amber); color: var(--lw-deep); }
+    .btn-amber:hover { background: var(--lw-amber-d); color: var(--lw-deep); }
+    .btn-ghost-light { background: transparent; color: #fff; border-color: rgba(255,255,255,0.55); }
+    .btn-ghost-light:hover { background: rgba(255,255,255,0.12); color: #fff; }
+    .btn-teal { background: var(--lw-teal); color: #fff; }
+    .btn-teal:hover { background: var(--lw-deep); color: #fff; }
+    .btn-wa { background: var(--wa-green); color: #fff; }
+    .btn-wa:hover { background: var(--wa-green-d); color: #fff; }
+
+    /* ============================================================
+       HEADER: DEMO BAR + NAV (fixed together)
+    ============================================================ */
+    #siteHeader { position: fixed; top: 0; left: 0; right: 0; z-index: 1050; }
+    .demo-bar {
+      background: var(--lw-amber); color: var(--lw-deep);
+      font-size: 0.8rem; line-height: 1.4; text-align: center; padding: 7px 14px;
+    }
+    .demo-bar strong { font-weight: 600; }
+    .demo-bar a { color: var(--lw-deep); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+
+    #mainNav { background: transparent; padding: 16px 0; transition: background .35s, padding .35s, box-shadow .35s; }
+    #mainNav.scrolled, #mainNav.menu-open { background: rgba(11,42,48,0.97); padding: 10px 0; box-shadow: 0 6px 24px rgba(0,0,0,0.25); }
+    .navbar-brand {
+      font-family: var(--font-display); font-size: 1.6rem; font-weight: 700;
+      color: #fff !important; letter-spacing: 0.02em; display: flex; align-items: center; gap: 10px;
+    }
+    .brand-mark {
+      width: 38px; height: 38px; border-radius: 50%; background: var(--lw-amber); color: var(--lw-deep);
+      display: inline-flex; align-items: center; justify-content: center; font-size: 1.05rem;
+    }
+    .brand-way { color: var(--lw-amber); }
+    .brand-sub { display: block; font-family: var(--font-body); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.32em; text-transform: uppercase; color: var(--lw-mist); line-height: 1; margin-top: 3px; }
+    .nav-link {
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.85) !important; padding: 8px 14px !important;
+    }
+    .nav-link:hover { color: var(--lw-amber) !important; }
+    .navbar-toggler { border: 1px solid rgba(255,255,255,0.45); padding: 6px 10px; }
+    .navbar-toggler-icon { filter: invert(1); }
+    .nav-phone { color: #fff; text-decoration: none; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; }
+    .nav-phone:hover { color: var(--lw-amber); }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    #hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; overflow: hidden; color: #fff; background: var(--lw-deep); }
+    .hero-media, .hero-media img { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .hero-media img { object-fit: cover; object-position: center 40%; }
+    #hero::after {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background:
+        linear-gradient(90deg, rgba(11,42,48,0.92) 0%, rgba(11,42,48,0.72) 45%, rgba(11,42,48,0.25) 100%),
+        linear-gradient(0deg, rgba(11,42,48,0.65) 0%, rgba(11,42,48,0) 40%);
+    }
+    .hero-content { position: relative; z-index: 2; padding-top: calc(var(--header-h) + 30px); padding-bottom: 70px; }
+    .hero-title { font-size: clamp(2.6rem, 6.4vw, 5.4rem); font-weight: 600; line-height: 1.05; margin-bottom: 18px; }
+    .hero-title em { font-style: italic; color: var(--lw-amber); }
+    .hero-sub { font-size: 1.12rem; color: #E3EEEF; max-width: 540px; font-weight: 300; }
+    .hero-checks { list-style: none; padding: 0; margin: 28px 0 0; display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 0.92rem; color: #E3EEEF; }
+    .hero-checks li { display: inline-flex; align-items: center; gap: 8px; }
+    .hero-checks .icon { color: var(--lw-amber); font-size: 1.1rem; }
+    .hero-fare {
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      border-radius: var(--radius); padding: 26px 26px 22px; max-width: 360px; margin-left: auto;
+    }
+    .hero-fare .from { font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--lw-mist); }
+    .hero-fare .route { font-family: var(--font-display); font-size: 1.5rem; margin: 4px 0 2px; }
+    .hero-fare .price { font-family: var(--font-display); font-size: 2.6rem; color: var(--lw-amber); font-weight: 700; line-height: 1; }
+    .hero-fare .note { font-size: 0.82rem; color: var(--lw-mist); margin: 8px 0 16px; }
+
+    /* ============================================================
+       FEATURE STRIP
+    ============================================================ */
+    #features { background: var(--lw-teal); color: #fff; padding: 38px 0; }
+    .feature { display: flex; align-items: center; gap: 14px; padding: 10px 0; }
+    .feature .icon-wrap { width: 48px; height: 48px; border-radius: 50%; background: rgba(242,169,59,0.16); color: var(--lw-amber); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+    .feature strong { display: block; font-weight: 600; font-size: 1rem; }
+    .feature span { font-size: 0.86rem; color: var(--lw-mist); }
+
+    /* ============================================================
+       AIRPORT SECTION + FARE TABLE
+    ============================================================ */
+    #airport { background: var(--lw-sand); }
+    .img-frame { position: relative; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    .img-frame img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 3 / 2; }
+    .img-badge {
+      position: absolute; left: 16px; bottom: 16px; background: rgba(11,42,48,0.88); color: #fff;
+      border-radius: 10px; padding: 10px 14px; font-size: 0.85rem; display: flex; align-items: center; gap: 10px;
+    }
+    .img-badge .icon { color: var(--lw-amber); font-size: 1.2rem; }
+    .steps { list-style: none; padding: 0; margin: 26px 0 0; counter-reset: step; }
+    .steps li { position: relative; padding: 0 0 20px 56px; }
+    .steps li::before {
+      counter-increment: step; content: counter(step);
+      position: absolute; left: 0; top: 0; width: 38px; height: 38px; border-radius: 50%;
+      background: var(--lw-teal); color: #fff; font-weight: 600; display: flex; align-items: center; justify-content: center;
+    }
+    .steps strong { display: block; color: var(--lw-deep); font-size: 1.05rem; }
+    .steps span { color: var(--lw-muted); font-size: 0.95rem; }
+
+    .fare-card { background: var(--lw-white); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; margin-top: 56px; }
+    .fare-card header { background: var(--lw-deep); color: #fff; padding: 18px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 6px; }
+    .fare-card header h3 { font-size: 1.5rem; margin: 0; }
+    .fare-card header small { color: var(--lw-mist); font-size: 0.82rem; }
+    .fare-table { width: 100%; border-collapse: collapse; }
+    .fare-table th, .fare-table td { padding: 14px 24px; border-bottom: 1px solid var(--lw-line); font-size: 0.97rem; }
+    .fare-table thead th { font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--lw-muted); font-weight: 600; background: var(--lw-sand); }
+    .fare-table td:last-child, .fare-table th:last-child { text-align: right; white-space: nowrap; }
+    .fare-table .price { font-weight: 600; color: var(--lw-teal); }
+    .fare-table tbody tr:hover { background: #FBF8F2; }
+    .fare-foot { padding: 14px 24px 18px; font-size: 0.85rem; color: var(--lw-muted); }
+
+    /* ============================================================
+       SERVICES
+    ============================================================ */
+    #services { background: var(--lw-white); }
+    .service-card {
+      background: var(--lw-sand); border: 1px solid var(--lw-line); border-radius: var(--radius);
+      padding: 32px 28px; height: 100%; transition: transform .25s, box-shadow .25s, border-color .25s;
+    }
+    .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: rgba(242,169,59,0.6); }
+    .service-icon { width: 54px; height: 54px; border-radius: 14px; background: var(--lw-teal); color: var(--lw-amber); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 20px; }
+    .service-card h3 { font-size: 1.6rem; color: var(--lw-deep); margin-bottom: 10px; }
+    .service-card p { color: var(--lw-muted); font-size: 0.97rem; margin-bottom: 16px; }
+    .service-price { font-weight: 600; color: var(--lw-teal); font-size: 0.95rem; }
+
+    /* ============================================================
+       VEHICLE / WHY US
+    ============================================================ */
+    #why { background: var(--lw-deep); color: #fff; position: relative; overflow: hidden; }
+    #why .section-title { color: #fff; }
+    #why .section-lead { color: var(--lw-mist); }
+    .vehicle-specs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 22px; }
+    .vehicle-specs div { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 12px 14px; font-size: 0.92rem; display: flex; align-items: center; gap: 10px; color: #E3EEEF; }
+    .vehicle-specs .icon { color: var(--lw-amber); font-size: 1.15rem; }
+    .why-item { display: flex; gap: 18px; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .why-item:last-child { border-bottom: none; }
+    .why-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 700; color: var(--lw-amber); line-height: 1; min-width: 44px; }
+    .why-item h3 { font-size: 1.35rem; margin-bottom: 4px; }
+    .why-item p { color: var(--lw-mist); font-size: 0.95rem; margin: 0; }
+
+    /* ============================================================
+       BOOKING
+    ============================================================ */
+    #booking { background: var(--lw-sand); }
+    .booking-panel { background: var(--lw-white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 40px 36px; }
+    .lw-label { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lw-muted); display: block; margin-bottom: 6px; }
+    .lw-label .opt { text-transform: none; letter-spacing: 0; font-weight: 400; }
+    .lw-input {
+      width: 100%; background: var(--lw-sand); border: 1.5px solid var(--lw-sand-2); border-radius: 10px;
+      color: var(--lw-ink); font-family: var(--font-body); font-size: 1rem; padding: 12px 14px; min-height: 48px; transition: border-color .2s, background .2s;
+    }
+    .lw-input:focus { outline: none; border-color: var(--lw-teal-2); background: #fff; box-shadow: 0 0 0 3px rgba(22,112,124,0.15); }
+    .lw-input[aria-invalid="true"] { border-color: #C0392B; }
+    .booking-step { display: none; }
+    .booking-step.active { display: block; }
+    .step-progress { display: flex; gap: 8px; margin-bottom: 24px; }
+    .step-dot { height: 6px; flex: 1; border-radius: 6px; background: var(--lw-sand-2); }
+    .step-dot.active { background: var(--lw-amber); }
+    .step-title { font-size: 1.8rem; color: var(--lw-deep); margin-bottom: 18px; }
+    .trip-btn {
+      display: flex; align-items: center; gap: 14px; width: 100%; text-align: left;
+      background: var(--lw-sand); border: 1.5px solid transparent; border-radius: 12px;
+      padding: 14px 16px; margin-bottom: 10px; cursor: pointer; transition: border-color .2s, background .2s; color: var(--lw-ink);
+    }
+    .trip-btn:hover, .trip-btn:focus-visible { border-color: var(--lw-amber); background: #fff; }
+    .trip-btn .t-icon { width: 42px; height: 42px; border-radius: 10px; background: var(--lw-teal); color: var(--lw-amber); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0; }
+    .trip-btn .t-body { flex: 1; }
+    .trip-btn strong { display: block; font-weight: 600; color: var(--lw-deep); }
+    .trip-btn .t-route { display: block; font-size: 0.87rem; color: var(--lw-muted); }
+    .trip-btn .t-price { font-weight: 600; color: var(--lw-teal); font-size: 0.92rem; white-space: nowrap; }
+    .price-display { font-family: var(--font-display); font-size: 1.9rem; color: var(--lw-teal); font-weight: 700; margin-bottom: 18px; }
+    .summary-box { background: var(--lw-sand); border-radius: 12px; padding: 20px 22px; font-size: 0.97rem; }
+    .summary-box dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0; }
+    .summary-box dt { color: var(--lw-muted); font-weight: 500; }
+    .summary-box dd { margin: 0; color: var(--lw-deep); font-weight: 500; word-break: break-word; }
+    .btn-back { background: none; border: none; color: var(--lw-muted); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 0; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
+    .btn-back:hover { color: var(--lw-teal); }
+    .form-error { color: #B03A2E; font-size: 0.9rem; margin-top: 10px; min-height: 1.2em; }
+    .note-list { list-style: none; padding: 0; margin: 0; }
+    .note-list li { display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--lw-line); color: var(--lw-muted); font-size: 0.95rem; }
+    .note-list li:last-child { border-bottom: none; }
+    .note-list .icon { color: var(--lw-teal-2); font-size: 1.25rem; margin-top: 3px; }
+    .note-list strong { color: var(--lw-deep); }
+
+    /* ============================================================
+       REVIEWS (honest placeholder)
+    ============================================================ */
+    #reviews { background: var(--lw-white); }
+    .review-placeholder { border: 2px dashed rgba(15,76,85,0.25); border-radius: var(--radius); padding: 44px 28px; text-align: center; max-width: 720px; margin: 0 auto; background: var(--lw-sand); }
+    .review-placeholder .stars { color: var(--lw-amber); font-size: 1.3rem; display: inline-flex; gap: 4px; margin-bottom: 12px; }
+    .review-placeholder h3 { font-size: 1.8rem; color: var(--lw-deep); }
+    .review-placeholder p { color: var(--lw-muted); max-width: 520px; margin: 0 auto 22px; }
+
+    /* ============================================================
+       CTA BANNER (Soufrière image)
+    ============================================================ */
+    #cta-banner { position: relative; padding: 110px 0; color: #fff; overflow: hidden; background: var(--lw-deep); }
+    #cta-banner picture, #cta-banner picture img { position: absolute; inset: 0; width: 100%; height: 100%; }
+    #cta-banner picture img { object-fit: cover; object-position: center 35%; }
+    #cta-banner::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,42,48,0.80), rgba(11,42,48,0.88)); }
+    #cta-banner .container { position: relative; z-index: 2; }
+    .cta-title { font-size: clamp(2.2rem, 5vw, 3.8rem); }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    #footer { background: #071E22; color: var(--lw-mist); padding: 64px 0 0; font-size: 0.95rem; }
+    .footer-brand { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: #fff; }
+    .footer-heading { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--lw-amber); margin-bottom: 16px; }
+    .footer-links { list-style: none; padding: 0; margin: 0; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { color: var(--lw-mist); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+    .footer-links a:hover { color: #fff; }
+    /* Social icons: non-functional preview elements in this demo */
+    .social-icons { display: flex; gap: 10px; margin-top: 20px; align-items: center; flex-wrap: wrap; }
+    .social-icon {
+      width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15);
+      display: inline-flex; align-items: center; justify-content: center; color: #6F8487; font-size: 1.05rem;
+      opacity: 0.55; filter: grayscale(1); cursor: not-allowed;
+    }
+    .preview-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: #6F8487; margin-left: 4px; }
+    .footer-disclaimer { background: rgba(255,255,255,0.03); border-top: 1px solid rgba(255,255,255,0.06); padding: 24px 0; margin-top: 48px; }
+    .footer-disclaimer p { font-size: 0.85rem; color: #93A9AC; margin-bottom: 8px; }
+    .footer-disclaimer strong { color: #DCE7E8; }
+    .footer-bottom { padding: 18px 0; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.85rem; color: #93A9AC; }
+    .footer-bottom p { margin: 0; }
+    .footer-bottom a { color: var(--lw-amber); text-decoration: none; font-weight: 600; }
+    .footer-bottom a:hover { text-decoration: underline; }
+
+    /* ============================================================
+       FLOATING WHATSAPP + MOBILE ACTION BAR
+    ============================================================ */
+    .whatsapp-float {
+      position: fixed; bottom: 26px; right: 26px; width: 58px; height: 58px; border-radius: 50%;
+      background: var(--wa-green); color: #fff; display: flex; align-items: center; justify-content: center;
+      font-size: 1.7rem; box-shadow: 0 6px 22px rgba(37,211,102,0.4); z-index: 1040; transition: transform .2s;
+    }
+    .whatsapp-float:hover { color: #fff; transform: scale(1.08); }
+    .mobile-bar { display: none; }
+    @media (max-width: 767.98px) {
+      .whatsapp-float { display: none; }
+      .mobile-bar {
+        display: grid; grid-template-columns: 1fr 1fr; position: fixed; left: 0; right: 0; bottom: 0; z-index: 1040;
+        background: var(--lw-deep); box-shadow: 0 -6px 20px rgba(0,0,0,0.25); padding-bottom: env(safe-area-inset-bottom);
+      }
+      .mobile-bar a { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 8px; color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95rem; min-height: 54px; }
+      .mobile-bar a.wa { background: var(--wa-green); }
+      body { padding-bottom: 54px; }
+    }
+
+    /* ============================================================
+       REVEAL ANIMATION (progressive enhancement)
+    ============================================================ */
+    .js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+    .js .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .js .reveal { opacity: 1; transform: none; transition: none; }
+      .btn-lw:hover, .service-card:hover { transform: none; }
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 991.98px) {
+      :root { --header-h: 96px; }
+      .hero-fare { margin: 34px 0 0; max-width: 100%; }
+      #mainNav .navbar-collapse { padding: 12px 0 8px; }
+    }
+    @media (max-width: 767.98px) {
+      :root { --header-h: 116px; }
+      .section-pad { padding: 72px 0; }
+      .demo-bar { font-size: 0.74rem; }
+      .booking-panel { padding: 28px 20px; }
+      .fare-table th, .fare-table td { padding: 12px 16px; font-size: 0.92rem; }
+      .vehicle-specs { grid-template-columns: 1fr; }
+      #hero::after { background: linear-gradient(180deg, rgba(11,42,48,0.55) 0%, rgba(11,42,48,0.80) 55%, rgba(11,42,48,0.92) 100%); }
+    }
+  </style>
+</head>
+
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="i-whatsapp" viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/></symbol>
+<symbol id="i-airplane" viewBox="0 0 16 16"><path d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A.5.5 0 0 1 10.5 16h-5a.5.5 0 0 1-.354-.854l1.319-1.318-.376-2.253-5.507.918A.5.5 0 0 1 0 12v-1.382a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.568.14-1.271.428-1.849m.894.448C7.111 2.02 7 2.569 7 3v4a.5.5 0 0 1-.276.447l-5.448 2.724a.5.5 0 0 0-.276.447v.792l5.418-.903a.5.5 0 0 1 .575.41l.5 3a.5.5 0 0 1-.14.437L6.708 15h2.586l-.647-.646a.5.5 0 0 1-.14-.436l.5-3a.5.5 0 0 1 .576-.411L15 11.41v-.792a.5.5 0 0 0-.276-.447L9.276 7.447A.5.5 0 0 1 9 7V3c0-.432-.11-.979-.322-1.401C8.458 1.159 8.213 1 8 1s-.458.158-.678.599"/></symbol>
+<symbol id="i-geo-alt" viewBox="0 0 16 16"><path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+  <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/></symbol>
+<symbol id="i-briefcase" viewBox="0 0 16 16"><path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5m1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0M1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5"/></symbol>
+<symbol id="i-stars" viewBox="0 0 16 16"><path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"/></symbol>
+<symbol id="i-map" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.5.5 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103M10 1.91l-4-.8v12.98l4 .8zm1 12.98 4-.8V1.11l-4 .8zm-6-.8V1.11l-4 .8v12.98z"/></symbol>
+<symbol id="i-pencil-square" viewBox="0 0 16 16"><path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/></symbol>
+<symbol id="i-clock" viewBox="0 0 16 16"><path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+  <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/></symbol>
+<symbol id="i-currency-dollar" viewBox="0 0 16 16"><path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73z"/></symbol>
+<symbol id="i-shield-check" viewBox="0 0 16 16"><path d="M5.338 1.59a61 61 0 0 0-2.837.856.48.48 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.7 10.7 0 0 0 2.287 2.233c.346.244.652.42.893.533q.18.085.293.118a1 1 0 0 0 .101.025 1 1 0 0 0 .1-.025q.114-.034.294-.118c.24-.113.547-.29.893-.533a10.7 10.7 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.8 11.8 0 0 1-2.517 2.453 7 7 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7 7 0 0 1-1.048-.625 11.8 11.8 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 63 63 0 0 1 5.072.56"/>
+  <path d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0"/></symbol>
+<symbol id="i-telephone" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/></symbol>
+<symbol id="i-instagram" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/></symbol>
+<symbol id="i-facebook" viewBox="0 0 16 16"><path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/></symbol>
+<symbol id="i-envelope" viewBox="0 0 16 16"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/></symbol>
+<symbol id="i-arrow-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/></symbol>
+<symbol id="i-arrow-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/></symbol>
+<symbol id="i-check2-circle" viewBox="0 0 16 16"><path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0"/>
+  <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/></symbol>
+<symbol id="i-person-badge" viewBox="0 0 16 16"><path d="M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+  <path d="M4.5 0A2.5 2.5 0 0 0 2 2.5V14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2.5A2.5 2.5 0 0 0 11.5 0zM3 2.5A1.5 1.5 0 0 1 4.5 1h7A1.5 1.5 0 0 1 13 2.5v10.795a4.2 4.2 0 0 0-.776-.492C11.392 12.387 10.063 12 8 12s-3.392.387-4.224.803a4.2 4.2 0 0 0-.776.492z"/></symbol>
+<symbol id="i-suitcase-lg" viewBox="0 0 16 16"><path d="M5 2a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2h3.5A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5H14a.5.5 0 0 1-1 0H3a.5.5 0 0 1-1 0h-.5A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2zm1 0h4a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1M1.5 3a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5H3V3zM15 12.5v-9a.5.5 0 0 0-.5-.5H13v10h1.5a.5.5 0 0 0 .5-.5m-3 .5V3H4v10z"/></symbol>
+<symbol id="i-snow" viewBox="0 0 16 16"><path d="M8 16a.5.5 0 0 1-.5-.5v-1.293l-.646.647a.5.5 0 0 1-.707-.708L7.5 12.793V8.866l-3.4 1.963-.496 1.85a.5.5 0 1 1-.966-.26l.237-.882-1.12.646a.5.5 0 0 1-.5-.866l1.12-.646-.884-.237a.5.5 0 1 1 .26-.966l1.848.495L7 8 3.6 6.037l-1.85.495a.5.5 0 0 1-.258-.966l.883-.237-1.12-.646a.5.5 0 1 1 .5-.866l1.12.646-.237-.883a.5.5 0 1 1 .966-.258l.495 1.849L7.5 7.134V3.207L6.147 1.854a.5.5 0 1 1 .707-.708l.646.647V.5a.5.5 0 1 1 1 0v1.293l.647-.647a.5.5 0 1 1 .707.708L8.5 3.207v3.927l3.4-1.963.496-1.85a.5.5 0 1 1 .966.26l-.236.882 1.12-.646a.5.5 0 0 1 .5.866l-1.12.646.883.237a.5.5 0 1 1-.26.966l-1.848-.495L9 8l3.4 1.963 1.849-.495a.5.5 0 0 1 .259.966l-.883.237 1.12.646a.5.5 0 0 1-.5.866l-1.12-.646.236.883a.5.5 0 1 1-.966.258l-.495-1.849-3.4-1.963v3.927l1.353 1.353a.5.5 0 0 1-.707.708l-.647-.647V15.5a.5.5 0 0 1-.5.5z"/></symbol>
+<symbol id="i-people" viewBox="0 0 16 16"><path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/></symbol>
+<symbol id="i-chat-dots" viewBox="0 0 16 16"><path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+  <path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2"/></symbol>
+<symbol id="i-info-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/></symbol>
+<symbol id="i-calendar-check" viewBox="0 0 16 16"><path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0"/>
+  <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/></symbol>
+<symbol id="i-signpost-split" viewBox="0 0 16 16"><path d="M7 7V1.414a1 1 0 0 1 2 0V2h5a1 1 0 0 1 .8.4l.975 1.3a.5.5 0 0 1 0 .6L14.8 5.6a1 1 0 0 1-.8.4H9v10H7v-5H2a1 1 0 0 1-.8-.4L.225 9.3a.5.5 0 0 1 0-.6L1.2 7.4A1 1 0 0 1 2 7zm1 3V8H2l-.75 1L2 10zm0-5h6l.75-1L14 3H8z"/></symbol>
+<symbol id="i-star" viewBox="0 0 16 16"><path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/></symbol>
+</svg>
+
+<a class="visually-hidden-focusable" href="#main">Skip to content</a>
+
+<!-- ============================================================
+     FIXED HEADER: DEMO DISCLAIMER + NAVBAR
+============================================================ -->
+<header id="siteHeader">
+  <div class="demo-bar" role="note">
+    <strong>Concept demo by Jamal Samuel</strong><span class="d-none d-md-inline"> — LuciaWay Transfers is a sample business. Content, images, fares &amp; reviews are illustrative.</span><span class="d-md-none"> — sample business, illustrative content.</span>
+    <a href="https://wa.me/17587235872?text=Hi%20Jamal%2C%20I%20saw%20the%20LuciaWay%20Transfers%20demo%20and%20I%27d%20like%20a%20website%20like%20this%20for%20my%20business." target="_blank" rel="noopener">Get a site like this</a>
+  </div>
+
+  <nav class="navbar navbar-expand-lg" id="mainNav" aria-label="Main">
+    <div class="container">
+      <a class="navbar-brand" href="#hero" aria-label="LuciaWay Transfers home">
+        <span class="brand-mark" aria-hidden="true"><svg class="icon"><use href="#i-signpost-split"/></svg></span>
+        <span>Lucia<span class="brand-way">Way</span><span class="brand-sub">Transfers</span></span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+              aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link" href="#airport">Airport</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#why">Why Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#booking">Book</a></li>
+          <li class="nav-item ms-lg-3 d-none d-xl-block">
+            <a class="nav-phone" href="tel:+17587235872"><svg class="icon"><use href="#i-telephone"/></svg>+1 (758) 723-5872</a>
+          </li>
+          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+            <a class="btn-lw btn-amber" style="padding:11px 22px;" href="#booking">Book a Ride</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section id="hero" aria-labelledby="heroTitle">
+  <picture class="hero-media">
+    <source type="image/webp" media="(max-width: 767px)" srcset="lucianway-transfers-images/luciaway-hero-pitons-900.webp" />
+    <source type="image/webp" srcset="lucianway-transfers-images/luciaway-hero-pitons-1680.webp" />
+    <source type="image/jpeg" media="(max-width: 767px)" srcset="lucianway-transfers-images/luciaway-hero-pitons-900.jpg" />
+    <img src="lucianway-transfers-images/luciaway-hero-pitons-1680.jpg" width="1680" height="945"
+         alt="The Pitons rising above the green hills and coastline of Saint Lucia" fetchpriority="high" decoding="async" />
+  </picture>
+
+  <div class="container hero-content">
+    <div class="row align-items-center">
+      <div class="col-lg-7">
+        <p class="eyebrow" style="color:var(--lw-amber);">Airport Transfers &amp; Island Rides · Saint Lucia</p>
+        <h1 class="hero-title" id="heroTitle">Land. Relax.<br /><em>We'll take it from here.</em></h1>
+        <p class="hero-sub">
+          A friendly local driver waiting at Hewanorra or George F.L. Charles, a clean air-conditioned vehicle,
+          and a fixed fare agreed before you travel. Book in two minutes on WhatsApp.
+        </p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="#booking" class="btn-lw btn-amber">Book Your Transfer</a>
+          <a href="https://wa.me/17587235872?text=Hello%20LuciaWay%20Transfers%2C%20I%27d%20like%20a%20quote%20for%20a%20ride." target="_blank" rel="noopener" class="btn-lw btn-ghost-light">
+            <svg class="icon"><use href="#i-whatsapp"/></svg>Quick Quote
+          </a>
+        </div>
+        <ul class="hero-checks">
+          <li><svg class="icon"><use href="#i-check2-circle"/></svg>Flight tracked</li>
+          <li><svg class="icon"><use href="#i-check2-circle"/></svg>Fixed fare, no meter</li>
+          <li><svg class="icon"><use href="#i-check2-circle"/></svg>Meet &amp; greet with name sign</li>
+        </ul>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="hero-fare">
+          <div class="from">Most booked route</div>
+          <div class="route">Hewanorra Airport → Rodney Bay</div>
+          <div class="price">$90 <small style="font-size:1rem;color:var(--lw-mist);font-family:var(--font-body);font-weight:400;">USD / vehicle</small></div>
+          <p class="note">1–4 passengers with luggage · confirmed on booking</p>
+          <a href="#fares" class="btn-lw btn-ghost-light w-100" style="padding:12px 20px;">See all fares</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FEATURE STRIP
+============================================================ -->
+<section id="features" aria-label="Service highlights">
+  <div class="container">
+    <div class="row g-3">
+      <div class="col-6 col-lg-3 reveal">
+        <div class="feature"><div class="icon-wrap"><svg class="icon"><use href="#i-airplane"/></svg></div><div><strong>Flight tracking</strong><span>Delayed? We adjust.</span></div></div>
+      </div>
+      <div class="col-6 col-lg-3 reveal">
+        <div class="feature"><div class="icon-wrap"><svg class="icon"><use href="#i-currency-dollar"/></svg></div><div><strong>Fixed fares</strong><span>Agreed before you ride</span></div></div>
+      </div>
+      <div class="col-6 col-lg-3 reveal">
+        <div class="feature"><div class="icon-wrap"><svg class="icon"><use href="#i-person-badge"/></svg></div><div><strong>Meet &amp; greet</strong><span>Name sign at arrivals</span></div></div>
+      </div>
+      <div class="col-6 col-lg-3 reveal">
+        <div class="feature"><div class="icon-wrap"><svg class="icon"><use href="#i-clock"/></svg></div><div><strong>Any flight, any hour</strong><span>Early &amp; late arrivals</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     AIRPORT PICKUPS + FARES
+============================================================ -->
+<section id="airport" class="section-pad" aria-labelledby="airportTitle">
+  <div class="container">
+    <div class="row align-items-center g-4 g-lg-5">
+      <div class="col-lg-6 reveal">
+        <div class="img-frame">
+          <picture>
+            <source type="image/webp" srcset="lucianway-transfers-images/luciaway-airport-arrivals-640.webp 640w, lucianway-transfers-images/luciaway-airport-arrivals-1000.webp 1000w" sizes="(min-width: 992px) 540px, 100vw" />
+            <source type="image/jpeg" srcset="lucianway-transfers-images/luciaway-airport-arrivals-640.jpg 640w, lucianway-transfers-images/luciaway-airport-arrivals-1000.jpg 1000w" sizes="(min-width: 992px) 540px, 100vw" />
+            <img src="lucianway-transfers-images/luciaway-airport-arrivals-1000.jpg" width="1000" height="667" loading="lazy" decoding="async"
+                 alt="Travellers with luggage walking through a bright airport arrivals hall" />
+          </picture>
+          <div class="img-badge"><svg class="icon"><use href="#i-person-badge"/></svg>Your driver waits at arrivals</div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 reveal">
+        <p class="eyebrow">Airport Pickups</p>
+        <h2 class="section-title" id="airportTitle">Through customs, straight to your ride</h2>
+        <div class="rule"></div>
+        <p class="section-lead">Hewanorra (UVF) is about 90 minutes from the north of the island. After a long flight, the last thing you need is to bargain for a taxi. Here's how it works:</p>
+        <ol class="steps">
+          <li><strong>Send your flight number</strong><span>Book on WhatsApp with your flight, hotel and number of passengers.</span></li>
+          <li><strong>We track your flight</strong><span>Early or delayed, your driver adjusts the pickup time. No extra charge for delays.</span></li>
+          <li><strong>Look for your name</strong><span>Your driver meets you at arrivals with a name sign and helps with your luggage.</span></li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Fare table -->
+    <div class="fare-card reveal" id="fares">
+      <header>
+        <h3>Popular routes &amp; fares</h3>
+        <small>USD · per vehicle · 1–4 passengers</small>
+      </header>
+      <div class="table-responsive">
+        <table class="fare-table">
+          <caption class="visually-hidden">Sample one-way transfer fares in US dollars</caption>
+          <thead>
+            <tr><th scope="col">From</th><th scope="col">To</th><th scope="col">One way</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Hewanorra Airport (UVF)</td><td>Rodney Bay / Gros Islet</td><td class="price">$90</td></tr>
+            <tr><td>Hewanorra Airport (UVF)</td><td>Castries &amp; area hotels</td><td class="price">$80</td></tr>
+            <tr><td>Hewanorra Airport (UVF)</td><td>Marigot Bay</td><td class="price">$80</td></tr>
+            <tr><td>Hewanorra Airport (UVF)</td><td>Soufrière</td><td class="price">$80</td></tr>
+            <tr><td>Hewanorra Airport (UVF)</td><td>Vieux Fort hotels</td><td class="price">$30</td></tr>
+            <tr><td>George F.L. Charles (SLU)</td><td>Rodney Bay / Gros Islet</td><td class="price">$30</td></tr>
+            <tr><td>George F.L. Charles (SLU)</td><td>Castries &amp; area hotels</td><td class="price">$20</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fare-foot mb-0">Groups of 5+ ride in a larger vehicle — ask for a quote. Your final fare is confirmed on WhatsApp before you travel.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICES
+============================================================ -->
+<section id="services" class="section-pad" aria-labelledby="servicesTitle">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <p class="eyebrow">What We Offer</p>
+      <h2 class="section-title" id="servicesTitle">Every ride on the island, covered</h2>
+      <div class="rule"></div>
+      <p class="section-lead mx-auto">From your arrival to your last day, one trusted driver for every trip.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal">
+        <article class="service-card">
+          <div class="service-icon"><svg class="icon"><use href="#i-airplane"/></svg></div>
+          <h3>Airport Transfers</h3>
+          <p>Hewanorra and George F.L. Charles to any hotel, villa or cruise port. Flight tracked, luggage handled.</p>
+          <div class="service-price">From $20 USD</div>
+        </article>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <article class="service-card">
+          <div class="service-icon"><svg class="icon"><use href="#i-geo-alt"/></svg></div>
+          <h3>Island Rides</h3>
+          <p>Dinner in Rodney Bay, a day at Reduit Beach, shopping in Castries. Point-to-point, door to door.</p>
+          <div class="service-price">From $20 USD</div>
+        </article>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <article class="service-card">
+          <div class="service-icon"><svg class="icon"><use href="#i-map"/></svg></div>
+          <h3>Island Tours</h3>
+          <p>The Pitons, Sulphur Springs, Diamond Falls and Marigot Bay at your own pace, with a driver who knows the stops.</p>
+          <div class="service-price">Half &amp; full day · quote on request</div>
+        </article>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <article class="service-card">
+          <div class="service-icon"><svg class="icon"><use href="#i-stars"/></svg></div>
+          <h3>Weddings &amp; Events</h3>
+          <p>Guest shuttles, bridal party transport and venue runs, timed to your schedule.</p>
+          <div class="service-price">Quote on request</div>
+        </article>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <article class="service-card">
+          <div class="service-icon"><svg class="icon"><use href="#i-briefcase"/></svg></div>
+          <h3>Business Travel</h3>
+          <p>Reliable pickups for meetings, site visits and visiting clients. Invoices available on request.</p>
+          <div class="service-price">Quote on request</div>
+        </article>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <article class="service-card">
+          <div class="service-icon"><svg class="icon"><use href="#i-pencil-square"/></svg></div>
+          <h3>Custom Trips</h3>
+          <p>Hourly hire, multi-stop days and anything else. Tell us where you need to be and we'll plan it.</p>
+          <div class="service-price">Quote on request</div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     YOUR RIDE / WHY US
+============================================================ -->
+<section id="why" class="section-pad on-dark" aria-labelledby="whyTitle">
+  <div class="container">
+    <div class="row g-4 g-lg-5 align-items-center">
+      <div class="col-lg-6 reveal">
+        <div class="img-frame">
+          <picture>
+            <source type="image/webp" srcset="lucianway-transfers-images/luciaway-vehicle-suv-640.webp 640w, lucianway-transfers-images/luciaway-vehicle-suv-1000.webp 1000w" sizes="(min-width: 992px) 540px, 100vw" />
+            <source type="image/jpeg" srcset="lucianway-transfers-images/luciaway-vehicle-suv-640.jpg 640w, lucianway-transfers-images/luciaway-vehicle-suv-1000.jpg 1000w" sizes="(min-width: 992px) 540px, 100vw" />
+            <img src="lucianway-transfers-images/luciaway-vehicle-suv-1000.jpg" width="1000" height="666" loading="lazy" decoding="async"
+                 alt="A clean black SUV ready for a private transfer" />
+          </picture>
+        </div>
+        <div class="vehicle-specs">
+          <div><svg class="icon"><use href="#i-snow"/></svg>Air-conditioned</div>
+          <div><svg class="icon"><use href="#i-people"/></svg>Seats up to 6</div>
+          <div><svg class="icon"><use href="#i-suitcase-lg"/></svg>Room for luggage</div>
+          <div><svg class="icon"><use href="#i-shield-check"/></svg>Licensed &amp; insured</div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 reveal">
+        <p class="eyebrow">Your Ride</p>
+        <h2 class="section-title" id="whyTitle">One driver. One clean vehicle. No surprises.</h2>
+        <div class="rule"></div>
+        <p class="section-lead">LuciaWay is owner-driven. When you book, you know exactly who is picking you up and what you're paying.</p>
+
+        <div class="why-item">
+          <div class="why-num">01</div>
+          <div><h3>On time, every time</h3><p>We watch your flight and the roads, and we're there before you are.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">02</div>
+          <div><h3>Fare agreed upfront</h3><p>No meter, no haggling at the curb. Your price is confirmed in writing on WhatsApp.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">03</div>
+          <div><h3>Local knowledge</h3><p>Born on the island. Ask about the best beach, the best lunch spot, or the quickest route.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">04</div>
+          <div><h3>Easy to reach</h3><p>No apps or accounts. Message us on WhatsApp and get a reply fast.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BOOKING
+============================================================ -->
+<section id="booking" class="section-pad" aria-labelledby="bookingTitle">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <p class="eyebrow">Reservations</p>
+      <h2 class="section-title" id="bookingTitle">Book your ride in 3 steps</h2>
+      <div class="rule"></div>
+      <p class="section-lead mx-auto">Fill this in and your booking opens in WhatsApp, ready to send. We confirm your driver and final fare quickly.</p>
+    </div>
+
+    <div class="row justify-content-center g-4">
+      <div class="col-lg-7">
+        <div class="booking-panel" aria-live="polite">
+
+          <div class="step-progress" aria-hidden="true">
+            <div class="step-dot active"></div><div class="step-dot"></div><div class="step-dot"></div>
+          </div>
+
+          <!-- STEP 1 -->
+          <div class="booking-step active" id="bStep1">
+            <p class="eyebrow">Step 1 of 3</p>
+            <h3 class="step-title" tabindex="-1">What kind of ride do you need?</h3>
+
+            <button type="button" class="trip-btn" data-trip="Airport Transfer (Hewanorra UVF)" data-route="Hewanorra Airport ↔ hotel or villa" data-price="$30 – $90 USD">
+              <span class="t-icon"><svg class="icon"><use href="#i-airplane"/></svg></span>
+              <span class="t-body"><strong>Airport Transfer — Hewanorra (UVF)</strong><span class="t-route">South airport, most international flights</span></span>
+              <span class="t-price">$30 – $90</span>
+            </button>
+            <button type="button" class="trip-btn" data-trip="Airport Transfer (George F.L. Charles SLU)" data-route="George F.L. Charles Airport ↔ hotel or villa" data-price="$20 – $30 USD">
+              <span class="t-icon"><svg class="icon"><use href="#i-airplane"/></svg></span>
+              <span class="t-body"><strong>Airport Transfer — George F.L. Charles (SLU)</strong><span class="t-route">Castries airport, regional flights</span></span>
+              <span class="t-price">$20 – $30</span>
+            </button>
+            <button type="button" class="trip-btn" data-trip="Island Ride" data-route="Point to point" data-price="From $20 USD">
+              <span class="t-icon"><svg class="icon"><use href="#i-geo-alt"/></svg></span>
+              <span class="t-body"><strong>Island Ride</strong><span class="t-route">Restaurants, beaches, shopping, cruise port</span></span>
+              <span class="t-price">From $20</span>
+            </button>
+            <button type="button" class="trip-btn" data-trip="Island Tour" data-route="Flexible multi-stop tour" data-price="Quote on request">
+              <span class="t-icon"><svg class="icon"><use href="#i-map"/></svg></span>
+              <span class="t-body"><strong>Island Tour</strong><span class="t-route">Half or full day, your stops</span></span>
+              <span class="t-price">Quote</span>
+            </button>
+            <button type="button" class="trip-btn" data-trip="Wedding / Event Transport" data-route="As required" data-price="Quote on request">
+              <span class="t-icon"><svg class="icon"><use href="#i-stars"/></svg></span>
+              <span class="t-body"><strong>Wedding or Event</strong><span class="t-route">Guests, bridal party, venue runs</span></span>
+              <span class="t-price">Quote</span>
+            </button>
+            <button type="button" class="trip-btn" data-trip="Custom Trip" data-route="You choose the route" data-price="Quote on request">
+              <span class="t-icon"><svg class="icon"><use href="#i-pencil-square"/></svg></span>
+              <span class="t-body"><strong>Something else</strong><span class="t-route">Hourly hire, business, multi-stop</span></span>
+              <span class="t-price">Quote</span>
+            </button>
+          </div>
+
+          <!-- STEP 2 -->
+          <div class="booking-step" id="bStep2">
+            <button type="button" class="btn-back mb-2" data-back="1"><svg class="icon"><use href="#i-arrow-left"/></svg>Back</button>
+            <p class="eyebrow">Step 2 of 3</p>
+            <h3 class="step-title mb-1" id="tripTitle" tabindex="-1">Airport Transfer</h3>
+            <div class="price-display" id="priceDisplay"></div>
+
+            <form id="detailsForm" novalidate>
+              <div class="row g-3">
+                <div class="col-12">
+                  <label class="lw-label" for="tName">Your name</label>
+                  <input type="text" id="tName" class="lw-input" autocomplete="name" required />
+                </div>
+                <div class="col-sm-6">
+                  <label class="lw-label" for="tDate">Date</label>
+                  <input type="date" id="tDate" class="lw-input" required />
+                </div>
+                <div class="col-sm-6">
+                  <label class="lw-label" for="tTime">Pickup time</label>
+                  <input type="time" id="tTime" class="lw-input" required />
+                </div>
+                <div class="col-12">
+                  <label class="lw-label" for="tPickup">Pickup location</label>
+                  <input type="text" id="tPickup" class="lw-input" placeholder="e.g. Hewanorra Airport" required />
+                </div>
+                <div class="col-12">
+                  <label class="lw-label" for="tDropoff">Drop-off location</label>
+                  <input type="text" id="tDropoff" class="lw-input" placeholder="e.g. hotel or villa name, Rodney Bay" required />
+                </div>
+                <div class="col-sm-6">
+                  <label class="lw-label" for="tPassengers">Passengers</label>
+                  <input type="number" id="tPassengers" class="lw-input" min="1" max="14" inputmode="numeric" value="2" required />
+                </div>
+                <div class="col-sm-6">
+                  <label class="lw-label" for="tFlight">Flight number <span class="opt">(if airport)</span></label>
+                  <input type="text" id="tFlight" class="lw-input" placeholder="e.g. AA 1234" />
+                </div>
+                <div class="col-12">
+                  <label class="lw-label" for="tNotes">Anything else? <span class="opt">(optional)</span></label>
+                  <input type="text" id="tNotes" class="lw-input" placeholder="e.g. child seat, extra luggage, stop at a supermarket" />
+                </div>
+                <div class="col-12">
+                  <p class="form-error" id="formError" role="alert"></p>
+                  <button type="submit" class="btn-lw btn-teal w-100">Review booking <svg class="icon"><use href="#i-arrow-right"/></svg></button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- STEP 3 -->
+          <div class="booking-step" id="bStep3">
+            <button type="button" class="btn-back mb-2" data-back="2"><svg class="icon"><use href="#i-arrow-left"/></svg>Back</button>
+            <p class="eyebrow">Step 3 of 3</p>
+            <h3 class="step-title" tabindex="-1">Check your booking</h3>
+            <div class="summary-box mb-4" id="bookingSummary"></div>
+            <p style="font-size:0.92rem;color:var(--lw-muted);">
+              Tapping the button opens WhatsApp with your details filled in. Just press send, and we'll confirm your driver and final fare.
+            </p>
+            <button type="button" class="btn-lw btn-wa w-100" id="sendWa">
+              <svg class="icon" style="font-size:1.3rem;"><use href="#i-whatsapp"/></svg>Send booking on WhatsApp
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Booking notes -->
+      <div class="col-lg-4 reveal">
+        <div class="ps-lg-3">
+          <p class="eyebrow">Good to know</p>
+          <ul class="note-list">
+            <li><svg class="icon"><use href="#i-calendar-check"/></svg><div>Airport pickups: book at least <strong>24 hours ahead</strong>. Island rides: <strong>2 hours</strong> is usually enough.</div></li>
+            <li><svg class="icon"><use href="#i-currency-dollar"/></svg><div>Fares in <strong>USD</strong> per vehicle. EC dollars and card accepted — just ask.</div></li>
+            <li><svg class="icon"><use href="#i-airplane"/></svg><div>Flight delayed? <strong>No extra charge.</strong> We track it and wait for you.</div></li>
+            <li><svg class="icon"><use href="#i-chat-dots"/></svg><div>Prefer to chat? <a href="https://wa.me/17587235872?text=Hello%20LuciaWay%20Transfers%2C%20I%27d%20like%20to%20book%20a%20ride." target="_blank" rel="noopener">Message us on WhatsApp</a> or call <a href="tel:+17587235872">+1 (758) 723-5872</a>.</div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     REVIEWS — honest placeholder until real reviews exist
+============================================================ -->
+<section id="reviews" class="section-pad" aria-labelledby="reviewsTitle">
+  <div class="container">
+    <div class="review-placeholder reveal">
+      <div class="stars" aria-hidden="true">
+        <svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg>
+      </div>
+      <h2 class="display-serif" id="reviewsTitle" style="font-size:1.9rem;color:var(--lw-deep);">Real customer reviews go here</h2>
+      <p>Once LuciaWay is live, genuine reviews from real passengers will appear in this space. Rode with us? We'd love to hear how it went.</p>
+      <a href="https://wa.me/17587235872?text=Hello%20LuciaWay%20Transfers%2C%20I%27d%20like%20to%20leave%20a%20review%20of%20my%20ride." target="_blank" rel="noopener" class="btn-lw btn-teal">
+        <svg class="icon"><use href="#i-chat-dots"/></svg>Share your experience
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA BANNER
+============================================================ -->
+<section id="cta-banner" class="on-dark" aria-labelledby="ctaTitle">
+  <picture>
+    <source type="image/webp" media="(max-width: 767px)" srcset="lucianway-transfers-images/luciaway-soufriere-pitons-800.webp" />
+    <source type="image/webp" srcset="lucianway-transfers-images/luciaway-soufriere-pitons-1400.webp" />
+    <source type="image/jpeg" media="(max-width: 767px)" srcset="lucianway-transfers-images/luciaway-soufriere-pitons-800.jpg" />
+    <img src="lucianway-transfers-images/luciaway-soufriere-pitons-1400.jpg" width="1400" height="937" loading="lazy" decoding="async"
+         alt="Soufrière town tucked below the Pitons on Saint Lucia's west coast" />
+  </picture>
+  <div class="container text-center reveal">
+    <p class="eyebrow">Your island, sorted</p>
+    <h2 class="cta-title mb-3" id="ctaTitle">Book once. Ride easy all week.</h2>
+    <p class="mx-auto mb-4" style="max-width:520px;color:#E3EEEF;font-size:1.05rem;">Airport pickup, dinners, beach days and your trip back to the airport — one message sorts it all.</p>
+    <div class="d-flex flex-wrap gap-3 justify-content-center">
+      <a href="#booking" class="btn-lw btn-amber">Book Your Ride</a>
+      <a href="https://wa.me/17587235872?text=Hello%20LuciaWay%20Transfers%2C%20I%27d%20like%20to%20book%20rides%20for%20my%20stay." target="_blank" rel="noopener" class="btn-lw btn-ghost-light">
+        <svg class="icon"><use href="#i-whatsapp"/></svg>WhatsApp Us
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer id="footer">
+  <div class="container">
+    <div class="row g-4 g-lg-5">
+      <div class="col-lg-4">
+        <div class="footer-brand">Lucia<span style="color:var(--lw-amber);">Way</span> Transfers</div>
+        <p class="mt-2">Private airport transfers, island rides and tours across Saint Lucia. Local, reliable, fairly priced.</p>
+        <div class="social-icons" aria-label="Social media (preview only)">
+          <span class="social-icon" title="Instagram — preview only" aria-hidden="true"><svg class="icon"><use href="#i-instagram"/></svg></span>
+          <span class="social-icon" title="Facebook — preview only" aria-hidden="true"><svg class="icon"><use href="#i-facebook"/></svg></span>
+          <span class="social-icon" title="Email — preview only" aria-hidden="true"><svg class="icon"><use href="#i-envelope"/></svg></span>
+          <span class="preview-label">Preview only</span>
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-2">
+        <p class="footer-heading">Services</p>
+        <ul class="footer-links">
+          <li><a href="#airport">Airport Transfers</a></li>
+          <li><a href="#services">Island Rides</a></li>
+          <li><a href="#services">Island Tours</a></li>
+          <li><a href="#services">Weddings &amp; Events</a></li>
+          <li><a href="#services">Business Travel</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-lg-2">
+        <p class="footer-heading">Quick Links</p>
+        <ul class="footer-links">
+          <li><a href="#fares">Fares</a></li>
+          <li><a href="#why">Why LuciaWay</a></li>
+          <li><a href="#booking">Book a Ride</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-4">
+        <p class="footer-heading">Get in Touch</p>
+        <ul class="footer-links">
+          <li><a href="https://wa.me/17587235872" target="_blank" rel="noopener"><svg class="icon" style="color:var(--wa-green);"><use href="#i-whatsapp"/></svg>WhatsApp +1 (758) 723-5872</a></li>
+          <li><a href="tel:+17587235872"><svg class="icon" style="color:var(--lw-amber);"><use href="#i-telephone"/></svg>Call +1 (758) 723-5872</a></li>
+          <li><span style="display:inline-flex;align-items:center;gap:8px;"><svg class="icon" style="color:var(--lw-amber);"><use href="#i-geo-alt"/></svg>Vieux Fort, Saint Lucia · island-wide service</span></li>
+          <li><span style="display:inline-flex;align-items:center;gap:8px;"><svg class="icon" style="color:var(--lw-amber);"><use href="#i-clock"/></svg>Bookings 7 days a week</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-disclaimer">
+    <div class="container">
+      <p><strong>Demo notice:</strong> This page is a concept website built by Jamal Samuel to show what a transfer business site can look like. LuciaWay Transfers is a sample business name. All content, images, fares, vehicle details and review sections shown are illustrative examples, not real business data. Photos are stock images from Unsplash.</p>
+      <p class="mb-0"><strong>Fares:</strong> In a live version, fares shown would be estimates for standard routes, confirmed with each customer before travel, and could vary with distance, time, passengers, luggage and fuel costs.</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <p>&copy; <span id="year">2026</span> LuciaWay Transfers (concept demo). Saint Lucia, W.I.</p>
+      <p><a href="https://jamalsamuel.online" target="_blank" rel="noopener">Jamal Samuel Built</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp (desktop) -->
+<a href="https://wa.me/17587235872?text=Hello%20LuciaWay%20Transfers%2C%20I%27d%20like%20to%20book%20a%20ride." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg class="icon"><use href="#i-whatsapp"/></svg>
+</a>
+
+<!-- Sticky action bar (mobile) -->
+<nav class="mobile-bar" aria-label="Quick contact">
+  <a href="tel:+17587235872"><svg class="icon"><use href="#i-telephone"/></svg>Call</a>
+  <a class="wa" href="https://wa.me/17587235872?text=Hello%20LuciaWay%20Transfers%2C%20I%27d%20like%20to%20book%20a%20ride." target="_blank" rel="noopener"><svg class="icon"><use href="#i-whatsapp"/></svg>WhatsApp</a>
+</nav>
+
+<!-- ============================================================
+     SCRIPTS — core features below work even if Bootstrap JS fails to load
+============================================================ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
+<script>
+(function () {
+  'use strict';
+  var WHATSAPP_NUMBER = '17587235872';
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---------- Navbar: solid on scroll / when menu open ---------- */
+  var header = document.getElementById('siteHeader');
+  function setHeaderH() { document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px'); }
+  setHeaderH();
+  window.addEventListener('resize', setHeaderH);
+  var nav = document.getElementById('mainNav');
+  function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 40); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  var collapseEl = document.getElementById('navbarContent');
+  collapseEl.addEventListener('show.bs.collapse', function () { nav.classList.add('menu-open'); });
+  collapseEl.addEventListener('hidden.bs.collapse', function () { nav.classList.remove('menu-open'); });
+  // Close the mobile menu after tapping a link
+  collapseEl.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      if (window.bootstrap && collapseEl.classList.contains('show')) {
+        window.bootstrap.Collapse.getOrCreateInstance(collapseEl).hide();
+      }
+    });
+  });
+
+  /* ---------- Scroll reveal ---------- */
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -60px 0px', threshold: 0.08 });
+    reveals.forEach(function (el) { io.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* ---------- Booking flow ---------- */
+  var booking = {};
+  var steps = document.querySelectorAll('.booking-step');
+  var dots = document.querySelectorAll('.step-dot');
+
+  function setStep(n) {
+    steps.forEach(function (el, i) { el.classList.toggle('active', i + 1 === n); });
+    dots.forEach(function (d, i) { d.classList.toggle('active', i < n); });
+    document.getElementById('booking').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    var heading = steps[n - 1].querySelector('.step-title');
+    if (heading) setTimeout(function () { heading.focus({ preventScroll: true }); }, 350);
+  }
+
+  document.querySelectorAll('.trip-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      booking.service = btn.dataset.trip;
+      booking.price = btn.dataset.price;
+      document.getElementById('tripTitle').textContent = booking.service;
+      document.getElementById('priceDisplay').textContent = booking.price;
+      var pickup = document.getElementById('tPickup');
+      if (!pickup.value) {
+        if (/UVF/.test(booking.service)) pickup.value = 'Hewanorra International Airport (UVF)';
+        if (/SLU/.test(booking.service)) pickup.value = 'George F.L. Charles Airport (SLU)';
+      }
+      setStep(2);
+    });
+  });
+
+  document.querySelectorAll('[data-back]').forEach(function (b) {
+    b.addEventListener('click', function () { setStep(parseInt(b.dataset.back, 10)); });
+  });
+
+  // No past dates
+  var dateInput = document.getElementById('tDate');
+  var t = new Date();
+  dateInput.min = new Date(t.getTime() - t.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+
+  var fields = ['tName', 'tDate', 'tTime', 'tPickup', 'tDropoff', 'tPassengers', 'tFlight', 'tNotes'];
+  var required = ['tName', 'tDate', 'tTime', 'tPickup', 'tDropoff', 'tPassengers'];
+  function val(id) { return document.getElementById(id).value.trim(); }
+
+  function formatDate(iso) {
+    if (!iso) return '';
+    var p = iso.split('-');
+    var d = new Date(p[0], p[1] - 1, p[2]);
+    return d.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
+  }
+
+  document.getElementById('detailsForm').addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var missing = [];
+    required.forEach(function (id) {
+      var el = document.getElementById(id);
+      var bad = !el.value.trim() || (id === 'tPassengers' && (+el.value < 1));
+      el.setAttribute('aria-invalid', bad ? 'true' : 'false');
+      if (bad) missing.push(el);
+    });
+    var err = document.getElementById('formError');
+    if (missing.length) {
+      err.textContent = 'Please fill in the highlighted fields so we can confirm your ride.';
+      missing[0].focus();
+      return;
+    }
+    err.textContent = '';
+    fields.forEach(function (id) { booking[id] = val(id); });
+
+    var rows = [
+      ['Service', booking.service],
+      ['Name', booking.tName],
+      ['Date', formatDate(booking.tDate)],
+      ['Pickup time', booking.tTime],
+      ['Pickup', booking.tPickup],
+      ['Drop-off', booking.tDropoff],
+      ['Passengers', booking.tPassengers],
+      ['Flight', booking.tFlight],
+      ['Est. fare', booking.price + ' (to be confirmed)'],
+      ['Notes', booking.tNotes]
+    ];
+    var dl = document.createElement('dl');
+    rows.forEach(function (r) {
+      if (!r[1]) return;
+      var dt = document.createElement('dt'); dt.textContent = r[0];
+      var dd = document.createElement('dd'); dd.textContent = r[1];
+      dl.appendChild(dt); dl.appendChild(dd);
+    });
+    var box = document.getElementById('bookingSummary');
+    box.innerHTML = '';
+    box.appendChild(dl);
+    setStep(3);
+  });
+
+  document.getElementById('sendWa').addEventListener('click', function () {
+    var lines = [
+      'Hello LuciaWay Transfers,',
+      '',
+      'I would like to book a ride:',
+      '',
+      '*Service:* ' + booking.service,
+      '*Name:* ' + booking.tName,
+      '*Date:* ' + formatDate(booking.tDate),
+      '*Pickup time:* ' + booking.tTime,
+      '*Pickup:* ' + booking.tPickup,
+      '*Drop-off:* ' + booking.tDropoff,
+      '*Passengers:* ' + booking.tPassengers
+    ];
+    if (booking.tFlight) lines.push('*Flight:* ' + booking.tFlight);
+    lines.push('*Est. fare:* ' + booking.price + ' (to be confirmed)');
+    if (booking.tNotes) lines.push('*Notes:* ' + booking.tNotes);
+    lines.push('', 'Please confirm availability and the final fare. Thank you.');
+    var url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(lines.join('\n'));
+    window.open(url, '_blank', 'noopener');
+  });
+})();
+</script>
+</body>
+</html>
