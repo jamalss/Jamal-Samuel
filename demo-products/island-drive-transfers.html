@@ -3,16 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Island Drive Transfers | Private Airport Transfers &amp; Tours in Saint Lucia</title>
-  <meta name="description" content="Island Drive Transfers: private airport transfers, island tours and chauffeur service across Saint Lucia. Fixed fares, professional drivers, easy WhatsApp booking." />
+  <title>Island Drive Transfers | Demo Website by Jamal Samuel</title>
+  <meta name="description" content="Demo website concept for a Saint Lucia private transfer and tour business. Island Drive Transfers is a sample brand; prices and reviews are placeholders. Built by Jamal Samuel." />
   <meta name="robots" content="noindex, nofollow" />
+  <meta name="author" content="Jamal Samuel" />
   <meta name="theme-color" content="#0d0d0d" />
-  <link rel="canonical" href="https://jamalsamuel.online/demo-products/lucianway-transfers.html" />
+  <link rel="canonical" href="https://jamalsamuel.online/demo-products/island-drive-transfers.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Island Drive Transfers | Private Transfers in Saint Lucia" />
-  <meta property="og:description" content="Airport transfers, island tours and chauffeur service across Saint Lucia. Book in minutes on WhatsApp." />
-  <meta property="og:url" content="https://jamalsamuel.online/demo-products/lucianway-transfers.html" />
+  <meta property="og:site_name" content="Jamal Samuel" />
+  <meta property="og:title" content="Island Drive Transfers | Demo Website by Jamal Samuel" />
+  <meta property="og:description" content="A demo transfer and tour website with WhatsApp booking, built for Saint Lucia businesses. Sample brand, sample prices." />
+  <meta property="og:url" content="https://jamalsamuel.online/demo-products/island-drive-transfers.html" />
   <meta property="og:image" content="https://jamalsamuel.online/demo-products/island-drive-transfers-images/hero-pitons-suv.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Island Drive Transfers | Demo Website by Jamal Samuel" />
+  <meta name="twitter:description" content="A demo transfer and tour website with WhatsApp booking, built for Saint Lucia businesses. Sample brand, sample prices." />
+  <meta name="twitter:image" content="https://jamalsamuel.online/demo-products/island-drive-transfers-images/hero-pitons-suv.jpg" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230d0d0d'/%3E%3Ctext x='32' y='44' font-size='34' font-family='Georgia,serif' font-weight='700' text-anchor='middle' fill='%23c9a84c'%3EID%3C/text%3E%3C/svg%3E" />
   <link rel="preload" as="image" href="island-drive-transfers-images/hero-pitons-suv.webp" type="image/webp" fetchpriority="high" />
 
@@ -109,9 +115,73 @@
       transition: background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
       position: fixed;
       width: 100%;
-      top: 0;
+      top: var(--demo-bar-h);
       z-index: 1050;
     }
+
+    /* ============================================================
+       DEMO NOTICE BAR + DEMO LABELS
+    ============================================================ */
+    :root { --demo-bar-h: 34px; }
+    .demo-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--demo-bar-h);
+      z-index: 1060;
+      background: var(--dc-crimson);
+      color: var(--dc-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 16px;
+      font-family: var(--font-body);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(201,168,76,0.35);
+    }
+    .demo-bar .demo-pill {
+      background: var(--dc-gold);
+      color: var(--dc-black);
+      padding: 2px 8px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+    }
+    .demo-bar a { color: var(--dc-gold-lt); text-decoration: underline; text-underline-offset: 3px; }
+    .demo-bar a:hover { color: var(--dc-white); }
+    @media (max-width: 767px) {
+      .demo-bar { font-size: 0.56rem; letter-spacing: 0.1em; gap: 8px; }
+      .demo-bar .demo-long { display: none; }
+    }
+    section[id] { scroll-margin-top: calc(var(--demo-bar-h) + 70px); }
+
+    .demo-tag {
+      display: inline-block;
+      margin-left: 8px;
+      padding: 1px 7px;
+      border: 1px solid rgba(201,168,76,0.45);
+      color: var(--dc-gold);
+      font-family: var(--font-body);
+      font-style: normal;
+      font-size: 0.55rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      vertical-align: middle;
+    }
+    .demo-note {
+      font-size: 0.72rem;
+      line-height: 1.8;
+      color: var(--dc-silver);
+      border-left: 2px solid var(--dc-gold);
+      padding: 8px 14px;
+      background: rgba(201,168,76,0.05);
+    }
+    .demo-note strong { color: var(--dc-gold); font-weight: 500; }
     #mainNav.scrolled {
       background: rgba(10,10,10,0.97);
       padding: 12px 0;
@@ -821,6 +891,13 @@
       pointer-events: none;
       user-select: none;
     }
+    .social-note {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(176,184,193,0.45);
+      margin-top: 10px;
+    }
 
     .footer-disclaimer {
       background: var(--dc-charcoal);
@@ -889,9 +966,18 @@
 <body>
 
 <!-- ============================================================
+     DEMO NOTICE BAR
+============================================================ -->
+<div class="demo-bar" role="note" aria-label="Demo website notice">
+  <span class="demo-pill">Demo</span>
+  <span>Sample site<span class="demo-long"> · Island Drive Transfers is not a real business · Prices are not real</span></span>
+  <span>· <a href="https://jamalsamuel.online" target="_blank" rel="noopener">A Jamal Samuel Build</a></span>
+</div>
+
+<!-- ============================================================
      FLOATING WHATSAPP BUTTON
 ============================================================ -->
-<a href="https://wa.me/17580000000" class="whatsapp-float wa-link" target="_blank" rel="noopener" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+<a href="https://wa.me/17587235872" class="whatsapp-float wa-link" target="_blank" rel="noopener" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
   <i class="bi bi-whatsapp"></i>
 </a>
 
@@ -1035,6 +1121,9 @@
         Whether you require a seamless airport transfer, reliable corporate travel,
         or exclusive event transportation — Island Drive Transfers has you covered.
       </p>
+      <p class="demo-note mx-auto mt-4 text-start" style="max-width:520px;">
+        <strong>Demo pricing:</strong> all prices on this page are placeholders for display only. They are not real fares.
+      </p>
     </div>
 
     <div class="row g-4">
@@ -1046,7 +1135,7 @@
           <div class="service-icon"><i class="bi bi-airplane"></i></div>
           <h4>Airport Transfers</h4>
           <p>Hewanorra International to Castries and beyond. We monitor your flight, arrive on time, and escort you to your destination with complete comfort.</p>
-          <div class="service-price">From $70 – $90 USD</div>
+          <div class="service-price">From $70 – $90 USD <span class="demo-tag">Sample</span></div>
         </div>
       </div>
 
@@ -1056,7 +1145,7 @@
           <div class="service-icon"><i class="bi bi-geo-alt"></i></div>
           <h4>City &amp; Island Rides</h4>
           <p>Seamless point-to-point travel throughout Saint Lucia. Castries, Rodney Bay, Soufrière, Gros Islet — wherever you need to be, we deliver.</p>
-          <div class="service-price">From $20 – $30 USD</div>
+          <div class="service-price">From $20 – $30 USD <span class="demo-tag">Sample</span></div>
         </div>
       </div>
 
@@ -1175,7 +1264,7 @@
           </picture>
           <figcaption>Our vehicle, cleaned and checked before every trip</figcaption>
         </figure>
-        <a href="https://wa.me/17580000000" class="btn-outline-dc d-inline-block wa-link" target="_blank" rel="noopener">
+        <a href="https://wa.me/17587235872" class="btn-outline-dc d-inline-block wa-link" target="_blank" rel="noopener">
           <i class="bi bi-whatsapp me-2"></i>Chat With Us
         </a>
       </div>
@@ -1247,6 +1336,10 @@
         Complete the form below to send your booking request directly to us via WhatsApp.
         We will confirm your reservation promptly.
       </p>
+      <p class="demo-note mx-auto mt-3 text-start" style="max-width:500px;">
+        <strong>Demo booking:</strong> this form works, but it sends to Jamal Samuel (the web developer), not a transfer company.
+        No ride will be booked.
+      </p>
     </div>
 
     <div class="row justify-content-center">
@@ -1268,13 +1361,13 @@
             <button class="trip-btn" onclick="selectTrip('Airport Transfer', 'Hewanorra → Castries / North', 70, 90)">
               <strong><i class="bi bi-airplane me-2 text-gold"></i>Airport Transfer</strong>
               <span class="trip-route">Hewanorra International → Castries / North</span>
-              <span class="trip-price">$70 – $90 USD</span>
+              <span class="trip-price">$70 – $90 USD <span class="demo-tag">Sample</span></span>
             </button>
 
             <button class="trip-btn" onclick="selectTrip('City Ride', 'Castries → Rodney Bay or nearby', 20, 30)">
               <strong><i class="bi bi-geo-alt me-2 text-gold"></i>City Ride</strong>
               <span class="trip-route">Castries → Rodney Bay or nearby areas</span>
-              <span class="trip-price">$20 – $30 USD</span>
+              <span class="trip-price">$20 – $30 USD <span class="demo-tag">Sample</span></span>
             </button>
 
             <button class="trip-btn" onclick="selectTrip('Island Excursion', 'Flexible Multi-Stop', 0, 0)">
@@ -1307,7 +1400,7 @@
             <button class="btn-back mb-3" onclick="goBack(1)"><i class="bi bi-arrow-left"></i> Back</button>
             <p class="eyebrow mb-1">Step 2 of 3 — Journey Details</p>
             <h4 class="display-serif mb-1" style="font-size:1.6rem;" id="tripTitle">Airport Transfer</h4>
-            <div class="price-display mb-4" id="priceDisplay">$70 – $90 USD</div>
+            <div class="price-display mb-4" id="priceDisplay">$70 – $90 USD (sample price)</div>
 
             <div class="row g-3">
               <div class="col-md-6">
@@ -1355,6 +1448,10 @@
               with your booking details pre-filled. Our team will confirm your reservation and provide final pricing
               within the hour.
             </p>
+            <p class="demo-note mb-4">
+              <strong>Demo:</strong> this message goes to Jamal Samuel's WhatsApp so you can see how bookings arrive.
+              It is not a real reservation.
+            </p>
 
             <button class="btn-whatsapp-dc" onclick="sendWhatsApp()">
               <i class="bi bi-whatsapp" style="font-size:1.2rem;"></i>
@@ -1384,6 +1481,7 @@
               <p style="font-size:0.82rem;color:var(--dc-silver);line-height:1.7;">
                 All prices are quoted in <strong style="color:var(--dc-off-white);">USD</strong>.
                 Final fare confirmed via WhatsApp before your journey begins.
+                <span class="text-gold">Demo: prices shown are samples, not real fares.</span>
               </p>
             </div>
           </div>
@@ -1400,7 +1498,7 @@
             <div>
               <p style="font-size:0.82rem;color:var(--dc-silver);line-height:1.7;">
                 Prefer to message directly?&nbsp;
-                <a href="https://wa.me/17580000000" class="wa-link" target="_blank" rel="noopener" style="color:var(--dc-gold);text-decoration:none;">
+                <a href="https://wa.me/17587235872" class="wa-link" target="_blank" rel="noopener" style="color:var(--dc-gold);text-decoration:none;">
                   Tap here to chat on WhatsApp
                 </a>
               </p>
@@ -1429,6 +1527,10 @@
         <i class="bi bi-diamond-fill"></i>
         <span></span>
       </div>
+      <p class="demo-note mx-auto mt-3 text-start" style="max-width:520px;">
+        <strong>Sample reviews:</strong> these are placeholder reviews that show the layout. They are not from real customers.
+        A live site uses the business's own reviews.
+      </p>
     </div>
 
     <div class="row g-4">
@@ -1442,7 +1544,7 @@
              only way to travel in Saint Lucia."
           </p>
           <div class="testi-name">Sarah M.</div>
-          <div class="testi-role">Honeymooner · United Kingdom</div>
+          <div class="testi-role">Sample Review · Placeholder</div>
         </div>
       </div>
 
@@ -1455,7 +1557,7 @@
              Highly recommended for business travellers."
           </p>
           <div class="testi-name">James T.</div>
-          <div class="testi-role">Operations Director · United States</div>
+          <div class="testi-role">Sample Review · Placeholder</div>
         </div>
       </div>
 
@@ -1468,7 +1570,7 @@
              standard for private transport in St. Lucia."
           </p>
           <div class="testi-name">Renée &amp; Marc B.</div>
-          <div class="testi-role">Leisure Travellers · Canada</div>
+          <div class="testi-role">Sample Review · Placeholder</div>
         </div>
       </div>
 
@@ -1495,7 +1597,7 @@
     </p>
     <div class="d-flex flex-wrap gap-3 justify-content-center">
       <a href="#booking" class="btn-cta-white">Book Your Ride</a>
-      <a href="https://wa.me/17580000000" class="wa-link" target="_blank" rel="noopener"
+      <a href="https://wa.me/17587235872" class="wa-link" target="_blank" rel="noopener"
          style="background:transparent;color:white;border:1px solid rgba(255,255,255,0.4);padding:15px 34px;
                 font-family:var(--font-body);font-size:0.7rem;letter-spacing:0.3em;text-transform:uppercase;
                 text-decoration:none;display:inline-block;transition:background 0.3s;position:relative;z-index:1;"
@@ -1524,12 +1626,13 @@
           Private airport transfers, tours and chauffeur service across Saint Lucia —
           delivered with warmth, professionalism, and local knowledge.
         </p>
-        <div class="social-icons" aria-label="Social media links (coming soon)">
-          <span class="social-icon disabled" title="Coming soon" aria-hidden="true"><i class="bi bi-instagram"></i></span>
-          <span class="social-icon disabled" title="Coming soon" aria-hidden="true"><i class="bi bi-whatsapp"></i></span>
-          <span class="social-icon disabled" title="Coming soon" aria-hidden="true"><i class="bi bi-facebook"></i></span>
-          <span class="social-icon disabled" title="Coming soon" aria-hidden="true"><i class="bi bi-envelope"></i></span>
+        <div class="social-icons" aria-hidden="true">
+          <span class="social-icon disabled" title="Inactive in demo"><i class="bi bi-instagram"></i></span>
+          <span class="social-icon disabled" title="Inactive in demo"><i class="bi bi-whatsapp"></i></span>
+          <span class="social-icon disabled" title="Inactive in demo"><i class="bi bi-facebook"></i></span>
+          <span class="social-icon disabled" title="Inactive in demo"><i class="bi bi-envelope"></i></span>
         </div>
+        <p class="social-note">Social links inactive &middot; Demo</p>
       </div>
 
       <!-- Services Column -->
@@ -1552,7 +1655,7 @@
           <li><a href="#why">Why Island Drive</a></li>
           <li><a href="#testimonials">Client Reviews</a></li>
           <li><a href="#booking">Book a Ride</a></li>
-          <li><a href="https://wa.me/17580000000" class="wa-link" target="_blank" rel="noopener">Contact Us</a></li>
+          <li><a href="https://wa.me/17587235872" class="wa-link" target="_blank" rel="noopener">Contact Us</a></li>
         </ul>
       </div>
 
@@ -1561,7 +1664,7 @@
         <p class="footer-heading">Get in Touch</p>
         <ul class="footer-links">
           <li>
-            <a href="https://wa.me/17580000000" class="wa-link" target="_blank" rel="noopener">
+            <a href="https://wa.me/17587235872" class="wa-link" target="_blank" rel="noopener">
               <i class="bi bi-whatsapp me-2" style="color:#25D366;"></i>Message us on WhatsApp
             </a>
           </li>
@@ -1585,6 +1688,13 @@
   <div class="footer-disclaimer mt-5">
     <div class="container">
       <p class="eyebrow mb-2" style="font-size:0.6rem;">Important Notice</p>
+      <p class="mb-2">
+        <strong style="color:var(--dc-gold);">Demo Notice:</strong>
+        This is a demo website built by Jamal Samuel to show what a transfer and tour business site can look like.
+        Island Drive Transfers is a sample brand, not a real company. All prices, reviews and service details are
+        placeholders and are not real. The WhatsApp buttons reach Jamal Samuel, not a transport provider.
+        Live demo: <a href="https://jamalsamuel.online/demo-products/island-drive-transfers.html" style="color:var(--dc-gold);text-decoration:none;word-break:break-all;">jamalsamuel.online/demo-products/island-drive-transfers.html</a>
+      </p>
       <p>
         <strong style="color:var(--dc-off-white);">Pricing Disclaimer:</strong>
         All fares quoted on this website are indicative estimates only, based on standard routes and conditions.
@@ -1606,9 +1716,12 @@
   <!-- Copyright Bar -->
   <div class="footer-bottom">
     <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
-      <p>&copy; 2026 Island Drive Transfers. All Rights Reserved. Saint Lucia, W.I.</p>
+      <p>&copy; 2026 Island Drive Transfers (demo brand). Saint Lucia, W.I.</p>
       <p style="font-size:0.65rem;">
-        <a href="https://jamalsamuel.online" target="_blank" rel="noopener">Jamal Samuel Built</a>
+        Demo website &middot;
+        <a href="https://jamalsamuel.online" target="_blank" rel="noopener">A Jamal Samuel Build</a>
+        &middot;
+        <a href="https://wa.me/17587235872?text=Hi%20Jamal%2C%20I%20saw%20the%20Island%20Drive%20Transfers%20demo%20and%20I%27d%20like%20a%20site%20like%20this%20for%20my%20business." target="_blank" rel="noopener">Want a site like this?</a>
       </p>
     </div>
   </div>
@@ -1637,8 +1750,8 @@
   // ============================================================
   // BOOKING LOGIC
   // ============================================================
-  // >>> SET THE CLIENT'S WHATSAPP NUMBER HERE (country code + number, digits only) <<<
-  const WHATSAPP_NUMBER = "17580000000";
+  // >>> DEMO: routes to Jamal Samuel. Swap for the client's number at launch (country code + number, digits only) <<<
+  const WHATSAPP_NUMBER = "17587235872";
   document.querySelectorAll('a.wa-link').forEach(a => { a.href = `https://wa.me/${WHATSAPP_NUMBER}`; });
 
   // Escape user text before putting it into the summary box
@@ -1664,7 +1777,7 @@
 
     document.getElementById('tripTitle').innerText = name;
     document.getElementById('priceDisplay').innerText =
-      (minPrice && maxPrice) ? `$${minPrice} – $${maxPrice} USD` : 'Custom Pricing — On Request';
+      (minPrice && maxPrice) ? `$${minPrice} – $${maxPrice} USD (sample price)` : 'Custom Pricing — On Request';
 
     setStep(2);
   }
@@ -1687,7 +1800,7 @@
     }
 
     const priceText = (booking.minPrice && booking.maxPrice)
-      ? `$${booking.minPrice} – $${booking.maxPrice} USD (to be confirmed)`
+      ? `$${booking.minPrice} – $${booking.maxPrice} USD (demo sample price)`
       : 'Custom Pricing — to be confirmed';
 
     document.getElementById('bookingSummary').innerHTML = `
@@ -1707,7 +1820,7 @@
 
   function sendWhatsApp() {
     const priceText = (booking.minPrice && booking.maxPrice)
-      ? `$${booking.minPrice} – $${booking.maxPrice} USD (to be confirmed)`
+      ? `$${booking.minPrice} – $${booking.maxPrice} USD (demo sample price)`
       : 'Custom Pricing — to be confirmed';
 
     const msg =
@@ -1724,7 +1837,9 @@ I would like to request a booking:
 💵 *Est. Fare:* ${priceText}
 ${booking.notes ? `📝 *Special Requests:* ${booking.notes}` : ''}
 
-Please confirm availability and final pricing. Thank you.`;
+Please confirm availability and final pricing. Thank you.
+
+— Sent from the Island Drive Transfers demo (jamalsamuel.online/demo-products/island-drive-transfers.html)`;
 
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
     window.open(url, '_blank');
