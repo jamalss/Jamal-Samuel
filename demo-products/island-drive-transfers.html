@@ -951,7 +951,55 @@
       html { scroll-behavior: auto; }
       .scroll-indicator .scroll-line, .whatsapp-float { animation: none; }
     }
+    /* ---------- Mobile nav + overflow fixes ---------- */
+    html, body { max-width: 100%; overflow-x: hidden; }
+    @supports (overflow: clip) { html, body { overflow-x: clip; } }
+    @media (max-width: 991.98px) {
+      #mainNav .navbar-brand {
+        font-size: 1.05rem;
+        letter-spacing: 0.08em;
+        margin-right: 8px;
+        min-width: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+      }
+      #mainNav .navbar-toggler { flex-shrink: 0; padding: 6px 10px; }
+      #mainNav .container { flex-wrap: wrap; }
+      #mainNav .navbar-collapse {
+        background: var(--dc-black);
+        border: 1px solid rgba(201,168,76,0.25);
+        box-shadow: 0 18px 40px rgba(0,0,0,0.7);
+        margin-top: 12px;
+        padding: 10px 18px 20px;
+        max-height: calc(100vh - var(--demo-bar-h) - 90px);
+        overflow-y: auto;
+      }
+      #mainNav .navbar-collapse .nav-link {
+        padding: 14px 4px !important;
+        border-bottom: 1px solid rgba(201,168,76,0.1);
+        color: var(--dc-white) !important;
+      }
+      #mainNav .navbar-collapse .nav-link::after { display: none; }
+      #mainNav .navbar-collapse .btn-nav-book {
+        display: block;
+        text-align: center;
+        margin-top: 16px;
+        padding: 14px 22px !important;
+        border-bottom: none;
+      }
+      #mainNav.menu-open { background: rgba(10,10,10,0.97); }
+    }
+    @media (max-width: 400px) {
+      #mainNav .navbar-brand { font-size: 0.92rem; letter-spacing: 0.05em; }
+      .demo-bar .demo-mid { display: none; }
+    }
+    @media (max-width: 767.98px) {
+      /* Bootstrap g-5 rows are wider than the mobile container; tighten gutter */
+      .row.g-5 { --bs-gutter-x: 1.5rem; }
+    }
     @media (max-width: 768px) {
+      .whatsapp-float { right: 18px; bottom: 18px; width: 52px; height: 52px; font-size: 1.45rem; }
       #hero::before { background: linear-gradient(rgba(10,10,10,0.78), rgba(10,10,10,0.82)); }
       .hero-tagline { font-size: 2.8rem; }
       .hero-vertical-text { display: none; }
@@ -970,8 +1018,8 @@
 ============================================================ -->
 <div class="demo-bar" role="note" aria-label="Demo website notice">
   <span class="demo-pill">Demo</span>
-  <span>Sample site<span class="demo-long"> · Island Drive Transfers is not a real business · Prices are not real</span></span>
-  <span>· <a href="https://jamalsamuel.online" target="_blank" rel="noopener">A Jamal Samuel Build</a></span>
+  <span class="demo-mid">Sample site<span class="demo-long"> · Island Drive Transfers is not a real business · Prices are not real</span> ·</span>
+  <span><a href="https://jamalsamuel.online" target="_blank" rel="noopener">A Jamal Samuel Build</a></span>
 </div>
 
 <!-- ============================================================
@@ -990,7 +1038,7 @@
       ISLAND&nbsp;<span class="brand-red">DRIVE</span>&nbsp;<span class="brand-gold" style="font-size:0.7em;letter-spacing:0.2em;">TRANSFERS</span>
     </a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Open menu">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -1735,11 +1783,23 @@
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
 <script>
+  // On phones, swap sideways animations for vertical ones (stops horizontal shake)
+  if (window.matchMedia('(max-width: 768px)').matches) {
+    document.querySelectorAll('[data-aos="fade-left"],[data-aos="fade-right"]').forEach(el => el.setAttribute('data-aos', 'fade-up'));
+  }
   // Init AOS
   AOS.init({ duration: 800, once: true, offset: 60 });
 
   // Block past dates in the booking form
   document.getElementById('tDate').min = new Date().toISOString().split('T')[0];
+
+  // Mobile menu: solid nav while open, close after tapping a link
+  const navCollapse = document.getElementById('navbarContent');
+  navCollapse.addEventListener('show.bs.collapse', () => document.getElementById('mainNav').classList.add('menu-open'));
+  navCollapse.addEventListener('hidden.bs.collapse', () => document.getElementById('mainNav').classList.remove('menu-open'));
+  navCollapse.querySelectorAll('.nav-link').forEach(link => link.addEventListener('click', () => {
+    if (navCollapse.classList.contains('show')) bootstrap.Collapse.getOrCreateInstance(navCollapse).hide();
+  }));
 
   // Navbar scroll effect
   window.addEventListener('scroll', () => {
