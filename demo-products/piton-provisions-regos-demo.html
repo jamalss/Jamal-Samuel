@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Piton Provisions — Saint Lucian Breading Mixes, Rubs &amp; Sauces (Concept Demo)</title>
+<meta name="description" content="Concept demo by Jamal Samuel: a WhatsApp ordering and where-to-buy page for a fictional Saint Lucian packaged-food brand.">
+<!-- Fictional demo brand: keep it out of search results so it is never mistaken for a real business -->
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.jamalsamuel.online/demo-products/piton-provisions.html">
+<meta name="theme-color" content="#0F2A20">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Piton Provisions — Concept Demo by Jamal Samuel">
+<meta property="og:description" content="Browse the range, find a shop near you, or order on WhatsApp. A concept build for Saint Lucian food brands.">
+<meta property="og:url" content="https://www.jamalsamuel.online/demo-products/piton-provisions.html">
+<meta property="og:image" content="https://www.jamalsamuel.online/demo-products/piton-provisions-images/og-preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Piton Provisions — Concept Demo by Jamal Samuel">
+<meta name="twitter:description" content="Browse the range, find a shop near you, or order on WhatsApp.">
+<meta name="twitter:image" content="https://www.jamalsamuel.online/demo-products/piton-provisions-images/og-preview.jpg">
+
+<link rel="preload" as="image" href="piton-provisions-images/hero-spread.webp" type="image/webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600;700&display=swap"></noscript>
+
+<style>
+/* ===================== TOKENS ===================== */
+:root{
+  --ink:#0F2A20;          /* Piton green, deepest */
+  --leaf:#2E6B45;         /* leaf green */
+  --leaf-soft:#DCE8DA;
+  --paper:#F1F4EC;        /* leafy off-white */
+  --card:#FFFFFF;
+  --sun:#F2B705;          /* flag gold */
+  --pepper:#D7461E;       /* scotch bonnet */
+  --text:#13261E;
+  --muted:#4A5D52;
+  --line:#D5DDD0;
+  --wa:#1FA855;
+  --wa-ink:#0B5E2E;
+  --shadow:0 10px 30px rgba(15,42,32,.10);
+  --r-lg:22px; --r:14px; --r-sm:9px;
+  --display:'Bricolage Grotesque', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
+  --body:'Figtree', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --wrap:1180px;
+}
+[data-theme="dark"]{
+  --ink:#06130D;
+  --leaf:#5FAE7E;
+  --leaf-soft:#1A3528;
+  --paper:#0B1C15;
+  --card:#12291F;
+  --text:#E9EFE6;
+  --muted:#A8BDB0;
+  --line:#24402F;
+  --shadow:0 10px 30px rgba(0,0,0,.40);
+}
+
+/* ===================== BASE ===================== */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:120px}
+body{margin:0;font-family:var(--body);font-size:1rem;line-height:1.6;color:var(--text);background:var(--paper);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--display);line-height:1.02;letter-spacing:-.025em;margin:0}
+p{margin:0}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:6px}
+.wrap{width:min(100% - 2.5rem, var(--wrap));margin-inline:auto}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.ico{width:1.1em;height:1.1em;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.skip-link{position:absolute;left:1rem;top:-80px;z-index:200;background:var(--sun);color:#13261E;font-weight:700;padding:.6rem 1rem;border-radius:0 0 10px 10px;text-decoration:none}
+.skip-link:focus{top:0}
+
+/* ===================== BUTTONS ===================== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:48px;padding:.8rem 1.4rem;border-radius:999px;border:2px solid transparent;font-weight:700;font-size:1rem;text-decoration:none;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.btn-wa{background:var(--wa);color:#fff}
+.btn-wa:hover{background:var(--wa-ink)}
+.btn-sun{background:var(--sun);color:#13261E}
+.btn-sun:hover{background:#FFCB2E}
+.btn-line{border-color:currentColor;background:transparent}
+.btn-line:hover{background:rgba(255,255,255,.08)}
+
+/* ===================== HEADER (sticky, carries the demo disclaimer) ===================== */
+.site-head{position:sticky;top:0;z-index:100}
+.demo-note{background:var(--sun);color:#13261E;font-size:.78rem;line-height:1.4;padding:.45rem 0;text-align:center}
+.demo-note strong{font-weight:700}
+.nav{background:var(--card);border-bottom:1px solid var(--line);transition:box-shadow .2s}
+.site-head.scrolled .nav{box-shadow:0 6px 20px rgba(0,0,0,.08)}
+.nav-row{display:flex;align-items:center;gap:1rem;min-height:64px}
+.brand{display:flex;align-items:center;gap:.55rem;text-decoration:none;font-family:var(--display);font-weight:800;font-size:1.3rem;letter-spacing:-.02em;color:var(--text);margin-right:auto}
+.brand svg{width:30px;height:30px}
+.brand{white-space:nowrap}
+.nav-links{display:none;gap:.25rem}
+.nav-links a{text-decoration:none;font-weight:600;font-size:.95rem;color:var(--muted);padding:.5rem .8rem;border-radius:var(--r-sm)}
+.nav-links a:hover{color:var(--text);background:var(--paper)}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:transparent;cursor:pointer;color:var(--text)}
+.icon-btn:hover{background:var(--paper)}
+.cart-btn{position:relative;display:inline-flex;align-items:center;gap:.45rem;height:44px;padding:0 1rem;border-radius:999px;border:1px solid var(--line);background:transparent;cursor:pointer;font-weight:700}
+.cart-btn:hover{background:var(--paper)}
+.cart-count{min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--leaf);color:#fff;font-size:.75rem;display:inline-flex;align-items:center;justify-content:center}
+[data-theme="dark"] .cart-count{color:#06130D}
+.cart-count[data-empty="true"]{background:var(--line);color:var(--muted)}
+.mobile-menu{border-top:1px solid var(--line);padding:.5rem 0 1rem}
+.mobile-menu a{display:block;padding:.75rem .25rem;font-weight:600;text-decoration:none;border-bottom:1px solid var(--line)}
+.mobile-menu a:last-child{border-bottom:0}
+@media (min-width:960px){
+  .nav-links{display:flex}
+  .menu-btn,.mobile-menu{display:none !important}
+}
+
+/* ===================== HERO ===================== */
+.hero{background:var(--ink);color:#F3F6EF;padding:3rem 0 3.5rem;overflow:hidden}
+.hero-grid{display:grid;gap:2.25rem;align-items:center}
+.hero h1{font-size:clamp(2.7rem, 9vw, 5.6rem);font-weight:800;max-width:11ch;color:#fff}
+.hero-sub{font-size:1.1rem;line-height:1.65;color:#C9D6CC;max-width:46ch;margin:1.25rem 0 1.75rem}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:.75rem}
+.hero-ctas .btn-line{color:#fff}
+.hero-facts{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;margin:1.75rem 0 0;padding:0;list-style:none;font-size:.92rem;color:#C9D6CC}
+.hero-facts li{display:flex;align-items:center;gap:.45rem}
+.hero-facts li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sun)}
+
+.hero-visual{position:relative}
+.hero-photo{border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3.4;background:linear-gradient(145deg,#1E4A35,#2E6B45 60%,#8A6A12)}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.pack-label{position:absolute;left:-.5rem;bottom:-1.25rem;background:#FFF9E6;color:#13261E;border-radius:12px;padding:.85rem 1.1rem;box-shadow:0 14px 34px rgba(0,0,0,.35);max-width:230px;border:2px dashed #C9A227;outline:6px solid #FFF9E6;outline-offset:-1px}
+.pack-label b{display:block;font-family:var(--display);font-size:1.15rem;line-height:1.1}
+.pack-label span{font-size:.8rem;color:#4A5D52}
+
+@media (min-width:900px){
+  .hero{padding:5rem 0 5.5rem}
+  .hero-grid{grid-template-columns:1.05fr .95fr;gap:3.5rem}
+  .pack-label{left:-2rem;bottom:2rem}
+}
+
+/* one orchestrated load moment, hero only */
+@media (prefers-reduced-motion:no-preference){
+  .hero h1,.hero-sub,.hero-ctas,.hero-facts{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+  .hero-sub{animation-delay:.08s}.hero-ctas{animation-delay:.16s}.hero-facts{animation-delay:.24s}
+  .pack-label{animation:stamp .6s .45s cubic-bezier(.2,.9,.3,1.3) both}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  @keyframes stamp{from{opacity:0;transform:rotate(-6deg) scale(.85)}to{opacity:1;transform:rotate(-2deg) scale(1)}}
+}
+.pack-label{transform:rotate(-2deg)}
+
+/* ===================== SECTIONS ===================== */
+.section{padding:4.5rem 0}
+.sec-head{max-width:640px;margin-bottom:2.25rem}
+.sec-head h2{font-size:clamp(2rem, 5vw, 3.1rem);font-weight:800}
+.sec-head p{color:var(--muted);font-size:1.05rem;margin-top:.8rem}
+
+/* ===================== PRODUCTS ===================== */
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.75rem}
+.chip{min-height:44px;padding:.5rem 1.05rem;border-radius:999px;border:1.5px solid var(--line);background:var(--card);font-weight:600;font-size:.92rem;cursor:pointer;color:var(--text)}
+.chip:hover{border-color:var(--leaf)}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+[data-theme="dark"] .chip[aria-pressed="true"]{background:var(--leaf);border-color:var(--leaf);color:#06130D}
+.chip .n{opacity:.65;font-weight:500;margin-left:.25rem}
+
+.grid{display:grid;gap:1.1rem;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));list-style:none;padding:0;margin:0}
+.p-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;height:100%}
+.p-media{position:relative;aspect-ratio:4/3;overflow:hidden}
+.p-media.breading{background:linear-gradient(140deg,#173A2A,#2E6B45)}
+.p-media.rubs{background:linear-gradient(140deg,#4A1A08,#8B3A1A)}
+.p-media.sauces{background:linear-gradient(140deg,#5A4410,#A07A1C)}
+.p-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.16)}
+.p-fallback svg{width:38%;height:auto}
+.p-media picture,.p-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.p-badge{position:absolute;top:.7rem;left:.7rem;z-index:2;font-size:.75rem;font-weight:700;padding:.25rem .6rem;border-radius:6px;background:#FFF9E6;color:#13261E}
+.p-badge.hot{background:var(--pepper);color:#fff}
+.p-weight{position:absolute;right:.7rem;bottom:.7rem;z-index:2;font-size:.75rem;font-weight:700;padding:.2rem .55rem;border-radius:999px;background:rgba(10,20,15,.65);color:#fff}
+.p-body{padding:1.05rem 1.1rem 1.15rem;display:flex;flex-direction:column;gap:.45rem;flex:1}
+.p-type{font-size:.8rem;font-weight:600;color:var(--leaf)}
+.p-name{font-family:var(--display);font-size:1.3rem;font-weight:700;letter-spacing:-.015em;line-height:1.1}
+.p-desc{font-size:.92rem;color:var(--muted);flex:1}
+.p-foot{display:flex;align-items:center;justify-content:space-between;gap:.5rem;margin-top:.5rem}
+.p-price{font-family:var(--display);font-weight:800;font-size:1.3rem}
+.p-price small{font-family:var(--body);font-weight:500;font-size:.75rem;color:var(--muted)}
+.add-btn{display:inline-flex;align-items:center;gap:.35rem;min-height:44px;padding:0 1.05rem;border:0;border-radius:999px;background:var(--ink);color:#fff;font-weight:700;cursor:pointer}
+[data-theme="dark"] .add-btn{background:var(--leaf);color:#06130D}
+.add-btn:hover{background:var(--leaf)}
+.qty{display:inline-flex;align-items:center;gap:.25rem;border:1px solid var(--line);border-radius:999px;padding:.2rem}
+.qty button{width:38px;height:38px;border-radius:50%;border:0;background:var(--paper);font-size:1.15rem;font-weight:700;cursor:pointer;color:var(--text)}
+.qty button:hover{background:var(--leaf-soft)}
+.qty output{min-width:1.6rem;text-align:center;font-weight:700}
+.noscript-note{padding:1rem;border:1px dashed var(--line);border-radius:var(--r)}
+
+/* ===================== WHERE TO BUY (signature) ===================== */
+.wtb{background:var(--leaf-soft)}
+.wtb-grid{display:grid;gap:2rem}
+.map-card{background:var(--ink);border-radius:var(--r-lg);padding:1.5rem 1rem 1rem;color:#C9D6CC;position:relative}
+.map-card svg{width:100%;max-width:320px;height:auto;margin:0 auto;display:block}
+.island{fill:#1E4A35;stroke:#5FAE7E;stroke-width:1.5;stroke-linejoin:round}
+.piton{fill:#2E6B45;stroke:#5FAE7E;stroke-width:1}
+.pin{cursor:pointer}
+.pin circle.dot{fill:#F3F6EF;stroke:var(--ink);stroke-width:2.5;transition:r .2s, fill .2s}
+.pin circle.halo{fill:var(--sun);opacity:0;transition:opacity .2s}
+.pin text{fill:#C9D6CC;font-family:var(--body);font-size:10px;font-weight:600}
+.pin.active circle.dot{fill:var(--sun)}
+.pin.active circle.halo{opacity:.28}
+.pin.active text{fill:#fff}
+.map-note{font-size:.75rem;text-align:center;margin-top:.5rem;color:#93A79A}
+
+.town-chips{margin-bottom:1rem}
+.wtb-status{font-weight:600;margin-bottom:1rem;color:var(--muted)}
+.stockists{list-style:none;padding:0;margin:0;display:grid;gap:.75rem}
+.stockist{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.1rem;display:grid;grid-template-columns:1fr auto;gap:.25rem 1rem;align-items:center}
+.stockist h3{font-family:var(--display);font-size:1.15rem;font-weight:700;letter-spacing:-.01em}
+.stockist .meta{font-size:.88rem;color:var(--muted);grid-column:1}
+.stockist a{grid-column:2;grid-row:1 / span 2;font-size:.88rem;font-weight:700;color:var(--wa-ink);text-decoration:none;display:inline-flex;align-items:center;gap:.35rem;padding:.55rem .85rem;border-radius:999px;border:1.5px solid var(--wa);min-height:44px}
+[data-theme="dark"] .stockist a{color:#6FDC9A}
+.stockist a:hover{background:rgba(31,168,85,.1)}
+
+.extra-paths{display:grid;gap:1rem;margin-top:2.5rem}
+.path{background:var(--card);border-radius:var(--r);padding:1.4rem;border:1px solid var(--line);display:flex;flex-direction:column;gap:.6rem;align-items:flex-start}
+.path h3{font-size:1.35rem;font-weight:800}
+.path p{color:var(--muted)}
+.path .btn{margin-top:.4rem}
+@media (min-width:900px){
+  .wtb-grid{grid-template-columns:.85fr 1.15fr;align-items:start}
+  .map-card{position:sticky;top:150px}
+  .extra-paths{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:520px){
+  .stockist{grid-template-columns:1fr}
+  .stockist a{grid-column:1;grid-row:auto;justify-self:start;margin-top:.4rem}
+}
+
+/* ===================== STORY ===================== */
+.story-grid{display:grid;gap:2rem;align-items:center}
+.story-photo{border-radius:var(--r-lg);overflow:hidden;aspect-ratio:5/4;background:linear-gradient(145deg,#1E4A35,#8A6A12)}
+.story-photo img{width:100%;height:100%;object-fit:cover}
+.story-title{font-size:clamp(2rem,5vw,3.1rem);font-weight:800}
+.story-text p{color:var(--muted);font-size:1.05rem;margin-top:1rem;max-width:58ch}
+.story-text .lead{color:var(--text);font-size:1.2rem;font-weight:500}
+@media (min-width:900px){.story-grid{grid-template-columns:1fr 1fr;gap:4rem}}
+
+/* ===================== HOW TO ORDER ===================== */
+.howto{background:var(--ink);color:#F3F6EF}
+.howto .sec-head p{color:#C9D6CC}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:1rem;counter-reset:s}
+.steps li{counter-increment:s;border-top:2px solid rgba(242,183,5,.5);padding-top:1.1rem}
+.steps li::before{content:counter(s);font-family:var(--display);font-weight:800;font-size:2.6rem;line-height:1;color:var(--sun);display:block;margin-bottom:.5rem}
+.steps h3{font-size:1.3rem;font-weight:700;margin-bottom:.4rem}
+.steps p{color:#C9D6CC;max-width:34ch}
+@media (min-width:760px){.steps{grid-template-columns:repeat(3,1fr);gap:2rem}}
+.howto-cta{margin-top:2.5rem}
+
+/* ===================== REVIEWS PLACEHOLDER ===================== */
+.reviews-box{border:2px dashed var(--line);border-radius:var(--r-lg);padding:2.25rem 1.5rem;text-align:center;background:var(--card)}
+.reviews-box h2{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800}
+.reviews-box p{color:var(--muted);margin:.6rem auto 0;max-width:52ch}
+
+/* ===================== FOOTER ===================== */
+.site-foot{background:var(--ink);color:#C9D6CC;padding:3.5rem 0 6rem;font-size:.95rem}
+.foot-grid{display:grid;gap:2rem}
+.foot-brand{font-family:var(--display);font-weight:800;font-size:1.5rem;color:#fff}
+.site-foot h2{font-family:var(--body);font-size:.95rem;font-weight:700;color:#fff;margin-bottom:.6rem;letter-spacing:0}
+.site-foot a{color:#C9D6CC;text-decoration:none}
+.site-foot a:hover{color:#fff;text-decoration:underline}
+.foot-links{list-style:none;padding:0;margin:0;display:grid;gap:.4rem}
+.socials{display:flex;gap:.6rem;align-items:center;margin-top:1rem}
+.social-preview{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.18);display:inline-flex;align-items:center;justify-content:center;opacity:.45}
+.preview-tag{font-size:.75rem;color:#93A79A}
+.foot-disclaimer{margin-top:2.5rem;padding:1rem 1.1rem;border:1px solid rgba(242,183,5,.35);border-radius:var(--r);font-size:.85rem;line-height:1.55;color:#DCE5DE}
+.foot-bottom{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;justify-content:space-between;margin-top:1.5rem;font-size:.85rem;color:#93A79A}
+.built{color:#fff !important;font-weight:700}
+@media (min-width:860px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr 1.2fr}}
+
+/* ===================== FLOATING WHATSAPP ===================== */
+.wa-float{position:fixed;right:1rem;bottom:1rem;z-index:90;display:inline-flex;align-items:center;gap:.5rem;min-height:52px;padding:0 1.2rem;border-radius:999px;background:var(--wa);color:#fff;font-weight:700;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.wa-float:hover{background:var(--wa-ink)}
+
+/* ===================== CART DRAWER ===================== */
+.scrim{position:fixed;inset:0;background:rgba(5,15,10,.55);z-index:140;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
+.scrim.open{opacity:1;visibility:visible}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);background:var(--card);z-index:150;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);box-shadow:-10px 0 40px rgba(0,0,0,.25)}
+.drawer.open{transform:none}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;border-bottom:1px solid var(--line)}
+.drawer-head h2{font-size:1.4rem;font-weight:800}
+.drawer-body{flex:1;overflow-y:auto;padding:.5rem 1.25rem}
+.drawer-foot{border-top:1px solid var(--line);padding:1rem 1.25rem 1.25rem}
+.empty{padding:3rem 0;text-align:center;color:var(--muted)}
+.line{display:grid;grid-template-columns:1fr auto;gap:.35rem .75rem;padding:.9rem 0;border-bottom:1px solid var(--line)}
+.line:last-child{border-bottom:0}
+.line-name{font-weight:700}
+.line-meta{font-size:.85rem;color:var(--muted)}
+.line-total{font-weight:700;text-align:right}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.4rem}
+.total span:last-child{font-family:var(--display);font-size:1.6rem;font-weight:800}
+.drawer-note{font-size:.82rem;color:var(--muted);margin-bottom:.9rem}
+.drawer-foot .btn{width:100%}
+.btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
+.clear-btn{display:block;margin:.6rem auto 0;background:none;border:0;text-decoration:underline;color:var(--muted);cursor:pointer;min-height:40px}
+
+
+/* ===================== SMALL SCREENS ===================== */
+@media (max-width:599px){
+  .demo-note{font-size:.72rem;padding:.4rem .75rem}
+  .brand{font-size:1.1rem}
+  .nav-row{gap:.5rem}
+  .p-card{flex-direction:row}
+  .p-media{aspect-ratio:auto;width:116px;flex-shrink:0}
+  .p-weight{right:.45rem;bottom:.45rem}
+  .p-badge{top:.45rem;left:.45rem;font-size:.7rem}
+  .p-body{padding:.85rem .9rem}
+  .p-name{font-size:1.12rem}
+  .p-desc{font-size:.86rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .p-foot{flex-wrap:wrap}
+  .wa-float span{display:none}
+  .wa-float{width:56px;padding:0;justify-content:center}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none !important;animation:none !important}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ SVG ICON SPRITE (no icon font, no third-party script) ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5z"/><path d="M9 9.5c.3 1.8 2 3.6 4.2 4.2l1-1 1.8.8-.4 1.5c-3.3.2-7.1-3.4-7-6.9l1.6-.4.8 1.8z"/></symbol>
+  <symbol id="i-basket" viewBox="0 0 24 24"><path d="M3 9h18l-1.6 10.2A2 2 0 0 1 17.4 21H6.6a2 2 0 0 1-2-1.8L3 9z"/><path d="M8 9l4-6 4 6"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6.5v3.5H9V21h3.5v-7.5H15l.5-3.5h-3V7a1 1 0 0 1 1-1H15z"/></symbol>
+</svg>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ============ HEADER + PERSISTENT DEMO DISCLAIMER ============ -->
+<header class="site-head" id="siteHead">
+  <p class="demo-note" role="note">
+    <strong>Concept demo by Jamal Samuel.</strong> Piton Provisions is a fictional brand. All products, prices, shops, images, figures and text are illustrative, not real business data.
+  </p>
+  <div class="nav">
+    <div class="wrap">
+      <div class="nav-row">
+        <a class="brand" href="#top" aria-label="Piton Provisions, back to top">
+          <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M3 27L12 7l4.5 9L19 11l10 16z" fill="currentColor"/><path d="M12 7l2.2 5" stroke="#F2B705" stroke-width="2" stroke-linecap="round"/></svg>
+          Piton Provisions
+        </a>
+        <nav class="nav-links" aria-label="Main">
+          <a href="#products">Products</a>
+          <a href="#where-to-buy">Where to buy</a>
+          <a href="#story">Our story</a>
+          <a href="#how-to-order">How to order</a>
+        </nav>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="ico" id="themeIco"><use href="#i-moon"/></svg>
+        </button>
+        <button class="cart-btn" id="cartBtn" type="button" aria-controls="cartDrawer" aria-expanded="false">
+          <svg class="ico" aria-hidden="true"><use href="#i-basket"/></svg>
+          <span class="sr-only">Open cart,</span>
+          <span class="cart-count" id="cartCount" data-empty="true">0</span>
+          <span class="sr-only">items</span>
+        </button>
+        <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu">
+          <svg class="ico" aria-hidden="true"><use href="#i-menu"/></svg>
+        </button>
+      </div>
+      <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile" hidden>
+        <a href="#products">Products</a>
+        <a href="#where-to-buy">Where to buy</a>
+        <a href="#story">Our story</a>
+        <a href="#how-to-order">How to order</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top" aria-labelledby="heroTitle">
+  <div class="wrap hero-grid">
+    <div>
+      <h1 id="heroTitle">Fry it the Saint Lucian way.</h1>
+      <p class="hero-sub">Cassava and breadfruit breading mixes, dry rubs and sauces, made on the island. Pick some up at a shop near you, or order on WhatsApp and we'll bring it to your door.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-wa" href="https://wa.me/17587235872?text=Hi%20Piton%20Provisions!%20I%27d%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer">
+          <svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> Order on WhatsApp
+        </a>
+        <a class="btn btn-line" href="#where-to-buy">
+          <svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Find a shop near you
+        </a>
+      </div>
+      <ul class="hero-facts">
+        <li>No artificial preservatives</li>
+        <li>Island-wide delivery</li>
+        <li>Shop or WhatsApp, your choice</li>
+      </ul>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-photo">
+        <picture>
+          <source srcset="piton-provisions-images/hero-spread.webp" type="image/webp">
+          <img src="piton-provisions-images/hero-spread.jpg" width="1200" height="1020" loading="eager" fetchpriority="high" decoding="async" onerror="this.parentNode.remove()" alt="Bags of cassava and breadfruit breading mix beside golden fried fish and a jar of dry rub on a wooden kitchen table">
+        </picture>
+      </div>
+      <div class="pack-label" aria-hidden="true">
+        <b>Cassava Breading Mix</b>
+        <span>340g bag, made in Saint Lucia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCTS ============ -->
+<section class="section" id="products" aria-labelledby="productsTitle">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="productsTitle">The full range</h2>
+      <p>Twelve products for the way Saint Lucia actually cooks. Add what you want, then send your order on WhatsApp in one tap.</p>
+    </div>
+    <div class="chips" role="group" aria-label="Filter products">
+      <button class="chip" type="button" data-cat="all" aria-pressed="true">All <span class="n">12</span></button>
+      <button class="chip" type="button" data-cat="breading" aria-pressed="false">Breading mixes <span class="n">6</span></button>
+      <button class="chip" type="button" data-cat="rubs" aria-pressed="false">Dry rubs <span class="n">4</span></button>
+      <button class="chip" type="button" data-cat="sauces" aria-pressed="false">Sauces <span class="n">2</span></button>
+    </div>
+    <p class="sr-only" id="productStatus" aria-live="polite"></p>
+    <ul class="grid" id="productGrid" aria-label="Products"></ul>
+    <noscript>
+      <p class="noscript-note">The product list needs JavaScript. You can still <a href="https://wa.me/17587235872?text=Hi%20Piton%20Provisions!%20Please%20send%20me%20your%20product%20list.">ask for the full list on WhatsApp</a>.</p>
+    </noscript>
+  </div>
+</section>
+
+<!-- ============ WHERE TO BUY (signature section) ============ -->
+<section class="section wtb" id="where-to-buy" aria-labelledby="wtbTitle">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="wtbTitle">Find us on a shelf near you</h2>
+      <p>Pick your town to see which shops carry Piton Provisions. Not sure they have your flavour today? Ask us before you go.</p>
+    </div>
+
+    <div class="wtb-grid">
+      <div class="map-card">
+        <svg viewBox="0 0 240 360" role="img" aria-labelledby="mapTitle" id="islandMap">
+          <title id="mapTitle">Simplified map of Saint Lucia showing towns with stockists</title>
+          <path class="island" d="M128 12 C132.8 11.0 138.0 18.0 142 24 C146.0 30.0 148.0 38.7 152 48 C156.0 57.3 161.3 69.7 166 80 C170.7 90.3 175.8 100.0 180 110 C184.2 120.0 188.3 129.2 191 140 C193.7 150.8 195.5 163.3 196 175 C196.5 186.7 195.3 198.3 194 210 C192.7 221.7 190.3 234.2 188 245 C185.7 255.8 183.2 265.8 180 275 C176.8 284.2 173.0 292.2 169 300 C165.0 307.8 160.8 315.3 156 322 C151.2 328.7 146.0 336.0 140 340 C134.0 344.0 126.3 346.3 120 346 C113.7 345.7 107.3 342.3 102 338 C96.7 333.7 93.0 327.0 88 320 C83.0 313.0 77.0 304.3 72 296 C67.0 287.7 62.2 279.0 58 270 C53.8 261.0 49.8 251.7 47 242 C44.2 232.3 42.0 222.0 41 212 C40.0 202.0 40.0 192.0 41 182 C42.0 172.0 44.3 161.3 47 152 C49.7 142.7 53.2 134.5 57 126 C60.8 117.5 65.5 109.2 70 101 C74.5 92.8 79.3 85.0 84 77 C88.7 69.0 93.2 60.8 98 53 C102.8 45.2 108.0 36.8 113 30 C118.0 23.2 123.2 13.0 128 12 Z"/>
+          <path class="piton" d="M56 268 l7 -20 l6 20 z"/>
+          <path class="piton" d="M67 272 l5 -15 l5 15 z"/>
+          <g id="pins"></g>
+        </svg>
+        <p class="map-note">Map simplified for illustration.</p>
+      </div>
+
+      <div>
+        <div class="chips town-chips" id="townChips" role="group" aria-label="Filter shops by town"></div>
+        <p class="wtb-status" id="wtbStatus" aria-live="polite"></p>
+        <ul class="stockists" id="stockistList"></ul>
+      </div>
+    </div>
+
+    <div class="extra-paths">
+      <article class="path">
+        <h3>No shop nearby?</h3>
+        <p>We deliver anywhere on the island. Send your order on WhatsApp and we'll confirm a delivery day.</p>
+        <a class="btn btn-wa" href="https://wa.me/17587235872?text=Hi%20Piton%20Provisions!%20There%27s%20no%20shop%20near%20me.%20Can%20you%20deliver%20to%20me%3F" target="_blank" rel="noopener noreferrer">
+          <svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> Ask about delivery
+        </a>
+      </article>
+      <article class="path">
+        <h3>Taking a taste home?</h3>
+        <p>Visiting the island and want to bring some back? Tell us your flight day and we'll get a pack ready for you.</p>
+        <a class="btn btn-wa" href="https://wa.me/17587235872?text=Hi%20Piton%20Provisions!%20I%27m%20visiting%20Saint%20Lucia%20and%20would%20like%20to%20take%20some%20products%20home." target="_blank" rel="noopener noreferrer">
+          <svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> Plan a take-home order
+        </a>
+      </article>
+      <article class="path">
+        <h3>Stock us in your shop</h3>
+        <p>Run a shop, deli, hotel or gift store? Ask for wholesale prices and we'll send the details.</p>
+        <a class="btn btn-wa" href="https://wa.me/17587235872?text=Hi%20Piton%20Provisions!%20I%27d%20like%20wholesale%20prices%20to%20stock%20your%20products.%20My%20business%20is%3A%20" target="_blank" rel="noopener noreferrer">
+          <svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> Ask for wholesale prices
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STORY ============ -->
+<section class="section" id="story" aria-labelledby="storyTitle">
+  <div class="wrap story-grid">
+    <div class="story-photo">
+      <picture>
+        <source srcset="piton-provisions-images/story-kitchen.webp" type="image/webp">
+        <img src="piton-provisions-images/story-kitchen.jpg" width="1000" height="800" loading="lazy" decoding="async" onerror="this.parentNode.remove()" alt="Hands mixing grated cassava and spices in a large bowl in a small home kitchen">
+      </picture>
+    </div>
+    <div class="story-text">
+      <h2 id="storyTitle" class="story-title">It started with one cassava recipe.</h2>
+      <p class="lead">A family breading mix for Friday fish grew into twelve products cooked in kitchens, market stalls and restaurants around the island.</p>
+      <p>Every batch is small and made the same way as the first one. We use cassava, breadfruit and spices grown here, with no artificial preservatives and no imported flavour shortcuts.</p>
+      <p>Want to know what's in a mix, or which one works best for your dish? Just ask.</p>
+      <div class="hero-ctas" style="margin-top:1.5rem">
+        <a class="btn btn-wa" href="https://wa.me/17587235872?text=Hi%20Piton%20Provisions!%20I%20have%20a%20question%20about%20your%20products." target="_blank" rel="noopener noreferrer">
+          <svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> Ask us on WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW TO ORDER ============ -->
+<section class="section howto" id="how-to-order" aria-labelledby="howTitle">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="howTitle">Order in three taps</h2>
+      <p>No account, no app to download. Your order arrives in our WhatsApp already written out.</p>
+    </div>
+    <ol class="steps">
+      <li><h3>Add to your cart</h3><p>Pick your products and set how many of each you want.</p></li>
+      <li><h3>Check your order</h3><p>Open the cart to review items and your total before you send.</p></li>
+      <li><h3>Send on WhatsApp</h3><p>Tap send. We reply to confirm your delivery day or pickup spot.</p></li>
+    </ol>
+    <div class="howto-cta">
+      <a class="btn btn-sun" href="#products"><svg class="ico" aria-hidden="true"><use href="#i-basket"/></svg> Start your order</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS (honest placeholder) ============ -->
+<section class="section" aria-labelledby="reviewsTitle">
+  <div class="wrap">
+    <div class="reviews-box">
+      <h2 id="reviewsTitle">Customer reviews</h2>
+      <p>Real customer reviews go here. On a live site, this section shows genuine reviews from your Google or Facebook page, shared with each customer's permission.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <p class="foot-brand">Piton Provisions</p>
+        <p style="margin-top:.4rem;max-width:34ch">Breading mixes, dry rubs and sauces, made in Saint Lucia.</p>
+        <div class="socials">
+          <span class="social-preview" aria-hidden="true"><svg class="ico"><use href="#i-ig"/></svg></span>
+          <span class="social-preview" aria-hidden="true"><svg class="ico"><use href="#i-fb"/></svg></span>
+          <span class="preview-tag">Social links: preview only</span>
+        </div>
+      </div>
+      <nav aria-label="Footer">
+        <h2>Shop</h2>
+        <ul class="foot-links">
+          <li><a href="#products">Products</a></li>
+          <li><a href="#where-to-buy">Where to buy</a></li>
+          <li><a href="#how-to-order">How to order</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Business</h2>
+        <ul class="foot-links">
+          <li><a href="#story">Our story</a></li>
+          <li><a href="https://wa.me/17587235872?text=Hi%20Piton%20Provisions!%20I%27d%20like%20wholesale%20prices." target="_blank" rel="noopener noreferrer">Wholesale</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Orders</h2>
+        <ul class="foot-links">
+          <li><a href="https://wa.me/17587235872?text=Hi%20Piton%20Provisions!%20I%27d%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer">Order on WhatsApp</a></li>
+          <li>Island-wide delivery, Saint Lucia</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="foot-disclaimer" role="note">
+      <strong>About this page:</strong> Piton Provisions is a concept demo designed and built by Jamal Samuel to show what a product-brand website can do. The brand, products, prices, shops, images, figures and all text are illustrative examples, not real business data. The shops listed are fictional. WhatsApp buttons on this demo reach Jamal Samuel.
+    </p>
+
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> Piton Provisions (fictional demo brand)</span>
+      <a class="built" href="https://www.jamalsamuel.online/" target="_blank" rel="noopener noreferrer">Jamal Samuel Built</a>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/17587235872?text=Hi%20Piton%20Provisions!%20I%27d%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" aria-label="Order on WhatsApp">
+  <svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg><span>Order</span>
+</a>
+
+<!-- ============ CART DRAWER ============ -->
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle" inert>
+  <div class="drawer-head">
+    <h2 id="cartTitle">Your order</h2>
+    <button class="icon-btn" id="cartClose" type="button" aria-label="Close cart"><svg class="ico" aria-hidden="true"><use href="#i-close"/></svg></button>
+  </div>
+  <div class="drawer-body" id="cartBody"></div>
+  <div class="drawer-foot" id="cartFoot"></div>
+</aside>
+
+<script>
+'use strict';
+(function(){
+  var WA = '17587235872';
+  var IMG = 'piton-provisions-images/';
+
+  /* ---------- DATA (illustrative) ---------- */
+  var PRODUCTS = [
+    {id:'cassava-breading-mix',   name:'Cassava Breading Mix',   cat:'breading', price:15.00, size:'340g', badge:{t:'Bestseller'}, desc:'Our first recipe. Light, crisp and very Saint Lucian. Made for fish, chicken and fish cakes.'},
+    {id:'breadfruit-breading-mix',name:'Breadfruit Breading Mix',cat:'breading', price:15.00, size:'340g', desc:'Breadfruit flour gives a golden, slightly nutty crust. Lovely on pork chops and snapper.'},
+    {id:'coconut-breading-mix',   name:'Coconut Breading Mix',   cat:'breading', price:16.50, size:'340g', badge:{t:'New'}, desc:'Toasted coconut in our base mix. Best on shrimp and chicken strips.'},
+    {id:'original-breading-mix',  name:'Original Breading Mix',  cat:'breading', price:14.00, size:'340g', desc:'Well seasoned and easy to use. The one to keep in the cupboard for everything.'},
+    {id:'spicy-breading-mix',     name:'Spicy Breading Mix',     cat:'breading', price:14.00, size:'340g', badge:{t:'Hot',hot:true}, desc:'The Original with scotch bonnet. A slow heat that builds with every bite.'},
+    {id:'turmeric-breading-mix',  name:'Turmeric Breading Mix',  cat:'breading', price:15.00, size:'340g', desc:'Turmeric and island spices for a deep golden colour and a warm, earthy taste.'},
+    {id:'original-smoke-dry-rub', name:'Original Smoke Dry Rub', cat:'rubs',     price:19.50, size:'180g', desc:'An all-purpose rub with a gentle smoky finish. Great on the grill or in the oven.'},
+    {id:'spicy-smoke-dry-rub',    name:'Spicy Smoke Dry Rub',    cat:'rubs',     price:19.50, size:'180g', badge:{t:'Fiery',hot:true}, desc:'Original Smoke with real heat. For people who like their barbecue to fight back.'},
+    {id:'original-dry-rub',       name:'Original Dry Rub',       cat:'rubs',     price:18.00, size:'180g', desc:'No smoke, just a classic Caribbean seasoning for everyday roasting and grilling.'},
+    {id:'spicy-dry-rub',          name:'Spicy Dry Rub',          cat:'rubs',     price:18.00, size:'180g', desc:'Clean, punchy heat without the smoke. Rub it on and leave it overnight.'},
+    {id:'tartar-sauce',           name:'Tartar Sauce',           cat:'sauces',   price:12.00, size:'250ml', desc:'Creamy and tangy with a fresh herb finish. Made to go with our breading mixes.'},
+    {id:'coleslaw-mix',           name:'Coleslaw Mix',           cat:'sauces',   price:10.50, size:'300g', desc:'Seasoned and ready. Add your dressing and the side dish is done.'}
+  ];
+  var TYPE = {breading:'Breading mix', rubs:'Dry rub', sauces:'Sauce'};
+
+  var TOWNS = [
+    {name:'Gros Islet', x:130, y:42},
+    {name:'Castries',   x:86,  y:94},
+    {name:'Dennery',    x:186, y:166},
+    {name:'Soufrière',  x:54,  y:232},
+    {name:'Micoud',     x:178, y:252},
+    {name:'Vieux Fort', x:128, y:326}
+  ];
+  var STOCKISTS = [
+    {name:'Sunrise Pantry',             town:'Gros Islet', kind:'Mini mart',   carries:'Full range'},
+    {name:'Harbourside Grocery',        town:'Castries',   kind:'Supermarket', carries:'Breading mixes and sauces'},
+    {name:'Morne Road Corner Shop',     town:'Castries',   kind:'Corner shop', carries:'Breading mixes'},
+    {name:'Mango Lane Grocery',         town:'Dennery',    kind:'Grocery',     carries:'Breading mixes and dry rubs'},
+    {name:'Kaz Manjé Deli',             town:'Soufrière',  kind:'Deli',        carries:'Dry rubs and sauces'},
+    {name:'Hilltop Mini Mart',          town:'Micoud',     kind:'Mini mart',   carries:'Breading mixes'},
+    {name:'Southside Supermarket',      town:'Vieux Fort', kind:'Supermarket', carries:'Full range'},
+    {name:'Island Departures Gift Shop',town:'Vieux Fort', kind:'Gift shop',   carries:'Dry rubs and gift packs'}
+  ];
+
+  var $ = function(id){ return document.getElementById(id); };
+  var money = function(n){ return 'EC$' + n.toFixed(2); };
+  var esc = function(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); };
+  var waLink = function(text){ return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(text); };
+
+  /* ---------- THEME ---------- */
+  function setTheme(t){
+    document.documentElement.setAttribute('data-theme', t);
+    var dark = t === 'dark';
+    $('themeBtn').setAttribute('aria-pressed', String(dark));
+    $('themeBtn').setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+    $('themeIco').querySelector('use').setAttribute('href', dark ? '#i-sun' : '#i-moon');
+    try { localStorage.setItem('pp-theme', t); } catch(e) {}
+  }
+  (function(){
+    var saved = null;
+    try { saved = localStorage.getItem('pp-theme'); } catch(e) {}
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setTheme(saved || (prefersDark ? 'dark' : 'light'));
+  })();
+  $('themeBtn').addEventListener('click', function(){
+    setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  /* ---------- MOBILE MENU ---------- */
+  var menuBtn = $('menuBtn'), menu = $('mobileMenu');
+  function toggleMenu(open){
+    menu.hidden = !open;
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    menuBtn.querySelector('use').setAttribute('href', open ? '#i-close' : '#i-menu');
+  }
+  menuBtn.addEventListener('click', function(){ toggleMenu(menu.hidden); });
+  menu.addEventListener('click', function(e){ if (e.target.tagName === 'A') toggleMenu(false); });
+
+  /* ---------- HEADER SHADOW ---------- */
+  window.addEventListener('scroll', function(){
+    $('siteHead').classList.toggle('scrolled', window.scrollY > 10);
+  }, {passive:true});
+
+  /* ---------- CART STATE ---------- */
+  var cart = {}; // id -> qty
+  var qtyOf = function(id){ return cart[id] || 0; };
+  var count = function(){ return Object.keys(cart).reduce(function(s,k){ return s + cart[k]; }, 0); };
+  var total = function(){ return PRODUCTS.reduce(function(s,p){ return s + p.price * qtyOf(p.id); }, 0); };
+
+  function setQty(id, q){
+    if (q <= 0) delete cart[id]; else cart[id] = q;
+    renderCardControls(id);
+    renderCart();
+    var n = count(), badge = $('cartCount');
+    badge.textContent = n;
+    badge.setAttribute('data-empty', String(n === 0));
+  }
+
+  /* ---------- PRODUCTS ---------- */
+  var currentCat = 'all';
+  function cardControls(p){
+    var q = qtyOf(p.id);
+    if (q === 0) {
+      return '<button class="add-btn" type="button" data-act="add" data-id="' + p.id + '" aria-label="Add ' + esc(p.name) + ' to cart"><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg>Add</button>';
+    }
+    return '<div class="qty" role="group" aria-label="' + esc(p.name) + ' quantity">' +
+      '<button type="button" data-act="dec" data-id="' + p.id + '" aria-label="Remove one ' + esc(p.name) + '">−</button>' +
+      '<output aria-live="polite">' + q + '</output>' +
+      '<button type="button" data-act="inc" data-id="' + p.id + '" aria-label="Add one more ' + esc(p.name) + '">+</button></div>';
+  }
+  function renderCardControls(id){
+    var slot = document.querySelector('[data-controls="' + id + '"]');
+    if (!slot) return;
+    var p = PRODUCTS.filter(function(x){ return x.id === id; })[0];
+    var hadFocus = slot.contains(document.activeElement);
+    var focusedAct = hadFocus ? document.activeElement.getAttribute('data-act') : null;
+    slot.innerHTML = cardControls(p);
+    if (hadFocus) {
+      var target = slot.querySelector('[data-act="' + focusedAct + '"]') || slot.querySelector('button');
+      if (target) target.focus();
+    }
+  }
+  function renderProducts(){
+    var list = PRODUCTS.filter(function(p){ return currentCat === 'all' || p.cat === currentCat; });
+    $('productGrid').innerHTML = list.map(function(p){
+      return '<li><article class="p-card">' +
+        '<div class="p-media ' + p.cat + '">' +
+          '<span class="p-fallback" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M3 27L12 7l4.5 9L19 11l10 16z" fill="currentColor"/></svg></span>' +
+          '<picture><source srcset="' + IMG + p.id + '.webp" type="image/webp">' +
+          '<img src="' + IMG + p.id + '.jpg" width="800" height="600" loading="lazy" decoding="async" alt="' + esc(p.name) + ', ' + p.size + ' pack" onerror="this.parentNode.remove()"></picture>' +
+          (p.badge ? '<span class="p-badge' + (p.badge.hot ? ' hot' : '') + '">' + esc(p.badge.t) + '</span>' : '') +
+          '<span class="p-weight">' + p.size + '</span>' +
+        '</div>' +
+        '<div class="p-body">' +
+          '<span class="p-type">' + TYPE[p.cat] + '</span>' +
+          '<h3 class="p-name">' + esc(p.name) + '</h3>' +
+          '<p class="p-desc">' + esc(p.desc) + '</p>' +
+          '<div class="p-foot"><span class="p-price">' + money(p.price) + ' <small>each</small></span>' +
+          '<div data-controls="' + p.id + '">' + cardControls(p) + '</div></div>' +
+        '</div></article></li>';
+    }).join('');
+    $('productStatus').textContent = 'Showing ' + list.length + ' products';
+  }
+  document.querySelectorAll('#products .chip').forEach(function(chip){
+    chip.addEventListener('click', function(){
+      document.querySelectorAll('#products .chip').forEach(function(c){ c.setAttribute('aria-pressed','false'); });
+      chip.setAttribute('aria-pressed','true');
+      currentCat = chip.getAttribute('data-cat');
+      renderProducts();
+    });
+  });
+  $('productGrid').addEventListener('click', function(e){
+    var b = e.target.closest('button[data-act]'); if (!b) return;
+    var id = b.getAttribute('data-id'), act = b.getAttribute('data-act');
+    setQty(id, qtyOf(id) + (act === 'dec' ? -1 : 1));
+  });
+
+  /* ---------- CART DRAWER ---------- */
+  var drawer = $('cartDrawer'), scrim = $('scrim'), cartBtn = $('cartBtn');
+  function orderMessage(){
+    var lines = ['Hi Piton Provisions! I\'d like to place an order:', ''];
+    PRODUCTS.forEach(function(p){
+      var q = qtyOf(p.id);
+      if (q) lines.push('- ' + q + ' x ' + p.name + ' (' + p.size + ') = ' + money(p.price * q));
+    });
+    lines.push('', 'Total: ' + money(total()), '', 'Name: ', 'Delivery or pickup: ', 'Area/town: ');
+    return lines.join('\n');
+  }
+  function renderCart(){
+    var items = PRODUCTS.filter(function(p){ return qtyOf(p.id) > 0; });
+    if (!items.length) {
+      $('cartBody').innerHTML = '<p class="empty">Your cart is empty. Add a few products to start your order.</p>';
+      $('cartFoot').innerHTML = '<a class="btn btn-wa" aria-disabled="true" role="link"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> Send order on WhatsApp</a>';
+      return;
+    }
+    $('cartBody').innerHTML = '<ul style="list-style:none;margin:0;padding:0">' + items.map(function(p){
+      var q = qtyOf(p.id);
+      return '<li class="line"><span class="line-name">' + esc(p.name) + '</span><span class="line-total">' + money(p.price * q) + '</span>' +
+        '<span class="line-meta">' + p.size + ', ' + money(p.price) + ' each</span>' +
+        '<div class="qty" role="group" aria-label="' + esc(p.name) + ' quantity" style="justify-self:end">' +
+          '<button type="button" data-act="dec" data-id="' + p.id + '" aria-label="Remove one ' + esc(p.name) + '">−</button>' +
+          '<output>' + q + '</output>' +
+          '<button type="button" data-act="inc" data-id="' + p.id + '" aria-label="Add one more ' + esc(p.name) + '">+</button>' +
+        '</div></li>';
+    }).join('') + '</ul>';
+    $('cartFoot').innerHTML =
+      '<div class="total"><span>Total</span><span>' + money(total()) + '</span></div>' +
+      '<p class="drawer-note">We confirm delivery or pickup with you on WhatsApp. Prices are illustrative.</p>' +
+      '<a class="btn btn-wa" href="' + waLink(orderMessage()) + '" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> Send order on WhatsApp</a>' +
+      '<button class="clear-btn" type="button" id="clearCart">Clear cart</button>';
+  }
+  $('cartBody').addEventListener('click', function(e){
+    var b = e.target.closest('button[data-act]'); if (!b) return;
+    var id = b.getAttribute('data-id'), act = b.getAttribute('data-act');
+    setQty(id, qtyOf(id) + (act === 'dec' ? -1 : 1));
+    var again = $('cartBody').querySelector('button[data-act="' + act + '"][data-id="' + id + '"]');
+    (again || $('cartClose')).focus();
+  });
+  $('cartFoot').addEventListener('click', function(e){
+    if (e.target.id === 'clearCart') {
+      Object.keys(cart).forEach(function(id){ setQty(id, 0); });
+      $('cartClose').focus();
+    }
+  });
+  function openCart(){
+    renderCart();
+    drawer.removeAttribute('inert');
+    drawer.classList.add('open'); scrim.classList.add('open');
+    cartBtn.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function(){ $('cartClose').focus(); }, 60);
+  }
+  function closeCart(){
+    drawer.classList.remove('open'); scrim.classList.remove('open');
+    drawer.setAttribute('inert','');
+    cartBtn.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+    cartBtn.focus();
+  }
+  cartBtn.addEventListener('click', openCart);
+  $('cartClose').addEventListener('click', closeCart);
+  scrim.addEventListener('click', closeCart);
+  drawer.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') { closeCart(); return; }
+    if (e.key !== 'Tab') return;
+    var f = drawer.querySelectorAll('button:not([disabled]), a[href]');
+    if (!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+
+  /* ---------- WHERE TO BUY ---------- */
+  var currentTown = 'All';
+  var NS = 'http://www.w3.org/2000/svg';
+  var pinsG = $('pins');
+  TOWNS.forEach(function(t){
+    var g = document.createElementNS(NS, 'g');
+    g.setAttribute('class', 'pin');
+    g.setAttribute('data-town', t.name);
+    g.setAttribute('aria-hidden', 'true');
+    var halo = document.createElementNS(NS, 'circle');
+    halo.setAttribute('class','halo'); halo.setAttribute('cx', t.x); halo.setAttribute('cy', t.y); halo.setAttribute('r', 14);
+    var dot = document.createElementNS(NS, 'circle');
+    dot.setAttribute('class','dot'); dot.setAttribute('cx', t.x); dot.setAttribute('cy', t.y); dot.setAttribute('r', 6);
+    var label = document.createElementNS(NS, 'text');
+    var left = t.x > 150;
+    label.setAttribute('x', left ? t.x - 11 : t.x + 11);
+    label.setAttribute('y', t.y + 3.5);
+    label.setAttribute('text-anchor', left ? 'end' : 'start');
+    label.textContent = t.name;
+    g.appendChild(halo); g.appendChild(dot); g.appendChild(label);
+    g.addEventListener('click', function(){ setTown(currentTown === t.name ? 'All' : t.name); });
+    pinsG.appendChild(g);
+  });
+
+  var chipWrap = $('townChips');
+  ['All'].concat(TOWNS.map(function(t){ return t.name; })).forEach(function(name){
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip'; b.setAttribute('data-town', name);
+    b.textContent = name === 'All' ? 'All towns' : name;
+    b.addEventListener('click', function(){ setTown(name); });
+    chipWrap.appendChild(b);
+  });
+
+  function setTown(name){
+    currentTown = name;
+    chipWrap.querySelectorAll('.chip').forEach(function(c){
+      c.setAttribute('aria-pressed', String(c.getAttribute('data-town') === name));
+    });
+    pinsG.querySelectorAll('.pin').forEach(function(p){
+      p.classList.toggle('active', name !== 'All' && p.getAttribute('data-town') === name);
+    });
+    var list = STOCKISTS.filter(function(s){ return name === 'All' || s.town === name; });
+    $('stockistList').innerHTML = list.map(function(s){
+      return '<li class="stockist"><h3>' + esc(s.name) + '</h3>' +
+        '<span class="meta">' + esc(s.kind) + ' in ' + esc(s.town) + '. Carries: ' + esc(s.carries) + '</span>' +
+        '<a href="' + waLink('Hi Piton Provisions! Does ' + s.name + ' in ' + s.town + ' have stock right now? I\'m looking for: ') + '" target="_blank" rel="noopener noreferrer">' +
+        '<svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>Check stock<span class="sr-only"> at ' + esc(s.name) + '</span></a></li>';
+    }).join('');
+    $('wtbStatus').textContent = name === 'All'
+      ? list.length + ' shops across the island'
+      : list.length + (list.length === 1 ? ' shop' : ' shops') + ' in ' + name;
+  }
+
+  /* ---------- INIT ---------- */
+  $('year').textContent = new Date().getFullYear();
+  renderProducts();
+  renderCart();
+  setTown('All');
+})();
+</script>
+</body>
+</html>
