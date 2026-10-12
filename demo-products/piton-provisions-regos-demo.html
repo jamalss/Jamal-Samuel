@@ -298,6 +298,27 @@ button{font:inherit;color:inherit}
 .drawer-foot .btn{width:100%}
 .btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
 .clear-btn{display:block;margin:.6rem auto 0;background:none;border:0;text-decoration:underline;color:var(--muted);cursor:pointer;min-height:40px}
+/* order details form */
+:root{--err:#B3360F}
+[data-theme="dark"]{--err:#FF9A76}
+.order-form{margin:1rem 0 1.25rem;padding-top:1.1rem;border-top:1px solid var(--line);display:grid;gap:1rem}
+.order-form h3{font-size:1.2rem;font-weight:800}
+.form-hint,.field-help{font-size:.84rem;color:var(--muted)}
+.field{display:grid;gap:.35rem;border:0;padding:0;margin:0;min-width:0}
+.field>label,.field legend{font-weight:700;font-size:.95rem;padding:0;margin-bottom:.1rem}
+.req{color:var(--err)}
+.field input[type="text"],.field textarea{width:100%;min-height:48px;padding:.7rem .85rem;border:1.5px solid var(--line);border-radius:10px;background:var(--paper);color:var(--text);font:inherit;font-size:16px}
+.field textarea{min-height:72px;resize:vertical}
+.field [aria-invalid="true"]{border-color:var(--err);border-width:2px}
+.field-err{color:var(--err);font-size:.86rem;font-weight:600}
+.field-err:empty,.form-alert:empty{display:none}
+.seg{display:flex;gap:.5rem}
+.seg input{position:absolute;opacity:0;width:1px;height:1px}
+.seg label{flex:1;min-height:48px;display:flex;align-items:center;justify-content:center;border:1.5px solid var(--line);border-radius:999px;cursor:pointer;font-weight:700}
+.seg input:checked+label{background:var(--ink);border-color:var(--ink);color:#fff}
+[data-theme="dark"] .seg input:checked+label{background:var(--leaf);border-color:var(--leaf);color:#06130D}
+.seg input:focus-visible+label{outline:3px solid var(--sun);outline-offset:2px}
+.form-alert{color:var(--err);font-weight:600;font-size:.88rem;text-align:center;margin:.65rem 0 0}
 
 
 /* ===================== SMALL SCREENS ===================== */
@@ -605,8 +626,48 @@ button{font:inherit;color:inherit}
     <h2 id="cartTitle">Your order</h2>
     <button class="icon-btn" id="cartClose" type="button" aria-label="Close cart"><svg class="ico" aria-hidden="true"><use href="#i-close"/></svg></button>
   </div>
-  <div class="drawer-body" id="cartBody"></div>
-  <div class="drawer-foot" id="cartFoot"></div>
+  <div class="drawer-body">
+    <div id="cartBody"></div>
+    <form class="order-form" id="orderForm" novalidate hidden>
+      <h3>Your details</h3>
+      <p class="form-hint">Fields marked <span class="req" aria-hidden="true">*</span><span class="sr-only">with a star</span> are required. We only use these to confirm your order.</p>
+      <div class="field">
+        <label for="custName">Your name <span class="req" aria-hidden="true">*</span></label>
+        <input type="text" id="custName" name="name" autocomplete="name" maxlength="60" required aria-required="true" aria-describedby="custNameErr">
+        <p class="field-err" id="custNameErr"></p>
+      </div>
+      <fieldset class="field">
+        <legend>Delivery or pickup <span class="req" aria-hidden="true">*</span></legend>
+        <div class="seg">
+          <input type="radio" id="optDelivery" name="method" value="Delivery" checked>
+          <label for="optDelivery">Delivery</label>
+          <input type="radio" id="optPickup" name="method" value="Pickup">
+          <label for="optPickup">Pickup</label>
+        </div>
+      </fieldset>
+      <div class="field">
+        <label for="custTown">Area or town <span class="req" aria-hidden="true">*</span></label>
+        <input type="text" id="custTown" name="town" list="townList" autocomplete="address-level2" maxlength="60" required aria-required="true" aria-describedby="custTownHelp custTownErr">
+        <datalist id="townList">
+          <option value="Anse La Raye"><option value="Babonneau"><option value="Canaries"><option value="Castries"><option value="Choiseul"><option value="Dennery"><option value="Gros Islet"><option value="Laborie"><option value="Micoud"><option value="Rodney Bay"><option value="Soufrière"><option value="Vieux Fort">
+        </datalist>
+        <p class="field-help" id="custTownHelp">Where we're delivering to. For pickup, the area closest to you.</p>
+        <p class="field-err" id="custTownErr"></p>
+      </div>
+      <div class="field">
+        <label for="custNote">Anything else? (optional)</label>
+        <textarea id="custNote" name="note" rows="2" maxlength="200" aria-describedby="custNoteHelp"></textarea>
+        <p class="field-help" id="custNoteHelp">A landmark, or the best day and time for you.</p>
+      </div>
+    </form>
+  </div>
+  <div class="drawer-foot">
+    <div class="total" id="totalRow" hidden><span>Total</span><span id="totalVal">EC$0.00</span></div>
+    <p class="drawer-note" id="drawerNote" hidden>We confirm delivery or pickup with you on WhatsApp. Prices are illustrative.</p>
+    <a class="btn btn-wa" id="sendBtn" aria-disabled="true" role="link" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> Send order on WhatsApp</a>
+    <p class="form-alert" id="formAlert" role="alert"></p>
+    <button class="clear-btn" type="button" id="clearCart" hidden>Clear cart</button>
+  </div>
 </aside>
 
 <script>
@@ -767,20 +828,77 @@ button{font:inherit;color:inherit}
 
   /* ---------- CART DRAWER ---------- */
   var drawer = $('cartDrawer'), scrim = $('scrim'), cartBtn = $('cartBtn');
+  var form = $('orderForm'), nameIn = $('custName'), townIn = $('custTown'), noteIn = $('custNote');
+  var sendBtn = $('sendBtn'), alertBox = $('formAlert');
+  var clean = function(v){ return String(v || '').replace(/\s+/g, ' ').trim(); };
+  var method = function(){ var r = form.querySelector('input[name="method"]:checked'); return r ? r.value : 'Delivery'; };
+
   function orderMessage(){
     var lines = ['Hi Piton Provisions! I\'d like to place an order:', ''];
     PRODUCTS.forEach(function(p){
       var q = qtyOf(p.id);
       if (q) lines.push('- ' + q + ' x ' + p.name + ' (' + p.size + ') = ' + money(p.price * q));
     });
-    lines.push('', 'Total: ' + money(total()), '', 'Name: ', 'Delivery or pickup: ', 'Area/town: ');
+    lines.push('', '*Total: ' + money(total()) + '*', '');
+    lines.push('Name: ' + clean(nameIn.value));
+    lines.push(method() + ' - ' + (method() === 'Pickup' ? 'nearest area: ' : 'area/town: ') + clean(townIn.value));
+    var note = clean(noteIn.value);
+    if (note) lines.push('Note: ' + note);
+    lines.push('', 'Thank you!');
     return lines.join('\n');
   }
+  function refreshLink(){ if (count() > 0) sendBtn.href = waLink(orderMessage()); }
+
+  function setFieldError(input, errId, msg){
+    $(errId).textContent = msg;
+    if (msg) input.setAttribute('aria-invalid', 'true'); else input.removeAttribute('aria-invalid');
+  }
+  function validate(){
+    var bad = [];
+    if (clean(nameIn.value).length < 2) { setFieldError(nameIn, 'custNameErr', 'Add your name so we know who the order is for.'); bad.push(nameIn); }
+    else setFieldError(nameIn, 'custNameErr', '');
+    if (clean(townIn.value).length < 2) { setFieldError(townIn, 'custTownErr', 'Add your area or town so we can plan your delivery or pickup.'); bad.push(townIn); }
+    else setFieldError(townIn, 'custTownErr', '');
+    return bad;
+  }
+  var tried = false; // only show field errors after the first send attempt
+  [nameIn, townIn, noteIn].forEach(function(el){
+    el.addEventListener('input', function(){
+      if (tried && !validate().length) alertBox.textContent = '';
+      refreshLink();
+    });
+  });
+  form.addEventListener('change', refreshLink);
+
+  sendBtn.addEventListener('click', function(e){
+    if (count() === 0) { e.preventDefault(); return; }
+    tried = true;
+    var bad = validate();
+    if (bad.length) {
+      e.preventDefault();
+      alertBox.textContent = bad.length === 2
+        ? 'Add your name and area before sending your order.'
+        : (bad[0] === nameIn ? 'Add your name before sending your order.' : 'Add your area or town before sending your order.');
+      bad[0].focus();
+      return;
+    }
+    alertBox.textContent = '';
+    sendBtn.href = waLink(orderMessage());
+  });
+  form.addEventListener('submit', function(e){ e.preventDefault(); sendBtn.click(); });
+
   function renderCart(){
     var items = PRODUCTS.filter(function(p){ return qtyOf(p.id) > 0; });
-    if (!items.length) {
+    var empty = items.length === 0;
+    form.hidden = empty;
+    $('totalRow').hidden = empty;
+    $('drawerNote').hidden = empty;
+    $('clearCart').hidden = empty;
+    if (empty) {
       $('cartBody').innerHTML = '<p class="empty">Your cart is empty. Add a few products to start your order.</p>';
-      $('cartFoot').innerHTML = '<a class="btn btn-wa" aria-disabled="true" role="link"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> Send order on WhatsApp</a>';
+      sendBtn.removeAttribute('href');
+      sendBtn.setAttribute('aria-disabled', 'true');
+      alertBox.textContent = '';
       return;
     }
     $('cartBody').innerHTML = '<ul style="list-style:none;margin:0;padding:0">' + items.map(function(p){
@@ -793,11 +911,10 @@ button{font:inherit;color:inherit}
           '<button type="button" data-act="inc" data-id="' + p.id + '" aria-label="Add one more ' + esc(p.name) + '">+</button>' +
         '</div></li>';
     }).join('') + '</ul>';
-    $('cartFoot').innerHTML =
-      '<div class="total"><span>Total</span><span>' + money(total()) + '</span></div>' +
-      '<p class="drawer-note">We confirm delivery or pickup with you on WhatsApp. Prices are illustrative.</p>' +
-      '<a class="btn btn-wa" href="' + waLink(orderMessage()) + '" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> Send order on WhatsApp</a>' +
-      '<button class="clear-btn" type="button" id="clearCart">Clear cart</button>';
+    $('totalVal').textContent = money(total());
+    sendBtn.removeAttribute('aria-disabled');
+    sendBtn.removeAttribute('role');
+    refreshLink();
   }
   $('cartBody').addEventListener('click', function(e){
     var b = e.target.closest('button[data-act]'); if (!b) return;
@@ -806,11 +923,9 @@ button{font:inherit;color:inherit}
     var again = $('cartBody').querySelector('button[data-act="' + act + '"][data-id="' + id + '"]');
     (again || $('cartClose')).focus();
   });
-  $('cartFoot').addEventListener('click', function(e){
-    if (e.target.id === 'clearCart') {
-      Object.keys(cart).forEach(function(id){ setQty(id, 0); });
-      $('cartClose').focus();
-    }
+  $('clearCart').addEventListener('click', function(){
+    Object.keys(cart).forEach(function(id){ setQty(id, 0); });
+    $('cartClose').focus();
   });
   function openCart(){
     renderCart();
@@ -833,7 +948,7 @@ button{font:inherit;color:inherit}
   drawer.addEventListener('keydown', function(e){
     if (e.key === 'Escape') { closeCart(); return; }
     if (e.key !== 'Tab') return;
-    var f = drawer.querySelectorAll('button:not([disabled]), a[href]');
+    var f = Array.prototype.filter.call(drawer.querySelectorAll('button, a[href], input, textarea'), function(el){ return !el.disabled && el.offsetParent !== null && el.type !== 'radio' || (el.type === 'radio' && el.checked && el.offsetParent !== null); });
     if (!f.length) return;
     var first = f[0], last = f[f.length - 1];
     if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
