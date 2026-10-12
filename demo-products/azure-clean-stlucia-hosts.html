@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Azure Clean Caribbean (Demo) | Airbnb Turnover &amp; Cleaning Website Concept, Saint Lucia | Jamal Samuel</title>
+<meta name="description" content="Demo website for a fictional Saint Lucia cleaning company serving Airbnb hosts, showing an instant turnover estimate and WhatsApp booking flow. Built by Jamal Samuel.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0A4C6A">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap">
+<style>
+  :root{
+    --ocean-deep:   #0A4C6A;
+    --ocean:        #106A8C;
+    --aqua:         #4FC6D9;
+    --teal:         #0EA5A0;
+    --teal-dark:    #097A77;
+    --sand:         #F6EFE3;
+    --sand-dark:    #EADFC8;
+    --gray-light:   #F4F7F8;
+    --ink:          #0D3040;
+    --ink-soft:     #4A6B78;
+    --white:        #FFFFFF;
+    --shadow-sm:    0 2px 10px rgba(10,76,106,0.08);
+    --shadow-md:    0 10px 30px rgba(10,76,106,0.12);
+    --shadow-lg:    0 20px 50px rgba(10,76,106,0.18);
+    --radius-sm:    12px;
+    --radius-md:    20px;
+    --radius-lg:    32px;
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body:    'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--font-body);
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.6;
+    overflow-x:clip;
+  }
+  img{max-width:100%;display:block;}
+  a{text-decoration:none;color:inherit;}
+  button{font-family:inherit;cursor:pointer;border:none;}
+  ul{list-style:none;}
+  .container{max-width:1240px;margin:0 auto;padding:0 24px;}
+  section{position:relative;}
+  h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.15;color:var(--ocean-deep);}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--teal-dark);margin-bottom:14px;
+  }
+  .eyebrow::before{content:'';width:22px;height:2px;background:var(--teal);border-radius:2px;}
+  .section-head{max-width:640px;margin:0 auto 56px;text-align:center;}
+  .section-head h2{font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:14px;}
+  .section-head p{color:var(--ink-soft);font-size:1.05rem;}
+
+  /* reveal animation */
+  .js .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease;}
+  .js .reveal.is-visible{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    .js .reveal{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* Buttons */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:15px 30px;border-radius:100px;font-weight:700;font-size:0.95rem;
+    transition:transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg, var(--teal-dark), var(--ocean));
+    color:var(--white);box-shadow:var(--shadow-md);
+  }
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);}
+  .btn-white{background:var(--white);color:var(--ocean-deep);box-shadow:var(--shadow-md);}
+  .btn-white:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);}
+  .btn-outline{
+    background:transparent;border:1.5px solid rgba(10,76,106,0.25);color:var(--ocean-deep);
+  }
+  .btn-outline:hover{border-color:var(--teal);color:var(--teal-dark);background:rgba(14,165,160,0.06);}
+  .btn-whatsapp{
+    background:#25D366;color:var(--ink);box-shadow:var(--shadow-md);
+  }
+  .btn-whatsapp:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);background:#2EE070;}
+  .btn-sm{padding:10px 20px;font-size:0.85rem;}
+
+  /* ---------- DEMO NOTICE (persistent, inside sticky header) ---------- */
+  .demo-strip{
+    background:var(--ocean-deep);color:var(--white);
+    font-size:0.78rem;line-height:1.45;text-align:center;padding:7px 16px;
+  }
+  .demo-strip strong{font-weight:800;}
+  .demo-strip a{color:var(--aqua);font-weight:700;text-decoration:underline;text-underline-offset:2px;white-space:nowrap;}
+
+  /* ---------- SKIP LINK ---------- */
+  .skip-link{
+    position:absolute;left:12px;top:-60px;z-index:1000;background:var(--white);color:var(--ocean-deep);
+    padding:10px 18px;border-radius:10px;font-weight:700;box-shadow:var(--shadow-md);transition:top 0.2s ease;
+  }
+  .skip-link:focus{top:12px;}
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky;top:0;z-index:150;
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(10,76,106,0.06);
+    transition:box-shadow 0.3s ease, padding 0.3s ease;
+  }
+  header.scrolled{box-shadow:0 4px 24px rgba(10,76,106,0.08);}
+  @media (max-width:920px){header{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(255,255,255,0.97);}}
+  section[id]{scroll-margin-top:120px;}
+  .nav-wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 24px;
+  }
+  .logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--ocean-deep);}
+  .logo-mark{
+    width:38px;height:38px;border-radius:11px;
+    background:linear-gradient(135deg, var(--aqua), var(--teal));
+    display:flex;align-items:center;justify-content:center;color:var(--white);
+    font-size:1.1rem;box-shadow:var(--shadow-sm);
+  }
+  .nav-links{display:flex;align-items:center;gap:34px;}
+  .nav-links a{font-weight:600;font-size:0.93rem;color:var(--ink);position:relative;padding:4px 0;}
+  .nav-links a::after{
+    content:'';position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--teal);
+    transition:width 0.25s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{display:flex;align-items:center;gap:14px;}
+  .nav-toggle{display:none;background:none;color:var(--ocean-deep);width:44px;height:44px;align-items:center;justify-content:center;border-radius:12px;}
+  .nav-toggle svg{width:26px;height:26px;}
+
+  @media (max-width:920px){
+    .nav-links{
+      position:fixed;top:0;right:-100%;height:100vh;height:100dvh;width:min(320px,80vw);
+      background:var(--white);flex-direction:column;justify-content:center;
+      gap:30px;transition:right 0.35s ease, visibility 0.35s;box-shadow:var(--shadow-lg);
+      padding:40px;visibility:hidden;
+    }
+    .nav-links.open{right:0;visibility:visible;}
+    .nav-toggle{display:flex;}
+    .nav-cta .btn-outline{display:none;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;min-height:92vh;display:flex;align-items:center;
+    padding:80px 0 100px;overflow:hidden;
+  }
+  .hero{background:var(--ocean-deep);}
+  .hero-media{position:absolute;inset:0;z-index:0;}
+  .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center;}
+  .hero::before{
+    content:'';position:absolute;inset:0;z-index:1;
+    background:linear-gradient(120deg, rgba(10,76,106,0.86) 0%, rgba(10,76,106,0.6) 42%, rgba(10,76,106,0.2) 75%);
+  }
+  @media (max-width:760px){
+    .hero{min-height:auto;padding:64px 0 80px;}
+    .hero::before{background:linear-gradient(180deg, rgba(10,76,106,0.78) 0%, rgba(10,76,106,0.88) 100%);}
+  }
+  .hero-content{position:relative;z-index:2;width:100%;color:var(--white);}
+  .hero-content > *{max-width:660px;}
+  .hero-eyebrow{
+    display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.14);
+    border:1px solid rgba(255,255,255,0.25);backdrop-filter:blur(6px);
+    padding:8px 16px;border-radius:100px;font-size:0.8rem;font-weight:700;
+    letter-spacing:0.06em;text-transform:uppercase;margin-bottom:24px;
+  }
+  .hero h1{
+    font-size:clamp(2.3rem,5vw,3.6rem);color:var(--white);margin-bottom:22px;letter-spacing:-0.01em;
+  }
+  .hero p.sub{font-size:1.15rem;color:rgba(255,255,255,0.92);margin-bottom:34px;max-width:540px;}
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:40px;}
+  .trust-row{display:flex;flex-wrap:wrap;gap:22px 30px;}
+  .trust-item{display:flex;align-items:center;gap:8px;font-size:0.88rem;font-weight:600;color:var(--white);}
+  .trust-item svg{width:18px;height:18px;flex-shrink:0;color:var(--aqua);}
+
+  /* ---------- SERVICES ---------- */
+  .services{padding:120px 0;background:var(--white);}
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .service-card{
+    background:var(--white);border:1px solid rgba(10,76,106,0.08);
+    border-radius:var(--radius-md);padding:36px 30px;
+    box-shadow:var(--shadow-sm);transition:transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .service-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:transparent;}
+  .service-icon{
+    width:56px;height:56px;border-radius:16px;
+    background:linear-gradient(135deg, rgba(79,198,217,0.18), rgba(14,165,160,0.18));
+    display:flex;align-items:center;justify-content:center;margin-bottom:22px;color:var(--teal-dark);
+  }
+  .service-icon svg{width:26px;height:26px;}
+  .service-card h3{font-size:1.2rem;margin-bottom:10px;}
+  .service-card p{color:var(--ink-soft);font-size:0.94rem;margin-bottom:18px;}
+  .service-link{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:0.88rem;color:var(--teal-dark);}
+  .service-link svg{width:14px;height:14px;transition:transform 0.25s ease;}
+  .service-card:hover .service-link svg{transform:translateX(4px);}
+
+  @media (max-width:920px){.services-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:640px){.services-grid{grid-template-columns:1fr;}}
+
+  /* ---------- ESTIMATOR (signature element) ---------- */
+  .estimator{
+    padding:120px 0;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(79,198,217,0.16), transparent 45%),
+      radial-gradient(circle at 85% 80%, rgba(14,165,160,0.14), transparent 45%),
+      var(--gray-light);
+    position:relative;
+  }
+  .estimator-shell{
+    scroll-margin-top:130px;
+    max-width:900px;margin:0 auto;
+    background:rgba(255,255,255,0.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,0.6);
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-lg);
+    padding:48px;
+  }
+  .estimator-progress{display:flex;gap:8px;margin-bottom:36px;}
+  .estimator-progress span{flex:1;height:4px;border-radius:4px;background:rgba(10,76,106,0.12);overflow:hidden;position:relative;}
+  .estimator-progress span::after{
+    content:'';position:absolute;inset:0;background:var(--teal);border-radius:4px;
+    transform:scaleX(0);transform-origin:left;transition:transform 0.4s ease;
+  }
+  .estimator-progress span.done::after{transform:scaleX(1);}
+
+  .est-step{display:none;}
+  .est-step.active{display:block;animation:fadeSlide 0.4s ease;}
+  @keyframes fadeSlide{from{opacity:0;transform:translateX(14px);}to{opacity:1;transform:translateX(0);}}
+
+  .est-step h3{font-size:1.4rem;margin-bottom:6px;}
+  .est-step .step-label{color:var(--ink-soft);font-size:0.9rem;margin-bottom:28px;}
+  .est-step legend{font-family:var(--font-display);font-weight:600;font-size:1.4rem;color:var(--ocean-deep);margin-bottom:6px;line-height:1.15;}
+  .group-error{color:#C2412A;font-size:0.85rem;margin-top:10px;min-height:1.2em;}
+  .currency-row{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:4px;font-size:0.85rem;color:var(--ink-soft);}
+  .currency-row select{padding:6px 10px;border-radius:10px;border:1.5px solid rgba(10,76,106,0.16);font-family:inherit;font-size:0.85rem;background:var(--white);color:var(--ink);}
+
+  .option-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-bottom:8px;}
+  .option-group{border:none;padding:0;margin:0;}
+  .option-card{
+    border:1.5px solid rgba(10,76,106,0.14);border-radius:var(--radius-sm);
+    padding:20px 16px;text-align:center;background:var(--white);color:var(--ink);
+    transition:border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;width:100%;
+  }
+  .option-card:hover{border-color:var(--teal);}
+  .option-card[aria-pressed="true"]{border-color:var(--teal);background:rgba(14,165,160,0.08);box-shadow:0 0 0 3px rgba(14,165,160,0.14);}
+  .option-card .oc-icon{display:flex;justify-content:center;margin-bottom:8px;color:var(--teal-dark);}
+  .option-card .oc-icon svg{width:28px;height:28px;}
+  .option-card .oc-label{font-weight:700;font-size:0.9rem;}
+
+  .counter-row{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border:1.5px solid rgba(10,76,106,0.14);border-radius:var(--radius-sm);margin-bottom:14px;background:var(--white);}
+  .counter-row .cr-label{font-weight:700;}
+  .counter-controls{display:flex;align-items:center;gap:16px;}
+  .counter-btn{
+    width:34px;height:34px;border-radius:50%;background:var(--gray-light);
+    display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:700;color:var(--ocean-deep);
+    transition:background 0.2s ease;
+  }
+  .counter-btn:hover{background:var(--sand-dark);}
+  .counter-value{min-width:20px;text-align:center;font-weight:800;font-size:1.05rem;}
+
+  .field{margin-bottom:18px;}
+  .field label{display:block;font-weight:700;font-size:0.88rem;margin-bottom:8px;color:var(--ink);}
+  .field input, .field select{
+    width:100%;padding:14px 16px;border-radius:var(--radius-sm);border:1.5px solid rgba(10,76,106,0.16);
+    font-family:inherit;font-size:0.95rem;background:var(--white);transition:border-color 0.2s ease;
+  }
+  .field input:focus, .field select:focus{outline:none;border-color:var(--teal);}
+  .field.error input, .field.error select{border-color:#C2412A;}
+  .field-error-msg{color:#C2412A;font-size:0.8rem;margin-top:6px;display:none;}
+  .field.error .field-error-msg{display:block;}
+
+  .est-nav{display:flex;justify-content:space-between;align-items:center;margin-top:32px;}
+
+  .est-result{text-align:center;padding:20px 0 0;}
+  .est-result .price-tag{
+    font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.2rem);color:var(--ocean-deep);
+    margin:18px 0 6px;font-weight:700;
+  }
+  .est-result .price-note{color:var(--ink-soft);font-size:0.88rem;max-width:420px;margin:14px auto 30px;}
+  .est-result-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .est-summary{
+    background:var(--gray-light);border-radius:var(--radius-sm);padding:20px 24px;margin:24px 0;
+    text-align:left;font-size:0.88rem;color:var(--ink-soft);
+  }
+  .est-summary strong{color:var(--ink);}
+
+  @media (max-width:640px){.estimator-shell{padding:28px 20px;}}
+
+  /* ---------- WHY CHOOSE US ---------- */
+  .why{padding:120px 0;background:var(--white);}
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  .why-card{
+    text-align:center;padding:36px 22px;border-radius:var(--radius-md);
+    background:var(--gray-light);transition:transform 0.3s ease, background 0.3s ease;
+  }
+  .why-card:hover{transform:translateY(-6px);background:var(--sand);}
+  .why-icon{
+    width:60px;height:60px;border-radius:50%;margin:0 auto 20px;
+    background:linear-gradient(135deg, var(--ocean), var(--teal));
+    display:flex;align-items:center;justify-content:center;color:var(--white);box-shadow:var(--shadow-sm);
+  }
+  .why-icon svg{width:26px;height:26px;}
+  .why-card h3{font-size:1.05rem;margin-bottom:8px;}
+  .why-card p{font-size:0.88rem;color:var(--ink-soft);}
+  @media (max-width:920px){.why-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.why-grid{grid-template-columns:1fr;}}
+
+  /* ---------- BEFORE/AFTER ---------- */
+  .beforeafter{padding:120px 0;background:var(--gray-light);}
+  .ba-wrap{
+    max-width:840px;margin:0 auto;position:relative;border-radius:var(--radius-lg);
+    overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:16/10;
+    user-select:none;cursor:ew-resize;
+  }
+  .ba-wrap{--pos:50%;}
+  .ba-wrap picture, .ba-wrap img{position:absolute;inset:0;width:100%;height:100%;}
+  .ba-wrap img{object-fit:cover;}
+  .ba-after{z-index:1;}
+  .ba-before{z-index:2;clip-path:inset(0 calc(100% - var(--pos)) 0 0);}
+  .ba-range{
+    position:absolute;inset:0;width:100%;height:100%;z-index:6;margin:0;opacity:0;cursor:ew-resize;
+    -webkit-appearance:none;appearance:none;background:transparent;
+  }
+  .ba-range:focus-visible + .ba-handle .ba-handle-grip{outline:3px solid var(--aqua);outline-offset:3px;}
+  .ba-label{
+    position:absolute;top:18px;padding:6px 16px;border-radius:100px;font-size:0.78rem;font-weight:800;
+    letter-spacing:0.05em;text-transform:uppercase;background:rgba(13,48,64,0.72);color:var(--white);z-index:3;
+  }
+  .ba-label.before{left:18px;}
+  .ba-label.after{right:18px;}
+  .ba-handle{
+    position:absolute;top:0;bottom:0;left:var(--pos);width:0;z-index:4;pointer-events:none;
+  }
+  .ba-handle::before{content:'';position:absolute;top:0;bottom:0;left:0;width:3px;background:var(--white);transform:translateX(-50%);box-shadow:0 0 12px rgba(0,0,0,0.3);}
+  .ba-handle-grip{
+    position:absolute;top:50%;left:0;transform:translate(-50%,-50%);
+    width:48px;height:48px;border-radius:50%;background:var(--white);
+    display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-md);color:var(--ocean-deep);
+  }
+  .ba-hint{text-align:center;color:var(--ink-soft);font-size:0.85rem;margin-top:18px;}
+
+  /* ---------- REVIEWS ---------- */
+  .reviews{padding:120px 0;background:var(--white);}
+  .review-placeholder{
+    max-width:720px;margin:0 auto;text-align:center;border:2px dashed rgba(10,76,106,0.22);
+    border-radius:var(--radius-md);padding:48px 32px;background:var(--gray-light);
+  }
+  .review-placeholder svg{width:40px;height:40px;color:var(--teal-dark);margin:0 auto 18px;display:block;}
+  .review-placeholder h3{font-size:1.35rem;margin-bottom:12px;}
+  .review-placeholder p{color:var(--ink-soft);max-width:520px;margin:0 auto;}
+
+  /* ---------- BOOKING PROCESS ---------- */
+  .process{padding:120px 0;background:var(--ocean-deep);position:relative;overflow:hidden;}
+  .process::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(circle at 80% 0%, rgba(79,198,217,0.18), transparent 55%);
+  }
+  .process .section-head h2, .process .eyebrow{color:var(--white);}
+  .process .eyebrow{color:var(--aqua);}
+  .process .section-head p{color:rgba(255,255,255,0.75);}
+  .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;z-index:1;}
+  .timeline::before{
+    content:'';position:absolute;top:26px;left:12%;right:12%;height:2px;
+    background:rgba(255,255,255,0.18);z-index:0;
+  }
+  .tl-step{text-align:center;position:relative;z-index:1;}
+  .tl-num{
+    width:52px;height:52px;border-radius:50%;background:var(--white);color:var(--ocean-deep);
+    display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;
+    font-size:1.2rem;margin:0 auto 20px;box-shadow:var(--shadow-md);
+  }
+  .tl-step h3{color:var(--white);font-size:1.05rem;margin-bottom:8px;}
+  .tl-step p{color:rgba(255,255,255,0.7);font-size:0.86rem;}
+  @media (max-width:820px){.timeline{grid-template-columns:1fr 1fr;row-gap:40px;}.timeline::before{display:none;}}
+  @media (max-width:560px){.timeline{grid-template-columns:1fr;}}
+
+  /* ---------- FINAL CTA ---------- */
+  .final-cta{
+    padding:100px 0;text-align:center;
+    background:linear-gradient(120deg, var(--teal-dark), var(--ocean-deep));
+    position:relative;overflow:hidden;
+  }
+  .final-cta h2{color:var(--white);font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:16px;}
+  .final-cta p{color:rgba(255,255,255,0.88);max-width:480px;margin:0 auto 34px;font-size:1.05rem;}
+  .final-cta-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+
+  /* ---------- IMAGINE YOUR BUSINESS ---------- */
+  .imagine{padding:100px 0;background:var(--sand);}
+  .imagine-inner{
+    max-width:760px;margin:0 auto;text-align:center;
+    background:var(--white);border-radius:var(--radius-lg);padding:56px 48px;box-shadow:var(--shadow-md);
+    border:1px solid rgba(10,76,106,0.06);
+  }
+  .imagine-icon{
+    width:56px;height:56px;border-radius:16px;margin:0 auto 24px;
+    background:linear-gradient(135deg, var(--aqua), var(--teal));
+    display:flex;align-items:center;justify-content:center;color:var(--white);
+  }
+  .imagine-icon svg{width:26px;height:26px;}
+  .imagine h3{font-size:1.6rem;margin-bottom:16px;}
+  .imagine p{color:var(--ink-soft);font-size:1rem;max-width:560px;margin:0 auto;}
+  @media (max-width:640px){.imagine-inner{padding:40px 26px;}}
+
+  /* ---------- FINAL DISCLAIMER ---------- */
+  .disclaimer{padding:90px 0;background:var(--gray-light);text-align:center;}
+  .disclaimer-inner{max-width:640px;margin:0 auto;}
+  .disclaimer h2{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:18px;}
+  .disclaimer p{color:var(--ink-soft);margin-bottom:14px;}
+  .disclaimer .btn{margin-top:20px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ocean-deep);color:rgba(255,255,255,0.82);padding:80px 0 30px;}
+  .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:56px;}
+  .footer-logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:1.25rem;color:var(--white);margin-bottom:16px;}
+  .footer-col h4{color:var(--white);font-size:0.92rem;margin-bottom:20px;letter-spacing:0.03em;text-transform:uppercase;}
+  .footer-col ul li{margin-bottom:12px;font-size:0.9rem;}
+  .footer-col ul li a:hover{color:var(--aqua);}
+  .footer-social{display:flex;gap:12px;margin-top:20px;}
+  .footer-social span.icon{
+    width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.06);
+    display:flex;align-items:center;justify-content:center;opacity:0.45;cursor:not-allowed;
+  }
+  .footer-social-note{font-size:0.75rem;color:rgba(255,255,255,0.6);margin-top:8px;}
+  .footer-demo-note{
+    font-size:0.82rem;color:rgba(255,255,255,0.72);background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:24px;line-height:1.55;
+  }
+  .footer-demo-note strong{color:var(--white);}
+  .footer-social svg{width:16px;height:16px;}
+  .footer-map{
+    border-radius:var(--radius-sm);overflow:hidden;height:130px;
+    background:linear-gradient(135deg, rgba(79,198,217,0.25), rgba(14,165,160,0.15));
+    display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:0.82rem;
+    border:1px solid rgba(255,255,255,0.1);
+  }
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.12);padding-top:26px;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+    font-size:0.82rem;color:rgba(255,255,255,0.55);
+  }
+  .footer-bottom a{color:var(--white);font-weight:700;}
+  .footer-bottom a:hover{color:var(--aqua);}
+  @media (max-width:920px){.footer-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:560px){.footer-grid{grid-template-columns:1fr;}}
+
+  /* ---------- STICKY MOBILE BAR ---------- */
+  .mobile-bar{
+    display:none;position:fixed;bottom:0;left:0;right:0;z-index:180;
+    background:var(--white);box-shadow:0 -6px 24px rgba(10,76,106,0.14);
+    padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+    gap:10px;
+  }
+  @media (max-width:760px){.mobile-bar{display:flex;}}
+  .mobile-bar a{
+    flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;
+    padding:8px 4px;border-radius:14px;font-size:0.72rem;font-weight:700;color:var(--ink);
+  }
+  .mobile-bar a svg{width:20px;height:20px;}
+  .mobile-bar a.mb-primary{background:linear-gradient(135deg, var(--teal-dark), var(--ocean));color:var(--white);}
+  .mobile-bar a.mb-whatsapp{color:#13803F;}
+  @media (max-width:760px){body{padding-bottom:76px;}}
+
+  /* ---------- SCROLL TO TOP ---------- */
+  .scrolltop{
+    position:fixed;bottom:26px;right:26px;z-index:170;
+    width:48px;height:48px;border-radius:50%;background:var(--ocean-deep);color:var(--white);
+    display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-md);
+    opacity:0;transform:translateY(12px);pointer-events:none;transition:all 0.3s ease;
+  }
+  .scrolltop.show{opacity:1;transform:translateY(0);pointer-events:auto;}
+  .scrolltop:hover{background:var(--teal-dark);}
+  @media (max-width:760px){.scrolltop{bottom:86px;right:16px;width:42px;height:42px;}}
+
+  .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);}
+
+  :focus-visible{outline:3px solid var(--teal);outline-offset:2px;}
+  ol.timeline{list-style:none;padding:0;}
+  .trust-row{padding:0;}
+  .freq-group{margin-top:22px;}
+  .service-card.featured{outline:2px solid var(--teal);outline-offset:-2px;}
+  .service-tag{display:inline-block;font-size:0.75rem;font-weight:700;color:var(--teal-dark);background:rgba(14,165,160,0.1);padding:4px 10px;border-radius:100px;margin-bottom:10px;}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- HEADER (sticky) with persistent demo notice -->
+<header id="siteHeader">
+  <div class="demo-strip" role="note">
+    <strong>Demo website:</strong> fictional business. All names, prices, images, figures and reviews are illustrative, not real data. <a href="#footer-cta">About this demo</a>
+  </div>
+  <div class="container nav-wrap">
+    <a href="#main-content" class="logo" aria-label="Azure Clean Caribbean, back to top"><span class="logo-mark" aria-hidden="true">AC</span> Azure Clean Caribbean</a>
+    <nav class="nav-links" id="navLinks" aria-label="Main">
+      <a href="#main-content">Home</a>
+      <a href="#services">Services</a>
+      <a href="#why">For Hosts</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#estimate">Get Estimate</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#estimate" class="btn btn-outline btn-sm">Get Free Estimate</a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <svg id="navIconOpen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg id="navIconClose" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true" style="display:none"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-title">
+  <picture class="hero-media">
+    <source srcset="azure-clean-caribbean-images/hero.webp" type="image/webp">
+    <img src="azure-clean-caribbean-images/hero.jpg" alt="Bright, freshly cleaned Caribbean home interior with open windows and natural light" width="1800" height="1200" loading="eager" fetchpriority="high" decoding="async">
+  </picture>
+  <div class="container hero-content">
+    <span class="hero-eyebrow">Airbnb Cleaning in Saint Lucia</span>
+    <h1 id="hero-title">Guest-Ready Between Checkout And Check-In.</h1>
+    <p class="sub">Airbnb turnovers, co-hosting support, commercial cleaning and pressure washing across Saint Lucia. Hosting from overseas? Get a photo report on WhatsApp after every clean.</p>
+    <div class="hero-ctas">
+      <a href="#estimate" class="btn btn-primary">Get My Estimate</a>
+      <a href="https://wa.me/17587235872?text=Hi%20Azure%20Clean%20Caribbean%2C%20I%27d%20like%20a%20quote%20for%20my%20rental%20property." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.7.3 1.3.5 1.8.7.8.2 1.4.2 2 .1.6-.1 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.4C8.3 21.5 10.1 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.7 0-3.3-.5-4.7-1.3l-.3-.2-3.1.9.9-3-.2-.3C3.5 14.5 3 13.3 3 12c0-4.4 3.6-8 9-8s9 3.6 9 8-4.6 8-9 8z"/></svg>
+        Message Us on WhatsApp
+      </a>
+    </div>
+    <ul class="trust-row">
+      <li class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> Photo Report After Every Clean</li>
+      <li class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> Linen &amp; Restock Checks</li>
+      <li class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> Re-Clean Promise</li>
+      <li class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> Same-Day Turnovers</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services" aria-labelledby="services-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">What We Do</span>
+      <h2 id="services-title">Cleaning That Keeps Your Listing Booked</h2>
+      <p>Most of our work is for Airbnb and villa hosts, with the same standard carried into offices, homes and boats.</p>
+    </div>
+    <div class="services-grid">
+
+      <article class="service-card reveal featured">
+        <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12l10-8 10 8"/><path d="M4 11v9h16v-9"/><path d="M9 20v-5h6v5"/></svg></div>
+        <span class="service-tag">Most requested</span>
+        <h3>Airbnb Turnovers</h3>
+        <p>Full clean, fresh linen, restock and a final guest-ready check between every checkout and check-in.</p>
+        <a href="#estimate" class="service-link">Price a Turnover <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><path d="M16 4.5a3.5 3.5 0 010 7M18 14.8c1.7.8 2.9 2.5 3.5 5.2"/></svg></div>
+        <h3>Co-Hosting Support</h3>
+        <p>Key handover, guest check-in help and on-island eyes on your property, ideal if you host from overseas.</p>
+        <a href="https://wa.me/17587235872?text=Hi%20Azure%20Clean%20Caribbean%2C%20I%27d%20like%20to%20ask%20about%20co-hosting%20support%20for%20my%20rental." target="_blank" rel="noopener noreferrer" class="service-link">Ask About Co-Hosting <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M6 21V9l6-4 6 4v12M9 21v-6h6v6"/></svg></div>
+        <h3>Commercial &amp; Office</h3>
+        <p>Scheduled cleaning for offices, shops and guest houses, before opening or after hours.</p>
+        <a href="https://wa.me/17587235872?text=Hi%20Azure%20Clean%20Caribbean%2C%20I%27d%20like%20a%20quote%20for%20commercial%20cleaning." target="_blank" rel="noopener noreferrer" class="service-link">Get a Commercial Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 16l.7 1.8 1.8.7-1.8.7L19 21l-.7-1.8-1.8-.7 1.8-.7z"/></svg></div>
+        <h3>Deep &amp; Post-Renovation</h3>
+        <p>Dust, paint specks and grime removed after building work, or a full reset before peak season.</p>
+        <a href="#estimate" class="service-link">Price a Deep Clean <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 14h7l2-3h4"/><path d="M16 11l5-2M16 11l5 0M16 11l5 2"/><path d="M5 14v6"/><path d="M8 17c0 1 .6 2 1.5 2.5M11 17c0 1 .6 2 1.5 2.5"/></svg></div>
+        <h3>Pressure Washing</h3>
+        <p>Driveways, patios, pool decks and walls cleared of mould, salt and dirt.</p>
+        <a href="https://wa.me/17587235872?text=Hi%20Azure%20Clean%20Caribbean%2C%20I%27d%20like%20a%20quote%20for%20pressure%20washing." target="_blank" rel="noopener noreferrer" class="service-link">Get a Pressure Washing Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 16l2 4h14l2-4z"/><path d="M12 3v13M12 4l6 9h-6"/></svg></div>
+        <h3>Boats &amp; Vehicle Interiors</h3>
+        <p>Cabins, decks, upholstery and car interiors detailed and smelling fresh.</p>
+        <a href="#estimate" class="service-link">Price a Boat Clean <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ESTIMATOR -->
+<section class="estimator" id="estimate" aria-labelledby="estimate-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Instant Estimate</span>
+      <h2 id="estimate-title">Price Your Turnover In Under A Minute</h2>
+      <p>Four quick questions, a price range in your currency, then one WhatsApp message to book.</p>
+    </div>
+
+    <div class="estimator-shell reveal">
+      <div class="estimator-progress" id="estProgress" aria-hidden="true">
+        <span class="done"></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <form id="estimatorForm" novalidate>
+        <!-- STEP 1 -->
+        <div class="est-step active" data-step="1">
+          <fieldset class="option-group">
+            <legend>What type of property is it?</legend>
+            <p class="step-label">Step 1 of 4</p>
+            <div class="option-grid" data-group="propertyType">
+              <button type="button" class="option-card" data-value="Airbnb / Villa" aria-pressed="false"><span class="oc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12l10-8 10 8"/><path d="M4 11v9h16v-9"/><path d="M8 20v-4h3v4M14 14h3v3h-3z"/></svg></span><span class="oc-label">Airbnb / Villa</span></button>
+              <button type="button" class="option-card" data-value="House" aria-pressed="false"><span class="oc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></span><span class="oc-label">House</span></button>
+              <button type="button" class="option-card" data-value="Apartment" aria-pressed="false"><span class="oc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2M11 21v-3h2v3"/></svg></span><span class="oc-label">Apartment</span></button>
+              <button type="button" class="option-card" data-value="Office / Commercial" aria-pressed="false"><span class="oc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 011-1h4a1 1 0 011 1v2M3 13h18"/></svg></span><span class="oc-label">Office / Shop</span></button>
+              <button type="button" class="option-card" data-value="Boat" aria-pressed="false"><span class="oc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 16l2 4h14l2-4z"/><path d="M12 3v13M12 4l6 9h-6"/></svg></span><span class="oc-label">Boat</span></button>
+            </div>
+          </fieldset>
+          <div class="group-error" id="err-propertyType" role="alert"></div>
+          <div class="est-nav"><span></span><button type="button" class="btn btn-primary btn-sm est-next">Continue</button></div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="est-step" data-step="2">
+          <fieldset class="option-group">
+            <legend>How many bedrooms and bathrooms?</legend>
+            <p class="step-label">Step 2 of 4</p>
+            <div class="counter-row">
+              <span class="cr-label" id="lbl-bedrooms">Bedrooms (or cabins)</span>
+              <div class="counter-controls">
+                <button type="button" class="counter-btn" data-target="bedrooms" data-dir="-1" aria-label="Fewer bedrooms or cabins">&minus;</button>
+                <span class="counter-value" id="bedroomsValue" aria-live="polite" aria-labelledby="lbl-bedrooms bedroomsValue">1</span>
+                <button type="button" class="counter-btn" data-target="bedrooms" data-dir="1" aria-label="More bedrooms or cabins">+</button>
+              </div>
+            </div>
+            <div class="counter-row">
+              <span class="cr-label" id="lbl-bathrooms">Bathrooms</span>
+              <div class="counter-controls">
+                <button type="button" class="counter-btn" data-target="bathrooms" data-dir="-1" aria-label="Fewer bathrooms">&minus;</button>
+                <span class="counter-value" id="bathroomsValue" aria-live="polite" aria-labelledby="lbl-bathrooms bathroomsValue">1</span>
+                <button type="button" class="counter-btn" data-target="bathrooms" data-dir="1" aria-label="More bathrooms">+</button>
+              </div>
+            </div>
+          </fieldset>
+          <div class="est-nav"><button type="button" class="btn btn-outline btn-sm est-back">Back</button><button type="button" class="btn btn-primary btn-sm est-next">Continue</button></div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="est-step" data-step="3">
+          <fieldset class="option-group">
+            <legend>What type of clean do you need?</legend>
+            <p class="step-label">Step 3 of 4</p>
+            <div class="option-grid" data-group="cleaningType">
+              <button type="button" class="option-card" data-value="Turnover" aria-pressed="false"><span class="oc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12a9 9 0 0115.5-6.2L21 8M21 3v5h-5M21 12a9 9 0 01-15.5 6.2L3 16M3 21v-5h5"/></svg></span><span class="oc-label">Turnover</span></button>
+              <button type="button" class="option-card" data-value="Deep Clean" aria-pressed="false"><span class="oc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h4v4H9zM8 7h6l1 3v10a1 1 0 01-1 1H8a1 1 0 01-1-1V10z"/><path d="M13 4h4l2 2M18 9h2M17 12l2 1"/></svg></span><span class="oc-label">Deep Clean</span></button>
+              <button type="button" class="option-card" data-value="Post-Renovation" aria-pressed="false"><span class="oc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 4l6 6-9 9H5v-6z"/><path d="M12 6l6 6"/></svg></span><span class="oc-label">Post-Renovation</span></button>
+            </div>
+          </fieldset>
+          <div class="group-error" id="err-cleaningType" role="alert"></div>
+          <fieldset class="option-group freq-group">
+            <legend>How often?</legend>
+            <div class="option-grid" data-group="frequency">
+              <button type="button" class="option-card" data-value="One-time" aria-pressed="false"><span class="oc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></span><span class="oc-label">One-time</span></button>
+              <button type="button" class="option-card" data-value="After every checkout" aria-pressed="false"><span class="oc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M8 15l2 2 4-4"/></svg></span><span class="oc-label">Every checkout</span></button>
+              <button type="button" class="option-card" data-value="Weekly" aria-pressed="false"><span class="oc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><span class="oc-label">Weekly</span></button>
+            </div>
+          </fieldset>
+          <div class="group-error" id="err-frequency" role="alert"></div>
+          <div class="est-nav"><button type="button" class="btn btn-outline btn-sm est-back">Back</button><button type="button" class="btn btn-primary btn-sm est-next">Continue</button></div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="est-step" data-step="4">
+          <fieldset class="option-group">
+            <legend>When and where?</legend>
+            <p class="step-label">Step 4 of 4</p>
+            <div class="field" id="field-date">
+              <label for="preferredDate">Preferred date <span aria-hidden="true">*</span></label>
+              <input type="date" id="preferredDate" name="preferredDate" required aria-required="true" aria-describedby="err-date">
+              <div class="field-error-msg" id="err-date" aria-live="polite">Please choose a preferred date.</div>
+            </div>
+            <div class="field" id="field-location">
+              <label for="location">Area or community <span aria-hidden="true">*</span></label>
+              <input type="text" id="location" name="location" autocomplete="address-level2" placeholder="e.g. Rodney Bay, Vieux Fort, Soufrière" required aria-required="true" aria-describedby="err-location">
+              <div class="field-error-msg" id="err-location" aria-live="polite">Please tell us your general area.</div>
+            </div>
+          </fieldset>
+          <div class="est-nav"><button type="button" class="btn btn-outline btn-sm est-back">Back</button><button type="button" class="btn btn-primary btn-sm est-next">See My Estimate</button></div>
+        </div>
+
+        <!-- RESULT -->
+        <div class="est-step" data-step="5">
+          <div class="est-result" aria-live="polite">
+            <span class="eyebrow" style="justify-content:center;">Your Estimated Range</span>
+            <div class="price-tag" id="priceRange">&nbsp;</div>
+            <div class="currency-row">
+              <label for="currencySelect">Show prices in</label>
+              <select id="currencySelect">
+                <option value="XCD">EC$ (Saint Lucia)</option>
+                <option value="USD">US$ (United States)</option>
+                <option value="GBP">£ (United Kingdom)</option>
+                <option value="CAD">CA$ (Canada)</option>
+              </select>
+            </div>
+            <p class="price-note">Sample pricing for this demo only. Overseas hosts can view the range in their own currency. On a live site, the ranges come from your real rates, and a final quote is confirmed after reviewing the property.</p>
+            <div class="est-summary" id="estSummary"></div>
+            <div class="est-result-ctas">
+              <a href="https://wa.me/17587235872" id="sendEstimateWhatsapp" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.7.3 1.3.5 1.8.7.8.2 1.4.2 2 .1.6-.1 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.4C8.3 21.5 10.1 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.7 0-3.3-.5-4.7-1.3l-.3-.2-3.1.9.9-3-.2-.3C3.5 14.5 3 13.3 3 12c0-4.4 3.6-8 9-8s9 3.6 9 8-4.6 8-9 8z"/></svg>
+                Book This on WhatsApp
+              </a>
+              <button type="button" class="btn btn-outline est-restart">Start Over</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why" id="why" aria-labelledby="why-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Built For Hosts</span>
+      <h2 id="why-title">Your Guests Notice Everything. So Do We.</h2>
+      <p>Your reviews depend on the clean. These are the details hosts ask about most.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+        <h3>Fits Your Booking Calendar</h3>
+        <p>Turnovers scheduled around checkout and check-in times, confirmed the day before.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Photo Report On WhatsApp</h3>
+        <p>See every room after the clean, wherever you are in the world.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 21c0-9 6-15 15-16-1 9-7 15-15 16z"/><path d="M5 21l8-8"/></svg></div>
+        <h3>Room-By-Room Checklist</h3>
+        <p>Linen, towels, toiletries and kitchen restocked to the same list every time.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 0115.5-6.2L21 8M21 3v5h-5M21 12a9 9 0 01-15.5 6.2L3 16M3 21v-5h5"/></svg></div>
+        <h3>Re-Clean Promise</h3>
+        <p>If a guest flags something within 24 hours, we come back and make it right.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="beforeafter" aria-labelledby="ba-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">See The Difference</span>
+      <h2 id="ba-title">Drag To Compare</h2>
+      <p>An example of a deep clean before peak season, or after renovation work.</p>
+    </div>
+    <div class="ba-wrap reveal" id="baWrap">
+      <picture class="ba-after">
+        <source srcset="azure-clean-caribbean-images/after.webp" type="image/webp">
+        <img src="azure-clean-caribbean-images/after.jpg" alt="Example living room after a deep clean: clear surfaces, spotless floor, tidy cushions" width="1600" height="1000" loading="lazy" decoding="async">
+      </picture>
+      <picture class="ba-before">
+        <source srcset="azure-clean-caribbean-images/before.webp" type="image/webp">
+        <img src="azure-clean-caribbean-images/before.jpg" alt="The same example living room before cleaning: cluttered surfaces, dusty floor, scattered items" width="1600" height="1000" loading="lazy" decoding="async">
+      </picture>
+      <span class="ba-label before" aria-hidden="true">Before</span>
+      <span class="ba-label after" aria-hidden="true">After</span>
+      <input type="range" class="ba-range" id="baRange" min="0" max="100" value="50" aria-label="Compare before and after. Slide left to see more after, right to see more before.">
+      <div class="ba-handle" aria-hidden="true">
+        <div class="ba-handle-grip">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg>
+        </div>
+      </div>
+    </div>
+    <p class="ba-hint">Drag the slider, or use your arrow keys</p>
+  </div>
+</section>
+
+<!-- REVIEWS: honest placeholder, no invented testimonials -->
+<section class="reviews" id="reviews" aria-labelledby="reviews-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Customer Reviews</span>
+      <h2 id="reviews-title">What Hosts Say</h2>
+    </div>
+    <div class="review-placeholder reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1.1-4.6A8 8 0 1121 12z"/><path d="M8 10h8M8 14h5"/></svg>
+      <h3>Real host reviews go here.</h3>
+      <p>On a live site, this section shows genuine words from your clients, such as host testimonials you already share on Instagram or reviews on your Google Business Profile, used with their permission. We never invent reviews, ratings or testimonials, so this demo shows none.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING PROCESS -->
+<section class="process" aria-labelledby="process-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">How A Turnover Works</span>
+      <h2 id="process-title">From Checkout To Next Check-In</h2>
+    </div>
+    <ol class="timeline">
+      <li class="tl-step reveal"><div class="tl-num" aria-hidden="true">1</div><h3>Guest Checks Out</h3><p>Send us your booking dates once, or per stay, on WhatsApp.</p></li>
+      <li class="tl-step reveal"><div class="tl-num" aria-hidden="true">2</div><h3>We Clean &amp; Restock</h3><p>Full clean, fresh linen and supplies topped up to your checklist.</p></li>
+      <li class="tl-step reveal"><div class="tl-num" aria-hidden="true">3</div><h3>You Get Photos</h3><p>A photo report lands on your WhatsApp before the next guest arrives.</p></li>
+      <li class="tl-step reveal"><div class="tl-num" aria-hidden="true">4</div><h3>Next Guest Checks In</h3><p>Into a property that looks like the listing photos.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" aria-labelledby="final-title">
+  <div class="container">
+    <h2 id="final-title" class="reveal">Getting Ready For Peak Season? Sort Your Turnovers Now.</h2>
+    <p class="reveal">December to April is the busy season for hosts. See a price in under a minute, then book in one WhatsApp message.</p>
+    <div class="final-cta-ctas reveal">
+      <a href="#estimate" class="btn btn-white">Get My Estimate</a>
+      <a href="tel:+17587235872" class="btn btn-outline" style="border-color:rgba(255,255,255,0.6);color:var(--white);">Call Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- IMAGINE YOUR BUSINESS -->
+<section class="imagine" aria-labelledby="imagine-title">
+  <div class="container">
+    <div class="imagine-inner reveal">
+      <div class="imagine-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5z"/><path d="M19 15l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z"/></svg></div>
+      <h2 id="imagine-title" style="font-size:1.6rem;margin-bottom:16px;">Imagine Your Business Here</h2>
+      <p>This demo was built around a fictional Saint Lucia cleaning company so you can focus on the possibilities, not someone else's brand. Built for your business, every photo, service, price and message would be yours, and the reviews section would show your real clients' words.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO PITCH -->
+<section class="disclaimer" id="footer-cta" aria-labelledby="pitch-title">
+  <div class="container disclaimer-inner reveal">
+    <h2 id="pitch-title">Could Your Cleaning Business Use Something Like This?</h2>
+    <p>This is a demonstration of what's possible when a cleaning company's website is built for the people who actually book it: hosts searching on Google, often from overseas, who want a price and a reliable cleaner without a long back-and-forth.</p>
+    <p>A finished site is tailored to your branding, services, real prices and service areas, and is paired with a Google Business Profile so hosts can find you on Google Maps.</p>
+    <a href="https://wa.me/17587235872?text=Hi%20Jamal%2C%20I%20saw%20the%20Azure%20Clean%20Caribbean%20demo%20and%20I%27d%20like%20to%20talk%20about%20a%20website%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="btn btn-primary">Talk to Jamal on WhatsApp</a>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><span class="logo-mark" aria-hidden="true">AC</span> Azure Clean Caribbean</div>
+        <p style="font-size:0.9rem;max-width:280px;color:rgba(255,255,255,0.7);">Guest-ready turnovers across Saint Lucia.</p>
+        <div class="footer-social" aria-label="Social media links (preview only)">
+          <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M13 22v-8h3l.5-4H13V7.5c0-1.1.3-1.9 1.9-1.9H17V2.1C16.6 2 15.5 2 14.2 2c-2.7 0-4.6 1.7-4.6 4.7V10H7v4h2.6v8h3.4z"/></svg></span>
+          <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2c2.7 0 3 0 4.1.1 1.1 0 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.2.1 1.1.1 1.4.1 4.1s0 3-.1 4.1c0 1.1-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.2.4-1.1.1-1.4.1-4.1.1s-3 0-4.1-.1c-1.1 0-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.2C2 15 2 14.7 2 12s0-3 .1-4.1c0-1.1.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.2-.4C8 2 8.3 2 11 2zm0 3.8a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zm0 10.2a4 4 0 110-8 4 4 0 010 8zm6.4-10.4a1.4 1.4 0 11-2.8 0 1.4 1.4 0 012.8 0z"/></svg></span>
+          <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M21.5 6.2a2.7 2.7 0 00-1.9-1.9C17.9 3.8 12 3.8 12 3.8s-5.9 0-7.6.5a2.7 2.7 0 00-1.9 1.9C2 7.9 2 12 2 12s0 4.1.5 5.8a2.7 2.7 0 001.9 1.9c1.7.5 7.6.5 7.6.5s5.9 0 7.6-.5a2.7 2.7 0 001.9-1.9c.5-1.7.5-5.8.5-5.8s0-4.1-.5-5.8zM10 15.5v-7l6 3.5z"/></svg></span>
+        </div>
+        <p class="footer-social-note">Social links: preview only</p>
+      </div>
+      <div class="footer-col">
+        <h2 style="color:var(--white);font-size:0.92rem;margin-bottom:20px;letter-spacing:0.03em;text-transform:uppercase;font-family:var(--font-body);">Quick Links</h2>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#why">For Hosts</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#estimate">Get Estimate</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2 style="color:var(--white);font-size:0.92rem;margin-bottom:20px;letter-spacing:0.03em;text-transform:uppercase;font-family:var(--font-body);">Contact (Demo)</h2>
+        <ul>
+          <li><a href="https://wa.me/17587235872" target="_blank" rel="noopener noreferrer">WhatsApp: +1 758 723-5872</a></li>
+          <li>Number routes to Jamal Samuel, the site's designer</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2 style="color:var(--white);font-size:0.92rem;margin-bottom:20px;letter-spacing:0.03em;text-transform:uppercase;font-family:var(--font-body);">Sample Opening Hours</h2>
+        <ul>
+          <li>Mon – Fri: 7:00am – 6:00pm</li>
+          <li>Saturday: 8:00am – 3:00pm</li>
+          <li>Sunday: Closed</li>
+        </ul>
+        <div class="footer-map" role="img" aria-label="Map placeholder. A live site shows the business's Google Map here.">Live site: Google Map here</div>
+      </div>
+    </div>
+    <p class="footer-demo-note"><strong>Demo notice:</strong> Azure Clean Caribbean is a fictional business created to show website capabilities. All business names, prices, images, figures, hours and review content are illustrative examples, not real data, and do not represent an active client.</p>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Azure Clean Caribbean (fictional). Demo website.</span>
+      <span><a href="https://jamalsamuel.online" target="_blank" rel="noopener noreferrer">Jamal Samuel Built</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY MOBILE BAR -->
+<nav class="mobile-bar" aria-label="Quick actions">
+  <a href="tel:+17587235872"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.4 2.1L8 9.9a16 16 0 006 6l1.4-1.4a2 2 0 012.1-.4c.9.3 1.8.5 2.7.6a2 2 0 011.8 2.2z"/></svg>Call</a>
+  <a href="#estimate" class="mb-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg>Estimate</a>
+  <a href="https://wa.me/17587235872?text=Hi%20Azure%20Clean%20Caribbean%2C%20I%27d%20like%20a%20quote%20for%20my%20rental%20property." target="_blank" rel="noopener noreferrer" class="mb-whatsapp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.7.3 1.3.5 1.8.7.8.2 1.4.2 2 .1.6-.1 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.4C8.3 21.5 10.1 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>WhatsApp</a>
+</nav>
+
+<button class="scrolltop" id="scrollTop" type="button" aria-label="Scroll to top">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+(function(){
+  /* ---- STICKY HEADER SHADOW + SCROLL-TO-TOP ---- */
+  var header = document.getElementById('siteHeader');
+  var st = document.getElementById('scrollTop');
+  window.addEventListener('scroll', function(){
+    header.classList.toggle('scrolled', window.scrollY > 12);
+    st.classList.toggle('show', window.scrollY > 500);
+  }, {passive:true});
+  st.addEventListener('click', function(){
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({top:0, behavior: reduce ? 'auto' : 'smooth'});
+  });
+
+  /* ---- MOBILE NAV ---- */
+  var navToggle = document.getElementById('navToggle');
+  var navLinks = document.getElementById('navLinks');
+  var iconOpen = document.getElementById('navIconOpen');
+  var iconClose = document.getElementById('navIconClose');
+  function setNav(open){
+    navLinks.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    iconOpen.style.display = open ? 'none' : '';
+    iconClose.style.display = open ? '' : 'none';
+  }
+  navToggle.addEventListener('click', function(){ setNav(!navLinks.classList.contains('open')); });
+  navLinks.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setNav(false); }); });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && navLinks.classList.contains('open')){ setNav(false); navToggle.focus(); }
+  });
+
+  /* ---- FADE-IN ON SCROLL (content stays visible if this never runs) ---- */
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
+      });
+    }, {threshold:0.12});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  /* ================= ESTIMATE CALCULATOR ================= */
+  var WA_NUMBER = '17587235872';
+  /* Sample pricing only. Base figures in EC$, converted with illustrative rates. */
+  var CURRENCIES = {
+    XCD: {label:'EC$',  rate:1,      step:5},
+    USD: {label:'US$',  rate:0.37,   step:5},
+    GBP: {label:'£',    rate:0.29,   step:5},
+    CAD: {label:'CA$',  rate:0.51,   step:5}
+  };
+  var currencySelect = document.getElementById('currencySelect');
+  var params = new URLSearchParams(window.location.search);
+  var urlCur = (params.get('cur') || '').toUpperCase();
+  var currency = CURRENCIES[urlCur] ? urlCur : 'XCD';
+  currencySelect.value = currency;
+
+  var form = document.getElementById('estimatorForm');
+  form.addEventListener('submit', function(e){ e.preventDefault(); });
+
+  var state;
+  function resetState(){
+    state = {propertyType:null, bedrooms:1, bathrooms:1, cleaningType:null, frequency:null, preferredDate:'', location:''};
+  }
+  resetState();
+
+  var steps = document.querySelectorAll('.est-step');
+  var progressSegs = document.querySelectorAll('#estProgress span');
+  var currentStep = 1;
+  var shell = document.querySelector('.estimator-shell');
+
+  function goToStep(n){
+    steps.forEach(function(s){ s.classList.toggle('active', parseInt(s.dataset.step, 10) === n); });
+    progressSegs.forEach(function(seg, i){ seg.classList.toggle('done', i < n); });
+    currentStep = n;
+    var active = document.querySelector('.est-step.active');
+    var focusTarget = active.querySelector('legend, .price-tag');
+    if(focusTarget){ focusTarget.setAttribute('tabindex','-1'); focusTarget.focus({preventScroll:true}); }
+    var top = shell.getBoundingClientRect().top;
+    if(top < 0 || top > window.innerHeight * 0.6){
+      shell.scrollIntoView({block:'start', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
+    }
+  }
+
+  /* Option buttons (aria-pressed flips on selection) */
+  document.querySelectorAll('.option-grid').forEach(function(grid){
+    var group = grid.dataset.group;
+    grid.querySelectorAll('.option-card').forEach(function(card){
+      card.addEventListener('click', function(){
+        grid.querySelectorAll('.option-card').forEach(function(c){ c.setAttribute('aria-pressed','false'); });
+        card.setAttribute('aria-pressed','true');
+        state[group] = card.dataset.value;
+        var errEl = document.getElementById('err-' + group);
+        if(errEl){ errEl.textContent = ''; }
+      });
+    });
+  });
+
+  /* Counters */
+  document.querySelectorAll('.counter-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var target = btn.dataset.target;
+      var dir = parseInt(btn.dataset.dir, 10);
+      state[target] = Math.min(8, Math.max(1, state[target] + dir));
+      document.getElementById(target + 'Value').textContent = state[target];
+    });
+  });
+
+  /* Date: no past dates */
+  var dateInput = document.getElementById('preferredDate');
+  var today = new Date();
+  dateInput.min = today.getFullYear() + '-' + String(today.getMonth()+1).padStart(2,'0') + '-' + String(today.getDate()).padStart(2,'0');
+
+  function setFieldError(fieldId, input, hasError){
+    document.getElementById(fieldId).classList.toggle('error', hasError);
+    input.setAttribute('aria-invalid', hasError ? 'true' : 'false');
+  }
+
+  document.querySelectorAll('.est-next').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      if(currentStep === 1 && !state.propertyType){
+        document.getElementById('err-propertyType').textContent = 'Please choose a property type.';
+        return;
+      }
+      if(currentStep === 3 && !state.cleaningType){
+        document.getElementById('err-cleaningType').textContent = 'Please choose a type of clean.';
+        return;
+      }
+      if(currentStep === 3 && !state.frequency){
+        document.getElementById('err-frequency').textContent = 'Please choose how often you need cleaning.';
+        return;
+      }
+      if(currentStep === 4){
+        var locInput = document.getElementById('location');
+        var dateBad = !dateInput.value;
+        var locBad = !locInput.value.trim();
+        setFieldError('field-date', dateInput, dateBad);
+        setFieldError('field-location', locInput, locBad);
+        if(dateBad){ dateInput.focus(); return; }
+        if(locBad){ locInput.focus(); return; }
+        state.preferredDate = dateInput.value;
+        state.location = locInput.value.trim();
+        renderEstimate();
+      }
+      goToStep(currentStep + 1);
+    });
+  });
+
+  document.querySelectorAll('.est-back').forEach(function(btn){
+    btn.addEventListener('click', function(){ goToStep(currentStep - 1); });
+  });
+
+  document.querySelector('.est-restart').addEventListener('click', function(){
+    resetState();
+    document.querySelectorAll('.option-card').forEach(function(c){ c.setAttribute('aria-pressed','false'); });
+    document.getElementById('bedroomsValue').textContent = 1;
+    document.getElementById('bathroomsValue').textContent = 1;
+    dateInput.value = '';
+    document.getElementById('location').value = '';
+    goToStep(1);
+  });
+
+  currencySelect.addEventListener('change', function(){
+    currency = currencySelect.value;
+    if(state.propertyType && state.cleaningType){ renderEstimate(); }
+  });
+
+  function money(n){
+    var c = CURRENCIES[currency];
+    var v = Math.round((n * c.rate) / c.step) * c.step;
+    return c.label + v.toLocaleString('en-US');
+  }
+
+  function escapeHTML(s){
+    return s.replace(/[&<>"']/g, function(ch){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch];
+    });
+  }
+
+  function formatDate(d){
+    if(!d) return '';
+    var dt = new Date(d + 'T00:00:00');
+    return dt.toLocaleDateString('en-US', {weekday:'short', month:'short', day:'numeric', year:'numeric'});
+  }
+
+  function renderEstimate(){
+    var base = { 'Airbnb / Villa':130, House:120, Apartment:100, 'Office / Commercial':140, Boat:150 };
+    var mult = { 'Turnover':1, 'Deep Clean':1.5, 'Post-Renovation':1.9 };
+    var subtotal = ((base[state.propertyType] || 120) + state.bedrooms * 22 + state.bathrooms * 18) * (mult[state.cleaningType] || 1);
+    var low = money(subtotal * 0.9);
+    var high = money(subtotal * 1.25);
+    var range = low + ' – ' + high;
+
+    document.getElementById('priceRange').textContent = range;
+    document.getElementById('estSummary').innerHTML =
+      '<strong>' + escapeHTML(state.propertyType) + '</strong>, ' + state.bedrooms + ' bed / ' + state.bathrooms + ' bath, ' +
+      '<strong>' + escapeHTML(state.cleaningType) + '</strong>, ' + escapeHTML(state.frequency) + '<br>Preferred date: ' + escapeHTML(formatDate(state.preferredDate)) +
+      '<br>Area: ' + escapeHTML(state.location);
+
+    var msg = [
+      'Hi Azure Clean Caribbean! I\'d like to book a clean:',
+      'Property: ' + state.propertyType,
+      'Bedrooms/cabins: ' + state.bedrooms + ' | Bathrooms: ' + state.bathrooms,
+      'Type of clean: ' + state.cleaningType,
+      'How often: ' + state.frequency,
+      'Preferred date: ' + formatDate(state.preferredDate),
+      'Area: ' + state.location,
+      'Estimate shown: ' + range
+    ].join('\n');
+    document.getElementById('sendEstimateWhatsapp').href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
+  }
+
+  /* ================= BEFORE / AFTER (native range input: mouse, touch & keyboard) ================= */
+  var baWrap = document.getElementById('baWrap');
+  var baRange = document.getElementById('baRange');
+  function setPos(){ baWrap.style.setProperty('--pos', baRange.value + '%'); }
+  baRange.addEventListener('input', setPos);
+  setPos();
+})();
+</script>
+
+
+</body>
+</html>
