@@ -3,38 +3,26 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Sweet Layers Bakery — Custom Cakes in Castries, Saint Lucia | Order on WhatsApp</title>
-<meta name="description" content="Custom birthday, wedding, and celebration cakes made fresh to order in Castries, Saint Lucia. Build your cake and order in minutes on WhatsApp. Pickup and island-wide delivery available."/>
-<meta name="keywords" content="cake bakery Saint Lucia, custom cakes Castries, wedding cakes Saint Lucia, birthday cakes Castries, cupcakes Saint Lucia, WhatsApp cake order"/>
-<meta property="og:title" content="Sweet Layers Bakery — Custom Cakes for the Moments Your Family Will Remember"/>
-<meta property="og:description" content="Birthday cakes, wedding cakes, cupcakes, and custom celebration cakes — made fresh in Castries, Saint Lucia. Order easily on WhatsApp."/>
-<meta property="og:type" content="business.business"/>
+<title>Sweet Layers Bakery (Concept Demo) — Website Demo by Jamal Samuel</title>
+<meta name="description" content="Concept demo website by Jamal Samuel. Sweet Layers Bakery is a fictional business. All content, images, prices, figures, names and reviews are illustrative. No orders are taken on this page."/>
+<meta property="og:title" content="Sweet Layers Bakery — Concept Demo Website by Jamal Samuel"/>
+<meta property="og:description" content="A fictional bakery website built to demonstrate WhatsApp-native cake ordering. Not a real business. All content is illustrative."/>
+<meta property="og:type" content="website"/>
 <meta property="og:locale" content="en_LC"/>
 <meta property="og:image" content="images/og-cover.jpg"/>
-<meta name="robots" content="index, follow"/>
-<link rel="canonical" href="https://jamalsamuel.online/"/>
+<!-- DEMO: kept out of search engines so the fictional business is never listed as real -->
+<meta name="robots" content="noindex, nofollow"/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+<!-- DEMO: Bakery/LocalBusiness schema intentionally removed. It would tell Google a real
+     bakery exists at this phone number. Add it back only on a real client's live site, with their real details. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Bakery",
-  "name": "Sweet Layers Bakery",
-  "image": "images/og-cover.jpg",
-  "telephone": "+1-758-723-5872",
-  "priceRange": "$$",
-  "servesCuisine": "Cakes and Desserts",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Castries",
-    "addressRegion": "Castries",
-    "addressCountry": "LC"
-  },
-  "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "17:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "14:00" }
-  ],
-  "sameAs": []
+  "@type": "WebPage",
+  "name": "Sweet Layers Bakery — Concept Demo",
+  "description": "Fictional bakery website built as a design and ordering-flow demonstration. Not a real business.",
+  "author": { "@type": "Person", "name": "Jamal Samuel", "url": "https://www.jamalsamuel.online/" }
 }
 </script>
 <style>
@@ -64,10 +52,56 @@
   --radius:    20px;
   --font-d:    'Fraunces', serif;
   --font-b:    'DM Sans', sans-serif;
+  --demo-h:    40px;
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;scroll-padding-top:calc(66px + var(--demo-h) + 8px);}
+
+/* ═══════════════════════════════════════════
+   DEMO DISCLAIMER — persistent header + footer restatement
+   (per Demo Disclaimer Standard: two touchpoints, not one per section)
+═══════════════════════════════════════════ */
+.demo-banner{
+  position:fixed;top:0;left:0;right:0;z-index:600;
+  min-height:var(--demo-h);
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:6px 16px;
+  background:#2a1a12;color:#fdf8f2;
+  font-size:0.74rem;line-height:1.35;text-align:center;
+  border-bottom:2px solid var(--gold2);
+}
+.demo-banner strong{color:var(--gold2);font-weight:700;letter-spacing:0.4px;text-transform:uppercase;font-size:0.68rem;white-space:nowrap;}
+.demo-banner a{color:#fdf8f2;text-decoration:underline;text-underline-offset:2px;white-space:nowrap;}
+.demo-banner .db-short{display:none;}
+
+.demo-footer-note{
+  margin-top:26px;padding:18px 20px;border-radius:14px;
+  background:rgba(253,248,242,0.05);border:1px solid rgba(212,169,106,0.3);
+  font-size:0.78rem;line-height:1.65;color:rgba(253,248,242,0.72);
+}
+.demo-footer-note strong{color:var(--gold2);}
+
+.preview-only{
+  opacity:0.55;cursor:not-allowed;pointer-events:none;
+}
+.preview-label{display:block;font-size:0.68rem;color:var(--muted);margin-top:8px;}
+
+/* WhatsApp demo notice (shown once per visit before WhatsApp opens) */
+.demo-modal{
+  position:fixed;inset:0;z-index:1000;display:none;
+  align-items:center;justify-content:center;padding:16px;
+  background:rgba(26,16,10,0.6);
+}
+.demo-modal.open{display:flex;}
+.demo-modal-card{
+  background:var(--white);border-radius:20px;max-width:440px;width:100%;
+  padding:28px 26px;box-shadow:0 30px 70px rgba(26,16,10,0.3);
+}
+.demo-modal-card h2{font-family:var(--font-d);font-size:1.3rem;color:var(--dark);margin-bottom:10px;}
+.demo-modal-card p{font-size:0.88rem;color:var(--text2);line-height:1.6;margin-bottom:10px;}
+.demo-modal-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;}
+.demo-modal-btns button{flex:1;min-width:140px;justify-content:center;}
 body{
   font-family:var(--font-b);
   background:var(--cream);
@@ -133,7 +167,7 @@ img{max-width:100%;display:block;}
    NAV
 ═══════════════════════════════════════════ */
 .sl-nav{
-  position:fixed;top:0;left:0;right:0;z-index:500;
+  position:fixed;top:var(--demo-h);left:0;right:0;z-index:500;
   height:66px;
   display:flex;align-items:center;justify-content:space-between;
   padding:0 36px;
@@ -190,7 +224,7 @@ img{max-width:100%;display:block;}
   min-height:100vh;
   display:grid;grid-template-columns:1.05fr 0.95fr;
   align-items:center;
-  padding:66px 0 0;
+  padding:calc(66px + var(--demo-h)) 0 0;
   position:relative;overflow:hidden;
   background:linear-gradient(135deg,var(--cream) 50%,var(--cream2) 100%);
 }
@@ -722,7 +756,11 @@ img{max-width:100%;display:block;}
 @media (max-width:760px){
   .nav-links{display:none;}
   .nav-burger{display:block;}
-  .sl-hero{grid-template-columns:1fr;padding-top:66px;}
+  :root{--demo-h:44px;}
+  .demo-banner{font-size:0.7rem;padding:6px 12px;}
+  .demo-banner .db-long{display:none;}
+  .demo-banner .db-short{display:inline;}
+  .sl-hero{grid-template-columns:1fr;padding-top:calc(66px + var(--demo-h));}
   .hero-left{padding:48px 24px 30px;}
   .hero-right{min-height:380px;padding:0 24px 40px;}
   .hero-float-card{display:none;}
@@ -758,6 +796,13 @@ img{max-width:100%;display:block;}
 </style>
 </head>
 <body>
+<!-- DEMO DISCLAIMER BANNER (persistent) -->
+<div class="demo-banner" role="note" aria-label="Demo disclaimer">
+  <strong>Concept Demo</strong>
+  <span class="db-long">Sweet Layers Bakery is a fictional business. All content, images, prices, figures, names &amp; reviews are illustrative. No orders are taken. <a href="#demo-notice">Details</a></span>
+  <span class="db-short">Fictional bakery · all content illustrative · no real orders. <a href="#demo-notice">Details</a></span>
+</div>
+
 <!-- ═══════════════════════════════════
      NAV
 ═══════════════════════════════════ -->
@@ -799,7 +844,7 @@ img{max-width:100%;display:block;}
     </div>
     <div class="hero-microcopy">Send your idea. We'll help with size, flavour, and design.</div>
     <div class="hero-trust">
-      <div class="trust-item"><span class="trust-icon"><i data-lucide="star"></i></span> 4.9/5 from 120+ orders*</div>
+      <div class="trust-item"><span class="trust-icon"><i data-lucide="leaf"></i></span> Made Fresh to Order</div>
       <div class="trust-item"><span class="trust-icon"><i data-lucide="smartphone"></i></span> Order on WhatsApp</div>
       <div class="trust-item"><span class="trust-icon"><i data-lucide="package"></i></span> Pickup & Delivery</div>
     </div>
@@ -819,8 +864,8 @@ img{max-width:100%;display:block;}
       </div>
     </div>
     <div class="hero-float-card">
-      <div class="hfc-stars">★★★★★</div>
-      <div class="hfc-text">120+ happy customers*</div>
+      <div class="hfc-stars">✦</div>
+      <div class="hfc-text">Made to order</div>
     </div>
   </div>
 </section>
@@ -840,7 +885,7 @@ img{max-width:100%;display:block;}
     <div class="sec-head reveal">
       <div class="sec-eyebrow">Why Sweet Layers</div>
       <h2 class="sec-title">Why Families Choose <em>Sweet Layers</em></h2>
-      <p class="sec-sub">Six reasons local customers keep coming back, occasion after occasion.</p>
+      <p class="sec-sub">Six things that make ordering a celebration cake simple and stress-free.</p>
     </div>
     <div class="why-grid" id="whyGrid"></div>
   </div>
@@ -954,7 +999,7 @@ img{max-width:100%;display:block;}
         <div class="inspo-title">Have a cake photo you love?</div>
         <div class="inspo-sub">Send us your inspiration photo on WhatsApp and we'll help you choose the right size, flavour, and design to match it.</div>
       </div>
-      <a href="https://wa.me/17587235872?text=Hi%20Sweet%20Layers!%20I%20have%20an%20inspiration%20photo%20I%27d%20like%20to%20share%20for%20a%20cake%20I%27m%20planning." target="_blank" class="loc-btn-wa"><i data-lucide="send"></i> Send Inspiration Photo</a>
+      <a href="https://wa.me/17587235872?text=%5BDEMO%20%E2%80%94%20Sweet%20Layers%20concept%20site%2C%20not%20a%20real%20order%5D%20I%20have%20an%20inspiration%20photo%20I%27d%20like%20to%20share%20for%20a%20cake%20I%27m%20planning." data-wa="I have an inspiration photo I'd like to share for a cake I'm planning." target="_blank" rel="noopener" class="loc-btn-wa"><i data-lucide="send"></i> Send Inspiration Photo</a>
     </div>
   </div>
 </div>
@@ -966,8 +1011,8 @@ img{max-width:100%;display:block;}
   <div class="sec-wrap">
     <div class="sec-head reveal">
       <div class="sec-eyebrow">Recent Work</div>
-      <h2 class="sec-title">Cakes We've <em>Recently Made</em></h2>
-      <p class="sec-sub">A look at real orders across birthdays, weddings, and everything in between.</p>
+      <h2 class="sec-title">Cake <em>Gallery</em></h2>
+      <p class="sec-sub">Birthdays, weddings, and everything in between. Tap any design to ask for something similar.</p>
     </div>
     <div class="gallery-grid" id="galleryGrid"></div>
   </div>
@@ -979,13 +1024,14 @@ img{max-width:100%;display:block;}
 <section class="py-sec" style="background:var(--cream2);" id="instagram">
   <div class="sec-wrap">
     <div class="sec-head reveal">
-      <div class="sec-eyebrow">@sweetlayers.lc</div>
+      <div class="sec-eyebrow">Instagram Feed</div>
       <h2 class="sec-title">See Our <em>Latest Creations</em></h2>
       <p class="sec-sub">New cakes go up almost every week. Follow along for behind-the-scenes and fresh designs.</p>
     </div>
     <div class="ig-grid reveal" id="igGrid"></div>
     <div class="ig-cta-row">
-      <a href="#" target="_blank" class="btn-outline-sl"><i data-lucide="instagram"></i> View More Cakes on Instagram</a>
+      <span class="btn-outline-sl preview-only" aria-disabled="true"><i data-lucide="instagram"></i> View More Cakes on Instagram</span>
+      <span class="preview-label">Preview only — links to the business's real Instagram account at launch.</span>
     </div>
   </div>
 </section>
@@ -1023,7 +1069,7 @@ img{max-width:100%;display:block;}
         <p class="baker-text">I'm Marva, the hands behind every Sweet Layers cake. It started small, baking for my own children's birthdays, then for neighbours, then for people I'd never met who found me through a friend of a friend. Six years later, I'm still in the same kitchen, still mixing every batch myself.</p>
         <p class="baker-text">What I've learned is that people don't just want a cake. They want the moment it represents, like a daughter turning one, a couple saying "we do," a graduate who made it through. When you message me on WhatsApp, you're talking to the person who'll actually bake your cake, not a sales team. I want to know your story before I ever pick up a piping bag.</p>
         <div class="baker-sign">— Marva</div>
-        <div class="baker-sign-sub">Founder & Baker, Castries, Saint Lucia</div>
+        <div class="baker-sign-sub">Founder &amp; Baker · sample founder story — replaced with the owner's own words and photo at launch</div>
       </div>
     </div>
   </div>
@@ -1037,7 +1083,7 @@ img{max-width:100%;display:block;}
     <div class="sec-head reveal">
       <div class="sec-eyebrow">Social Proof</div>
       <h2 class="sec-title">What Customers Are <em>Saying</em></h2>
-      <p class="sec-sub">A sample of the kind of feedback we aim to earn, occasion after occasion.</p>
+      <p class="sec-sub">Example review layout. The business's real customer reviews go here, published only with each customer's permission.</p>
     </div>
 
     <div class="proof-banner reveal">
@@ -1061,11 +1107,12 @@ img{max-width:100%;display:block;}
         <div class="proof-label">Years Baking</div>
       </div>
     </div>
-    <div class="proof-disclaimer">Sample proof layout for demonstration purposes.</div>
+    <div class="proof-disclaimer">Example figures and reviews — replaced with the business's real, verifiable numbers at launch.</div>
 
     <div class="testi-grid" id="testiGrid"></div>
     <div class="proof-cta-row">
-      <a href="#" target="_blank" class="btn-outline-sl"><i data-lucide="quote"></i> Read More Reviews</a>
+      <span class="btn-outline-sl preview-only" aria-disabled="true"><i data-lucide="quote"></i> Read More Reviews</span>
+      <span class="preview-label">Preview only — links to the business's real Google reviews at launch.</span>
     </div>
   </div>
 </section>
@@ -1078,7 +1125,7 @@ img{max-width:100%;display:block;}
     <div class="sec-head reveal">
       <div class="sec-eyebrow">Visit or Order</div>
       <h2 class="sec-title">Find Us in <em>Castries</em></h2>
-      <p class="sec-sub">Pickup available daily. Delivery across selected areas of Saint Lucia.</p>
+      <p class="sec-sub">Pickup in Castries during opening hours. Delivery across selected areas of Saint Lucia.</p>
     </div>
     <div class="location-wrap reveal">
       <div class="location-map">
@@ -1109,7 +1156,7 @@ img{max-width:100%;display:block;}
           <div><div class="loc-row-title">Delivery Available</div><div class="loc-row-sub">Across selected areas of Saint Lucia — ask us if we cover your area.</div></div>
         </div>
         <div class="loc-btns">
-          <a href="https://wa.me/17587235872?text=Hi%20Sweet%20Layers!%20I%27d%20like%20to%20ask%20about%20pickup%20%26%20delivery." target="_blank" class="loc-btn-wa"><i data-lucide="send"></i> Message Us on WhatsApp</a>
+          <a href="https://wa.me/17587235872?text=%5BDEMO%20%E2%80%94%20Sweet%20Layers%20concept%20site%2C%20not%20a%20real%20order%5D%20I%27d%20like%20to%20ask%20about%20pickup%20%26%20delivery." data-wa="I'd like to ask about pickup & delivery." target="_blank" rel="noopener" class="loc-btn-wa"><i data-lucide="send"></i> Message Us on WhatsApp</a>
           <a href="https://www.google.com/maps/search/?api=1&query=Castries%2C%20Saint%20Lucia" target="_blank" class="loc-btn-outline"><i data-lucide="navigation"></i> Get Directions</a>
         </div>
       </div>
@@ -1164,17 +1211,35 @@ img{max-width:100%;display:block;}
       </div>
       <div>
         <div class="footer-col-title">Contact</div>
-        <div class="footer-contact-row"><span class="footer-icon"><i data-lucide="phone"></i></span> +1 (758) 723-5872</div>
+        <div class="footer-contact-row"><span class="footer-icon"><i data-lucide="phone"></i></span> Demo line: +1 (758) 723-5872 (Jamal Samuel, web designer — not a bakery)</div>
         <div class="footer-contact-row"><span class="footer-icon"><i data-lucide="map-pin"></i></span> Castries, Saint Lucia</div>
         <div class="footer-contact-row"><span class="footer-icon"><i data-lucide="clock"></i></span> Tue–Sat, see hours above</div>
       </div>
     </div>
+    <div class="demo-footer-note" id="demo-notice" role="note">
+      <strong>About this demo.</strong> This is a concept website built by Jamal Samuel to show what a bakery website can do. <strong>Sweet Layers Bakery is a fictional business.</strong> All content on this page is illustrative: the business name, the baker "Marva" and her story, cake names, prices, opening hours, delivery areas, ordering timelines, statistics, ratings, customer names and reviews, and the Instagram feed. Any resemblance to a real business or person is coincidental. Photos are used for demonstration only and do not show work by a real Sweet Layers bakery.<br/><br/>
+      <strong>No orders are taken here.</strong> WhatsApp buttons open a chat with Jamal Samuel, the web designer, so you can test the ordering flow. No cake will be made, no payment will be requested, and no deposit should ever be sent.<br/><br/>
+      <strong>Your privacy.</strong> This page has no sign-up and stores nothing you type. Details entered in the cake builder stay in your browser unless you choose to send them on WhatsApp. The page loads fonts, icons and the map from third parties (Google and unpkg), which may receive your IP address as part of normal page loading.
+    </div>
     <div class="footer-bottom">
-      <div class="footer-copy">© 2026 Sweet Layers Bakery. Demo site — all orders shown are illustrative.</div>
-      <div class="footer-credit">Website by <a href="https://www.jamalsamuel.online/" target="_blank">Jamal Samuel</a></div>
+      <div class="footer-copy">© 2026 Jamal Samuel. Concept demo — Sweet Layers Bakery is fictional.</div>
+      <div class="footer-credit">Jamal Samuel Built · <a href="https://www.jamalsamuel.online/" target="_blank" rel="noopener">jamalsamuel.online</a></div>
     </div>
   </div>
 </footer>
+
+<!-- WHATSAPP DEMO NOTICE -->
+<div class="demo-modal" id="demoModal" role="dialog" aria-modal="true" aria-labelledby="demoModalTitle" aria-describedby="demoModalText">
+  <div class="demo-modal-card">
+    <h2 id="demoModalTitle">This is a demo</h2>
+    <p id="demoModalText">Sweet Layers Bakery isn't a real business. This button opens WhatsApp with <strong>Jamal Samuel, the web designer</strong> who built this page, so you can see how the ordering flow works.</p>
+    <p>No cake will be made and no payment will be requested. Your message will be marked "DEMO".</p>
+    <div class="demo-modal-btns">
+      <button type="button" class="btn-outline-sl" id="demoModalCancel">Stay on page</button>
+      <button type="button" class="btn-primary-sl" id="demoModalGo">Continue to WhatsApp</button>
+    </div>
+  </div>
+</div>
 
 <!-- STICKY MOBILE ORDER BAR -->
 <div class="sticky-bar" id="stickyBar">
@@ -1183,14 +1248,15 @@ img{max-width:100%;display:block;}
 </div>
 
 <!-- FLOAT WA -->
-<a href="https://wa.me/17587235872?text=Hi%20Sweet%20Layers!%20I%27d%20like%20to%20order%20a%20cake%20🎂" target="_blank" class="float-wa" title="Order on WhatsApp"><i data-lucide="message-square-dot"></i></a>
+<a href="https://wa.me/17587235872?text=%5BDEMO%20%E2%80%94%20Sweet%20Layers%20concept%20site%2C%20not%20a%20real%20order%5D%20I%27d%20like%20to%20order%20a%20cake." data-wa="I'd like to order a cake 🎂" target="_blank" rel="noopener" class="float-wa" title="Order on WhatsApp (demo)" aria-label="Order on WhatsApp (demo)"><i data-lucide="message-square-dot"></i></a>
 
 <script>
 /* ═══════════════════════════════════
    CONSTANTS
 ═══════════════════════════════════ */
 const PHONE = '17587235872';
-const SITE  = 'https://jamalinks758.github.io/jamalinks/sweet-layers.html';
+const SITE  = window.location.href.split('#')[0];
+const DEMO_TAG = '[DEMO — Sweet Layers concept site, not a real order]';
 
 /* ═══════════════════════════════════
    PHOTO HELPER
@@ -1295,7 +1361,7 @@ const galleryItems = [
   { cat:'Graduation', cap:'Class of 2026 Cake', img:'https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/sweet-layers-images/Sweet-Layers/gallery-graduation-cake.webp' },
   { cat:'Tropical Floral', cap:'Hibiscus & Coconut Cake', img:'https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/sweet-layers-images/Sweet-Layers/gallery-tropical-floral-cake.webp' },
   { cat:'Chocolate Drip', cap:'Salted Caramel Drip Cake', img:'https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/sweet-layers-images/Sweet-Layers/gallery-salted-caramel.webp' },
-  { cat:'Custom Themed', cap:'Football Fan Birthday Cake', img:'https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/sweet-layers-images/Sweet-Layers/unicorn-cake.webp' },
+  { cat:'Custom Themed', cap:'Pastel Party Theme Cake', img:'https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/sweet-layers-images/Sweet-Layers/unicorn-cake.webp' },
 ];
 
 /* ═══════════════════════════════════
@@ -1324,7 +1390,8 @@ const faqs = [
   { q:'What flavours do you offer?', a:'Our most popular flavours include vanilla, chocolate, red velvet, lemon, salted caramel, passion fruit, coconut, and champagne. We can also create custom flavour combinations — just ask on WhatsApp.' },
   { q:'Do you offer delivery?', a:'Yes. We deliver across selected areas of Saint Lucia for an additional fee depending on your location. Pickup in Castries is also available. We confirm delivery details once your order is placed.' },
   { q:'What\'s the pricing range?', a:'Pricing starts from $55 for cupcake boxes and from $85 for layered birthday cakes. Wedding and tiered cakes start from $240. Final pricing depends on size, design complexity, and flavour — we\'ll give you a full quote on WhatsApp.' },
-  { q:'Can I customise everything?', a:'Colours, messages, toppers, themes, and dietary requirements (gluten-free and vegan options available on request) can all be customised. Tell us your vision and we\'ll work out what\'s possible.' },
+  { q:'Can I customise everything?', a:'Colours, messages, toppers, and themes can all be customised. Tell us your vision and we\'ll work out what\'s possible.' },
+  { q:'Do you cater for allergies or dietary needs?', a:'Tell us about any allergy or dietary need before you order and we\'ll tell you honestly what we can and can\'t do. Our kitchen handles wheat, dairy, eggs, and nuts, so we can\'t guarantee any cake is free from traces of these.' },
   { q:'What payment methods do you accept?', a:'We accept bank transfers and mobile payments. A deposit is required to confirm your order, with the balance due on collection or before delivery.' },
 ];
 
@@ -1332,12 +1399,13 @@ const faqs = [
    DATA — TESTIMONIALS
 ═══════════════════════════════════ */
 const testimonials = [
-  { stars:'★★★★★', occasion:'Birthday Cake', quote:'The 30th birthday cake was stunning — it brought tears to her eyes before she even tasted it. The taste matched the look, start to finish.', name:'Keisha Bernard', loc:'Castries', avatar:'👩🏽' },
-  { stars:'★★★★★', occasion:'Wedding Cake', quote:'Our three-tier wedding cake was a masterpiece. Every guest commented on it. The WhatsApp ordering process was smooth and felt personal the whole way through.', name:'Marcus & Alicia Thompson', loc:'Gros Islet', avatar:'💑' },
-  { stars:'★★★★★', occasion:'Cupcake Box', quote:'Ordered 24 cupcakes for my daughter\'s class party. They arrived on time, looked great, and the kids loved them. Ordering took under 5 minutes on WhatsApp.', name:'Danielle Jn. Pierre', loc:'Castries', avatar:'👩🏾' },
-  { stars:'★★★★★', occasion:'Custom Cake', quote:'I described a specific design — floral, tropical, three layers, rose gold — and they matched it closely. I still don\'t know how they pulled it off so well.', name:'Stephanie Mc Donald', loc:'Rodney Bay', avatar:'👩🏻' },
-  { stars:'★★★★★', occasion:'Birthday Cake', quote:'The chocolate drip cake for my husband\'s birthday was rich, moist, and beautifully made. We\'re ordering from here for every birthday now.', name:'Nadine Charles', loc:'Vieux Fort', avatar:'👩🏽' },
-  { stars:'★★★★★', occasion:'Unicorn Cake', quote:'My daughter\'s reaction to her unicorn cake said it all — better than the reference picture I sent. The WhatsApp chat was friendly and quick the whole time.', name:'Trisha Mathurin', loc:'Gros Islet', avatar:'👩🏾' },
+  /* DEMO: placeholder names only — never use realistic local names for invented reviews */
+  { stars:'★★★★★', occasion:'Birthday Cake', quote:'The 30th birthday cake was stunning — it brought tears to her eyes before she even tasted it. The taste matched the look, start to finish.', name:'Sample Customer A', loc:'Example review', avatar:'🎂' },
+  { stars:'★★★★★', occasion:'Wedding Cake', quote:'Our three-tier wedding cake was a masterpiece. Every guest commented on it. The WhatsApp ordering process was smooth and felt personal the whole way through.', name:'Sample Customer B', loc:'Example review', avatar:'💍' },
+  { stars:'★★★★★', occasion:'Cupcake Box', quote:'Ordered 24 cupcakes for a class party. They arrived on time, looked great, and the kids loved them. Ordering took under 5 minutes on WhatsApp.', name:'Sample Customer C', loc:'Example review', avatar:'🧁' },
+  { stars:'★★★★★', occasion:'Custom Cake', quote:'I described a specific design — floral, tropical, three layers, rose gold — and they matched it closely.', name:'Sample Customer D', loc:'Example review', avatar:'🌺' },
+  { stars:'★★★★★', occasion:'Birthday Cake', quote:'The chocolate drip cake was rich, moist, and beautifully made. We\'re ordering from here for every birthday now.', name:'Sample Customer E', loc:'Example review', avatar:'🍫' },
+  { stars:'★★★★★', occasion:'Unicorn Cake', quote:'The unicorn cake came out better than the reference picture I sent. The WhatsApp chat was friendly and quick the whole time.', name:'Sample Customer F', loc:'Example review', avatar:'🦄' },
 ];
 
 /* ═══════════════════════════════════
@@ -1457,9 +1525,44 @@ function renderCakes() {
   refreshIcons();
 }
 
-function orderCake(msg) {
-  window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
+/* All WhatsApp opens go through here: tags the message as DEMO and shows
+   the demo notice once per visit, so nobody mistakes this for a real bakery. */
+let demoAcknowledged = false;
+try { demoAcknowledged = sessionStorage.getItem('sl_demo_ack') === '1'; } catch (e) {}
+let pendingWaUrl = '';
+
+function waUrl(msg) {
+  return `https://wa.me/${PHONE}?text=${encodeURIComponent(DEMO_TAG + '\n' + msg)}`;
 }
+function openWA(msg) {
+  const url = waUrl(msg);
+  if (demoAcknowledged) { window.open(url, '_blank', 'noopener'); return; }
+  pendingWaUrl = url;
+  const modal = document.getElementById('demoModal');
+  modal.classList.add('open');
+  document.getElementById('demoModalGo').focus();
+}
+function closeDemoModal() {
+  document.getElementById('demoModal').classList.remove('open');
+  pendingWaUrl = '';
+}
+document.getElementById('demoModalGo').addEventListener('click', () => {
+  demoAcknowledged = true;
+  try { sessionStorage.setItem('sl_demo_ack', '1'); } catch (e) {}
+  const url = pendingWaUrl;
+  closeDemoModal();
+  if (url) window.open(url, '_blank', 'noopener');
+});
+document.getElementById('demoModalCancel').addEventListener('click', closeDemoModal);
+document.getElementById('demoModal').addEventListener('click', e => { if (e.target.id === 'demoModal') closeDemoModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDemoModal(); });
+
+/* Static WhatsApp links (data-wa) — the href still works if JS fails */
+document.querySelectorAll('a[data-wa]').forEach(a => {
+  a.addEventListener('click', e => { e.preventDefault(); openWA(a.dataset.wa); });
+});
+
+function orderCake(msg) { openWA(msg); }
 
 /* ═══════════════════════════════════
    GALLERY
@@ -1561,7 +1664,8 @@ function goToStep(n) {
   buildBuilderTabs();
   if (n === 4) renderSummary();
   const builderEl = document.getElementById('builder');
-  const navHeight = (document.querySelector('.sl-nav') || {}).offsetHeight || 66;
+  const navHeight = ((document.querySelector('.sl-nav') || {}).offsetHeight || 66)
+                  + ((document.querySelector('.demo-banner') || {}).offsetHeight || 0);
   const targetY = builderEl.getBoundingClientRect().top + window.scrollY - navHeight - 12;
   window.scrollTo({ top: targetY, behavior: 'smooth' });
 }
@@ -1604,7 +1708,7 @@ function sendCakeOrder() {
   const note = document.getElementById('specialNote').value.trim();
   const dateVal = document.getElementById('eventDate').value;
   const msg = [
-    '🎂 *Sweet Layers — Custom Cake Order*',
+    '🎂 *Sweet Layers — Custom Cake Order (DEMO TEST)*',
     '────────────────────',
     `Occasion: ${build.occasion || 'Not specified'}`,
     `Size: ${build.size || 'Not specified'}`,
@@ -1613,9 +1717,9 @@ function sendCakeOrder() {
     note ? `Special Notes: ${note}` : '',
     '────────────────────',
     'Please confirm pricing, delivery, and date availability.',
-    `🔗 Ordered via: ${SITE}`
+    `🔗 Sent from demo page: ${SITE}`
   ].filter(Boolean).join('\n');
-  window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
+  openWA(msg);
 }
 
 /* ═══════════════════════════════════
