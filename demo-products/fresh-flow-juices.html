@@ -14,33 +14,81 @@
   document.documentElement.setAttribute('data-theme', theme);
 })();
 </script>
-<title>FreshFlow Juices — Cold-Pressed Daily</title>
-<meta name="description" content="Cold-pressed, 100% natural juices made fresh daily in Saint Lucia. Order in one tap and get it sent straight to WhatsApp — no app, no fuss."/>
-<link rel="canonical" href="https://www.jamalsamuel.online/fresh-flow-juices.html"/>
+<title>FreshFlow Juices (Demo) — Juice Bar Website Demo by Jamal Samuel</title>
+<meta name="description" content="Demo website by Jamal Samuel. FreshFlow Juices is a fictional juice bar used to show a WhatsApp ordering website for juice bars and smoothie shops in Saint Lucia and the Caribbean. Not a real business."/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<meta name="author" content="Jamal Samuel"/>
+<link rel="canonical" href="https://www.jamalsamuel.online/demo-products/fresh-flow-juices.html"/>
 <meta property="og:type" content="website"/>
-<meta property="og:title" content="FreshFlow Juices — Cold-Pressed Daily"/>
-<meta property="og:description" content="Cold-pressed, 100% natural juices made fresh daily in Saint Lucia. Order via WhatsApp in one tap."/>
-<meta property="og:url" content="https://www.jamalsamuel.online/fresh-flow-juices.html"/>
-<meta property="og:image" content="https://www.jamalsamuel.online/fresh-flow-images/freshflow-og-cover.jpg"/>
+<meta property="og:site_name" content="Jamal Samuel — Website Demos"/>
+<meta property="og:title" content="FreshFlow Juices — Juice Bar Website Demo by Jamal Samuel"/>
+<meta property="og:description" content="Concept demo: a WhatsApp ordering website for juice bars. FreshFlow Juices is fictional — built by Jamal Samuel to show what your business could have."/>
+<meta property="og:url" content="https://www.jamalsamuel.online/demo-products/fresh-flow-juices.html"/>
+<meta property="og:image" content="https://www.jamalsamuel.online/demo-products/fresh-flow-images/freshflow-og-cover.jpg"/>
+<meta property="og:image:alt" content="FreshFlow Juices concept demo website by Jamal Samuel"/>
 <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="FreshFlow Juices — Juice Bar Website Demo by Jamal Samuel"/>
+<meta name="twitter:description" content="Concept demo of a WhatsApp ordering website for juice bars. Fictional business, illustrative content."/>
+<meta name="twitter:image" content="https://www.jamalsamuel.online/demo-products/fresh-flow-images/freshflow-og-cover.jpg"/>
 <meta name="theme-color" content="#1a6b3c"/>
 <link rel="icon" type="image/png" href="fresh-flow-images/freshflow-favicon.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<!-- Demo page: schema describes a web page / sample work by Jamal Samuel.
+     Deliberately NO LocalBusiness / Restaurant / Product / Offer markup —
+     FreshFlow Juices is fictional and must never be read by Google as a real business. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "FreshFlow Juices",
-  "image": "https://www.jamalsamuel.online/fresh-flow-images/freshflow-og-cover.jpg",
-  "url": "https://www.jamalsamuel.online/fresh-flow-juices.html",
-  "telephone": "+17587235872",
-  "priceRange": "$$",
-  "servesCuisine": "Cold-Pressed Juice",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Vieux-Fort",
-    "addressCountry": "LC"
-  }
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.jamalsamuel.online/demo-products/fresh-flow-juices.html#webpage",
+      "url": "https://www.jamalsamuel.online/demo-products/fresh-flow-juices.html",
+      "name": "FreshFlow Juices — Juice Bar Website Demo by Jamal Samuel",
+      "description": "Concept demo website. FreshFlow Juices is a fictional business created by Jamal Samuel to demonstrate a WhatsApp ordering website for juice bars and smoothie shops. All content, images, prices and claims are illustrative.",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://www.jamalsamuel.online/#website" },
+      "mainEntity": { "@id": "https://www.jamalsamuel.online/demo-products/fresh-flow-juices.html#demo" },
+      "breadcrumb": { "@id": "https://www.jamalsamuel.online/demo-products/fresh-flow-juices.html#breadcrumb" }
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://www.jamalsamuel.online/demo-products/fresh-flow-juices.html#demo",
+      "name": "FreshFlow Juices — website demo",
+      "genre": "Website design demo",
+      "about": "Example WhatsApp ordering website for a juice bar",
+      "description": "A sample website built to show prospective clients what Jamal Samuel builds. Not a real business; orders cannot be placed.",
+      "image": "https://www.jamalsamuel.online/demo-products/fresh-flow-images/freshflow-og-cover.jpg",
+      "creator": { "@id": "https://www.jamalsamuel.online/#person" },
+      "isFamilyFriendly": true
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.jamalsamuel.online/demo-products/fresh-flow-juices.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Jamal Samuel", "item": "https://www.jamalsamuel.online/" },
+        { "@type": "ListItem", "position": 2, "name": "Website Demos", "item": "https://www.jamalsamuel.online/#demos" },
+        { "@type": "ListItem", "position": 3, "name": "FreshFlow Juices (Demo)", "item": "https://www.jamalsamuel.online/demo-products/fresh-flow-juices.html" }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.jamalsamuel.online/#website",
+      "url": "https://www.jamalsamuel.online/",
+      "name": "Jamal Samuel",
+      "publisher": { "@id": "https://www.jamalsamuel.online/#person" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.jamalsamuel.online/#person",
+      "name": "Jamal Samuel",
+      "url": "https://www.jamalsamuel.online/",
+      "jobTitle": "Web developer",
+      "sameAs": ["https://www.instagram.com/jamalsamuel.online/"]
+    }
+  ]
 }
 </script>
 <style>
@@ -85,7 +133,8 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(80px + var(--demo-h)); }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
   body {
     font-family: 'DM Sans', sans-serif;
@@ -107,9 +156,48 @@
   }
 
   /* ── NAVBAR ── */
-  nav {
+  /* ── DEMO DISCLAIMER BAR (persistent, top) ── */
+  :root { --demo-h: 38px; }
+  .demo-bar {
     position: fixed;
     top: 0; left: 0; right: 0;
+    z-index: 110;
+    min-height: var(--demo-h);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px 14px;
+    flex-wrap: wrap;
+    padding: 7px 16px;
+    background: #0d1f14;
+    color: #f2f7f0;
+    font-size: 0.78rem;
+    line-height: 1.35;
+    text-align: center;
+    border-bottom: 2px solid #f5c518;
+  }
+  .demo-bar strong { color: #f5c518; font-weight: 500; letter-spacing: 0.02em; }
+  .demo-bar a {
+    color: #0d1f14;
+    background: #f5c518;
+    padding: 3px 10px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .demo-bar a:hover, .demo-bar a:focus-visible { background: #ffffff; }
+  .demo-bar .demo-long { display: inline; }
+  .demo-bar .demo-short { display: none; }
+  @media (max-width: 600px) {
+    .demo-bar { font-size: 0.72rem; padding: 6px 12px; }
+    .demo-bar .demo-long { display: none; }
+    .demo-bar .demo-short { display: inline; }
+  }
+
+  nav {
+    position: fixed;
+    top: var(--demo-h); left: 0; right: 0;
     z-index: 100;
     display: flex;
     align-items: center;
@@ -215,7 +303,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 100px 24px 60px;
+    padding: calc(100px + var(--demo-h)) 24px 60px;
     position: relative;
     overflow: hidden;
   }
@@ -1025,6 +1113,29 @@
   }
 
   .footer-social a:hover { background: var(--green-mid); transform: translateY(-2px); }
+  .footer-social .social-preview {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.35);
+    cursor: not-allowed;
+  }
+  .footer-social .social-preview svg { width: 17px; height: 17px; }
+  .social-note { display: block; margin-top: 8px; font-size: 0.72rem; color: rgba(255,255,255,0.45); }
+  .footer-demo-note {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 16px 18px;
+    border: 1px solid rgba(245,197,24,0.35);
+    border-radius: 12px;
+    background: rgba(245,197,24,0.06);
+    color: rgba(255,255,255,0.78);
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+  .footer-demo-note strong { color: #f5c518; font-weight: 500; }
+  .footer-demo-note a { color: #f5c518; }
   .footer-social svg { width: 17px; height: 17px; }
 
   .footer-links { list-style: none; }
@@ -1099,7 +1210,7 @@
   /* ── RESPONSIVE ── */
   @media (max-width: 600px) {
     .cta-section { margin: 0 12px 60px; padding: 50px 24px; }
-    .hero { padding: 90px 20px 50px; }
+    .hero { padding: calc(90px + var(--demo-h)) 20px 50px; }
     .juice-footer { flex-direction: column; align-items: flex-start; gap: 14px; }
     .add-btn { width: 100%; text-align: center; justify-content: center; }
     .cart-panel { width: 100vw; }
@@ -1133,9 +1244,16 @@
 </head>
 <body>
 
+<!-- DEMO DISCLAIMER (persistent) -->
+<div class="demo-bar" id="demoBar" role="note" aria-label="Demo notice">
+  <span class="demo-long"><strong>CONCEPT DEMO</strong> by Jamal Samuel · FreshFlow Juices is a fictional business. All content, images, prices, figures &amp; product claims are illustrative examples — orders are not real.</span>
+  <span class="demo-short"><strong>DEMO</strong> · Fictional business · illustrative only</span>
+  <a href="https://www.jamalsamuel.online/" rel="author"><span class="demo-long">Get a site like this</span><span class="demo-short">By Jamal Samuel</span></a>
+</div>
+
 <!-- NAVBAR -->
-<nav>
-  <a href="#" class="nav-brand">
+<nav aria-label="Main">
+  <a href="#main" class="nav-brand" aria-label="FreshFlow Juices demo — back to top">
     <div class="nav-logo">
       <picture class="logo-light">
         <source srcset="fresh-flow-images/freshflow-logo-icon.webp" type="image/webp"/>
@@ -1153,7 +1271,7 @@
       <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
       <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2.4M12 19.1v2.4M4.6 4.6l1.7 1.7M17.7 17.7l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.6 19.4l1.7-1.7M17.7 6.3l1.7-1.7"/></svg>
     </button>
-    <button class="nav-cart-btn" onclick="openCart()">
+    <button class="nav-cart-btn" onclick="openCart()" aria-label="Open my order">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.5 3h2l2.6 12.4a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 2-1.6L21 8H6"/></svg>
       &nbsp;<span class="cart-label">My Order</span> &nbsp;
       <span class="cart-count" id="cartCount">0</span>
@@ -1161,6 +1279,7 @@
   </div>
 </nav>
 
+<main id="main">
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg">
@@ -1237,7 +1356,7 @@
     <div class="why-card reveal">
       <span class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5s-7-4.4-9.3-8.8C1.3 8.6 2.7 5 6 5c2 0 3.3 1.1 4 2.4C10.7 6.1 12 5 14 5c3.3 0 4.7 3.6 3.3 6.7C15 16.1 12 20.5 12 20.5Z"/></svg></span>
       <div class="why-title">Feels Good</div>
-      <div class="why-desc">People notice the difference. More energy, better mornings. Real results.</div>
+      <div class="why-desc">Light, refreshing, and an easy way to start the morning with real fruit.</div>
     </div>
   </div>
 </section>
@@ -1250,6 +1369,8 @@
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.5 3h2l2.6 12.4a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 2-1.6L21 8H6"/></svg> View & Send My Order
   </button>
 </div>
+
+</main>
 
 <!-- FOOTER -->
 <footer class="site-footer">
@@ -1266,75 +1387,81 @@
       </div>
       <p class="footer-about">Cold-pressed, 100% natural juices made fresh every day in Saint Lucia. Real fruit, no shortcuts — ordered in one tap straight to WhatsApp.</p>
       <div class="footer-social">
-        <a href="https://wa.me/17587235872" target="_blank" aria-label="WhatsApp">
+        <a href="https://wa.me/17587235872" target="_blank" rel="noopener" aria-label="WhatsApp (demo contact — reaches Jamal Samuel)">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
         </a>
-        <a href="#" target="_blank" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
-        </a>
-        <a href="#" target="_blank" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.8h2.6l.4-3h-3v-1.9c0-.9.2-1.5 1.5-1.5h1.6V4.1C15.9 4 15 4 14 4c-2.5 0-4.2 1.5-4.2 4.3v2h-2.6v3h2.6V21h3.7Z"/></svg>
-        </a>
+        <span class="social-preview" role="img" aria-label="Instagram (preview only, not linked)" title="Preview only">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+        </span>
+        <span class="social-preview" role="img" aria-label="Facebook (preview only, not linked)" title="Preview only">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.8h2.6l.4-3h-3v-1.9c0-.9.2-1.5 1.5-1.5h1.6V4.1C15.9 4 15 4 14 4c-2.5 0-4.2 1.5-4.2 4.3v2h-2.6v3h2.6V21h3.7Z"/></svg>
+        </span>
       </div>
+      <span class="social-note">Social icons: preview only</span>
     </div>
 
     <div>
       <div class="footer-col-title">Explore</div>
       <ul class="footer-links">
-        <li><a href="#">Home</a></li>
+        <li><a href="#main">Home</a></li>
         <li><a href="#menu">Our Menu</a></li>
         <li><a href="#" onclick="openCart();return false;">My Order</a></li>
       </ul>
     </div>
 
     <div>
-      <div class="footer-col-title">Company</div>
+      <div class="footer-col-title">About This Demo</div>
       <ul class="footer-links">
-        <li><a href="https://jamalsamuel.online/" target="_blank">About Jamal Samuel</a></li>
-        <li><a href="https://wa.me/17587235872" target="_blank">Order via WhatsApp</a></li>
+        <li><a href="https://www.jamalsamuel.online/" rel="author">Built by Jamal Samuel</a></li>
+        <li><a href="https://www.jamalsamuel.online/#demos">More website demos</a></li>
+        <li><a href="https://wa.me/17587235872?text=Hi%20Jamal%2C%20I%20saw%20the%20FreshFlow%20Juices%20demo%20and%20I%27d%20like%20a%20site%20like%20this." target="_blank" rel="noopener">Ask about a site like this</a></li>
       </ul>
     </div>
 
     <div>
-      <div class="footer-col-title">Contact</div>
+      <div class="footer-col-title">Demo Contact</div>
       <div class="footer-contact-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8 8 0 0 1-8.4 8 8.4 8.4 0 0 1-3.6-.8L3 20l1.4-4A8 8 0 1 1 21 11.5Z"/></svg>
-        <a href="https://wa.me/17587235872" target="_blank">+1 (758) 723-5872</a>
+        <a href="https://wa.me/17587235872" target="_blank" rel="noopener">+1 (758) 723-5872</a>
       </div>
       <div class="footer-contact-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 12 13 4 6"/><rect x="3" y="4" width="18" height="16" rx="2"/></svg>
-        <a href="mailto:hello@jamalsamuel.online">hello@jamalsamuel.online</a>
+        <a href="mailto:jamal.s.samuel@outlook.com">jamal.s.samuel@outlook.com</a>
       </div>
       <div class="footer-contact-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10.5c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10.5" r="3"/></svg>
-        <span>Vieux-Fort, Saint Lucia</span>
+        <span>Sample location: Saint Lucia</span>
       </div>
     </div>
   </div>
 
+  <div class="footer-demo-note" role="note">
+    <strong>This is a concept demo, not a real business.</strong> FreshFlow Juices is fictional and was created by Jamal Samuel to show what a WhatsApp ordering website can look like for a juice bar. All content, images, prices, figures, product descriptions and claims on this page are illustrative examples only. Orders sent from this page are not fulfilled. Contact details route to Jamal Samuel. Want this for your business? <a href="https://www.jamalsamuel.online/" rel="author">Visit jamalsamuel.online</a>.
+  </div>
+
   <div class="footer-bottom">
-    <p>© 2025 FreshFlow Juices · Cold-Pressed Daily · Saint Lucia</p>
-    <p>Powered by <a href="https://jamalsamuel.online/fresh-flow-juices.html" target="_blank">Jamal Samuel</a></p>
+    <p>FreshFlow Juices is a fictional brand · Concept demo © 2026 Jamal Samuel</p>
+    <p><a href="https://www.jamalsamuel.online/" rel="author">Jamal Samuel Built</a></p>
   </div>
 </footer>
 
 <!-- FLOATING WHATSAPP -->
-<a href="https://wa.me/17587235872" class="float-wa" target="_blank" title="Chat on WhatsApp" aria-label="Chat with FreshFlow Juices on WhatsApp">
+<a href="https://wa.me/17587235872" class="float-wa" target="_blank" rel="noopener" title="Chat on WhatsApp" aria-label="Chat on WhatsApp (demo — reaches Jamal Samuel)">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
 </a>
 
 <!-- CART OVERLAY -->
-<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()" aria-hidden="true"></div>
 
 <!-- CART PANEL -->
-<div class="cart-panel" id="cartPanel">
+<div class="cart-panel" id="cartPanel" role="dialog" aria-modal="true" aria-labelledby="cartTitle" aria-hidden="true">
   <div class="cart-header">
-    <h2><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:6px;"><circle cx="9" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.5 3h2l2.6 12.4a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 2-1.6L21 8H6"/></svg>My Order</h2>
+    <h2 id="cartTitle"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:6px;"><circle cx="9" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.5 3h2l2.6 12.4a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 2-1.6L21 8H6"/></svg>My Order</h2>
     <button class="cart-close" onclick="closeCart()" aria-label="Close cart">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 4l16 16M20 4 4 20"/></svg>
     </button>
   </div>
-  <div class="cart-items" id="cartItems">
+  <div class="cart-items" id="cartItems" aria-live="polite">
     <div class="cart-empty">
       <span class="empty-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10l-1.2 15.5A2 2 0 0 1 13.8 20h-3.6a2 2 0 0 1-2-1.5L7 3Z"/><path d="M6.3 8h11.4"/></svg></span>
       <span>Your order is empty</span>
@@ -1344,81 +1471,78 @@
   <div class="cart-footer">
     <div class="cart-total-row">
       <span class="cart-total-label">Order Total</span>
-      <span class="cart-total-amount"><sup>$</sup><span id="cartTotal">0.00</span></span>
+      <span class="cart-total-amount"><sup>US$</sup><span id="cartTotal">0.00</span></span>
     </div>
     <button class="whatsapp-order-btn" id="waBtn" onclick="sendToWhatsApp()" disabled>
       <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
       Send Order on WhatsApp
     </button>
-    <p class="cart-note">We'll confirm your order and arrange delivery 🌿</p>
+    <p class="cart-note">Demo checkout — your message opens WhatsApp to Jamal Samuel, not a real juice bar.</p>
   </div>
 </div>
 
 <!-- TOAST -->
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
 const PHONE = '17587235872';
-const SITE_URL = 'https://www.jamalsamuel.online/fresh-flow-juices.html';
+const SITE_URL = 'https://www.jamalsamuel.online/demo-products/fresh-flow-juices.html';
+
+// All prices in US dollars
+const usd = n => `US$${Number(n).toFixed(2)}`;
 
 const juices = [
   {
     id: 1,
-    emoji: '🥭',
     img: 'mango-passion-juice',
     name: 'Mango Passion',
     desc: 'Sun-ripened mango blended with tropical passion fruit. Sweet, tangy, irresistible.',
-    price: 20,
+    price: 7.50,
     tags: ['Tropical', 'Vitamin C', 'Fan Favourite'],
     color: '#f5a623'
   },
   {
     id: 2,
-    emoji: '🥒',
     img: 'green-detox-juice',
     name: 'Green Detox',
-    desc: 'Spinach, cucumber, apple and a squeeze of lime. Clean, crisp, and energising.',
-    price: 18,
-    tags: ['Detox', 'Low Sugar', 'Daily Cleanse'],
+    desc: 'Spinach, cucumber, apple and a squeeze of lime. Clean, crisp, and refreshing.',
+    price: 6.50,
+    tags: ['Greens', 'Low Sugar', 'Crisp'],
     color: '#4cca82'
   },
   {
     id: 3,
-    emoji: '🍓',
     img: 'strawberry-blast-juice',
     name: 'Strawberry Blast',
     desc: 'Fresh strawberries blended to a silky, vibrant pour. Naturally sweet with a creamy finish.',
-    price: 22,
+    price: 8.00,
     tags: ['Antioxidants', 'Smoothie', 'Kids Love It'],
     color: '#e84393'
   },
   {
     id: 4,
-    emoji: '🍍',
     img: 'pineapple-ginger-juice',
     name: 'Pineapple Ginger',
-    desc: 'Bold pineapple with a sharp ginger kick. Anti-inflammatory and absolutely refreshing.',
-    price: 20,
-    tags: ['Anti-Inflammatory', 'Tropical', 'Energising'],
+    desc: 'Bold pineapple with a sharp ginger kick. Bright, spicy, and absolutely refreshing.',
+    price: 7.50,
+    tags: ['Ginger Kick', 'Tropical', 'Zesty'],
     color: '#f5c518'
   },
   {
     id: 5,
-    emoji: '🍊',
     img: 'citrus-sunrise-juice',
     name: 'Citrus Sunrise',
     desc: 'Orange, grapefruit, and a touch of carrot. Bright, tangy, and packed with Vitamin C.',
-    price: 18,
-    tags: ['Vitamin C', 'Immunity', 'Morning Boost'],
+    price: 6.50,
+    tags: ['Vitamin C', 'Citrus', 'Morning Boost'],
     color: '#f97316'
   },
   {
     id: 6,
-    emoji: '🌴',
     img: 'caribbean-blend-juice',
     name: 'Caribbean Blend',
     desc: 'Our signature island mix — guava, soursop, and passionfruit. A true Saint Lucia taste.',
-    price: 25,
+    price: 9.00,
     tags: ['Signature', 'Local Fruits', 'Best Seller'],
     color: '#8b5cf6'
   }
@@ -1444,16 +1568,16 @@ function renderGrid() {
         <div class="juice-desc">${j.desc}</div>
         <div class="juice-tags">${j.tags.map(t => `<span class="juice-tag">${t}</span>`).join('')}</div>
         <div class="juice-footer">
-          <div class="juice-price">$${j.price} <span>/ bottle</span></div>
+          <div class="juice-price">${usd(j.price)} <span>/ bottle</span></div>
           <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
             ${getQty(j.id) > 0 ? `
               <div class="qty-controls">
-                <button class="qty-btn" onclick="changeQty(${j.id}, -1)">−</button>
+                <button class="qty-btn" onclick="changeQty(${j.id}, -1)" aria-label="Remove one ${j.name}">−</button>
                 <span class="qty-display">${getQty(j.id)}</span>
-                <button class="qty-btn" onclick="changeQty(${j.id}, 1)">+</button>
+                <button class="qty-btn" onclick="changeQty(${j.id}, 1)" aria-label="Add one more ${j.name}">+</button>
               </div>
             ` : ''}
-            <button class="add-btn ${getQty(j.id) > 0 ? 'added' : ''}" onclick="addToCart(${j.id})">
+            <button class="add-btn ${getQty(j.id) > 0 ? 'added' : ''}" onclick="addToCart(${j.id})" aria-label="Add ${j.name} to order">
               ${getQty(j.id) > 0 ? '✓ Added' : '+ Add'}
             </button>
           </div>
@@ -1474,7 +1598,7 @@ function addToCart(id) {
   renderGrid();
   renderCart();
   updateCartCount();
-  showToast(`${juice.emoji} ${juice.name} added!`);
+  showToast(`${juice.name} added to your order`);
   bumpCount();
 }
 
@@ -1524,14 +1648,14 @@ function renderCart() {
       </picture>
       <div class="cart-item-info">
         <div class="cart-item-name">${item.juice.name}</div>
-        <div class="cart-item-price">$${item.juice.price} per bottle</div>
+        <div class="cart-item-price">${usd(item.juice.price)} per bottle</div>
       </div>
       <div class="cart-item-controls qty-controls">
-        <button class="qty-btn" onclick="changeQty(${item.juice.id}, -1)">−</button>
+        <button class="qty-btn" onclick="changeQty(${item.juice.id}, -1)" aria-label="Remove one ${item.juice.name}">−</button>
         <span class="qty-display">${item.qty}</span>
-        <button class="qty-btn" onclick="changeQty(${item.juice.id}, 1)">+</button>
+        <button class="qty-btn" onclick="changeQty(${item.juice.id}, 1)" aria-label="Add one more ${item.juice.name}">+</button>
       </div>
-      <div class="cart-item-total">$${(item.juice.price * item.qty).toFixed(2)}</div>
+      <div class="cart-item-total">${usd(item.juice.price * item.qty)}</div>
     </div>
   `).join('');
 }
@@ -1540,34 +1664,55 @@ function sendToWhatsApp() {
   const items = Object.values(cart);
   if (items.length === 0) return;
 
-  const lines = items.map(i => `• ${i.juice.emoji} ${i.juice.name} x${i.qty} = $${(i.juice.price * i.qty).toFixed(2)}`);
+  const lines = items.map(i => `• ${i.juice.name} x${i.qty} = ${usd(i.juice.price * i.qty)}`);
   const total = getCartTotal();
 
   const msg = [
-    '🥤 *FreshFlow Juices Order*',
+    '*DEMO ORDER — FreshFlow Juices (concept demo by Jamal Samuel)*',
+    'This is a test order from a demo website. Nothing will be delivered.',
     '─────────────────',
     ...lines,
     '─────────────────',
-    `*Total: $${total.toFixed(2)}*`,
+    `*Total: ${usd(total)} (USD)*`,
     '',
-    '📍 Please confirm delivery details.',
-    `🔗 Ordered from: ${SITE_URL}`
+    'I tried the demo ordering flow and I\'d like to talk about a site like this for my business.',
+    `Demo page: ${SITE_URL}`
   ].join('\n');
 
-  window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
+  window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
 }
 
 function openCart() {
   document.getElementById('cartOverlay').classList.add('open');
-  document.getElementById('cartPanel').classList.add('open');
+  const panel = document.getElementById('cartPanel');
+  panel.classList.add('open');
+  panel.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
+  const closeBtn = panel.querySelector('.cart-close');
+  if (closeBtn) closeBtn.focus();
 }
 
 function closeCart() {
   document.getElementById('cartOverlay').classList.remove('open');
-  document.getElementById('cartPanel').classList.remove('open');
+  const panel = document.getElementById('cartPanel');
+  panel.classList.remove('open');
+  panel.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
 }
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && document.getElementById('cartPanel').classList.contains('open')) closeCart();
+});
+
+// Keep the fixed nav sitting exactly under the demo bar (bar height changes with wrap / screen size)
+(function () {
+  const bar = document.getElementById('demoBar');
+  if (!bar) return;
+  const setH = () => document.documentElement.style.setProperty('--demo-h', bar.offsetHeight + 'px');
+  setH();
+  if ('ResizeObserver' in window) new ResizeObserver(setH).observe(bar);
+  else window.addEventListener('resize', setH);
+})();
 
 function showToast(msg) {
   const t = document.getElementById('toast');
