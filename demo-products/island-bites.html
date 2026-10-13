@@ -3,7 +3,47 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Island Bites — Local Flavour, Ready Fast</title>
+<title>Island Bites (Concept Demo) — Restaurant Ordering Website by Jamal Samuel</title>
+
+<!-- ═══ DEMO / SEARCH-ENGINE CONTROLS ═══
+     Island Bites is a FICTIONAL business. This page is a capability demo
+     built by Jamal Samuel. It must never be indexed or shown in search
+     results as if it were a real restaurant. -->
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex"/>
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex"/>
+<meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet"/>
+<meta name="description" content="Concept demo, not a real business. Island Bites is a fictional restaurant used by Jamal Samuel to show a WhatsApp-ordering website. Menu, prices, images and figures are illustrative."/>
+<meta name="author" content="Jamal Samuel"/>
+
+<!-- Link previews (WhatsApp / Instagram / Facebook) — labelled as a demo -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Jamal Samuel — Demo Library"/>
+<meta property="og:title" content="Island Bites — Concept Demo by Jamal Samuel"/>
+<meta property="og:description" content="A sample WhatsApp-ordering restaurant website. Fictional business — all content is illustrative."/>
+<meta property="og:url" content="https://jamalsamuel.online/demo-products/island-bites.html"/>
+<meta property="og:image" content="https://pub-7c1b1544c6f641dd85deb08362c9eff6.r2.dev/Island%20Bites/Island%20Bites/hero-bg.webp"/>
+<meta property="og:image:alt" content="Island Bites concept demo — sample restaurant website"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Island Bites — Concept Demo by Jamal Samuel"/>
+<meta name="twitter:description" content="A sample WhatsApp-ordering restaurant website. Fictional business — all content is illustrative."/>
+
+<!-- Structured data: describes this page as a demo/sample web page made by Jamal Samuel.
+     Deliberately NO Restaurant / LocalBusiness / Menu / Review schema — those would
+     tell search engines a real restaurant exists. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Island Bites — Concept Demo",
+  "description": "Fictional restaurant demo built to show a WhatsApp-ordering website. Not a real business. All names, menu items, prices, images and figures are illustrative.",
+  "genre": "Website design demo",
+  "isPartOf": { "@type": "WebSite", "name": "Jamal Samuel", "url": "https://jamalsamuel.online/" },
+  "author": { "@type": "Person", "name": "Jamal Samuel", "url": "https://jamalsamuel.online/" },
+  "creator": { "@type": "Person", "name": "Jamal Samuel", "url": "https://jamalsamuel.online/" },
+  "inLanguage": "en"
+}
+</script>
+
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 :root {
@@ -45,10 +85,47 @@ body::after {
   opacity: 0.6;
 }
 
+/* ── DEMO NOTICE BAR (persistent, per Demo Disclaimer Standard) ── */
+:root { --demo-h: 34px; }
+.demo-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--demo-h);
+  z-index: 550;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 14px;
+  background: var(--gold);
+  color: #1a1206;
+  font-family: 'Sora', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.demo-bar a { color: #1a1206; text-decoration: underline; }
+.demo-bar .demo-pill {
+  background: #1a1206; color: var(--gold);
+  border-radius: 4px; padding: 2px 6px;
+  font-size: 0.66rem; letter-spacing: 1px; text-transform: uppercase;
+  flex-shrink: 0;
+}
+.demo-bar .demo-short { display: none; }
+@media (max-width: 780px) {
+  :root { --demo-h: 46px; }
+  .demo-bar { white-space: normal; font-size: 0.7rem; }
+  .demo-bar .demo-long { display: none; }
+  .demo-bar .demo-short { display: inline; }
+}
+
 /* ── NAV ── */
 nav {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: var(--demo-h); left: 0; right: 0;
   z-index: 500;
   display: flex;
   align-items: center;
@@ -129,7 +206,7 @@ nav {
 .nav-mobile-overlay {
   position: fixed;
   inset: 0;
-  top: 67px;
+  top: calc(67px + var(--demo-h));
   z-index: 498;
   background: rgba(0,0,0,0.5);
   opacity: 0;
@@ -140,7 +217,7 @@ nav {
 
 .nav-mobile-menu {
   position: fixed;
-  top: 67px; left: 0; right: 0;
+  top: calc(67px + var(--demo-h)); left: 0; right: 0;
   z-index: 499;
   background: rgba(15,12,9,0.98);
   backdrop-filter: blur(20px);
@@ -154,6 +231,7 @@ nav {
 }
 
 .nav-mobile-menu.open { max-height: 300px; }
+.nav-mobile-menu:not(.open) { padding-top: 0; padding-bottom: 0; border-bottom-color: transparent; visibility: hidden; }
 
 .nav-mobile-menu .nav-link {
   padding: 12px 0;
@@ -206,13 +284,13 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 110px 0 80px;
+  padding: calc(110px + var(--demo-h)) 0 80px;
   position: relative;
   overflow: hidden;
 }
 
 section, .final-cta, .cinematic-section {
-  scroll-margin-top: 90px;
+  scroll-margin-top: calc(90px + var(--demo-h));
 }
 
 .hero-bg-img {
@@ -1084,13 +1162,24 @@ section, .final-cta, .cinematic-section {
 /* ── FOOTER ── */
 footer {
   text-align: center;
-  padding: 28px;
+  padding: 28px 28px 96px;
   border-top: 1px solid var(--border);
   color: var(--muted);
   font-size: 0.78rem;
 }
 
 footer a { color: var(--fire-light); text-decoration: none; }
+footer .demo-disclaimer {
+  max-width: 640px;
+  margin: 0 auto 14px;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  opacity: 0.85;
+  line-height: 1.55;
+}
+footer .demo-disclaimer strong { color: var(--gold-light); }
 
 /* ── TOAST ── */
 .toast {
@@ -1206,6 +1295,13 @@ footer a { color: var(--fire-light); text-decoration: none; }
 </style>
 </head>
 <body>
+
+<!-- DEMO NOTICE (persistent) -->
+<div class="demo-bar" role="note" aria-label="Demo notice">
+  <span class="demo-pill">Demo</span>
+  <span class="demo-long">Concept site by <a href="https://jamalsamuel.online/" target="_blank" rel="noopener">Jamal Samuel</a> — Island Bites is not a real business. Content, images, prices &amp; figures are illustrative.</span>
+  <span class="demo-short">Fictional business — content is illustrative. Demo by <a href="https://jamalsamuel.online/" target="_blank" rel="noopener">Jamal Samuel</a>.</span>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -1354,12 +1450,13 @@ footer a { color: var(--fire-light); text-decoration: none; }
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2025 Island Bites · Local Flavour, Ready Fast · Saint Lucia</p>
-  <p style="margin-top:6px;"><a href="https://jamalsamuel.online/" target="_blank">Jamal Samuel</a> Built</p>
+  <p class="demo-disclaimer"><strong>Concept demo.</strong> Island Bites is a fictional business created by Jamal Samuel to show what a WhatsApp-ordering restaurant website can do. The name, menu, prices, delivery fee, images, badges and figures (such as prep time) are illustrative examples, not real data. Orders sent from this page go to Jamal Samuel, not a restaurant — no food will be prepared.</p>
+  <p>Want a site like this for your business? <a href="https://wa.me/17587235872?text=Hi%20Jamal%2C%20I%20saw%20the%20Island%20Bites%20demo%20and%20I%27d%20like%20to%20talk%20about%20a%20site%20for%20my%20business." target="_blank" rel="noopener">Message Jamal on WhatsApp</a></p>
+  <p style="margin-top:6px;"><a href="https://jamalsamuel.online/" target="_blank" rel="noopener">Jamal Samuel</a> Built</p>
 </footer>
 
 <!-- FLOAT WA -->
-<a href="https://wa.me/17587235872" class="float-wa" target="_blank" aria-label="Order on WhatsApp">
+<a href="https://wa.me/17587235872?text=Hi%20Jamal%2C%20I%20saw%20the%20Island%20Bites%20demo%20site." class="float-wa" target="_blank" rel="noopener" aria-label="Message Jamal Samuel on WhatsApp about this demo">
   <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
 </a>
 
@@ -1408,7 +1505,7 @@ footer a { color: var(--fire-light); text-decoration: none; }
       <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.532 5.868L.043 23.957l6.196-1.473A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.376l-.36-.213-3.728.886.938-3.618-.235-.372A9.818 9.818 0 1112 21.818z"/></svg>
       Send Order on WhatsApp
     </button>
-    <p class="checkout-note">Choose Pickup or Delivery above, then send your order</p>
+    <p class="checkout-note">Choose Pickup or Delivery above, then send your order.<br/><strong>Demo:</strong> this sends a sample order to Jamal Samuel, not a restaurant.</p>
   </div>
 </div>
 
@@ -1417,7 +1514,7 @@ footer a { color: var(--fire-light); text-decoration: none; }
 
 <script>
 const PHONE = '17587235872';
-const SITE_URL = 'https://jamalinks758.github.io/jamalinks/islandbitesofficial.html';
+const SITE_URL = location.href.split('#')[0];
 const DELIVERY_FEE = 15;
 
 const ICONS = {
@@ -1681,6 +1778,9 @@ function sendToWhatsApp() {
     ? `🛵 *Delivery* (+$${DELIVERY_FEE.toFixed(2)} fee)`
     : `🏃 *Pickup* (Free)`;
   const msg = [
+    '🧪 *DEMO ORDER — Island Bites concept site by Jamal Samuel*',
+    '_Sample only. Island Bites is fictional; no food will be prepared._',
+    '',
     '🍽️ *Island Bites Order*',
     '━━━━━━━━━━━━━━━━━',
     ...lines,
