@@ -209,13 +209,6 @@ rel="stylesheet">
     "name":"Customer Conversion Services",
     "itemListElement":[
 
-      {
-        "@type":"Offer",
-        "itemOffered":{
-          "@type":"Service",
-          "name":"Google Business Profile Optimisation"
-        }
-      },
 
       {
         "@type":"Offer",
@@ -287,10 +280,10 @@ rel="stylesheet">
     },
     {
       "@type": "Question",
-      "name": "What is a Google Business Profile and why do I need one?",
+      "name": "Who owns my website?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A Google Business Profile is a free listing that lets your business appear on Google Maps and in local search results. Without one, customers searching for what you sell in your area will see other businesses instead. Jamal Samuel sets up and optimises your profile on every plan."
+        "text": "Once your setup fee is paid in full, your website files are yours. The monthly partnership fee covers hosting, updates, and support, not ownership of the build."
       }
     },
     {
@@ -417,32 +410,6 @@ rel="stylesheet">
 .demo-card:hover .demo-picture img {
   transform: scale(1.05);
 }
-
-/* ── DEMO SCROLL ROW (Row 3 — Athlete & Personal Brand) ─ */
-.demo-row-header {
-  display: flex; align-items: center; gap: .75rem; flex-wrap: wrap;
-  margin-bottom: .6rem;
-}
-.demo-new-badge {
-  display: inline-flex; align-items: center;
-  font-size: .62rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-  background: linear-gradient(135deg, var(--gold, #F5B000), #f0c94b);
-  color: #1a1a1a; padding: .2rem .7rem; border-radius: 20px;
-}
-.demo-scroll-wrapper { position: relative; width: 100%; }
-.demo-scroll-track {
-  display: flex; gap: 1.25rem; overflow-x: auto;
-  padding: .5rem .25rem 1.5rem; scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch; scrollbar-width: thin;
-  scrollbar-color: var(--gold, #F5B000) transparent;
-}
-.demo-scroll-track::-webkit-scrollbar { height: 4px; }
-.demo-scroll-track::-webkit-scrollbar-track { background: transparent; }
-.demo-scroll-track::-webkit-scrollbar-thumb { background: var(--gold, #F5B000); border-radius: 4px; }
-.demo-card-scroll {
-  flex: 0 0 270px; min-width: 270px; scroll-snap-align: start;
-}
-@media (min-width: 768px) { .demo-card-scroll { flex: 0 0 300px; min-width: 300px; } }
 
 /* ══════════════════════════════════════════════════════
    AI COMPARISON SECTION
@@ -698,111 +665,6 @@ html, body { overflow-x: hidden; max-width: 100%; }
 .ppb-notes i { color: var(--blue-mid); font-size: .85rem; }
 [data-theme="dark"] .ppb-notes i { color: var(--gold); }
 
-/* ══════════════════════════════════════════════════════
-   LOCAL SEO / GBP SECTION
-   ══════════════════════════════════════════════════════ */
-.gbp-section-wrap {
-  background: var(--bg-alt);
-  border-radius: 1.5rem;
-  border: 1px solid var(--border);
-  padding: 2.5rem 2rem;
-  position: relative;
-  overflow: hidden;
-}
-.gbp-section-wrap::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: linear-gradient(to right, var(--gold, #F5B000), var(--blue, #0D1B2A), transparent);
-}
-.gbp-mockup {
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 1rem;
-  padding: 1.25rem;
-  box-shadow: 0 8px 32px rgba(0,0,0,.10);
-  max-width: 340px;
-  margin: 0 auto;
-}
-[data-theme="dark"] .gbp-mockup {
-  background: #1e2a3a;
-  border-color: rgba(255,255,255,.1);
-}
-.gbp-mockup-head {
-  display: flex; align-items: center; gap: .6rem;
-  margin-bottom: .75rem;
-}
-.gbp-g-logo {
-  width: 28px; height: 28px; border-radius: 50%;
-  background: linear-gradient(135deg, #4285F4, #34A853, #FBBC04, #EA4335);
-  display: flex; align-items: center; justify-content: center;
-  color: #fff; font-weight: 900; font-size: .8rem; flex-shrink: 0;
-}
-.gbp-search-bar {
-  background: var(--bg, #f8f8f8); border: 1px solid #dadce0;
-  border-radius: 50px; padding: .35rem .85rem;
-  font-size: .72rem; color: var(--muted); flex: 1;
-  display: flex; align-items: center; gap: .4rem;
-}
-[data-theme="dark"] .gbp-search-bar { background: #0D1B2A; border-color: rgba(255,255,255,.15); }
-.gbp-result-card {
-  background: var(--bg, #f8f8f8);
-  border: 1.5px solid var(--gold, #F5B000);
-  border-radius: .75rem; padding: 1rem;
-  position: relative;
-}
-[data-theme="dark"] .gbp-result-card { background: #0D1B2A; }
-.gbp-result-badge {
-  position: absolute; top: -11px; left: 50%; transform: translateX(-50%);
-  background: var(--gold, #F5B000); color: #1a1a1a;
-  font-size: .6rem; font-weight: 700; letter-spacing: .08em;
-  text-transform: uppercase; padding: .18rem .7rem; border-radius: 20px;
-  white-space: nowrap;
-}
-.gbp-result-name { font-weight: 700; font-size: .82rem; color: var(--text); margin-bottom: .15rem; }
-.gbp-result-meta { font-size: .68rem; color: var(--muted); display: flex; align-items: center; gap: .3rem; margin-bottom: .5rem; }
-.gbp-result-stars { color: #f59e0b; font-size: .7rem; }
-.gbp-result-actions {
-  display: flex; gap: .4rem; flex-wrap: wrap;
-}
-.gbp-action-btn {
-  font-size: .65rem; font-weight: 600; padding: .28rem .7rem;
-  border-radius: 50px; border: 1px solid;
-  display: inline-flex; align-items: center; gap: .3rem;
-}
-.gbp-action-btn.wa  { background: rgba(37,211,102,.1); border-color: rgba(37,211,102,.3); color: #1a7a45; }
-.gbp-action-btn.web { background: rgba(26,110,181,.08); border-color: rgba(26,110,181,.2); color: var(--blue-mid, #2E5FA3); }
-.gbp-action-btn.dir { background: rgba(201,168,76,.1); border-color: rgba(201,168,76,.3); color: var(--gold, #F5B000); }
-[data-theme="dark"] .gbp-action-btn.wa  { color: #4be38a; }
-[data-theme="dark"] .gbp-action-btn.web { color: var(--gold); border-color: rgba(201,168,76,.3); background: rgba(201,168,76,.07); }
-
-.gbp-checklist { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .65rem; }
-.gbp-checklist li {
-  display: flex; align-items: flex-start; gap: .75rem;
-  font-size: .875rem; line-height: 1.5; color: var(--text);
-}
-.gbp-check-icon {
-  width: 22px; height: 22px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--gold, #F5B000), var(--blue, #0D1B2A));
-  display: flex; align-items: center; justify-content: center;
-  color: #fff; font-size: .65rem; flex-shrink: 0; margin-top: .15rem;
-}
-.gbp-addon-box {
-  background: var(--bg);
-  border: 1.5px dashed var(--gold, #F5B000);
-  border-radius: 1rem;
-  padding: 1.5rem 1.75rem;
-  display: flex; align-items: flex-start; gap: 1rem;
-  margin-top: 2rem;
-}
-@media (max-width: 576px) { .gbp-addon-box { flex-direction: column; gap: .75rem; } }
-.gbp-addon-icon { font-size: 2rem; color: var(--gold); flex-shrink: 0; }
-.gbp-addon-price {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.6rem; font-weight: 900;
-  color: var(--blue, #0D1B2A); line-height: 1;
-}
-[data-theme="dark"] .gbp-addon-price { color: var(--gold); }
-
 /* ── mt-6 helper ─────────────────────────────────── */
 .mt-6 { margin-top: 3.5rem; }
 .footer-legal-row { margin-top: .4rem; font-size: .72rem; }
@@ -810,20 +672,6 @@ html, body { overflow-x: hidden; max-width: 100%; }
 .footer-legal-row a:hover { color: var(--blue-mid); }
 [data-theme="dark"] .footer-legal-row a:hover { color: var(--gold-light); }
 .footer-trademark { font-size: .68rem; color: var(--muted); opacity: .55; margin-top: .5rem; line-height: 1.5; max-width: 600px; }
-
-/* ── FOUNDER ─────────────────────────────────────── */
-.founder-wrap { max-width: 820px; margin: 0 auto; display: flex; gap: 2rem; align-items: center; }
-@media (max-width: 576px) { .founder-wrap { flex-direction: column; text-align: center; gap: 1.25rem; } }
-.founder-avatar {
-  width: 120px; height: 120px; border-radius: 50%; flex-shrink: 0; object-fit: cover;
-  background: linear-gradient(135deg, var(--gold, #F5B000), var(--blue, #2563EB));
-  display: flex; align-items: center; justify-content: center;
-  color: #fff; font-weight: 800; font-size: 2.2rem; font-family: 'Poppins', sans-serif;
-}
-.founder-points { list-style: none; padding: 0; margin: 1rem 0 0; display: flex; flex-direction: column; gap: .45rem; }
-.founder-points li { display: flex; align-items: flex-start; gap: .6rem; font-size: .88rem; color: var(--text); }
-.founder-points i { color: var(--green, #25D366); margin-top: .15rem; }
-@media (max-width: 576px) { .founder-points li { text-align: left; } }
 
 /* ── FAQ ─────────────────────────────────────────── */
 .faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: .75rem; }
@@ -878,9 +726,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
         <li class="nav-item" role="listitem"><a class="nav-link" href="#why">The Problem</a></li>
         <li class="nav-item" role="listitem"><a class="nav-link" href="#solution">How It Works</a></li>
         <li class="nav-item" role="listitem"><a class="nav-link" href="#features">What You Get</a></li>
-        <li class="nav-item" role="listitem"><a class="nav-link" href="#local-seo">Google Visibility</a></li>
         <li class="nav-item" role="listitem"><a class="nav-link" href="#demos">Examples</a></li>
-        <li class="nav-item" role="listitem"><a class="nav-link" href="profiles.html">Profiles</a></li>
         <li class="nav-item" role="listitem"><a class="nav-link" href="#pricing">Plans</a></li>
         <li class="nav-item" role="listitem"><a class="nav-link" href="#faq">FAQ</a></li>
         <li class="nav-item ms-lg-2" role="listitem">
@@ -1079,7 +925,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
         </div>
         <div class="ai-item">
           <i class="bi bi-x-circle-fill" aria-hidden="true"></i>
-          <span>No local SEO, no Google Business Profile, no real strategy, just a page</span>
+          <span>No search optimisation and no real strategy, just a page</span>
         </div>
         <div class="ai-item">
           <i class="bi bi-x-circle-fill" aria-hidden="true"></i>
@@ -1111,7 +957,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
         </div>
         <div class="ai-item">
           <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
-          <span>Google Business Profile setup so local and diaspora customers can find you on Maps</span>
+          <span>On-page SEO so customers searching on Google can find your page</span>
         </div>
         <div class="ai-item">
           <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
@@ -1188,16 +1034,6 @@ html, body { overflow-x: hidden; max-width: 100%; }
           </div>
         </div>
 
-        <div class="reveal d3">
-          <div class="feat-item">
-            <div class="feat-icon" aria-hidden="true"><i class="bi bi-geo-alt"></i></div>
-            <div>
-              <span class="feat-label">Google Business Profile Setup &amp; Optimisation</span>
-              <p>Your website alone does not put you on Google Maps. A verified Google Business Profile does. We set it up, select the right categories, write your business description with local keywords, structure your services, and link it to your website and WhatsApp. It's what makes you eligible for the Local Pack, the three businesses shown at the top when someone searches "food near me" or "salon in Castries." Without a profile, you can't appear there at all.</p>
-            </div>
-          </div>
-        </div>
-
         <div class="reveal d4">
           <div class="feat-item">
             <div class="feat-icon" aria-hidden="true"><i class="bi bi-paypal"></i></div>
@@ -1223,115 +1059,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
   </div>
 </section>
 
-<!-- ══ LOCAL SEO & GOOGLE BUSINESS PROFILE ══════════════ -->
-<section class="bg-alt" id="local-seo" aria-label="Google Business Profile and local SEO — how Jamal Samuel gets you found on Google Maps">
-  <div class="container">
-    <div class="text-center mb-5 reveal">
-      <span class="section-label">Get Found First</span>
-      <h2 class="display-5 mt-2 mb-3">Show Up on Google Maps.<br><span class="accent">Before Your Competitor Does.</span></h2>
-      <div class="divider"></div>
-      <p class="text-m mx-auto" style="max-width:560px">A website tells customers who you are. A Google Business Profile tells Google where you are so it can send local customers to your door. Most Caribbean businesses have neither. Jamal Samuel gives you both.</p>
-    </div>
-
-    <div class="gbp-section-wrap reveal">
-      <div class="row g-5 align-items-center">
-
-        <!-- Left: GBP mockup -->
-        <div class="col-lg-5 text-center">
-          <p style="font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem;">What Customers See on Google</p>
-          <div class="gbp-mockup" aria-label="Google search result mockup showing a business in the Local Pack">
-            <!-- Search bar -->
-            <div class="gbp-mockup-head">
-              <div class="gbp-g-logo" aria-hidden="true">G</div>
-              <div class="gbp-search-bar" aria-hidden="true">
-                <i class="bi bi-search" style="font-size:.7rem;"></i>
-                <span>food delivery near me</span>
-              </div>
-            </div>
-            <!-- Local Pack label -->
-            <p style="font-size:.62rem;color:var(--muted);margin-bottom:.5rem;font-weight:600;letter-spacing:.05em;">LOCAL RESULTS · GOOGLE MAPS</p>
-            <!-- Result card -->
-            <div class="gbp-result-card" role="img" aria-label="Example Google Business Profile result showing your business">
-              <div class="gbp-result-badge">Your Business Here</div>
-              <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.35rem;margin-top:.5rem;">
-                <div style="width:32px;height:32px;border-radius:6px;background:linear-gradient(135deg,var(--gold,#F5B000),var(--blue,#0D1B2A));flex-shrink:0;" aria-hidden="true"></div>
-                <div>
-                  <div class="gbp-result-name">Your Business Name</div>
-                  <div class="gbp-result-meta"><i class="bi bi-geo-alt-fill" style="color:#EA4335;" aria-hidden="true"></i> 0.3 km · Open now</div>
-                </div>
-              </div>
-              <div class="gbp-result-stars" role="img" aria-label="5 star rating">
-                <i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i>
-                <span style="font-size:.65rem;color:var(--muted);margin-left:.25rem;">(12 reviews)</span>
-              </div>
-              <div class="gbp-result-actions mt-2">
-                <span class="gbp-action-btn wa"><i class="bi bi-whatsapp" aria-hidden="true"></i> WhatsApp</span>
-                <span class="gbp-action-btn web"><i class="bi bi-globe" aria-hidden="true"></i> Website</span>
-                <span class="gbp-action-btn dir"><i class="bi bi-signpost" aria-hidden="true"></i> Directions</span>
-              </div>
-            </div>
-            <p style="font-size:.62rem;color:var(--muted);margin-top:.75rem;text-align:center;">Without a GBP, your business is invisible here</p>
-          </div>
-        </div>
-
-        <!-- Right: what Jamal Samuel sets up -->
-        <div class="col-lg-7">
-          <h3 class="h4 mb-1">What Jamal Samuel Sets Up for You</h3>
-          <p class="text-m mb-4" style="font-size:.9rem;opacity:.75;">Every plan includes a complete Google Business Profile setup — not just creation. Setup without optimisation is a waste. We do both.</p>
-          <ul class="gbp-checklist" aria-label="What Jamal Samuel includes in Google Business Profile setup">
-            <li>
-              <div class="gbp-check-icon" aria-hidden="true"><i class="bi bi-check-lg"></i></div>
-              <div><strong>Business category selection</strong> — The single most important GBP field. Wrong category = wrong customers. We select the primary and secondary categories that match exactly what you do.</div>
-            </li>
-            <li>
-              <div class="gbp-check-icon" aria-hidden="true"><i class="bi bi-check-lg"></i></div>
-              <div><strong>Local keyword business description</strong> — Written to contain the words your customers actually search. Not generic, not copied from your Instagram bio. Search-optimised from the start.</div>
-            </li>
-            <li>
-              <div class="gbp-check-icon" aria-hidden="true"><i class="bi bi-check-lg"></i></div>
-              <div><strong>Services listed correctly</strong> — Google reads your listed services to decide when to show your business. We list every relevant service with descriptions so nothing is missed.</div>
-            </li>
-            <li>
-              <div class="gbp-check-icon" aria-hidden="true"><i class="bi bi-check-lg"></i></div>
-              <div><strong>WhatsApp number &amp; website linked</strong> — Customers can tap to WhatsApp you directly from your Google listing. We connect both so every traffic source points back to your ordering system.</div>
-            </li>
-            <li>
-              <div class="gbp-check-icon" aria-hidden="true"><i class="bi bi-check-lg"></i></div>
-              <div><strong>Business hours set correctly</strong> — Including special holiday hours. Wrong hours send customers to a closed door and lead to bad reviews. We get it right at launch.</div>
-            </li>
-            <li>
-              <div class="gbp-check-icon" aria-hidden="true"><i class="bi bi-check-lg"></i></div>
-              <div><strong>Verification guidance</strong> — We walk you through Google's verification step. Until your profile is verified, it won't show up properly on Maps or in search.</div>
-            </li>
-            <li>
-              <div class="gbp-check-icon" aria-hidden="true"><i class="bi bi-check-lg"></i></div>
-              <div><strong>Review request strategy</strong> — We show you exactly how to ask existing customers for Google reviews. Reviews are one of the strongest local ranking signals, and they're what customers read before they choose you.</div>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-
-      <!-- Add-on box for existing clients -->
-      <div class="gbp-addon-box" aria-label="Already have a website? GBP setup available as a standalone add-on">
-        <div class="gbp-addon-icon" aria-hidden="true"><i class="bi bi-plus-circle-dotted"></i></div>
-        <div>
-          <p style="font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem;">Add-On Service</p>
-          <h4 class="h5 mb-1">Already Have a Website? Add GBP Setup Separately.</h4>
-          <p style="font-size:.875rem;color:var(--muted);margin-bottom:1rem;">If you already have a web presence and just need your Google Business Profile set up and optimised correctly, we offer this as a standalone service. One-time setup, done right.</p>
-          <p style="font-size:.8rem;color:var(--muted);margin-bottom:1rem;">One-time fee · Ask on WhatsApp for pricing</p>
-          <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20the%20standalone%20Google%20Business%20Profile%20setup%20service" data-loc="gbp-addon" onclick="trackWhatsAppClick(event)" class="btn-blue" style="font-size:.85rem;padding:.6rem 1.5rem;" aria-label="Ask about standalone Google Business Profile setup on WhatsApp">
-            <i class="bi bi-whatsapp" aria-hidden="true"></i> Ask About This Add-On
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <!-- ══ PORTFOLIO / DEMOS ════════════════════════════════ -->
-<section id="demos" aria-label="Sample conversion systems by industry">
+<section class="bg-alt" id="demos" aria-label="Sample conversion systems by industry">
   <div class="container">
     <div class="text-center mb-4 reveal">
       <span class="section-label">Sample Systems</span>
@@ -1421,58 +1150,6 @@ html, body { overflow-x: hidden; max-width: 100%; }
   </div>
 </section>
 
-
-<!-- ══ PROFILES TEASER ═══════════════════════════════ -->
-<section aria-label="Athlete and personal brand profiles vertical">
-  <div class="container">
-    <div class="text-center reveal">
-      <div style="background:linear-gradient(135deg,var(--bg-alt) 0%,var(--blue-pale,#EEF4FF) 100%);border:1.5px solid var(--border);border-radius:1.25rem;padding:2.5rem 2rem;max-width:680px;margin:0 auto;position:relative;overflow:hidden;">
-        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,var(--gold,#F5B000),var(--blue,#0D1B2A),transparent);border-radius:1.25rem 1.25rem 0 0;"></div>
-        <span class="demo-new-badge mb-3 d-inline-flex" aria-label="New service vertical">New Vertical</span>
-        <h2 style="font-family:'Poppins',sans-serif;font-weight:900;font-size:1.6rem;margin-bottom:.75rem;color:var(--text);">
-          Athlete &amp; Personal Brand Profiles
-        </h2>
-        <p class="text-m" style="font-size:.88rem;max-width:480px;margin:0 auto 1.5rem;opacity:.8;">
-          Digital brand platforms for athletes, coaches, artists, and personal brands — built to attract sponsors, scouts, and media attention.
-        </p>
-        <div class="d-flex flex-wrap gap-2 justify-content-center mb-3" aria-hidden="true" style="font-size:.75rem;opacity:.6;">
-          <span><i class="bi bi-trophy me-1"></i>Athletes</span>
-          <span>·</span>
-          <span><i class="bi bi-person-check me-1"></i>Coaches</span>
-          <span>·</span>
-          <span><i class="bi bi-mic me-1"></i>Artists</span>
-          <span>·</span>
-          <span><i class="bi bi-briefcase me-1"></i>Personal Brands</span>
-        </div>
-        <a href="profiles.html" class="btn-blue" style="font-size:.9rem;padding:.75rem 2rem;" aria-label="Explore athlete and personal brand profile systems">
-          <i class="bi bi-person-badge-fill me-2" aria-hidden="true"></i> Explore Profile Systems
-          <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ WHO BUILDS YOUR SYSTEM ═════════════════════════ -->
-<section class="bg-alt" id="about" aria-label="Who builds your system">
-  <div class="container">
-    <div class="founder-wrap reveal">
-      <!-- To use a photo: replace this div with
-           <img src="images/profile.jpg" class="founder-avatar" alt="Jamal Samuel" width="120" height="120" loading="lazy"> -->
-      <div class="founder-avatar" aria-hidden="true">JS</div>
-      <div>
-        <span class="section-label">Who Builds Your System</span>
-        <h2 class="h3 mt-2 mb-2">You Work Directly With Me.</h2>
-        <p class="text-m" style="font-size:.92rem;line-height:1.7;margin-bottom:0;">I'm Jamal Samuel, a web developer based in Vieux Fort, Saint Lucia. I design, build, and maintain every system myself. When you need a price changed or a new item added, you message me on WhatsApp. There's no ticket system and no middleman.</p>
-        <ul class="founder-points">
-          <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Caribbean-based, same time zone as your customers</li>
-          <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Reachable on WhatsApp Mon–Fri 8 AM–6 PM, Sat 10 AM–2 PM AST</li>
-          <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i> A limited number of clients at a time, so each one gets proper attention</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ══ LEAD CAPTURE — SEE A DEMO ══════════════════════ -->
 <section id="see-demo" aria-label="Request a personalised demo for your industry">
@@ -1579,8 +1256,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
             <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Custom domain setup</div>
             <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> PayPal payment button</div>
             <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> See what visitors click and where orders come from</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Google Business Profile setup, category &amp; service optimisation</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> On-page SEO + review request strategy included</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> On-page SEO included</div>
             <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Monthly content updates included</div>
             <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> 2 rounds of revisions</div>
           </div>
@@ -1608,7 +1284,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
             <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Social media links integration</div>
             <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> WhatsApp multi-product order builder</div>
             <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> GA4 conversion event tracking</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Google Search Console + GBP analytics linked</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Google Search Console linked</div>
             <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Monthly analytics report (plain language)</div>
             <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> 3 rounds of revisions</div>
           </div>
@@ -1660,7 +1336,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
             <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Custom JavaScript functionality</div>
             <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Brand style guide document (PDF)</div>
             <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> XML sitemap submitted to Search Console</div>
-            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Google Business Profile setup for each location</div>
+            <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Multi-location page structure</div>
             <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Dedicated account management</div>
             <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Priority same-day support response</div>
           </div>
@@ -1699,6 +1375,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
           <div class="ppb-notes" aria-label="Partnership plan notes">
             <span><i class="bi bi-info-circle" aria-hidden="true"></i> After 3 months, all plans continue month-to-month. Cancel anytime with 30 days' notice</span>
             <span><i class="bi bi-info-circle" aria-hidden="true"></i> The setup fee is non-refundable. After the 3-month minimum, cancel anytime without penalties</span>
+            <span><i class="bi bi-info-circle" aria-hidden="true"></i> Your website files are yours once your setup fee is paid in full</span>
           </div>
           <a href="https://wa.me/17587235872?text=I%20have%20a%20question%20about%20the%20monthly%20partnership%20model" data-loc="pricing" onclick="trackWhatsAppClick(event)" class="btn-blue mt-3 d-inline-flex align-items-center gap-2" aria-label="Ask a question about the monthly partnership model on WhatsApp">
             <i class="bi bi-whatsapp" aria-hidden="true"></i> Questions? Ask Us on WhatsApp
@@ -1736,7 +1413,6 @@ html, body { overflow-x: hidden; max-width: 100%; }
           <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Price &amp; menu changes</div>
           <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> WhatsApp flow updates</div>
           <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Uptime monitoring</div>
-          <div class="price-feat"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Google Business Profile updates</div>
           <a href="https://wa.me/17587235872?text=I'm%20interested%20in%20the%20Professional%20package" data-loc="pricing" onclick="trackWhatsAppClick(event)" class="btn-blue mt-3 d-flex align-items-center justify-content-center gap-2" aria-label="Get Professional package on WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i> Get Professional</a>
         </div>
       </div>
@@ -1833,8 +1509,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
         <p>Every plan has a 3-month minimum, then continues month-to-month. After the first 3 months you can cancel at any time with 30 days' notice. The setup fee is non-refundable.</p>
       </details>
       <details class="faq-item">
-        <summary>What is a Google Business Profile and why do I need one?</summary>
-        <p>A Google Business Profile is a free listing that lets your business appear on Google Maps and in local search results. Without one, customers searching for what you sell in your area will see other businesses instead. Jamal Samuel sets up and optimises your profile on every plan.</p>
+        <summary>Who owns my website?</summary>
+        <p>Once your setup fee is paid in full, your website files are yours. The monthly partnership fee covers hosting, updates, and support, not ownership of the build.</p>
       </details>
       <details class="faq-item">
         <summary>Do you work with businesses outside Saint Lucia?</summary>
@@ -1900,9 +1576,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
           <a href="#why"         class="footer-lnk">The Problem</a>
           <a href="#solution"    class="footer-lnk">How It Works</a>
           <a href="#difference"  class="footer-lnk">Why Jamal Samuel</a>
-          <a href="#about"       class="footer-lnk">About</a>
           <a href="#features"    class="footer-lnk">What You Get</a>
-          <a href="#local-seo"   class="footer-lnk">Google Visibility</a>
           <a href="#demos"       class="footer-lnk">Examples</a>
           <a href="#pricing"     class="footer-lnk">Plans</a>
           <a href="#faq"         class="footer-lnk">FAQ</a>
@@ -1929,12 +1603,12 @@ html, body { overflow-x: hidden; max-width: 100%; }
       <div>
         <span id="footer-year">© 2026 Jamal Samuel. All rights reserved.</span>
         <div class="footer-legal-row">
-          <a href="legal.html#do-not-sell">Do Not Sell or Share My Personal Information</a>
+          <a href="legal.html#ccpa-rights">Do Not Sell or Share My Personal Information</a>
           &nbsp;·&nbsp;
           <a href="legal.html">Privacy Policy &amp; Terms</a>
         </div>
         <p class="footer-trademark">
-          Jamal Samuel is a web design and digital services business operated from Saint Lucia (758). All website designs, systems, copy, and intellectual property produced by Jamal Samuel remain the exclusive property of Jamal Samuel until full payment is received by the client. Sample and demo sites shown on this page are original concept builds created to illustrate service capabilities: business names, logos, and content within demo sites are fictitious and used for demonstration purposes only. Jamal Samuel does not represent these as active client work unless explicitly stated. Unauthorised reproduction of any Jamal Samuel design, system, or content is prohibited.
+          Jamal Samuel is a web design and digital services business operated from Saint Lucia (758). All website designs, systems, copy, and intellectual property produced by Jamal Samuel remain the exclusive property of Jamal Samuel until full payment is received from the client. Once payment is complete, the client owns their website files. Sample and demo sites shown on this page are original concept builds created to illustrate service capabilities: business names, logos, and content within demo sites are fictitious and used for demonstration purposes only. Jamal Samuel does not represent these as active client work unless explicitly stated. Unauthorised reproduction of any Jamal Samuel design, system, or content is prohibited.
         </p>
       </div>
       <span style="opacity:.45;font-size:.78rem;">Built from Saint Lucia 🇱🇨 with care for small businesses.</span>
