@@ -1531,10 +1531,22 @@ section.split-section { padding: 0; }
     const m = img.closest('.brand-mark'); if (m) m.classList.remove('is-missing');
   }
   document.querySelectorAll('picture img').forEach(img => {
-    img.addEventListener('error', () => mark(img));
+    img.addEventListener('error', () => {
+      // If the WebP version is missing, a browser will NOT fall back to the JPG on its own.
+      // So: drop the <source> tags once and retry with the <img> file (JPG/PNG). Only mark missing if that fails too.
+      const pic = img.closest('picture');
+      const sources = pic ? pic.querySelectorAll('source') : [];
+      if (sources.length && !img.dataset.retried) {
+        img.dataset.retried = '1';
+        sources.forEach(s => s.remove());
+        const src = img.getAttribute('src'); img.src = ''; img.src = src;
+        return;
+      }
+      mark(img);
+    });
     img.addEventListener('load', () => unmark(img));
     // Eager images may have failed before this script ran; lazy images are only judged when they actually load.
-    if (img.loading !== 'lazy' && img.complete && img.naturalWidth === 0) mark(img);
+    if (img.loading !== 'lazy' && img.complete && img.naturalWidth === 0) img.dispatchEvent(new Event('error'));
   });
 })();
 
