@@ -18,7 +18,15 @@
 <!-- ══════════════ META ══════════════ -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>document.documentElement.classList.add('js');</script>
+<script>
+  document.documentElement.classList.add('js');
+  (function () {
+    var t = null;
+    try { t = localStorage.getItem('jama-theme'); } catch (e) {}
+    if (t !== 'light' && t !== 'dark') t = (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
 
 <title>Jamal Samuel | WhatsApp Ordering Websites, Caribbean</title>
 <meta name="author" content="Jamal Samuel">
@@ -58,7 +66,6 @@
 <!-- ══════════════ PERFORMANCE ══════════════ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="images/jamal-premium/hero-caribbean-business.webp" type="image/webp" fetchpriority="high">
 
 <!-- ══════════════ FONTS (icons are inline SVG — no icon CDN) ══════════════ -->
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -355,12 +362,16 @@ picture.is-missing img { opacity: 0; }
 .info-card { background: rgba(6,31,39,.82); border: 1px solid rgba(233,185,83,.4); padding: 1rem 1.05rem; color: var(--ivory); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); display: grid; grid-template-columns: auto 1fr; gap: .75rem; align-items: start; }
 .info-card .ic { width: 26px; height: 26px; color: var(--gold); }
 .info-card strong { display: block; font-family: var(--font-serif); font-weight: 400; font-size: 1.35rem; line-height: 1.1; }
-.info-card span { font-size: .78rem; color: var(--on-dark-muted); line-height: 1.35; }
+.info-card span { display: block; margin-top: .2rem; font-size: .78rem; color: var(--on-dark-muted); line-height: 1.4; }
 @media (max-width: 991.98px) {
   .hero-background img { object-position: 60% 30%; }
   .hero-overlay { background: linear-gradient(180deg, rgba(6,31,39,.9) 0%, rgba(6,31,39,.82) 50%, rgba(6,31,39,.7) 75%, rgba(6,31,39,.92) 100%); }
   .hero-visual { grid-template-columns: minmax(0, 280px) minmax(0, 200px); justify-content: center; }
   .device-frame { transform: none; }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .hero-visual { grid-template-columns: 1fr; justify-items: center; }
+  .info-cards { grid-template-columns: 1fr 1fr; width: 100%; max-width: 420px; }
 }
 @media (max-width: 599.98px) {
   .hero-visual { grid-template-columns: 1fr; justify-items: center; }
@@ -606,13 +617,80 @@ section.split-section { padding: 0; }
 .footer-disclosure { font-size: .8rem; line-height: 1.6; max-width: 900px; color: #A9B8B8; margin: 0; }
 @media (max-width: 767.98px) { .site-footer { padding-bottom: 6rem; } }
 
-/* Floating WhatsApp — hidden while the hero (with its own WhatsApp CTA) is on screen */
-.wa-float { position: fixed; right: 1rem; bottom: 1rem; z-index: 999; display: inline-flex; align-items: center; gap: .5rem; min-height: 52px; padding: 0 1rem; background: var(--wa-btn); color: #fff; border: 1px solid var(--wa); border-radius: 0; font-weight: 600; font-size: .9rem; text-decoration: none; box-shadow: 0 10px 30px rgba(6,31,39,.35); transition: transform .25s var(--ease), opacity .25s var(--ease), visibility .25s, background .2s; }
-.wa-float .ic { width: 24px; height: 24px; }
-.wa-float:hover { background: var(--wa-btn-hover); color: #fff; }
-.js .wa-float { opacity: 0; visibility: hidden; transform: translateY(12px); }
-.js .wa-float.show { opacity: 1; visibility: visible; transform: none; }
-@media (max-width: 479.98px) { .wa-float .label { display: none; } .wa-float { width: 56px; padding: 0; justify-content: center; } }
+/* Floating controls — WhatsApp (standard circle) + back-to-top stacked above it */
+.wa-float, .to-top { position: fixed; z-index: 999; display: grid; place-items: center; border-radius: 50% !important; text-decoration: none; transition: transform .25s var(--ease), opacity .25s var(--ease), visibility .25s, background .2s, box-shadow .2s; }
+.wa-float { right: 1.25rem; bottom: 1.25rem; width: 58px; height: 58px; background: var(--wa); border: 1px solid #1EBE5A; box-shadow: 0 6px 20px rgba(0,0,0,.28); }
+.wa-float .wa-glyph { width: 32px; height: 32px; }
+.wa-float:hover { background: #1EBE5A; transform: scale(1.06); box-shadow: 0 10px 28px rgba(37,211,102,.45); }
+.to-top { right: calc(1.25rem + 7px); bottom: calc(1.25rem + 58px + 12px); width: 44px; height: 44px; padding: 0; background: var(--navy); color: var(--ivory); border: 1px solid rgba(233,185,83,.7); cursor: pointer; box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+.to-top .ic { width: 20px; height: 20px; }
+.to-top:hover { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+.js .wa-float, .js .to-top { opacity: 0; visibility: hidden; transform: translateY(10px); }
+.js .wa-float.show, .js .to-top.show { opacity: 1; visibility: visible; transform: none; }
+.js .wa-float.show:hover { transform: scale(1.06); }
+@media (max-width: 479.98px) { .wa-float { right: 1rem; bottom: 1rem; } .to-top { right: calc(1rem + 7px); bottom: calc(1rem + 58px + 12px); } }
+
+/* Theme toggle (header) */
+.theme-toggle { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; margin-left: .5rem; background: transparent; color: var(--ivory); border-color: rgba(250,248,242,.5); cursor: pointer; flex-shrink: 0; }
+.theme-toggle:hover { border-color: var(--gold); color: var(--gold); }
+.theme-toggle .ic { width: 20px; height: 20px; }
+.theme-toggle .ic-sun { display: none; }
+[data-theme="dark"] .theme-toggle .ic-sun { display: block; }
+[data-theme="dark"] .theme-toggle .ic-moon { display: none; }
+html:not(.js) .theme-toggle { display: none; }
+.nav-actions { display: flex; align-items: center; gap: .5rem; }
+@media (min-width: 1200px) { .nav-panel { order: 2; margin-left: auto; } .nav-actions { order: 3; } }
+@media (max-width: 1199.98px) { .nav-actions { margin-left: auto; } .theme-toggle { margin-left: 0; } }
+
+/* ══════════════════════════════════════════════════════════════
+   DARK THEME
+   ══════════════════════════════════════════════════════════════ */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #EEF2F1;
+  --slate: #A9BBBC;
+  --line: rgba(250,248,242,.12);
+  --line-strong: rgba(250,248,242,.3);
+  --accent-text: #7FC8C2;
+}
+[data-theme="dark"] body, [data-theme="dark"] .bg-ivory { background: #071A20; }
+[data-theme="dark"] .bg-cream, [data-theme="dark"] .countries { background: #0A242B; }
+[data-theme="dark"] .card, [data-theme="dark"] .step, [data-theme="dark"] .compare-col.diy,
+[data-theme="dark"] .demo-card, [data-theme="dark"] .highlights, [data-theme="dark"] .plan,
+[data-theme="dark"] .terms-card, [data-theme="dark"] .faq-item, [data-theme="dark"] .partner.featured { background: #0F2C34; }
+[data-theme="dark"] .partner { background: #0C262D; }
+[data-theme="dark"] .compare-col.done, [data-theme="dark"] .review-offer, [data-theme="dark"] .fix-promise { background: var(--ocean); border-color: rgba(233,185,83,.35); }
+[data-theme="dark"] .card, [data-theme="dark"] .demo-card, [data-theme="dark"] .plan, [data-theme="dark"] .step { box-shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 30px rgba(0,0,0,.25); }
+[data-theme="dark"] a, [data-theme="dark"] .eyebrow, [data-theme="dark"] .text-link, [data-theme="dark"] .plan-price,
+[data-theme="dark"] .highlight strong, [data-theme="dark"] .countries-label, [data-theme="dark"] .plan-list .ic,
+[data-theme="dark"] .terms-notes .ic, [data-theme="dark"] .disclosure .ic, [data-theme="dark"] .countries-list .ic,
+[data-theme="dark"] .plan-note, [data-theme="dark"] .faq-item summary .toggle, [data-theme="dark"] .faq-item summary:hover { color: var(--accent-text); }
+[data-theme="dark"] a:hover { color: var(--gold); }
+[data-theme="dark"] .bg-navy .eyebrow, [data-theme="dark"] .hero .eyebrow, [data-theme="dark"] .lead .eyebrow, [data-theme="dark"] .cta-final .eyebrow,
+[data-theme="dark"] .bg-navy .text-link, [data-theme="dark"] .lead .text-link, [data-theme="dark"] .compare-col.done .compare-head { color: var(--gold); }
+[data-theme="dark"] .site-footer a, [data-theme="dark"] .nav-menu a.nav-link, [data-theme="dark"] .brand { color: var(--ivory); }
+[data-theme="dark"] .footer-links a, [data-theme="dark"] .footer-legal a { color: var(--on-dark-muted); }
+[data-theme="dark"] .footer-links a:hover, [data-theme="dark"] .footer-legal a:hover, [data-theme="dark"] .nav-menu a.nav-link:hover { color: var(--gold); }
+[data-theme="dark"] .btn-gold, [data-theme="dark"] .btn-gold:hover { color: var(--navy); }
+[data-theme="dark"] .btn-wa, [data-theme="dark"] .btn-wa:hover, [data-theme="dark"] .btn-teal, [data-theme="dark"] .btn-ghost-light { color: #fff; }
+[data-theme="dark"] .btn-ghost-light:hover { color: var(--navy); }
+[data-theme="dark"] .icon-badge { background: rgba(233,185,83,.1); color: var(--gold); border-color: rgba(233,185,83,.3); }
+[data-theme="dark"] .step-head .ic, [data-theme="dark"] .plan.featured .plan-list .ic { color: var(--gold); }
+[data-theme="dark"] .step-num, [data-theme="dark"] .timeline .n { border: 1px solid rgba(233,185,83,.45); }
+[data-theme="dark"] .compare-col.diy .ic { color: #F08A7A; }
+[data-theme="dark"] .btn-outline { background: transparent; border-color: rgba(250,248,242,.4); color: #EEF2F1; }
+[data-theme="dark"] .btn-outline:hover { background: var(--ivory); border-color: var(--ivory); color: var(--navy); }
+[data-theme="dark"] .demo-tag { background: #071A20; color: #EEF2F1; border-color: rgba(250,248,242,.2); }
+[data-theme="dark"] .plan.featured { box-shadow: 0 24px 50px rgba(0,0,0,.4); }
+[data-theme="dark"] .field input, [data-theme="dark"] .field select { color: #10282E; }
+/* Phone mockup stays a light screen in both themes */
+[data-theme="dark"] .device-screen { color: #10282E; }
+[data-theme="dark"] .device-sub, [data-theme="dark"] .device-item span { color: #56666B; }
+[data-theme="dark"] .device-item { background: #fff; border-color: rgba(16,40,46,.12); }
+[data-theme="dark"] .device-item strong { color: #10282E; }
+[data-theme="dark"] .device-top { color: #07545B; }
+[data-theme="dark"] .on-light :focus-visible { outline-color: var(--gold); box-shadow: 0 0 0 5px #071A20; }
+.on-light .lead :focus-visible, .on-light .hero :focus-visible, .on-light .site-header :focus-visible, .on-light .site-footer :focus-visible, .on-light .cta-final :focus-visible { outline-color: var(--gold); box-shadow: 0 0 0 5px var(--navy); }
 
 /* ══════════════════════════════════════════════════════════════
    18. MOTION
@@ -663,6 +741,9 @@ section.split-section { padding: 0; }
     <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M14.5 21v-7h2.6l.4-3.2h-3V8.9c0-.9.3-1.5 1.6-1.5h1.6V4.6a20 20 0 0 0-2.4-.1c-2.3 0-3.9 1.4-3.9 4v2.3H8.8V14h2.6v7"/></symbol>
     <symbol id="i-store" viewBox="0 0 24 24"><path d="M4 9.5V20h16V9.5M3 9.5l1.8-5h14.4l1.8 5M3 9.5a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0M10 20v-5h4v5"/></symbol>
     <symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0 5 5L12 19a2.1 2.1 0 0 1-3-3z"/><path d="M14.7 6.3a4 4 0 0 1 4.9-2.9l-2.6 2.6.4 2.1 2.1.4 2.6-2.6a4 4 0 0 1-2.9 4.9"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
     <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5L7 21l5-2.5 5 2.5-1.5-7.5"/></symbol>
   </defs>
 </svg>
@@ -688,11 +769,17 @@ section.split-section { padding: 0; }
       </span>
     </a>
 
+    <div class="nav-actions">
+    <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
+      <svg class="ic ic-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+      <svg class="ic ic-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+    </button>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navPanel">
       <svg class="ic ic-menu" aria-hidden="true"><use href="#i-menu"/></svg>
       <svg class="ic ic-close" aria-hidden="true"><use href="#i-close"/></svg>
       <span class="label" aria-hidden="true">Menu</span><span class="visually-hidden toggle-state">Open navigation menu</span>
     </button>
+    </div>
 
     <div class="nav-panel" id="navPanel">
       <ul class="nav-menu">
@@ -789,7 +876,7 @@ section.split-section { padding: 0; }
 <!-- ══════════════════════════════════════════════════════════════
      C. SERVICE AREA
      ══════════════════════════════════════════════════════════════ -->
-<div class="countries" aria-label="Countries where Jamal Samuel serves clients">
+<div class="countries" role="region" aria-label="Countries where Jamal Samuel serves clients">
   <div class="container">
     <span class="countries-label">Proudly serving businesses across the Caribbean</span>
     <ul class="countries-list">
@@ -1472,9 +1559,18 @@ section.split-section { padding: 0; }
   </div>
 </footer>
 
-<!-- Floating WhatsApp — appears after the hero scrolls away -->
+<!-- Back to top — appears after 300px of scrolling -->
+<button class="to-top" type="button" aria-label="Back to top">
+  <svg class="ic" aria-hidden="true"><use href="#i-arrow-up"/></svg>
+</button>
+
+<!-- Floating WhatsApp — standard round button -->
 <a href="https://wa.me/17587235872?text=Hi%20I%20would%20like%20a%20webpage%20system" class="wa-float" data-loc="float" onclick="trackWhatsAppClick(event)" aria-label="Chat with Jamal Samuel on WhatsApp">
-  <svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg><span class="label">WhatsApp</span>
+  <svg class="wa-glyph" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+    <path fill="#fff" d="M16 3.5A12.4 12.4 0 0 0 5.3 22.3L3.6 28.5l6.4-1.7A12.4 12.4 0 1 0 16 3.5z"/>
+    <path fill="#25D366" d="M16 5.6a10.3 10.3 0 0 0-8.8 15.7l.3.4-1 3.7 3.8-1 .4.2A10.3 10.3 0 1 0 16 5.6z"/>
+    <path fill="#fff" d="M12.3 10.2c-.3-.6-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.4-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.6c.2.2 2.4 3.8 5.9 5.2 2.9 1.1 3.5.9 4.1.9.6-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.1-.3-.2-.7-.4l-2.3-1.1c-.3-.1-.5-.2-.8.2l-1 1.3c-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.7-1.7-1-.9-1.7-2-1.9-2.3-.2-.3 0-.5.1-.7l.6-.7c.2-.2.2-.4.3-.6.1-.2.1-.5 0-.7l-1.2-2.6z"/>
+  </svg>
 </a>
 
 <!-- ══════════════════════════════════════════════════════════════
@@ -1511,13 +1607,43 @@ section.split-section { padding: 0; }
   items.forEach(el => obs.observe(el));
 })();
 
-/* ── Floating WhatsApp: show once the hero is out of view ── */
+/* ── Floating controls: back-to-top after 300px; WhatsApp always on desktop, after 300px on phones ── */
 (function () {
-  const btn = document.querySelector('.wa-float');
-  const hero = document.getElementById('home');
+  const wa = document.querySelector('.wa-float');
+  const top = document.querySelector('.to-top');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let ticking = false;
+  function update() {
+    const scrolled = window.scrollY > 300;
+    if (top) top.classList.toggle('show', scrolled);
+    if (wa) wa.classList.toggle('show', scrolled || window.innerWidth >= 768);
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
+  update();
+  if (top) top.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: reduce.matches ? 'auto' : 'smooth' });
+    const brand = document.querySelector('.site-header .brand');
+    if (brand) brand.focus({ preventScroll: true });
+  });
+})();
+
+/* ── Light / dark theme toggle (choice saved on this device) ── */
+(function () {
+  const root = document.documentElement;
+  const btn = document.querySelector('.theme-toggle');
   if (!btn) return;
-  if (!hero || !('IntersectionObserver' in window)) { btn.classList.add('show'); return; }
-  new IntersectionObserver(([e]) => btn.classList.toggle('show', !e.isIntersecting), { threshold: 0.05 }).observe(hero);
+  function label() {
+    btn.setAttribute('aria-label', root.getAttribute('data-theme') === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+  btn.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('jama-theme', next); } catch (e) {}
+    label();
+  });
+  label();
 })();
 
 /* ── Pending images: hide broken-image icons; hide logo tile until artwork is uploaded ── */
@@ -1539,7 +1665,7 @@ section.split-section { padding: 0; }
       if (sources.length && !img.dataset.retried) {
         img.dataset.retried = '1';
         sources.forEach(s => s.remove());
-        const src = img.getAttribute('src'); img.src = ''; img.src = src;
+        const jpg = img.getAttribute('src'); img.removeAttribute('src'); requestAnimationFrame(() => img.setAttribute('src', jpg));
         return;
       }
       mark(img);
