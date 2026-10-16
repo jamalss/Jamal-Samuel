@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Boutique Corner — Dress with Confidence, Live in Style</title>
-  <meta name="description" content="Boutique Corner — handpicked fashion for the modern woman. Browse dresses, blazers, evening wear and co-ords, then order in seconds over WhatsApp with delivery in 2–3 days." />
-  <link rel="canonical" href="https://www.jamalsamuel.online/demo-products/boutique-corner.html" />
+  <script>document.documentElement.classList.replace('no-js','js');</script>
+  <title>Boutique Corner — Concept Demo by Jamal Samuel</title>
+  <!-- Fictional demo business: keep it out of search results so it can't be mistaken for a real store -->
+  <meta name="robots" content="noindex, follow" />
+  <meta name="description" content="Concept demo by Jamal Samuel: a fictional fashion boutique showing size selection, live subtotals and one-tap WhatsApp ordering. All content is illustrative." />
+  <link rel="canonical" href="https://www.jamalsamuel.online/demo-products/boutique-corner-sizes.html" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Boutique Corner — Dress with Confidence, Live in Style" />
-  <meta property="og:description" content="Handpicked fashion for the modern woman. Order your size and quantity in seconds and send straight to WhatsApp." />
+  <meta property="og:title" content="Boutique Corner — Concept Demo by Jamal Samuel" />
+  <meta property="og:description" content="Concept demo of a fashion boutique site: pick size and quantity, then send the full order to WhatsApp. Fictional business, illustrative content." />
   <meta property="og:image" content="https://www.jamalsamuel.online/demo-products/boutique-corner-images/boutique-corner-hero-image.webp" />
-  <meta property="og:url" content="https://www.jamalsamuel.online/demo-products/boutique-corner.html" />
+  <meta property="og:url" content="https://www.jamalsamuel.online/demo-products/boutique-corner-sizes.html" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Boutique Corner — Dress with Confidence, Live in Style" />
-  <meta name="twitter:description" content="Handpicked fashion for the modern woman. Order in seconds via WhatsApp." />
+  <meta name="twitter:title" content="Boutique Corner — Concept Demo by Jamal Samuel" />
+  <meta name="twitter:description" content="Concept demo: size-based WhatsApp ordering for fashion boutiques. Fictional business, illustrative content." />
   <meta name="twitter:image" content="https://www.jamalsamuel.online/demo-products/boutique-corner-images/boutique-corner-hero-image.webp" />
 
   <!-- Favicon -->
@@ -24,27 +27,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
-
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ClothingStore",
-    "name": "Boutique Corner",
-    "description": "Handpicked fashion for the modern woman. Order via WhatsApp with 2–3 day delivery.",
-    "image": "https://www.jamalsamuel.online/demo-products/boutique-corner-images/boutique-corner-hero-image.webp",
-    "url": "https://www.jamalsamuel.online/demo-products/boutique-corner.html",
-    "telephone": "+1-758-723-5872",
-    "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "LC",
-      "addressRegion": "Saint Lucia"
-    }
-  }
-  </script>
   <style>
     /* ── ROOT & BASE ─────────────────────────────────── */
     :root {
@@ -61,10 +45,11 @@
       --radius-card: 18px;
       --font-display: 'Cormorant Garamond', serif;
       --font-body:    'Jost', sans-serif;
+      --top-h: 108px; /* demo banner + nav; updated by JS */
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--top-h) + 12px); }
 
     body {
       font-family: var(--font-body);
@@ -73,9 +58,34 @@
       overflow-x: hidden;
     }
 
+    /* ── ACCESSIBILITY HELPERS ────────────────────────── */
+    .skip-link {
+      position: absolute; left: 12px; top: -60px; z-index: 2000;
+      background: var(--bc-deep); color: #fff; padding: 10px 18px; border-radius: 8px;
+      font-size: 0.85rem; text-decoration: none; transition: top 0.2s;
+    }
+    .skip-link:focus { top: 12px; color: #fff; }
+    .visually-hidden-bc {
+      position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+    :focus-visible { outline: 2px solid var(--bc-rose); outline-offset: 3px; }
+    .bc-vip :focus-visible, .bc-footer :focus-visible, .floating-bar :focus-visible, .demo-banner :focus-visible { outline-color: var(--bc-gold); }
+
+    /* ── DEMO BANNER (persistent) ─────────────────────── */
+    .site-top { position: fixed; top: 0; left: 0; right: 0; z-index: 900; }
+    .demo-banner {
+      background: var(--bc-deep); color: rgba(255,255,255,0.88);
+      font-size: 0.74rem; line-height: 1.45; text-align: center;
+      padding: 8px 16px;
+    }
+    .demo-banner strong { color: var(--bc-gold); font-weight: 600; }
+    .demo-banner a { color: var(--bc-gold); text-decoration: underline; text-underline-offset: 2px; white-space: nowrap; }
+    .demo-banner a:hover { color: #fff; }
+
     /* ── NAVBAR ───────────────────────────────────────── */
     .bc-nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+      position: relative;
       background: rgba(253,248,245,0.93);
       backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--bc-border);
@@ -134,7 +144,7 @@
     /* ── HERO ─────────────────────────────────────────── */
     .bc-hero {
       min-height: 100vh;
-      padding: 68px 0 0;
+      padding: var(--top-h) 0 0;
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
@@ -203,7 +213,15 @@
       font-family: var(--font-display); font-size: 2rem; font-weight: 600;
       color: var(--bc-deep); line-height: 1;
     }
-    .hero-stat .label { font-size: 0.72rem; color: var(--bc-rose); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+    .hero-stat .label { font-size: 0.72rem; color: var(--bc-rose); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
+    .hero-stats { flex-wrap: wrap; row-gap: 18px; }
+    .hero-stat { max-width: 150px; }
+    /* Placeholder figures: deliberately small so they read as "slot for the client's real number" */
+    .stat-ph {
+      font-family: var(--font-body); font-size: 0.78rem; font-weight: 400; font-style: italic;
+      color: var(--bc-mid); line-height: 1.35; letter-spacing: 0; text-transform: none;
+    }
+    .stat-ph .ph-sym { font-style: normal; font-weight: 600; color: var(--bc-gold); margin-right: 3px; }
 
     .hero-right { position: relative; height: 100%; min-height: 600px; overflow: visible; }
     .hero-img {
@@ -217,7 +235,7 @@
       background: white; border-radius: 16px;
       padding: 16px 22px; box-shadow: 0 8px 30px rgba(61,31,26,0.15);
       display: flex; flex-direction: column; gap: 2px;
-      z-index: 999;
+      z-index: 3; max-width: 200px;
     }
     .badge-pct { font-family: var(--font-display); font-size: 2.2rem; font-weight: 600; color: var(--bc-rose); line-height: 1; }
     .badge-label { font-size: 0.7rem; color: var(--bc-mid); letter-spacing: 1px; text-transform: uppercase; }
@@ -350,6 +368,8 @@
     .product-card:hover .card-hover-btn,
     .product-card.panel-open .card-hover-btn { transform: translateY(0); }
     .card-hover-btn:hover { background: var(--bc-mid); }
+    .card-hover-btn:focus-visible { transform: translateY(0); outline-offset: -4px; }
+    @media (hover: none) { .card-hover-btn { transform: translateY(0); } }
 
     /* card body */
     .card-body-bc { padding: 20px 22px 22px; }
@@ -383,7 +403,10 @@
     .card-stars {
       font-size: 0.78rem; color: var(--bc-gold); display: flex; align-items: center; gap: 4px;
     }
-    .card-stars span { color: var(--bc-mid); font-size: 0.72rem; }
+    .card-stars span { color: var(--bc-mid); font-size: 0.72rem; font-style: italic; }
+    .card-stars .ph-sym { color: var(--bc-gold); font-style: normal; font-size: 0.8rem; }
+    .card-in-order { margin-top: 8px; font-size: 0.75rem; font-weight: 500; color: var(--bc-rose); }
+    h3.card-name { margin-top: 0; }
 
     /* ── ORDER PANEL (slide up inside card) ────────────── */
     .order-panel {
@@ -394,11 +417,12 @@
       border-radius: 0 0 var(--radius-card) var(--radius-card);
       padding: 22px 22px 24px;
       transform: translateY(100%);
-      transition: transform 0.38s cubic-bezier(0.4,0,0.2,1);
+      visibility: hidden;
+      transition: transform 0.38s cubic-bezier(0.4,0,0.2,1), visibility 0s linear 0.38s;
       z-index: 10;
       box-shadow: 0 -8px 30px rgba(61,31,26,0.1);
     }
-    .order-panel.open { transform: translateY(0); }
+    .order-panel.open { transform: translateY(0); visibility: visible; transition: transform 0.38s cubic-bezier(0.4,0,0.2,1), visibility 0s; }
 
     .op-header {
       display: flex; align-items: center; justify-content: space-between;
@@ -424,15 +448,18 @@
     .op-sizes { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 18px; }
     .op-size-pill {
       border: 1.5px solid var(--bc-border); background: transparent;
-      color: var(--bc-mid); border-radius: 6px; padding: 6px 14px;
+      color: var(--bc-mid); border-radius: 6px; padding: 6px 12px;
       font-family: var(--font-body); font-size: 0.78rem; font-weight: 500;
-      cursor: pointer; transition: all 0.18s; min-width: 42px; text-align: center;
+      cursor: pointer; transition: all 0.18s; min-width: 52px; text-align: center;
+      display: flex; flex-direction: column; align-items: center; gap: 1px; line-height: 1.3;
     }
+    .op-size-pill-price { font-size: 0.62rem; font-weight: 400; opacity: 0.65; }
     .op-size-pill:hover { border-color: var(--bc-rose); color: var(--bc-rose); }
     .op-size-pill.chosen {
       background: var(--bc-deep); border-color: var(--bc-deep);
       color: white; font-weight: 600;
     }
+    .op-size-pill.chosen .op-size-pill-price { opacity: 0.8; }
 
     /* qty row */
     .op-qty-row {
@@ -496,11 +523,12 @@
       display: flex; align-items: center; gap: 16px;
       box-shadow: 0 12px 40px rgba(61,31,26,0.35);
       transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.4s;
-      opacity: 0;
+      opacity: 0; visibility: hidden;
       min-width: 340px; max-width: 90vw;
       white-space: nowrap;
     }
-    .floating-bar.visible { transform: translateX(-50%) translateY(0); opacity: 1; }
+    .floating-bar.visible { transform: translateX(-50%) translateY(0); opacity: 1; visibility: visible; }
+    .fb-total .price-currency { color: rgba(255,255,255,0.55); font-size: 0.6rem; margin-left: 3px; }
 
     .fb-summary { flex: 1; }
     .fb-items {
@@ -589,7 +617,7 @@
 
     /* stats row */
     .stats-row { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; padding: 48px 0 0; }
-    .stat-block { text-align: center; }
+    .stat-block { text-align: center; max-width: 170px; }
     .stat-big {
       font-family: var(--font-display); font-size: 2.5rem; font-weight: 600;
       color: var(--bc-deep); line-height: 1;
@@ -615,7 +643,7 @@
       font-size: 0.88rem; color: var(--bc-mid); line-height: 1.75; font-weight: 300;
       max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.2s;
     }
-    .faq-item.open .faq-a { max-height: 300px; padding-top: 14px; }
+    .faq-item.open .faq-a { max-height: 600px; padding-top: 14px; }
 
     /* ── VIP SECTION ──────────────────────────────────── */
     .bc-vip {
@@ -656,13 +684,26 @@
     .bc-footer .tag { color: var(--bc-gold); }
     .footer-tagline { font-size: 0.82rem; line-height: 1.7; max-width: 260px; margin-top: 12px; }
     .footer-social { display: flex; gap: 14px; margin-top: 18px; }
-    .footer-social a {
+    .footer-social .social-preview {
       width: 36px; height: 36px; border-radius: 50%;
-      background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.65);
+      background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.28);
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.05rem; transition: all 0.2s;
+      font-size: 1.05rem; cursor: not-allowed;
     }
-    .footer-social a:hover { background: var(--bc-gold); color: var(--bc-deep); }
+    .preview-label { font-size: 0.68rem; color: rgba(255,255,255,0.35); margin-top: 8px; display: block; font-style: italic; }
+    .footer-demo-note {
+      margin-top: 40px; padding: 18px 20px; border-radius: 12px;
+      border: 1px solid rgba(184,150,90,0.35); background: rgba(184,150,90,0.06);
+      font-size: 0.8rem; line-height: 1.65; color: rgba(255,255,255,0.7);
+    }
+    .footer-demo-note strong { color: var(--bc-gold); }
+    .footer-demo-note a { color: var(--bc-gold); }
+    .footer-preview-link { color: rgba(255,255,255,0.3); cursor: not-allowed; }
+    .currency-note {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 14px;
+      font-size: 0.78rem; color: var(--bc-mid); background: var(--bc-blush);
+      border: 1px solid var(--bc-border); border-radius: 8px; padding: 7px 12px;
+    }
     .footer-col-title {
       font-size: 0.68rem; font-weight: 600; letter-spacing: 2px;
       text-transform: uppercase; color: var(--bc-gold); margin-bottom: 16px;
@@ -700,6 +741,7 @@
       transition: transform 0.2s, box-shadow 0.2s;
       animation: waPulse 2.5s ease-in-out infinite;
     }
+    .float-wa-btn svg { width: 28px; height: 28px; fill: currentColor; }
     .float-wa-btn:hover { transform: scale(1.1); animation: none; box-shadow: 0 10px 30px rgba(37,211,102,0.6); }
     @keyframes waPulse {
       0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.45)}
@@ -707,19 +749,38 @@
     }
 
     /* ── REVEAL ───────────────────────────────────────── */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .js .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* ── RESPONSIVE ───────────────────────────────────── */
     @media (max-width: 900px) {
-      .bc-hero { grid-template-columns: 1fr; }
-      .hero-right { display: none; }
-      .hero-left { padding: 100px 28px 60px; }
+      .bc-hero { grid-template-columns: 1fr; min-height: 0; }
+      .hero-right { min-height: 420px; }
+      .hero-left { padding: 40px 24px 40px; }
+      .hero-btns { margin-bottom: 36px; }
+      .bc-nav { padding: 0 18px; }
       .bc-nav-links { display: none; }
+      .hero-badge { left: 16px; bottom: 20px; }
+      .hero-wa-badge { top: 16px; right: 16px; }
     }
     @media (max-width: 600px) {
-      .floating-bar { min-width: unset; width: calc(100vw - 32px); flex-wrap: wrap; }
+      .bc-nav { height: 60px; }
+      .bc-logo-text .tag { display: none; }
+      .btn-nav-order { padding: 8px 16px; }
+      .demo-banner { font-size: 0.68rem; padding: 6px 12px; }
+      .hero-stats { gap: 22px; }
+      .stats-row { gap: 28px; }
+      .floating-bar { min-width: unset; width: calc(100vw - 32px); white-space: normal; }
+      .fb-wa-btn { padding: 11px 14px; }
       .float-wa-btn { bottom: 100px; }
+      .py-section { padding: 64px 0; }
+      .footer-bottom > div { flex-wrap: wrap; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+      .ticker-track { animation: none; }
+      .js .reveal { opacity: 1; transform: none; }
     }
 
     /* section spacing */
@@ -727,6 +788,8 @@
   </style>
 </head>
 <body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <noscript>
   <div style="background:#3d1f1a;color:#fff;text-align:center;padding:14px 20px;font-family:sans-serif;font-size:0.9rem;">
@@ -738,9 +801,15 @@
 <!-- ══════════════════════════════════════════
      NAVBAR
 ══════════════════════════════════════════ -->
-<nav class="bc-nav">
-  <a href="#" class="bc-logo-wrap">
-    <div class="bc-logo-mark">
+<header class="site-top" id="siteTop">
+  <div class="demo-banner" role="note" aria-label="Demo notice">
+    <strong>Concept demo by Jamal Samuel.</strong>
+    Boutique Corner is a fictional business. All products, prices, images, figures, offers and reviews are illustrative only. Prices are shown in USD and can be set to any currency.
+    <a href="https://www.jamalsamuel.online/" target="_blank" rel="noopener noreferrer">Get a site like this</a>
+  </div>
+<nav class="bc-nav" aria-label="Main">
+  <a href="#top" class="bc-logo-wrap" aria-label="Boutique Corner home">
+    <div class="bc-logo-mark" aria-hidden="true">
       <span>BC</span>
       <span>BOUTIQUE</span>
     </div>
@@ -755,37 +824,43 @@
     <li><a href="#reviews">Reviews</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
-  <a href="https://wa.me/17587235872?text=Hi!%20I%27d%20like%20to%20order%20from%20Boutique%20Corner." target="_blank" class="btn-nav-order wa-link" data-msg="Hi! I'd like to order from Boutique Corner.">
-    <i class="bi bi-whatsapp"></i> Order Now
+  <a href="https://wa.me/17587235872?text=Hi!%20I%27d%20like%20to%20order%20from%20Boutique%20Corner." target="_blank" rel="noopener noreferrer" class="btn-nav-order wa-link" data-msg="Hi! I'd like to order from Boutique Corner.">
+    <i class="bi bi-whatsapp" aria-hidden="true"></i> Order Now
   </a>
 </nav>
+</header>
+
+<main id="main-content">
 
 <!-- ══════════════════════════════════════════
      HERO
 ══════════════════════════════════════════ -->
-<section class="bc-hero">
+<section class="bc-hero" id="top">
   <div class="hero-left">
-    <div class="hero-eyebrow">✦ New Collection · Spring 2025</div>
+    <div class="hero-eyebrow">✦ New arrivals every week</div>
     <h1 class="hero-h1">Dress with <em>Confidence,</em> Live in Style</h1>
     <p class="hero-sub">Discover handpicked fashion pieces that celebrate every body. Order in seconds via WhatsApp — we deliver right to your door.</p>
     <div class="hero-btns">
       <a href="#products" class="btn-primary-bc"><i class="bi bi-bag"></i> Shop the Collection</a>
-      <a href="https://wa.me/17587235872?text=Hi!%20I%27d%20like%20to%20browse%20Boutique%20Corner." target="_blank" class="btn-outline-bc wa-link" data-msg="Hi! I'd like to browse Boutique Corner."><i class="bi bi-chat"></i> Chat with Us</a>
+      <a href="https://wa.me/17587235872?text=Hi!%20I%27d%20like%20to%20browse%20Boutique%20Corner." target="_blank" rel="noopener noreferrer" class="btn-outline-bc wa-link" data-msg="Hi! I'd like to browse Boutique Corner."><i class="bi bi-chat"></i> Chat with Us</a>
     </div>
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="num">500+</div><div class="label">Happy Clients</div></div>
-      <div class="hero-stat"><div class="num">4.9★</div><div class="label">Average Rating</div></div>
-      <div class="hero-stat"><div class="num">2–3</div><div class="label">Day Delivery</div></div>
+    <div class="hero-stats" aria-label="Store figures (placeholders for the client's real numbers)">
+      <div class="hero-stat"><div class="stat-ph">(Happy customer count goes here)</div><div class="label">Happy Customers</div></div>
+      <div class="hero-stat"><div class="stat-ph"><span class="ph-sym">★</span>(avg. star rating goes here)</div><div class="label">Average Rating</div></div>
+      <div class="hero-stat"><div class="stat-ph">(delivery days go here)</div><div class="label">Day Delivery</div></div>
     </div>
   </div>
   <div class="hero-right">
-    <img src="boutique-corner-images/boutique-corner-hero-image.webp" class="hero-img" alt="Boutique Corner Fashion" />
+    <picture>
+      <source srcset="boutique-corner-images/boutique-corner-hero-image.webp" type="image/webp" />
+      <img src="boutique-corner-images/boutique-corner-hero-image.jpg" class="hero-img" alt="Model wearing a featured outfit from the Boutique Corner collection" loading="eager" fetchpriority="high" width="900" height="1200" />
+    </picture>
     <div class="hero-badge">
-      <div class="badge-pct">20%</div>
-      <div class="badge-label">First Order Discount</div>
+      <div class="stat-ph"><span class="ph-sym">%</span>(discount goes here)</div>
+      <div class="badge-label">First Order Offer</div>
     </div>
     <div class="hero-wa-badge">
-      <i class="bi bi-whatsapp"></i> Order via WhatsApp · Reply in minutes
+      <i class="bi bi-whatsapp" aria-hidden="true"></i> Order via WhatsApp
     </div>
   </div>
 </section>
@@ -793,7 +868,7 @@
 <!-- ══════════════════════════════════════════
      TICKER
 ══════════════════════════════════════════ -->
-<div class="bc-ticker">
+<div class="bc-ticker" aria-hidden="true">
   <div class="ticker-track" id="tickerTrack"></div>
 </div>
 
@@ -805,21 +880,22 @@
     <div class="reveal">
       <span class="section-label">Featured Collection</span>
       <h2 class="section-h2">Pieces You'll <em>Love</em></h2>
-      <p class="section-sub">Curated with care. Crafted for confidence. Pick your size, set your quantity, and send your order in one tap.</p>
+      <p class="section-sub">Curated with care. Pick your size, set your quantity, and send your order in one tap.</p>
+      <p class="currency-note"><i class="bi bi-currency-exchange" aria-hidden="true"></i> Sample prices in USD. A live site can show EC$, TT$, JMD, BBD or any currency the shop prefers.</p>
     </div>
 
-    <div class="filter-pills reveal" id="filterPills">
-      <button class="fp active" onclick="filterProducts('All', this)">All Styles</button>
-      <button class="fp" onclick="filterProducts('Casual Wear', this)">Casual Wear</button>
-      <button class="fp" onclick="filterProducts('Evening', this)">Evening</button>
-      <button class="fp" onclick="filterProducts('Summer', this)">Summer</button>
-      <button class="fp" onclick="filterProducts('Workwear', this)">Workwear</button>
+    <div class="filter-pills reveal" id="filterPills" role="group" aria-label="Filter products by style">
+      <button class="fp active" aria-pressed="true" onclick="filterProducts('All', this)">All Styles</button>
+      <button class="fp" aria-pressed="false" onclick="filterProducts('Casual Wear', this)">Casual Wear</button>
+      <button class="fp" aria-pressed="false" onclick="filterProducts('Evening', this)">Evening</button>
+      <button class="fp" aria-pressed="false" onclick="filterProducts('Summer', this)">Summer</button>
+      <button class="fp" aria-pressed="false" onclick="filterProducts('Workwear', this)">Workwear</button>
     </div>
 
     <div class="products-grid reveal" id="productsGrid"></div>
 
     <div class="text-center mt-5 reveal">
-      <a href="https://wa.me/17587235872?text=Hi!%20I%27d%20like%20to%20see%20your%20full%20collection%20at%20Boutique%20Corner." target="_blank" class="btn-outline-bc wa-link" data-msg="Hi! I'd like to see your full collection at Boutique Corner.">
+      <a href="https://wa.me/17587235872?text=Hi!%20I%27d%20like%20to%20see%20your%20full%20collection%20at%20Boutique%20Corner." target="_blank" rel="noopener noreferrer" class="btn-outline-bc wa-link" data-msg="Hi! I'd like to see your full collection at Boutique Corner.">
         <i class="bi bi-whatsapp"></i> View Full Collection on WhatsApp
       </a>
     </div>
@@ -849,12 +925,12 @@
       <div class="why-card reveal">
         <i class="bi bi-truck why-icon"></i>
         <div class="why-title">Fast Reliable Delivery</div>
-        <div class="why-desc">We ship within 2–3 business days. Tracking updates sent directly to your WhatsApp so you always know.</div>
+        <div class="why-desc">Delivery in 2–3 business days, with updates sent straight to your WhatsApp so you always know where your order is.</div>
       </div>
       <div class="why-card reveal">
-        <i class="bi bi-arrow-repeat why-icon"></i>
-        <div class="why-title">Hassle-Free Returns</div>
-        <div class="why-desc">Not the right fit? No stress. Easy returns and exchanges to make sure you love what you get.</div>
+        <i class="bi bi-shield-check why-icon"></i>
+        <div class="why-title">Clear Store Policies</div>
+        <div class="why-desc">Exchange, return or final-sale rules are stated up front and confirmed on WhatsApp before you pay. No surprises.</div>
       </div>
     </div>
   </div>
@@ -888,7 +964,7 @@
       </div>
     </div>
     <div class="text-center mt-4 reveal">
-      <a href="https://wa.me/17587235872?text=Hi!%20I%27d%20like%20to%20start%20shopping%20at%20Boutique%20Corner." target="_blank" class="btn-primary-bc wa-link" data-msg="Hi! I'd like to start shopping at Boutique Corner.">
+      <a href="https://wa.me/17587235872?text=Hi!%20I%27d%20like%20to%20start%20shopping%20at%20Boutique%20Corner." target="_blank" rel="noopener noreferrer" class="btn-primary-bc wa-link" data-msg="Hi! I'd like to start shopping at Boutique Corner.">
         <i class="bi bi-bag-heart"></i> Start Shopping Now
       </a>
     </div>
@@ -901,50 +977,50 @@
 <section class="py-section bc-reviews" id="reviews">
   <div class="container">
     <div class="text-center mb-5 reveal">
-      <span class="section-label">Customer Love</span>
-      <h2 class="section-h2">Real People, <em>Real Style</em></h2>
-      <p class="section-sub mx-auto">Don't just take our word for it. Here's what our customers are saying about their Boutique Corner experience.</p>
+      <span class="section-label">Reviews</span>
+      <h2 class="section-h2">Real Customer <em>Reviews</em></h2>
+      <p class="section-sub mx-auto">Real customer reviews go here. Verified reviews from actual orders appear in this section as they come in.</p>
     </div>
     <div class="reviews-grid">
       <div class="review-card reveal">
-        <div class="review-stars"><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i></div>
+        <div class="review-stars" aria-hidden="true"><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i></div>
         <div class="review-text">Be the first to leave a review — tell us how your order fit and felt.</div>
         <div class="review-author">
-          <div class="review-avatar"><i class="bi bi-person-circle"></i></div>
+          <div class="review-avatar" aria-hidden="true"><i class="bi bi-person-circle"></i></div>
           <div>
             <div class="review-name">Your review here</div>
-            <a class="review-location wa-link" href="https://wa.me/17587235872?text=Hi!%20I%27d%20like%20to%20share%20a%20review%20of%20my%20Boutique%20Corner%20order." data-msg="Hi! I'd like to share a review of my Boutique Corner order." target="_blank">Leave a review on WhatsApp</a>
+            <a class="review-location wa-link" href="https://wa.me/17587235872?text=Hi!%20I%27d%20like%20to%20share%20a%20review%20of%20my%20Boutique%20Corner%20order." data-msg="Hi! I'd like to share a review of my Boutique Corner order." target="_blank" rel="noopener noreferrer">Leave a review on WhatsApp</a>
           </div>
         </div>
       </div>
       <div class="review-card reveal">
-        <div class="review-stars"><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i></div>
+        <div class="review-stars" aria-hidden="true"><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i></div>
         <div class="review-text">No reviews yet — share your experience and help others shop with confidence.</div>
         <div class="review-author">
-          <div class="review-avatar"><i class="bi bi-person-circle"></i></div>
+          <div class="review-avatar" aria-hidden="true"><i class="bi bi-person-circle"></i></div>
           <div>
             <div class="review-name">Your review here</div>
-            <a class="review-location wa-link" href="https://wa.me/17587235872?text=Hi!%20I%27d%20like%20to%20share%20a%20review%20of%20my%20Boutique%20Corner%20order." data-msg="Hi! I'd like to share a review of my Boutique Corner order." target="_blank">Leave a review on WhatsApp</a>
+            <a class="review-location wa-link" href="https://wa.me/17587235872?text=Hi!%20I%27d%20like%20to%20share%20a%20review%20of%20my%20Boutique%20Corner%20order." data-msg="Hi! I'd like to share a review of my Boutique Corner order." target="_blank" rel="noopener noreferrer">Leave a review on WhatsApp</a>
           </div>
         </div>
       </div>
       <div class="review-card reveal">
-        <div class="review-stars"><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i></div>
+        <div class="review-stars" aria-hidden="true"><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i></div>
         <div class="review-text">Your voice matters. Be our first reviewer and let others know what to expect.</div>
         <div class="review-author">
-          <div class="review-avatar"><i class="bi bi-person-circle"></i></div>
+          <div class="review-avatar" aria-hidden="true"><i class="bi bi-person-circle"></i></div>
           <div>
             <div class="review-name">Your review here</div>
-            <a class="review-location wa-link" href="https://wa.me/17587235872?text=Hi!%20I%27d%20like%20to%20share%20a%20review%20of%20my%20Boutique%20Corner%20order." data-msg="Hi! I'd like to share a review of my Boutique Corner order." target="_blank">Leave a review on WhatsApp</a>
+            <a class="review-location wa-link" href="https://wa.me/17587235872?text=Hi!%20I%27d%20like%20to%20share%20a%20review%20of%20my%20Boutique%20Corner%20order." data-msg="Hi! I'd like to share a review of my Boutique Corner order." target="_blank" rel="noopener noreferrer">Leave a review on WhatsApp</a>
           </div>
         </div>
       </div>
     </div>
-    <div class="stats-row">
-      <div class="stat-block"><div class="stat-big">500+</div><div class="stat-lbl">Happy Customers</div></div>
-      <div class="stat-block"><div class="stat-big">4.9★</div><div class="stat-lbl">Average Rating</div></div>
-      <div class="stat-block"><div class="stat-big">100%</div><div class="stat-lbl">Authentic Fashion</div></div>
-      <div class="stat-block"><div class="stat-big">2–3</div><div class="stat-lbl">Day Delivery</div></div>
+    <div class="stats-row" aria-label="Store figures (placeholders for the client's real numbers)">
+      <div class="stat-block"><div class="stat-ph">(Happy customer count goes here)</div><div class="stat-lbl">Happy Customers</div></div>
+      <div class="stat-block"><div class="stat-ph"><span class="ph-sym">★</span>(avg. star rating goes here)</div><div class="stat-lbl">Average Rating</div></div>
+      <div class="stat-block"><div class="stat-ph"><span class="ph-sym">%</span>(percentage goes here)</div><div class="stat-lbl">Authentic Fashion</div></div>
+      <div class="stat-block"><div class="stat-ph">(delivery days go here)</div><div class="stat-lbl">Day Delivery</div></div>
     </div>
   </div>
 </section>
@@ -970,12 +1046,15 @@
   <h2 class="section-h2" style="margin-bottom:14px;">Get Exclusive Deals &amp; <em>First Looks</em></h2>
   <p>Join our VIP list and be the first to know about new arrivals, flash sales, and members-only discounts — straight to your WhatsApp.</p>
   <div class="vip-form">
-    <input type="text" class="vip-input" id="vipNumber" placeholder="Your WhatsApp number…" />
+    <label for="vipNumber" class="visually-hidden-bc">Your WhatsApp number</label>
+    <input type="tel" inputmode="tel" autocomplete="tel" class="vip-input" id="vipNumber" placeholder="Your WhatsApp number…" aria-describedby="vipWarn" />
     <button class="vip-submit" onclick="joinVIP()">Join VIP List</button>
   </div>
-  <div class="vip-warn" id="vipWarn">Please enter your WhatsApp number.</div>
+  <div class="vip-warn" id="vipWarn" role="alert">Enter a WhatsApp number with at least 7 digits, including your area code.</div>
   <p class="vip-note">We never spam. Opt out anytime. 100% private.</p>
 </section>
+
+</main>
 
 <!-- ══════════════════════════════════════════
      FOOTER
@@ -985,15 +1064,16 @@
     <div class="row g-5">
       <div class="col-lg-4">
         <div class="bc-logo-wrap mb-3" style="text-decoration:none;display:inline-flex;">
-          <div class="bc-logo-mark"><span>BC</span><span>BOUTIQUE</span></div>
+          <div class="bc-logo-mark" aria-hidden="true"><span>BC</span><span>BOUTIQUE</span></div>
           <div class="bc-logo-text"><span class="name">Boutique Corner</span><span class="tag">Fashion Boutique</span></div>
         </div>
         <p class="footer-tagline">Handpicked fashion for the modern woman. We believe style is for everyone — and ordering should be effortless.</p>
-        <div class="footer-social">
-          <a href="https://instagram.com/boutiquecorner" target="_blank" aria-label="Follow us on Instagram"><i class="bi bi-instagram"></i></a>
-          <a href="https://facebook.com/boutiquecorner" target="_blank" aria-label="Follow us on Facebook"><i class="bi bi-facebook"></i></a>
-          <a href="https://tiktok.com/@boutiquecorner" target="_blank" aria-label="Follow us on TikTok"><i class="bi bi-tiktok"></i></a>
+        <div class="footer-social" aria-label="Social media links (preview only, not active)">
+          <span class="social-preview" aria-hidden="true" title="Preview only"><i class="bi bi-instagram"></i></span>
+          <span class="social-preview" aria-hidden="true" title="Preview only"><i class="bi bi-facebook"></i></span>
+          <span class="social-preview" aria-hidden="true" title="Preview only"><i class="bi bi-tiktok"></i></span>
         </div>
+        <span class="preview-label">Social icons: preview only. A live site links to the shop's real pages.</span>
       </div>
       <div class="col-6 col-lg-2">
         <div class="footer-col-title">Shop</div>
@@ -1019,49 +1099,52 @@
         <div class="footer-col-title">Contact Us</div>
         <div class="footer-contact">
           <a href="tel:+17587235872">+1 (758) 723-5872</a>
-          <span style="font-size:0.78rem;color:rgba(255,255,255,0.3)">Mon–Sat · 9 AM – 7 PM · We reply within minutes!</span>
+          <span style="font-size:0.78rem;color:rgba(255,255,255,0.45)">Mon–Sat, 9 AM – 7 PM</span>
         </div>
-        <a href="https://wa.me/17587235872?text=Hi!%20I%27d%20like%20to%20order%20from%20Boutique%20Corner." target="_blank" class="btn-wa-footer wa-link" data-msg="Hi! I'd like to order from Boutique Corner.">
+        <a href="https://wa.me/17587235872?text=Hi!%20I%27d%20like%20to%20order%20from%20Boutique%20Corner." target="_blank" rel="noopener noreferrer" class="btn-wa-footer wa-link" data-msg="Hi! I'd like to order from Boutique Corner.">
           <i class="bi bi-whatsapp"></i> Chat Now
         </a>
       </div>
     </div>
+    <div class="footer-demo-note" role="note">
+      <strong>Demo notice:</strong> Boutique Corner is a fictional business created by Jamal Samuel to show what a boutique ordering site can do. Business name, logo, products, prices, images, figures, offers, policies and review placeholders are illustrative only, not real customer data. The phone and WhatsApp buttons reach Jamal Samuel. Prices are in USD as a sample and can be shown in any currency.
+      <a href="https://www.jamalsamuel.online/" target="_blank" rel="noopener noreferrer">Get a site like this</a>
+    </div>
     <div class="footer-bottom">
-      <span>© 2025 Boutique Corner. All rights reserved.</span>
+      <span>© <span id="yearNow">2026</span> Boutique Corner (concept demo).</span>
       <div style="display:flex;gap:18px;">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Shipping Policy</a>
-        <a href="https://www.jamalsamuel.online/" target="_blank" style="color:var(--bc-gold)">Built by Jamal Samuel</a>
+        <span class="footer-preview-link" title="Preview only">Privacy Policy</span>
+        <span class="footer-preview-link" title="Preview only">Terms of Service</span>
+        <span class="footer-preview-link" title="Preview only">Shipping Policy</span>
+        <a href="https://www.jamalsamuel.online/" target="_blank" rel="noopener noreferrer" style="color:var(--bc-gold)">Jamal Samuel Built</a>
       </div>
     </div>
   </div>
 </footer>
 
 <!-- FLOAT WA -->
-<a href="https://wa.me/17587235872?text=Hi!%20I%27d%20like%20to%20order%20from%20Boutique%20Corner." target="_blank" class="float-wa-btn wa-link" data-msg="Hi! I'd like to order from Boutique Corner." title="Chat on WhatsApp" aria-label="Chat with us on WhatsApp">
-  <i class="bi bi-whatsapp" aria-hidden="true"></i>
+<a href="https://wa.me/17587235872?text=Hi!%20I%27d%20like%20to%20order%20from%20Boutique%20Corner." target="_blank" rel="noopener noreferrer" class="float-wa-btn wa-link" data-msg="Hi! I'd like to order from Boutique Corner." title="Chat on WhatsApp" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.48.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.04 21.5h-.01a9.43 9.43 0 0 1-4.8-1.32l-.35-.2-3.56.93.95-3.47-.22-.36a9.4 9.4 0 0 1-1.44-5.01c0-5.2 4.24-9.44 9.45-9.44 2.52 0 4.89.99 6.67 2.77a9.37 9.37 0 0 1 2.76 6.68c0 5.2-4.24 9.43-9.45 9.43zm8.04-17.47A11.3 11.3 0 0 0 12.04.7C5.77.7.67 5.8.67 12.07c0 2 .52 3.96 1.52 5.68L.57 23.7l6.1-1.6a11.34 11.34 0 0 0 5.37 1.37h.01c6.26 0 11.36-5.1 11.37-11.37 0-3.04-1.18-5.89-3.33-8.04z"/></svg>
 </a>
 
 <!-- FLOATING ORDER BAR -->
-<div class="floating-bar" id="floatingBar">
-  <div class="fb-summary">
+<div class="floating-bar" id="floatingBar" role="region" aria-label="Your order">
+  <div class="fb-summary" aria-live="polite">
     <div class="fb-items" id="fbItems">0 items selected</div>
-    <div class="fb-total">$<span id="fbTotal">0.00</span></div>
+    <div class="fb-total">$<span id="fbTotal">0.00</span><span class="price-currency">USD</span></div>
   </div>
   <button class="fb-clear" onclick="clearAllOrders()" title="Clear order" aria-label="Clear entire order">✕</button>
   <button class="fb-wa-btn" onclick="sendWhatsAppOrder()">
-    <i class="bi bi-whatsapp"></i> Send Order
+    <i class="bi bi-whatsapp" aria-hidden="true"></i> Send Order
   </button>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 /* ══════════════════════════════════════════
    DATA
 ══════════════════════════════════════════ */
 const PHONE = '17587235872';
-const SITE_URL = 'https://www.jamalsamuel.online/demo-products/boutique-corner.html';
+const SITE_URL = 'https://www.jamalsamuel.online/demo-products/boutique-corner-sizes.html';
 
 const products = [
   {
@@ -1072,9 +1155,13 @@ const products = [
     image: 'boutique-corner-images/floral-wrap.webp',
     price: 89,
     priceOld: 120,
-    sizes: ['XS','S','M','L'],
-    badge: 'Sale', badgeClass: 'badge-sale',
-    stars: '★★★★★', rating: '5.0', reviews: 42
+    sizes: [
+      { size: 'XS', price: 89 },
+      { size: 'S',  price: 89 },
+      { size: 'M',  price: 92 },
+      { size: 'L',  price: 96 }
+    ],
+    badge: 'Sale', badgeClass: 'badge-sale'
   },
   {
     id: 2,
@@ -1084,9 +1171,13 @@ const products = [
     image: 'boutique-corner-images/linen-blazer.webp',
     price: 145,
     priceOld: null,
-    sizes: ['S','M','L','XL'],
-    badge: 'New In', badgeClass: 'badge-new',
-    stars: '★★★★★', rating: '4.9', reviews: 31
+    sizes: [
+      { size: 'S',  price: 145 },
+      { size: 'M',  price: 145 },
+      { size: 'L',  price: 152 },
+      { size: 'XL', price: 159 }
+    ],
+    badge: 'New In', badgeClass: 'badge-new'
   },
   {
     id: 3,
@@ -1096,9 +1187,12 @@ const products = [
     image: 'boutique-corner-images/satin-gown.webp',
     price: 220,
     priceOld: null,
-    sizes: ['XS','S','M'],
-    badge: 'Exclusive', badgeClass: 'badge-excl',
-    stars: '★★★★★', rating: '5.0', reviews: 18
+    sizes: [
+      { size: 'XS', price: 220 },
+      { size: 'S',  price: 220 },
+      { size: 'M',  price: 228 }
+    ],
+    badge: 'Exclusive', badgeClass: 'badge-excl'
   },
   {
     id: 4,
@@ -1108,9 +1202,13 @@ const products = [
     image: 'boutique-corner-images/chic-set.webp',
     price: 110,
     priceOld: 138,
-    sizes: ['S','M','L','XL'],
-    badge: 'Bestseller', badgeClass: 'badge-best',
-    stars: '★★★★½', rating: '4.8', reviews: 57
+    sizes: [
+      { size: 'S',  price: 110 },
+      { size: 'M',  price: 110 },
+      { size: 'L',  price: 116 },
+      { size: 'XL', price: 122 }
+    ],
+    badge: 'Bestseller', badgeClass: 'badge-best'
   },
   {
     id: 5,
@@ -1120,9 +1218,13 @@ const products = [
     image: 'boutique-corner-images/emerald-slip.webp',
     price: 132,
     priceOld: 160,
-    sizes: ['XS','S','M','L'],
-    badge: 'Sale', badgeClass: 'badge-sale',
-    stars: '★★★★★', rating: '4.8', reviews: 11
+    sizes: [
+      { size: 'XS', price: 132 },
+      { size: 'S',  price: 132 },
+      { size: 'M',  price: 136 },
+      { size: 'L',  price: 140 }
+    ],
+    badge: 'Sale', badgeClass: 'badge-sale'
   },
   {
     id: 6,
@@ -1132,17 +1234,22 @@ const products = [
     image: 'boutique-corner-images/knit-lounge.webp',
     price: 68,
     priceOld: null,
-    sizes: ['S','M','L','XL'],
-    badge: 'New In', badgeClass: 'badge-new',
-    stars: '★★★★½', rating: '4.6', reviews: 8
+    sizes: [
+      { size: 'S',  price: 68 },
+      { size: 'M',  price: 68 },
+      { size: 'L',  price: 72 },
+      { size: 'XL', price: 76 }
+    ],
+    badge: 'New In', badgeClass: 'badge-new'
   }
 ];
 
 const faqs = [
   { q: 'How do I place an order?', a: 'Simply tap the "Select & Order" button on any product card. Choose your size and quantity — then use the floating order bar that appears to send your complete order to WhatsApp in one tap. We\'ll confirm and take it from there.' },
   { q: 'What are your delivery times?', a: 'We typically deliver within 2–3 business days locally. International orders may take 5–7 days. We\'ll keep you updated via WhatsApp every step of the way.' },
-  { q: 'Do you offer exchanges or returns?', a: 'Yes! We want you to love what you wear. If something doesn\'t fit right, message us on WhatsApp within 7 days of receiving your order and we\'ll sort it out.' },
-  { q: 'What payment methods do you accept?', a: 'We accept PayPal, bank transfers, and mobile payments. All payment details are shared securely after you place your WhatsApp order.' },
+  { q: 'What is your exchange and return policy?', a: 'Every boutique sets its own rules: exchanges, returns, or final sale. Whatever the policy is, it is written here in plain words and confirmed with you on WhatsApp before you pay, so there are no surprises. (The shop\'s real policy goes here.)' },
+  { q: 'What payment methods do you accept?', a: 'We accept PayPal, bank transfers, and mobile payments. Payment details are shared after you place your WhatsApp order. Never send card numbers in a chat.' },
+  { q: 'Why are prices shown in USD?', a: 'This is a demo, so sample prices use USD. A live site can show prices in EC$, TT$, JMD, BBD or whatever currency the shop and its customers prefer.' },
   { q: 'Do you have items not shown on this page?', a: 'Absolutely! This page features just highlights from our collection. Message us on WhatsApp and ask for our full lookbook — we have a much wider range of styles, sizes, and colours available.' }
 ];
 
@@ -1150,8 +1257,10 @@ const faqs = [
    STATE
 ══════════════════════════════════════════ */
 // orderState[id] = { name, price, size, qty }
-const orderState = {};
+const orderState = {};   // confirmed items only
+const draftState = {};   // in-progress size/qty while a panel is open
 let activePanelId = null;
+let currentFilter = 'All';
 
 /* ══════════════════════════════════════════
    TICKER
@@ -1167,24 +1276,33 @@ function buildTicker() {
 /* ══════════════════════════════════════════
    PRODUCT GRID
 ══════════════════════════════════════════ */
-function renderGrid(filter = 'All') {
+function renderGrid(filter = currentFilter) {
+  currentFilter = filter;
+  activePanelId = null;
+  Object.keys(draftState).forEach(k => delete draftState[k]);
   const filtered = filter === 'All' ? products : products.filter(p => p.category === filter);
   document.getElementById('productsGrid').innerHTML = filtered.map(p => buildCard(p)).join('');
   observeReveal();
 }
 
 function buildCard(p) {
-  const inOrder = !!orderState[p.id];
-  const o = orderState[p.id] || {};
+  const inOrder = !!(orderState[p.id] && orderState[p.id].name);
+  const o = draftState[p.id] || orderState[p.id] || {};
+  const priceMin = Math.min(...p.sizes.map(s => s.price));
+  const priceMax = Math.max(...p.sizes.map(s => s.price));
+  const activePrice = o.sizePrice != null ? o.sizePrice : priceMin;
   return `
   <div class="product-card ${inOrder ? 'selected' : ''}" id="card-${p.id}" data-id="${p.id}">
     <!-- Image -->
     <div class="card-img-wrap">
-      <img src="${p.image}" alt="${p.name}" loading="lazy" />
+      <picture>
+        <source srcset="${p.image}" type="image/webp" />
+        <img src="${p.image.replace(/\.webp$/, '.jpg')}" alt="${p.name}, product photo" loading="lazy" width="600" height="800" />
+      </picture>
       ${p.badge ? `<div class="card-badge ${p.badgeClass}">${p.badge}</div>` : ''}
-      <div class="card-selected-tick">✓</div>
-      <button class="card-hover-btn" onclick="togglePanel(${p.id})">
-        <i class="bi bi-bag-plus"></i>
+      <div class="card-selected-tick" aria-hidden="true">✓</div>
+      <button class="card-hover-btn" onclick="togglePanel(${p.id})" aria-expanded="false" aria-controls="panel-${p.id}" id="toggle-${p.id}">
+        <i class="bi bi-bag-plus" aria-hidden="true"></i>
         ${inOrder ? 'Edit Selection' : 'Select &amp; Order'}
       </button>
     </div>
@@ -1192,19 +1310,20 @@ function buildCard(p) {
     <!-- Body -->
     <div class="card-body-bc">
       <div class="card-category">${p.cat_label}</div>
-      <div class="card-name">${p.name}</div>
+      <h3 class="card-name">${p.name}</h3>
       <div class="card-price-row">
-        <div class="card-price">$${p.price} <span class="price-currency">USD</span></div>
+        <div class="card-price">${priceMin === priceMax ? `$${priceMin}` : `From $${priceMin}`} <span class="price-currency">USD</span></div>
         ${p.priceOld ? `<div class="card-price-old">$${p.priceOld}</div>` : ''}
       </div>
       <div class="card-sizes-display">
-        ${p.sizes.map(s => `<div class="card-size-dot">${s}</div>`).join('')}
+        ${p.sizes.map(s => `<div class="card-size-dot">${s.size}</div>`).join('')}
       </div>
-      <div class="card-stars">${p.stars} <span>${p.rating} (${p.reviews})</span></div>
+      <div class="card-stars"><span class="ph-sym" aria-hidden="true">★</span><span>(rating goes here)</span></div>
+      ${inOrder ? `<div class="card-in-order">In your order: ${orderState[p.id].size} × ${orderState[p.id].qty}</div>` : ''}
     </div>
 
     <!-- Order Panel -->
-    <div class="order-panel ${activePanelId === p.id ? 'open' : ''}" id="panel-${p.id}">
+    <div class="order-panel" id="panel-${p.id}" role="region" aria-label="Choose size and quantity for ${p.name}">
       <div class="op-header">
         <div class="op-title">Choose Your Size &amp; Qty</div>
         <button class="op-close" onclick="closePanel(${p.id})" aria-label="Close size and quantity selector">✕</button>
@@ -1213,38 +1332,45 @@ function buildCard(p) {
       <div class="op-size-label">Size</div>
       <div class="op-sizes">
         ${p.sizes.map(s => `
-          <button class="op-size-pill ${o.size === s ? 'chosen' : ''}"
-            aria-pressed="${o.size === s}"
-            onclick="selectSize(${p.id}, '${s}', this)">${s}</button>
+          <button class="op-size-pill ${o.size === s.size ? 'chosen' : ''}"
+            aria-pressed="${o.size === s.size}"
+            onclick="selectSize(${p.id}, '${s.size}', ${s.price}, this)">${s.size} <span class="op-size-pill-price">$${s.price}</span></button>
         `).join('')}
       </div>
-      <div class="op-size-warn" id="warn-${p.id}">Please choose a size to continue.</div>
+      <div class="op-size-warn" id="warn-${p.id}" role="alert">Choose a size to add this item.</div>
 
       <div class="op-qty-row">
         <div class="op-qty-label">Quantity</div>
         <div class="op-qty-ctrl">
           <button class="op-qty-btn" onclick="changeQty(${p.id}, -1)" aria-label="Decrease quantity">−</button>
-          <span class="op-qty-num" id="qty-${p.id}">${o.qty || 1}</span>
+          <span class="op-qty-num" id="qty-${p.id}" aria-live="polite">${o.qty || 1}</span>
           <button class="op-qty-btn" onclick="changeQty(${p.id}, 1)" aria-label="Increase quantity">+</button>
         </div>
       </div>
 
       <div class="op-subtotal">
         <span class="op-subtotal-label">Subtotal</span>
-        <span class="op-subtotal-amount" id="sub-${p.id}">$${((o.qty||1) * p.price).toFixed(2)} <span class="price-currency">USD</span></span>
+        <span class="op-subtotal-amount" id="sub-${p.id}">$${((o.qty||1) * activePrice).toFixed(2)} <span class="price-currency">USD</span></span>
       </div>
 
       <button class="op-add-btn" id="addBtn-${p.id}" onclick="confirmItem(${p.id})">
-        <i class="bi bi-bag-check"></i> Add to Order
+        <i class="bi bi-bag-check" aria-hidden="true"></i> ${inOrder ? 'Update Order' : 'Add to Order'}
       </button>
     </div>
   </div>`;
 }
 
 function filterProducts(cat, btn) {
-  document.querySelectorAll('.fp').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.fp').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
   btn.classList.add('active');
+  btn.setAttribute('aria-pressed', 'true');
   renderGrid(cat);
+}
+
+function minPrice(p) { return Math.min(...p.sizes.map(s => s.price)); }
+function setSubtotal(id, qty, price) {
+  const subEl = document.getElementById(`sub-${id}`);
+  if (subEl) subEl.innerHTML = `$${(qty * price).toFixed(2)} <span class="price-currency">USD</span>`;
 }
 
 /* ══════════════════════════════════════════
@@ -1253,91 +1379,86 @@ function filterProducts(cat, btn) {
 function togglePanel(id) {
   if (activePanelId === id) { closePanel(id); return; }
   if (activePanelId !== null) closePanel(activePanelId);
-  activePanelId = id;
+  const p = products.find(x => x.id === id);
+  const saved = orderState[id];
+  // start a fresh draft from the confirmed item (if any) so edits can be cancelled
+  draftState[id] = saved
+    ? { size: saved.size, sizePrice: saved.sizePrice, qty: saved.qty }
+    : { size: null, sizePrice: null, qty: 1 };
+  const d = draftState[id];
   const panel = document.getElementById(`panel-${id}`);
   const card  = document.getElementById(`card-${id}`);
-  if (panel) { panel.classList.add('open'); card.classList.add('panel-open'); }
-  // init qty display
-  const p = products.find(x => x.id === id);
-  const o = orderState[id];
-  const qty = o ? o.qty : 1;
-  const qtyEl = document.getElementById(`qty-${id}`);
-  const subEl = document.getElementById(`sub-${id}`);
-  if (qtyEl) qtyEl.textContent = qty;
-  if (subEl) subEl.textContent = `$${(qty * p.price).toFixed(2)}`;
+  if (!panel || !card) return;
+  // sync pills to the draft
+  panel.querySelectorAll('.op-size-pill').forEach(b => {
+    const on = b.firstChild.textContent.trim() === d.size;
+    b.classList.toggle('chosen', on);
+    b.setAttribute('aria-pressed', on ? 'true' : 'false');
+  });
+  document.getElementById(`warn-${id}`).classList.remove('show');
+  document.getElementById(`qty-${id}`).textContent = d.qty;
+  setSubtotal(id, d.qty, d.sizePrice != null ? d.sizePrice : minPrice(p));
+  activePanelId = id;
+  panel.classList.add('open');
+  card.classList.add('panel-open');
+  const t = document.getElementById(`toggle-${id}`);
+  if (t) t.setAttribute('aria-expanded', 'true');
+  const first = panel.querySelector('.op-size-pill.chosen') || panel.querySelector('.op-size-pill');
+  if (first) setTimeout(() => first.focus({ preventScroll: true }), 60);
 }
 
-function closePanel(id) {
+function closePanel(id, returnFocus) {
   const panel = document.getElementById(`panel-${id}`);
   const card  = document.getElementById(`card-${id}`);
   if (panel) panel.classList.remove('open');
   if (card)  card.classList.remove('panel-open');
+  const t = document.getElementById(`toggle-${id}`);
+  if (t) { t.setAttribute('aria-expanded', 'false'); if (returnFocus) t.focus({ preventScroll: true }); }
+  delete draftState[id];   // discard unconfirmed changes
   if (activePanelId === id) activePanelId = null;
 }
 
 /* ══════════════════════════════════════════
    SIZE & QTY
 ══════════════════════════════════════════ */
-function selectSize(id, size, btn) {
-  // mark chosen
+function selectSize(id, size, price, btn) {
   btn.closest('.op-sizes').querySelectorAll('.op-size-pill').forEach(b => {
     b.classList.remove('chosen');
     b.setAttribute('aria-pressed', 'false');
   });
   btn.classList.add('chosen');
   btn.setAttribute('aria-pressed', 'true');
-  // store temp size
-  if (!orderState[id]) orderState[id] = { size: null, qty: 1 };
-  orderState[id].size = size;
-  // hide warn
+  if (!draftState[id]) draftState[id] = { size: null, sizePrice: null, qty: 1 };
+  draftState[id].size = size;
+  draftState[id].sizePrice = price;
   document.getElementById(`warn-${id}`).classList.remove('show');
+  setSubtotal(id, draftState[id].qty, price);
 }
 
 function changeQty(id, delta) {
   const p = products.find(x => x.id === id);
-  if (!orderState[id]) orderState[id] = { size: null, qty: 1 };
-  orderState[id].qty = Math.max(1, (orderState[id].qty || 1) + delta);
-  const qty = orderState[id].qty;
-  const qtyEl = document.getElementById(`qty-${id}`);
-  const subEl = document.getElementById(`sub-${id}`);
-  if (qtyEl) qtyEl.textContent = qty;
-  if (subEl) subEl.textContent = `$${(qty * p.price).toFixed(2)}`;
+  if (!draftState[id]) draftState[id] = { size: null, sizePrice: null, qty: 1 };
+  const d = draftState[id];
+  d.qty = Math.min(20, Math.max(1, d.qty + delta));
+  document.getElementById(`qty-${id}`).textContent = d.qty;
+  setSubtotal(id, d.qty, d.sizePrice != null ? d.sizePrice : minPrice(p));
 }
 
 function confirmItem(id) {
   const p = products.find(x => x.id === id);
-  const o = orderState[id];
-
-  // validate size
-  if (!o || !o.size) {
+  const d = draftState[id];
+  if (!d || !d.size) {
     document.getElementById(`warn-${id}`).classList.add('show');
     return;
   }
-
-  // save
-  orderState[id] = {
-    name: p.name,
-    price: p.price,
-    size: o.size,
-    qty: o.qty || 1
-  };
-
+  orderState[id] = { name: p.name, price: d.sizePrice, size: d.size, sizePrice: d.sizePrice, qty: d.qty };
   closePanel(id);
-
-  // re-render card
   const card = document.getElementById(`card-${id}`);
   if (card) {
     card.outerHTML = buildCard(p);
-    // re-observe reveal
-    observeReveal();
+    const fresh = document.querySelector(`#card-${id} .card-hover-btn`);
+    if (fresh) fresh.focus({ preventScroll: true });
   }
-
-  // mark selected
-  setTimeout(() => {
-    const newCard = document.getElementById(`card-${id}`);
-    if (newCard) newCard.classList.add('selected');
-  }, 50);
-
   updateFloatingBar();
 }
 
@@ -1360,7 +1481,7 @@ function updateFloatingBar() {
 
 function clearAllOrders() {
   Object.keys(orderState).forEach(id => delete orderState[id]);
-  renderGrid(document.querySelector('.fp.active')?.textContent?.trim() || 'All');
+  renderGrid(currentFilter);
   updateFloatingBar();
 }
 
@@ -1372,7 +1493,7 @@ function sendWhatsAppOrder() {
   if (!items.length) return;
 
   const lines = items.map(o =>
-    `• ${o.name}\n  Size: ${o.size}  ·  Qty: ${o.qty}  ·  $${o.price} each  =  $${(o.price * o.qty).toFixed(2)}`
+    `• ${o.name}\n  Size: ${o.size}  ·  Qty: ${o.qty}  ·  $${o.price.toFixed(2)} each  =  $${(o.price * o.qty).toFixed(2)}`
   );
   const total = items.reduce((s, o) => s + o.price * o.qty, 0);
   const totalQty = items.reduce((s, o) => s + o.qty, 0);
@@ -1383,13 +1504,13 @@ function sendWhatsAppOrder() {
     ...lines,
     '━━━━━━━━━━━━━━━━━━━',
     `Items: ${totalQty}`,
-    `*ORDER TOTAL: $${total.toFixed(2)}*`,
+    `*ORDER TOTAL: $${total.toFixed(2)} USD*`,
     '',
     '📦 Please confirm delivery address & payment method.',
     `🔗 Ordered via: ${SITE_URL}`
   ].join('\n');
 
-  window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
+  window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
 }
 
 /* ══════════════════════════════════════════
@@ -1399,10 +1520,12 @@ function joinVIP() {
   const input = document.getElementById('vipNumber');
   const warn = document.getElementById('vipWarn');
   const number = input.value.trim();
-  if (!number) { warn.classList.add('show'); return; }
+  const digits = number.replace(/\D/g, '');
+  if (digits.length < 7 || digits.length > 15) { warn.classList.add('show'); input.setAttribute('aria-invalid', 'true'); input.focus(); return; }
+  input.removeAttribute('aria-invalid');
   warn.classList.remove('show');
   const msg = `Hi! I'd like to join the Boutique Corner VIP list. My WhatsApp number is: ${number}`;
-  window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
+  window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
   input.value = '';
 }
 
@@ -1415,6 +1538,7 @@ function centralizeWaLinks() {
   document.querySelectorAll('.wa-link[data-msg]').forEach(el => {
     el.href = `https://wa.me/${PHONE}?text=${encodeURIComponent(el.dataset.msg)}`;
   });
+  document.querySelectorAll('a[target="_blank"]').forEach(a => a.setAttribute('rel', 'noopener noreferrer'));
 }
 
 /* ══════════════════════════════════════════
@@ -1452,8 +1576,28 @@ function observeReveal() {
 }
 
 /* ══════════════════════════════════════════
+   LAYOUT: keep content clear of the fixed demo banner + nav
+══════════════════════════════════════════ */
+function syncTopHeight() {
+  const top = document.getElementById('siteTop');
+  if (top) document.documentElement.style.setProperty('--top-h', top.offsetHeight + 'px');
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && activePanelId !== null) closePanel(activePanelId, true);
+});
+
+/* ══════════════════════════════════════════
    INIT
 ══════════════════════════════════════════ */
+if (!('IntersectionObserver' in window)) {
+  document.documentElement.classList.remove('js');
+  window.IntersectionObserver = function () { return { observe(){}, unobserve(){} }; };
+}
+syncTopHeight();
+window.addEventListener('resize', syncTopHeight);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncTopHeight);
+document.getElementById('yearNow').textContent = new Date().getFullYear();
 buildTicker();
 renderGrid();
 buildFAQ();
