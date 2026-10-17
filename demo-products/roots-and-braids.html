@@ -29,6 +29,22 @@
     if (!t) t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', t);
   })();
+
+  /* Image safety net: a <picture> does NOT fall back to the .jpg if the
+     .webp is missing or misnamed. If a .webp fails, drop the <source>
+     and load the .jpg instead. Runs for every image on the page. */
+  document.addEventListener('error', function (e) {
+    var img = e.target;
+    if (!img || img.tagName !== 'IMG' || img.dataset.fellBack) return;
+    var pic = img.parentElement;
+    if (!pic || pic.tagName !== 'PICTURE') return;
+    if (!/\.webp(\?|$)/i.test(img.currentSrc || '')) return;
+    img.dataset.fellBack = '1';
+    pic.querySelectorAll('source').forEach(function (s) { s.remove(); });
+    var jpg = img.getAttribute('src');
+    img.removeAttribute('src');
+    img.setAttribute('src', jpg);
+  }, true);
 </script>
 
 <style>
