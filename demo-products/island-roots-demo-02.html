@@ -12,13 +12,16 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Island Roots — Plant Nursery Website Demo">
   <meta property="og:description" content="A fictional demonstration of a conversion-focused plant business website. Products, prices and business details are illustrative.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=70">
+  <!-- Open Graph images must be an absolute URL. Update this if the demo lives at a different path. -->
+  <meta property="og:image" content="https://jamalsamuel.online/demo-products/island-roots/island-roots-images/og-island-roots.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Island Roots plant nursery demo website by Jamal Samuel">
 
   <!-- Favicon: inline SVG, no extra file required -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23173D2B'/%3E%3Cpath d='M32 50V30M32 30c0-10 8-16 16-16 0 10-6 16-16 16zM32 36c0-8-6-13-13-13 0 8 5 13 13 13z' fill='none' stroke='%23F7F3E9' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 
   <!-- Bootstrap 5.3.8 (official jsDelivr CDN) -->
-  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
   <style>
@@ -170,7 +173,8 @@
     .navbar-ir .nav-link:hover { color: var(--ir-green); }
     .navbar-toggler { border-color: var(--ir-line); min-height: 44px; min-width: 48px; }
     @media (max-width: 991.98px) {
-      .navbar-ir .navbar-collapse { padding-block: .5rem 1rem; }
+      /* Keep the open mobile menu inside the screen so every link stays reachable */
+      .navbar-ir .navbar-collapse { padding-block: .5rem 1rem; max-height: calc(100vh - var(--header-h)); max-height: calc(100dvh - var(--header-h)); overflow-y: auto; }
       .navbar-ir .nav-link { border-bottom: 1px solid var(--ir-line); }
       .navbar-ir .nav-cta { margin-top: .9rem; width: 100%; }
     }
@@ -301,6 +305,9 @@
       border-radius: var(--radius); background: var(--ir-ivory);
     }
 
+    /* Pictures fill their frames */
+    .plant-media picture, .arch picture, .thumb picture, .service-card .media picture { display: block; width: 100%; height: 100%; }
+
     /* Image fallback (applied by JS if an image fails to load) */
     .img-fallback {
       position: relative;
@@ -308,7 +315,7 @@
         radial-gradient(circle at 30% 30%, rgba(185, 111, 72, .18), transparent 55%),
         linear-gradient(135deg, #DCE5D6, #C9D6C3);
     }
-    .img-fallback img { visibility: hidden; }
+    .img-fallback picture, .img-fallback img { visibility: hidden; }
     .img-fallback::after {
       content: attr(data-fallback);
       position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
@@ -350,8 +357,8 @@
     .care-card .care-icon { width: 40px; height: 40px; color: var(--ir-terracotta); margin-bottom: .9rem; }
     .care-card details { margin-top: .75rem; border-top: 1px solid var(--ir-line); padding-top: .75rem; }
     .care-card summary {
-      cursor: pointer; font-weight: 600; color: var(--ir-green); min-height: 44px;
-      display: flex; align-items: center; list-style: none;
+      cursor: pointer; font-weight: 600; color: var(--ir-green);
+      display: block; padding-block: .6rem; list-style: none;
     }
     .care-card summary::-webkit-details-marker { display: none; }
     .care-card summary::before { content: "+"; display: inline-block; width: 1.2em; font-size: 1.2rem; }
@@ -480,8 +487,8 @@
     <div class="demo-notice" role="note" aria-label="Demo website notice">
       <div class="container">
         <strong>DEMO WEBSITE</strong>
-        <span class="d-none d-md-inline">Island Roots is a fictional concept created by Jamal Samuel to demonstrate a possible plant-business website. Products, prices, services and business details are illustrative.</span>
-        <span class="d-md-none">Fictional concept by Jamal Samuel. Products, prices and details are illustrative.</span>
+        <span class="d-none d-md-inline">Island Roots is a fictional concept created by Jamal Samuel to demonstrate a possible plant-business website. Products, prices, services, images and business details are illustrative.</span>
+        <span class="d-md-none">Fictional concept by Jamal Samuel. Products, prices, images and details are illustrative.</span>
       </div>
     </div>
 
@@ -513,17 +520,17 @@
     </nav>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
 
     <!-- ===================== SECTION C: HERO ===================== -->
     <section class="hero" id="home" aria-labelledby="hero-title">
-      <img class="hero-media" id="heroImg"
-           src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&amp;fit=crop&amp;w=1800&amp;q=70"
-           srcset="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&amp;fit=crop&amp;w=800&amp;q=70 800w,
-                   https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&amp;fit=crop&amp;w=1300&amp;q=70 1300w,
-                   https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&amp;fit=crop&amp;w=1800&amp;q=70 1800w"
-           sizes="100vw" width="1800" height="1200" fetchpriority="high"
-           alt="" data-fallback="">
+      <picture aria-hidden="true">
+        <source media="(max-width: 767.98px)" srcset="island-roots-images/hero-mobile.webp" type="image/webp" width="900" height="1300">
+        <source media="(max-width: 767.98px)" srcset="island-roots-images/hero-mobile.jpg" type="image/jpeg" width="900" height="1300">
+        <source srcset="island-roots-images/hero-desktop.webp" type="image/webp" width="1800" height="1100">
+        <img class="hero-media" id="heroImg" src="island-roots-images/hero-desktop.jpg" width="1800" height="1100"
+             fetchpriority="high" decoding="async" alt="">
+      </picture>
       <div class="container hero-inner">
         <h1 id="hero-title">Bring More Life Into Your Space.</h1>
         <p class="hero-copy">Discover tropical plants, find the right greenery for your space, and explore ideas for bringing nature into your home, garden or workplace.</p>
@@ -556,7 +563,7 @@
           <p class="lead-text">Discover illustrative plant listings and learn what to consider when choosing greenery for your space.</p>
           <div class="demo-disclaimer" role="note">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-            <p class="mb-0"><b>Demo catalogue:</b> plants, prices and availability are illustrative. This is not an operating store. Sample products and prices are for demonstration purposes only. They do not represent verified stock, actual market prices or an operating business.</p>
+            <p class="mb-0"><b>Demo catalogue:</b> plants, prices and availability are illustrative. This is not an operating store. Sample products and prices are for demonstration purposes only. They do not represent verified stock, actual market prices or an operating business. Plant images are AI-generated illustrations, not photos of real stock.</p>
           </div>
         </div>
 
@@ -579,6 +586,7 @@
         </div>
 
         <div class="plant-grid" id="plantGrid"></div>
+        <noscript><p class="empty-state">The plant collection needs JavaScript to display. You can still contact the business using the details in the Contact section.</p></noscript>
 
         <div class="empty-state mt-2" id="emptyState" hidden>
           <h3 class="h4">No sample plants match that search.</h3>
@@ -725,7 +733,10 @@
           <div class="col-md-4">
             <article class="service-card">
               <div class="media" data-fallback="Office greenery">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&amp;fit=crop&amp;w=800&amp;q=70" width="800" height="500" loading="lazy" alt="A bright modern office interior with desks and natural light">
+                <picture>
+                  <source srcset="island-roots-images/service-office.webp" type="image/webp">
+                  <img src="island-roots-images/service-office.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="A bright office with potted tropical plants beside desks and a reception counter">
+                </picture>
               </div>
               <div class="body">
                 <h3>Office &amp; Workplace Greenery</h3>
@@ -738,7 +749,10 @@
           <div class="col-md-4">
             <article class="service-card">
               <div class="media" data-fallback="Event greenery">
-                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&amp;fit=crop&amp;w=800&amp;q=70" width="800" height="500" loading="lazy" alt="A decorated event table setting with greenery">
+                <picture>
+                  <source srcset="island-roots-images/service-events.webp" type="image/webp">
+                  <img src="island-roots-images/service-events.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="An outdoor event space with potted palms and green arrangements beside guest tables">
+                </picture>
               </div>
               <div class="body">
                 <h3>Event Plant Rentals</h3>
@@ -751,7 +765,10 @@
           <div class="col-md-4">
             <article class="service-card">
               <div class="media" data-fallback="Property styling">
-                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&amp;fit=crop&amp;w=800&amp;q=70" width="800" height="500" loading="lazy" alt="A styled living room with indoor plants">
+                <picture>
+                  <source srcset="island-roots-images/service-staging.webp" type="image/webp">
+                  <img src="island-roots-images/service-staging.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="A styled villa living room with large potted plants near open doors">
+                </picture>
               </div>
               <div class="body">
                 <h3>Property Staging &amp; Styling</h3>
@@ -916,7 +933,7 @@
         </div>
         <div class="col-6 col-lg-4">
           <h2>About this demo</h2>
-          <p>Island Roots is not an operating business. Products, prices, services and business details on this page are illustrative and do not represent real stock, prices or availability.</p>
+          <p>Island Roots is not an operating business. Products, prices, services and business details on this page are illustrative and do not represent real stock, prices or availability. All images are AI-generated illustrations.</p>
         </div>
       </div>
       <div class="footer-bottom d-flex flex-wrap justify-content-between gap-2">
@@ -934,9 +951,11 @@
   </div>
 
   <!-- Status message (used when WhatsApp opens, or if Bootstrap fails to load) -->
-  <div class="status-toast" id="statusToast" role="status" aria-live="polite">
+  <div class="status-toast" id="statusToast">
     <span id="statusText"></span> <button type="button" id="statusClose">Dismiss</button>
   </div>
+  <!-- Always-present live region so screen readers reliably announce status changes -->
+  <div class="visually-hidden" id="srStatus" role="status" aria-live="polite"></div>
 
   <!-- Demo-mode preview modal: shown when no WhatsApp number is configured -->
   <div class="modal fade" id="waPreviewModal" tabindex="-1" aria-labelledby="waPreviewTitle" aria-hidden="true">
@@ -976,8 +995,9 @@
     // a preview of the message instead of opening WhatsApp.
     const WHATSAPP_NUMBER = "";
 
-    // Image helper (Unsplash). Replace IDs or swap to your own hosted images.
-    const img = (id, w) => 'https://images.unsplash.com/' + id + '?auto=format&fit=crop&w=' + (w || 640) + '&q=70';
+    // Folder holding the page images, relative to this file. Each image needs
+    // two files with the same name: name.webp (main) and name.jpg (fallback).
+    const IMAGE_DIR = 'island-roots-images/';
 
     /* =========================================================
        DATA — CATEGORIES AND SAMPLE PRODUCTS
@@ -986,83 +1006,83 @@
        light: 'bright' | 'indirect' | 'shade'   care: 'beginner' | 'moderate'
        ========================================================= */
     const CATEGORIES = [
-      { id: 'indoor',     label: 'Indoor Plants',          image: 'photo-1614594975525-e45190c55d0b', alt: 'Monstera leaves in a pot indoors' },
-      { id: 'outdoor',    label: 'Outdoor Plants',         image: 'photo-1597848212624-a19eb35e2651', alt: 'Colourful bougainvillea flowers outdoors' },
-      { id: 'flowering',  label: 'Flowering Plants',       image: 'photo-1567696153798-9111f9cd3d0d', alt: 'A bright hibiscus flower' },
-      { id: 'herbs',      label: 'Herbs & Edible Plants',  image: 'photo-1618375569909-3c8616cf7733', alt: 'Fresh basil growing in a pot' },
-      { id: 'succulents', label: 'Succulents',             image: 'photo-1509423350716-97f9360b4e09', alt: 'Assorted succulents in small pots' },
-      { id: 'fruit',      label: 'Fruit Trees & Seedlings', image: 'photo-1553279768-865429fa0078', alt: 'Ripe mangoes' }
+      { id: 'indoor',     label: 'Indoor Plants',           image: 'cat-indoor' },
+      { id: 'outdoor',    label: 'Outdoor Plants',          image: 'cat-outdoor' },
+      { id: 'flowering',  label: 'Flowering Plants',        image: 'cat-flowering' },
+      { id: 'herbs',      label: 'Herbs & Edible Plants',   image: 'cat-herbs' },
+      { id: 'succulents', label: 'Succulents',              image: 'cat-succulents' },
+      { id: 'fruit',      label: 'Fruit Trees & Seedlings', image: 'cat-fruit' }
     ];
 
     const PRODUCTS = [
       { id: 'monstera', name: 'Monstera', botanical: 'Monstera deliciosa', category: 'indoor',
-        image: 'photo-1614594975525-e45190c55d0b', alt: 'Monstera plant with large split leaves',
+        image: 'plant-monstera', alt: 'Monstera plant with large split leaves in a terracotta pot',
         description: 'Large, glossy leaves with natural splits. A bold statement plant for living rooms and lobbies.',
         care: 'Bright, indirect light. Water when the top few centimetres of soil are dry.',
         price: 85, placement: ['indoor', 'outdoor'], light: ['indirect'], careLevel: 'beginner',
         keywords: 'swiss cheese plant split leaf tropical statement large' },
       { id: 'snake-plant', name: 'Snake Plant', botanical: 'Dracaena trifasciata', category: 'indoor',
-        image: 'photo-1593482892290-f54927ae2b7f', alt: 'Upright snake plant leaves in a pot',
+        image: 'plant-snake-plant', alt: 'Snake plant with tall upright striped leaves in a pot',
         description: 'Upright, architectural leaves that suit corners, bedrooms and offices.',
         care: 'Tolerates lower light. Let the soil dry out between waterings.',
         price: 45, placement: ['indoor', 'outdoor'], light: ['bright', 'indirect', 'shade'], careLevel: 'beginner',
         keywords: 'sansevieria mother in law tongue low light easy office' },
       { id: 'calathea', name: 'Calathea', botanical: 'Goeppertia (formerly Calathea) species', category: 'indoor',
-        image: 'photo-1620803366004-119b57f54cd6', alt: 'Patterned calathea leaves',
+        image: 'plant-calathea', alt: 'Calathea with patterned green and purple leaves',
         description: 'Patterned leaves that fold up in the evening. Prized for colour and texture.',
         care: 'Indirect light and evenly moist soil. Dislikes drying out completely.',
         price: null, placement: ['indoor'], light: ['indirect', 'shade'], careLevel: 'moderate',
         keywords: 'prayer plant patterned leaves humidity' },
       { id: 'bougainvillea', name: 'Bougainvillea', botanical: 'Bougainvillea species', category: 'outdoor',
-        image: 'photo-1597848212624-a19eb35e2651', alt: 'Bougainvillea covered in pink flowers',
+        image: 'plant-bougainvillea', alt: 'Bougainvillea covered in bright magenta bracts against a wall',
         description: 'Vivid colour for fences, walls and entrances. A familiar sight in Caribbean gardens.',
         care: 'Full sun. Water moderately once established; it flowers best when not overwatered.',
         price: null, placement: ['outdoor'], light: ['bright'], careLevel: 'beginner',
         keywords: 'climber hedge fence colour sun garden' },
       { id: 'croton', name: 'Croton', botanical: 'Codiaeum variegatum', category: 'outdoor',
-        image: 'photo-1632207691143-643e2a9a9361', alt: 'Croton leaves in red, yellow and green',
+        image: 'plant-croton', alt: 'Croton plant with red, yellow and green leaves',
         description: 'Leaves splashed with red, orange, yellow and green. Popular for borders and hedges.',
         care: 'Bright light keeps the colours strong. Keep the soil lightly moist.',
         price: null, placement: ['outdoor', 'indoor'], light: ['bright'], careLevel: 'moderate',
         keywords: 'colourful leaves border hedge garden' },
       { id: 'anthurium', name: 'Anthurium', botanical: 'Anthurium andraeanum', category: 'flowering',
-        image: 'photo-1610631787813-9eeb1a2386cc', alt: 'Red anthurium flowers with glossy leaves',
+        image: 'plant-anthurium', alt: 'Red anthurium flowers with glossy heart-shaped leaves',
         description: 'Glossy, heart-shaped blooms that last for weeks. A classic for gifts and displays.',
         care: 'Bright, indirect light. Water when the top of the soil feels dry.',
         price: null, placement: ['indoor', 'outdoor'], light: ['indirect'], careLevel: 'moderate',
         keywords: 'flamingo flower red bloom gift' },
       { id: 'hibiscus', name: 'Hibiscus', botanical: 'Hibiscus rosa-sinensis', category: 'flowering',
-        image: 'photo-1567696153798-9111f9cd3d0d', alt: 'Large hibiscus flower',
+        image: 'plant-hibiscus', alt: 'Red hibiscus flowers on a leafy potted shrub',
         description: 'Large tropical flowers in many colours. Ideal for hedges, gardens and large pots.',
         care: 'Plenty of sun and regular watering, especially in pots.',
         price: 40, placement: ['outdoor'], light: ['bright'], careLevel: 'moderate',
         keywords: 'flower hedge garden tropical bloom' },
       { id: 'basil', name: 'Basil', botanical: 'Ocimum basilicum', category: 'herbs',
-        image: 'photo-1618375569909-3c8616cf7733', alt: 'Basil plant with green leaves',
+        image: 'plant-basil', alt: 'Bushy basil plant growing in a pot',
         description: 'A fragrant kitchen herb for cooking, salads and sauces. Grows well in containers.',
         care: 'Sun for most of the day. Pinch off flower buds to keep leaves coming.',
         price: 12, placement: ['outdoor'], light: ['bright'], careLevel: 'moderate',
         keywords: 'herb kitchen cooking edible container' },
       { id: 'shado-beni', name: 'Shado Beni (Culantro)', botanical: 'Eryngium foetidum', category: 'herbs',
-        image: 'photo-1466692476868-aef1dfb1e735', alt: 'Herbs growing in a garden',
+        image: 'plant-shado-beni', alt: 'Shado beni plant with long serrated leaves in a pot',
         description: 'A staple seasoning herb in Caribbean kitchens, with a strong cilantro-like flavour.',
         care: 'Prefers partial shade and moist soil. Too much hot sun can make it flower early.',
         price: null, placement: ['outdoor'], light: ['indirect'], careLevel: 'moderate',
         keywords: 'chadon beni bandhania culantro herb seasoning cooking caribbean edible' },
       { id: 'aloe-vera', name: 'Aloe Vera', botanical: 'Aloe vera', category: 'succulents',
-        image: 'photo-1596547609652-9cf5d8d76921', alt: 'Aloe vera plant in a pot',
+        image: 'plant-aloe-vera', alt: 'Aloe vera plant with thick fleshy leaves in a pot',
         description: 'A hardy succulent with thick, fleshy leaves. Suits sunny windowsills and patios.',
         care: 'Bright light. Water deeply but only when the soil is completely dry.',
         price: 25, placement: ['outdoor', 'indoor'], light: ['bright'], careLevel: 'beginner',
         keywords: 'succulent easy sun drought hardy' },
       { id: 'echeveria', name: 'Echeveria Collection', botanical: 'Echeveria species', category: 'succulents',
-        image: 'photo-1509423350716-97f9360b4e09', alt: 'Rosette-shaped echeveria succulents',
+        image: 'plant-echeveria', alt: 'Rosette-shaped echeveria succulents in small pots',
         description: 'Compact rosette succulents for desks, gifts and small arrangements.',
         care: 'Lots of light and fast-draining soil. Avoid water sitting in the rosette.',
         price: 30, placement: ['outdoor', 'indoor'], light: ['bright'], careLevel: 'beginner',
         keywords: 'succulent rosette desk gift small arrangement' },
       { id: 'mango-seedling', name: 'Mango Tree Seedling', botanical: 'Mangifera indica', category: 'fruit',
-        image: 'photo-1553279768-865429fa0078', alt: 'Ripe mangoes',
+        image: 'plant-mango-seedling', alt: 'Young mango tree seedling in a nursery bag',
         description: 'A young mango tree for yards with room to grow. A long-term investment in shade and fruit.',
         care: 'Full sun and plenty of space. Water regularly while young.',
         price: null, placement: ['outdoor'], light: ['bright'], careLevel: 'moderate',
@@ -1091,41 +1111,67 @@
       return node;
     }
 
-    const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const prefersReducedMotion = () => !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
     const normalize = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
 
     /* =========================================================
-       IMAGE FALLBACK
+       IMAGES: <picture> builder + two-step fallback
+       1. If a .webp file is missing, switch to the .jpg version.
+       2. If the .jpg is also missing, show a labelled placeholder.
        ========================================================= */
-    function markImageFailed(image) {
+    const FRAME_SELECTOR = '.plant-media, .arch, .thumb, .service-card .media';
+
+    function showPlaceholder(image) {
       if (image.classList.contains('hero-media')) { image.style.visibility = 'hidden'; return; }
-      const holder = image.parentElement;
-      if (!holder) return;
-      holder.classList.add('img-fallback');
-      if (!holder.getAttribute('data-fallback')) {
-        holder.setAttribute('data-fallback', image.getAttribute('data-fallback') || image.alt || '');
+      const frame = image.closest(FRAME_SELECTOR);
+      if (!frame) return;
+      frame.classList.add('img-fallback');
+      if (!frame.getAttribute('data-fallback')) {
+        frame.setAttribute('data-fallback', image.getAttribute('data-fallback') || image.alt || '');
       }
     }
-    // Capture errors from any image, including ones rendered later.
+
+    function handleImageError(image) {
+      const picture = image.parentElement && image.parentElement.tagName === 'PICTURE' ? image.parentElement : null;
+      const failedWebp = /\.webp(\?|$)/i.test(image.currentSrc || '');
+      if (picture && failedWebp && !image.dataset.webpFailed) {
+        image.dataset.webpFailed = 'true';
+        picture.querySelectorAll('source[type="image/webp"]').forEach((source) => source.remove());
+        const jpg = image.getAttribute('src');
+        image.removeAttribute('src');
+        image.setAttribute('src', jpg);
+        return;
+      }
+      showPlaceholder(image);
+    }
+
+    // Image errors do not bubble, so listen in the capture phase.
     document.addEventListener('error', (event) => {
       const t = event.target;
-      if (t && t.tagName === 'IMG') markImageFailed(t);
+      if (t && t.tagName === 'IMG') handleImageError(t);
     }, true);
+
+    // Catch eager images that failed before this script ran.
+    // Lazy images are skipped: they may simply not have started loading yet.
     function checkExistingImages() {
-      document.querySelectorAll('img').forEach((image) => {
-        if (image.complete && image.naturalWidth === 0 && image.getAttribute('src')) markImageFailed(image);
+      document.querySelectorAll('img:not([loading="lazy"])').forEach((image) => {
+        if (image.complete && image.naturalWidth === 0) handleImageError(image);
       });
     }
 
-    function buildImage(id, alt, label, width, height, eager) {
-      return el('img', {
-        src: img(id, width),
-        width: String(width), height: String(height),
-        loading: eager ? null : 'lazy',
-        decoding: 'async',
-        alt: alt,
-        'data-fallback': label
-      });
+    // name: file name without extension. decorative: true hides it from screen readers.
+    function buildPicture(name, alt, label, width, height, decorative) {
+      const picture = el('picture', { 'aria-hidden': decorative ? 'true' : null }, [
+        el('source', { srcset: IMAGE_DIR + name + '.webp', type: 'image/webp' }),
+        el('img', {
+          src: IMAGE_DIR + name + '.jpg',
+          width: String(width), height: String(height),
+          loading: 'lazy', decoding: 'async',
+          alt: decorative ? '' : alt,
+          'data-fallback': label
+        })
+      ]);
+      return picture;
     }
 
     /* =========================================================
@@ -1142,6 +1188,9 @@
     let toastTimer = null;
     function showStatus(message) {
       toastText.textContent = message;
+      const sr = document.getElementById('srStatus');
+      sr.textContent = '';
+      setTimeout(() => { sr.textContent = message; }, 50);
       toast.classList.add('show');
       clearTimeout(toastTimer);
       toastTimer = setTimeout(() => toast.classList.remove('show'), 9000);
@@ -1202,7 +1251,7 @@
     function renderCategoryTiles() {
       const grid = document.getElementById('categoryGrid');
       CATEGORIES.forEach((cat) => {
-        const arch = el('span', { className: 'arch' }, [buildImage(cat.image, '', cat.label, 480, 640, false)]);
+        const arch = el('span', { className: 'arch' }, [buildPicture(cat.image, '', cat.label, 600, 800, true)]);
         const tile = el('button', {
           type: 'button', className: 'category-tile', 'data-category': cat.id,
           'aria-pressed': 'false', 'aria-label': 'Show ' + cat.label + ' in the plant collection'
@@ -1273,7 +1322,7 @@
 
     function buildProductCard(product) {
       return el('article', { className: 'plant-card' }, [
-        el('div', { className: 'plant-media' }, [buildImage(product.image, product.alt, product.name, 640, 480, false)]),
+        el('div', { className: 'plant-media' }, [buildPicture(product.image, product.alt, product.name, 800, 600, false)]),
         el('div', { className: 'plant-body' }, [
           el('p', { className: 'plant-cat', text: categoryLabel(product.category) }),
           el('h3', { text: product.name }),
@@ -1362,7 +1411,7 @@
 
       matches.forEach((p) => {
         const item = el('div', { className: 'finder-item' }, [
-          el('div', { className: 'thumb' }, [buildImage(p.image, '', p.name, 160, 160, false)]),
+          el('div', { className: 'thumb' }, [buildPicture(p.image, '', p.name, 800, 600, true)]),
           el('div', null, [
             el('h3', { text: p.name }),
             el('p', { className: 'meta', text: p.light.map((l) => LIGHT_LABEL[l]).join(' or ') + '. ' + CARE_LABEL[p.careLevel] + '.' }),
@@ -1465,8 +1514,25 @@
         });
       });
 
+      // Fallback: if the Bootstrap script fails to load, keep the mobile menu usable.
+      if (!(window.bootstrap && window.bootstrap.Collapse)) {
+        const toggler = document.querySelector('.navbar-toggler');
+        toggler.removeAttribute('data-bs-toggle');
+        toggler.addEventListener('click', () => {
+          const open = collapseEl.classList.toggle('show');
+          toggler.setAttribute('aria-expanded', String(open));
+        });
+        collapseEl.querySelectorAll('.nav-link, .nav-cta').forEach((link) => {
+          link.addEventListener('click', () => {
+            collapseEl.classList.remove('show');
+            toggler.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
       const header = document.getElementById('siteHeader');
       const setHeaderHeight = () => {
+        if (collapseEl.classList.contains('collapsing')) return; // wait for the menu animation to finish
         // Use the collapsed height so an open mobile menu does not inflate the offset.
         const nav = header.querySelector('.navbar');
         const notice = header.querySelector('.demo-notice');
@@ -1474,6 +1540,8 @@
         document.documentElement.style.setProperty('--header-h', collapsed + 'px');
       };
       setHeaderHeight();
+      collapseEl.addEventListener('shown.bs.collapse', setHeaderHeight);
+      collapseEl.addEventListener('hidden.bs.collapse', setHeaderHeight);
       if ('ResizeObserver' in window) new ResizeObserver(setHeaderHeight).observe(header);
       else window.addEventListener('resize', setHeaderHeight);
     }
@@ -1482,7 +1550,6 @@
        INIT
        ========================================================= */
     document.getElementById('year').textContent = String(new Date().getFullYear());
-    document.getElementById('heroImg').setAttribute('data-fallback', 'Tropical foliage');
     renderCategoryTiles();
     renderChips();
     initCatalogue();
