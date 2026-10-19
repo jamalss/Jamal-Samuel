@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Island Roots | Tropical Plants &amp; Plant-Care Inspiration — Demo</title>
+  <meta name="description" content="Island Roots is a fictional plant nursery demonstration website by Jamal Samuel, showing how a Caribbean plant business could present products, plant care guidance and WhatsApp inquiries. Products and prices are illustrative.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#173D2B">
+
+  <!-- Open Graph (safe demo wording) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Island Roots — Plant Nursery Website Demo">
+  <meta property="og:description" content="A fictional demonstration of a conversion-focused plant business website. Products, prices and business details are illustrative.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=70">
+
+  <!-- Favicon: inline SVG, no extra file required -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23173D2B'/%3E%3Cpath d='M32 50V30M32 30c0-10 8-16 16-16 0 10-6 16-16 16zM32 36c0-8-6-13-13-13 0 8 5 13 13 13z' fill='none' stroke='%23F7F3E9' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+  <!-- Bootstrap 5.3.8 (official jsDelivr CDN) -->
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+  <style>
+    /* =========================================================
+       DESIGN TOKENS
+       ========================================================= */
+    :root {
+      --ir-green: #173D2B;
+      --ir-green-700: #1F4D37;
+      --ir-ivory: #F7F3E9;
+      --ir-ivory-deep: #EFE8D8;
+      --ir-terracotta: #B96F48;
+      --ir-terracotta-text: #8A4B2C; /* darker variant for small text contrast */
+      --ir-charcoal: #26332B;
+      --ir-white: #FFFFFF;
+      --ir-grey: #5D6861;
+      --ir-line: rgba(23, 61, 43, 0.14);
+
+      --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", "URW Palladio L", Georgia, serif;
+      --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+      --radius-sm: 6px;
+      --radius: 10px;
+      --radius-arch: 999px 999px 10px 10px;
+      --shadow: 0 1px 2px rgba(23, 61, 43, 0.06), 0 8px 24px rgba(23, 61, 43, 0.07);
+
+      --section-space: clamp(4rem, 8vw, 6.5rem);
+      --header-h: 112px; /* updated by JS to the real header height */
+
+      --bs-body-font-family: var(--font-sans);
+      --bs-body-color: var(--ir-charcoal);
+      --bs-body-bg: var(--ir-ivory);
+      --bs-link-color-rgb: 23, 61, 43;
+      --bs-link-hover-color-rgb: 31, 77, 55;
+    }
+
+    html { scroll-padding-top: calc(var(--header-h) + 12px); }
+    body {
+      font-family: var(--font-sans);
+      color: var(--ir-charcoal);
+      background: var(--ir-ivory);
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .display-serif {
+      font-family: var(--font-serif);
+      color: var(--ir-green);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+    }
+    h2 { font-size: clamp(2rem, 4.2vw, 2.9rem); }
+    h3 { font-size: 1.35rem; }
+    .lead-text { font-size: 1.15rem; color: var(--ir-grey); max-width: 60ch; }
+    .text-muted-ir { color: var(--ir-grey); }
+
+    a { color: var(--ir-green); text-underline-offset: 3px; }
+
+    /* Focus visibility */
+    :focus-visible {
+      outline: 3px solid var(--ir-terracotta);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+    .btn:focus-visible, .form-control:focus, .form-select:focus {
+      box-shadow: 0 0 0 0.25rem rgba(185, 111, 72, 0.45);
+      outline: none;
+    }
+
+    .skip-link {
+      position: absolute; left: 1rem; top: -100px; z-index: 2000;
+      background: var(--ir-green); color: var(--ir-white);
+      padding: .6rem 1rem; border-radius: var(--radius-sm);
+    }
+    .skip-link:focus { top: 1rem; color: var(--ir-white); }
+
+    section { padding-block: var(--section-space); }
+
+    /* =========================================================
+       BUTTONS
+       ========================================================= */
+    .btn { font-weight: 600; border-radius: var(--radius-sm); padding: .7rem 1.25rem; min-height: 44px; }
+    .btn-ir {
+      --bs-btn-bg: var(--ir-green); --bs-btn-color: var(--ir-white);
+      --bs-btn-border-color: var(--ir-green);
+      --bs-btn-hover-bg: var(--ir-green-700); --bs-btn-hover-border-color: var(--ir-green-700); --bs-btn-hover-color: var(--ir-white);
+      --bs-btn-active-bg: #0F2C1E; --bs-btn-active-color: var(--ir-white); --bs-btn-active-border-color: #0F2C1E;
+    }
+    .btn-ir-outline {
+      --bs-btn-color: var(--ir-green); --bs-btn-border-color: var(--ir-green);
+      --bs-btn-hover-bg: var(--ir-green); --bs-btn-hover-color: var(--ir-white); --bs-btn-hover-border-color: var(--ir-green);
+      --bs-btn-active-bg: var(--ir-green); --bs-btn-active-color: var(--ir-white);
+      background: transparent;
+    }
+    .btn-ir-light {
+      --bs-btn-bg: var(--ir-ivory); --bs-btn-color: var(--ir-green); --bs-btn-border-color: var(--ir-ivory);
+      --bs-btn-hover-bg: var(--ir-white); --bs-btn-hover-color: var(--ir-green); --bs-btn-hover-border-color: var(--ir-white);
+      --bs-btn-active-bg: var(--ir-white); --bs-btn-active-color: var(--ir-green);
+    }
+    .btn-ir-ghost-light {
+      --bs-btn-color: var(--ir-ivory); --bs-btn-border-color: rgba(247, 243, 233, .7);
+      --bs-btn-hover-bg: rgba(247, 243, 233, .12); --bs-btn-hover-color: var(--ir-white); --bs-btn-hover-border-color: var(--ir-ivory);
+      --bs-btn-active-bg: rgba(247, 243, 233, .2); --bs-btn-active-color: var(--ir-white);
+      background: transparent;
+    }
+    .btn .icon { width: 1.1em; height: 1.1em; margin-right: .45rem; vertical-align: -0.15em; }
+
+    /* =========================================================
+       HEADER: DEMO NOTICE + NAVIGATION (sticky together)
+       ========================================================= */
+    .site-header { position: sticky; top: 0; z-index: 1030; }
+    .demo-notice {
+      background: var(--ir-charcoal);
+      color: var(--ir-ivory);
+      font-size: .82rem;
+      line-height: 1.4;
+      padding: .45rem 0;
+      text-align: center;
+    }
+    .demo-notice strong {
+      display: inline-block;
+      background: var(--ir-ivory); color: var(--ir-charcoal);
+      padding: .05rem .45rem; border-radius: 3px; margin-right: .4rem;
+      font-size: .74rem; letter-spacing: .02em;
+    }
+
+    .navbar-ir {
+      background: rgba(247, 243, 233, 0.97);
+      border-bottom: 1px solid var(--ir-line);
+      padding-block: .55rem;
+    }
+    @supports (backdrop-filter: blur(8px)) {
+      .navbar-ir { background: rgba(247, 243, 233, 0.9); backdrop-filter: blur(8px); }
+    }
+    .wordmark {
+      font-family: var(--font-serif);
+      font-size: 1.55rem; font-weight: 600;
+      color: var(--ir-green) !important;
+      display: inline-flex; align-items: center; gap: .5rem;
+      text-decoration: none;
+    }
+    .wordmark svg { width: 30px; height: 30px; flex: none; }
+    .navbar-ir .nav-link {
+      color: var(--ir-charcoal); font-weight: 500; padding-inline: .85rem !important;
+      min-height: 44px; display: flex; align-items: center;
+    }
+    .navbar-ir .nav-link:hover { color: var(--ir-green); }
+    .navbar-toggler { border-color: var(--ir-line); min-height: 44px; min-width: 48px; }
+    @media (max-width: 991.98px) {
+      .navbar-ir .navbar-collapse { padding-block: .5rem 1rem; }
+      .navbar-ir .nav-link { border-bottom: 1px solid var(--ir-line); }
+      .navbar-ir .nav-cta { margin-top: .9rem; width: 100%; }
+    }
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+    .hero {
+      position: relative;
+      padding: 0;
+      min-height: min(82vh, 760px);
+      display: flex; align-items: flex-end;
+      background: var(--ir-green);
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .hero-media {
+      position: absolute; inset: 0; z-index: -2;
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .hero::after {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background: linear-gradient(180deg, rgba(15, 35, 25, .25) 0%, rgba(15, 35, 25, .55) 45%, rgba(15, 35, 25, .88) 100%);
+    }
+    .hero-inner { padding-block: clamp(5rem, 14vh, 9rem) clamp(3rem, 7vh, 5rem); }
+    .hero h1 {
+      color: var(--ir-ivory);
+      font-size: clamp(2.6rem, 7.5vw, 5.4rem);
+      font-weight: 500;
+      line-height: 1.02;
+      max-width: 13ch;
+      margin-bottom: 1.25rem;
+    }
+    .hero p.hero-copy { color: rgba(247, 243, 233, .92); font-size: clamp(1.05rem, 2vw, 1.25rem); max-width: 52ch; }
+    .hero-note {
+      color: rgba(247, 243, 233, .85); font-size: .95rem; margin-top: 1.5rem;
+      padding-top: 1rem; border-top: 1px solid rgba(247, 243, 233, .25); max-width: 52ch;
+    }
+    @media (max-width: 575.98px) {
+      .hero { min-height: 0; }
+      .hero-inner { padding-block: 6rem 2.5rem; }
+      .hero .btn { width: 100%; }
+    }
+
+    /* =========================================================
+       CATEGORIES (arched tiles — the page's signature shape)
+       ========================================================= */
+    .category-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    @media (min-width: 768px) { .category-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    @media (min-width: 1200px) { .category-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+    .category-tile {
+      appearance: none; border: 0; background: transparent; padding: 0;
+      text-align: center; color: var(--ir-charcoal); cursor: pointer;
+      display: flex; flex-direction: column; align-items: stretch; gap: .75rem;
+    }
+    .category-tile .arch {
+      border-radius: var(--radius-arch);
+      overflow: hidden; aspect-ratio: 3 / 4;
+      background: var(--ir-ivory-deep);
+      border: 1px solid var(--ir-line);
+      transition: transform .25s ease;
+    }
+    .category-tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .category-tile .cat-name { font-family: var(--font-serif); font-size: 1.15rem; font-weight: 600; color: var(--ir-green); }
+    .category-tile .cat-action { font-size: .88rem; color: var(--ir-terracotta-text); text-decoration: underline; text-underline-offset: 3px; }
+    .category-tile:hover .arch { transform: translateY(-4px); }
+    .category-tile[aria-pressed="true"] .arch { outline: 3px solid var(--ir-terracotta); outline-offset: 3px; }
+
+    /* =========================================================
+       CATALOGUE
+       ========================================================= */
+    .catalogue { background: var(--ir-white); border-block: 1px solid var(--ir-line); }
+    .demo-disclaimer {
+      display: flex; gap: .65rem; align-items: flex-start;
+      background: var(--ir-ivory); border-left: 4px solid var(--ir-terracotta);
+      padding: .8rem 1rem; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: .95rem; color: var(--ir-charcoal); max-width: 72ch;
+    }
+    .demo-disclaimer svg { flex: none; width: 20px; height: 20px; margin-top: .15rem; color: var(--ir-terracotta-text); }
+
+    .catalogue-controls { display: grid; gap: 1rem; }
+    @media (min-width: 992px) { .catalogue-controls { grid-template-columns: 320px 1fr; align-items: end; } }
+    .form-control, .form-select { border-color: rgba(23, 61, 43, .28); min-height: 46px; border-radius: var(--radius-sm); }
+    .form-label { font-weight: 600; color: var(--ir-charcoal); }
+    .filter-chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .chip {
+      appearance: none; border: 1px solid rgba(23, 61, 43, .3); background: var(--ir-white);
+      color: var(--ir-charcoal); padding: .5rem .9rem; border-radius: var(--radius-sm);
+      font-size: .92rem; font-weight: 500; min-height: 44px; cursor: pointer;
+    }
+    .chip:hover { border-color: var(--ir-green); }
+    .chip[aria-pressed="true"] { background: var(--ir-green); color: var(--ir-white); border-color: var(--ir-green); }
+
+    .result-bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .75rem; }
+    .result-count { color: var(--ir-grey); font-size: .95rem; margin: 0; }
+
+    .plant-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(1, minmax(0, 1fr)); }
+    @media (min-width: 576px) { .plant-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (min-width: 992px) { .plant-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    @media (min-width: 1400px) { .plant-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+    .plant-card {
+      display: flex; flex-direction: column;
+      background: var(--ir-ivory); border: 1px solid var(--ir-line);
+      border-radius: var(--radius); overflow: hidden;
+    }
+    .plant-media { aspect-ratio: 4 / 3; background: var(--ir-ivory-deep); overflow: hidden; }
+    .plant-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .plant-body { padding: 1.15rem 1.15rem 1.25rem; display: flex; flex-direction: column; flex: 1; }
+    .plant-cat { font-size: .82rem; color: var(--ir-terracotta-text); font-weight: 600; margin-bottom: .3rem; }
+    .plant-card h3 { font-size: 1.3rem; margin-bottom: .1rem; }
+    .plant-botanical { font-family: var(--font-serif); font-style: italic; color: var(--ir-grey); font-size: .98rem; margin-bottom: .7rem; }
+    .plant-desc { font-size: .96rem; margin-bottom: .75rem; }
+    .plant-care { font-size: .9rem; color: var(--ir-charcoal); background: var(--ir-white); border-radius: var(--radius-sm); padding: .55rem .7rem; margin-bottom: 1rem; }
+    .plant-care b { color: var(--ir-green); }
+    /* Price styled like a nursery stake label */
+    .plant-tag {
+      margin-top: auto; display: flex; align-items: baseline; flex-wrap: wrap; gap: .25rem .6rem;
+      border-top: 1px dashed rgba(23, 61, 43, .3); padding-top: .8rem; margin-bottom: .9rem;
+    }
+    .plant-price { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 600; color: var(--ir-green); }
+    .price-note { font-size: .8rem; color: var(--ir-terracotta-text); font-weight: 600; }
+    .price-ask { font-size: .95rem; font-weight: 600; color: var(--ir-charcoal); }
+    .plant-card .btn { width: 100%; }
+
+    .empty-state {
+      text-align: center; padding: 2.5rem 1rem; border: 1px dashed rgba(23, 61, 43, .35);
+      border-radius: var(--radius); background: var(--ir-ivory);
+    }
+
+    /* Image fallback (applied by JS if an image fails to load) */
+    .img-fallback {
+      position: relative;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(185, 111, 72, .18), transparent 55%),
+        linear-gradient(135deg, #DCE5D6, #C9D6C3);
+    }
+    .img-fallback img { visibility: hidden; }
+    .img-fallback::after {
+      content: attr(data-fallback);
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      padding: 1rem; text-align: center;
+      font-family: var(--font-serif); font-style: italic; color: var(--ir-green); font-size: 1.05rem;
+    }
+
+    /* =========================================================
+       PLANT FINDER
+       ========================================================= */
+    .finder-panel { background: var(--ir-white); border: 1px solid var(--ir-line); border-radius: var(--radius); padding: clamp(1.25rem, 3vw, 2rem); }
+    .finder-panel fieldset { margin-bottom: 1.25rem; }
+    .finder-panel legend { font-size: 1rem; font-weight: 700; color: var(--ir-charcoal); margin-bottom: .6rem; }
+    .option-row { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .option-row .btn-check + label {
+      border: 1px solid rgba(23, 61, 43, .3); background: var(--ir-white); color: var(--ir-charcoal);
+      border-radius: var(--radius-sm); padding: .5rem .9rem; font-weight: 500; font-size: .95rem;
+      min-height: 44px; display: inline-flex; align-items: center; cursor: pointer;
+    }
+    .option-row .btn-check:checked + label { background: var(--ir-green); color: var(--ir-white); border-color: var(--ir-green); }
+    .option-row .btn-check:focus-visible + label { outline: 3px solid var(--ir-terracotta); outline-offset: 2px; }
+    .finder-results { display: grid; gap: .75rem; }
+    .finder-item {
+      display: grid; grid-template-columns: 72px 1fr; gap: .9rem; align-items: center;
+      background: var(--ir-ivory); border: 1px solid var(--ir-line); border-radius: var(--radius); padding: .7rem;
+    }
+    .finder-item .thumb { width: 72px; height: 72px; border-radius: var(--radius-sm); overflow: hidden; background: var(--ir-ivory-deep); }
+    .finder-item .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .finder-item h3 { font-size: 1.1rem; margin: 0; }
+    .finder-item .meta { font-size: .86rem; color: var(--ir-grey); margin: .1rem 0 .45rem; }
+    .finder-item .btn { padding: .4rem .8rem; font-size: .9rem; min-height: 40px; }
+    .finder-note { font-size: .92rem; color: var(--ir-grey); }
+
+    /* =========================================================
+       PLANT CARE
+       ========================================================= */
+    .care { background: var(--ir-ivory-deep); }
+    .care-card { background: var(--ir-ivory); border: 1px solid var(--ir-line); border-radius: var(--radius); padding: 1.5rem; height: 100%; }
+    .care-card .care-icon { width: 40px; height: 40px; color: var(--ir-terracotta); margin-bottom: .9rem; }
+    .care-card details { margin-top: .75rem; border-top: 1px solid var(--ir-line); padding-top: .75rem; }
+    .care-card summary {
+      cursor: pointer; font-weight: 600; color: var(--ir-green); min-height: 44px;
+      display: flex; align-items: center; list-style: none;
+    }
+    .care-card summary::-webkit-details-marker { display: none; }
+    .care-card summary::before { content: "+"; display: inline-block; width: 1.2em; font-size: 1.2rem; }
+    .care-card details[open] summary::before { content: "\2212"; }
+    .care-card ul { padding-left: 1.1rem; font-size: .96rem; margin: .5rem 0 0; }
+    .care-card li { margin-bottom: .4rem; }
+
+    /* =========================================================
+       BUSINESS SERVICES (distinct dark section)
+       ========================================================= */
+    .services { background: var(--ir-green); color: var(--ir-ivory); }
+    .services h2, .services h3 { color: var(--ir-ivory); }
+    .services .lead-text { color: rgba(247, 243, 233, .85); }
+    .service-notice {
+      border: 1px solid rgba(247, 243, 233, .35); border-radius: var(--radius-sm);
+      padding: .75rem 1rem; font-size: .95rem; max-width: 72ch; color: var(--ir-ivory);
+    }
+    .service-card {
+      background: rgba(247, 243, 233, .06); border: 1px solid rgba(247, 243, 233, .18);
+      border-radius: var(--radius); overflow: hidden; height: 100%; display: flex; flex-direction: column;
+    }
+    .service-card .media { aspect-ratio: 16 / 10; overflow: hidden; background: var(--ir-green-700); }
+    .service-card .media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .service-card .body { padding: 1.4rem; display: flex; flex-direction: column; flex: 1; }
+    .service-card p { color: rgba(247, 243, 233, .88); font-size: .98rem; }
+    .service-card .use-case { font-size: .92rem; border-left: 3px solid var(--ir-terracotta); padding-left: .75rem; margin-bottom: 1.25rem; }
+    .service-card .btn { margin-top: auto; }
+    .services .img-fallback { background: linear-gradient(135deg, #2A5A41, #1F4D37); }
+    .services .img-fallback::after { color: var(--ir-ivory); }
+
+    .quote-panel { background: var(--ir-ivory); color: var(--ir-charcoal); border-radius: var(--radius); padding: clamp(1.25rem, 3vw, 2.25rem); }
+    .quote-panel h3 { color: var(--ir-green); }
+    .optional { font-weight: 400; color: var(--ir-grey); font-size: .9em; }
+
+    /* =========================================================
+       WHY SECTION
+       ========================================================= */
+    .why-item { border-top: 2px solid var(--ir-green); padding-top: 1.25rem; height: 100%; }
+    .why-item svg { width: 34px; height: 34px; color: var(--ir-terracotta); margin-bottom: .75rem; }
+    .why-item h3 { font-size: 1.25rem; }
+
+    /* =========================================================
+       CONTACT
+       ========================================================= */
+    .contact { background: var(--ir-white); border-top: 1px solid var(--ir-line); }
+    .placeholder-list { display: grid; gap: 1rem; }
+    .placeholder-item {
+      border: 1px dashed rgba(23, 61, 43, .4); border-radius: var(--radius-sm);
+      padding: 1rem 1.1rem; background: var(--ir-ivory);
+    }
+    .placeholder-item h3 { font-family: var(--font-sans); font-size: 1rem; font-weight: 700; color: var(--ir-charcoal); margin-bottom: .25rem; }
+    .placeholder-item p { margin: 0; color: var(--ir-grey); font-style: italic; }
+    .placeholder-badge {
+      display: inline-block; font-size: .74rem; font-weight: 700; font-style: normal;
+      background: var(--ir-white); border: 1px solid rgba(23, 61, 43, .35); color: var(--ir-charcoal);
+      padding: .05rem .45rem; border-radius: 3px; margin-left: .4rem; vertical-align: .1em;
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+    .site-footer { background: var(--ir-charcoal); color: rgba(247, 243, 233, .85); padding-block: 3.5rem 2rem; font-size: .95rem; }
+    .site-footer .wordmark { color: var(--ir-ivory) !important; }
+    .site-footer a { color: var(--ir-ivory); }
+    .site-footer h2 { font-family: var(--font-sans); color: var(--ir-ivory); font-size: 1rem; font-weight: 700; }
+    .footer-links { list-style: none; padding: 0; margin: 0; }
+    .footer-links li { margin-bottom: .35rem; }
+    .footer-links a { display: inline-block; padding-block: .3rem; }
+    .social-inactive { display: flex; gap: .75rem; align-items: center; }
+    .social-inactive span[role="img"] {
+      width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(247, 243, 233, .25);
+      display: inline-flex; align-items: center; justify-content: center; color: rgba(247, 243, 233, .45);
+      cursor: not-allowed;
+    }
+    .social-inactive svg { width: 18px; height: 18px; }
+    .footer-bottom { border-top: 1px solid rgba(247, 243, 233, .15); margin-top: 2.5rem; padding-top: 1.25rem; font-size: .88rem; }
+    .developer-credit { color: var(--ir-ivory); font-weight: 600; }
+
+    /* =========================================================
+       STATUS / MOBILE CTA
+       ========================================================= */
+    .status-toast {
+      position: fixed; left: 50%; bottom: 1rem; transform: translateX(-50%);
+      z-index: 1080; width: min(92vw, 520px);
+      background: var(--ir-charcoal); color: var(--ir-ivory);
+      border-radius: var(--radius); padding: .85rem 1rem; box-shadow: var(--shadow);
+      font-size: .95rem; display: none;
+    }
+    .status-toast.show { display: block; }
+    .status-toast button { color: var(--ir-ivory); background: none; border: 0; text-decoration: underline; padding: 0 .25rem; }
+
+    .mobile-cta {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 1020;
+      padding: .6rem .9rem calc(.6rem + env(safe-area-inset-bottom, 0px));
+      background: rgba(247, 243, 233, .97); border-top: 1px solid var(--ir-line);
+    }
+    .mobile-cta .btn { width: 100%; }
+    @media (max-width: 767.98px) {
+      body { padding-bottom: 76px; }
+      .status-toast { bottom: 88px; }
+    }
+
+    .preview-message {
+      white-space: pre-wrap; background: var(--ir-ivory); border-left: 4px solid var(--ir-green);
+      padding: .9rem 1rem; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-size: .95rem; margin: 0;
+    }
+    .modal-content { border-radius: var(--radius); }
+    .modal-title { font-family: var(--font-serif); color: var(--ir-green); }
+
+    /* =========================================================
+       REDUCED MOTION
+       ========================================================= */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto !important; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+      .category-tile:hover .arch { transform: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ===================== SECTION A + B: DEMO NOTICE + NAVIGATION ===================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="demo-notice" role="note" aria-label="Demo website notice">
+      <div class="container">
+        <strong>DEMO WEBSITE</strong>
+        <span class="d-none d-md-inline">Island Roots is a fictional concept created by Jamal Samuel to demonstrate a possible plant-business website. Products, prices, services and business details are illustrative.</span>
+        <span class="d-md-none">Fictional concept by Jamal Samuel. Products, prices and details are illustrative.</span>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-ir" aria-label="Main navigation">
+      <div class="container">
+        <a class="wordmark navbar-brand" href="#home" aria-label="Island Roots, back to top">
+          <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <circle cx="16" cy="16" r="15" fill="#173D2B"/>
+            <path d="M16 25V15M16 15c0-5 4-8 8-8 0 5-3 8-8 8zM16 18c0-4-3-6.5-6.5-6.5 0 4 2.5 6.5 6.5 6.5z" fill="none" stroke="#F7F3E9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Island Roots
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Open menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#catalogue">Explore Plants</a></li>
+            <li class="nav-item"><a class="nav-link" href="#care">Plant Care</a></li>
+            <li class="nav-item"><a class="nav-link" href="#services">Business Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+          <button type="button" class="btn btn-ir ms-lg-3 nav-cta" data-wa="general">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>Ask on WhatsApp
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ===================== SECTION C: HERO ===================== -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <img class="hero-media" id="heroImg"
+           src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&amp;fit=crop&amp;w=1800&amp;q=70"
+           srcset="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&amp;fit=crop&amp;w=800&amp;q=70 800w,
+                   https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&amp;fit=crop&amp;w=1300&amp;q=70 1300w,
+                   https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&amp;fit=crop&amp;w=1800&amp;q=70 1800w"
+           sizes="100vw" width="1800" height="1200" fetchpriority="high"
+           alt="" data-fallback="">
+      <div class="container hero-inner">
+        <h1 id="hero-title">Bring More Life Into Your Space.</h1>
+        <p class="hero-copy">Discover tropical plants, find the right greenery for your space, and explore ideas for bringing nature into your home, garden or workplace.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a class="btn btn-ir-light btn-lg" href="#catalogue">Explore Plants</a>
+          <a class="btn btn-ir-ghost-light btn-lg" href="#services">Explore Business Services</a>
+        </div>
+        <p class="hero-note">Plant inspiration for homes, gardens and workspaces.</p>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION D: SHOP BY CATEGORY ===================== -->
+    <section id="categories" aria-labelledby="categories-title">
+      <div class="container">
+        <div class="mb-5">
+          <h2 id="categories-title">Find Your Kind of Green.</h2>
+          <p class="lead-text mb-0">Explore plant categories to discover greenery suited to different spaces and preferences.</p>
+        </div>
+        <div class="category-grid" id="categoryGrid">
+          <!-- Category tiles rendered by JavaScript from CATEGORIES -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION E: FEATURED PLANT CATALOGUE ===================== -->
+    <section class="catalogue" id="catalogue" aria-labelledby="catalogue-title">
+      <div class="container">
+        <div class="mb-4">
+          <h2 id="catalogue-title" tabindex="-1">Explore the Plant Collection.</h2>
+          <p class="lead-text">Discover illustrative plant listings and learn what to consider when choosing greenery for your space.</p>
+          <div class="demo-disclaimer" role="note">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            <p class="mb-0"><b>Demo catalogue:</b> plants, prices and availability are illustrative. This is not an operating store. Sample products and prices are for demonstration purposes only. They do not represent verified stock, actual market prices or an operating business.</p>
+          </div>
+        </div>
+
+        <div class="catalogue-controls mb-4">
+          <div>
+            <label class="form-label" for="plantSearch">Search plants</label>
+            <input type="search" class="form-control" id="plantSearch" placeholder="Try “monstera”, “herb” or “low light”" autocomplete="off" maxlength="60">
+          </div>
+          <div>
+            <span class="form-label d-block" id="chipLabel">Filter by category</span>
+            <div class="filter-chips" id="filterChips" role="group" aria-labelledby="chipLabel">
+              <!-- Filter chips rendered by JavaScript -->
+            </div>
+          </div>
+        </div>
+
+        <div class="result-bar mb-3">
+          <p class="result-count" id="resultCount" aria-live="polite"></p>
+          <button type="button" class="btn btn-ir-outline btn-sm" id="clearFilters">Clear search and filters</button>
+        </div>
+
+        <div class="plant-grid" id="plantGrid"></div>
+
+        <div class="empty-state mt-2" id="emptyState" hidden>
+          <h3 class="h4">No sample plants match that search.</h3>
+          <p class="text-muted-ir">Try a different word, choose another category, or clear your search to see the full demo collection.</p>
+          <button type="button" class="btn btn-ir" id="emptyReset">Show all plants</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION G: PLANT FINDER ===================== -->
+    <section id="finder" aria-labelledby="finder-title">
+      <div class="container">
+        <div class="row g-5 align-items-start">
+          <div class="col-lg-5">
+            <h2 id="finder-title">Not Sure Which Plant to Choose?</h2>
+            <p class="lead-text">Use these simple filters to explore plants that may suit your environment and care preferences.</p>
+            <p class="finder-note">Suggestions are general starting points based on the sample listings. Light, heat, wind and watering habits vary from space to space, so no plant is guaranteed to thrive everywhere. When in doubt, ask for guidance.</p>
+          </div>
+          <div class="col-lg-7">
+            <form class="finder-panel" id="finderForm" aria-describedby="finderHelp" novalidate>
+              <p id="finderHelp" class="visually-hidden">Choose any combination of options. Suggestions update as you choose.</p>
+
+              <fieldset>
+                <legend>Where will the plant live?</legend>
+                <div class="option-row">
+                  <input class="btn-check" type="radio" name="placement" id="pl-indoor" value="indoor"><label for="pl-indoor">Indoor</label>
+                  <input class="btn-check" type="radio" name="placement" id="pl-outdoor" value="outdoor"><label for="pl-outdoor">Outdoor</label>
+                  <input class="btn-check" type="radio" name="placement" id="pl-either" value="either"><label for="pl-either">Either</label>
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <legend>How much light does the spot get?</legend>
+                <div class="option-row">
+                  <input class="btn-check" type="radio" name="light" id="li-bright" value="bright"><label for="li-bright">Bright light</label>
+                  <input class="btn-check" type="radio" name="light" id="li-indirect" value="indirect"><label for="li-indirect">Indirect light</label>
+                  <input class="btn-check" type="radio" name="light" id="li-shade" value="shade"><label for="li-shade">Shade-tolerant</label>
+                  <input class="btn-check" type="radio" name="light" id="li-unsure" value="unsure"><label for="li-unsure">Not sure</label>
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <legend>How much care do you want to give?</legend>
+                <div class="option-row">
+                  <input class="btn-check" type="radio" name="care" id="ca-beginner" value="beginner"><label for="ca-beginner">Beginner-friendly</label>
+                  <input class="btn-check" type="radio" name="care" id="ca-moderate" value="moderate"><label for="ca-moderate">Moderate care</label>
+                  <input class="btn-check" type="radio" name="care" id="ca-any" value="any"><label for="ca-any">Any</label>
+                </div>
+              </fieldset>
+
+              <div class="d-flex flex-wrap gap-2 mb-4">
+                <button type="reset" class="btn btn-ir-outline btn-sm" id="finderReset">Reset choices</button>
+              </div>
+
+              <div aria-live="polite" id="finderLive">
+                <p class="finder-note mb-3" id="finderMessage">Choose your options above to see suggestions.</p>
+                <div class="finder-results" id="finderResults"></div>
+              </div>
+              <button type="button" class="btn btn-ir mt-3" id="finderGuidance">Ask for guidance with my choices</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION H: PLANT CARE CORNER ===================== -->
+    <section class="care" id="care" aria-labelledby="care-title">
+      <div class="container">
+        <div class="mb-5">
+          <h2 id="care-title">Helping Your Plants Thrive.</h2>
+          <p class="lead-text mb-0">Simple guidance can make choosing and caring for plants easier.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <article class="care-card">
+              <svg class="care-icon" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M20 5c6 8 10 13.5 10 19a10 10 0 0 1-20 0c0-5.5 4-11 10-19z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>
+              <h3>Watering Without Overwatering</h3>
+              <p class="mb-0">More houseplants are harmed by too much water than too little. Check the soil before you water, not the calendar.</p>
+              <details>
+                <summary>Read the watering basics</summary>
+                <ul>
+                  <li>Push a finger 2–3 cm into the soil. If it is still damp, wait.</li>
+                  <li>When you do water, water thoroughly and let the excess drain away. Empty saucers so roots are not left sitting in water.</li>
+                  <li>Use pots with drainage holes. Decorative pots without holes are best used as an outer sleeve.</li>
+                  <li>Outdoor pots in sun and breeze dry out much faster than indoor pots.</li>
+                  <li>Succulents, aloe and snake plants generally prefer the soil to dry out between waterings.</li>
+                </ul>
+              </details>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="care-card">
+              <svg class="care-icon" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="7" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M20 4v5M20 31v5M4 20h5M31 20h5M8.7 8.7l3.5 3.5M27.8 27.8l3.5 3.5M8.7 31.3l3.5-3.5M27.8 12.2l3.5-3.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+              <h3>Understanding Light Requirements</h3>
+              <p class="mb-0">Plant labels describe light in a few common ways. Matching the plant to the spot matters more than almost anything else.</p>
+              <details>
+                <summary>What the light terms mean</summary>
+                <ul>
+                  <li><b>Bright or direct light:</b> several hours of direct sun, such as an open garden or a sunny balcony.</li>
+                  <li><b>Indirect light:</b> a bright spot near a window, but out of strong midday sun.</li>
+                  <li><b>Shade-tolerant:</b> the plant can cope with less light, but usually grows more slowly. It does not mean no light at all.</li>
+                  <li>Pale, stretched growth often means too little light. Scorched or bleached patches can mean too much.</li>
+                  <li>When moving a plant into stronger sun, do it gradually over a couple of weeks.</li>
+                </ul>
+              </details>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="care-card">
+              <svg class="care-icon" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M11 22h18l-2.5 13h-13z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M20 22V12M20 12c0-4 3-7 7-7 0 4-3 7-7 7zM20 15c0-3-2.5-5.5-5.5-5.5 0 3 2.5 5.5 5.5 5.5z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <h3>Choosing Plants for Your Space</h3>
+              <p class="mb-0">The best plant is one that suits your light, your space and the time you realistically have.</p>
+              <details>
+                <summary>Questions to ask before choosing</summary>
+                <ul>
+                  <li>How much light does the exact spot get through the day?</li>
+                  <li>How big can the plant grow? Some, like monstera and fruit trees, need room.</li>
+                  <li>How often can you check on it? Beginners usually do better with forgiving plants.</li>
+                  <li>Do you have pets or small children? Some common plants, including monstera, snake plant and aloe, can be harmful if chewed.</li>
+                  <li>For outdoor plants near the coast, consider wind and salt exposure.</li>
+                </ul>
+              </details>
+            </article>
+          </div>
+        </div>
+        <p class="text-muted-ir mt-4 mb-3" style="max-width:70ch">This is general guidance. Every species has its own needs, so check the care requirements for the specific plant you choose.</p>
+        <div class="d-flex flex-wrap align-items-center gap-3">
+          <span class="fw-semibold">Have a plant-care question?</span>
+          <button type="button" class="btn btn-ir" data-wa="care">Ask for guidance</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION I: RENTALS & COMMERCIAL GREENERY ===================== -->
+    <section class="services" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="mb-4">
+          <h2 id="services-title">Bring Greenery Into Your Business.</h2>
+          <p class="lead-text">Explore how a plant business could present greenery solutions for commercial spaces, events and property settings.</p>
+          <p class="service-notice mb-0" role="note"><b>Illustrative service concepts.</b> These services show what a real plant business could offer. They are not claims that any actual business provides them. A real business would adapt this section to its own services, pricing and service area.</p>
+        </div>
+
+        <div class="row g-4 mt-1" id="serviceCards">
+          <div class="col-md-4">
+            <article class="service-card">
+              <div class="media" data-fallback="Office greenery">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&amp;fit=crop&amp;w=800&amp;q=70" width="800" height="500" loading="lazy" alt="A bright modern office interior with desks and natural light">
+              </div>
+              <div class="body">
+                <h3>Office &amp; Workplace Greenery</h3>
+                <p>Plants selected and placed to soften workspaces, reception areas and meeting rooms, with care arranged around the space.</p>
+                <p class="use-case"><b>Suitable for:</b> offices, clinics, salons, reception areas and co-working spaces.</p>
+                <button type="button" class="btn btn-ir-light" data-quote="Office & Workplace Greenery">Request a Quote</button>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="service-card">
+              <div class="media" data-fallback="Event greenery">
+                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&amp;fit=crop&amp;w=800&amp;q=70" width="800" height="500" loading="lazy" alt="A decorated event table setting with greenery">
+              </div>
+              <div class="body">
+                <h3>Event Plant Rentals</h3>
+                <p>Potted plants and greenery that could be hired for a set period, then collected after the event.</p>
+                <p class="use-case"><b>Suitable for:</b> weddings, launches, conferences, church events and photo backdrops.</p>
+                <button type="button" class="btn btn-ir-light" data-quote="Event Plant Rentals">Request a Quote</button>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="service-card">
+              <div class="media" data-fallback="Property styling">
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&amp;fit=crop&amp;w=800&amp;q=70" width="800" height="500" loading="lazy" alt="A styled living room with indoor plants">
+              </div>
+              <div class="body">
+                <h3>Property Staging &amp; Styling</h3>
+                <p>Greenery used to make a property feel finished and welcoming for viewings, photos or guest arrivals.</p>
+                <p class="use-case"><b>Suitable for:</b> villas, short-stay rentals, real estate listings and show homes.</p>
+                <button type="button" class="btn btn-ir-light" data-quote="Property Staging & Styling">Request a Quote</button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Commercial inquiry form: prepares a WhatsApp message, never submits to a server -->
+        <div class="quote-panel mt-5" id="quote">
+          <div class="row g-4">
+            <div class="col-lg-4">
+              <h3 id="quote-title" tabindex="-1">Request a quote</h3>
+              <p class="text-muted-ir">Tell us a little about your space or event. This form does not send anything on its own. It prepares a WhatsApp message that you can review before you choose to send it.</p>
+              <p class="small text-muted-ir mb-0">Please do not include sensitive personal information.</p>
+            </div>
+            <div class="col-lg-8">
+              <form id="quoteForm" novalidate aria-labelledby="quote-title">
+                <div class="row g-3">
+                  <div class="col-12">
+                    <label class="form-label" for="qService">Service interest <span class="text-danger" aria-hidden="true">*</span><span class="visually-hidden">(required)</span></label>
+                    <select class="form-select" id="qService" required aria-describedby="qServiceError">
+                      <option value="">Choose a service</option>
+                      <option>Office &amp; Workplace Greenery</option>
+                      <option>Event Plant Rentals</option>
+                      <option>Property Staging &amp; Styling</option>
+                      <option>Not sure yet</option>
+                    </select>
+                    <div class="invalid-feedback" id="qServiceError">Choose the service you are interested in.</div>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label" for="qName">Your name <span class="optional">(optional)</span></label>
+                    <input type="text" class="form-control" id="qName" autocomplete="name" maxlength="80">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label" for="qOrg">Business or organization <span class="optional">(optional)</span></label>
+                    <input type="text" class="form-control" id="qOrg" autocomplete="organization" maxlength="100">
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label" for="qDate">Preferred date or timeframe <span class="optional">(optional)</span></label>
+                    <input type="text" class="form-control" id="qDate" maxlength="80" placeholder="For example: mid-December, or ongoing from January">
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label" for="qDetails">Brief project description <span class="optional">(optional)</span></label>
+                    <textarea class="form-control" id="qDetails" rows="3" maxlength="500" placeholder="Type of space, approximate size, number of plants or the look you want"></textarea>
+                  </div>
+                  <div class="col-12 d-flex flex-wrap gap-2 align-items-center">
+                    <button type="submit" class="btn btn-ir">Prepare WhatsApp inquiry</button>
+                    <span class="small text-muted-ir">You review the message before anything is sent.</span>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION J: WHY A DEDICATED PLANT PAGE HELPS ===================== -->
+    <section id="why" aria-labelledby="why-title">
+      <div class="container">
+        <h2 id="why-title" class="mb-2">Why Shop With a Dedicated Plant Page</h2>
+        <p class="lead-text mb-5">A clear, organized page can make it easier for customers to find what they want and get in touch.</p>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="why-item">
+              <svg viewBox="0 0 34 34" aria-hidden="true" focusable="false"><circle cx="15" cy="15" r="9" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M22 22l7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+              <h3>Find plants without scrolling through posts</h3>
+              <p class="text-muted-ir mb-0">Customers can browse by category or search by name, instead of searching through months of social media posts.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="why-item">
+              <svg viewBox="0 0 34 34" aria-hidden="true" focusable="false"><path d="M5 7h24v16H14l-6 5v-5H5z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>
+              <h3>Ask about a specific plant in one tap</h3>
+              <p class="text-muted-ir mb-0">Each listing can open a message that already names the plant, which may make it easier to start a clear conversation.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="why-item">
+              <svg viewBox="0 0 34 34" aria-hidden="true" focusable="false"><rect x="6" y="5" width="22" height="25" rx="2" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M11 12h12M11 17h12M11 22h7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+              <h3>A clear route for business inquiries</h3>
+              <p class="text-muted-ir mb-0">Offices, event planners and property owners can see possible services and request a quote with the key details included.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION K: CONTACT & FINAL CTA ===================== -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="row g-5 align-items-start">
+          <div class="col-lg-6">
+            <h2 id="contact-title">Let’s Find the Right Greenery for Your Space.</h2>
+            <p class="lead-text">Ask about a plant, get help choosing, or start a conversation about greenery for your business.</p>
+            <button type="button" class="btn btn-ir btn-lg mt-2" data-wa="general">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>Ask on WhatsApp
+            </button>
+            <p class="small text-muted-ir mt-3 mb-0">In this demo, real business details have not been added. An actual business would supply its own location, hours and delivery terms.</p>
+          </div>
+          <div class="col-lg-6">
+            <div class="placeholder-list">
+              <div class="placeholder-item">
+                <h3>Location <span class="placeholder-badge">Placeholder</span></h3>
+                <p>Business address to be supplied by the client.</p>
+              </div>
+              <div class="placeholder-item">
+                <h3>Opening hours <span class="placeholder-badge">Placeholder</span></h3>
+                <p>Opening days and times to be supplied by the client.</p>
+              </div>
+              <div class="placeholder-item">
+                <h3>Collection and delivery <span class="placeholder-badge">Placeholder</span></h3>
+                <p>Collection options, delivery areas and any fees to be supplied by the client.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== SECTION L: FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <a class="wordmark" href="#home" aria-label="Island Roots, back to top">
+            <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+              <circle cx="16" cy="16" r="15" fill="#F7F3E9"/>
+              <path d="M16 25V15M16 15c0-5 4-8 8-8 0 5-3 8-8 8zM16 18c0-4-3-6.5-6.5-6.5 0 4 2.5 6.5 6.5 6.5z" fill="none" stroke="#173D2B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Island Roots
+          </a>
+          <p class="mt-3" style="max-width:44ch">A fictional plant nursery website, created to show how a Caribbean plant business could present its products, care advice and services online.</p>
+          <div class="social-inactive" aria-label="Social media links (inactive in this demo)" role="group">
+            <span role="img" aria-label="Instagram, inactive demo link" title="Inactive demo link">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg>
+            </span>
+            <span role="img" aria-label="Facebook, inactive demo link" title="Inactive demo link">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M13.5 21v-7.5H16l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8.1v3h2.5V21z"/></svg>
+            </span>
+            <span role="img" aria-label="TikTok, inactive demo link" title="Inactive demo link">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M16.6 3c.3 2.1 1.6 3.6 3.9 3.8v3a7 7 0 0 1-3.9-1.2v6.2A5.8 5.8 0 1 1 10.8 9v3.1a2.8 2.8 0 1 0 2.8 2.8V3z"/></svg>
+            </span>
+          </div>
+          <p class="small mt-2 mb-0">Social links are inactive in this demo.</p>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h2>On this page</h2>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#catalogue">Explore Plants</a></li>
+            <li><a href="#finder">Plant Finder</a></li>
+            <li><a href="#care">Plant Care</a></li>
+            <li><a href="#services">Business Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-4">
+          <h2>About this demo</h2>
+          <p>Island Roots is not an operating business. Products, prices, services and business details on this page are illustrative and do not represent real stock, prices or availability.</p>
+        </div>
+      </div>
+      <div class="footer-bottom d-flex flex-wrap justify-content-between gap-2">
+        <span>© <span id="year">2026</span> Island Roots demonstration concept. Fictional business, for demonstration only.</span>
+        <span class="developer-credit">Jamal Samuel Built</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky mobile WhatsApp CTA -->
+  <div class="mobile-cta d-md-none">
+    <button type="button" class="btn btn-ir" data-wa="general">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>Ask on WhatsApp
+    </button>
+  </div>
+
+  <!-- Status message (used when WhatsApp opens, or if Bootstrap fails to load) -->
+  <div class="status-toast" id="statusToast" role="status" aria-live="polite">
+    <span id="statusText"></span> <button type="button" id="statusClose">Dismiss</button>
+  </div>
+
+  <!-- Demo-mode preview modal: shown when no WhatsApp number is configured -->
+  <div class="modal fade" id="waPreviewModal" tabindex="-1" aria-labelledby="waPreviewTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title fs-4" id="waPreviewTitle">WhatsApp is not connected in this demo</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>No message has been sent. On a live business website, this button would open WhatsApp with the message below already written, ready for the customer to review and send.</p>
+          <p class="fw-semibold mb-2">Message this button would prepare:</p>
+          <blockquote class="preview-message" id="waPreviewMessage"></blockquote>
+          <p class="small text-muted-ir mt-3 mb-0" id="copyStatus" aria-live="polite"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-ir-outline" id="copyMessage">Copy message</button>
+          <button type="button" class="btn btn-ir" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* =========================================================
+       CONFIGURATION — EDIT THESE
+       ========================================================= */
+
+    // WhatsApp recipient. Use the full international number, digits only
+    // (country code + number, no "+", spaces or dashes), e.g. "1758XXXXXXX".
+    // Leave as "" to keep the site in safe demo mode: inquiry buttons will show
+    // a preview of the message instead of opening WhatsApp.
+    const WHATSAPP_NUMBER = "";
+
+    // Image helper (Unsplash). Replace IDs or swap to your own hosted images.
+    const img = (id, w) => 'https://images.unsplash.com/' + id + '?auto=format&fit=crop&w=' + (w || 640) + '&q=70';
+
+    /* =========================================================
+       DATA — CATEGORIES AND SAMPLE PRODUCTS
+       Prices are fictional sample values in XCD. Set price to null
+       to show "Ask for pricing" instead.
+       light: 'bright' | 'indirect' | 'shade'   care: 'beginner' | 'moderate'
+       ========================================================= */
+    const CATEGORIES = [
+      { id: 'indoor',     label: 'Indoor Plants',          image: 'photo-1614594975525-e45190c55d0b', alt: 'Monstera leaves in a pot indoors' },
+      { id: 'outdoor',    label: 'Outdoor Plants',         image: 'photo-1597848212624-a19eb35e2651', alt: 'Colourful bougainvillea flowers outdoors' },
+      { id: 'flowering',  label: 'Flowering Plants',       image: 'photo-1567696153798-9111f9cd3d0d', alt: 'A bright hibiscus flower' },
+      { id: 'herbs',      label: 'Herbs & Edible Plants',  image: 'photo-1618375569909-3c8616cf7733', alt: 'Fresh basil growing in a pot' },
+      { id: 'succulents', label: 'Succulents',             image: 'photo-1509423350716-97f9360b4e09', alt: 'Assorted succulents in small pots' },
+      { id: 'fruit',      label: 'Fruit Trees & Seedlings', image: 'photo-1553279768-865429fa0078', alt: 'Ripe mangoes' }
+    ];
+
+    const PRODUCTS = [
+      { id: 'monstera', name: 'Monstera', botanical: 'Monstera deliciosa', category: 'indoor',
+        image: 'photo-1614594975525-e45190c55d0b', alt: 'Monstera plant with large split leaves',
+        description: 'Large, glossy leaves with natural splits. A bold statement plant for living rooms and lobbies.',
+        care: 'Bright, indirect light. Water when the top few centimetres of soil are dry.',
+        price: 85, placement: ['indoor', 'outdoor'], light: ['indirect'], careLevel: 'beginner',
+        keywords: 'swiss cheese plant split leaf tropical statement large' },
+      { id: 'snake-plant', name: 'Snake Plant', botanical: 'Dracaena trifasciata', category: 'indoor',
+        image: 'photo-1593482892290-f54927ae2b7f', alt: 'Upright snake plant leaves in a pot',
+        description: 'Upright, architectural leaves that suit corners, bedrooms and offices.',
+        care: 'Tolerates lower light. Let the soil dry out between waterings.',
+        price: 45, placement: ['indoor', 'outdoor'], light: ['bright', 'indirect', 'shade'], careLevel: 'beginner',
+        keywords: 'sansevieria mother in law tongue low light easy office' },
+      { id: 'calathea', name: 'Calathea', botanical: 'Goeppertia (formerly Calathea) species', category: 'indoor',
+        image: 'photo-1620803366004-119b57f54cd6', alt: 'Patterned calathea leaves',
+        description: 'Patterned leaves that fold up in the evening. Prized for colour and texture.',
+        care: 'Indirect light and evenly moist soil. Dislikes drying out completely.',
+        price: null, placement: ['indoor'], light: ['indirect', 'shade'], careLevel: 'moderate',
+        keywords: 'prayer plant patterned leaves humidity' },
+      { id: 'bougainvillea', name: 'Bougainvillea', botanical: 'Bougainvillea species', category: 'outdoor',
+        image: 'photo-1597848212624-a19eb35e2651', alt: 'Bougainvillea covered in pink flowers',
+        description: 'Vivid colour for fences, walls and entrances. A familiar sight in Caribbean gardens.',
+        care: 'Full sun. Water moderately once established; it flowers best when not overwatered.',
+        price: null, placement: ['outdoor'], light: ['bright'], careLevel: 'beginner',
+        keywords: 'climber hedge fence colour sun garden' },
+      { id: 'croton', name: 'Croton', botanical: 'Codiaeum variegatum', category: 'outdoor',
+        image: 'photo-1632207691143-643e2a9a9361', alt: 'Croton leaves in red, yellow and green',
+        description: 'Leaves splashed with red, orange, yellow and green. Popular for borders and hedges.',
+        care: 'Bright light keeps the colours strong. Keep the soil lightly moist.',
+        price: null, placement: ['outdoor', 'indoor'], light: ['bright'], careLevel: 'moderate',
+        keywords: 'colourful leaves border hedge garden' },
+      { id: 'anthurium', name: 'Anthurium', botanical: 'Anthurium andraeanum', category: 'flowering',
+        image: 'photo-1610631787813-9eeb1a2386cc', alt: 'Red anthurium flowers with glossy leaves',
+        description: 'Glossy, heart-shaped blooms that last for weeks. A classic for gifts and displays.',
+        care: 'Bright, indirect light. Water when the top of the soil feels dry.',
+        price: null, placement: ['indoor', 'outdoor'], light: ['indirect'], careLevel: 'moderate',
+        keywords: 'flamingo flower red bloom gift' },
+      { id: 'hibiscus', name: 'Hibiscus', botanical: 'Hibiscus rosa-sinensis', category: 'flowering',
+        image: 'photo-1567696153798-9111f9cd3d0d', alt: 'Large hibiscus flower',
+        description: 'Large tropical flowers in many colours. Ideal for hedges, gardens and large pots.',
+        care: 'Plenty of sun and regular watering, especially in pots.',
+        price: 40, placement: ['outdoor'], light: ['bright'], careLevel: 'moderate',
+        keywords: 'flower hedge garden tropical bloom' },
+      { id: 'basil', name: 'Basil', botanical: 'Ocimum basilicum', category: 'herbs',
+        image: 'photo-1618375569909-3c8616cf7733', alt: 'Basil plant with green leaves',
+        description: 'A fragrant kitchen herb for cooking, salads and sauces. Grows well in containers.',
+        care: 'Sun for most of the day. Pinch off flower buds to keep leaves coming.',
+        price: 12, placement: ['outdoor'], light: ['bright'], careLevel: 'moderate',
+        keywords: 'herb kitchen cooking edible container' },
+      { id: 'shado-beni', name: 'Shado Beni (Culantro)', botanical: 'Eryngium foetidum', category: 'herbs',
+        image: 'photo-1466692476868-aef1dfb1e735', alt: 'Herbs growing in a garden',
+        description: 'A staple seasoning herb in Caribbean kitchens, with a strong cilantro-like flavour.',
+        care: 'Prefers partial shade and moist soil. Too much hot sun can make it flower early.',
+        price: null, placement: ['outdoor'], light: ['indirect'], careLevel: 'moderate',
+        keywords: 'chadon beni bandhania culantro herb seasoning cooking caribbean edible' },
+      { id: 'aloe-vera', name: 'Aloe Vera', botanical: 'Aloe vera', category: 'succulents',
+        image: 'photo-1596547609652-9cf5d8d76921', alt: 'Aloe vera plant in a pot',
+        description: 'A hardy succulent with thick, fleshy leaves. Suits sunny windowsills and patios.',
+        care: 'Bright light. Water deeply but only when the soil is completely dry.',
+        price: 25, placement: ['outdoor', 'indoor'], light: ['bright'], careLevel: 'beginner',
+        keywords: 'succulent easy sun drought hardy' },
+      { id: 'echeveria', name: 'Echeveria Collection', botanical: 'Echeveria species', category: 'succulents',
+        image: 'photo-1509423350716-97f9360b4e09', alt: 'Rosette-shaped echeveria succulents',
+        description: 'Compact rosette succulents for desks, gifts and small arrangements.',
+        care: 'Lots of light and fast-draining soil. Avoid water sitting in the rosette.',
+        price: 30, placement: ['outdoor', 'indoor'], light: ['bright'], careLevel: 'beginner',
+        keywords: 'succulent rosette desk gift small arrangement' },
+      { id: 'mango-seedling', name: 'Mango Tree Seedling', botanical: 'Mangifera indica', category: 'fruit',
+        image: 'photo-1553279768-865429fa0078', alt: 'Ripe mangoes',
+        description: 'A young mango tree for yards with room to grow. A long-term investment in shade and fruit.',
+        care: 'Full sun and plenty of space. Water regularly while young.',
+        price: null, placement: ['outdoor'], light: ['bright'], careLevel: 'moderate',
+        keywords: 'fruit tree seedling yard edible mango' }
+    ];
+
+    const LIGHT_LABEL = { bright: 'Bright light', indirect: 'Indirect light', shade: 'Shade-tolerant' };
+    const CARE_LABEL = { beginner: 'Beginner-friendly', moderate: 'Moderate care' };
+    const categoryLabel = (id) => (CATEGORIES.find((c) => c.id === id) || {}).label || '';
+
+    /* =========================================================
+       SMALL DOM HELPERS (safe: text is set with textContent)
+       ========================================================= */
+    function el(tag, attrs, children) {
+      const node = document.createElement(tag);
+      if (attrs) {
+        Object.keys(attrs).forEach((key) => {
+          const value = attrs[key];
+          if (value === null || value === undefined || value === false) return;
+          if (key === 'text') node.textContent = value;
+          else if (key === 'className') node.className = value;
+          else node.setAttribute(key, value === true ? '' : value);
+        });
+      }
+      (children || []).forEach((child) => { if (child) node.appendChild(child); });
+      return node;
+    }
+
+    const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const normalize = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+
+    /* =========================================================
+       IMAGE FALLBACK
+       ========================================================= */
+    function markImageFailed(image) {
+      if (image.classList.contains('hero-media')) { image.style.visibility = 'hidden'; return; }
+      const holder = image.parentElement;
+      if (!holder) return;
+      holder.classList.add('img-fallback');
+      if (!holder.getAttribute('data-fallback')) {
+        holder.setAttribute('data-fallback', image.getAttribute('data-fallback') || image.alt || '');
+      }
+    }
+    // Capture errors from any image, including ones rendered later.
+    document.addEventListener('error', (event) => {
+      const t = event.target;
+      if (t && t.tagName === 'IMG') markImageFailed(t);
+    }, true);
+    function checkExistingImages() {
+      document.querySelectorAll('img').forEach((image) => {
+        if (image.complete && image.naturalWidth === 0 && image.getAttribute('src')) markImageFailed(image);
+      });
+    }
+
+    function buildImage(id, alt, label, width, height, eager) {
+      return el('img', {
+        src: img(id, width),
+        width: String(width), height: String(height),
+        loading: eager ? null : 'lazy',
+        decoding: 'async',
+        alt: alt,
+        'data-fallback': label
+      });
+    }
+
+    /* =========================================================
+       WHATSAPP HELPER
+       ========================================================= */
+    function getRecipient() {
+      const digits = String(WHATSAPP_NUMBER || '').replace(/\D/g, '');
+      // E.164 allows up to 15 digits; require a plausible minimum.
+      return digits.length >= 8 && digits.length <= 15 ? digits : null;
+    }
+
+    const toast = document.getElementById('statusToast');
+    const toastText = document.getElementById('statusText');
+    let toastTimer = null;
+    function showStatus(message) {
+      toastText.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 9000);
+    }
+    document.getElementById('statusClose').addEventListener('click', () => toast.classList.remove('show'));
+
+    let lastPreviewMessage = '';
+    function showDemoPreview(message) {
+      lastPreviewMessage = message;
+      document.getElementById('waPreviewMessage').textContent = message;
+      document.getElementById('copyStatus').textContent = '';
+      const modalEl = document.getElementById('waPreviewModal');
+      if (window.bootstrap && window.bootstrap.Modal) {
+        window.bootstrap.Modal.getOrCreateInstance(modalEl).show();
+      } else {
+        showStatus('Demo mode: WhatsApp is not connected, so no message was sent. Prepared message: ' + message);
+      }
+    }
+
+    // Opens WhatsApp only in response to a user action. Never sends anything itself.
+    function openWhatsApp(message) {
+      const recipient = getRecipient();
+      if (!recipient) {
+        showDemoPreview(message);
+        return;
+      }
+      const url = 'https://wa.me/' + recipient + '?text=' + encodeURIComponent(message);
+      const link = el('a', { href: url, target: '_blank', rel: 'noopener noreferrer' });
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      showStatus('WhatsApp should open with your message ready. Nothing is sent until you press send in WhatsApp.');
+    }
+
+    document.getElementById('copyMessage').addEventListener('click', () => {
+      const status = document.getElementById('copyStatus');
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(lastPreviewMessage)
+          .then(() => { status.textContent = 'Message copied.'; })
+          .catch(() => { status.textContent = 'Copy is not available here. You can select the message text manually.'; });
+      } else {
+        status.textContent = 'Copy is not available here. You can select the message text manually.';
+      }
+    });
+
+    /* Message templates */
+    const MESSAGES = {
+      general: 'Hello! I am browsing the Island Roots demo website and would like some help finding the right plants for my space. I understand that this is an illustrative demo.',
+      care: 'Hello! I have a plant-care question after visiting the Island Roots demo website. I understand that this is an illustrative demo. My question is: ',
+      product: (name) => 'Hello! I am interested in the Island Roots demo listing for ' + name + '. I understand that this is an illustrative demo. Could you provide more information about this product?'
+    };
+
+    /* =========================================================
+       CATEGORY TILES + FILTER CHIPS
+       ========================================================= */
+    const state = { category: 'all', query: '' };
+
+    function renderCategoryTiles() {
+      const grid = document.getElementById('categoryGrid');
+      CATEGORIES.forEach((cat) => {
+        const arch = el('span', { className: 'arch' }, [buildImage(cat.image, '', cat.label, 480, 640, false)]);
+        const tile = el('button', {
+          type: 'button', className: 'category-tile', 'data-category': cat.id,
+          'aria-pressed': 'false', 'aria-label': 'Show ' + cat.label + ' in the plant collection'
+        }, [
+          arch,
+          el('span', { className: 'cat-name', text: cat.label }),
+          el('span', { className: 'cat-action', text: 'View plants', 'aria-hidden': 'true' })
+        ]);
+        tile.addEventListener('click', () => {
+          setCategory(cat.id);
+          goToCatalogue();
+        });
+        grid.appendChild(tile);
+      });
+    }
+
+    function renderChips() {
+      const wrap = document.getElementById('filterChips');
+      const all = [{ id: 'all', label: 'All plants' }].concat(CATEGORIES);
+      all.forEach((cat) => {
+        const chip = el('button', { type: 'button', className: 'chip', 'data-category': cat.id, 'aria-pressed': 'false', text: cat.label });
+        chip.addEventListener('click', () => setCategory(cat.id));
+        wrap.appendChild(chip);
+      });
+    }
+
+    function setCategory(id) {
+      state.category = id;
+      document.querySelectorAll('[data-category]').forEach((btn) => {
+        btn.setAttribute('aria-pressed', String(btn.getAttribute('data-category') === id));
+      });
+      renderCatalogue();
+    }
+
+    function goToCatalogue() {
+      const heading = document.getElementById('catalogue-title');
+      document.getElementById('catalogue').scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'start' });
+      heading.focus({ preventScroll: true });
+    }
+
+    /* =========================================================
+       CATALOGUE
+       ========================================================= */
+    function matchesQuery(product, query) {
+      if (!query) return true;
+      const haystack = normalize([product.name, product.botanical, product.keywords, categoryLabel(product.category)].join(' '));
+      return query.split(/\s+/).every((word) => haystack.includes(word));
+    }
+
+    function buildPriceTag(product) {
+      if (typeof product.price === 'number') {
+        return el('div', { className: 'plant-tag' }, [
+          el('span', { className: 'plant-price', text: 'XCD ' + product.price.toFixed(2) }),
+          el('span', { className: 'price-note', text: 'Illustrative sample price' })
+        ]);
+      }
+      return el('div', { className: 'plant-tag' }, [el('span', { className: 'price-ask', text: 'Ask for pricing' })]);
+    }
+
+    function buildInquiryButton(product, extraClass) {
+      const btn = el('button', {
+        type: 'button', className: 'btn btn-ir' + (extraClass ? ' ' + extraClass : ''),
+        'aria-label': 'Ask about ' + product.name + ' on WhatsApp', text: 'Ask About This Plant'
+      });
+      btn.addEventListener('click', () => openWhatsApp(MESSAGES.product(product.name)));
+      return btn;
+    }
+
+    function buildProductCard(product) {
+      return el('article', { className: 'plant-card' }, [
+        el('div', { className: 'plant-media' }, [buildImage(product.image, product.alt, product.name, 640, 480, false)]),
+        el('div', { className: 'plant-body' }, [
+          el('p', { className: 'plant-cat', text: categoryLabel(product.category) }),
+          el('h3', { text: product.name }),
+          el('p', { className: 'plant-botanical', text: product.botanical }),
+          el('p', { className: 'plant-desc', text: product.description }),
+          el('p', { className: 'plant-care' }, [el('b', { text: 'Care tip: ' }), document.createTextNode(product.care)]),
+          buildPriceTag(product),
+          buildInquiryButton(product)
+        ])
+      ]);
+    }
+
+    function renderCatalogue() {
+      const grid = document.getElementById('plantGrid');
+      const empty = document.getElementById('emptyState');
+      const count = document.getElementById('resultCount');
+      const query = normalize(state.query);
+
+      const results = PRODUCTS.filter((p) =>
+        (state.category === 'all' || p.category === state.category) && matchesQuery(p, query)
+      );
+
+      grid.replaceChildren(...results.map(buildProductCard));
+      empty.hidden = results.length > 0;
+
+      const where = state.category === 'all' ? 'all categories' : categoryLabel(state.category);
+      const searchPart = query ? ' matching “' + state.query.trim() + '”' : '';
+      count.textContent = 'Showing ' + results.length + ' of ' + PRODUCTS.length + ' sample plants in ' + where + searchPart + '.';
+    }
+
+    function resetCatalogue() {
+      const input = document.getElementById('plantSearch');
+      input.value = '';
+      state.query = '';
+      setCategory('all');
+    }
+
+    function initCatalogue() {
+      const input = document.getElementById('plantSearch');
+      let debounce = null;
+      input.addEventListener('input', () => {
+        clearTimeout(debounce);
+        debounce = setTimeout(() => { state.query = input.value; renderCatalogue(); }, 150);
+      });
+      document.getElementById('clearFilters').addEventListener('click', () => { resetCatalogue(); input.focus(); });
+      document.getElementById('emptyReset').addEventListener('click', () => { resetCatalogue(); input.focus(); });
+      setCategory('all');
+    }
+
+    /* =========================================================
+       PLANT FINDER
+       ========================================================= */
+    const finderForm = document.getElementById('finderForm');
+
+    function getFinderChoices() {
+      const pick = (name) => { const c = finderForm.querySelector('input[name="' + name + '"]:checked'); return c ? c.value : null; };
+      return { placement: pick('placement'), light: pick('light'), care: pick('care') };
+    }
+
+    function renderFinder() {
+      const choices = getFinderChoices();
+      const message = document.getElementById('finderMessage');
+      const results = document.getElementById('finderResults');
+      results.replaceChildren();
+
+      if (!choices.placement && !choices.light && !choices.care) {
+        message.textContent = 'Choose your options above to see suggestions.';
+        return;
+      }
+
+      const matches = PRODUCTS.filter((p) => {
+        const placeOk = !choices.placement || choices.placement === 'either' || p.placement.includes(choices.placement);
+        const lightOk = !choices.light || choices.light === 'unsure' || p.light.includes(choices.light);
+        const careOk = !choices.care || choices.care === 'any' || p.careLevel === choices.care;
+        return placeOk && lightOk && careOk;
+      });
+
+      let note = '';
+      if (matches.length === 0) {
+        note = 'None of the sample plants clearly match this combination. That does not mean nothing will work. Ask for guidance and describe your space.';
+      } else {
+        note = matches.length + (matches.length === 1 ? ' sample plant may' : ' sample plants may') + ' suit these choices. Treat these as starting points, not guarantees.';
+        if (choices.light === 'unsure') note += ' Since you are not sure about light, these are not filtered by light. Asking for guidance about your exact spot is the safest next step.';
+      }
+      message.textContent = note;
+
+      matches.forEach((p) => {
+        const item = el('div', { className: 'finder-item' }, [
+          el('div', { className: 'thumb' }, [buildImage(p.image, '', p.name, 160, 160, false)]),
+          el('div', null, [
+            el('h3', { text: p.name }),
+            el('p', { className: 'meta', text: p.light.map((l) => LIGHT_LABEL[l]).join(' or ') + '. ' + CARE_LABEL[p.careLevel] + '.' }),
+            buildInquiryButton(p, 'btn-sm')
+          ])
+        ]);
+        results.appendChild(item);
+      });
+    }
+
+    function finderGuidanceMessage() {
+      const c = getFinderChoices();
+      const labels = {
+        placement: { indoor: 'Indoor', outdoor: 'Outdoor', either: 'Either indoor or outdoor' },
+        light: { bright: 'Bright light', indirect: 'Indirect light', shade: 'Shade', unsure: 'Not sure' },
+        care: { beginner: 'Beginner-friendly', moderate: 'Moderate care', any: 'Any' }
+      };
+      const parts = [];
+      if (c.placement) parts.push('Placement: ' + labels.placement[c.placement]);
+      if (c.light) parts.push('Light: ' + labels.light[c.light]);
+      if (c.care) parts.push('Care preference: ' + labels.care[c.care]);
+      return 'Hello! I used the plant finder on the Island Roots demo website and would like guidance choosing a plant. I understand that this is an illustrative demo.' +
+        (parts.length ? '\n\n' + parts.join('\n') : '');
+    }
+
+    function initFinder() {
+      finderForm.addEventListener('change', renderFinder);
+      finderForm.addEventListener('submit', (e) => e.preventDefault());
+      finderForm.addEventListener('reset', () => { setTimeout(renderFinder, 0); });
+      document.getElementById('finderGuidance').addEventListener('click', () => openWhatsApp(finderGuidanceMessage()));
+    }
+
+    /* =========================================================
+       SERVICE QUOTE FORM
+       ========================================================= */
+    function initQuoteForm() {
+      const form = document.getElementById('quoteForm');
+      const service = document.getElementById('qService');
+
+      document.querySelectorAll('[data-quote]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          service.value = btn.getAttribute('data-quote');
+          clearServiceError();
+          document.getElementById('quote').scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'start' });
+          service.focus({ preventScroll: true });
+        });
+      });
+
+      function clearServiceError() {
+        service.classList.remove('is-invalid');
+        service.removeAttribute('aria-invalid');
+      }
+      service.addEventListener('change', () => { if (service.value) clearServiceError(); });
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (!service.value) {
+          service.classList.add('is-invalid');
+          service.setAttribute('aria-invalid', 'true');
+          service.focus();
+          return;
+        }
+        const val = (id) => document.getElementById(id).value.trim();
+        const lines = [
+          'Hello! I would like to request a quote after visiting the Island Roots demo website. I understand that this is an illustrative demo.',
+          '',
+          'Service interest: ' + service.value
+        ];
+        if (val('qName')) lines.push('Name: ' + val('qName'));
+        if (val('qOrg')) lines.push('Business or organization: ' + val('qOrg'));
+        if (val('qDate')) lines.push('Preferred date or timeframe: ' + val('qDate'));
+        if (val('qDetails')) lines.push('Project details: ' + val('qDetails'));
+        openWhatsApp(lines.join('\n'));
+      });
+    }
+
+    /* =========================================================
+       GENERAL WHATSAPP BUTTONS
+       ========================================================= */
+    function initGeneralButtons() {
+      document.querySelectorAll('[data-wa]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const type = btn.getAttribute('data-wa');
+          openWhatsApp(MESSAGES[type] || MESSAGES.general);
+        });
+      });
+    }
+
+    /* =========================================================
+       NAVIGATION: close mobile menu after selecting a link,
+       keep scroll offset in sync with header height
+       ========================================================= */
+    function initNavigation() {
+      const collapseEl = document.getElementById('mainNav');
+      collapseEl.querySelectorAll('.nav-link, .nav-cta').forEach((link) => {
+        link.addEventListener('click', () => {
+          if (collapseEl.classList.contains('show') && window.bootstrap && window.bootstrap.Collapse) {
+            window.bootstrap.Collapse.getOrCreateInstance(collapseEl, { toggle: false }).hide();
+          }
+        });
+      });
+
+      const header = document.getElementById('siteHeader');
+      const setHeaderHeight = () => {
+        // Use the collapsed height so an open mobile menu does not inflate the offset.
+        const nav = header.querySelector('.navbar');
+        const notice = header.querySelector('.demo-notice');
+        const collapsed = notice.offsetHeight + (nav.offsetHeight - (collapseEl.classList.contains('show') ? collapseEl.offsetHeight : 0));
+        document.documentElement.style.setProperty('--header-h', collapsed + 'px');
+      };
+      setHeaderHeight();
+      if ('ResizeObserver' in window) new ResizeObserver(setHeaderHeight).observe(header);
+      else window.addEventListener('resize', setHeaderHeight);
+    }
+
+    /* =========================================================
+       INIT
+       ========================================================= */
+    document.getElementById('year').textContent = String(new Date().getFullYear());
+    document.getElementById('heroImg').setAttribute('data-fallback', 'Tropical foliage');
+    renderCategoryTiles();
+    renderChips();
+    initCatalogue();
+    initFinder();
+    initQuoteForm();
+    initGeneralButtons();
+    initNavigation();
+    checkExistingImages();
+  })();
+  </script>
+</body>
+</html>
