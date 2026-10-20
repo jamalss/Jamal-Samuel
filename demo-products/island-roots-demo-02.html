@@ -13,7 +13,7 @@
   <meta property="og:title" content="Island Roots — Plant Nursery Website Demo">
   <meta property="og:description" content="A fictional demonstration of a conversion-focused plant business website. Products, prices and business details are illustrative.">
   <!-- Open Graph images must be an absolute URL. Update this if the demo lives at a different path. -->
-  <meta property="og:image" content="https://jamalsamuel.online/demo-products/island-roots/island-roots-images/og-island-roots.jpg">
+  <meta property="og:image" content="https://jamalsamuel.online/demo-products/island-roots/island-roots-images/og-island-roots.jpg?v=2">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Island Roots plant nursery demo website by Jamal Samuel">
@@ -525,10 +525,10 @@
     <!-- ===================== SECTION C: HERO ===================== -->
     <section class="hero" id="home" aria-labelledby="hero-title">
       <picture aria-hidden="true">
-        <source media="(max-width: 767.98px)" srcset="island-roots-images/hero-mobile.webp" type="image/webp" width="900" height="1300">
-        <source media="(max-width: 767.98px)" srcset="island-roots-images/hero-mobile.jpg" type="image/jpeg" width="900" height="1300">
-        <source srcset="island-roots-images/hero-desktop.webp" type="image/webp" width="1800" height="1100">
-        <img class="hero-media" id="heroImg" src="island-roots-images/hero-desktop.jpg" width="1800" height="1100"
+        <source media="(max-width: 767.98px)" srcset="island-roots-images/hero-mobile.webp?v=2" type="image/webp" width="900" height="1300">
+        <source media="(max-width: 767.98px)" srcset="island-roots-images/hero-mobile.jpg?v=2" type="image/jpeg" width="900" height="1300">
+        <source srcset="island-roots-images/hero-desktop.webp?v=2" type="image/webp" width="1800" height="1100">
+        <img class="hero-media" id="heroImg" src="island-roots-images/hero-desktop.jpg?v=2" width="1800" height="1100"
              fetchpriority="high" decoding="async" alt="">
       </picture>
       <div class="container hero-inner">
@@ -734,8 +734,8 @@
             <article class="service-card">
               <div class="media" data-fallback="Office greenery">
                 <picture>
-                  <source srcset="island-roots-images/service-office.webp" type="image/webp">
-                  <img src="island-roots-images/service-office.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="A bright office with potted tropical plants beside desks and a reception counter">
+                  <source srcset="island-roots-images/service-office.webp?v=2" type="image/webp">
+                  <img src="island-roots-images/service-office.jpg?v=2" width="1200" height="750" loading="lazy" decoding="async" alt="A bright office with potted tropical plants beside desks and a reception counter">
                 </picture>
               </div>
               <div class="body">
@@ -750,8 +750,8 @@
             <article class="service-card">
               <div class="media" data-fallback="Event greenery">
                 <picture>
-                  <source srcset="island-roots-images/service-events.webp" type="image/webp">
-                  <img src="island-roots-images/service-events.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="An outdoor event space with potted palms and green arrangements beside guest tables">
+                  <source srcset="island-roots-images/service-events.webp?v=2" type="image/webp">
+                  <img src="island-roots-images/service-events.jpg?v=2" width="1200" height="750" loading="lazy" decoding="async" alt="An outdoor event space with potted palms and green arrangements beside guest tables">
                 </picture>
               </div>
               <div class="body">
@@ -766,8 +766,8 @@
             <article class="service-card">
               <div class="media" data-fallback="Property styling">
                 <picture>
-                  <source srcset="island-roots-images/service-staging.webp" type="image/webp">
-                  <img src="island-roots-images/service-staging.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="A styled villa living room with large potted plants near open doors">
+                  <source srcset="island-roots-images/service-staging.webp?v=2" type="image/webp">
+                  <img src="island-roots-images/service-staging.jpg?v=2" width="1200" height="750" loading="lazy" decoding="async" alt="A styled villa living room with large potted plants near open doors">
                 </picture>
               </div>
               <div class="body">
@@ -999,6 +999,11 @@
     // two files with the same name: name.webp (main) and name.jpg (fallback).
     const IMAGE_DIR = 'island-roots-images/';
 
+    // Cache-busting version. When you replace images but keep the same file
+    // names, raise this number (and the ?v= number on the hero, service and
+    // og:image paths in the HTML) so browsers and GitHub's cache fetch the new files.
+    const IMAGE_VERSION = '2';
+
     /* =========================================================
        DATA — CATEGORIES AND SAMPLE PRODUCTS
        Prices are fictional sample values in XCD. Set price to null
@@ -1162,9 +1167,9 @@
     // name: file name without extension. decorative: true hides it from screen readers.
     function buildPicture(name, alt, label, width, height, decorative) {
       const picture = el('picture', { 'aria-hidden': decorative ? 'true' : null }, [
-        el('source', { srcset: IMAGE_DIR + name + '.webp', type: 'image/webp' }),
+        el('source', { srcset: IMAGE_DIR + name + '.webp?v=' + IMAGE_VERSION, type: 'image/webp' }),
         el('img', {
-          src: IMAGE_DIR + name + '.jpg',
+          src: IMAGE_DIR + name + '.jpg?v=' + IMAGE_VERSION,
           width: String(width), height: String(height),
           loading: 'lazy', decoding: 'async',
           alt: decorative ? '' : alt,
