@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+
+<!-- ══ META ═══════════════════════════════════════════ -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glow Skin Studio — Book Your Glow Treatment Today</title>
+<meta name="description" content="Premium skincare treatments in the heart of the Caribbean. Facials, chemical peels, and advanced skin therapies. Book your transformation via WhatsApp today.">
+<meta name="robots" content="index, follow">
+
+<!-- ══ OPEN GRAPH ══════════════════════════════════════ -->
+<meta property="og:type"        content="website">
+<meta property="og:title"       content="Glow Skin Studio — Your Skin Deserves This">
+<meta property="og:description" content="Premium skincare treatments. Real results. Book instantly via WhatsApp.">
+<meta property="og:image"       content="glow-skin-studio.webp">
+<meta name="twitter:card"       content="summary_large_image">
+
+<!-- ══ FAVICON ════════════════════════════════════════ -->
+<link rel="icon" type="image/webp" href="images/logo.webp">
+<link rel="apple-touch-icon"       href="images/logo.webp">
+
+<!-- ══ BOOTSTRAP + ICONS ══════════════════════════════ -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<!-- ══ GOOGLE FONTS ═══════════════════════════════════ -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ══════════════════════════════════════════════════════
+   TOKENS — GLOW SKIN STUDIO
+   Palette: warm ivory / deep plum / rose gold / sage
+   ══════════════════════════════════════════════════════ */
+:root {
+  --plum:       #3b1f2b;
+  --plum-deep:  #261319;
+  --rose:       #c9848a;
+  --rose-light: #e8b4b8;
+  --rose-gold:  #c9987a;
+  --ivory:      #fdf6f0;
+  --ivory-warm: #f5ece3;
+  --sage:       #8a9e8c;
+  --text:       #2c1a20;
+  --muted:      #7a6068;
+  --card:       #fff;
+  --border:     rgba(59,31,43,.1);
+  --gold:       #c9987a;
+  --white:      #ffffff;
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans:  'Jost', sans-serif;
+}
+
+/* ── BASE ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body {
+  font-family: var(--font-sans);
+  background: var(--ivory);
+  color: var(--text);
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+
+section { padding: 5rem 0; }
+
+/* ── TYPOGRAPHY ───────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.15;
+}
+.serif { font-family: var(--font-serif); }
+.italic { font-style: italic; }
+
+.section-eyebrow {
+  font-family: var(--font-sans);
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--rose);
+  display: block;
+  margin-bottom: .75rem;
+}
+.divider-rose {
+  width: 48px; height: 2px;
+  background: linear-gradient(90deg, var(--rose), var(--rose-gold));
+  border-radius: 2px;
+  margin: 1rem auto 0;
+}
+.divider-rose.left { margin-left: 0; }
+
+/* ══════════════════════════════════════════════════════
+   NAVBAR
+   ══════════════════════════════════════════════════════ */
+.glow-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 999;
+  background: rgba(253,246,240,.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(201,132,138,.15);
+  transition: box-shadow .3s;
+  padding: .9rem 0;
+}
+.glow-nav.scrolled { box-shadow: 0 4px 24px rgba(59,31,43,.1); }
+.nav-brand {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--plum);
+  letter-spacing: .02em;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.nav-brand .brand-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rose), var(--rose-gold));
+  display: inline-block;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: .82rem;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--rose); }
+.btn-book-nav {
+  background: var(--plum);
+  color: var(--ivory) !important;
+  padding: .55rem 1.3rem;
+  border-radius: 2rem;
+  font-size: .78rem !important;
+  font-weight: 600 !important;
+  letter-spacing: .08em !important;
+  transition: background .2s, transform .2s;
+}
+.btn-book-nav:hover {
+  background: var(--rose);
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+
+/* ══════════════════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════════════════ */
+.hero-glow {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 5rem;
+  background: var(--ivory);
+}
+/* decorative blobs */
+.hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: .18;
+  pointer-events: none;
+}
+.blob-1 { width: 500px; height: 500px; background: var(--rose-light); top: -10%; right: -5%; }
+.blob-2 { width: 300px; height: 300px; background: var(--rose-gold); bottom: 5%; left: -8%; }
+.blob-3 { width: 200px; height: 200px; background: var(--sage); top: 50%; right: 25%; }
+
+.hero-glow .container { position: relative; z-index: 2; }
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: rgba(201,132,138,.12);
+  border: 1px solid rgba(201,132,138,.25);
+  border-radius: 2rem;
+  padding: .4rem 1rem;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 1.5rem;
+}
+.hero-title {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 700;
+  color: var(--plum);
+  line-height: 1.05;
+  margin-bottom: 1.25rem;
+}
+.hero-title .accent-italic {
+  font-style: italic;
+  color: var(--rose);
+  display: block;
+}
+.hero-sub {
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 480px;
+  margin-bottom: 2rem;
+}
+.btn-wa-glow {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  background: #25D366;
+  color: #fff;
+  padding: .9rem 2rem;
+  border-radius: 3rem;
+  font-size: .9rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  transition: transform .2s, box-shadow .2s;
+  box-shadow: 0 6px 24px rgba(37,211,102,.35);
+}
+.btn-wa-glow:hover {
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(37,211,102,.45);
+}
+.btn-outline-glow {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  border: 1.5px solid var(--plum);
+  color: var(--plum);
+  padding: .85rem 1.75rem;
+  border-radius: 3rem;
+  font-size: .9rem;
+  font-weight: 500;
+  transition: all .2s;
+}
+.btn-outline-glow:hover {
+  background: var(--plum);
+  color: var(--ivory);
+}
+
+/* hero image side */
+.hero-img-wrap {
+  position: relative;
+}
+.hero-main-img {
+  width: 100%;
+  height: 540px;
+  object-fit: cover;
+  border-radius: 2rem 2rem 8rem 2rem;
+  box-shadow: 0 32px 80px rgba(59,31,43,.22);
+}
+.hero-badge-float {
+  position: absolute;
+  background: var(--white);
+  border-radius: 1rem;
+  padding: .9rem 1.2rem;
+  box-shadow: 0 8px 32px rgba(59,31,43,.15);
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--plum);
+  white-space: nowrap;
+}
+.hero-badge-float .badge-icon {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rose), var(--rose-gold));
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  font-size: .9rem;
+  flex-shrink: 0;
+}
+.badge-f1 { bottom: 2.5rem; left: -2rem; }
+.badge-f2 { top: 2rem; right: -1.5rem; }
+.badge-sub { font-size: .68rem; font-weight: 400; color: var(--muted); display: block; }
+
+/* social proof strip */
+.social-proof-strip {
+  background: var(--plum);
+  color: var(--ivory);
+  padding: 1.25rem 0;
+  overflow: hidden;
+}
+.proof-items {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.proof-item {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  font-size: .8rem;
+  letter-spacing: .06em;
+  opacity: .88;
+}
+.proof-item i { color: var(--rose-light); font-size: 1rem; }
+
+/* ══════════════════════════════════════════════════════
+   ABOUT / INTRO BLOCK
+   ══════════════════════════════════════════════════════ */
+.about-section {
+  background: var(--white);
+}
+.about-img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 60px rgba(59,31,43,.12);
+}
+.about-img-wrap {
+  position: relative;
+}
+.about-badge {
+  position: absolute;
+  bottom: -1.5rem;
+  right: 1.5rem;
+  background: var(--plum);
+  color: var(--ivory);
+  border-radius: 1rem;
+  padding: 1.2rem 1.5rem;
+  text-align: center;
+}
+.about-badge .years {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--rose-light);
+  line-height: 1;
+}
+.about-badge .years-label {
+  font-size: .7rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  opacity: .75;
+  margin-top: .2rem;
+  display: block;
+}
+.about-title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  color: var(--plum);
+  margin-bottom: 1.25rem;
+}
+.about-body {
+  font-size: .95rem;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+.trust-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: rgba(201,132,138,.1);
+  border: 1px solid rgba(201,132,138,.2);
+  border-radius: 2rem;
+  padding: .45rem 1rem;
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--plum);
+  margin: .25rem;
+}
+.trust-pill i { color: var(--rose); }
+
+/* ══════════════════════════════════════════════════════
+   TREATMENTS / SERVICES
+   ══════════════════════════════════════════════════════ */
+.treatments-section {
+  background: var(--ivory-warm);
+}
+.treatment-card {
+  background: var(--white);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(59,31,43,.07);
+  transition: transform .3s, box-shadow .3s;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.treatment-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(59,31,43,.14);
+}
+.treatment-header {
+  background: linear-gradient(135deg, var(--plum), var(--rose) 150%);
+  padding: 2rem 1.75rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.treatment-header::after {
+  content: '';
+  position: absolute;
+  bottom: -20px; right: -20px;
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.06);
+}
+.treatment-icon {
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: .9rem;
+}
+.treatment-name {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: .25rem;
+}
+.treatment-price {
+  font-size: .85rem;
+  color: rgba(255,255,255,.7);
+  letter-spacing: .04em;
+}
+.treatment-price strong {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--rose-light);
+}
+.treatment-body {
+  padding: 1.5rem 1.75rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.treatment-desc {
+  font-size: .88rem;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 1rem;
+  flex: 1;
+}
+.treatment-feat {
+  font-size: .8rem;
+  color: var(--text);
+  display: flex;
+  align-items: flex-start;
+  gap: .5rem;
+  margin-bottom: .4rem;
+}
+.treatment-feat i { color: var(--rose); margin-top: .15rem; flex-shrink: 0; }
+.btn-book-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  background: #25D366;
+  color: #fff;
+  border-radius: 2rem;
+  padding: .7rem 1.25rem;
+  font-size: .82rem;
+  font-weight: 600;
+  margin-top: 1.25rem;
+  transition: transform .2s, box-shadow .2s;
+  box-shadow: 0 4px 16px rgba(37,211,102,.3);
+}
+.btn-book-card:hover {
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37,211,102,.4);
+}
+
+/* ══════════════════════════════════════════════════════
+   BEFORE / AFTER GALLERY
+   ══════════════════════════════════════════════════════ */
+.gallery-section {
+  background: var(--plum-deep);
+  padding: 5rem 0;
+}
+.gallery-section .section-eyebrow { color: var(--rose-light); }
+.gallery-section h2 { color: var(--ivory); }
+.gallery-section .divider-rose { background: linear-gradient(90deg, var(--rose-light), var(--rose-gold)); }
+
+.ba-card {
+  position: relative;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  padding: 1.5rem;
+  height: 100%;
+}
+.ba-label {
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--rose-light);
+  margin-bottom: .75rem;
+  display: block;
+}
+.ba-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .5rem;
+  border-radius: .75rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.ba-img {
+  height: 160px;
+  object-fit: cover;
+  width: 100%;
+  background: rgba(255,255,255,.05);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.5rem;
+}
+.ba-img-placeholder {
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  color: rgba(255,255,255,.3);
+  font-size: .7rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  background: rgba(255,255,255,.04);
+}
+.ba-img-placeholder i { font-size: 1.8rem; }
+.ba-before-tag, .ba-after-tag {
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .25rem .6rem;
+  border-radius: 0 0 .4rem .4rem;
+  text-align: center;
+}
+.ba-before-tag { background: rgba(255,255,255,.12); color: rgba(255,255,255,.6); }
+.ba-after-tag  { background: var(--rose); color: #fff; }
+.ba-treatment-name {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ivory);
+  margin-bottom: .25rem;
+}
+.ba-sessions {
+  font-size: .78rem;
+  color: rgba(255,255,255,.45);
+}
+
+.gallery-cta-block {
+  background: rgba(201,132,138,.12);
+  border: 1px solid rgba(201,132,138,.25);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+.gallery-cta-block h3 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--ivory);
+  margin-bottom: .75rem;
+}
+.gallery-cta-block p { color: rgba(255,255,255,.6); font-size: .9rem; margin-bottom: 1.5rem; }
+
+/* ══════════════════════════════════════════════════════
+   HOW IT WORKS
+   ══════════════════════════════════════════════════════ */
+.process-section { background: var(--white); }
+.process-step {
+  text-align: center;
+  padding: 0 1rem;
+  position: relative;
+}
+.process-num {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  border: 2px solid var(--rose);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--rose);
+  margin: 0 auto 1rem;
+  position: relative;
+  background: var(--white);
+  z-index: 2;
+}
+.process-connector {
+  position: absolute;
+  top: 28px;
+  left: calc(50% + 28px);
+  right: calc(-50% + 28px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--rose), transparent);
+  opacity: .3;
+}
+.process-step:last-child .process-connector { display: none; }
+.process-step h5 {
+  font-size: 1.05rem;
+  color: var(--plum);
+  margin-bottom: .4rem;
+}
+.process-step p {
+  font-size: .83rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════════════════════════════
+   TESTIMONIALS
+   ══════════════════════════════════════════════════════ */
+.testi-section { background: var(--ivory-warm); }
+.testi-card {
+  background: var(--white);
+  border-radius: 1.5rem;
+  padding: 2rem 1.75rem;
+  box-shadow: 0 4px 24px rgba(59,31,43,.07);
+  height: 100%;
+  position: relative;
+  transition: transform .3s, box-shadow .3s;
+}
+.testi-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(59,31,43,.12);
+}
+.testi-quote {
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--rose);
+  opacity: .25;
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+}
+.testi-stars { color: #f59e0b; font-size: .85rem; margin-bottom: .75rem; }
+.testi-text {
+  font-size: .92rem;
+  line-height: 1.75;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+  padding-top: .75rem;
+  font-style: italic;
+  font-family: var(--font-serif);
+}
+.testi-avatar {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rose), var(--rose-gold));
+  color: #fff;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.testi-name { font-weight: 600; font-size: .9rem; color: var(--plum); }
+.testi-tag  { font-size: .75rem; color: var(--muted); }
+
+/* ══════════════════════════════════════════════════════
+   PRICING / PACKAGES
+   ══════════════════════════════════════════════════════ */
+.pricing-section { background: var(--ivory); }
+.pkg-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 1.5rem;
+  padding: 2rem 1.75rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform .3s, box-shadow .3s, border-color .3s;
+}
+.pkg-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 44px rgba(59,31,43,.1);
+}
+.pkg-card.pkg-featured {
+  border-color: var(--rose);
+  box-shadow: 0 8px 32px rgba(201,132,138,.2);
+  position: relative;
+}
+.pkg-best-badge {
+  position: absolute;
+  top: -14px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--rose);
+  color: #fff;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .3rem 1rem;
+  border-radius: 2rem;
+  white-space: nowrap;
+}
+.pkg-name {
+  font-family: var(--font-sans);
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: .5rem;
+}
+.pkg-price {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--plum);
+  line-height: 1;
+  margin-bottom: .2rem;
+}
+.pkg-price sup { font-size: 1.2rem; vertical-align: super; font-weight: 600; }
+.pkg-period { font-size: .78rem; color: var(--muted); margin-bottom: .75rem; }
+.pkg-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; margin-bottom: 1.25rem; }
+.pkg-feat {
+  display: flex;
+  align-items: flex-start;
+  gap: .6rem;
+  font-size: .83rem;
+  color: var(--text);
+  margin-bottom: .55rem;
+}
+.pkg-feat i { color: var(--rose); margin-top: .1rem; flex-shrink: 0; }
+.pkg-footer { margin-top: auto; padding-top: 1.25rem; }
+
+/* ══════════════════════════════════════════════════════
+   FINAL CTA SECTION
+   ══════════════════════════════════════════════════════ */
+.cta-glow {
+  background: linear-gradient(135deg, var(--plum-deep) 0%, var(--plum) 60%, #5c2a3a 100%);
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.cta-glow::before {
+  content: '';
+  position: absolute;
+  top: -30%; right: -10%;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,132,138,.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-glow .container { position: relative; z-index: 2; }
+.cta-glow h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--ivory);
+  margin-bottom: 1rem;
+}
+.cta-glow p { color: rgba(253,246,240,.65); font-size: 1rem; line-height: 1.7; margin-bottom: 2rem; }
+.cta-urgency {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: rgba(201,132,138,.2);
+  border: 1px solid rgba(201,132,138,.35);
+  border-radius: 2rem;
+  padding: .5rem 1.2rem;
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--rose-light);
+  letter-spacing: .06em;
+  margin-bottom: 1.75rem;
+}
+
+/* ══════════════════════════════════════════════════════
+   FOOTER
+   ══════════════════════════════════════════════════════ */
+.glow-footer {
+  background: var(--plum-deep);
+  padding: 3rem 0 1.5rem;
+  color: rgba(253,246,240,.6);
+}
+.footer-brand-name {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--ivory);
+  margin-bottom: .5rem;
+}
+.footer-about { font-size: .83rem; line-height: 1.7; max-width: 300px; }
+.footer-head { font-size: .7rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--rose-light); margin-bottom: 1rem; }
+.footer-lnk { display: block; font-size: .83rem; margin-bottom: .5rem; color: rgba(253,246,240,.55); transition: color .2s; }
+.footer-lnk:hover { color: var(--rose-light); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,.07); margin-top: 2.5rem; padding-top: 1.25rem; font-size: .78rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; }
+.soc-btn {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .95rem;
+  border: 1px solid rgba(255,255,255,.15);
+  color: rgba(255,255,255,.6);
+  transition: all .2s;
+}
+.soc-btn:hover { background: var(--rose); border-color: var(--rose); color: #fff; }
+
+/* ══════════════════════════════════════════════════════
+   WA FLOAT
+   ══════════════════════════════════════════════════════ */
+.wa-float-glow {
+  position: fixed;
+  bottom: 1.5rem; right: 1.5rem;
+  z-index: 9999;
+  width: 56px; height: 56px;
+  background: #25D366;
+  color: #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 4px 20px rgba(37,211,102,.45);
+  transition: transform .2s, box-shadow .2s;
+}
+.wa-float-glow:hover {
+  color: #fff;
+  transform: scale(1.08);
+  box-shadow: 0 6px 28px rgba(37,211,102,.6);
+}
+
+/* ══════════════════════════════════════════════════════
+   SCROLL REVEAL
+   ══════════════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.from-left { transform: translateX(-30px); }
+.reveal.from-right { transform: translateX(30px); }
+.reveal.visible { opacity: 1; transform: none; }
+.d1 { transition-delay: .1s; }
+.d2 { transition-delay: .2s; }
+.d3 { transition-delay: .3s; }
+.d4 { transition-delay: .4s; }
+.d5 { transition-delay: .5s; }
+
+/* ══════════════════════════════════════════════════════
+   RESPONSIVE HELPERS
+   ══════════════════════════════════════════════════════ */
+@media (max-width: 991px) {
+  .hero-main-img { height: 360px; border-radius: 1.5rem; }
+  .badge-f1 { left: 0; bottom: 1rem; }
+  .badge-f2 { right: 0; }
+  .process-connector { display: none; }
+}
+@media (max-width: 767px) {
+  .nav-links { display: none; }
+  .hero-title { font-size: 2.5rem; }
+  .about-badge { right: 1rem; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- ══ NAVBAR ══════════════════════════════════════════ -->
+<nav class="glow-nav" id="mainNav">
+  <div class="container d-flex align-items-center justify-content-between">
+    <a href="#" class="nav-brand">
+      <span class="brand-dot"></span>
+      Glow Skin Studio
+    </a>
+    <ul class="nav-links mb-0">
+      <li><a href="#treatments">Treatments</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20book%20a%20treatment%20at%20Glow%20Skin%20Studio" class="btn-book-nav"><i class="bi bi-whatsapp"></i> Book Now</a></li>
+    </ul>
+    <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20book%20a%20treatment%20at%20Glow%20Skin%20Studio" class="btn-book-nav d-lg-none"><i class="bi bi-whatsapp"></i> Book</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ════════════════════════════════════════════ -->
+<section class="hero-glow" id="home">
+  <div class="blob-1 hero-blob"></div>
+  <div class="blob-2 hero-blob"></div>
+  <div class="blob-3 hero-blob"></div>
+
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-6 reveal">
+        <div class="hero-eyebrow">
+          <i class="bi bi-stars"></i> Premium Skincare Studio · St. Lucia
+        </div>
+        <h1 class="hero-title">
+          Your Skin Deserves
+          <span class="accent-italic">to Glow.</span>
+        </h1>
+        <p class="hero-sub">
+          Tailored clinical treatments that deliver visible, lasting results. From deep-cleansing facials to advanced chemical peels — your transformation starts here.
+        </p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20book%20a%20treatment%20at%20Glow%20Skin%20Studio" class="btn-wa-glow">
+            <i class="bi bi-whatsapp"></i> Book Your Treatment
+          </a>
+          <a href="#treatments" class="btn-outline-glow">
+            <i class="bi bi-arrow-down"></i> See Treatments
+          </a>
+        </div>
+        <p class="mt-3" style="font-size:.78rem;color:var(--muted);">
+          <i class="bi bi-shield-check me-1" style="color:var(--rose)"></i>
+          Licensed aesthetician &nbsp;·&nbsp; Consultation included &nbsp;·&nbsp; Results guaranteed
+        </p>
+      </div>
+
+      <div class="col-lg-6 reveal from-right d2">
+        <div class="hero-img-wrap">
+          <img
+            src="glow-skin-studio.webp"
+            alt="Glow Skin Studio — professional skincare treatment session"
+            class="hero-main-img"
+            loading="eager"
+            width="600"
+            height="540"
+          >
+          <div class="hero-badge-float badge-f1">
+            <div class="badge-icon"><i class="bi bi-star-fill"></i></div>
+            <div>
+              <strong>4.9 / 5.0</strong>
+              <span class="badge-sub">From 200+ clients</span>
+            </div>
+          </div>
+          <div class="hero-badge-float badge-f2">
+            <div class="badge-icon"><i class="bi bi-calendar-check"></i></div>
+            <div>
+              <strong>Book in 60 sec</strong>
+              <span class="badge-sub">Via WhatsApp</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ SOCIAL PROOF STRIP ══════════════════════════════ -->
+<div class="social-proof-strip">
+  <div class="container">
+    <div class="proof-items">
+      <div class="proof-item"><i class="bi bi-check-circle-fill"></i> Licensed & Certified</div>
+      <div class="proof-item"><i class="bi bi-heart-fill"></i> 200+ Glowing Clients</div>
+      <div class="proof-item"><i class="bi bi-clock-fill"></i> Same-Week Appointments</div>
+      <div class="proof-item"><i class="bi bi-shield-fill"></i> Skin-Type Consultation Included</div>
+      <div class="proof-item"><i class="bi bi-whatsapp"></i> Book Instantly on WhatsApp</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ABOUT ════════════════════════════════════════════ -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-5 reveal from-left">
+        <div class="about-img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80"
+            alt="Aesthetician preparing treatment"
+            class="about-img"
+            loading="lazy"
+          >
+          <div class="about-badge">
+            <div class="years">8+</div>
+            <span class="years-label">Years of<br>Excellence</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-7 reveal from-right d2" style="padding-top:2rem">
+        <span class="section-eyebrow">About the Studio</span>
+        <h2 class="about-title">Where Science Meets<br><em>Skincare Artistry</em></h2>
+        <div class="divider-rose left" style="margin-bottom:1.5rem"></div>
+        <p class="about-body">
+          At Glow Skin Studio, we believe flawless skin is not luck — it's a result of expert care, proven technique, and treatments designed specifically for you. Our licensed aesthetician brings clinical precision and genuine passion to every session, ensuring your skin receives exactly what it needs to thrive in our Caribbean climate.
+        </p>
+        <p class="about-body">
+          Every client leaves not just looking better — but understanding their skin better. That's the Glow difference.
+        </p>
+        <div class="mt-3">
+          <span class="trust-pill"><i class="bi bi-patch-check-fill"></i> Licensed Aesthetician</span>
+          <span class="trust-pill"><i class="bi bi-thermometer-sun"></i> Tropical Skin Specialists</span>
+          <span class="trust-pill"><i class="bi bi-droplet-fill"></i> Premium Product Lines</span>
+          <span class="trust-pill"><i class="bi bi-person-heart"></i> Free Skin Consultation</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ TREATMENTS ═══════════════════════════════════════ -->
+<section class="treatments-section" id="treatments">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-eyebrow">Our Treatments</span>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem);color:var(--plum)">
+        Choose Your <em>Transformation</em>
+      </h2>
+      <div class="divider-rose"></div>
+      <p class="mt-3" style="max-width:500px;margin:1rem auto 0;color:var(--muted);font-size:.92rem;line-height:1.7">
+        Every treatment is customized to your skin type and concern. Not sure where to start? Book a free consultation and we'll guide you.
+      </p>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Signature Glow Facial -->
+      <div class="col-md-6 col-lg-3 reveal d1">
+        <div class="treatment-card">
+          <div class="treatment-header">
+            <div class="treatment-icon"><i class="bi bi-stars"></i></div>
+            <div class="treatment-name">Signature Glow Facial</div>
+            <div class="treatment-price">From <strong>$85</strong></div>
+          </div>
+          <div class="treatment-body">
+            <p class="treatment-desc">Our most popular treatment. A full-service deep cleanse, exfoliation, extraction, and hydration ritual designed for your skin type.</p>
+            <div class="treatment-feat"><i class="bi bi-check-circle-fill"></i> 60-minute full session</div>
+            <div class="treatment-feat"><i class="bi bi-check-circle-fill"></i> Steam &amp; extraction included</div>
+            <div class="treatment-feat"><i class="bi bi-check-circle-fill"></i> Hydration mask finish</div>
+            <div class="treatment-feat"><i class="bi bi-check-circle-fill"></i> Skin-type analysis</div>
+            <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20book%20the%20Signature%20Glow%20Facial" class="btn-book-card">
+              <i class="bi bi-whatsapp"></i> Book This Treatment
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chemical Peel -->
+      <div class="col-md-6 col-lg-3 reveal d2">
+        <div class="treatment-card">
+          <div class="treatment-header" style="background:linear-gradient(135deg,#3b1f2b,#c9848a 160%)">
+            <div class="treatment-icon"><i class="bi bi-droplet-half"></i></div>
+            <div class="treatment-name">Chemical Peel</div>
+            <div class="treatment-price">From <strong>$110</strong></div>
+          </div>
+          <div class="treatment-body">
+            <p class="treatment-desc">Resurface, renew, and reveal. Our professional-grade peels target hyperpigmentation, acne scarring, and dull uneven skin tone.</p>
+            <div class="treatment-feat"><i class="bi bi-check-circle-fill"></i> AHA / BHA / TCA options</div>
+            <div class="treatment-feat"><i class="bi bi-check-circle-fill"></i> Targets dark spots &amp; scars</div>
+            <div class="treatment-feat"><i class="bi bi-check-circle-fill"></i> Aftercare kit provided</div>
+            <div class="treatment-feat"><i class="bi bi-check-circle-fill"></i> Follow-up guidance included</div>
+            <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20book%20a%20Chemical%20Peel%20treatment" class="btn-book-card">
+              <i class="bi bi-whatsapp"></i> Book This Treatment
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Microdermabrasion -->
+      <div class="col-md-6 col-lg-3 reveal d3">
+        <div class="treatment-card">
+          <div class="treatment-header" style="background:linear-gradient(135deg,#4a2233,#8a9e8c 160%)">
+            <div class="treatment-icon"><i class="bi bi-wind"></i></div>
+            <div class="treatment-name">Microdermabrasion</div>
+            <div class="treatment-price">From <strong>$95</strong></div>
+          </div>
+          <div class="treatment-body">
+            <p class="treatment-desc">Physically resurface the skin using advanced diamond-tip technology. Minimizes pores, smooths texture, and instantly brightens.</p>
+            <div class="treatment-feat"><i class="bi bi-check-circle-fill"></i> Diamond-tip technology</div>
+            <div class="treatment-feat"><i class="bi bi-check-circle-fill"></i> No downtime required</div>
+            <div class="treatment-feat"><i class="bi bi-check-circle-fill"></i> Stimulates collagen</div>
+            <div class="treatment-feat"><i class="bi bi-check-circle-fill"></i> Immediate visible results</div>
+            <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20book%20Microdermabrasion" class="btn-book-card">
+              <i class="bi bi-whatsapp"></i> Book This Treatment
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Acne Clarity Treatment -->
+      <div class="col-md-6 col-lg-3 reveal d4">
+        <div class="treatment-card">
+          <div class="treatment-header" style="background:linear-gradient(135deg,#261319,#c9987a 160%)">
+            <div class="treatment-icon"><i class="bi bi-shield-heart"></i></div>
+            <div class="treatment-name">Acne Clarity Treatment</div>
+            <div class="treatment-price">From <strong>$90</strong></div>
+          </div>
+          <div class="treatment-body">
+            <p class="treatment-desc">A targeted protocol for breakout-prone skin. Clears congestion, calms inflammation, and prevents future breakouts with lasting clarity.</p>
+            <div class="treatment-feat"><i class="bi bi-check-circle-fill"></i> Deep pore cleansing</div>
+            <div class="treatment-feat"><i class="bi bi-check-circle-fill"></i> Anti-inflammatory masque</div>
+            <div class="treatment-feat"><i class="bi bi-check-circle-fill"></i> LED light therapy add-on</div>
+            <div class="treatment-feat"><i class="bi bi-check-circle-fill"></i> Home-care routine included</div>
+            <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20book%20the%20Acne%20Clarity%20Treatment" class="btn-book-card">
+              <i class="bi bi-whatsapp"></i> Book This Treatment
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Upsell nudge -->
+    <div class="text-center mt-5 reveal d3">
+      <p style="color:var(--muted);font-size:.9rem;margin-bottom:1rem">Not sure which treatment is right for you?</p>
+      <a href="https://wa.me/17587235872?text=I%27d%20like%20a%20free%20skin%20consultation%20at%20Glow%20Skin%20Studio" class="btn-wa-glow" style="font-size:.85rem;padding:.75rem 1.75rem">
+        <i class="bi bi-whatsapp"></i> Get a Free Skin Consultation
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BEFORE / AFTER GALLERY ══════════════════════════ -->
+<section class="gallery-section" id="results">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-eyebrow">Client Results</span>
+      <h2 style="font-size:clamp(2rem,4vw,2.8rem)">Real Skin. <em>Real Results.</em></h2>
+      <div class="divider-rose"></div>
+      <p class="mt-3" style="max-width:480px;margin:1rem auto 0;color:rgba(253,246,240,.55);font-size:.9rem;line-height:1.7">
+        These are real Glow Skin Studio clients. No filters. No editing. Just visible transformation from proven treatments.
+      </p>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="ba-card">
+          <span class="ba-label"><i class="bi bi-camera me-1"></i> Chemical Peel — 3 Sessions</span>
+          <div class="ba-split">
+            <div>
+              <div class="ba-img-placeholder"><i class="bi bi-image"></i>Before</div>
+              <div class="ba-before-tag">Before</div>
+            </div>
+            <div>
+              <div class="ba-img-placeholder" style="background:rgba(201,132,138,.1)"><i class="bi bi-stars"></i>After</div>
+              <div class="ba-after-tag">After</div>
+            </div>
+          </div>
+          <div class="ba-treatment-name">Hyperpigmentation — Visible Reduction</div>
+          <div class="ba-sessions">3 sessions · 6 weeks apart</div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="ba-card">
+          <span class="ba-label"><i class="bi bi-camera me-1"></i> Acne Clarity — 4 Sessions</span>
+          <div class="ba-split">
+            <div>
+              <div class="ba-img-placeholder"><i class="bi bi-image"></i>Before</div>
+              <div class="ba-before-tag">Before</div>
+            </div>
+            <div>
+              <div class="ba-img-placeholder" style="background:rgba(201,132,138,.1)"><i class="bi bi-stars"></i>After</div>
+              <div class="ba-after-tag">After</div>
+            </div>
+          </div>
+          <div class="ba-treatment-name">Active Breakouts — Cleared &amp; Calm</div>
+          <div class="ba-sessions">4 sessions · Monthly</div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d3">
+        <div class="ba-card">
+          <span class="ba-label"><i class="bi bi-camera me-1"></i> Signature Facial — 2 Sessions</span>
+          <div class="ba-split">
+            <div>
+              <div class="ba-img-placeholder"><i class="bi bi-image"></i>Before</div>
+              <div class="ba-before-tag">Before</div>
+            </div>
+            <div>
+              <div class="ba-img-placeholder" style="background:rgba(201,132,138,.1)"><i class="bi bi-stars"></i>After</div>
+              <div class="ba-after-tag">After</div>
+            </div>
+          </div>
+          <div class="ba-treatment-name">Dull &amp; Textured — Radiant &amp; Smooth</div>
+          <div class="ba-sessions">2 sessions · 4 weeks apart</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="gallery-cta-block reveal d2">
+      <h3>Your <em>Before</em> Ends Here.</h3>
+      <p>Every journey to glowing skin starts with one appointment. Book yours today — results guaranteed or we work with you until you're satisfied.</p>
+      <a href="https://wa.me/17587235872?text=I%27m%20ready%20to%20start%20my%20skin%20transformation%20at%20Glow%20Skin%20Studio" class="btn-wa-glow">
+        <i class="bi bi-whatsapp"></i> Start My Transformation
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HOW IT WORKS ═════════════════════════════════════ -->
+<section class="process-section" id="process">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-eyebrow">The Process</span>
+      <h2 style="font-size:clamp(1.8rem,3.5vw,2.5rem);color:var(--plum)">Booking Is Effortless</h2>
+      <div class="divider-rose"></div>
+    </div>
+
+    <div class="row g-4 text-center position-relative">
+      <div class="col-6 col-md-3 reveal d1">
+        <div class="process-step">
+          <div class="process-num">1<div class="process-connector"></div></div>
+          <h5>Message Us</h5>
+          <p>Tap the WhatsApp button and tell us your skin concern or preferred treatment.</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 reveal d2">
+        <div class="process-step">
+          <div class="process-num">2<div class="process-connector"></div></div>
+          <h5>Free Consultation</h5>
+          <p>We assess your skin type, goals, and recommend the right treatment for you.</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 reveal d3">
+        <div class="process-step">
+          <div class="process-num">3<div class="process-connector"></div></div>
+          <h5>Book Your Date</h5>
+          <p>Pick a time that works. We confirm your appointment within the hour.</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 reveal d4">
+        <div class="process-step">
+          <div class="process-num">4</div>
+          <h5>Glow Up</h5>
+          <p>Come in. Relax. Leave with skin that turns heads. Results begin immediately.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5 reveal d3">
+      <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20book%20an%20appointment%20at%20Glow%20Skin%20Studio" class="btn-wa-glow">
+        <i class="bi bi-whatsapp"></i> Book My Appointment Now
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ═════════════════════════════════════ -->
+<section class="testi-section" id="testimonials">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-eyebrow">Client Love</span>
+      <h2 style="font-size:clamp(1.8rem,3.5vw,2.5rem);color:var(--plum)">They Came In Dull.<br><em>They Left Glowing.</em></h2>
+      <div class="divider-rose"></div>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+          </div>
+          <p class="testi-text">I've struggled with hyperpigmentation for years and nothing worked. After just two chemical peels at Glow Skin Studio, the difference is real. I feel confident leaving home without makeup for the first time in years.</p>
+          <div class="d-flex align-items-center gap-3">
+            <div class="testi-avatar">K</div>
+            <div>
+              <div class="testi-name">Kezia M.</div>
+              <div class="testi-tag">Chemical Peel Client · St. Lucia</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+          </div>
+          <p class="testi-text">The atmosphere is luxurious, the products are top-tier, and the results speak for themselves. My skin has never felt this clean and smooth. Booking via WhatsApp was the easiest thing ever — I was confirmed in minutes.</p>
+          <div class="d-flex align-items-center gap-3">
+            <div class="testi-avatar">R</div>
+            <div>
+              <div class="testi-name">Renée D.</div>
+              <div class="testi-tag">Signature Facial Client · Martinique</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d3">
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+          </div>
+          <p class="testi-text">Finally — a skincare professional who actually listens. She assessed my skin properly before touching it. The Acne Clarity Treatment cleared a breakout I had for months. I won't go anywhere else. Period.</p>
+          <div class="d-flex align-items-center gap-3">
+            <div class="testi-avatar">T</div>
+            <div>
+              <div class="testi-name">Tasha L.</div>
+              <div class="testi-tag">Acne Clarity Client · Barbados</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRICING ══════════════════════════════════════════ -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-eyebrow">Investment</span>
+      <h2 style="font-size:clamp(1.8rem,3.5vw,2.5rem);color:var(--plum)">Premium Skin. <em>Fair Prices.</em></h2>
+      <div class="divider-rose"></div>
+      <p class="mt-3" style="max-width:480px;margin:1rem auto 0;color:var(--muted);font-size:.9rem;line-height:1.7">
+        Every package includes a full skin consultation and post-treatment guidance. Invest in your skin — it's with you for life.
+      </p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+
+      <div class="col-md-4 reveal d1">
+        <div class="pkg-card">
+          <div class="pkg-name">Single Session</div>
+          <div class="pkg-price"><sup>$</sup>85<span style="font-size:1rem;font-weight:400;opacity:.5">+</span></div>
+          <div class="pkg-period">Per treatment · USD</div>
+          <p class="pkg-desc">Try any single treatment. Perfect for a first visit or targeted one-off result.</p>
+          <hr style="border-color:var(--border);margin:1rem 0">
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> Your choice of treatment</div>
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> Free skin consultation</div>
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> Post-treatment care guide</div>
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> WhatsApp follow-up support</div>
+          <div class="pkg-footer">
+            <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20book%20a%20single%20session%20at%20Glow%20Skin%20Studio" class="btn-wa-glow w-100 justify-content-center" style="font-size:.83rem;padding:.7rem 1.25rem">
+              <i class="bi bi-whatsapp"></i> Book a Session
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 reveal d2">
+        <div class="pkg-card pkg-featured">
+          <div class="pkg-best-badge">Best Value</div>
+          <div class="pkg-name">Glow Series</div>
+          <div class="pkg-price"><sup>$</sup>240</div>
+          <div class="pkg-period">3-session bundle · USD — Save $45</div>
+          <p class="pkg-desc">Consistent treatments deliver exponentially better results. This is where real transformation happens.</p>
+          <hr style="border-color:rgba(201,132,138,.2);margin:1rem 0">
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> 3 treatments of your choice</div>
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> Personalized treatment plan</div>
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> Progress photos at each visit</div>
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> WhatsApp priority booking</div>
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> Custom home-care routine</div>
+          <div class="pkg-footer">
+            <a href="https://wa.me/17587235872?text=I%27d%20like%20the%20Glow%20Series%20package%20at%20Glow%20Skin%20Studio" class="btn-wa-glow w-100 justify-content-center" style="font-size:.83rem;padding:.7rem 1.25rem">
+              <i class="bi bi-whatsapp"></i> Get the Glow Series
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 reveal d3">
+        <div class="pkg-card">
+          <div class="pkg-name">Glow Membership</div>
+          <div class="pkg-price"><sup>$</sup>120<span style="font-size:1rem;font-weight:400;opacity:.5">/mo</span></div>
+          <div class="pkg-period">Monthly plan · USD</div>
+          <p class="pkg-desc">For clients who take their skin seriously. Monthly treatments, exclusive pricing, and VIP access.</p>
+          <hr style="border-color:var(--border);margin:1rem 0">
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> 1 monthly treatment included</div>
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> 15% off additional sessions</div>
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> Priority booking — no waitlist</div>
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> Seasonal skin review</div>
+          <div class="pkg-feat"><i class="bi bi-check-circle-fill"></i> Exclusive member-only offers</div>
+          <div class="pkg-footer">
+            <a href="https://wa.me/17587235872?text=I%27d%20like%20to%20join%20the%20Glow%20Membership" class="btn-wa-glow w-100 justify-content-center" style="font-size:.83rem;padding:.7rem 1.25rem">
+              <i class="bi bi-whatsapp"></i> Join the Membership
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-4 reveal d3">
+      <small style="color:var(--muted);font-size:.78rem">All prices in USD. 50% deposit required to confirm booking. Results vary by individual skin type.</small>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FINAL CTA ════════════════════════════════════════ -->
+<section class="cta-glow">
+  <div class="container text-center">
+    <div class="reveal">
+      <div class="cta-urgency">
+        <i class="bi bi-clock-fill"></i> Limited appointments available this month
+      </div>
+      <h2>
+        The Skin You've Always Wanted<br>
+        <em style="font-style:italic">Is One Message Away.</em>
+      </h2>
+      <p style="max-width:440px;margin:0 auto 2rem">
+        Stop hoping. Stop waiting. Book today and walk out of your first appointment already looking better than when you walked in.
+      </p>
+      <a href="https://wa.me/17587235872?text=Hi%2C%20I%27m%20ready%20to%20book%20my%20treatment%20at%20Glow%20Skin%20Studio%21" class="btn-wa-glow" style="font-size:1rem;padding:1rem 2.5rem">
+        <i class="bi bi-whatsapp"></i> Book My Treatment Now
+      </a>
+      <p class="mt-3" style="font-size:.78rem;color:rgba(253,246,240,.4)">
+        Free consultation · No pressure · Real results
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ═══════════════════════════════════════════ -->
+<footer class="glow-footer">
+  <div class="container">
+    <div class="row g-5 mb-3">
+      <div class="col-lg-5">
+        <div class="footer-brand-name">Glow Skin Studio</div>
+        <p class="footer-about">Premium skincare treatments for the Caribbean woman and man who demands real, lasting results. Licensed. Trusted. Proven.</p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="https://wa.me/17587235872" class="soc-btn" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          <a href="#" class="soc-btn" title="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="soc-btn" title="Facebook"><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <p class="footer-head">Treatments</p>
+        <a href="#treatments" class="footer-lnk">Signature Glow Facial</a>
+        <a href="#treatments" class="footer-lnk">Chemical Peel</a>
+        <a href="#treatments" class="footer-lnk">Microdermabrasion</a>
+        <a href="#treatments" class="footer-lnk">Acne Clarity Treatment</a>
+        <a href="#pricing" class="footer-lnk">Packages &amp; Pricing</a>
+      </div>
+      <div class="col-6 col-lg-3">
+        <p class="footer-head">Book Now</p>
+        <a href="https://wa.me/17587235872" class="footer-lnk d-flex align-items-center gap-2">
+          <i class="bi bi-whatsapp text-success"></i> +1 (758) 723-5872
+        </a>
+        <p class="footer-lnk" style="cursor:default">
+          <i class="bi bi-clock me-2" style="color:var(--rose)"></i> Mon–Sat, 9 AM – 6 PM
+        </p>
+        <p class="footer-lnk" style="cursor:default">
+          <i class="bi bi-geo-alt me-2" style="color:var(--rose)"></i> St. Lucia, Caribbean
+        </p>
+        <a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20book%20a%20treatment" class="btn-wa-glow mt-2 d-inline-flex" style="font-size:.78rem;padding:.55rem 1.2rem">
+          <i class="bi bi-whatsapp"></i> Book Now
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="glow-year"></span> Glow Skin Studio. All rights reserved.</span>
+      <span style="opacity:.4">A jamaLinks Conversion System · Demo</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ WA FLOAT ═════════════════════════════════════════ -->
+<a href="https://wa.me/17587235872?text=Hi%2C%20I%27d%20like%20to%20book%20at%20Glow%20Skin%20Studio" class="wa-float-glow" title="Book on WhatsApp" aria-label="Book on WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<!-- ══ BOOTSTRAP JS ═════════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/* ── Navbar scroll shadow ── */
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60), { passive: true });
+
+/* ── Scroll reveal ── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+/* ── Smooth scroll ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (!t) return;
+    e.preventDefault();
+    t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+/* ── Footer year ── */
+document.getElementById('glow-year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
