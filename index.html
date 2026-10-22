@@ -311,6 +311,7 @@ picture.is-missing img { opacity: 0; }
   .nav-toggle { display: inline-flex; }
   .nav-panel { position: absolute; left: 0; right: 0; top: 100%; background: var(--navy); border-bottom: 1px solid var(--line-dark); padding: .5rem var(--gutter) 1.5rem; display: none; max-height: calc(100vh - var(--header-h)); overflow-y: auto; }
   .nav-panel.open { display: block; }
+  html:not(.js) .site-header { position: relative; } /* full menu shown without JS — don't let it stick over content */
   html:not(.js) .nav-bar { flex-wrap: wrap; }
   html:not(.js) .nav-panel { position: static; display: block; flex-basis: 100%; padding: 0 0 1rem; }
   html:not(.js) .nav-toggle { display: none; }
@@ -1539,12 +1540,12 @@ html:not(.js) .theme-toggle { display: none; }
 
 <!-- ══════════════════════════════════════════════════════════════
      N. NEWSLETTER — Kit (kit.com) signup
-     SETUP: in Kit, create a form → Embed → HTML. Copy the form's action URL
-     (looks like https://app.kit.com/forms/1234567/subscriptions) and paste it
-     over KIT_FORM_ACTION_URL below. Field names email_address and
-     fields[first_name] match Kit's defaults — check them against Kit's HTML.
-     Optional: in Kit's form settings, set the success redirect to
-     https://jamalsamuel.online/?subscribed=1#newsletter to show the thank-you message here.
+     Connected to Kit form 10082596 (uid 93cc407d74). Styled to match this site —
+     Kit's own embed script and styles are deliberately NOT loaded (no third-party
+     JS, no Kit cookies). With JavaScript on, sign-ups are sent in the background and
+     the success message shows here. Without JavaScript, the form posts normally to Kit;
+     to bring those visitors back, set the form's "After subscribe" action in Kit to
+     Redirect → https://jamalsamuel.online/?subscribed=1#newsletter
      ══════════════════════════════════════════════════════════════ -->
 <section class="bg-cream newsletter" id="newsletter" aria-labelledby="newsletter-title">
   <div class="container nl-grid">
@@ -1560,7 +1561,7 @@ html:not(.js) .theme-toggle { display: none; }
     </div>
 
     <div class="nl-card reveal">
-      <form class="nl-form" id="kitForm" action="KIT_FORM_ACTION_URL" method="post" aria-label="Subscribe to the Jamal Samuel email newsletter">
+      <form class="nl-form" id="kitForm" action="https://app.kit.com/forms/10082596/subscriptions" method="post" aria-label="Subscribe to the Jamal Samuel email newsletter">
         <div class="nl-row">
           <div class="nl-field">
             <label for="nl-name">First name <span class="opt">(optional)</span></label>
@@ -1784,16 +1785,53 @@ html:not(.js) .theme-toggle { display: none; }
     status.querySelector('span').textContent = text;
   }
   const isConfigured = () => /^https:\/\/(app\.kit\.com|app\.convertkit\.com)\/forms\/\d+\/subscriptions/.test(form.getAttribute('action') || '');
-  form.addEventListener('submit', e => {
+  const btn = form.querySelector('button[type="submit"]');
+  const SUCCESS = 'Success! Now check your email to confirm your subscription.';
+  form.addEventListener('submit', async e => {
     if (!isConfigured()) {
       e.preventDefault();
       show('warn', 'Newsletter sign-up is being set up. Please message us on WhatsApp in the meantime.');
       return;
     }
-    if (typeof window.gtag === 'function') window.gtag('event', 'newsletter_signup_submit', { form: 'kit' });
+    if (form.dataset.sending === '1') { e.preventDefault(); return; }
+    // Send in the background (same request Kit's own script makes). If anything goes wrong,
+    // fall back to a normal form post so the sign-up is never lost.
+    if (!window.fetch || !window.FormData) return;
+    e.preventDefault();
+    form.dataset.sending = '1';
+    btn.setAttribute('aria-disabled', 'true');
+    const label = btn.lastChild.textContent;
+    btn.lastChild.textContent = ' Subscribing…';
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+        credentials: 'omit'
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && (data.status === 'success' || data.status === 'quarantined')) {
+        show('ok', SUCCESS);
+        form.reset(); // also clears the red 'invalid' outline on the now-empty email field
+        if (typeof window.gtag === 'function') window.gtag('event', 'newsletter_signup', { form: 'kit' });
+      } else if (res.status === 422 || (data.errors && data.errors.messages)) {
+        const msg = (data.errors && data.errors.messages && data.errors.messages.join(' ')) || 'Please check your email address and try again.';
+        show('warn', msg);
+      } else {
+        throw new Error('Unexpected response');
+      }
+    } catch (err) {
+      form.dataset.sending = '';
+      HTMLFormElement.prototype.submit.call(form); // normal post to Kit
+      return;
+    } finally {
+      btn.removeAttribute('aria-disabled');
+      btn.lastChild.textContent = label;
+    }
+    form.dataset.sending = '';
   });
   if (new URLSearchParams(location.search).get('subscribed') === '1') {
-    show('ok', 'Thanks for subscribing! Check your inbox for a confirmation email — click the link inside to finish signing up.');
+    show('ok', 'Success! Now check your email to confirm your subscription.');
   }
 })();
 
