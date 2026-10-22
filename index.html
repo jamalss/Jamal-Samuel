@@ -1830,7 +1830,10 @@ html:not(.js) .theme-toggle { display: none; }
     }
     form.dataset.sending = '';
   });
-  if (new URLSearchParams(location.search).get('subscribed') === '1') {
+  const qs = new URLSearchParams(location.search);
+  if (qs.get('confirmed') === '1') {
+    show('ok', "You're confirmed and on the list. Thanks for subscribing — look out for the first email soon.");
+  } else if (qs.get('subscribed') === '1') {
     show('ok', 'Success! Now check your email to confirm your subscription.');
   }
 })();
