@@ -1786,7 +1786,7 @@ html:not(.js) .theme-toggle { display: none; }
   }
   const isConfigured = () => /^https:\/\/(app\.kit\.com|app\.convertkit\.com)\/forms\/\d+\/subscriptions/.test(form.getAttribute('action') || '');
   const btn = form.querySelector('button[type="submit"]');
-  const SUCCESS = 'Success! Now check your email to confirm your subscription.';
+  const SUCCESS = "Success! Now check your email to confirm your subscription. Can't see it? Check your junk or spam folder.";
   form.addEventListener('submit', async e => {
     if (!isConfigured()) {
       e.preventDefault();
@@ -1823,6 +1823,8 @@ html:not(.js) .theme-toggle { display: none; }
     } catch (err) {
       form.dataset.sending = '';
       HTMLFormElement.prototype.submit.call(form); // normal post to Kit
+      // If we're still on this page a few seconds later, the browser blocked it (e.g. Brave Shields or an ad blocker)
+      setTimeout(() => show('warn', "Your browser blocked the sign-up — this can happen with Brave Shields or ad blockers. Please allow this site and try again, or message us on WhatsApp."), 4000);
       return;
     } finally {
       btn.removeAttribute('aria-disabled');
@@ -1834,7 +1836,7 @@ html:not(.js) .theme-toggle { display: none; }
   if (qs.get('confirmed') === '1') {
     show('ok', "You're confirmed and on the list. Thanks for subscribing — look out for the first email soon.");
   } else if (qs.get('subscribed') === '1') {
-    show('ok', 'Success! Now check your email to confirm your subscription.');
+    show('ok', "Success! Now check your email to confirm your subscription. Can't see it? Check your junk or spam folder.");
   }
 })();
 
