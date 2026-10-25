@@ -263,6 +263,13 @@
   .dept-art .a-main{width:100%;height:100%;transition:transform .45s var(--ease);position:relative;z-index:1}
   .dept-art .a-side{position:absolute;width:34%;height:auto;right:4%;bottom:6%;transform:rotate(9deg);z-index:2}
   .dept:hover .a-main{transform:scale(1.05) rotate(-2deg)}
+  /* department photo sits over the illustration; if the file is missing it removes itself and the illustration shows */
+  .dept-art picture img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:3;
+    transition:transform .45s var(--ease)
+  }
+  .dept:hover .dept-art picture img{transform:scale(1.04)}
+  @media (prefers-reduced-motion:reduce){.dept:hover .dept-art picture img{transform:none}}
   .dept-body{padding:1.1rem 1rem 1.1rem;display:flex;flex-direction:column;gap:.4rem;min-width:0}
   .dept h3{font-weight:800;font-size:1.35rem;line-height:1.05;margin:0}
   .dept p{margin:0;font-size:.95rem;line-height:1.45;opacity:.92}
@@ -926,17 +933,23 @@
      ========================================================= */
   const DEPARTMENTS = [
     { id:'bags',     name:'Bags & Backpacks', chip:'Bags',     tint:'#FFE1DB', icon:'bi-backpack2',
-      desc:'Backpacks, crossbodies and weekend bags that carry the whole day.',      art:['bag-explorer','bag-crossbody'] },
+      desc:'Backpacks, crossbodies and weekend bags that carry the whole day.',      art:['bag-explorer','bag-crossbody'],
+      photo:'cayrove-images/dept-bags', photoAlt:'Backpacks, a crossbody bag and a weekend carryall displayed on a shelf' },
     { id:'footwear', name:'Footwear',         chip:'Footwear', tint:'#DDF4F1', icon:'bi-stars',
-      desc:'Sneakers, slides and trainers for town, beach and everything between.', art:['fw-coastline','fw-slides'] },
+      desc:'Sneakers, slides and trainers for town, beach and everything between.', art:['fw-coastline','fw-slides'],
+      photo:'cayrove-images/dept-footwear', photoAlt:'Casual sneakers, slide sandals and trainers lined up on a display' },
     { id:'apparel',  name:'Apparel',          chip:'Apparel',  tint:'#FFEFD0', icon:'bi-tags',
-      desc:'Easy tees, shorts and light layers made for warm days.',                art:['ap-tee','ap-shorts'] },
+      desc:'Easy tees, shorts and light layers made for warm days.',                art:['ap-tee','ap-shorts'],
+      photo:'cayrove-images/dept-apparel', photoAlt:'Folded cotton tees, shorts and a light overshirt on a store table' },
     { id:'kids',     name:'Kids',             chip:'Kids',     tint:'#E7F1D8', icon:'bi-balloon',
-      desc:'Bright, hard-wearing pieces for little explorers.',                     art:['kd-backpack','kd-sneakers'] },
+      desc:'Bright, hard-wearing pieces for little explorers.',                     art:['kd-backpack','kd-sneakers'],
+      photo:'cayrove-images/dept-kids', photoAlt:'A colourful kids\' backpack, small sneakers and a children\'s outfit set' },
     { id:'jerseys',  name:'Jerseys',          chip:'Jerseys',  tint:'#F6E9D6', icon:'bi-trophy',
-      desc:'Original sport-inspired jerseys. No club crests, all game-day energy.',   art:['jr-football','jr-basketball'] },
+      desc:'Original sport-inspired jerseys. No club crests, all game-day energy.',   art:['jr-football','jr-basketball'],
+      photo:'cayrove-images/dept-jerseys', photoAlt:'Unbranded football, basketball and retro-style jerseys on hangers' },
     { id:'luggage',  name:'Luggage',          chip:'Luggage',  tint:'#E4EEF0', icon:'bi-suitcase2',
-      desc:'Cabin cases, suitcases and duffels for the next trip off-island.',      art:['lg-voyager','lg-cabin'] }
+      desc:'Cabin cases, suitcases and duffels for the next trip off-island.',      art:['lg-voyager','lg-cabin'],
+      photo:'cayrove-images/dept-luggage', photoAlt:'A cabin case, a travel suitcase and a duffel bag grouped together' }
   ];
 
   /* =========================================================
@@ -1221,7 +1234,7 @@
       const [m, s] = d.art.map(id => productById[id]);
       const n = PRODUCTS.filter(p => p.category === d.id).length;
       return `<article class="dept dept--${d.id}" aria-labelledby="dept-${d.id}">
-        <div class="dept-art">${svgWrap(ART[m.art](m.a, m.b), '', CROP).replace('<svg','<svg class="a-main"')}${svgWrap(ART[s.art](s.a, s.b), '', CROP).replace('<svg','<svg class="a-side"')}</div>
+        <div class="dept-art">${svgWrap(ART[m.art](m.a, m.b), '', CROP).replace('<svg','<svg class="a-main"')}${svgWrap(ART[s.art](s.a, s.b), '', CROP).replace('<svg','<svg class="a-side"')}${CONFIG.usePhotos && d.photo ? pictureTag(d.photo, d.photoAlt || d.name, 1600, 1000, false) : ''}</div>
         <div class="dept-body">
           <span class="dept-count">${n} finds</span>
           <h3 id="dept-${d.id}">${esc(d.name)}</h3>
