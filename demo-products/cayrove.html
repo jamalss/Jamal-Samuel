@@ -17,11 +17,17 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <!-- Hero photo is the page's largest element: start downloading it immediately (small file on phones, full file on larger screens) -->
+  <link rel="preload" as="image" type="image/webp" href="cayrove-images/hero-bg-mobile.webp?v=1" media="(max-width: 767.98px)" fetchpriority="high">
+  <link rel="preload" as="image" type="image/webp" href="cayrove-images/hero-bg.webp?v=2" media="(min-width: 768px)" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Bootstrap 5.3.8 + Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" integrity="sha384-CK2SzKma4jA5H/MXDUU7i1TqZlCFaD4T01vtyDFvPlD97JQyS+IsSh1nI2EFbpyk" crossorigin="anonymous">
+  <!-- Icons are decorative: load their stylesheet without blocking the first paint -->
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" integrity="sha384-CK2SzKma4jA5H/MXDUU7i1TqZlCFaD4T01vtyDFvPlD97JQyS+IsSh1nI2EFbpyk" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" integrity="sha384-CK2SzKma4jA5H/MXDUU7i1TqZlCFaD4T01vtyDFvPlD97JQyS+IsSh1nI2EFbpyk" crossorigin="anonymous"></noscript>
 
   <style>
   /* =========================================================
@@ -641,8 +647,11 @@
     /* Image fallback: missing .webp -> retry .jpg; missing .jpg too -> remove the photo so the illustration / colour behind it shows. */
     window.photoError = function(img){
     const pic = img.parentElement;
-    const src = pic && pic.tagName === 'PICTURE' ? pic.querySelector('source') : null;
-    if (src && /\.webp(\?|$)/i.test(img.currentSrc || '')){ src.remove(); img.src = img.getAttribute('src'); return; }
+    const cur = img.currentSrc || '';
+    const srcs = pic && pic.tagName === 'PICTURE' ? [...pic.querySelectorAll('source')] : [];
+    // drop the <source> that just failed (match by file name), so the browser falls through to the next one
+    const failed = srcs.find(el => cur && cur.indexOf(el.getAttribute('srcset')) !== -1) || (/\.webp(\?|$)/i.test(cur) ? srcs[0] : null);
+    if (failed){ failed.remove(); img.src = img.getAttribute('src'); return; }
     (pic && pic.tagName === 'PICTURE' ? pic : img).remove();
   };
   </script>
@@ -687,6 +696,7 @@
     <section class="hero tag-edge" id="discover" aria-labelledby="hero-title" style="--edge:var(--porcelain)">
       <div class="hero-bg" aria-hidden="true">
         <picture>
+          <source media="(max-width: 767.98px)" srcset="cayrove-images/hero-bg-mobile.webp?v=1" type="image/webp">
           <source srcset="cayrove-images/hero-bg.webp?v=2" type="image/webp">
           <img src="cayrove-images/hero-bg.jpg?v=2" alt="" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async" onerror="photoError(this)">
         </picture>
@@ -1282,7 +1292,7 @@
         <span class="htag-label">${esc(p.name.replace(/^The /,''))}</span>
         <span class="htag-photo">
           ${svgWrap(ART[p.art](p.a, p.b), '', CROP)}
-          ${CONFIG.usePhotos && p.image ? `<picture><source srcset="${p.image}.webp" type="image/webp"><img src="${p.image}.jpg" alt="${esc(p.name)}" width="800" height="800" loading="eager" decoding="async" onerror="photoError(this)"></picture>` : ''}
+          ${CONFIG.usePhotos && p.image ? `<picture><source srcset="${p.image}.webp" type="image/webp"><img src="${p.image}.jpg" alt="${esc(p.name)}" width="800" height="800" loading="eager" fetchpriority="low" decoding="async" onerror="photoError(this)"></picture>` : ''}
           ${CONFIG.showPrices ? `<span class="htag-price">${price(p)}</span>` : ''}
         </span>
       </a>`;
