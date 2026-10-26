@@ -17,11 +17,17 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <!-- Hero photo is the page's largest element: start downloading it immediately (small file on phones, full file on larger screens) -->
+  <link rel="preload" as="image" type="image/webp" href="cayrove-images/hero-bg-mobile.webp?v=1" media="(max-width: 767.98px)" fetchpriority="high">
+  <link rel="preload" as="image" type="image/webp" href="cayrove-images/hero-bg.webp?v=2" media="(min-width: 768px)" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Bootstrap 5.3.8 + Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" integrity="sha384-CK2SzKma4jA5H/MXDUU7i1TqZlCFaD4T01vtyDFvPlD97JQyS+IsSh1nI2EFbpyk" crossorigin="anonymous">
+  <!-- Icons are decorative: load their stylesheet without blocking the first paint -->
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" integrity="sha384-CK2SzKma4jA5H/MXDUU7i1TqZlCFaD4T01vtyDFvPlD97JQyS+IsSh1nI2EFbpyk" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" integrity="sha384-CK2SzKma4jA5H/MXDUU7i1TqZlCFaD4T01vtyDFvPlD97JQyS+IsSh1nI2EFbpyk" crossorigin="anonymous"></noscript>
 
   <style>
   /* =========================================================
@@ -211,7 +217,7 @@
   .hero-copy{font-size:clamp(1.08rem,1.9vw,1.3rem);color:var(--mist);max-width:34ch;margin-bottom:2rem}
   .hero-ctas{display:flex;flex-wrap:wrap;gap:.8rem}
 
-  .collage{position:relative;width:100%;max-width:580px;margin-inline:auto;aspect-ratio:1/1.02}
+  .collage{position:relative;width:100%;max-width:580px;margin-inline:auto;aspect-ratio:1/1.1}
   .collage-panel{
     position:absolute;inset:12% 4% 6% 10%;border-radius:40px;background:var(--mango);
     transform:rotate(-5deg);
@@ -231,15 +237,33 @@
     background:var(--lagoon);box-shadow:inset 0 0 0 4px var(--porcelain);
   }
   .htag svg{display:block;width:100%;height:auto}
+  /* photo window inside each tag: the product photo sits over the illustration (fallback) */
+  .htag-photo{
+    position:relative;display:block;aspect-ratio:1/1;margin-top:.55rem;overflow:hidden;
+    border:2.5px solid var(--lagoon);border-radius:16px;background:var(--porcelain)
+  }
+  .htag-photo svg{position:absolute;inset:0;width:100%;height:100%}
+  .htag-photo picture img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;
+    transition:transform .45s var(--ease)
+  }
+  .htag:hover .htag-photo picture img{transform:scale(1.06)}
+  .htag-price{
+    position:absolute;top:8px;right:8px;z-index:2;
+    background:var(--mango);color:var(--lagoon);border:2px solid var(--lagoon);border-radius:999px;
+    font-family:var(--font-display);font-weight:800;font-size:clamp(.68rem,1.25vw,.9rem);line-height:1;
+    padding:.38em .7em;white-space:nowrap;box-shadow:2px 2px 0 var(--lagoon)
+  }
   .htag-label{
-    display:flex;justify-content:space-between;align-items:baseline;gap:.4rem;margin:0 .2rem .1rem;
+    display:block;margin:0 .2rem .1rem;min-height:2.3em;
     font-family:var(--font-display);font-weight:700;font-size:clamp(.78rem,1.4vw,1rem);line-height:1.15;
   }
   .htag-label small{font-family:var(--font-body);font-weight:500;font-size:.78em;opacity:.8;white-space:nowrap}
   .htag:hover{transform:translateY(-6px) rotate(var(--r,0deg));box-shadow:9px 9px 0 var(--lagoon)}
-  .htag-1{--c:var(--coral);--r:-7deg;width:46%;left:0;top:8%;transform:rotate(-7deg)}
-  .htag-2{--c:var(--aqua);--r:6deg;width:44%;right:2%;top:24%;transform:rotate(6deg);z-index:2}
-  .htag-3{--c:var(--ivory);--r:-2deg;width:42%;left:22%;bottom:0;transform:rotate(-2deg);z-index:3}
+  @media (prefers-reduced-motion:reduce){.htag:hover .htag-photo picture img{transform:none}}
+  .htag-1{--c:var(--coral);--r:-7deg;width:42%;left:1%;top:3%;transform:rotate(-7deg)}
+  .htag-2{--c:var(--aqua);--r:6deg;width:41%;right:2%;top:17%;transform:rotate(6deg);z-index:2}
+  .htag-3{--c:var(--ivory);--r:-2deg;width:39%;left:27%;bottom:0;transform:rotate(-2deg);z-index:3}
 
   /* one orchestrated load moment: tags drop onto the panel */
   @keyframes tagDrop{from{opacity:0;translate:0 -40px}to{opacity:1;translate:0 0}}
@@ -255,6 +279,8 @@
   @media (max-width:420px){
     .htag{border-radius:18px;box-shadow:4px 4px 0 var(--lagoon)}
     .htag::before{width:13px;height:13px;margin-left:-6.5px;box-shadow:inset 0 0 0 3px var(--porcelain)}
+    .htag-photo{border-radius:11px;border-width:2px;margin-top:.4rem}
+    .htag-price{top:5px;right:5px;border-width:1.5px;box-shadow:1.5px 1.5px 0 var(--lagoon)}
     .collage-ring{border-width:9px}
   }
 
@@ -379,9 +405,17 @@
   }
   .empty h3{font-weight:800;font-size:1.5rem}
 
+  .pbadge{
+    position:absolute;bottom:10px;left:10px;z-index:2;border:2px solid var(--lagoon);border-radius:999px;
+    font-family:var(--font-display);font-weight:800;font-size:.78rem;line-height:1;padding:.35rem .6rem;color:var(--lagoon)
+  }
+  .pbadge.is-sale{background:var(--coral)}
+  .pbadge.is-new{background:var(--aqua)}
+  @media (max-width:399.98px){.pbadge{bottom:7px;left:7px;font-size:.7rem;padding:.3rem .5rem}}
+  .pwas{margin:0;font-size:.84rem;color:#4a5c5f}
   /* duty-free price line on cards + legend */
   .pdf{margin:.1rem 0 .35rem;font-size:.86rem;line-height:1.3;color:var(--lagoon)}
-  .pdf strong{font-family:var(--font-display);font-weight:800;font-size:1.02em}
+  .pdf strong{font-family:var(--font-display);font-weight:800;font-size:1.02em;white-space:nowrap}
   .df-legend{margin:0;font-size:.9rem;color:#3e5154}
   .df-legend a{font-weight:700;color:var(--lagoon);text-underline-offset:3px}
 
@@ -625,8 +659,11 @@
     /* Image fallback: missing .webp -> retry .jpg; missing .jpg too -> remove the photo so the illustration / colour behind it shows. */
     window.photoError = function(img){
     const pic = img.parentElement;
-    const src = pic && pic.tagName === 'PICTURE' ? pic.querySelector('source') : null;
-    if (src && /\.webp(\?|$)/i.test(img.currentSrc || '')){ src.remove(); img.src = img.getAttribute('src'); return; }
+    const cur = img.currentSrc || '';
+    const srcs = pic && pic.tagName === 'PICTURE' ? [...pic.querySelectorAll('source')] : [];
+    // drop the <source> that just failed (match by file name), so the browser falls through to the next one
+    const failed = srcs.find(el => cur && cur.indexOf(el.getAttribute('srcset')) !== -1) || (/\.webp(\?|$)/i.test(cur) ? srcs[0] : null);
+    if (failed){ failed.remove(); img.src = img.getAttribute('src'); return; }
     (pic && pic.tagName === 'PICTURE' ? pic : img).remove();
   };
   </script>
@@ -671,8 +708,9 @@
     <section class="hero tag-edge" id="discover" aria-labelledby="hero-title" style="--edge:var(--porcelain)">
       <div class="hero-bg" aria-hidden="true">
         <picture>
-          <source srcset="cayrove-images/hero-bg.webp" type="image/webp">
-          <img src="cayrove-images/hero-bg.jpg" alt="" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async" onerror="photoError(this)">
+          <source media="(max-width: 767.98px)" srcset="cayrove-images/hero-bg-mobile.webp?v=1" type="image/webp">
+          <source srcset="cayrove-images/hero-bg.webp?v=2" type="image/webp">
+          <img src="cayrove-images/hero-bg.jpg?v=2" alt="" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async" onerror="photoError(this)">
         </picture>
       </div>
       <div class="hero-shade" aria-hidden="true"></div>
@@ -801,8 +839,8 @@
             <div class="store-frame" id="storeFrame">
               <!-- JS adds the illustration behind this photo; it shows only if the photo is missing -->
               <picture>
-                <source srcset="cayrove-images/store-interior.webp" type="image/webp">
-                <img src="cayrove-images/store-interior.jpg" alt="Inside the CAYROVE outlet: clothing rails, a shoe wall and a luggage display" width="1600" height="1040" loading="lazy" decoding="async" onerror="photoError(this)">
+                <source srcset="cayrove-images/store-interior.webp?v=2" type="image/webp">
+                <img src="cayrove-images/store-interior.jpg?v=2" alt="Inside the CAYROVE outlet: clothing rails, a shoe wall and a luggage display" width="1600" height="1040" loading="lazy" decoding="async" onerror="photoError(this)">
               </picture>
             </div>
           </div>
@@ -1045,12 +1083,12 @@
       desc:'Compact crossbody bag designed for daily essentials: phone, wallet, keys and shades.',
       image:'cayrove-images/bags-city-crossbody', art:'crossbody', a:'#1F4E55', b:'#FF6654',
       colors:[['Teal','#1F4E55'],['Coral','#FF6654'],['Cream','#FFF3DF']] },
-    { id:'bag-carryall', name:'The Weekend Carryall', category:'bags', price:139,
+    { id:'bag-carryall', was:189, name:'The Weekend Carryall', category:'bags', price:139,
       desc:'Spacious casual bag for short trips, beach days and everyday hauls.',
       image:'cayrove-images/bags-weekend-carryall', art:'carryall', a:'#FFCD70', b:'#89DDD5',
       colors:[['Mango','#FFCD70'],['Navy','#20324F'],['Natural','#E9D8B8']] },
 
-    { id:'fw-coastline', name:'Coastline Everyday Sneakers', category:'footwear', price:149, plural:true,
+    { id:'fw-coastline', isNew:true, name:'Coastline Everyday Sneakers', category:'footwear', price:149, plural:true,
       desc:'Contemporary low-top casual sneakers with a cushioned sole for all-day wear.',
       image:'cayrove-images/footwear-coastline-sneakers', art:'sneaker', a:'#FFFCF7', b:'#FF6654',
       colors:[['White','#FFFFFF'],['Sand','#E3CFAE'],['Black','#1D2426']], sizes:SHOE_SIZES },
@@ -1058,7 +1096,7 @@
       desc:'Comfortable casual slides with a simple modern profile and soft footbed.',
       image:'cayrove-images/footwear-easygoing-slides', art:'slides', a:'#FF6654', b:'#102F35',
       colors:[['Coral','#FF6654'],['Black','#1D2426'],['Aqua','#89DDD5']], sizes:SHOE_SIZES },
-    { id:'fw-streetline', name:'Streetline Casual Trainers', category:'footwear', price:169, plural:true,
+    { id:'fw-streetline', was:229, name:'Streetline Casual Trainers', category:'footwear', price:169, plural:true,
       desc:'Sport-inspired everyday footwear with a chunky, grippy sole.',
       image:'cayrove-images/footwear-streetline-trainers', art:'trainer', a:'#FFCD70', b:'#1F4E55',
       colors:[['Mango','#FFCD70'],['Grey','#B7C0C2'],['Black','#1D2426']], sizes:SHOE_SIZES },
@@ -1071,12 +1109,12 @@
       desc:'Comfortable casual shorts with an easy drawstring waist.',
       image:'cayrove-images/apparel-weekend-shorts', art:'shorts', a:'#89DDD5', b:'#1F4E55',
       colors:[['Aqua','#89DDD5'],['Khaki','#C9B48A'],['Navy','#20324F']], sizes:CLOTH_SIZES },
-    { id:'ap-overshirt', name:'The Everyday Overshirt', category:'apparel', price:89,
+    { id:'ap-overshirt', was:129, name:'The Everyday Overshirt', category:'apparel', price:89,
       desc:'Lightweight long-sleeve layering shirt for cool evenings and air-conditioned days.',
       image:'cayrove-images/apparel-everyday-overshirt', art:'overshirt', a:'#E9D5B5', b:'#1F4E55',
       colors:[['Sand','#E9D5B5'],['Olive','#7F8B5A'],['Denim','#4C6E8F']], sizes:CLOTH_SIZES },
 
-    { id:'kd-backpack', name:'Little Adventurer Backpack', category:'kids', price:59,
+    { id:'kd-backpack', isNew:true, name:'Little Adventurer Backpack', category:'kids', price:59,
       desc:'Colourful children\'s everyday backpack, sized for school books and snacks.',
       image:'cayrove-images/kids-little-adventurer-backpack', art:'kidspack', a:'#FFCD70', b:'#FF6654',
       colors:[['Mango','#FFCD70'],['Aqua','#89DDD5'],['Pink','#F7A8B8']] },
@@ -1097,7 +1135,7 @@
       desc:'Original unbranded basketball-style jersey with a breathable mesh feel.',
       image:'cayrove-images/jerseys-court-culture-basketball', art:'basketball', a:'#FF6654', b:'#102F35',
       colors:[['Coral','#FF6654'],['Black','#1D2426'],['Gold','#FFCD70']], sizes:CLOTH_SIZES },
-    { id:'jr-retro', name:'Retro Athletic Jersey', category:'jerseys', price:85,
+    { id:'jr-retro', isNew:true, name:'Retro Athletic Jersey', category:'jerseys', price:85,
       desc:'Original vintage-inspired sports top with a classic collar and chest stripes.',
       image:'cayrove-images/jerseys-retro-athletic', art:'retro', a:'#FFFCF7', b:'#FF6654',
       colors:[['Cream','#FFF3DF'],['Green','#2F6B4F']], sizes:CLOTH_SIZES },
@@ -1106,7 +1144,7 @@
       desc:'Compact hard-shell carry-on suitcase with smooth 360° wheels.',
       image:'cayrove-images/luggage-weekender-cabin-case', art:'cabin', a:'#FF6654', b:'#FFCD70',
       colors:[['Coral','#FF6654'],['Black','#1D2426'],['Silver','#C9CFD1']] },
-    { id:'lg-voyager', name:'The Voyager Travel Suitcase', category:'luggage', price:289,
+    { id:'lg-voyager', was:389, name:'The Voyager Travel Suitcase', category:'luggage', price:289,
       desc:'Medium-sized rolling travel suitcase for one to two weeks away.',
       image:'cayrove-images/luggage-voyager-suitcase', art:'suitcase', a:'#2C5C63', b:'#FFCD70',
       colors:[['Teal','#2C5C63'],['Black','#1D2426'],['Mango','#FFCD70']], sizes:['24-inch','28-inch'] },
@@ -1297,8 +1335,12 @@
     $('#heroCollage').insertAdjacentHTML('beforeend', picks.map(([id, cls]) => {
       const p = productById[id], d = deptById[p.category];
       return `<a class="htag ${cls}" href="#collection" data-filter="${d.id}" aria-label="See ${esc(d.name)} in the collection">
-        <span class="htag-label"><span>${esc(p.name.replace(/^The /,''))}</span>${CONFIG.showPrices ? `<small>${price(p)}</small>` : ''}</span>
-        ${svgWrap(ART[p.art](p.a, p.b), '', CROP)}
+        <span class="htag-label">${esc(p.name.replace(/^The /,''))}</span>
+        <span class="htag-photo">
+          ${svgWrap(ART[p.art](p.a, p.b), '', CROP)}
+          ${CONFIG.usePhotos && p.image ? `<picture><source srcset="${p.image}.webp" type="image/webp"><img src="${p.image}.jpg" alt="${esc(p.name)}" width="800" height="800" loading="eager" fetchpriority="low" decoding="async" onerror="photoError(this)"></picture>` : ''}
+          ${CONFIG.showPrices ? `<span class="htag-price">${price(p)}</span>` : ''}
+        </span>
       </a>`;
     }).join(''));
   }
@@ -1331,11 +1373,13 @@
     return `<article class="pcard${reduceMotion ? '' : ' enter'}" style="animation-delay:${Math.min(i, 8) * 40}ms" aria-labelledby="pn-${p.id}">
       <div class="pmedia" style="--tint:${d.tint}">
         ${productArt(p, p.name)}${photoTag(p)}
+        ${p.was && CONFIG.showPrices ? `<span class="pbadge is-sale">${Math.round((1 - p.price / p.was) * 100)}% off</span>` : (p.isNew ? '<span class="pbadge is-new">New in</span>' : '')}
         ${CONFIG.showPrices ? `<span class="ptag">${price(p)}${showDF() ? '<span class="visually-hidden"> tag price</span>' : ''}</span>` : ''}
       </div>
       <div class="pbody">
         <p class="pcat">${esc(d.name)}</p>
         <h3 class="pname" id="pn-${p.id}">${esc(p.name)}</h3>
+        ${p.was && CONFIG.showPrices ? `<p class="pwas">Was <s>${CONFIG.currency} ${p.was}</s></p>` : ''}
         ${showDF() ? `<p class="pdf">Duty-free: <strong>${dfPrice(p)}</strong></p>` : ''}
         ${p.colors ? `<div class="swatches" role="img" aria-label="Sample colours: ${esc(colorNames)}">${p.colors.map(c => `<span class="sw" style="--s:${c[1]}" title="${esc(c[0])}"></span>`).join('')}</div>` : ''}
         <button type="button" class="btn-ask" data-ask-product="${p.id}" aria-label="Ask About This Item: ${esc(p.name)}"><i class="bi bi-chat-dots" aria-hidden="true"></i>Ask About This Item</button>
