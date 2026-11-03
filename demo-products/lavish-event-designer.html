@@ -227,6 +227,9 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.25);
     }
     .demo-badge i { color: var(--gold); }
+    .demo-badge span { max-width: 22rem; line-height: 1.5; }
+    .stat-note { display:block; font-size:0.58rem; letter-spacing:0.08em; text-transform:none; opacity:0.75; margin-top:0.15rem; }
+    @media (max-width: 576px) { .demo-badge span { max-width: 15rem; } }
     @media (max-width: 576px) {
       .demo-badge { font-size: 0.58rem; padding: 0.4rem 0.7rem; bottom: 0.75rem; left: 0.75rem; }
     }
@@ -1454,7 +1457,7 @@
   ============================================================ -->
   <div class="demo-badge" role="note" aria-label="This is a demo website">
     <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
-    <span>Demo build &mdash; not a live business</span>
+    <span>Concept demo &mdash; not a real business. All content, images, figures &amp; prices are illustrative.</span>
   </div>
 
   <!-- ============================================================
@@ -1573,18 +1576,18 @@
             </a>
           </div>
 
-          <div class="hero-stats" aria-label="Our achievements">
+          <div class="hero-stats" aria-label="Business stats (placeholders)">
             <div>
-              <div class="hero-stat-num">500+</div>
-              <div class="hero-stat-label">Events Crafted</div>
+              <div class="hero-stat-num">#</div>
+              <div class="hero-stat-label">Events Crafted<span class="stat-note">(your real number here)</span></div>
             </div>
             <div>
-              <div class="hero-stat-num">12+</div>
-              <div class="hero-stat-label">Years Experience</div>
+              <div class="hero-stat-num">#</div>
+              <div class="hero-stat-label">Years Experience<span class="stat-note">(your real number here)</span></div>
             </div>
             <div>
-              <div class="hero-stat-num">98%</div>
-              <div class="hero-stat-label">Client Satisfaction</div>
+              <div class="hero-stat-num">&#9733;</div>
+              <div class="hero-stat-label">Client Reviews<span class="stat-note">(real reviews go here)</span></div>
             </div>
           </div>
         </div>
@@ -1606,9 +1609,9 @@
                   />
                 </picture>
               </div>
-              <div class="hero-img-badge" aria-label="Award winning design">
-                <div class="badge-num">12</div>
-                <div class="badge-text">Years of Excellence</div>
+              <div class="hero-img-badge" aria-label="Bespoke design">
+                <div class="badge-num">&#10022;</div>
+                <div class="badge-text">Bespoke by Design</div>
               </div>
               <div class="hero-img-border" aria-hidden="true"></div>
             </div>
@@ -1673,8 +1676,8 @@
               />
             </picture>
             <div style="position:absolute; bottom:-1.5rem; right:-1.5rem; background:var(--gold); padding:1.5rem; min-width:140px;">
-              <div style="font-family:var(--font-display); font-size:2rem; font-weight:500; color:#0A0705; line-height:1;">500+</div>
-              <div style="font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:#0A0705; margin-top:0.2rem; opacity:0.7;">Dreams Realised</div>
+              <div style="font-family:var(--font-display); font-size:2rem; font-weight:500; color:#0A0705; line-height:1;">#</div>
+              <div style="font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:#0A0705; margin-top:0.2rem; opacity:0.7;">Events Count Goes Here</div>
             </div>
             <div style="position:absolute; top:-1.5rem; left:-1.5rem; width:120px; height:120px; border:1px solid var(--border); z-index:-1;" aria-hidden="true"></div>
           </div>
@@ -1685,7 +1688,7 @@
           <div class="section-label reveal">Our Story</div>
           <div class="gold-divider left reveal reveal-delay-1"></div>
           <h2 class="section-heading reveal reveal-delay-1" style="font-size:clamp(2rem,4.5vw,3.2rem);">
-            Curating <em>extraordinary</em><br/> moments since 2012
+            Curating <em>extraordinary</em><br/> moments, one celebration at a time
           </h2>
 
           <div class="about-quote mt-4 mb-4 reveal reveal-delay-2">
@@ -1857,7 +1860,7 @@
             />
           </picture>
           <div class="gallery-overlay" aria-hidden="true">
-            <span class="gallery-overlay-text">The Richardson Wedding</span>
+            <span class="gallery-overlay-text">Wedding Reception</span>
           </div>
         </div>
 
@@ -1874,7 +1877,7 @@
             />
           </picture>
           <div class="gallery-overlay" aria-hidden="true">
-            <span class="gallery-overlay-text">Summit Financial Gala</span>
+            <span class="gallery-overlay-text">Corporate Gala</span>
           </div>
         </div>
 
@@ -1891,7 +1894,7 @@
             />
           </picture>
           <div class="gallery-overlay" aria-hidden="true">
-            <span class="gallery-overlay-text">Sofia's 30th Milestone</span>
+            <span class="gallery-overlay-text">Milestone Birthday</span>
           </div>
         </div>
 
@@ -2206,7 +2209,7 @@
             <div class="contact-info-icon" aria-hidden="true"><i class="fa-solid fa-envelope"></i></div>
             <div>
               <div class="contact-info-label">Email</div>
-              <a href="mailto:hello@lavishevents.com" class="contact-info-value" style="text-decoration:none; color:inherit;">hello@lavishevents.com</a>
+              <span class="contact-info-value">your-email@yourbusiness.com <small style="opacity:0.6;">(preview only)</small></span>
             </div>
           </div>
 
@@ -2222,7 +2225,7 @@
             <div class="contact-info-icon" aria-hidden="true"><i class="fa-brands fa-instagram"></i></div>
             <div>
               <div class="contact-info-label">Instagram</div>
-              <a href="https://instagram.com/jamalsamuel.online" target="_blank" rel="noopener noreferrer" class="contact-info-value" style="text-decoration:none; color:inherit;">@lavishevents</a>
+              <a href="https://instagram.com/jamalsamuel.online" target="_blank" rel="noopener noreferrer" class="contact-info-value" style="text-decoration:none; color:inherit;">@jamalsamuel.online <small style="opacity:0.6;">(demo link)</small></a>
             </div>
           </div>
 
@@ -2351,8 +2354,8 @@
                 >
                   <option value="" disabled selected>Select a package</option>
                   <option value="signature">Signature ($1,500+)</option>
-                  <option value="luxe">Luxe ($3,500+)</option>
-                  <option value="prestige">Prestige ($7,000+)</option>
+                  <option value="luxe">Luxe ($4,500+)</option>
+                  <option value="prestige">Prestige ($9,500+)</option>
                   <option value="custom">Custom / Not Sure</option>
                 </select>
               </div>
@@ -2469,10 +2472,10 @@
           &nbsp;|&nbsp;
           <a href="#" style="color:var(--text-dim); text-decoration:none;">Terms of Service</a>
           &nbsp;|&nbsp;
-          <span style="color:var(--text-dim);">This is a demo site built to showcase design &amp; functionality</span>
+          <span style="color:var(--text-dim);">Concept demo by Jamal Samuel &mdash; Lavish Events is fictional. All content, images, figures, prices &amp; gallery captions shown are illustrative examples, not real business data.</span>
         </div>
         <div class="footer-credit">
-          Designed &amp; Built by <a href="https://www.jamalsamuel.online/" target="_blank" rel="noopener noreferrer">Jamal Samuel</a>
+          <a href="https://www.jamalsamuel.online/" target="_blank" rel="noopener noreferrer">Jamal Samuel Built</a>
         </div>
       </div>
     </div>
@@ -2727,7 +2730,8 @@
       status.innerHTML = '✦ Thank you, ' + firstName + '! Your enquiry has been received. '
         + 'We will be in touch within 24 hours. For faster response, '
         + '<a href="https://wa.me/17587235872?text=' + waMessage + '" '
-        + 'target="_blank" rel="noopener noreferrer" style="color:var(--gold);">message us on WhatsApp</a>.';
+        + 'target="_blank" rel="noopener noreferrer" style="color:var(--gold);">message us on WhatsApp</a>.'
+        + '<br><small style="opacity:0.7;">(Demo only: no enquiry was actually sent.)</small>';
       status.focus();
 
       this.reset();
