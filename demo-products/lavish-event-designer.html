@@ -2,7 +2,8 @@
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#090704" />
   <title>Lavish Events | Luxury Event Design & Planning — Castries, Saint Lucia</title>
   <meta name="description" content="Bespoke luxury event design and planning in Castries, Saint Lucia. We transform visions into unforgettable experiences — weddings, galas, corporate events, and more." />
 
@@ -31,30 +32,19 @@
 
   <!-- Favicon (inline SVG monogram, no external asset needed) -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23090704'/%3E%3Ctext x='50' y='68' font-size='55' font-family='Georgia,serif' fill='%23C9A96E' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E" />
+  <!-- JSON-LD removed: demo business is fictional, no structured business claims -->
 
-  <!-- JSON-LD: LocalBusiness -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Lavish Events",
-    "description": "Bespoke luxury event design and planning — weddings, galas, corporate events, and social celebrations.",
-    "image": "https://www.jamalsamuel.online/demo-products/lavish-events-images/hero-main.jpg",
-    "url": "https://www.jamalsamuel.online/demo-products/lavish-event-designer.html",
-    "telephone": "+17587235872",
-    "priceRange": "$$$",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Castries",
-      "addressCountry": "LC"
-    },
-    "areaServed": "Saint Lucia",
-    "sameAs": [
-      "https://instagram.com/jamalsamuel.online",
-      "https://www.facebook.com/jamal.samuel.777",
-      "https://www.tiktok.com/@jamalsamuel.online"
-    ]
-  }
+  <!-- Set theme before first paint (prevents dark/light flash) -->
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('lavish-theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') {
+        var h = new Date().getHours();
+        t = (h >= 6 && h < 18) ? 'light' : 'dark';
+      }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
   </script>
 
   <!-- Preconnect for Google Fonts -->
@@ -82,11 +72,12 @@
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"
     media="print"
     onload="this.media='all'"
   />
   <noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </noscript>
 
   <style>
@@ -103,7 +94,6 @@
       --font-heading: 'Cinzel', serif;
       --font-body:    'DM Sans', sans-serif;
 
-      font-display: swap;
     }
 
     [data-theme="dark"] {
@@ -141,7 +131,8 @@
     ============================================================ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    @supports (overflow: clip) { html, body { overflow-x: clip; } }
 
     body {
       font-family: var(--font-body);
@@ -227,6 +218,26 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.25);
     }
     .demo-badge i { color: var(--gold); }
+
+    /* Skip link + visible keyboard focus */
+    .skip-link {
+      position: absolute; left: 1rem; top: -100px; z-index: 20000;
+      background: var(--gold); color: #0A0705; padding: 0.6rem 1rem;
+      font-size: 0.8rem; font-weight: 600; text-decoration: none;
+    }
+    .skip-link:focus { top: 1rem; }
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+    .form-control-lavish:focus-visible, .form-select-lavish:focus-visible { outline: 2px solid var(--gold); outline-offset: 1px; }
+
+    /* Anchor targets land below the fixed nav */
+    section[id], footer { scroll-margin-top: 80px; }
+
+    /* Date picker matches the active theme */
+    [data-theme="dark"] input[type="date"] { color-scheme: dark; }
+    [data-theme="light"] input[type="date"] { color-scheme: light; }
+
+    .js-hidden { display: none !important; }
+    .newsletter-note { font-size: 0.75rem; color: var(--text-dim); margin-top: 0.6rem; min-height: 1.2em; }
     .demo-badge span { max-width: 22rem; line-height: 1.5; }
     .stat-note { display:block; font-size:0.58rem; letter-spacing:0.08em; text-transform:none; opacity:0.75; margin-top:0.15rem; }
     @media (max-width: 576px) { .demo-badge span { max-width: 15rem; } }
@@ -316,6 +327,7 @@
     ============================================================ */
     #hero {
       min-height: 100vh;
+      min-height: 100svh;
       display: flex;
       align-items: center;
       position: relative;
@@ -631,6 +643,7 @@
 
     .section-pad { padding: 6rem 0; }
     .section-pad-lg { padding: 8rem 0; }
+    @media (max-width: 767px) { .section-pad-lg { padding: 5rem 0; } }
 
     /* ============================================================
        ABOUT / STORY
@@ -648,6 +661,15 @@
       color: var(--text);
       border-left: 2px solid var(--gold);
       padding-left: 2rem;
+    }
+
+    .about-badge {
+      position: absolute; bottom: -1.5rem; right: -1.5rem;
+      background: var(--gold); padding: 1.5rem; min-width: 140px; max-width: 60%;
+    }
+    .about-ornament {
+      position: absolute; top: -1.5rem; left: -1.5rem; width: 120px; height: 120px;
+      border: 1px solid var(--border); z-index: -1; pointer-events: none;
     }
 
     .about-feature {
@@ -1367,6 +1389,13 @@
     .reveal-delay-2 { transition-delay: 0.3s; }
     .reveal-delay-3 { transition-delay: 0.45s; }
 
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+      .hero-eyebrow, .hero-title, .hero-subtitle, .hero-cta-group, .hero-stats, .hero-img-frame, .hero-scroll-indicator { opacity: 1; animation: none; }
+    }
+
     /* ============================================================
        MOBILE OVERRIDES
     ============================================================ */
@@ -1378,8 +1407,18 @@
       .process-connector { display: none; }
     }
 
+    @media (max-width: 991px) {
+      .about-badge { right: 0; bottom: -1rem; }
+      .about-ornament { display: none; }
+      .hero-glow { width: 100%; height: 100%; }
+      .hero-corner-ornament { width: 120px; height: 120px; }
+    }
+
     @media (max-width: 575px) {
-      .hero-title { font-size: clamp(2.8rem, 12vw, 4rem); }
+      .hero-title { font-size: clamp(2.6rem, 11vw, 4rem); }
+      .hero-corner-ornament { display: none; }
+      .whatsapp-float { bottom: 1rem; right: 1rem; width: 52px; height: 52px; }
+      footer { padding-bottom: 6rem; }
       .hero-stats { flex-wrap: wrap; gap: 1.2rem; }
       .gallery-item img { min-height: 200px; }
     }
@@ -1452,6 +1491,8 @@
 
 <body>
 
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- ============================================================
        DEMO NOTICE
   ============================================================ -->
@@ -1488,7 +1529,9 @@
           <button
             class="theme-toggle"
             id="themeToggle"
-            aria-label="Toggle light and dark mode"
+            type="button"
+            aria-label="Dark mode"
+            aria-pressed="true"
           >
             <i class="fa-solid fa-moon" id="themeIcon" aria-hidden="true"></i>
           </button>
@@ -1502,6 +1545,7 @@
           <button
             class="navbar-toggler-custom d-lg-none"
             id="mobileToggle"
+            type="button"
             aria-label="Toggle navigation menu"
             aria-expanded="false"
             aria-controls="mobileNav"
@@ -1514,13 +1558,13 @@
       </div>
 
       <!-- Mobile Nav -->
-      <div class="nav-collapse d-lg-none" id="mobileNav" style="display:none !important;" aria-hidden="true">
-        <a href="#about"        class="nav-link-custom d-block mb-2" role="menuitem">About</a>
-        <a href="#services"     class="nav-link-custom d-block mb-2" role="menuitem">Services</a>
-        <a href="#gallery"      class="nav-link-custom d-block mb-2" role="menuitem">Gallery</a>
-        <a href="#testimonials" class="nav-link-custom d-block mb-2" role="menuitem">Reviews</a>
-        <a href="#packages"     class="nav-link-custom d-block mb-2" role="menuitem">Packages</a>
-        <a href="#contact"      class="nav-link-custom d-block mb-3" role="menuitem">Contact</a>
+      <div class="nav-collapse d-lg-none js-hidden" id="mobileNav">
+        <a href="#about"        class="nav-link-custom d-block mb-2">About</a>
+        <a href="#services"     class="nav-link-custom d-block mb-2">Services</a>
+        <a href="#gallery"      class="nav-link-custom d-block mb-2">Gallery</a>
+        <a href="#testimonials" class="nav-link-custom d-block mb-2">Reviews</a>
+        <a href="#packages"     class="nav-link-custom d-block mb-2">Packages</a>
+        <a href="#contact"      class="nav-link-custom d-block mb-3">Contact</a>
         <a href="#contact"      class="btn-gold d-inline-flex" aria-label="Book a consultation">Book Consultation</a>
       </div>
     </div>
@@ -1529,6 +1573,7 @@
   <!-- ============================================================
        HERO
   ============================================================ -->
+  <main id="main-content" tabindex="-1">
   <section id="hero" aria-label="Hero section">
     <div class="hero-bg-grid" aria-hidden="true"></div>
     <div class="hero-glow"    aria-hidden="true"></div>
@@ -1549,7 +1594,7 @@
     </svg>
 
     <div class="container" style="position:relative; z-index:2;">
-      <div class="row align-items-center g-5">
+      <div class="row align-items-center g-4 g-lg-5">
 
         <!-- Left: Text -->
         <div class="col-lg-7">
@@ -1658,7 +1703,7 @@
   ============================================================ -->
   <section id="about" class="section-pad-lg" aria-label="About Lavish Events">
     <div class="container">
-      <div class="row g-5 align-items-center">
+      <div class="row g-4 g-lg-5 align-items-center">
 
         <!-- Left: Image collage -->
         <div class="col-lg-5 reveal">
@@ -1675,11 +1720,11 @@
                 style="width:100%; height:420px; object-fit:cover; filter:saturate(0.7) brightness(0.85);"
               />
             </picture>
-            <div style="position:absolute; bottom:-1.5rem; right:-1.5rem; background:var(--gold); padding:1.5rem; min-width:140px;">
+            <div class="about-badge">
               <div style="font-family:var(--font-display); font-size:2rem; font-weight:500; color:#0A0705; line-height:1;">#</div>
               <div style="font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:#0A0705; margin-top:0.2rem; opacity:0.7;">Events Count Goes Here</div>
             </div>
-            <div style="position:absolute; top:-1.5rem; left:-1.5rem; width:120px; height:120px; border:1px solid var(--border); z-index:-1;" aria-hidden="true"></div>
+            <div class="about-ornament" aria-hidden="true"></div>
           </div>
         </div>
 
@@ -1837,11 +1882,11 @@
 
       <!-- Filter Buttons -->
       <div class="gallery-filter reveal" role="toolbar" aria-label="Gallery filters">
-        <button class="filter-btn active" data-filter="all" aria-pressed="true">All Events</button>
-        <button class="filter-btn" data-filter="wedding" aria-pressed="false">Weddings</button>
-        <button class="filter-btn" data-filter="corporate" aria-pressed="false">Corporate</button>
-        <button class="filter-btn" data-filter="birthday" aria-pressed="false">Birthdays</button>
-        <button class="filter-btn" data-filter="social" aria-pressed="false">Social</button>
+        <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">All Events</button>
+        <button type="button" class="filter-btn" data-filter="wedding" aria-pressed="false">Weddings</button>
+        <button type="button" class="filter-btn" data-filter="corporate" aria-pressed="false">Corporate</button>
+        <button type="button" class="filter-btn" data-filter="birthday" aria-pressed="false">Birthdays</button>
+        <button type="button" class="filter-btn" data-filter="social" aria-pressed="false">Social</button>
       </div>
 
       <!-- Gallery Grid -->
@@ -2021,7 +2066,7 @@
         <div class="col-lg-7 reveal text-center">
           <div class="testimonial-card" role="article" style="padding:3rem 2rem;">
             <div class="testimonial-stars" role="img" aria-label="No reviews yet" style="opacity:0.3;">
-              ★★★★★
+              ☆☆☆☆☆
             </div>
             <h3 class="section-heading" style="font-size:1.4rem; margin:1rem 0 0.75rem;">
               Reviews go here
@@ -2184,7 +2229,7 @@
   ============================================================ -->
   <section id="contact" class="section-pad-lg" aria-label="Contact and booking section">
     <div class="container">
-      <div class="row g-5">
+      <div class="row g-4 g-lg-5">
 
         <!-- Left: Info -->
         <div class="col-lg-5 reveal">
@@ -2194,7 +2239,7 @@
             Let's Create Something <em>Beautiful</em> Together
           </h2>
           <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.8; margin-bottom:2.5rem;">
-            Ready to start planning your event? We'd love to hear from you. Fill in the form and a member of our team will be in touch within 24 hours.
+            Ready to start planning your event? Fill in the form and your enquiry opens in WhatsApp, ready to send, or message us directly.
           </p>
 
           <div class="contact-info-item">
@@ -2272,16 +2317,14 @@
               </div>
 
               <div class="col-md-6">
-                <label for="email" class="contact-label">Email Address *</label>
+                <label for="email" class="contact-label">Email Address</label>
                 <input
                   type="email"
                   id="email"
                   name="email"
                   class="form-control-lavish"
                   placeholder="your@email.com"
-                  required
                   autocomplete="email"
-                  aria-required="true"
                 />
               </div>
 
@@ -2325,7 +2368,6 @@
                   name="eventDate"
                   class="form-control-lavish"
                   autocomplete="off"
-                  style="color-scheme: dark;"
                 />
               </div>
 
@@ -2374,13 +2416,14 @@
               </div>
 
               <div class="col-12">
-                <button type="submit" class="btn-gold" style="min-width:200px;" aria-label="Submit booking enquiry">
-                  Send Enquiry <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+                <button type="submit" class="btn-gold" style="min-width:200px;">
+                  Send Enquiry on WhatsApp <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
                 </button>
+                <p style="font-size:0.75rem; color:var(--text-dim); margin-top:0.75rem;">Your details open in WhatsApp, pre-filled and ready to send. Nothing is sent until you tap send.</p>
               </div>
 
               <div class="col-12">
-                <div id="formStatus" class="form-status" role="alert" aria-live="polite"></div>
+                <div id="formStatus" class="form-status" role="status" aria-live="polite" tabindex="-1"></div>
               </div>
 
             </div>
@@ -2394,9 +2437,11 @@
   <!-- ============================================================
        FOOTER
   ============================================================ -->
+  </main>
+
   <footer role="contentinfo" aria-label="Site footer">
     <div class="container">
-      <div class="row g-5 mb-4">
+      <div class="row g-4 g-lg-5 mb-4">
 
         <div class="col-lg-4">
           <div class="footer-brand">LAVISH</div>
@@ -2448,18 +2493,21 @@
               type="email"
               placeholder="Your email address"
               class="form-control-lavish"
-              style="flex:1;"
+              style="flex:1; min-width:0;"
               aria-label="Email address for newsletter"
+              id="newsletterEmail"
             />
             <button
+              type="button"
               class="btn-gold"
               style="white-space:nowrap; padding:0.85rem 1.25rem;"
-              onclick="handleNewsletterSubmit(event)"
+              id="newsletterBtn"
               aria-label="Subscribe to newsletter"
             >
               <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </button>
           </div>
+          <div class="newsletter-note" id="newsletterNote" role="status" aria-live="polite"></div>
         </div>
 
       </div>
@@ -2468,9 +2516,9 @@
         <div class="footer-legal">
           &copy; <span id="currentYear"></span> Lavish Events. All rights reserved.
           &nbsp;|&nbsp;
-          <a href="#" style="color:var(--text-dim); text-decoration:none;">Privacy Policy</a>
+          <span>Privacy Policy (preview)</span>
           &nbsp;|&nbsp;
-          <a href="#" style="color:var(--text-dim); text-decoration:none;">Terms of Service</a>
+          <span>Terms of Service (preview)</span>
           &nbsp;|&nbsp;
           <span style="color:var(--text-dim);">Concept demo by Jamal Samuel &mdash; Lavish Events is fictional. All content, images, figures, prices &amp; gallery captions shown are illustrative examples, not real business data.</span>
         </div>
@@ -2504,117 +2552,77 @@
     aria-modal="true"
     aria-label="Image lightbox"
   >
-    <button class="lightbox-close" id="lightboxClose" aria-label="Close image viewer">
+    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close image viewer">
       <i class="fa-solid fa-xmark" aria-hidden="true"></i>
     </button>
-    <img src="" alt="" class="lightbox-img" id="lightboxImg" />
+    <img alt="" class="lightbox-img" id="lightboxImg" />
   </div>
-
-  <!-- ============================================================
-       BOOTSTRAP JS
-  ============================================================ -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmDl18HMa06kfZjEoVb0bKq9i/BW"
-    crossorigin="anonymous"
-    defer
-  ></script>
 
   <script>
     'use strict';
 
     // ============================================================
-    // THEME MANAGEMENT — Auto-detect by time + manual toggle
+    // THEME (initial theme already set in <head>)
     // ============================================================
-    (function initTheme() {
-      const saved = localStorage.getItem('lavish-theme');
-      if (saved) {
-        document.documentElement.setAttribute('data-theme', saved);
-      } else {
-        const hour = new Date().getHours();
-        const auto = (hour >= 6 && hour < 18) ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', auto);
-      }
-      updateThemeIcon();
-    })();
-
-    function updateThemeIcon() {
-      const theme = document.documentElement.getAttribute('data-theme');
-      const icon  = document.getElementById('themeIcon');
-      if (!icon) return;
-      icon.className = theme === 'light'
-        ? 'fa-solid fa-sun'
-        : 'fa-solid fa-moon';
+    var themeBtn = document.getElementById('themeToggle');
+    function syncThemeUI() {
+      var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var icon = document.getElementById('themeIcon');
+      if (icon) icon.className = dark ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+      themeBtn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', dark ? '#090704' : '#FAF8F3');
     }
-
-    document.getElementById('themeToggle').addEventListener('click', function () {
-      const current = document.documentElement.getAttribute('data-theme');
-      const next    = current === 'dark' ? 'light' : 'dark';
+    syncThemeUI();
+    themeBtn.addEventListener('click', function () {
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('lavish-theme', next);
-      updateThemeIcon();
-      this.setAttribute('aria-label',
-        next === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
-      );
+      try { localStorage.setItem('lavish-theme', next); } catch (e) {}
+      syncThemeUI();
     });
 
     // ============================================================
-    // NAVBAR — Scroll effect
+    // NAVBAR — scroll effect
     // ============================================================
-    const nav = document.getElementById('mainNav');
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 60) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
-    }, { passive: true });
+    var nav = document.getElementById('mainNav');
+    function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 60); }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
 
     // ============================================================
-    // MOBILE NAV TOGGLE
+    // MOBILE NAV
     // ============================================================
-    const mobileToggle = document.getElementById('mobileToggle');
-    const mobileNav    = document.getElementById('mobileNav');
-    let navOpen        = false;
-
+    var mobileToggle = document.getElementById('mobileToggle');
+    var mobileNav    = document.getElementById('mobileNav');
+    function setNav(open) {
+      mobileNav.classList.toggle('js-hidden', !open);
+      mobileToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      mobileToggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    }
     mobileToggle.addEventListener('click', function () {
-      navOpen = !navOpen;
-      mobileNav.style.display = navOpen ? 'block' : 'none';
-      mobileNav.setAttribute('aria-hidden', navOpen ? 'false' : 'true');
-      this.setAttribute('aria-expanded', navOpen.toString());
+      setNav(mobileToggle.getAttribute('aria-expanded') !== 'true');
     });
-
-    // Close mobile nav on link click
     mobileNav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        navOpen = false;
-        mobileNav.style.display = 'none';
-        mobileNav.setAttribute('aria-hidden', 'true');
-        mobileToggle.setAttribute('aria-expanded', 'false');
-      });
+      link.addEventListener('click', function () { setNav(false); });
     });
+    window.addEventListener('resize', function () { if (window.innerWidth >= 992) setNav(false); });
 
     // ============================================================
     // SCROLL REVEAL
     // ============================================================
-    (function initScrollReveal() {
-      const revealEls = document.querySelectorAll('.reveal');
-
-      if (!window.IntersectionObserver) {
-        revealEls.forEach(function (el) { el.classList.add('visible'); });
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!('IntersectionObserver' in window) || reduce) {
+        els.forEach(function (el) { el.classList.add('visible'); });
         return;
       }
-
-      const observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); }
         });
       }, { threshold: 0.12 });
-
-      revealEls.forEach(function (el) { observer.observe(el); });
+      els.forEach(function (el) { io.observe(el); });
     })();
 
     // ============================================================
@@ -2622,27 +2630,21 @@
     // ============================================================
     document.querySelectorAll('.filter-btn').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        // Update active state
         document.querySelectorAll('.filter-btn').forEach(function (b) {
           b.classList.remove('active');
           b.setAttribute('aria-pressed', 'false');
         });
-        this.classList.add('active');
-        this.setAttribute('aria-pressed', 'true');
-
-        const filter = this.getAttribute('data-filter');
-
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+        var filter = btn.getAttribute('data-filter');
         document.querySelectorAll('.gallery-item').forEach(function (item) {
-          if (filter === 'all' || item.getAttribute('data-category') === filter) {
-            item.style.opacity    = '1';
-            item.style.transform  = 'scale(1)';
-            item.style.pointerEvents = 'auto';
-          } else {
-            item.style.opacity    = '0.25';
-            item.style.transform  = 'scale(0.97)';
-            item.style.pointerEvents = 'none';
-          }
+          var show = filter === 'all' || item.getAttribute('data-category') === filter;
           item.style.transition = 'opacity 0.4s, transform 0.4s';
+          item.style.opacity = show ? '1' : '0.25';
+          item.style.transform = show ? 'scale(1)' : 'scale(0.97)';
+          item.style.pointerEvents = show ? 'auto' : 'none';
+          item.setAttribute('tabindex', show ? '0' : '-1');
+          item.setAttribute('aria-hidden', show ? 'false' : 'true');
         });
       });
     });
@@ -2650,104 +2652,94 @@
     // ============================================================
     // GALLERY LIGHTBOX
     // ============================================================
-    const lightbox      = document.getElementById('lightbox');
-    const lightboxImg   = document.getElementById('lightboxImg');
-    const lightboxClose = document.getElementById('lightboxClose');
-
-    document.querySelectorAll('.gallery-item').forEach(function (item) {
-      item.addEventListener('click', openLightbox);
-      item.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          openLightbox.call(item);
-        }
-      });
-    });
-
-    function openLightbox() {
-      const img = this.querySelector('img');
-      if (!img) return;
-      lightboxImg.src = img.src;
+    var lightbox = document.getElementById('lightbox');
+    var lightboxImg = document.getElementById('lightboxImg');
+    var lightboxClose = document.getElementById('lightboxClose');
+    var lastFocus = null;
+    function openLightbox(item) {
+      var img = item.querySelector('img');
+      if (!img || img.style.display === 'none') return;
+      lastFocus = item;
+      lightboxImg.src = img.currentSrc || img.src;
       lightboxImg.alt = img.alt;
       lightbox.classList.add('active');
       document.body.style.overflow = 'hidden';
       lightboxClose.focus();
     }
-
     function closeLightbox() {
+      if (!lightbox.classList.contains('active')) return;
       lightbox.classList.remove('active');
       document.body.style.overflow = '';
+      if (lastFocus) lastFocus.focus();
     }
-
+    document.querySelectorAll('.gallery-item').forEach(function (item) {
+      item.addEventListener('click', function () { openLightbox(item); });
+      item.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(item); }
+      });
+    });
     lightboxClose.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', function (e) {
-      if (e.target === lightbox) closeLightbox();
-    });
+    lightbox.addEventListener('click', function (e) { if (e.target === lightbox) closeLightbox(); });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'Escape') { closeLightbox(); setNav(false); }
+      if (e.key === 'Tab' && lightbox.classList.contains('active')) { e.preventDefault(); lightboxClose.focus(); }
     });
 
     // ============================================================
-    // BOOKING FORM SUBMISSION
+    // BOOKING FORM — opens WhatsApp pre-filled (WhatsApp-first)
     // ============================================================
+    var WA_NUMBER = '17587235872';
     document.getElementById('bookingForm').addEventListener('submit', function (e) {
       e.preventDefault();
-      const status = document.getElementById('formStatus');
-
-      // Basic validation
-      const firstName  = document.getElementById('firstName').value.trim();
-      const lastName   = document.getElementById('lastName').value.trim();
-      const email      = document.getElementById('email').value.trim();
-      const eventType  = document.getElementById('eventType').value;
-      const message    = document.getElementById('message').value.trim();
-
-      if (!firstName || !lastName || !email || !eventType || !message) {
+      var status = document.getElementById('formStatus');
+      var f = function (id) { return document.getElementById(id); };
+      var req = ['firstName', 'lastName', 'eventType', 'message'];
+      var missing = [];
+      ['firstName', 'lastName', 'email', 'eventType', 'message'].forEach(function (id) { f(id).removeAttribute('aria-invalid'); f(id).removeAttribute('aria-describedby'); });
+      req.forEach(function (id) { if (!f(id).value.trim()) missing.push(id); });
+      var email = f('email').value.trim();
+      var badEmail = email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (missing.length || badEmail) {
         status.className = 'form-status error';
-        status.textContent = 'Please fill in all required fields marked with *.';
-        status.focus();
+        status.textContent = missing.length
+          ? 'Please fill in the fields marked with *.'
+          : 'That email address doesn\u2019t look right. You can also leave it blank.';
+        (missing.length ? missing : ['email']).forEach(function (id) {
+          f(id).setAttribute('aria-invalid', 'true');
+          f(id).setAttribute('aria-describedby', 'formStatus');
+        });
+        f(missing.length ? missing[0] : 'email').focus();
         return;
       }
-
-      // Email validation
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        status.className = 'form-status error';
-        status.textContent = 'Please enter a valid email address.';
-        status.focus();
-        return;
-      }
-
-      // WhatsApp deep-link fallback
-      const waMessage = encodeURIComponent(
-        'Hi Lavish Events! I\'d like to enquire about an event.\n\n'
-        + 'Name: ' + firstName + ' ' + lastName + '\n'
-        + 'Email: ' + email + '\n'
-        + 'Event Type: ' + eventType + '\n'
-        + 'Details: ' + message
-      );
-
+      var optText = function (id) { var el = f(id); return el.selectedIndex > 0 ? el.options[el.selectedIndex].text : ''; };
+      var lines = [
+        'Hi Lavish Events! I\u2019d like to enquire about an event.',
+        '',
+        'Name: ' + f('firstName').value.trim() + ' ' + f('lastName').value.trim(),
+        'Event: ' + optText('eventType')
+      ];
+      if (f('eventDate').value) lines.push('Date: ' + f('eventDate').value);
+      if (optText('guestCount')) lines.push('Guests: ' + optText('guestCount'));
+      if (optText('package')) lines.push('Package: ' + optText('package'));
+      if (f('phone').value.trim()) lines.push('Phone: ' + f('phone').value.trim());
+      if (email) lines.push('Email: ' + email);
+      lines.push('', 'Details: ' + f('message').value.trim());
+      var url = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(lines.join('\n'));
+      var win = window.open(url, '_blank', 'noopener');
       status.className = 'form-status success';
-      status.innerHTML = '✦ Thank you, ' + firstName + '! Your enquiry has been received. '
-        + 'We will be in touch within 24 hours. For faster response, '
-        + '<a href="https://wa.me/17587235872?text=' + waMessage + '" '
-        + 'target="_blank" rel="noopener noreferrer" style="color:var(--gold);">message us on WhatsApp</a>.'
-        + '<br><small style="opacity:0.7;">(Demo only: no enquiry was actually sent.)</small>';
+      status.innerHTML = '\u2726 Your enquiry is ready in WhatsApp. Tap send there to deliver it. '
+        + (win ? '' : '<a href="' + url + '" target="_blank" rel="noopener noreferrer" style="color:var(--gold);">Open WhatsApp</a> ')
+        + '<br><small style="opacity:0.7;">(Demo: this concept page routes to the designer\u2019s own WhatsApp.)</small>';
       status.focus();
-
-      this.reset();
     });
 
     // ============================================================
-    // NEWSLETTER SUBMIT
+    // NEWSLETTER — preview only, no fake confirmation
     // ============================================================
-    function handleNewsletterSubmit(e) {
-      e.preventDefault();
-      const input = e.currentTarget.previousElementSibling;
-      if (input && input.value.trim()) {
-        input.value = '';
-        alert('Thank you for subscribing to the Lavish Events newsletter!');
-      }
-    }
+    document.getElementById('newsletterBtn').addEventListener('click', function () {
+      document.getElementById('newsletterNote').textContent =
+        'Preview only: newsletter signup is not connected on this demo.';
+    });
 
     // ============================================================
     // FOOTER YEAR
@@ -2755,17 +2747,18 @@
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
     // ============================================================
-    // SMOOTH NAV LINK BEHAVIOR
+    // IN-PAGE LINKS — offset for fixed nav (skip bare "#")
     // ============================================================
-    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-      anchor.addEventListener('click', function (e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          const offset = 80;
-          const top    = target.getBoundingClientRect().top + window.scrollY - offset;
-          window.scrollTo({ top: top, behavior: 'smooth' });
-        }
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var href = a.getAttribute('href');
+        if (!href || href.length < 2) return;
+        var target = document.getElementById(href.slice(1));
+        if (!target) return;
+        e.preventDefault();
+        var top = target.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
+        if (href === '#main-content') target.focus({ preventScroll: true });
       });
     });
 
